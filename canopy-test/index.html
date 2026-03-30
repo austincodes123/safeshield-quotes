@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Your Insurance | Safeshield Insurance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.usecanopy.com/v2/canopy-connect.js"></script>
+    <style>
+        :root {
+            --navy: #004B89;
+            --yellow: #FFA300;
+            --dark: #0a1628;
+            --off-white: #FAFAF8;
+            --navy-light: #0a2a4a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--dark);
+            color: var(--off-white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(0,75,137,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(255,163,0,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(0,75,137,0.1) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .logo-bar {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .logo-bar img {
+            height: 48px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--off-white);
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text span {
+            color: var(--yellow);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: rgba(250,250,248,0.5);
+            margin-top: 4px;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 2.6rem;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--off-white);
+        }
+
+        .hero h1 .highlight {
+            color: var(--yellow);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(250,250,248,0.7);
+            font-weight: 300;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .step {
+            text-align: center;
+            flex: 1;
+            max-width: 160px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: var(--yellow);
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            border: 2px solid rgba(255,163,0,0.3);
+        }
+
+        .step-label {
+            font-size: 0.85rem;
+            color: rgba(250,250,248,0.6);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .connect-section {
+            background: linear-gradient(135deg, rgba(0,75,137,0.15), rgba(0,75,137,0.05));
+            border: 1px solid rgba(0,75,137,0.3);
+            border-radius: 16px;
+            padding: 48px 32px;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .connect-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .connect-section p {
+            color: rgba(250,250,248,0.6);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .connect-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--yellow);
+            color: var(--dark);
+            border: none;
+            padding: 18px 48px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .connect-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(255,163,0,0.3);
+            background: #ffb52e;
+        }
+
+        .connect-btn:active {
+            transform: translateY(0);
+        }
+
+        .connect-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .trust-bar {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: rgba(250,250,248,0.4);
+            font-weight: 300;
+        }
+
+        .trust-item svg {
+            width: 14px;
+            height: 14px;
+            color: var(--yellow);
+            opacity: 0.6;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer p {
+            font-size: 0.8rem;
+            color: rgba(250,250,248,0.3);
+            font-weight: 300;
+        }
+
+        .footer a {
+            color: var(--yellow);
+            text-decoration: none;
+            opacity: 0.7;
+        }
+
+        .footer .phone {
+            font-size: 0.9rem;
+            color: rgba(250,250,248,0.5);
+            margin-top: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .steps { gap: 16px; }
+            .connect-section { padding: 32px 20px; }
+            .connect-btn { padding: 16px 36px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="container">
+        <div class="logo-bar">
+            <div class="logo-text">Safe<span>shield</span></div>
+            <div class="tagline">We Work For You. Not The Insurance Company.</div>
+        </div>
+
+        <div class="hero">
+            <h1>See How Your <span class="highlight">Coverage</span> Stacks Up</h1>
+            <p>Connect your current insurance account and we'll show you exactly where you stand. It takes less than 60 seconds.</p>
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-label">Connect your insurance account</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-label">We review your coverage</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-label">Get your personalized comparison</div>
+            </div>
+        </div>
+
+        <div class="connect-section">
+            <h2>Ready to Compare?</h2>
+            <p>Click below to securely connect your current insurance. Your information is encrypted and never shared.</p>
+            <button class="connect-btn" id="canopy-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Import My Insurance
+            </button>
+        </div>
+
+        <div class="trust-bar">
+            <div class="trust-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                256-bit encryption
+            </div>
+            <div class="trust-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                300+ carriers supported
+            </div>
+            <div class="trust-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Takes under 60 seconds
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Safeshield Insurance LLC | <a href="https://gosafeshield.com">gosafeshield.com</a></p>
+            <p class="phone">(203) 204-2555 | help@gosafeshield.com</p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Canopy Connect SDK
+        const handler = CanopyConnect.create({
+            publicAlias: "safeshield-insurance-go",
+            pullMetaData: {
+                source: "website-compare",
+                page: "compare-your-insurance"
+            }
+        });
+
+        // Attach to button
+        document.getElementById('canopy-btn').addEventListener('click', async () => {
+            handler.open();
+        });
+    </script>
+</body>
+</html>
