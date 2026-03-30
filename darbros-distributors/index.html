@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commercial Auto Quote - Darbros Distributors Inc | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #004B89;
+    --navy-deep: #002D54;
+    --yellow: #FFA300;
+    --yellow-light: #FFB733;
+    --dark: #0a1628;
+    --off-white: #FAFAF8;
+    --light-gray: #f0f1f3;
+    --mid-gray: #e2e4e8;
+    --text: #1a2236;
+    --text-secondary: #5a6378;
+    --green: #1a8a4a;
+    --green-bg: #e8f5ee;
+    --red-bg: #fef2f0;
+    --red: #c0392b;
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--light-gray);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 60%, #0066b8 100%);
+    padding: 48px 40px 44px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: rgba(255, 163, 0, 0.08);
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: 30%;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .shield-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+  }
+
+  .prepared-for {
+    text-align: right;
+    font-size: 13px;
+    opacity: 0.7;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .client-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .client-address {
+    font-size: 15px;
+    opacity: 0.65;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* PREMIUM BANNER */
+  .premium-banner {
+    background: var(--yellow);
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .premium-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .premium-amount {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 36px;
+    color: var(--dark);
+  }
+
+  .premium-note {
+    font-size: 13px;
+    color: var(--dark);
+    opacity: 0.7;
+    width: 100%;
+    text-align: right;
+  }
+
+  /* CONTEXT NOTE */
+  .context-note {
+    background: var(--red-bg);
+    border-left: 4px solid var(--red);
+    padding: 18px 24px;
+    margin: 28px 40px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #5a2d24;
+  }
+
+  .context-note strong {
+    color: var(--red);
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 0 40px;
+    margin-top: 32px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--mid-gray);
+  }
+
+  /* POLICY INFO GRID */
+  .policy-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .info-card {
+    background: white;
+    border-radius: 10px;
+    padding: 18px 20px;
+    border: 1px solid var(--mid-gray);
+  }
+
+  .info-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .info-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .info-value.highlight {
+    color: var(--navy);
+  }
+
+  /* COVERAGE TABLE */
+  .coverage-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--mid-gray);
+    margin-bottom: 16px;
+  }
+
+  .coverage-table thead th {
+    background: var(--navy);
+    color: white;
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+  .coverage-table thead th:last-child {
+    text-align: right;
+  }
+
+  .coverage-table tbody td {
+    padding: 13px 18px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .coverage-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .coverage-table tbody td:last-child {
+    text-align: right;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .coverage-table tbody tr:nth-child(even) {
+    background: #fafbfc;
+  }
+
+  .vehicle-header {
+    background: var(--light-gray) !important;
+    font-weight: 700 !important;
+  }
+
+  .vehicle-header td {
+    font-weight: 600 !important;
+    color: var(--navy) !important;
+    font-size: 13px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 18px !important;
+  }
+
+  .subtotal-row td {
+    font-weight: 700 !important;
+    border-top: 2px solid var(--mid-gray) !important;
+    background: #f5f6f8 !important;
+  }
+
+  .total-row td {
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    background: var(--navy) !important;
+    color: white !important;
+    padding: 16px 18px !important;
+  }
+
+  /* DRIVER TABLE */
+  .driver-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--mid-gray);
+  }
+
+  .driver-table thead th {
+    background: var(--navy);
+    color: white;
+    padding: 12px 18px;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+  .driver-table tbody td {
+    padding: 12px 18px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .driver-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .driver-table tbody tr:nth-child(even) {
+    background: #fafbfc;
+  }
+
+  /* BROAD FORM */
+  .broad-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .bf-card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 18px;
+    border: 1px solid var(--mid-gray);
+    border-left: 3px solid var(--yellow);
+  }
+
+  .bf-card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .bf-card-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* PAYMENT OPTIONS */
+  .payment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .payment-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid var(--mid-gray);
+    text-align: center;
+  }
+
+  .payment-card.recommended {
+    border: 2px solid var(--green);
+    position: relative;
+  }
+
+  .payment-card.recommended::after {
+    content: 'BEST VALUE';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+
+  .pay-plan-name {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .pay-amount {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 26px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .pay-detail {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .pay-savings {
+    display: inline-block;
+    background: var(--green-bg);
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 8px;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+    margin: 36px 0 0;
+    padding: 36px 40px;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .cta-sub {
+    font-size: 14px;
+    opacity: 0.7;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .cta-contact {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .cta-link {
+    color: var(--yellow);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: opacity 0.2s;
+  }
+
+  .cta-link:hover {
+    opacity: 0.8;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--dark);
+    padding: 24px 40px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .footer-slogan {
+    font-size: 12px;
+    color: var(--yellow);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+
+  .footer-disclaimer {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* CARRIER BADGE */
+  .carrier-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    border: 1px solid var(--mid-gray);
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 16px;
+  }
+
+  .carrier-badge img {
+    height: 24px;
+  }
+
+  .carrier-badge span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 32px 24px; }
+    .premium-banner { padding: 20px 24px; }
+    .section { padding: 0 24px; }
+    .client-name { font-size: 24px; }
+    .premium-amount { font-size: 28px; }
+    .policy-info { grid-template-columns: 1fr; }
+    .broad-form-grid { grid-template-columns: 1fr; }
+    .payment-grid { grid-template-columns: 1fr; }
+    .cta-section { padding: 28px 24px; }
+    .footer { padding: 20px 24px; }
+    .header-top { flex-direction: column; gap: 12px; }
+    .prepared-for { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="logo-area">
+        <span class="logo-text">SAFESHIELD</span>
+      </div>
+      <div class="prepared-for">
+        Prepared by Austin Glazer<br>
+        March 30, 2026
+      </div>
+    </div>
+    <div class="client-name">Darbros Distributors Inc</div>
+    <div class="client-address">55 Wallace Pkwy, Yonkers, NY 10705</div>
+  </div>
+
+  <!-- PREMIUM BANNER -->
+  <div class="premium-banner">
+    <div class="premium-label">Total Estimated Annual Premium</div>
+    <div class="premium-amount">$42,361</div>
+    <div class="premium-note">Commercial Auto | Policy Term: 3/21/2026 to 3/21/2027</div>
+  </div>
+
+  <!-- CONTEXT NOTE -->
+  <div class="context-note">
+    <strong>A note on pricing:</strong> The $244,000 claim on your loss history is the primary factor driving the current rate. Despite that, The Hartford is still offering competitive terms with full $1M liability limits and their Broad Form Endorsement included at no extra cost. As the claim ages, we expect meaningful rate relief at renewal.
+  </div>
+
+  <!-- POLICY DETAILS -->
+  <div class="section">
+    <div class="section-title">Policy Details</div>
+    <div class="policy-info">
+      <div class="info-card">
+        <div class="info-label">Carrier</div>
+        <div class="info-value highlight">Hartford Insurance Co of Illinois</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Liability Limit</div>
+        <div class="info-value">$1,000,000 Per Accident</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Coverage Symbol</div>
+        <div class="info-value">07 - Specifically Described Autos</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Reference Number</div>
+        <div class="info-value">31UEC7564QU - 003</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VEHICLE SCHEDULE -->
+  <div class="section">
+    <div class="section-title">Vehicle Schedule &amp; Premiums</div>
+    <table class="coverage-table">
+      <thead>
+        <tr>
+          <th>Coverage</th>
+          <th>Limits</th>
+          <th>Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Vehicle 1 -->
+        <tr class="vehicle-header"><td colspan="3">Unit 1: 2018 Hino 338</td></tr>
+        <tr><td>Liability</td><td>$1,000,000 Per Accident</td><td>$7,285</td></tr>
+        <tr><td>Personal Injury Protection</td><td>Statutory</td><td>$410</td></tr>
+        <tr><td>Supplemental UM</td><td>$1,000,000 Per Accident</td><td>$273</td></tr>
+        <tr><td>Supplemental UIM</td><td>Included</td><td>Incl.</td></tr>
+        <tr class="subtotal-row"><td colspan="2">Unit 1 Subtotal</td><td>$7,968</td></tr>
+
+        <!-- Vehicle 2 -->
+        <tr class="vehicle-header"><td colspan="3">Unit 2: 2007 Hino 268</td></tr>
+        <tr><td>Liability</td><td>$1,000,000 Per Accident</td><td>$6,295</td></tr>
+        <tr><td>Personal Injury Protection</td><td>Statutory</td><td>$410</td></tr>
+        <tr><td>Supplemental UM</td><td>$1,000,000 Per Accident</td><td>$273</td></tr>
+        <tr><td>Supplemental UIM</td><td>Included</td><td>Incl.</td></tr>
+        <tr class="subtotal-row"><td colspan="2">Unit 2 Subtotal</td><td>$6,978</td></tr>
+
+        <!-- Vehicle 3 -->
+        <tr class="vehicle-header"><td colspan="3">Unit 3: 2015 GMC Savana G3500</td></tr>
+        <tr><td>Liability</td><td>$1,000,000 Per Accident</td><td>$6,224</td></tr>
+        <tr><td>Personal Injury Protection</td><td>Statutory</td><td>$423</td></tr>
+        <tr><td>Supplemental UM</td><td>$1,000,000 Per Accident</td><td>$273</td></tr>
+        <tr><td>Supplemental UIM</td><td>Included</td><td>Incl.</td></tr>
+        <tr class="subtotal-row"><td colspan="2">Unit 3 Subtotal</td><td>$6,920</td></tr>
+
+        <!-- Vehicle 4 -->
+        <tr class="vehicle-header"><td colspan="3">Unit 4: 2015 GMC Savana G3500</td></tr>
+        <tr><td>Liability</td><td>$1,000,000 Per Accident</td><td>$5,576</td></tr>
+        <tr><td>Personal Injury Protection</td><td>Statutory</td><td>$423</td></tr>
+        <tr><td>Supplemental UM</td><td>$1,000,000 Per Accident</td><td>$273</td></tr>
+        <tr><td>Supplemental UIM</td><td>Included</td><td>Incl.</td></tr>
+        <tr class="subtotal-row"><td colspan="2">Unit 4 Subtotal</td><td>$6,272</td></tr>
+
+        <!-- Vehicle 5 -->
+        <tr class="vehicle-header"><td colspan="3">Unit 5: 2011 Dodge Ram 2500</td></tr>
+        <tr><td>Liability</td><td>$1,000,000 Per Accident</td><td>$7,195</td></tr>
+        <tr><td>Personal Injury Protection</td><td>Statutory</td><td>$423</td></tr>
+        <tr><td>Supplemental UM</td><td>$1,000,000 Per Accident</td><td>$273</td></tr>
+        <tr><td>Supplemental UIM</td><td>Included</td><td>Incl.</td></tr>
+        <tr class="subtotal-row"><td colspan="2">Unit 5 Subtotal</td><td>$7,891</td></tr>
+
+        <!-- Vehicle 6 -->
+        <tr class="vehicle-header"><td colspan="3">Unit 6: 2013 Chevy Silverado K2500 HD</td></tr>
+        <tr><td>Liability</td><td>$1,000,000 Per Accident</td><td>$5,576</td></tr>
+        <tr><td>Personal Injury Protection</td><td>Statutory</td><td>$423</td></tr>
+        <tr><td>Supplemental UM</td><td>$1,000,000 Per Accident</td><td>$273</td></tr>
+        <tr><td>Supplemental UIM</td><td>Included</td><td>Incl.</td></tr>
+        <tr class="subtotal-row"><td colspan="2">Unit 6 Subtotal</td><td>$6,272</td></tr>
+
+        <!-- State Taxes -->
+        <tr><td colspan="2">State Taxes &amp; Surcharges</td><td>$60</td></tr>
+
+        <!-- TOTAL -->
+        <tr class="total-row"><td colspan="2">Total Annual Premium</td><td>$42,361</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DRIVERS -->
+  <div class="section">
+    <div class="section-title">Listed Drivers</div>
+    <table class="driver-table">
+      <thead>
+        <tr>
+          <th>Driver</th>
+          <th>License State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Miguel Collado</td><td>New York</td></tr>
+        <tr><td>Axel A. Segarra</td><td>New York</td></tr>
+        <tr><td>John L. Cocomello</td><td>New York</td></tr>
+        <tr><td>William L. Dariano</td><td>New York</td></tr>
+        <tr><td>William P. Dariano</td><td>New York</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BROAD FORM ENDORSEMENT -->
+  <div class="section">
+    <div class="section-title">Broad Form Endorsement (Included at No Cost)</div>
+    <div class="broad-form-grid">
+      <div class="bf-card">
+        <div class="bf-card-title">Hired Auto Physical Damage</div>
+        <div class="bf-card-desc">Up to $100,000 coverage on rented, loaned, or leased autos when owned autos carry physical damage.</div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-card-title">Worldwide Liability Territory</div>
+        <div class="bf-card-desc">Coverage territory expanded to worldwide for liability arising from hired autos.</div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-card-title">Broad Form Named Insured</div>
+        <div class="bf-card-desc">Covers subsidiaries, newly formed entities, employees, lessors, and contractual additional insureds.</div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-card-title">60-Day Cancellation Notice</div>
+        <div class="bf-card-desc">Extended cancellation notice for all reasons other than non-payment.</div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-card-title">Temporary Transportation</div>
+        <div class="bf-card-desc">$40/day up to $1,200 for temporary transportation after total theft of a covered auto.</div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-card-title">Waiver of Recovery</div>
+        <div class="bf-card-desc">Applies when the named insured has waived rights by written contract.</div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-card-title">Vinyl Wrap Coverage</div>
+        <div class="bf-card-desc">Up to $1,000 for vinyl vehicle wraps in the event of a total loss.</div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-card-title">Hybrid/EV Incentive</div>
+        <div class="bf-card-desc">Additional 10% of ACV (up to $2,500) if a total loss is replaced with a hybrid or electric vehicle within 60 days.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAYMENT OPTIONS -->
+  <div class="section" style="margin-bottom: 0;">
+    <div class="section-title">Payment Options</div>
+    <div class="payment-grid">
+      <div class="payment-card recommended">
+        <div class="pay-plan-name">Pay in Full</div>
+        <div class="pay-amount">$40,332</div>
+        <div class="pay-detail">One-time payment<br>Due 04/21/2026</div>
+        <div class="pay-savings">Save $2,029</div>
+      </div>
+      <div class="payment-card">
+        <div class="pay-plan-name">4 Payments</div>
+        <div class="pay-amount">$10,575</div>
+        <div class="pay-detail">Per quarter (AutoPay)<br>$5/payment fee</div>
+      </div>
+      <div class="payment-card">
+        <div class="pay-plan-name">10 Payments</div>
+        <div class="pay-amount">$4,230</div>
+        <div class="pay-detail">Monthly (AutoPay)<br>$5/payment fee</div>
+      </div>
+      <div class="payment-card">
+        <div class="pay-plan-name">12 Payments</div>
+        <div class="pay-amount">$3,807</div>
+        <div class="pay-detail">Monthly (AutoPay)<br>$5/payment fee</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-heading">Ready to Move Forward?</div>
+    <div class="cta-sub">We can bind coverage same day once you give us the green light.</div>
+    <div class="cta-contact">
+      <a href="tel:2035649817" class="cta-link">Call (203) 564-9817</a>
+      <a href="mailto:austin@gosafeshield.com" class="cta-link">austin@gosafeshield.com</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">SAFESHIELD INSURANCE</div>
+    <div class="footer-slogan">We Work For You. Not The Insurance Company.</div>
+    <div class="footer-disclaimer">
+      This document is a proposal of insurance. It is not to be used as proof of coverage unless bound by an authorized agent. Coverage descriptions are abbreviated. Any coverage bound is subject to the terms, conditions, limitations, and exclusions of the applicable policy. Premium shown is based on driver, MVR, and vehicle information at the time of quote and may change. Carrier: Hartford Insurance Company of Illinois, a member of The Hartford.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
