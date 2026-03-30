@@ -86,11 +86,6 @@
     gap: 14px;
   }
 
-  .shield-icon {
-    width: 44px;
-    height: 44px;
-  }
-
   .logo-text {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
@@ -432,6 +427,145 @@
     margin-top: 8px;
   }
 
+  /* SWITCHING SECTION */
+  .switching-section {
+    background: var(--green-bg);
+    border-left: 4px solid var(--green);
+    padding: 24px 28px;
+    margin: 32px 40px 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .switching-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--green);
+    margin-bottom: 14px;
+  }
+
+  .switching-steps {
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .switching-steps li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a3a28;
+  }
+
+  .switching-steps li:last-child {
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  .switching-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(26, 138, 74, 0.2);
+    font-size: 13px;
+    color: #1a3a28;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  /* WHY SAFESHIELD */
+  .why-safeshield {
+    background: var(--dark);
+    margin: 36px 0 0;
+    padding: 48px 40px;
+    color: white;
+  }
+
+  .why-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .why-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--yellow);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .why-headline {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .why-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .why-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 24px 20px;
+    transition: background 0.2s;
+  }
+
+  .why-item:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  .why-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+
+  .why-item-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: white;
+  }
+
+  .why-item-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
   /* CTA */
   .cta-section {
     background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
@@ -505,28 +639,6 @@
     margin: 0 auto;
   }
 
-  /* CARRIER BADGE */
-  .carrier-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: white;
-    border: 1px solid var(--mid-gray);
-    border-radius: 8px;
-    padding: 10px 16px;
-    margin-bottom: 16px;
-  }
-
-  .carrier-badge img {
-    height: 24px;
-  }
-
-  .carrier-badge span {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
   /* RESPONSIVE */
   @media (max-width: 700px) {
     .header { padding: 32px 24px; }
@@ -541,6 +653,10 @@
     .footer { padding: 20px 24px; }
     .header-top { flex-direction: column; gap: 12px; }
     .prepared-for { text-align: left; }
+    .switching-section { margin: 32px 24px 0; }
+    .why-safeshield { padding: 36px 24px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-headline { font-size: 22px; }
   }
 </style>
 </head>
@@ -566,13 +682,13 @@
   <!-- PREMIUM BANNER -->
   <div class="premium-banner">
     <div class="premium-label">Total Estimated Annual Premium</div>
-    <div class="premium-amount">$42,361</div>
+    <div class="premium-amount">$38,311</div>
     <div class="premium-note">Commercial Auto | Policy Term: 3/21/2026 to 3/21/2027</div>
   </div>
 
   <!-- CONTEXT NOTE -->
   <div class="context-note">
-    <strong>A note on pricing:</strong> The $244,000 claim on your loss history is the primary factor driving the current rate. Despite that, The Hartford is still offering competitive terms with full $1M liability limits and their Broad Form Endorsement included at no extra cost. As the claim ages, we expect meaningful rate relief at renewal.
+    <strong>A note on pricing:</strong> The $244,000 claim on your loss history is the primary factor driving the current rate. Despite that, The Hartford is still offering competitive terms with full $1M liability limits, comprehensive and collision on your Sprinter, and their Broad Form Endorsement included at no extra cost. As the claim ages, we expect meaningful rate relief at renewal.
   </div>
 
   <!-- POLICY DETAILS -->
@@ -593,7 +709,7 @@
       </div>
       <div class="info-card">
         <div class="info-label">Reference Number</div>
-        <div class="info-value">31UEC7564QU - 003</div>
+        <div class="info-value">31UEC7564QU - 005</div>
       </div>
     </div>
   </div>
@@ -643,26 +759,20 @@
         <tr class="subtotal-row"><td colspan="2">Unit 4 Subtotal</td><td>$6,272</td></tr>
 
         <!-- Vehicle 5 -->
-        <tr class="vehicle-header"><td colspan="3">Unit 5: 2011 Dodge Ram 2500</td></tr>
-        <tr><td>Liability</td><td>$1,000,000 Per Accident</td><td>$7,195</td></tr>
-        <tr><td>Personal Injury Protection</td><td>Statutory</td><td>$423</td></tr>
+        <tr class="vehicle-header"><td colspan="3">Unit 5: 2023 Mercedes Sprinter 3500 &nbsp;&#8226;&nbsp; <span style="color: var(--green); font-size: 11px; letter-spacing: 0;">COMP + COLLISION</span></td></tr>
+        <tr><td>Liability</td><td>$1,000,000 Per Accident</td><td>$8,039</td></tr>
+        <tr><td>Personal Injury Protection</td><td>Statutory</td><td>$410</td></tr>
         <tr><td>Supplemental UM</td><td>$1,000,000 Per Accident</td><td>$273</td></tr>
         <tr><td>Supplemental UIM</td><td>Included</td><td>Incl.</td></tr>
-        <tr class="subtotal-row"><td colspan="2">Unit 5 Subtotal</td><td>$7,891</td></tr>
-
-        <!-- Vehicle 6 -->
-        <tr class="vehicle-header"><td colspan="3">Unit 6: 2013 Chevy Silverado K2500 HD</td></tr>
-        <tr><td>Liability</td><td>$1,000,000 Per Accident</td><td>$5,576</td></tr>
-        <tr><td>Personal Injury Protection</td><td>Statutory</td><td>$423</td></tr>
-        <tr><td>Supplemental UM</td><td>$1,000,000 Per Accident</td><td>$273</td></tr>
-        <tr><td>Supplemental UIM</td><td>Included</td><td>Incl.</td></tr>
-        <tr class="subtotal-row"><td colspan="2">Unit 6 Subtotal</td><td>$6,272</td></tr>
+        <tr><td>Comprehensive</td><td>$2,000 Deductible</td><td>$260</td></tr>
+        <tr><td>Collision</td><td>$2,000 Deductible</td><td>$1,141</td></tr>
+        <tr class="subtotal-row"><td colspan="2">Unit 5 Subtotal</td><td>$10,123</td></tr>
 
         <!-- State Taxes -->
-        <tr><td colspan="2">State Taxes &amp; Surcharges</td><td>$60</td></tr>
+        <tr><td colspan="2">State Taxes &amp; Surcharges</td><td>$50</td></tr>
 
         <!-- TOTAL -->
-        <tr class="total-row"><td colspan="2">Total Annual Premium</td><td>$42,361</td></tr>
+        <tr class="total-row"><td colspan="2">Total Annual Premium</td><td>$38,311</td></tr>
       </tbody>
     </table>
   </div>
@@ -678,11 +788,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Miguel Collado</td><td>New York</td></tr>
         <tr><td>Axel A. Segarra</td><td>New York</td></tr>
         <tr><td>John L. Cocomello</td><td>New York</td></tr>
         <tr><td>William L. Dariano</td><td>New York</td></tr>
         <tr><td>William P. Dariano</td><td>New York</td></tr>
+        <tr><td>Raymond J. Goodwine</td><td>New York</td></tr>
       </tbody>
     </table>
   </div>
@@ -727,29 +837,96 @@
   </div>
 
   <!-- PAYMENT OPTIONS -->
-  <div class="section" style="margin-bottom: 0;">
+  <div class="section">
     <div class="section-title">Payment Options</div>
     <div class="payment-grid">
       <div class="payment-card recommended">
         <div class="pay-plan-name">Pay in Full</div>
-        <div class="pay-amount">$40,332</div>
+        <div class="pay-amount">$36,469</div>
         <div class="pay-detail">One-time payment<br>Due 04/21/2026</div>
-        <div class="pay-savings">Save $2,029</div>
+        <div class="pay-savings">Save $1,842</div>
       </div>
       <div class="payment-card">
         <div class="pay-plan-name">4 Payments</div>
-        <div class="pay-amount">$10,575</div>
+        <div class="pay-amount">$9,565</div>
         <div class="pay-detail">Per quarter (AutoPay)<br>$5/payment fee</div>
       </div>
       <div class="payment-card">
         <div class="pay-plan-name">10 Payments</div>
-        <div class="pay-amount">$4,230</div>
+        <div class="pay-amount">$3,826</div>
         <div class="pay-detail">Monthly (AutoPay)<br>$5/payment fee</div>
       </div>
       <div class="payment-card">
         <div class="pay-plan-name">12 Payments</div>
-        <div class="pay-amount">$3,807</div>
+        <div class="pay-amount">$3,443</div>
         <div class="pay-detail">Monthly (AutoPay)<br>$5/payment fee</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SWITCHING / CANCELLATION -->
+  <div class="switching-section">
+    <div class="switching-title">Switching Is Easy. We Handle Everything.</div>
+    <ul class="switching-steps">
+      <li>
+        <span class="step-num">1</span>
+        <span>Once you give us the go-ahead, we bind your new policy with The Hartford immediately. Coverage starts right away with no gap.</span>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <span>We contact your current carrier and submit the cancellation request on your behalf. You do not need to call them or send anything.</span>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <span>Your current carrier will issue a prorated refund for any unused premium directly back to you. We will confirm the cancellation is processed and follow up until it is complete.</span>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <span>We send you your new ID cards and certificates of insurance the same day. If any third parties (lienholders, lessors, contract partners) need to be notified, we handle that too.</span>
+      </li>
+    </ul>
+    <div class="switching-note">
+      Bottom line: you say "yes," and we take care of the rest. No paperwork, no phone calls to your old carrier, no gaps in coverage.
+    </div>
+  </div>
+
+  <!-- WHY SAFESHIELD -->
+  <div class="why-safeshield">
+    <div class="why-header">
+      <div class="why-label">WHY SAFESHIELD</div>
+      <div class="why-headline">Insurance That Actually Works For You</div>
+      <div class="why-sub">We built Safeshield to fix everything that frustrates business owners about insurance. Here is how we are different.</div>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">&#9889;</div>
+        <div class="why-item-title">Same-Day Everything</div>
+        <div class="why-item-desc">Quotes, certificates, ID cards, policy changes. We do not make you wait days for something that should take minutes.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">&#128736;</div>
+        <div class="why-item-title">Tech-Powered Agency</div>
+        <div class="why-item-desc">Automated renewal tracking, digital document delivery, and a dedicated client portal. No fax machines, no voicemail loops.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">&#127942;</div>
+        <div class="why-item-title">69+ Carriers, One Agent</div>
+        <div class="why-item-desc">We shop the entire market every time. You get the best rate and the best coverage without calling five different companies.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">&#128176;</div>
+        <div class="why-item-title">We Fight at Claims Time</div>
+        <div class="why-item-desc">When you have a claim, we are on the phone with the adjuster pushing for you. Not the carrier. You.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">&#128200;</div>
+        <div class="why-item-title">Annual Re-Shop Guarantee</div>
+        <div class="why-item-desc">Every renewal, we re-quote your coverage across our carrier panel. If there is a better deal out there, we find it before you overpay.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">&#128241;</div>
+        <div class="why-item-title">Direct Access, Always</div>
+        <div class="why-item-desc">Call, text, or email your agent directly. No 1-800 number, no hold music, no transfers. You talk to the person who knows your account.</div>
       </div>
     </div>
   </div>
