@@ -26,33 +26,9 @@
     --text-dim: #5a6d87;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--dark);
-    color: var(--text-primary);
-    font-family: 'Outfit', sans-serif;
-    font-weight: 400;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  .hero {
-    position: relative;
-    padding: 60px 24px 50px;
-    text-align: center;
-    overflow: hidden;
-    background: 
-      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,75,137,0.35) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(255,163,0,0.08) 0%, transparent 50%),
-      var(--dark);
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: 
-      repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 80px),
-      repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 80px);
-    pointer-events: none;
-  }
+  body { background: var(--dark); color: var(--text-primary); font-family: 'Outfit', sans-serif; font-weight: 400; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .hero { position: relative; padding: 60px 24px 50px; text-align: center; overflow: hidden; background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,75,137,0.35) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 80% 20%, rgba(255,163,0,0.08) 0%, transparent 50%), var(--dark); }
+  .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 80px), repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 80px); pointer-events: none; }
   .hero-logo { font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 28px; color: #fff; margin-bottom: 6px; letter-spacing: 4px; text-transform: uppercase; }
   .hero-logo span { color: var(--yellow); }
   .hero-slogan { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 32px; }
@@ -168,14 +144,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td><div class="coverage-name">Dwelling (Coverage A)</div></td><td class="val">$735,700</td><td class="val-new">$797,000 <span class="badge-up">+$61K</span></td></tr>
-          <tr><td><div class="coverage-name">Other Structures (Coverage B)</div></td><td class="val">$73,570</td><td class="val-new">$79,700 <span class="badge-up">+8%</span></td></tr>
-          <tr><td><div class="coverage-name">Personal Property (Coverage C)</div></td><td class="val">$367,850</td><td class="val-new">$398,500 <span class="badge-up">+$31K</span></td></tr>
-          <tr><td><div class="coverage-name">Loss of Use (Coverage D)</div></td><td class="val">Up to 24 months / $147,140</td><td class="val-new">$159,400 <span class="badge-up">+$12K</span></td></tr>
+          <tr><td><div class="coverage-name">Dwelling (Coverage A)</div></td><td class="val">$735,700</td><td class="val-new">$798,000 <span class="badge-up">+$62K</span></td></tr>
+          <tr><td><div class="coverage-name">Other Structures (Coverage B)</div></td><td class="val">$73,570</td><td class="val-new">$79,800 <span class="badge-up">+8%</span></td></tr>
+          <tr><td><div class="coverage-name">Personal Property (Coverage C)</div></td><td class="val">$367,850</td><td class="val-new">$399,000 <span class="badge-up">+$31K</span></td></tr>
+          <tr><td><div class="coverage-name">Loss of Use (Coverage D)</div></td><td class="val">Up to 24 months / $147,140</td><td class="val-new">$159,600 <span class="badge-up">+$12K</span></td></tr>
           <tr><td><div class="coverage-name">Personal Liability (Coverage E)</div></td><td class="val">$500,000</td><td class="val-new">$500,000 <span class="badge-match">Match</span></td></tr>
           <tr><td><div class="coverage-name">Medical Payments (Coverage F)</div></td><td class="val">$5,000</td><td class="val-new">$5,000 <span class="badge-match">Match</span></td></tr>
           <tr><td><div class="coverage-name">All Peril Deductible</div></td><td class="val">$1,000</td><td class="val-new">$2,500</td></tr>
-          <tr><td><div class="coverage-name">Extended Replacement Cost</div><div class="coverage-detail">Extra protection if rebuild costs exceed dwelling limit</div></td><td class="val">25% above Cov A</td><td class="val-new">25% above Cov A ($199,250) <span class="badge-match">Match</span></td></tr>
+          <tr><td><div class="coverage-name">Extended Replacement Cost</div><div class="coverage-detail">Extra protection if rebuild costs exceed dwelling limit</div></td><td class="val">25% above Cov A</td><td class="val-new">25% above Cov A ($199,500) <span class="badge-match">Match</span></td></tr>
           <tr><td><div class="coverage-name">Personal Property Replacement Cost</div></td><td class="val">Included</td><td class="val-new">Included <span class="badge-match">Match</span></td></tr>
           <tr><td><div class="coverage-name">Water Backup & Sump</div></td><td class="val">$25,000</td><td class="val-new">$10,000</td></tr>
           <tr><td><div class="coverage-name">Personal Injury Coverage</div></td><td class="val">$500K/$1M</td><td class="val-new">Included <span class="badge-match">Match</span></td></tr>
@@ -191,7 +167,7 @@
       <span class="disc-tag">Fire Protective Device</span>
     </div>
     <div class="note-callout">
-      <strong>Why the higher dwelling?</strong> Your current policy insures the home at $735,700. Based on today's construction costs for a 3,383 sq ft frame home built in 1962, Travelers is recommending $797,000 to fully protect your rebuild cost. An underinsured dwelling means you could be paying out of pocket in a total loss.
+      <strong>Why the higher dwelling?</strong> Your current policy insures the home at $735,700. Based on today's construction costs for a 3,383 sq ft frame home built in 1962, Travelers is recommending $798,000 to fully protect your rebuild cost. An underinsured dwelling means you could be paying out of pocket in a total loss.
     </div>
   </div>
 
@@ -214,10 +190,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td><div class="coverage-name">Bodily Injury Liability</div></td><td class="val">100/300</td><td class="val-new">250/500 <span class="badge-up">+150%</span></td></tr>
+          <tr><td><div class="coverage-name">Bodily Injury Liability</div></td><td class="val">100/300</td><td class="val-new">500/500 <span class="badge-up">+400%</span></td></tr>
           <tr><td><div class="coverage-name">Property Damage Liability</div></td><td class="val">$100,000</td><td class="val-new">$100,000 <span class="badge-match">Match</span></td></tr>
-          <tr><td><div class="coverage-name">Uninsured Motorist</div></td><td class="val">100/300</td><td class="val-new">250/500 <span class="badge-up">+150%</span></td></tr>
-          <tr><td><div class="coverage-name">Underinsured Motorist</div></td><td class="val">100/300</td><td class="val-new">250/500 <span class="badge-up">+150%</span></td></tr>
+          <tr><td><div class="coverage-name">Uninsured Motorist</div></td><td class="val">100/300</td><td class="val-new">500/500 <span class="badge-up">+400%</span></td></tr>
+          <tr><td><div class="coverage-name">Underinsured Motorist</div></td><td class="val">100/300</td><td class="val-new">500/500 <span class="badge-up">+400%</span></td></tr>
           <tr><td><div class="coverage-name">First Party Benefits</div></td><td class="val">$10,000 Medical</td><td class="val-new">$5,000 FPB + $10,000 Medical</td></tr>
           <tr><td><div class="coverage-name">Tort Selection</div></td><td class="val">Limited Tort</td><td class="val-new">Limited Tort <span class="badge-match">Match</span></td></tr>
           <tr><td><div class="coverage-name">Comprehensive Deductible</div></td><td class="val">$1,000</td><td class="val-new">$1,000 <span class="badge-match">Match</span></td></tr>
@@ -262,7 +238,7 @@
       <span class="disc-tag">Continuous Insurance</span>
     </div>
     <div class="note-callout">
-      <strong>Why the liability upgrade matters.</strong> Your current policy carries 100/300 bodily injury limits. In Pennsylvania, if you cause an accident that injures someone seriously, 100/300 can get burned through quickly. We're moving you to 250/500, which also qualifies you for the umbrella. This is what proper protection looks like.
+      <strong>Why the liability upgrade matters.</strong> Your current policy carries 100/300 bodily injury limits. We're moving you to 500/500, which is 5x more per-person protection and qualifies you for the best umbrella rates. In Pennsylvania, if you cause a serious accident, 100/300 can get burned through fast. 500/500 is the standard for families with real assets to protect.
     </div>
   </div>
 
@@ -285,7 +261,7 @@
       <div class="u-tier"><div class="u-tier-limit">$4M</div><div class="u-tier-note">Available</div></div>
       <div class="u-tier"><div class="u-tier-limit">$5M</div><div class="u-tier-note">Available</div></div>
     </div>
-    <p style="font-size:13px;color:var(--text-muted);margin-top:16px;"><strong style="color:var(--yellow);">Excess UM/UIM:</strong> Optional coverage also available. Requires primary auto UM/UIM of at least 250/500 (which we've built into your Travelers auto quote).</p>
+    <p style="font-size:13px;color:var(--text-muted);margin-top:16px;"><strong style="color:var(--yellow);">Excess UM/UIM:</strong> Optional $1M excess uninsured/underinsured motorist coverage also available. Your 500/500 auto limits qualify you for the best rates on this coverage.</p>
     <p style="font-size:13px;color:var(--text-muted);margin-top:8px;"><strong style="color:var(--text-primary);">Carrier:</strong> Markel Insurance Company &mdash; A-rated, specialty umbrella market.</p>
   </div>
 
@@ -301,7 +277,7 @@
     <div class="upgrades-grid">
       <div class="upgrade-item">
         <div class="upgrade-icon">&#128737;</div>
-        <div><div class="upgrade-title">250/500 Liability (up from 100/300)</div><div class="upgrade-desc">2.5x more bodily injury protection. Critical for PA roads and protecting your assets in a serious accident.</div></div>
+        <div><div class="upgrade-title">500/500 Liability (up from 100/300)</div><div class="upgrade-desc">5x more per-person bodily injury protection. The gold standard for families with assets to protect, and it unlocks the best umbrella rates.</div></div>
       </div>
       <div class="upgrade-item">
         <div class="upgrade-icon">&#9748;</div>
@@ -309,11 +285,11 @@
       </div>
       <div class="upgrade-item">
         <div class="upgrade-icon">&#127968;</div>
-        <div><div class="upgrade-title">$61K More Dwelling Coverage</div><div class="upgrade-desc">Your rebuild cost is properly covered. No more being underinsured if the worst happens.</div></div>
+        <div><div class="upgrade-title">$62K More Dwelling Coverage</div><div class="upgrade-desc">Your rebuild cost is properly covered. No more being underinsured if the worst happens.</div></div>
       </div>
       <div class="upgrade-item">
         <div class="upgrade-icon">&#128176;</div>
-        <div><div class="upgrade-title">250/500 UM/UIM (up from 100/300)</div><div class="upgrade-desc">If an uninsured or underinsured driver hits you, you're covered at the same level as your liability. Most people miss this.</div></div>
+        <div><div class="upgrade-title">500/500 UM/UIM (up from 100/300)</div><div class="upgrade-desc">If an uninsured or underinsured driver hits you, you're covered at the same level as your liability. Most people miss this.</div></div>
       </div>
       <div class="upgrade-item">
         <div class="upgrade-icon">&#11088;</div>
