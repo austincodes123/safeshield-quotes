@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neeraj Lalwani | Insurance Coverage Analysis | Safeshield Insurance</title>
+<link rel="icon" type="image/png" href="https://www.gosafeshield.com/images/Blue_and_gold_shield_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #004B89;
+  --yellow: #FFA300;
+  --dark: #0a1628;
+  --off-white: #FAFAF8;
+  --green: #22c55e;
+  --red: #ef4444;
+  --glass: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.08);
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--dark);
+  color: var(--off-white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── GRID TEXTURE BACKGROUND ── */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-glow {
+  position: fixed;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  filter: blur(180px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-glow-1 { background: var(--navy); top: -200px; right: -200px; }
+.bg-glow-2 { background: var(--yellow); bottom: -300px; left: -200px; opacity: 0.06; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── HEADER ── */
+.header {
+  padding: 40px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--glass-border);
+  margin-bottom: 48px;
+}
+
+.header-meta {
+  text-align: right;
+  font-size: 13px;
+  color: rgba(250,250,248,0.4);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.header-meta span {
+  color: var(--yellow);
+  font-weight: 600;
+}
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 40px 0 56px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,163,0,0.08);
+  border: 1px solid rgba(255,163,0,0.2);
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 28px;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.1;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--off-white) 0%, rgba(250,250,248,0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--yellow) 0%, #ffcc00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: rgba(250,250,248,0.5);
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── SUMMARY CARDS ── */
+.summary-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.summary-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.summary-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.summary-card .label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.35);
+  margin-bottom: 12px;
+}
+
+.summary-card .value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--off-white);
+}
+
+.summary-card .value.savings {
+  color: var(--green);
+}
+
+.summary-card .value.yellow {
+  color: var(--yellow);
+}
+
+.summary-card .note {
+  font-size: 12px;
+  color: rgba(250,250,248,0.35);
+  margin-top: 8px;
+}
+
+/* ── SECTION HEADERS ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  margin-top: 16px;
+}
+
+.section-header .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.section-header .icon.auto { background: rgba(0,75,137,0.2); border: 1px solid rgba(0,75,137,0.3); }
+.section-header .icon.home { background: rgba(255,163,0,0.12); border: 1px solid rgba(255,163,0,0.2); }
+.section-header .icon.umbrella { background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.2); }
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.section-header .tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-left: auto;
+}
+
+.tag.vs { background: rgba(255,255,255,0.06); color: rgba(250,250,248,0.4); }
+.tag.new { background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
+
+/* ── COMPARISON TABLE ── */
+.comp-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 48px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.comp-table thead th {
+  padding: 18px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+  color: rgba(250,250,248,0.35);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.comp-table thead th:nth-child(2) {
+  color: rgba(250,250,248,0.25);
+}
+
+.comp-table thead th:nth-child(3) {
+  color: var(--yellow);
+}
+
+.comp-table tbody td {
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  vertical-align: middle;
+}
+
+.comp-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comp-table tbody tr:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.comp-table td:first-child {
+  color: rgba(250,250,248,0.6);
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.comp-table td:nth-child(2) {
+  color: rgba(250,250,248,0.35);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+.comp-table td:nth-child(3) {
+  color: var(--off-white);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.upgrade {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.upgrade .arrow {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.gap-label {
+  color: rgba(239,68,68,0.7) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+.na-cell {
+  color: rgba(239,68,68,0.4) !important;
+  font-style: italic;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+/* ── TOTAL ROW ── */
+.comp-table .total-row td {
+  padding: 18px 20px;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: none;
+  font-weight: 700;
+}
+
+.comp-table .total-row td:first-child {
+  color: var(--off-white);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.comp-table .total-row td:nth-child(2) {
+  font-size: 18px;
+  color: rgba(250,250,248,0.4);
+}
+
+.comp-table .total-row td:nth-child(3) {
+  font-size: 18px;
+  color: var(--yellow);
+}
+
+/* ── NEW COVERAGE CARD ── */
+.new-coverage {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+
+.new-coverage-header {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--glass-border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.new-coverage-header span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.new-coverage-header span:first-child { color: rgba(250,250,248,0.35); }
+.new-coverage-header span:last-child { color: var(--yellow); text-align: right; }
+
+.new-coverage-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.new-coverage-row:last-child { border-bottom: none; }
+
+.new-coverage-row .cov-name {
+  font-size: 13px;
+  color: rgba(250,250,248,0.6);
+}
+
+.new-coverage-row .cov-value {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--off-white);
+}
+
+.new-coverage .total-row-simple {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 18px 20px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.new-coverage .total-row-simple .cov-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--off-white);
+}
+
+.new-coverage .total-row-simple .cov-value {
+  font-size: 18px;
+  color: var(--yellow);
+}
+
+/* ── INSIGHTS / COVERAGE GAPS ── */
+.insights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.insight-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.insight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.insight-card.risk::before { background: linear-gradient(90deg, var(--red), transparent); }
+.insight-card.win::before { background: linear-gradient(90deg, var(--green), transparent); }
+
+.insight-card .insight-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.insight-card.risk .insight-label { color: var(--red); }
+.insight-card.win .insight-label { color: var(--green); }
+
+.insight-card .insight-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: var(--off-white);
+}
+
+.insight-card .insight-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(250,250,248,0.45);
+}
+
+/* ── BOTTOM LINE ── */
+.bottom-line {
+  background: linear-gradient(135deg, rgba(0,75,137,0.12) 0%, rgba(255,163,0,0.08) 100%);
+  border: 1px solid rgba(255,163,0,0.15);
+  border-radius: 20px;
+  padding: 48px;
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bottom-line::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,163,0,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.bottom-line h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.bottom-line p {
+  color: rgba(250,250,248,0.5);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 650px;
+  margin: 0 auto 32px;
+}
+
+.bottom-line .price-compare {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.price-block {
+  text-align: center;
+}
+
+.price-block .carrier {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.3);
+  margin-bottom: 6px;
+}
+
+.price-block .price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.price-block .price.old {
+  color: rgba(250,250,248,0.25);
+  text-decoration: line-through;
+}
+
+.price-block .price.new {
+  color: var(--yellow);
+}
+
+.price-block .freq {
+  font-size: 12px;
+  color: rgba(250,250,248,0.3);
+  margin-top: 2px;
+}
+
+.vs-divider {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(250,250,248,0.15);
+  padding: 12px 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+}
+
+/* ── CTA ── */
+.cta-section {
+  text-align: center;
+  padding: 32px 0 20px;
+  margin-bottom: 48px;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--yellow) 0%, #e69200 100%);
+  color: var(--dark);
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 12px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 24px rgba(255,163,0,0.2);
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255,163,0,0.3);
+}
+
+.cta-sub {
+  margin-top: 14px;
+  font-size: 13px;
+  color: rgba(250,250,248,0.3);
+}
+
+/* ── FOOTER ── */
+.footer {
+  border-top: 1px solid var(--glass-border);
+  padding: 32px 0;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 11px;
+  color: rgba(250,250,248,0.2);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.footer .agent-info {
+  margin-top: 20px;
+  font-size: 13px;
+  color: rgba(250,250,248,0.35);
+}
+
+.footer .agent-info strong {
+  color: var(--off-white);
+  font-weight: 600;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.6s ease-out both;
+}
+
+.fade-up-d1 { animation-delay: 0.1s; }
+.fade-up-d2 { animation-delay: 0.2s; }
+.fade-up-d3 { animation-delay: 0.3s; }
+.fade-up-d4 { animation-delay: 0.4s; }
+.fade-up-d5 { animation-delay: 0.5s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .summary-row { grid-template-columns: 1fr; }
+  .insights { grid-template-columns: 1fr; }
+  .bottom-line { padding: 32px 20px; }
+  .price-compare { flex-direction: column; gap: 20px !important; }
+  .vs-divider { display: none; }
+  .header { flex-direction: column; gap: 16px; text-align: center; }
+  .header-meta { text-align: center; }
+  .comp-table td, .comp-table th { padding: 12px 14px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header fade-up">
+    <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--off-white);letter-spacing:0.01em;">Safeshield <span style="color:var(--yellow);">Insurance</span></div>
+    <div class="header-meta">
+      Prepared for <span>Neeraj Lalwani</span><br>
+      March 31, 2026 &middot; Eff. 04/17/2026
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero fade-up fade-up-d1">
+    <div class="hero-badge">Coverage Analysis</div>
+    <h1>Better Coverage.<br><em>One Bundle.</em></h1>
+    <p class="hero-sub">Your current GEICO policy leaves significant gaps. Here's what a full NYCM package looks like side by side.</p>
+  </div>
+
+  <!-- SUMMARY CARDS -->
+  <div class="summary-row fade-up fade-up-d2">
+    <div class="summary-card">
+      <div class="label">GEICO Auto Only</div>
+      <div class="value">$2,209</div>
+      <div class="note">$1,104.70 &times; 2 (annual)</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">NYCM Full Bundle</div>
+      <div class="value yellow">$4,640</div>
+      <div class="note">Auto + Home + Umbrella</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Added Protection Value</div>
+      <div class="value savings">+$2.5M</div>
+      <div class="note">Liability + Home + Umbrella</div>
+    </div>
+  </div>
+
+  <!-- AUTO COMPARISON -->
+  <div class="fade-up fade-up-d3">
+    <div class="section-header">
+      <div class="icon auto">&#128663;</div>
+      <h2>Auto Insurance</h2>
+      <div class="tag vs">GEICO vs NYCM</div>
+    </div>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th style="width:40%">Coverage</th>
+          <th style="width:30%">GEICO Current</th>
+          <th style="width:30%">NYCM Quote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Vehicle</td>
+          <td>2021 Tesla Model Y</td>
+          <td>2021 Tesla Model Y</td>
+        </tr>
+        <tr>
+          <td>Bodily Injury Liability</td>
+          <td>100/300</td>
+          <td><span class="upgrade">250/500 <span class="arrow">&#9650; 2.5x</span></span></td>
+        </tr>
+        <tr>
+          <td>Property Damage</td>
+          <td>50,000</td>
+          <td><span class="upgrade">100,000 <span class="arrow">&#9650; 2x</span></span></td>
+        </tr>
+        <tr>
+          <td>PIP / No-Fault</td>
+          <td>Opt-A / 50K / 2K W/L</td>
+          <td>$200 PIP</td>
+        </tr>
+        <tr>
+          <td>SUM (UM/UIM)</td>
+          <td>100/300</td>
+          <td><span class="upgrade">250/500 <span class="arrow">&#9650; 2.5x</span></span></td>
+        </tr>
+        <tr>
+          <td>Comprehensive Ded.</td>
+          <td>$500</td>
+          <td>$1,000</td>
+        </tr>
+        <tr>
+          <td>Collision Ded.</td>
+          <td>$500</td>
+          <td>$1,000</td>
+        </tr>
+        <tr>
+          <td>Full Glass</td>
+          <td>Yes</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Roadside Assistance</td>
+          <td>Yes</td>
+          <td>Basic</td>
+        </tr>
+        <tr>
+          <td>Rental Reimbursement</td>
+          <td>$50/day, $1,500 max</td>
+          <td>$50/day, $1,500 max</td>
+        </tr>
+        <tr>
+          <td>Trip Interruption</td>
+          <td class="na-cell">Not Included</td>
+          <td>$100/$400</td>
+        </tr>
+        <tr>
+          <td>Transportation Expense</td>
+          <td class="na-cell">Not Included</td>
+          <td>$50/$1,500</td>
+        </tr>
+        <tr>
+          <td>Medical Payments</td>
+          <td class="na-cell">Not Included</td>
+          <td>$1,000</td>
+        </tr>
+        <tr>
+          <td>SSL (Spousal Liability)</td>
+          <td class="na-cell">Not Carried</td>
+          <td class="na-cell">Not Included</td>
+        </tr>
+        <tr class="total-row">
+          <td>Annual Premium</td>
+          <td>$2,209</td>
+          <td>$2,702</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- HOME COVERAGE (NEW) -->
+  <div class="fade-up fade-up-d4">
+    <div class="section-header">
+      <div class="icon home">&#127968;</div>
+      <h2>Condo / Homeowners</h2>
+      <div class="tag new">&#10003; New Coverage</div>
+    </div>
+
+    <div class="new-coverage">
+      <div class="new-coverage-header">
+        <span>Coverage</span>
+        <span>NYCM Quote</span>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">Property Address</div>
+        <div class="cov-value" style="font-family:'Outfit',sans-serif; font-weight:500;">6 Clarion Dr, White Plains, NY 10603</div>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">Form / Deductible</div>
+        <div class="cov-value">HO-6 / $2,500</div>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">A: Dwelling</div>
+        <div class="cov-value">$951,000</div>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">B: Other Structures</div>
+        <div class="cov-value">$95,100</div>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">C: Personal Property</div>
+        <div class="cov-value">$475,500</div>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">D: Loss of Use</div>
+        <div class="cov-value">$285,300</div>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">E: Personal Liability</div>
+        <div class="cov-value">$500,000</div>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">F: Medical Payments to Others</div>
+        <div class="cov-value">$5,000</div>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">Water Back-Up / Sump Overflow</div>
+        <div class="cov-value">Included</div>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">Protective Device Credits</div>
+        <div class="cov-value">Applied</div>
+      </div>
+      <div class="total-row-simple">
+        <div class="cov-name">Annual Premium</div>
+        <div class="cov-value">$1,685</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UMBRELLA COVERAGE (NEW) -->
+  <div class="fade-up fade-up-d5">
+    <div class="section-header">
+      <div class="icon umbrella">&#9748;</div>
+      <h2>Personal Umbrella</h2>
+      <div class="tag new">&#10003; New Coverage</div>
+    </div>
+
+    <div class="new-coverage">
+      <div class="new-coverage-header">
+        <span>Coverage</span>
+        <span>NYCM Quote</span>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">Umbrella Limit</div>
+        <div class="cov-value">$1,000,000</div>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">Deductible (SIR)</div>
+        <div class="cov-value">$1,000</div>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">Automobiles Covered</div>
+        <div class="cov-value">1</div>
+      </div>
+      <div class="new-coverage-row">
+        <div class="cov-name">Residences Covered</div>
+        <div class="cov-value">1</div>
+      </div>
+      <div class="total-row-simple">
+        <div class="cov-name">Annual Premium</div>
+        <div class="cov-value">$253</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSIGHTS -->
+  <div class="insights fade-up">
+    <div class="insight-card risk">
+      <div class="insight-label">&#9888; Current Gap</div>
+      <div class="insight-title">Low Auto Liability Limits</div>
+      <div class="insight-desc">Your GEICO policy carries 100/300 BI limits. In Westchester County, a serious at-fault accident can easily exceed that. NYCM bumps you to 250/500 for real protection.</div>
+    </div>
+    <div class="insight-card risk">
+      <div class="insight-label">&#9888; Current Gap</div>
+      <div class="insight-title">No Umbrella on File</div>
+      <div class="insight-desc">Without an umbrella policy, your personal assets are exposed beyond whatever your auto and condo liability limits are. A $1M umbrella closes that gap for just $253/yr.</div>
+    </div>
+    <div class="insight-card win">
+      <div class="insight-label">&#10003; Upgrade</div>
+      <div class="insight-title">2.5x Higher Liability Limits</div>
+      <div class="insight-desc">Moving from 100/300 to 250/500 on both BI and SUM means significantly better protection if you're in a serious accident, especially in the NY metro area.</div>
+    </div>
+    <div class="insight-card win">
+      <div class="insight-label">&#10003; Upgrade</div>
+      <div class="insight-title">Bundle Discount + One Carrier</div>
+      <div class="insight-desc">Auto, home, and umbrella all with NYCM. One bill, one carrier, one agent. Multi-policy discount already applied. Simpler, stronger, smarter.</div>
+    </div>
+  </div>
+
+  <!-- BOTTOM LINE -->
+  <div class="bottom-line fade-up">
+    <h3>The Full Picture</h3>
+    <p>You're currently paying $2,209/yr for auto-only coverage with limited liability. For $4,640/yr total, you get massively upgraded auto limits, full homeowners protection on your condo, and a $1M umbrella sitting on top.</p>
+    <div class="price-compare">
+      <div class="price-block">
+        <div class="carrier">GEICO (Auto Only)</div>
+        <div class="price old">$2,209</div>
+        <div class="freq">per year &middot; no home &middot; no umbrella</div>
+      </div>
+      <div class="vs-divider">vs</div>
+      <div class="price-block">
+        <div class="carrier">NYCM Full Bundle</div>
+        <div class="price new">$4,640</div>
+        <div class="freq">per year &middot; auto + home + umbrella</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section fade-up">
+    <a href="tel:2032042555" class="cta-btn">
+      &#128222;&nbsp; Let's Lock This In
+    </a>
+    <p class="cta-sub">Call or text Eric directly &middot; (203) 204-2555 &middot; eric@gosafeshield.com</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Quotes are estimates based on information provided and are subject to underwriting approval. Coverage is not bound until an application is accepted by the carrier. NYCM quotes effective 04/17/2026. GEICO dec page issued 03/02/2026, coverage period 04/15/2026 through 10/15/2026. Premiums annualized for comparison purposes.</p>
+    <div class="agent-info">
+      <strong>Eric Kelly</strong> &middot; Safeshield Insurance &middot; Licensed in NY, CT, NJ, PA, DE<br>
+      (203) 204-2555 &middot; eric@gosafeshield.com &middot; gosafeshield.com
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
