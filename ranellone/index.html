@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Comparison | Safeshield Insurance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #004B89;
+  --yellow: #FFA300;
+  --dark: #0a1628;
+  --off-white: #FAFAF8;
+  --green: #22c55e;
+  --green-dim: rgba(34,197,94,0.15);
+  --card-bg: rgba(255,255,255,0.035);
+  --border: rgba(255,163,0,0.12);
+  --border-subtle: rgba(255,255,255,0.06);
+  --muted: rgba(250,250,248,0.45);
+  --text: rgba(250,250,248,0.85);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--dark);
+  color: var(--off-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(0,75,137,0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(255,163,0,0.06) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 36px 20px 56px;
+  position: relative;
+  z-index: 1;
+}
+
+/* HEADER */
+.header { text-align: center; margin-bottom: 36px; }
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+.logo-text span { color: var(--yellow); }
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.header .subtitle {
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.client-pill {
+  display: inline-block;
+  background: rgba(255,163,0,0.07);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 20px;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: rgba(250,250,248,0.6);
+}
+.client-pill strong { color: var(--off-white); font-weight: 600; }
+
+/* SAVINGS HERO */
+.savings-hero {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 28px 20px;
+  background: linear-gradient(135deg, rgba(0,75,137,0.18), rgba(255,163,0,0.08));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.savings-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--yellow);
+  margin-bottom: 4px;
+}
+
+.savings-amount {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 6vw, 3.8rem);
+  color: var(--yellow);
+  line-height: 1.1;
+}
+
+.savings-sub {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* SECTION TITLE */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title .ico {
+  width: 26px; height: 26px;
+  background: var(--yellow);
+  border-radius: 5px;
+  display: grid; place-items: center;
+  font-size: 0.8rem;
+  color: var(--dark);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* TABLE */
+.t {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 36px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  table-layout: fixed;
+}
+
+.t thead th {
+  background: rgba(0,75,137,0.3);
+  padding: 11px 10px;
+  font-weight: 700;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-align: center;
+  border-bottom: 2px solid var(--border);
+  color: var(--muted);
+  overflow: hidden;
+  word-wrap: break-word;
+}
+.t thead th:first-child { text-align: left; width: 28%; min-width: 140px; }
+.t thead th.prop { color: var(--yellow); position: relative; }
+.t thead th.prop .rec {
+  position: absolute;
+  top: -1px; right: 8px;
+  background: var(--yellow);
+  color: var(--dark);
+  font-size: 0.55rem;
+  font-weight: 800;
+  padding: 2px 7px 3px;
+  border-radius: 0 0 4px 4px;
+  letter-spacing: 0.8px;
+}
+
+.t tbody td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: center;
+  font-weight: 500;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+.t tbody td:first-child {
+  text-align: left;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.t tbody tr:hover { background: rgba(255,163,0,0.03); }
+
+.t .cur { color: var(--muted); }
+.t .pro { color: var(--off-white); font-weight: 600; }
+.t .dif { font-weight: 600; color: var(--yellow); font-size: 0.82rem; }
+.t .dif.green { color: var(--green); }
+
+.t tfoot td {
+  padding: 12px 10px;
+  font-weight: 800;
+  font-size: 0.92rem;
+  border-top: 2px solid var(--yellow);
+  background: rgba(255,163,0,0.05);
+  text-align: center;
+}
+.t tfoot td:first-child { text-align: left; }
+
+/* Badges */
+.bg {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.bg-up { background: rgba(255,163,0,0.14); color: var(--yellow); border: 1px solid rgba(255,163,0,0.25); }
+.bg-new { background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
+
+/* TOTAL BOX */
+.total-box {
+  text-align: center;
+  padding: 28px 20px;
+  background: linear-gradient(135deg, rgba(0,75,137,0.18), rgba(255,163,0,0.08));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 44px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.total-col { text-align: center; }
+.total-col .lbl {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.total-col .val {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+}
+.total-col .val small { font-size: 0.7rem; font-weight: 400; }
+.total-col.old .val { color: var(--muted); }
+.total-col.new .val { color: var(--yellow); }
+.total-col.new .lbl { color: var(--yellow); }
+
+.arrow { font-size: 1.6rem; color: var(--muted); }
+
+.total-save {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.total-save .lbl2 {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.total-save .big {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 2.2rem;
+  color: var(--green);
+}
+.total-save .note {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+/* UPGRADES */
+.upgrades { margin-bottom: 44px; }
+.up-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+.up-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+}
+.up-card .up-lbl {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: var(--yellow);
+  margin-bottom: 6px;
+}
+.up-card .up-txt {
+  font-size: 0.88rem;
+  color: rgba(250,250,248,0.65);
+  line-height: 1.55;
+}
+.up-card .up-txt strong { color: var(--off-white); font-weight: 600; }
+
+/* WHY SAFESHIELD */
+.why-section { margin-bottom: 44px; }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.why-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 18px;
+  text-align: center;
+}
+
+.why-card .why-num {
+  width: 40px; height: 40px;
+  margin: 0 auto 10px;
+  background: rgba(255,163,0,0.1);
+  border: 1px solid rgba(255,163,0,0.2);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--yellow);
+}
+
+.why-card .why-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 0.98rem;
+  margin-bottom: 6px;
+}
+
+.why-card .why-desc {
+  font-size: 0.82rem;
+  color: rgba(250,250,248,0.55);
+  line-height: 1.55;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+.footer .agent {
+  margin-bottom: 10px;
+  font-size: 0.92rem;
+  color: rgba(250,250,248,0.55);
+}
+.footer .agent strong { color: var(--yellow); font-weight: 700; }
+.footer .fine {
+  font-size: 0.78rem;
+  color: rgba(250,250,248,0.3);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .t { font-size: 0.8rem; }
+  .t thead th, .t tbody td, .t tfoot td { padding: 8px 6px; }
+  .total-col .val { font-size: 1.3rem; }
+  .total-save .big { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <div class="logo-text">SAFE<span>SHIELD</span></div>
+    <h1>Your Insurance Comparison</h1>
+    <p class="subtitle">Current Coverage vs. Safeshield Proposal</p>
+    <div class="client-pill">
+      <strong>Ralph & Debra Ranellone</strong> &nbsp;|&nbsp; 16 Van Brummel Ln, Ballston Spa, NY 12020 &nbsp;|&nbsp; Eff. 04/21/2026
+    </div>
+  </div>
+
+  <div class="savings-hero">
+    <div class="savings-label">Estimated Annual Savings</div>
+    <div class="savings-amount">$2,145</div>
+    <div class="savings-sub">per year with better coverage across all three policies</div>
+  </div>
+
+  <!-- AUTO -->
+  <div class="section-title"><div class="ico">A</div> Auto Insurance</div>
+  <table class="t">
+    <colgroup><col style="width:28%"><col style="width:22%"><col style="width:30%"><col style="width:20%"></colgroup>
+    <thead>
+      <tr>
+        <th>Coverage</th>
+        <th>Liberty Mutual<br>(Current)</th>
+        <th class="prop">Safeshield (Proposed)<span class="rec">Recommended</span></th>
+        <th>Difference</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Bodily Injury</td><td class="cur">250/500</td><td class="pro">250/500</td><td class="dif">Same</td></tr>
+      <tr><td>Property Damage</td><td class="cur">$100,000</td><td class="pro">$250,000 <span class="bg bg-up">Upgrade</span></td><td class="dif">+$150K</td></tr>
+      <tr><td>UM/UIM (SUM)</td><td class="cur">100/300</td><td class="pro">250/500 <span class="bg bg-up">Upgrade</span></td><td class="dif">Matched to BI</td></tr>
+      <tr><td>Medical Payments</td><td class="cur">$1,000</td><td class="pro">$5,000 <span class="bg bg-up">Upgrade</span></td><td class="dif">+$4K</td></tr>
+      <tr><td>Collision Deductible</td><td class="cur">$500 all</td><td class="pro">$500 all</td><td class="dif">Same</td></tr>
+      <tr><td>Comp Deductible</td><td class="cur">$500 all</td><td class="pro">$500 all</td><td class="dif">Same</td></tr>
+      <tr><td>Glass Deductible</td><td class="cur">$0</td><td class="pro">$0</td><td class="dif">Same</td></tr>
+      <tr><td>Additional PIP</td><td class="cur">Not included</td><td class="pro">$100,000 <span class="bg bg-new">New</span></td><td class="dif">Added</td></tr>
+      <tr><td>Rental Reimbursement</td><td class="cur">Not included</td><td class="pro">$50/day, $1,500 max <span class="bg bg-new">New</span></td><td class="dif">Added</td></tr>
+      <tr><td>Roadside Assistance</td><td class="cur">Not included</td><td class="pro">Premier Roadside <span class="bg bg-new">New</span></td><td class="dif">Added</td></tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Annual Premium</td>
+        <td class="cur" style="font-weight:800;">$4,923</td>
+        <td class="pro" style="color:var(--yellow);">$2,649</td>
+        <td class="dif green" style="font-size:0.95rem;">-$2,274</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <!-- HOME -->
+  <div class="section-title"><div class="ico">H</div> Homeowners Insurance</div>
+  <table class="t">
+    <colgroup><col style="width:28%"><col style="width:22%"><col style="width:30%"><col style="width:20%"></colgroup>
+    <thead>
+      <tr>
+        <th>Coverage</th>
+        <th>Liberty Mutual<br>(Current)</th>
+        <th class="prop">Safeshield (Proposed)<span class="rec">Recommended</span></th>
+        <th>Difference</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>A. Dwelling</td><td class="cur">$633,100</td><td class="pro">$773,000 <span class="bg bg-up">Upgrade</span></td><td class="dif">+$139,900</td></tr>
+      <tr><td>B. Other Structures</td><td class="cur">$63,310</td><td class="pro">$77,300 <span class="bg bg-up">Upgrade</span></td><td class="dif">+$13,990</td></tr>
+      <tr><td>C. Personal Property</td><td class="cur">$474,830</td><td class="pro">$386,500</td><td class="dif">-$88,330</td></tr>
+      <tr><td>D. Loss of Use</td><td class="cur">Actual Loss</td><td class="pro">$154,600</td><td class="dif">&mdash;</td></tr>
+      <tr><td>E. Personal Liability</td><td class="cur">$100,000</td><td class="pro">$1,000,000 <span class="bg bg-up">10x</span></td><td class="dif">+$900K</td></tr>
+      <tr><td>F. Medical Payments</td><td class="cur">$1,000</td><td class="pro">$10,000 <span class="bg bg-up">10x</span></td><td class="dif">+$9K</td></tr>
+      <tr><td>Deductible</td><td class="cur">$1,000</td><td class="pro">$1,000</td><td class="dif">Same</td></tr>
+      <tr><td>Water Backup/Sump</td><td class="cur">Not included</td><td class="pro">$10,000 <span class="bg bg-new">New</span></td><td class="dif">Added</td></tr>
+      <tr><td>Replacement Cost (Contents)</td><td class="cur">Included</td><td class="pro">Included</td><td class="dif">Same</td></tr>
+      <tr><td>Additional Replacement Cost</td><td class="cur">Expanded RC</td><td class="pro">25% ($193,250) <span class="bg bg-up">Upgrade</span></td><td class="dif">Defined 25%</td></tr>
+      <tr><td>Scheduled Property (Music/Art)</td><td class="cur">$12,350</td><td class="pro">$12,500</td><td class="dif">~Same</td></tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Annual Premium</td>
+        <td class="cur" style="font-weight:800;">$2,497</td>
+        <td class="pro" style="color:var(--yellow);">$2,414</td>
+        <td class="dif green" style="font-size:0.95rem;">-$83</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <!-- UMBRELLA -->
+  <div class="section-title"><div class="ico">U</div> Personal Umbrella</div>
+  <table class="t">
+    <colgroup><col style="width:28%"><col style="width:22%"><col style="width:30%"><col style="width:20%"></colgroup>
+    <thead>
+      <tr>
+        <th>Coverage</th>
+        <th>Liberty Mutual<br>(Current)</th>
+        <th class="prop">Safeshield (Proposed)<span class="rec">Recommended</span></th>
+        <th>Difference</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Personal Liability</td><td class="cur">$1,000,000</td><td class="pro">$2,000,000 <span class="bg bg-up">2x</span></td><td class="dif">+$1M</td></tr>
+      <tr><td>UM/UIM</td><td class="cur">Not included</td><td class="pro">$1,000,000 <span class="bg bg-new">New</span></td><td class="dif">Added</td></tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Annual Premium</td>
+        <td class="cur" style="font-weight:800;">$646</td>
+        <td class="pro" style="color:var(--yellow);">$858</td>
+        <td class="dif" style="font-size:0.85rem;">+$212 (2x limit)</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <!-- TOTAL -->
+  <div class="total-box">
+    <div class="total-row">
+      <div class="total-col old">
+        <div class="lbl">Current Total (Liberty Mutual)</div>
+        <div class="val">$8,066<small>/yr</small></div>
+      </div>
+      <div class="arrow">&#10132;</div>
+      <div class="total-col new">
+        <div class="lbl">Proposed Total (Safeshield)</div>
+        <div class="val">$5,921<small>/yr</small></div>
+      </div>
+    </div>
+    <div class="total-save">
+      <div class="lbl2">You Save</div>
+      <div class="big">$2,145 per year</div>
+      <div class="note">with significantly better coverage across all three policies</div>
+    </div>
+  </div>
+
+  <!-- KEY IMPROVEMENTS -->
+  <div class="upgrades">
+    <div class="section-title"><div class="ico" style="font-size:0.7rem;">+</div> Key Coverage Improvements</div>
+    <div class="up-grid">
+      <div class="up-card">
+        <div class="up-lbl">Auto</div>
+        <div class="up-txt"><strong>Property Damage raised to $250K</strong> from $100K. UM/UIM now matches your 250/500 BI limits. Added rental reimbursement, premier roadside, and additional PIP on all vehicles.</div>
+      </div>
+      <div class="up-card">
+        <div class="up-lbl">Home</div>
+        <div class="up-txt"><strong>Dwelling coverage increased $140K</strong> to $773,000. Liability jumped from $100K to $1M. Medical payments from $1K to $10K. Water backup coverage added.</div>
+      </div>
+      <div class="up-card">
+        <div class="up-lbl">Umbrella</div>
+        <div class="up-txt"><strong>Doubled to $2M liability.</strong> Added $1M UM/UIM protection your current policy does not include. This closes a major coverage gap.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY SAFESHIELD -->
+  <div class="why-section">
+    <div class="section-title"><div class="ico" style="font-size:0.65rem;">&#9733;</div> Why Safeshield</div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <div class="why-title">69+ Carriers</div>
+        <div class="why-desc">We shop your coverage across dozens of top-rated carriers to find the best fit, not just one company's answer.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <div class="why-title">Dedicated Agent</div>
+        <div class="why-desc">You get a named advisor who knows your household and proactively reviews your policies, not a call center.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <div class="why-title">Annual Reviews</div>
+        <div class="why-desc">We re-shop your coverage every year. If a better rate or coverage option opens up, we bring it to you first.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <div class="why-title">Coverage First</div>
+        <div class="why-desc">We never sacrifice protection for a cheaper price. Your proposal has better limits, more endorsements, and a lower premium.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">05</div>
+        <div class="why-title">Claims Advocacy</div>
+        <div class="why-desc">If you file a claim, we advocate on your behalf with the carrier. You are never on hold with a 1-800 number alone.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">06</div>
+        <div class="why-title">One Team, One Roof</div>
+        <div class="why-desc">Auto, home, umbrella, and anything else your family needs, managed under one point of contact.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="agent">
+      Prepared by <strong>Eric Kelly</strong> &nbsp;|&nbsp; Safeshield Insurance<br>
+      (203) 204-2555 &nbsp;|&nbsp; eric@gosafeshield.com &nbsp;|&nbsp; gosafeshield.com
+    </div>
+    <p class="fine">
+      Quotes effective 04/21/2026. Premiums are estimates based on information provided and subject to change upon final underwriting.
+      Proposed coverage placed through Travelers. All policies subject to terms, conditions, and eligibility.
+      Prepared 03/31/2026.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
