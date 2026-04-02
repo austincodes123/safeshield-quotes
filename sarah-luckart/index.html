@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Proposal - Sarah Luckart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0a1628;
+            color: #FAFAF8;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2b4a 50%, #0a1628 100%);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #FFA300;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .savings-highlight {
+            background: linear-gradient(135deg, #FFA300, #ffb733);
+            color: #0a1628;
+            padding: 25px 40px;
+            border-radius: 100px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(255, 163, 0, 0.3);
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+            margin: 40px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #FFA300;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .policy-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .policy-card.current {
+            border-color: rgba(255, 99, 99, 0.3);
+        }
+
+        .policy-card.new {
+            border-color: rgba(255, 163, 0, 0.3);
+            box-shadow: 0 0 30px rgba(255, 163, 0, 0.1);
+        }
+
+        .policy-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .carrier-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .total-premium {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FFA300;
+            margin-bottom: 10px;
+        }
+
+        .period {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .coverage-section {
+            margin: 25px 0;
+        }
+
+        .coverage-section h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #FFA300;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,163,0,0.2);
+        }
+
+        .coverage-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .coverage-item:last-child {
+            border-bottom: none;
+        }
+
+        .coverage-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .coverage-value {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .missing-coverage {
+            color: #ff6b6b;
+            font-style: italic;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, rgba(255,163,0,0.1), rgba(255,163,0,0.05));
+            border: 1px solid rgba(255,163,0,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .summary-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #FFA300;
+            margin-bottom: 20px;
+        }
+
+        .summary-breakdown {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .breakdown-item {
+            text-align: center;
+        }
+
+        .breakdown-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .breakdown-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .auto-savings {
+            color: #4ade80;
+        }
+
+        .renters-increase {
+            color: #fbbf24;
+        }
+
+        .net-savings {
+            color: #FFA300;
+        }
+
+        .value-section {
+            background: rgba(255,255,255,0.02);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #FFA300;
+        }
+
+        .value-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .value-description {
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        .safeshield-section {
+            background: linear-gradient(135deg, rgba(0, 75, 137, 0.1), rgba(0, 75, 137, 0.05));
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #FFA300, #ffb733);
+            color: #0a1628;
+            text-align: center;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 50px 0;
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background: #0a1628;
+            color: #FFA300;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 100px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: rgba(10, 22, 40, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-breakdown {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <h1>Save $537 Annually</h1>
+            <p class="subtitle">Comprehensive Coverage Comparison for Sarah Luckart</p>
+            <div class="savings-highlight">
+                Switch to Progressive & Save 27%
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Side-by-Side Comparison</h2>
+            
+            <div class="comparison-grid">
+                <div class="policy-card current">
+                    <div class="policy-header">
+                        <div class="carrier-logo">State Farm</div>
+                        <div class="total-premium">$2,014</div>
+                        <div class="period">Annual Premium</div>
+                    </div>
+                    
+                    <div class="coverage-section">
+                        <h4>Auto Insurance - 2009 Audi Q7</h4>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Annual Premium</span>
+                            <span class="coverage-value">$1,866</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Bodily Injury</span>
+                            <span class="coverage-value">25/50</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Property Damage</span>
+                            <span class="coverage-value">$25,000</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Uninsured Motorist</span>
+                            <span class="coverage-value">25/50</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Medical Payments</span>
+                            <span class="coverage-value missing-coverage">Not Available</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Comprehensive</span>
+                            <span class="coverage-value missing-coverage">Not Available</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Collision</span>
+                            <span class="coverage-value missing-coverage">Not Available</span>
+                        </div>
+                    </div>
+
+                    <div class="coverage-section">
+                        <h4>Renters Insurance</h4>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Annual Premium</span>
+                            <span class="coverage-value">$148</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Personal Property</span>
+                            <span class="coverage-value">$23,700</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Liability</span>
+                            <span class="coverage-value">$100,000</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Deductible</span>
+                            <span class="coverage-value">$500</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="policy-card new">
+                    <div class="policy-header">
+                        <div class="carrier-logo">Progressive</div>
+                        <div class="total-premium">$1,477</div>
+                        <div class="period">Annual Premium</div>
+                    </div>
+                    
+                    <div class="coverage-section">
+                        <h4>Auto Insurance - 2009 Audi Q7</h4>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Annual Premium</span>
+                            <span class="coverage-value">$1,258</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Bodily Injury</span>
+                            <span class="coverage-value">50/100</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Property Damage</span>
+                            <span class="coverage-value">$25,000</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Uninsured Motorist</span>
+                            <span class="coverage-value">50/100</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Medical Payments</span>
+                            <span class="coverage-value">$1,000</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Comprehensive</span>
+                            <span class="coverage-value">$1,000 deductible</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Collision</span>
+                            <span class="coverage-value">$1,000 deductible</span>
+                        </div>
+                    </div>
+
+                    <div class="coverage-section">
+                        <h4>Renters Insurance</h4>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Annual Premium</span>
+                            <span class="coverage-value">$219</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Personal Property</span>
+                            <span class="coverage-value">$25,000</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Liability</span>
+                            <span class="coverage-value">$300,000</span>
+                        </div>
+                        <div class="coverage-item">
+                            <span class="coverage-label">Deductible</span>
+                            <span class="coverage-value">$500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <h3 class="summary-title">Your Savings Breakdown</h3>
+                <div class="summary-breakdown">
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Auto Savings</div>
+                        <div class="breakdown-value auto-savings">-$608</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Renters Increase</div>
+                        <div class="breakdown-value renters-increase">+$71</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Net Annual Savings</div>
+                        <div class="breakdown-value net-savings">$537</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="value-section">
+                <h3 class="section-title">Coverage Improvements</h3>
+                <div class="value-grid">
+                    <div class="value-item">
+                        <div class="value-icon">⬆️</div>
+                        <div class="value-title">Higher Auto Liability</div>
+                        <div class="value-description">Progressive offers 50/100 bodily injury limits vs State Farm's 25/50, providing double the protection per person.</div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🚗</div>
+                        <div class="value-title">Added Physical Damage Coverage</div>
+                        <div class="value-description">Progressive includes comprehensive and collision coverage with $1,000 deductibles - protecting your 2009 Audi Q7 from theft, vandalism, and accidents.</div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🏠</div>
+                        <div class="value-title">Enhanced Renters Coverage</div>
+                        <div class="value-description">Progressive renters includes $300,000 liability (vs $100,000) and slightly higher personal property limits.</div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">💰</div>
+                        <div class="value-title">Multi-Policy Discount</div>
+                        <div class="value-description">Bundle discount already applied, plus access to Progressive's Snapshot program for additional auto savings.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="safeshield-section">
+                <h3 class="section-title">Why Safeshield Insurance?</h3>
+                <div class="value-grid">
+                    <div class="value-item">
+                        <div class="value-icon">🔍</div>
+                        <div class="value-title">We Shop 69+ Carriers</div>
+                        <div class="value-description">Progressive was the best fit for you today, but we continuously monitor the market to ensure you always have optimal coverage and pricing.</div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">⚡</div>
+                        <div class="value-title">Same-Day Service</div>
+                        <div class="value-description">Policy changes, certificates, ID cards, and claims support - all handled the same day you call. No phone trees or call centers.</div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🛡️</div>
+                        <div class="value-title">Claims Advocacy</div>
+                        <div class="value-description">When claims happen, we're your advocate with the carrier. We fight for fair settlements and smooth claim experiences.</div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">📱</div>
+                        <div class="value-title">Tech-Powered Experience</div>
+                        <div class="value-description">Automated policy tracking, digital document delivery, and proactive renewal management keep everything seamless.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3 class="cta-title">Ready to Save $537?</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 30px;">Let's get your Progressive policies started today. I'll handle the State Farm cancellations and ensure seamless coverage transition.</p>
+                <a href="tel:2038065889" class="cta-button">Call Eric: (203) 806-5889</a>
+                <a href="mailto:eric@gosafeshield.com" class="cta-button">Email Eric</a>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>This proposal prepared by Eric Kelly, Safeshield Insurance</p>
+            <p>Licensed in CT, NY, NJ, PA & DE | eric@gosafeshield.com | (203) 806-5889</p>
+        </div>
+    </div>
+</body>
+</html>
