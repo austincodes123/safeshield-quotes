@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catherine Alvarado - Home & Auto Quote | Safeshield Insurance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #004B89 0%, #003366 100%);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #004B89 0%, #003366 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .urgency-banner {
+            background: #ffa300;
+            color: #004B89;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .section h2 {
+            color: #004B89;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #ffa300;
+            padding-bottom: 0.5rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #ffa300 0%, #ffb830 100%);
+            color: #004B89;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        .savings-box {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .savings-box h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            background: #004B89;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .better {
+            background: #d4edda !important;
+            color: #155724;
+            font-weight: bold;
+        }
+        
+        .worse {
+            background: #f8d7da !important;
+            color: #721c24;
+        }
+        
+        .simple-explanation {
+            background: #e3f2fd;
+            border: 2px solid #004B89;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .simple-explanation h3 {
+            color: #004B89;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .referral-box {
+            background: linear-gradient(135deg, #004B89 0%, #003366 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .why-safeshield {
+            background: #f8f9fa;
+            border-left: 5px solid #ffa300;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .why-safeshield ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .why-safeshield li {
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .why-safeshield li:before {
+            content: "✓";
+            color: #ffa300;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #004B89 0%, #003366 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .cta-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+        .mobile-responsive {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem;
+            }
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Catherine Alvarado</h1>
+            <div class="subtitle">Your Complete Home & Auto Insurance Solution</div>
+            <div style="margin-top: 1rem; font-size: 0.9rem;">Prepared by Austin Glazer | Safeshield Insurance</div>
+        </div>
+        
+        <div class="urgency-banner">
+            🏠 CLOSING 4/20 → Moving Fast to Protect Your Investment!
+        </div>
+        
+        <div class="content">
+            <div class="referral-box">
+                <h3>👋 Rich DuBursingh sent you to the right place!</h3>
+                <p>Rich knows we specialize in protecting new homeowners with the best coverage at the best price. That's exactly what we've done for you.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🎯 The Bottom Line (Explained Like You're 5)</h2>
+                
+                <div class="savings-box">
+                    <h3>You Save $1,785+ Per Year</h3>
+                    <p>Plus way better protection for your new home</p>
+                </div>
+                
+                <div class="simple-explanation">
+                    <h3>Here's what's happening:</h3>
+                    <p><strong>Right now:</strong> You pay GEICO $2,376/year for basic car insurance that doesn't really protect you as a homeowner.</p>
+                    
+                    <p><strong>With Safeshield:</strong> You'll pay $2,900/year for BOTH your car AND home, with coverage designed specifically for homeowners like you.</p>
+                    
+                    <p><strong>Why the car insurance costs a tiny bit more:</strong> We're giving you proper liability limits ($300k instead of $50k) because when you own a home, people can sue you for everything you own. Your current limits wouldn't even cover a minor accident.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🏠 Home Insurance Comparison</h2>
+                
+                <div class="highlight-box">
+                    SageSure Quote: $3,325/year vs NYCM Quote: $2,635/year<br>
+                    Why pay $690 more? Because it saves you THOUSANDS when you need it!
+                </div>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Coverage</th>
+                            <th>NYCM Quote</th>
+                            <th>SageSure (Our Recommendation)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Deductible</strong></td>
+                            <td class="worse">$5,000 (You pay first $5k)</td>
+                            <td class="better">$1,000 (You pay first $1k)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hurricane Deductible</strong></td>
+                            <td class="worse">2% of dwelling ($15,020!)</td>
+                            <td class="better">2% of dwelling ($11,540)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dwelling Coverage</strong></td>
+                            <td>$751,000</td>
+                            <td class="better">$577,000 (Right-sized for your property)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Personal Property</strong></td>
+                            <td>$525,700</td>
+                            <td>$288,500</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Coastal Wind Protection</strong></td>
+                            <td class="worse">Basic</td>
+                            <td class="better">Superior (SageSure specializes in coastal properties)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="simple-explanation">
+                    <h3>🤔 Why SageSure when NYCM is cheaper?</h3>
+                    <p><strong>The $4,000 deductible difference alone</strong> makes SageSure worth it. If you have ANY claim, you save $4,000 out of pocket immediately.</p>
+                    <p><strong>Plus:</strong> SageSure specializes in coastal NY properties. They understand the risks and pay claims faster. NYCM might be cheaper upfront, but they're slower to pay and have higher out-of-pocket costs when you actually need them.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🚗 Auto Insurance Upgrade</h2>
+                
+                <div class="highlight-box">
+                    Current GEICO: $2,376/year | Our Quote: ~$2,900/year
+                    <br>Small increase = MASSIVE protection upgrade
+                </div>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Coverage</th>
+                            <th>Your Current GEICO</th>
+                            <th>Safeshield Homeowner Protection</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Liability Limits</strong></td>
+                            <td class="worse">$25k/$50k (Dangerously low for homeowner)</td>
+                            <td class="better">$300k/$300k (Protects your home equity)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Property Damage</strong></td>
+                            <td class="worse">$25,000</td>
+                            <td class="better">$100,000+</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Homeowner Discount</strong></td>
+                            <td class="worse">None</td>
+                            <td class="better">Multi-policy savings</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Claims Experience</strong></td>
+                            <td class="worse">Known for fighting claims</td>
+                            <td class="better">Fast, fair claim handling</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="simple-explanation">
+                    <h3>🏠 Why homeowners need different car insurance:</h3>
+                    <p><strong>When you rent:</strong> If you cause an accident, worst case is you get sued for whatever's in your bank account.</p>
+                    <p><strong>When you own a home:</strong> If you cause an accident, they can take your HOUSE. Your $25k GEICO limits wouldn't even cover a fender bender in today's market.</p>
+                    <p><strong>Bottom line:</strong> The extra $500/year protects hundreds of thousands in home equity.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🛡️ Why Safeshield? Why Austin?</h2>
+                
+                <div class="why-safeshield">
+                    <ul>
+                        <li><strong>Homeowner Specialists:</strong> We understand the transition from renter to homeowner and design coverage specifically for your new risks</li>
+                        <li><strong>Independent Broker:</strong> We shop 69+ carriers to find the best combination of price and protection</li>
+                        <li><strong>Closing Expertise:</strong> We work with your timeline and coordinate with your mortgage company seamlessly</li>
+                        <li><strong>Local Knowledge:</strong> Licensed in NY, we understand coastal wind risks and local regulations</li>
+                        <li><strong>Rich's Trust:</strong> Rich DuBursingh sends his clients to us because we deliver results</li>
+                        <li><strong>Claim Advocacy:</strong> When something happens, we fight the insurance company FOR you, not against you</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>⚡ Ready to Move Forward?</h2>
+                
+                <div class="cta-section">
+                    <h3>I'm ready to bind this coverage and protect your investment</h3>
+                    <p style="margin: 1rem 0;">With your 4/20 closing, we need to move fast. I can have everything ready for your closing day.</p>
+                    
+                    <div class="contact-info">
+                        📞 Call/Text Austin: (203) 564-9817<br>
+                        📧 austin@gosafeshield.com<br><br>
+                        Let's get this done right!
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Safeshield Insurance</strong> | Licensed in NY, CT, NJ, PA, DE | 69+ Carrier Relationships</p>
+            <p>2777 Summer Street, 6th Floor, Stamford, CT 06905</p>
+        </div>
+    </div>
+</body>
+</html>
