@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CJ & Julia Sager - Homeowners Insurance Quote</title>
+    <title>Home Insurance Quote - Craig & Julia Sager</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -11,28 +11,29 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Outfit', sans-serif;
+            line-height: 1.6;
             background: #0a1628;
             color: #FAFAF8;
-            line-height: 1.6;
             overflow-x: hidden;
         }
-
+        
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         .hero {
+            padding: 80px 0;
             text-align: center;
-            padding: 80px 0 60px;
-            background: linear-gradient(135deg, #0a1628 0%, #1a2744 100%);
+            background: linear-gradient(135deg, #0a1628 0%, #1a2742 100%);
             position: relative;
+            overflow: hidden;
         }
-
+        
         .hero::before {
             content: '';
             position: absolute;
@@ -40,311 +41,251 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 20%, rgba(255, 163, 0, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(0, 75, 137, 0.08) 0%, transparent 50%);
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23FFA300" fill-opacity="0.03"><circle cx="30" cy="30" r="2"/></g></svg>') repeat;
             pointer-events: none;
         }
-
+        
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
-
+        
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             font-weight: 900;
-            color: #FFA300;
             margin-bottom: 20px;
-            text-shadow: 0 2px 20px rgba(255, 163, 0, 0.3);
+            background: linear-gradient(135deg, #FFA300, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
+        
         .hero .subtitle {
-            font-size: 1.4rem;
-            color: #B0BEC5;
-            margin-bottom: 40px;
+            font-size: 1.3rem;
+            color: #B8C5D6;
+            margin-bottom: 30px;
             font-weight: 300;
         }
-
-        .premium-highlight {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        
+        .quote-summary {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
             border-radius: 20px;
             padding: 40px;
             margin: 40px 0;
-            text-align: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
         }
-
+        
+        .premium-highlight {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
         .premium-amount {
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
-            font-weight: 700;
+            font-weight: 900;
             color: #FFA300;
-            margin-bottom: 10px;
+            display: block;
         }
-
-        .premium-term {
-            font-size: 1.2rem;
-            color: #B0BEC5;
-            margin-bottom: 20px;
+        
+        .premium-period {
+            font-size: 1.1rem;
+            color: #B8C5D6;
+            margin-top: 5px;
         }
-
-        .down-payment {
-            background: rgba(0, 75, 137, 0.2);
-            padding: 15px 30px;
-            border-radius: 100px;
-            display: inline-block;
-            margin-top: 15px;
-        }
-
-        .section {
-            padding: 60px 0;
-        }
-
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 163, 0, 0.25), transparent);
-            margin: 60px 0;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #FFA300;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .coverage-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .coverage-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .coverage-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 163, 0, 0.3);
-            box-shadow: 0 10px 40px rgba(255, 163, 0, 0.1);
-        }
-
-        .coverage-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #FFA300;
-            margin-bottom: 15px;
-        }
-
-        .coverage-amount {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #FAFAF8;
-            margin-bottom: 10px;
-        }
-
-        .coverage-description {
-            color: #B0BEC5;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .property-details {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-        }
-
-        .property-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .property-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .property-item:last-child {
-            border-bottom: none;
-        }
-
-        .property-label {
-            color: #B0BEC5;
-            font-weight: 500;
-        }
-
-        .property-value {
-            color: #FAFAF8;
-            font-weight: 600;
-        }
-
-        .features-section {
-            background: linear-gradient(135deg, rgba(0, 75, 137, 0.1) 0%, rgba(255, 163, 0, 0.05) 100%);
-            border-radius: 20px;
-            padding: 50px 40px;
-            margin: 40px 0;
-        }
-
-        .features-grid {
+        
+        .property-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
+            margin: 60px 0;
         }
-
-        .feature-item {
+        
+        .info-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 30px;
             text-align: center;
-            padding: 20px;
         }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: #FFA300;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
+        
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
-            color: #0a1628;
-        }
-
-        .feature-title {
-            font-size: 1.2rem;
-            font-weight: 600;
             color: #FFA300;
+            margin-bottom: 15px;
+        }
+        
+        .info-card p {
+            color: #B8C5D6;
+            font-size: 1.1rem;
+        }
+        
+        .coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .coverage-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 30px;
+        }
+        
+        .coverage-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #FFA300;
+            margin-bottom: 15px;
+        }
+        
+        .coverage-amount {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FAFAF8;
             margin-bottom: 10px;
         }
-
-        .feature-text {
-            color: #B0BEC5;
+        
+        .coverage-description {
+            color: #B8C5D6;
             font-size: 0.95rem;
+            line-height: 1.5;
         }
-
-        .why-safeshield {
+        
+        .section {
+            margin: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
             text-align: center;
-            padding: 60px 0;
+            margin-bottom: 50px;
+            color: #FAFAF8;
         }
-
-        .why-grid {
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+            margin: 60px 0;
+        }
+        
+        .why-safeshield {
+            background: linear-gradient(135deg, #004B89 0%, #0066CC 100%);
+            padding: 80px 0;
+            margin: 80px 0;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .why-safeshield::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23FFA300" fill-opacity="0.05"><circle cx="20" cy="20" r="1.5"/></g></svg>') repeat;
+            pointer-events: none;
+        }
+        
+        .why-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
-
-        .why-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: left;
+        
+        .benefit-item {
+            text-align: center;
+            padding: 20px;
         }
-
-        .why-title {
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,163,0,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+        
+        .benefit-item h4 {
             font-size: 1.3rem;
             font-weight: 600;
-            color: #FFA300;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            color: #FAFAF8;
         }
-
+        
+        .benefit-item p {
+            color: #E8F4FD;
+            font-size: 0.95rem;
+        }
+        
         .cta-section {
-            background: linear-gradient(135deg, #004B89 0%, #FFA300 100%);
-            border-radius: 20px;
-            padding: 60px 40px;
             text-align: center;
-            margin: 60px 0 40px;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1a2742 0%, #0a1628 100%);
         }
-
-        .cta-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #FAFAF8;
-            margin-bottom: 20px;
-        }
-
-        .cta-text {
-            font-size: 1.2rem;
-            color: #FAFAF8;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 15px 40px;
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFA300, #FFB533);
+            color: #0a1628;
+            padding: 18px 40px;
             border-radius: 100px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 10px 20px;
         }
-
-        .btn-primary {
-            background: #FAFAF8;
-            color: #004B89;
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: #FAFAF8;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn:hover {
+        
+        .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(255,163,0,0.3);
         }
-
-        .footer {
-            text-align: center;
-            padding: 40px 0;
-            color: #B0BEC5;
-            font-size: 0.9rem;
+        
+        .contact-info {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 16px;
+            display: inline-block;
         }
-
+        
+        .contact-info h4 {
+            color: #FFA300;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
+            
             .premium-amount {
                 font-size: 3rem;
             }
+            
             .section-title {
-                font-size: 2.2rem;
-            }
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+                font-size: 2rem;
             }
         }
     </style>
@@ -353,174 +294,161 @@
     <div class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>CJ & Julia</h1>
-                <p class="subtitle">Your Homeowners Insurance Quote</p>
+                <h1>Your New Home Insurance</h1>
+                <p class="subtitle">Comprehensive protection for your Eastchester home</p>
                 
-                <div class="premium-highlight">
-                    <div class="premium-amount">$1,579</div>
-                    <div class="premium-term">Annual Premium</div>
-                    <div class="down-payment">
-                        <strong>Down Payment: $237</strong>
+                <div class="quote-summary">
+                    <div class="premium-highlight">
+                        <span class="premium-amount">$1,579</span>
+                        <div class="premium-period">Annual Premium</div>
+                    </div>
+                    
+                    <div class="property-info">
+                        <div class="info-card">
+                            <h3>Your Home</h3>
+                            <p>50 Stewart Place<br>Eastchester, NY</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Coverage Period</h3>
+                            <p>May 1, 2026 - May 1, 2027</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Carrier</h3>
+                            <p>New York Central Mutual</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <section class="section">
-            <h2 class="section-title">Your Coverage Protection</h2>
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title">What's Covered</h2>
             
             <div class="coverage-grid">
                 <div class="coverage-card">
-                    <div class="coverage-title">🏠 Dwelling Coverage</div>
+                    <h3>Your Home Structure</h3>
                     <div class="coverage-amount">$600,000</div>
-                    <div class="coverage-description">Protects your home's structure against covered perils like fire, wind, and more.</div>
+                    <p class="coverage-description">Complete protection for your home's structure, including walls, roof, floors, and built-in appliances. This covers damage from fire, wind, hail, and other covered perils.</p>
                 </div>
                 
                 <div class="coverage-card">
-                    <div class="coverage-title">🛠️ Personal Property</div>
+                    <h3>Personal Belongings</h3>
                     <div class="coverage-amount">$420,000</div>
-                    <div class="coverage-description">Covers your belongings with replacement cost protection - no depreciation.</div>
+                    <p class="coverage-description">Replacement cost coverage for your furniture, clothing, electronics, and personal items. No depreciation means you get full replacement value.</p>
                 </div>
                 
                 <div class="coverage-card">
-                    <div class="coverage-title">🏘️ Additional Living Expenses</div>
-                    <div class="coverage-amount">$180,000</div>
-                    <div class="coverage-description">Pays for hotel, meals, and other expenses if your home becomes unlivable.</div>
-                </div>
-                
-                <div class="coverage-card">
-                    <div class="coverage-title">⚖️ Personal Liability</div>
+                    <h3>Personal Liability</h3>
                     <div class="coverage-amount">$500,000</div>
-                    <div class="coverage-description">Protects you if someone is injured on your property or you accidentally damage their property.</div>
+                    <p class="coverage-description">Protection if someone gets injured on your property or if you accidentally damage someone else's property. Includes legal defense costs.</p>
                 </div>
                 
                 <div class="coverage-card">
-                    <div class="coverage-title">🏥 Medical Payments</div>
+                    <h3>Living Expenses</h3>
+                    <div class="coverage-amount">$180,000</div>
+                    <p class="coverage-description">If your home becomes uninhabitable due to covered damage, this pays for temporary housing, meals, and other additional living costs.</p>
+                </div>
+                
+                <div class="coverage-card">
+                    <h3>Other Structures</h3>
+                    <div class="coverage-amount">$60,000</div>
+                    <p class="coverage-description">Coverage for detached structures on your property like sheds, fences, or standalone garages.</p>
+                </div>
+                
+                <div class="coverage-card">
+                    <h3>Medical Payments</h3>
                     <div class="coverage-amount">$5,000</div>
-                    <div class="coverage-description">Covers medical expenses for guests injured on your property, regardless of fault.</div>
+                    <p class="coverage-description">Immediate medical expense coverage for guests injured on your property, regardless of fault.</p>
                 </div>
-                
-                <div class="coverage-card">
-                    <div class="coverage-title">💧 Water Backup</div>
-                    <div class="coverage-amount">Included</div>
-                    <div class="coverage-description">Covers damage from sump pump overflow and sewer backup - crucial protection in NY.</div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <section class="section">
-            <h2 class="section-title">Your Property Details</h2>
-            
-            <div class="property-details">
-                <div class="property-grid">
-                    <div class="property-item">
-                        <span class="property-label">Address</span>
-                        <span class="property-value">50 Stewart Pl, Eastchester</span>
-                    </div>
-                    <div class="property-item">
-                        <span class="property-label">Home Size</span>
-                        <span class="property-value">1,100 sq ft</span>
-                    </div>
-                    <div class="property-item">
-                        <span class="property-label">Year Built</span>
-                        <span class="property-value">1900 (126 years old)</span>
-                    </div>
-                    <div class="property-item">
-                        <span class="property-label">Construction</span>
-                        <span class="property-value">Frame</span>
-                    </div>
-                    <div class="property-item">
-                        <span class="property-label">Foundation</span>
-                        <span class="property-value">Full Basement</span>
-                    </div>
-                    <div class="property-item">
-                        <span class="property-label">Heating</span>
-                        <span class="property-value">Natural Gas</span>
-                    </div>
-                    <div class="property-item">
-                        <span class="property-label">Roof</span>
-                        <span class="property-value">Asphalt Shingle</span>
-                    </div>
-                    <div class="property-item">
-                        <span class="property-label">Stories</span>
-                        <span class="property-value">1 Story</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="features-section">
-            <h2 class="section-title">What Makes This Quote Special</h2>
-            
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">💰</div>
-                    <div class="feature-title">Multiple Discounts Applied</div>
-                    <div class="feature-text">$170 in discounts including alarm system, renovation credits, and protective device credits.</div>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon">🛡️</div>
-                    <div class="feature-title">Enhanced Protection</div>
-                    <div class="feature-text">Personal injury coverage and additional limits for comprehensive protection beyond basic policies.</div>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon">🏆</div>
-                    <div class="feature-title">A+ Rated Carrier</div>
-                    <div class="feature-text">NYCM is a mutual insurance company with excellent financial strength and claims service.</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <section class="why-safeshield">
-            <h2 class="section-title">Why Safeshield Insurance</h2>
-            
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-title">Personal Service</div>
-                    <div class="coverage-description">As your friends, you get my personal cell phone. No call centers, no runaround - just direct access to someone who cares about protecting what matters most to you.</div>
-                </div>
-                
-                <div class="why-card">
-                    <div class="why-title">Claims Advocacy</div>
-                    <div class="coverage-description">When you have a claim, I'm your advocate with the insurance company. I make sure you get every dollar you're entitled to, handled quickly and fairly.</div>
-                </div>
-                
-                <div class="why-card">
-                    <div class="why-title">Same-Day Service</div>
-                    <div class="coverage-description">Need a certificate, ID card, or policy change? Done the same day. Your time is valuable, and I respect that with fast, efficient service.</div>
-                </div>
-                
-                <div class="why-card">
-                    <div class="why-title">Annual Reviews</div>
-                    <div class="coverage-description">I review your coverage every year to make sure you're still getting the best value. As your life changes, your insurance should too.</div>
-                </div>
-            </div>
-        </section>
-
-        <div class="cta-section">
-            <h2 class="cta-title">Ready to Move Forward?</h2>
-            <p class="cta-text">Let's get your home properly protected with this excellent coverage from NYCM.</p>
-            
-            <div class="cta-buttons">
-                <a href="tel:203-564-9817" class="btn btn-primary">Call Austin: (203) 564-9817</a>
-                <a href="mailto:austin@gosafeshield.com" class="btn btn-secondary">Email Questions</a>
             </div>
         </div>
     </div>
 
-    <footer class="footer">
+    <div class="section-divider"></div>
+
+    <div class="section">
         <div class="container">
-            <p>Prepared by Austin Glazer, Safeshield Insurance • Licensed in NY, CT, NJ, PA, DE</p>
-            <p>Quote effective 05/01/2026 • Quote #Q32091895</p>
+            <h2 class="section-title">Special Protections Included</h2>
+            
+            <div class="coverage-grid">
+                <div class="coverage-card">
+                    <h3>Water Backup Coverage</h3>
+                    <div class="coverage-amount">✓ Included</div>
+                    <p class="coverage-description">Protection against water damage from sewer backups, sump pump overflow, and drain blockages - coverage that's often excluded from basic policies.</p>
+                </div>
+                
+                <div class="coverage-card">
+                    <h3>Personal Injury Protection</h3>
+                    <div class="coverage-amount">✓ Included</div>
+                    <p class="coverage-description">Coverage for claims involving libel, slander, invasion of privacy, and wrongful eviction - important protections in today's connected world.</p>
+                </div>
+                
+                <div class="coverage-card">
+                    <h3>Enhanced Limits</h3>
+                    <div class="coverage-amount">✓ Included</div>
+                    <p class="coverage-description">Additional coverage limits for specific situations, giving you extra protection when you need it most.</p>
+                </div>
+                
+                <div class="coverage-card">
+                    <h3>Protective Device Credits</h3>
+                    <div class="coverage-amount">$170 Savings</div>
+                    <p class="coverage-description">Premium discounts for your alarm system, recent renovations, and other protective features that reduce your risk.</p>
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
+
+    <div class="why-safeshield">
+        <div class="container">
+            <div class="why-content">
+                <h2 class="section-title">Why Choose Safeshield</h2>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🤝</div>
+                        <h4>Personal Service</h4>
+                        <p>Direct access to Austin - no call centers, no runaround. Just real people who know your situation.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⚡</div>
+                        <h4>Same-Day Everything</h4>
+                        <p>Need a certificate? Policy change? We handle it the same day. No waiting weeks for simple requests.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🛡️</div>
+                        <h4>Claims Advocacy</h4>
+                        <p>When claims happen, we're in your corner making sure you get fair treatment and fast resolution.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🔍</div>
+                        <h4>Annual Re-Shopping</h4>
+                        <p>We shop your insurance every year to make sure you're still getting the best value as markets change.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Ready to Get Protected?</h2>
+            <p style="font-size: 1.2rem; color: #B8C5D6; margin-bottom: 30px;">Let's get this coverage in place so you can have peace of mind.</p>
+            
+            <a href="tel:203-564-9817" class="cta-button">Call Austin Now</a>
+            <a href="mailto:austin@gosafeshield.com" class="cta-button" style="background: rgba(255,255,255,0.1); color: #FAFAF8; border: 1px solid rgba(255,255,255,0.2);">Send Email</a>
+            
+            <div class="contact-info">
+                <h4>Austin Glazer - Your Agent</h4>
+                <p style="color: #B8C5D6;">📞 (203) 564-9817<br>
+                ✉️ austin@gosafeshield.com<br>
+                🏢 24 Haven Street, Elmsford NY</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
