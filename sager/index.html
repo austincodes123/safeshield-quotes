@@ -143,25 +143,57 @@
             line-height: 1.5;
         }
         
-        .auto-note {
-            background: linear-gradient(135deg, rgba(0, 75, 137, 0.2) 0%, rgba(255, 163, 0, 0.1) 100%);
-            border: 1px solid rgba(0, 75, 137, 0.3);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
+        .extended-coverage-note {
+            background: linear-gradient(135deg, rgba(255, 163, 0, 0.15) 0%, rgba(0, 75, 137, 0.1) 100%);
+            border: 1px solid rgba(255, 163, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #FFA300;
+            font-weight: 500;
+        }
+        
+        .auto-section {
+            background: linear-gradient(135deg, rgba(0, 75, 137, 0.15) 0%, rgba(255, 163, 0, 0.05) 100%);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 60px 0;
+        }
+        
+        .auto-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #FFA300;
+            margin-bottom: 25px;
             text-align: center;
         }
         
-        .auto-note h3 {
+        .auto-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .auto-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .auto-card h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             color: #FFA300;
             margin-bottom: 15px;
         }
         
-        .auto-note p {
+        .auto-card p {
             color: #B8C5D6;
-            font-size: 1.1rem;
+            line-height: 1.6;
         }
         
         .features-list {
@@ -283,6 +315,15 @@
             .coverage-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .auto-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .auto-section {
+                padding: 30px;
+            }
         }
     </style>
 </head>
@@ -310,6 +351,9 @@
                     <h3 class="coverage-title">Dwelling Coverage</h3>
                     <div class="coverage-amount">$600,000</div>
                     <p class="coverage-description">Full replacement cost for your home's structure. This covers rebuilding your entire house if it's destroyed by a covered loss.</p>
+                    <div class="extended-coverage-note">
+                        <strong>Plus Extended Replacement Cost:</strong> Given your home's $916K value, this policy includes extended replacement cost coverage that goes beyond the $600K base limit if construction costs spike after a major loss.
+                    </div>
                 </div>
                 
                 <div class="coverage-card">
@@ -331,9 +375,27 @@
                 </div>
             </div>
 
-            <div class="auto-note">
-                <h3>Your Auto Insurance Stays Put</h3>
-                <p>We reviewed your current auto coverage and you've got a great setup with solid rates and coverages. No need to rock the boat there - sometimes the best advice is to leave well enough alone!</p>
+            <div class="auto-section">
+                <h3>About Your Auto Insurance</h3>
+                <p style="text-align: center; color: #B8C5D6; font-size: 1.1rem; margin-bottom: 20px;">
+                    We took a careful look at your current auto situation, and here's our honest assessment:
+                </p>
+                
+                <div class="auto-content">
+                    <div class="auto-card">
+                        <h4>Keep What's Working</h4>
+                        <p>You've got great rates and solid coverages with your current carrier. When something's working this well, the smart move is to leave it alone.</p>
+                    </div>
+                    
+                    <div class="auto-card">
+                        <h4>We'll Monitor for You</h4>
+                        <p>Auto rates change constantly. We'll keep an eye on the market and let you know if we ever find something significantly better down the road.</p>
+                    </div>
+                </div>
+                
+                <p style="text-align: center; color: #FFA300; font-weight: 500; margin-top: 25px; font-size: 1.1rem;">
+                    Sometimes the best advice is knowing when NOT to change something. Your auto insurance is one of those times.
+                </p>
             </div>
 
             <div class="divider"></div>
