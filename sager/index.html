@@ -14,10 +14,11 @@
         
         body {
             font-family: 'Outfit', sans-serif;
-            background: #0a1628;
+            background: linear-gradient(135deg, #0a1729 0%, #152238 25%, #1e2a42 50%, #0f1b2e 100%);
             color: #FAFAF8;
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
         }
         
         .container {
@@ -27,11 +28,12 @@
         }
         
         .hero {
-            background: linear-gradient(135deg, #0a1628 0%, #1a2b47 100%);
+            background: linear-gradient(135deg, #0d1a2d 0%, #1a2b47 50%, #243454 100%);
             padding: 80px 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         .hero::before {
@@ -41,7 +43,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(255, 163, 0, 0.1) 0%, transparent 50%);
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(255, 163, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(0, 75, 137, 0.1) 0%, transparent 40%);
         }
         
         .hero-content {
@@ -55,25 +59,26 @@
             font-weight: 700;
             margin-bottom: 20px;
             color: #FFA300;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
         }
         
         .hero-subtitle {
             font-size: 1.3rem;
-            color: #B8C5D6;
+            color: #C5D2E6;
             margin-bottom: 40px;
             font-weight: 300;
         }
         
         .quote-summary {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 20px;
             padding: 40px;
             margin: 60px auto;
             max-width: 500px;
             text-align: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
         
         .premium-display {
@@ -82,15 +87,17 @@
             font-weight: 700;
             color: #FFA300;
             margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .premium-note {
-            color: #B8C5D6;
+            color: #C5D2E6;
             font-size: 1.1rem;
         }
         
         .section {
             padding: 80px 0;
+            background: linear-gradient(180deg, rgba(15, 27, 46, 0.3) 0%, rgba(21, 34, 56, 0.3) 100%);
         }
         
         .section-title {
@@ -100,6 +107,7 @@
             text-align: center;
             margin-bottom: 60px;
             color: #FFA300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .coverage-grid {
@@ -110,16 +118,19 @@
         }
         
         .coverage-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 20px;
             padding: 30px;
-            transition: transform 0.3s ease, background 0.3s ease;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
         .coverage-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
         
         .coverage-title {
@@ -138,27 +149,36 @@
         }
         
         .coverage-description {
-            color: #B8C5D6;
+            color: #C5D2E6;
             font-size: 0.95rem;
             line-height: 1.5;
         }
         
         .extended-coverage-note {
-            background: linear-gradient(135deg, rgba(255, 163, 0, 0.15) 0%, rgba(0, 75, 137, 0.1) 100%);
-            border: 1px solid rgba(255, 163, 0, 0.3);
+            background: linear-gradient(135deg, rgba(255, 163, 0, 0.2) 0%, rgba(0, 75, 137, 0.15) 100%);
+            border: 1px solid rgba(255, 163, 0, 0.4);
             border-radius: 15px;
             padding: 20px;
             margin-top: 15px;
-            font-size: 0.9rem;
-            color: #FFA300;
+            font-size: 0.95rem;
+            color: #FFD580;
             font-weight: 500;
+            box-shadow: 0 4px 10px rgba(255, 163, 0, 0.1);
+        }
+        
+        .coverage-highlight {
+            color: #FFA300;
+            font-weight: 600;
         }
         
         .auto-section {
-            background: linear-gradient(135deg, rgba(0, 75, 137, 0.15) 0%, rgba(255, 163, 0, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(0, 75, 137, 0.2) 0%, rgba(255, 163, 0, 0.08) 100%);
             border-radius: 25px;
             padding: 50px;
             margin: 60px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
         
         .auto-section h3 {
@@ -167,6 +187,7 @@
             color: #FFA300;
             margin-bottom: 25px;
             text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .auto-content {
@@ -177,11 +198,13 @@
         }
         
         .auto-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
             padding: 30px;
             text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
         .auto-card h4 {
@@ -192,7 +215,7 @@
         }
         
         .auto-card p {
-            color: #B8C5D6;
+            color: #C5D2E6;
             line-height: 1.6;
         }
         
@@ -207,27 +230,36 @@
             display: flex;
             align-items: center;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
         }
         
         .feature-icon {
             width: 40px;
             height: 40px;
-            background: #FFA300;
+            background: linear-gradient(135deg, #FFA300 0%, #FFB733 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 15px;
             font-weight: bold;
-            color: #0a1628;
+            color: #0a1729;
+            box-shadow: 0 4px 10px rgba(255, 163, 0, 0.3);
         }
         
         .safeshield-section {
-            background: linear-gradient(135deg, rgba(0, 75, 137, 0.1) 0%, rgba(255, 163, 0, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(0, 75, 137, 0.15) 0%, rgba(255, 163, 0, 0.08) 100%);
             padding: 80px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .value-props {
@@ -240,6 +272,10 @@
         .value-prop {
             text-align: center;
             padding: 30px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
         }
         
         .value-prop h4 {
@@ -250,14 +286,15 @@
         }
         
         .value-prop p {
-            color: #B8C5D6;
+            color: #C5D2E6;
         }
         
         .cta-section {
-            background: linear-gradient(135deg, #004B89 0%, #FFA300 100%);
+            background: linear-gradient(135deg, #004B89 0%, #0066B3 25%, #FFA300 75%, #FFB733 100%);
             padding: 80px 0;
             text-align: center;
             color: #FAFAF8;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
         }
         
         .cta-title {
@@ -265,19 +302,20 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .cta-subtitle {
             font-size: 1.2rem;
             margin-bottom: 40px;
-            opacity: 0.9;
+            opacity: 0.95;
         }
         
         .cta-button {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             color: #FAFAF8;
             padding: 18px 40px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.4);
             border-radius: 100px;
             font-size: 1.1rem;
             font-weight: 600;
@@ -285,17 +323,19 @@
             display: inline-block;
             margin: 10px;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
         .cta-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         
         .divider {
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 163, 0, 0.25), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 163, 0, 0.4), transparent);
             margin: 60px 0;
         }
         
@@ -352,7 +392,7 @@
                     <div class="coverage-amount">$600,000</div>
                     <p class="coverage-description">Full replacement cost for your home's structure. This covers rebuilding your entire house if it's destroyed by a covered loss.</p>
                     <div class="extended-coverage-note">
-                        <strong>Plus Extended Replacement Cost:</strong> Given your home's $916K value, this policy includes extended replacement cost coverage that goes beyond the $600K base limit if construction costs spike after a major loss.
+                        <strong>🏠 Extended Replacement Cost Included:</strong> Since your home is valued at <span class="coverage-highlight">$916,000</span>, this policy automatically includes extended replacement cost coverage up to <span class="coverage-highlight">25-50% above the $600K base limit</span> (potentially $750K-$900K total) if construction costs spike after a major loss.
                     </div>
                 </div>
                 
@@ -377,7 +417,7 @@
 
             <div class="auto-section">
                 <h3>About Your Auto Insurance</h3>
-                <p style="text-align: center; color: #B8C5D6; font-size: 1.1rem; margin-bottom: 20px;">
+                <p style="text-align: center; color: #C5D2E6; font-size: 1.1rem; margin-bottom: 20px;">
                     We took a careful look at your current auto situation, and here's our honest assessment:
                 </p>
                 
@@ -393,9 +433,11 @@
                     </div>
                 </div>
                 
-                <p style="text-align: center; color: #FFA300; font-weight: 500; margin-top: 25px; font-size: 1.1rem;">
-                    Sometimes the best advice is knowing when NOT to change something. Your auto insurance is one of those times.
-                </p>
+                <div style="background: rgba(255, 163, 0, 0.1); border-radius: 15px; padding: 25px; margin-top: 30px; border: 1px solid rgba(255, 163, 0, 0.3);">
+                    <p style="text-align: center; color: #FFA300; font-weight: 600; font-size: 1.1rem; margin: 0;">
+                        Sometimes the best advice is knowing when NOT to change something. Your auto insurance is one of those times.
+                    </p>
+                </div>
             </div>
 
             <div class="divider"></div>
@@ -407,7 +449,7 @@
                     <div class="feature-icon">💧</div>
                     <div>
                         <strong>Water Backup Coverage</strong><br>
-                        <span style="color: #B8C5D6;">Protection against sewer and drain backups</span>
+                        <span style="color: #C5D2E6;">Protection against sewer and drain backups</span>
                     </div>
                 </div>
                 
@@ -415,7 +457,7 @@
                     <div class="feature-icon">🛡️</div>
                     <div>
                         <strong>Personal Injury Coverage</strong><br>
-                        <span style="color: #B8C5D6;">Protection against libel, slander, and other personal injury claims</span>
+                        <span style="color: #C5D2E6;">Protection against libel, slander, and other personal injury claims</span>
                     </div>
                 </div>
                 
@@ -423,7 +465,7 @@
                     <div class="feature-icon">💰</div>
                     <div>
                         <strong>Enhanced Limits</strong><br>
-                        <span style="color: #B8C5D6;">Extra coverage for dwelling, structures, and belongings</span>
+                        <span style="color: #C5D2E6;">Extra coverage for dwelling, structures, and belongings</span>
                     </div>
                 </div>
                 
@@ -431,7 +473,7 @@
                     <div class="feature-icon">🔄</div>
                     <div>
                         <strong>Replacement Cost</strong><br>
-                        <span style="color: #B8C5D6;">No depreciation on your personal property claims</span>
+                        <span style="color: #C5D2E6;">No depreciation on your personal property claims</span>
                     </div>
                 </div>
                 
@@ -439,7 +481,7 @@
                     <div class="feature-icon">🚨</div>
                     <div>
                         <strong>Security System Credit</strong><br>
-                        <span style="color: #B8C5D6;">Discount already applied for your alarm system</span>
+                        <span style="color: #C5D2E6;">Discount already applied for your alarm system</span>
                     </div>
                 </div>
                 
@@ -447,7 +489,7 @@
                     <div class="feature-icon">🏠</div>
                     <div>
                         <strong>New Homeowner Benefits</strong><br>
-                        <span style="color: #B8C5D6;">Special discounts for recent home purchases and improvements</span>
+                        <span style="color: #C5D2E6;">Special discounts for recent home purchases and improvements</span>
                     </div>
                 </div>
             </div>
