@@ -47,10 +47,10 @@
             font-size: 1.3rem;
             font-weight: 300;
             color: rgba(250, 250, 248, 0.8);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
-        .current-premium {
+        .carrier-info {
             display: inline-block;
             background: rgba(255, 163, 0, 0.1);
             border: 1px solid rgba(255, 163, 0, 0.3);
@@ -58,6 +58,18 @@
             border-radius: 100px;
             font-size: 1.1rem;
             font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .current-premium {
+            display: inline-block;
+            background: rgba(0, 75, 137, 0.3);
+            border: 1px solid rgba(0, 75, 137, 0.5);
+            padding: 15px 30px;
+            border-radius: 100px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #FFA300;
         }
         
         .section-divider {
@@ -81,7 +93,7 @@
         
         .coverage-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
@@ -92,6 +104,8 @@
             border-radius: 20px;
             padding: 30px;
             transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
         
         .coverage-card:hover {
@@ -100,22 +114,84 @@
             border-color: rgba(255, 163, 0, 0.3);
         }
         
+        .coverage-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .coverage-icon {
+            font-size: 1.8rem;
+            color: #FFA300;
+        }
+        
         .coverage-type {
             font-weight: 700;
             font-size: 1.2rem;
             color: #FFA300;
-            margin-bottom: 15px;
+            flex: 1;
+        }
+        
+        .expand-indicator {
+            font-size: 1rem;
+            color: rgba(250, 250, 248, 0.5);
+            transition: transform 0.3s ease;
+        }
+        
+        .coverage-card.expanded .expand-indicator {
+            transform: rotate(180deg);
         }
         
         .coverage-limits {
             font-size: 1.1rem;
             margin-bottom: 10px;
             color: #FAFAF8;
+            font-weight: 600;
         }
         
         .coverage-premium {
-            font-weight: 600;
+            font-weight: 500;
             color: rgba(250, 250, 248, 0.7);
+            margin-bottom: 15px;
+        }
+        
+        .coverage-explanation {
+            display: none;
+            background: rgba(255, 163, 0, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 15px;
+            border-left: 3px solid #FFA300;
+        }
+        
+        .coverage-explanation.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .explanation-title {
+            font-weight: 700;
+            color: #FFA300;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .explanation-text {
+            color: rgba(250, 250, 248, 0.9);
+            line-height: 1.6;
+            font-size: 1rem;
         }
         
         .highlight-card {
@@ -317,7 +393,8 @@
         <div class="container">
             <h1>Craig & Julia Sager</h1>
             <p class="hero-subtitle">Homeowners Insurance Quote</p>
-            <div class="current-premium">NYCM Quote: $1,579 per year</div>
+            <div class="carrier-info">NYCM (New York Central Mutual)</div>
+            <div class="current-premium">Annual Premium: $1,579</div>
         </div>
     </section>
 
@@ -326,40 +403,88 @@
             <h2 class="section-title">Your Homeowners Coverage</h2>
             
             <div class="coverage-grid">
-                <div class="coverage-card">
-                    <div class="coverage-type">Dwelling Coverage (A)</div>
+                <div class="coverage-card" onclick="toggleExplanation(this)">
+                    <div class="coverage-header">
+                        <div class="coverage-icon">🏠</div>
+                        <div class="coverage-type">Dwelling Coverage (A)</div>
+                        <div class="expand-indicator">▼</div>
+                    </div>
                     <div class="coverage-limits">$900,000 Total Protection</div>
                     <div class="coverage-premium">Includes Extended Replacement Cost</div>
+                    <div class="coverage-explanation">
+                        <div class="explanation-title">What does this protect?</div>
+                        <div class="explanation-text">This pays to rebuild your house if it's destroyed by fire, storm, or other covered disasters. We got you $900K total protection ($600K base + $300K extended) which fully covers your $916K home value even if construction costs go way up.</div>
+                    </div>
                 </div>
                 
-                <div class="coverage-card">
-                    <div class="coverage-type">Other Structures (B)</div>
+                <div class="coverage-card" onclick="toggleExplanation(this)">
+                    <div class="coverage-header">
+                        <div class="coverage-icon">🏘️</div>
+                        <div class="coverage-type">Other Structures (B)</div>
+                        <div class="expand-indicator">▼</div>
+                    </div>
                     <div class="coverage-limits">$60,000</div>
-                    <div class="coverage-premium">Detached garages, sheds, fences</div>
+                    <div class="coverage-premium">Detached structures</div>
+                    <div class="coverage-explanation">
+                        <div class="explanation-title">What does this protect?</div>
+                        <div class="explanation-text">Covers detached garages, sheds, fences, and other structures on your property. If a tree falls on your fence or shed, this coverage pays to fix it.</div>
+                    </div>
                 </div>
                 
-                <div class="coverage-card">
-                    <div class="coverage-type">Personal Property (C)</div>
+                <div class="coverage-card" onclick="toggleExplanation(this)">
+                    <div class="coverage-header">
+                        <div class="coverage-icon">📦</div>
+                        <div class="coverage-type">Personal Property (C)</div>
+                        <div class="expand-indicator">▼</div>
+                    </div>
                     <div class="coverage-limits">$420,000</div>
                     <div class="coverage-premium">Replacement Cost Coverage</div>
+                    <div class="coverage-explanation">
+                        <div class="explanation-title">What does this protect?</div>
+                        <div class="explanation-text">Covers all your stuff - furniture, clothes, electronics, jewelry. With replacement cost, you get money to buy new items, not old depreciated values. If your TV gets stolen, you get enough to buy a new one.</div>
+                    </div>
                 </div>
                 
-                <div class="coverage-card">
-                    <div class="coverage-type">Loss of Use (D)</div>
+                <div class="coverage-card" onclick="toggleExplanation(this)">
+                    <div class="coverage-header">
+                        <div class="coverage-icon">🏨</div>
+                        <div class="coverage-type">Loss of Use (D)</div>
+                        <div class="expand-indicator">▼</div>
+                    </div>
                     <div class="coverage-limits">$180,000</div>
-                    <div class="coverage-premium">Hotel & living expenses</div>
+                    <div class="coverage-premium">Living expenses</div>
+                    <div class="coverage-explanation">
+                        <div class="explanation-title">What does this protect?</div>
+                        <div class="explanation-text">Pays for hotels, restaurants, and extra living costs if your home becomes unlivable. House fire? We pay for you to stay in a nice hotel and eat out while your home is rebuilt.</div>
+                    </div>
                 </div>
                 
-                <div class="coverage-card">
-                    <div class="coverage-type">Personal Liability (E)</div>
+                <div class="coverage-card" onclick="toggleExplanation(this)">
+                    <div class="coverage-header">
+                        <div class="coverage-icon">⚖️</div>
+                        <div class="coverage-type">Personal Liability (E)</div>
+                        <div class="expand-indicator">▼</div>
+                    </div>
                     <div class="coverage-limits">$500,000</div>
-                    <div class="coverage-premium">Legal protection coverage</div>
+                    <div class="coverage-premium">Legal protection</div>
+                    <div class="coverage-explanation">
+                        <div class="explanation-title">What does this protect?</div>
+                        <div class="explanation-text">Protects you if someone gets hurt on your property and sues you. Neighbor slips on your icy driveway? Dog bites someone? This pays their medical bills and your legal defense up to $500K.</div>
+                    </div>
                 </div>
                 
-                <div class="coverage-card">
-                    <div class="coverage-type">Medical Payments (F)</div>
+                <div class="coverage-card" onclick="toggleExplanation(this)">
+                    <div class="coverage-header">
+                        <div class="coverage-icon">🏥</div>
+                        <div class="coverage-type">Medical Payments (F)</div>
+                        <div class="expand-indicator">▼</div>
+                    </div>
                     <div class="coverage-limits">$5,000</div>
-                    <div class="coverage-premium">Guest injury coverage</div>
+                    <div class="coverage-premium">Guest injuries</div>
+                    <div class="coverage-explanation">
+                        <div class="explanation-title">What does this protect?</div>
+                        <div class="explanation-text">Pays medical bills immediately if someone gets hurt on your property, no matter who's at fault. Friend trips on your steps? This covers their doctor visit right away without a lawsuit.</div>
+                    </div>
                 </div>
             </div>
             
@@ -390,22 +515,46 @@
             </div>
             
             <div class="coverage-grid">
-                <div class="coverage-card">
-                    <div class="coverage-type">Water Backup Coverage</div>
+                <div class="coverage-card" onclick="toggleExplanation(this)">
+                    <div class="coverage-header">
+                        <div class="coverage-icon">💧</div>
+                        <div class="coverage-type">Water Backup Coverage</div>
+                        <div class="expand-indicator">▼</div>
+                    </div>
                     <div class="coverage-limits">Included</div>
-                    <div class="coverage-premium">Sump pump & sewer backup protection</div>
+                    <div class="coverage-premium">Sump pump & sewer backup</div>
+                    <div class="coverage-explanation">
+                        <div class="explanation-title">What does this protect?</div>
+                        <div class="explanation-text">Covers damage when your sump pump fails or sewers back up into your basement. This is huge in NY where heavy rains can overwhelm drainage systems and flood basements.</div>
+                    </div>
                 </div>
                 
-                <div class="coverage-card">
-                    <div class="coverage-type">Personal Injury Protection</div>
+                <div class="coverage-card" onclick="toggleExplanation(this)">
+                    <div class="coverage-header">
+                        <div class="coverage-icon">🗣️</div>
+                        <div class="coverage-type">Personal Injury Protection</div>
+                        <div class="expand-indicator">▼</div>
+                    </div>
                     <div class="coverage-limits">Included</div>
-                    <div class="coverage-premium">Libel, slander, false arrest coverage</div>
+                    <div class="coverage-premium">Beyond physical injuries</div>
+                    <div class="coverage-explanation">
+                        <div class="explanation-title">What does this protect?</div>
+                        <div class="explanation-text">Covers non-physical injuries like libel, slander, or false arrest. If someone claims you damaged their reputation or wrongfully accused them of something, this protects you legally.</div>
+                    </div>
                 </div>
                 
-                <div class="coverage-card">
-                    <div class="coverage-type">Alarm System Credit</div>
+                <div class="coverage-card" onclick="toggleExplanation(this)">
+                    <div class="coverage-header">
+                        <div class="coverage-icon">🚨</div>
+                        <div class="coverage-type">Protective Device Credits</div>
+                        <div class="expand-indicator">▼</div>
+                    </div>
                     <div class="coverage-limits">Applied</div>
-                    <div class="coverage-premium">Discount for protective devices</div>
+                    <div class="coverage-premium">Security system discounts</div>
+                    <div class="coverage-explanation">
+                        <div class="explanation-title">What does this save?</div>
+                        <div class="explanation-text">You're getting premium discounts for having security systems, smoke detectors, and other protective devices. These reduce your risk, so NYCM reduces your premium.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -501,5 +650,24 @@
             <p>Austin Glazer | austin@gosafeshield.com | (203) 564-9817</p>
         </div>
     </footer>
+
+    <script>
+        function toggleExplanation(card) {
+            const explanation = card.querySelector('.coverage-explanation');
+            const isExpanded = card.classList.contains('expanded');
+            
+            // Close all other cards
+            document.querySelectorAll('.coverage-card').forEach(c => {
+                c.classList.remove('expanded');
+                c.querySelector('.coverage-explanation').classList.remove('show');
+            });
+            
+            // Toggle current card
+            if (!isExpanded) {
+                card.classList.add('expanded');
+                explanation.classList.add('show');
+            }
+        }
+    </script>
 </body>
 </html>
