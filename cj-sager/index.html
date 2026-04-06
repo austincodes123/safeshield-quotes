@@ -387,30 +387,47 @@
         @media (max-width: 640px) {
             .page { padding: 10px 8px 40px; }
             .masters-header { padding: 30px 20px; }
-            .course-strip { gap: 16px; padding: 12px 16px; }
-            .leaderboard-header { display: none; }
+            .course-strip { gap: 12px; padding: 12px 16px; }
+
+            /* Keep leaderboard header but compact */
+            .leaderboard-header {
+                grid-template-columns: 1fr 1fr;
+            }
+            .leaderboard-header .lh-cell:first-child { display: none; }
+            .leaderboard-header .lh-cell { padding: 12px 10px; font-size: 8px; letter-spacing: 1.5px; }
+            .leaderboard-header .lh-cell .player-name { font-size: 12px; }
+
+            /* Coverage name spans full width, values sit side by side below */
             .hole-row {
-                grid-template-columns: 1fr;
-                padding: 16px 18px;
-                gap: 10px;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                padding: 0;
+                gap: 0;
             }
-            .hole-cell { padding: 0; }
-            .hole-cell:nth-child(2)::before,
-            .hole-cell:nth-child(3)::before {
-                font-size: 9px;
-                font-weight: 700;
-                letter-spacing: 1.5px;
-                text-transform: uppercase;
-                color: var(--text-soft);
-                margin-bottom: 3px;
+            .hole-cell:first-child {
+                grid-column: 1 / -1;
+                padding: 14px 14px 6px;
             }
-            .hole-cell:nth-child(2)::before { content: 'GEICO / LIBERTY MUTUAL'; }
-            .hole-cell:nth-child(3)::before { content: 'NYCM VIA SAFESHIELD'; }
+            .hole-cell:nth-child(2) {
+                padding: 4px 14px 14px;
+            }
             .hole-cell:nth-child(3) {
-                border-left: none;
-                border-top: 1px dashed rgba(0,103,71,0.15);
-                padding-top: 10px !important;
+                padding: 4px 14px 14px;
+                border-left: 3px solid var(--augusta);
             }
+
+            .hole-name { font-size: 14px; }
+            .hole-subtitle { font-size: 11px; }
+            .hole-val { font-size: 13px; }
+            .hole-val-pro { font-size: 13px; }
+            .advantage-tag { font-size: 8px; padding: 2px 6px; }
+            .bogey-val { font-size: 12px; }
+            .birdie-val { font-size: 13px; }
+
+            /* Premium row */
+            .premium-row .hole-val { font-size: 17px !important; }
+            .premium-row .hole-val-pro { font-size: 18px !important; }
+
             .hazard-section { padding: 0 14px 20px; }
             .scorecard-footer { padding: 28px 20px; }
         }
