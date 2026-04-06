@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJ Sager | The Homeowners Invitational | Safeshield Insurance</title>
+    <link rel="icon" type="image/png" href="https://gosafeshield.com/Blue_and_gold_shield_logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --augusta: #006747;
+            --augusta-deep: #00432e;
+            --augusta-shadow: #002e1f;
+            --fairway: #0d5c3f;
+            --gold: #d4af37;
+            --gold-light: #e8cc6a;
+            --gold-pale: #f5e6a3;
+            --cream: #fdfbf5;
+            --parchment: #f7f3ea;
+            --sand: #ece5d5;
+            --text: #1c2a1f;
+            --text-mid: #3d4f42;
+            --text-soft: #6b7c6f;
+            --danger: #b83232;
+            --danger-bg: #fdf2f2;
+            --safe: #1a7a42;
+            --safe-bg: #f0faf4;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            min-height: 100vh;
+            padding: 20px 14px 60px;
+            background:
+                repeating-linear-gradient(
+                    180deg,
+                    rgba(0,103,71,0.018) 0px,
+                    rgba(0,103,71,0.018) 40px,
+                    rgba(0,103,71,0.035) 40px,
+                    rgba(0,103,71,0.035) 80px
+                ),
+                radial-gradient(ellipse at 50% -10%, rgba(0,103,71,0.06) 0%, transparent 55%),
+                var(--cream);
+        }
+
+        .container { max-width: 820px; margin: 0 auto; }
+
+        /* === MASTERS HEADER === */
+        .masters-header {
+            background: var(--augusta);
+            border-radius: 16px 16px 0 0;
+            padding: 44px 32px 38px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .masters-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--augusta-deep), var(--gold), var(--gold-light), var(--gold), var(--augusta-deep));
+        }
+        .masters-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--augusta-deep), var(--gold), var(--gold-light), var(--gold), var(--augusta-deep));
+        }
+
+        .flag-cluster { font-size: 36px; margin-bottom: 14px; letter-spacing: 8px; }
+
+        .masters-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: clamp(20px, 5vw, 28px);
+            color: var(--gold-light);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .masters-header .event-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: clamp(26px, 6vw, 38px);
+            color: #fff;
+            letter-spacing: 1px;
+            line-height: 1.15;
+            margin-bottom: 14px;
+        }
+        .masters-header .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(13px, 3vw, 16px);
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* === COURSE STRIP === */
+        .course-strip {
+            background: var(--augusta-deep);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 28px;
+            padding: 14px 20px;
+        }
+        .course-detail { text-align: center; }
+        .course-detail .cd-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 2px;
+        }
+        .course-detail .cd-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gold-light);
+        }
+
+        /* === MAIN CARD === */
+        .main-card {
+            background: #fff;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,103,71,0.06);
+        }
+
+        /* === LEADERBOARD TABLE === */
+        .leaderboard-header {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            background: var(--augusta-shadow);
+        }
+        .lh-cell {
+            padding: 16px 20px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            border-right: 1px solid rgba(255,255,255,0.06);
+        }
+        .lh-cell:last-child { color: var(--gold-light); border-right: none; }
+        .lh-cell .player-name {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: none;
+            margin-top: 4px;
+            color: rgba(255,255,255,0.85);
+        }
+        .lh-cell:last-child .player-name { color: var(--gold); }
+        .lh-pos {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            font-size: 10px;
+            font-weight: 800;
+            margin-right: 4px;
+        }
+        .pos-2 { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); }
+        .pos-1 { background: var(--gold); color: var(--augusta-shadow); }
+
+        /* === HOLE ROWS === */
+        .hole-row {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            border-bottom: 1px solid #eeeae0;
+            transition: background 0.2s;
+        }
+        .hole-row:hover { background: rgba(0,103,71,0.012); }
+
+        .hole-cell {
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hole-cell:nth-child(3) {
+            background: rgba(0,103,71,0.025);
+            border-left: 3px solid var(--augusta);
+        }
+
+        .hole-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            background: var(--augusta);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .hole-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--text);
+        }
+        .hole-subtitle {
+            font-size: 12px;
+            color: var(--text-soft);
+            margin-top: 1px;
+        }
+
+        .hole-val { font-size: 15px; font-weight: 500; color: var(--text-mid); }
+        .hole-val-pro { font-size: 15px; font-weight: 700; color: var(--augusta-deep); }
+
+        .advantage-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 5px;
+            padding: 3px 9px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--augusta-shadow);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        .bogey-val { color: var(--danger); font-weight: 700; }
+        .birdie-val { color: var(--safe); font-weight: 700; }
+
+        /* === HAZARD SECTION === */
+        .hazard-section { padding: 0 20px 24px; }
+        .hazard-section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--augusta-deep);
+            padding: 28px 20px 16px;
+            text-align: center;
+        }
+        .hazard-section-title span { display: block; font-size: 20px; margin-bottom: 6px; }
+
+        .hazard-card {
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 14px;
+        }
+        .hazard-card:last-child { margin-bottom: 0; }
+
+        .hazard-card.danger {
+            background: var(--danger-bg);
+            border: 1px solid #f0c8c8;
+            border-left: 4px solid var(--danger);
+        }
+        .hazard-card.birdie {
+            background: var(--safe-bg);
+            border: 1px solid #c0e8d0;
+            border-left: 4px solid var(--safe);
+        }
+
+        .hc-icon { font-size: 18px; margin-bottom: 6px; }
+        .hc-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+        .hazard-card.danger .hc-title { color: var(--danger); }
+        .hazard-card.birdie .hc-title { color: var(--safe); }
+
+        .hc-body {
+            font-size: 13.5px;
+            line-height: 1.65;
+            color: var(--text-mid);
+        }
+        .hc-body strong { color: var(--text); }
+
+        .hc-stat {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(0,0,0,0.08);
+        }
+        .hc-stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 900;
+        }
+        .hazard-card.danger .hc-stat-num { color: var(--danger); }
+        .hazard-card.birdie .hc-stat-num { color: var(--safe); }
+        .hc-stat-label { font-size: 12px; color: var(--text-soft); }
+
+        /* === SCORECARD FOOTER === */
+        .scorecard-footer {
+            background: var(--augusta);
+            padding: 36px 28px;
+            position: relative;
+        }
+        .scorecard-footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--augusta-deep), var(--gold), var(--gold-light), var(--gold), var(--augusta-deep));
+        }
+
+        .trophy-block { text-align: center; margin-bottom: 24px; }
+        .trophy-icon { font-size: 36px; margin-bottom: 8px; }
+        .trophy-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 6px;
+        }
+        .trophy-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+        }
+        .trophy-sub {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 6px;
+        }
+
+        .cost-pill {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(212,175,55,0.3);
+            border-radius: 100px;
+            padding: 10px 28px;
+            margin-top: 16px;
+            font-size: 15px;
+            color: rgba(255,255,255,0.85);
+        }
+        .cost-pill strong { color: var(--gold-light); }
+
+        .final-line {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .final-line p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 15px;
+            color: rgba(255,255,255,0.65);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* === BRANDING === */
+        .brand-bar {
+            background: var(--augusta-deep);
+            border-radius: 0 0 16px 16px;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+        .brand-bar img { height: 26px; width: auto; filter: brightness(10); }
+        .brand-bar .brand-text { font-size: 12px; color: rgba(255,255,255,0.5); }
+        .brand-bar a { color: var(--gold-light); text-decoration: none; font-weight: 600; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 640px) {
+            .page { padding: 10px 8px 40px; }
+            .masters-header { padding: 30px 20px; }
+            .course-strip { gap: 16px; padding: 12px 16px; }
+            .leaderboard-header { display: none; }
+            .hole-row {
+                grid-template-columns: 1fr;
+                padding: 16px 18px;
+                gap: 10px;
+            }
+            .hole-cell { padding: 0; }
+            .hole-cell:nth-child(2)::before,
+            .hole-cell:nth-child(3)::before {
+                font-size: 9px;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                color: var(--text-soft);
+                margin-bottom: 3px;
+            }
+            .hole-cell:nth-child(2)::before { content: 'GEICO / LIBERTY MUTUAL'; }
+            .hole-cell:nth-child(3)::before { content: 'NYCM VIA SAFESHIELD'; }
+            .hole-cell:nth-child(3) {
+                border-left: none;
+                border-top: 1px dashed rgba(0,103,71,0.15);
+                padding-top: 10px !important;
+            }
+            .hazard-section { padding: 0 14px 20px; }
+            .scorecard-footer { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="container">
+
+    <!-- MASTERS HEADER -->
+    <div class="masters-header">
+        <div class="flag-cluster">&#9971; &#9971; &#9971;</div>
+        <h1>A Tradition Unlike Any Other</h1>
+        <div class="event-name">The 2026 Homeowners<br>Invitational</div>
+        <div class="tagline">Official Coverage Leaderboard for the Sager Residence</div>
+    </div>
+
+    <!-- COURSE STRIP -->
+    <div class="course-strip">
+        <div class="course-detail">
+            <div class="cd-label">Course</div>
+            <div class="cd-value">50 Stewart Pl, Eastchester, NY</div>
+        </div>
+        <div class="course-detail">
+            <div class="cd-label">Purchase Price</div>
+            <div class="cd-value">$915,000</div>
+        </div>
+        <div class="course-detail">
+            <div class="cd-label">Year Built</div>
+            <div class="cd-value">1899 (126 Years)</div>
+        </div>
+        <div class="course-detail">
+            <div class="cd-label">Construction</div>
+            <div class="cd-value">Frame</div>
+        </div>
+    </div>
+
+    <!-- LEADERBOARD CARD -->
+    <div class="main-card">
+
+        <div class="leaderboard-header">
+            <div class="lh-cell">Hole-by-Hole</div>
+            <div class="lh-cell">
+                <span class="lh-pos pos-2">2</span> The Amateur
+                <span class="player-name">Geico / Liberty Mutual</span>
+            </div>
+            <div class="lh-cell">
+                <span class="lh-pos pos-1">1</span> The Green Jacket
+                <span class="player-name">NYCM via Safeshield</span>
+            </div>
+        </div>
+
+        <!-- HOLE 1 -->
+        <div class="hole-row">
+            <div class="hole-cell">
+                <span class="hole-number">1</span>
+                <span class="hole-name">The Long Game</span>
+                <span class="hole-subtitle">Coverage A: Dwelling Rebuild</span>
+            </div>
+            <div class="hole-cell">
+                <span class="hole-val">$468,500</span>
+            </div>
+            <div class="hole-cell">
+                <span class="hole-val-pro">$600,000</span>
+                <span class="advantage-tag">+$131,500 more protection</span>
+            </div>
+        </div>
+
+        <!-- HOLE 2 -->
+        <div class="hole-row">
+            <div class="hole-cell">
+                <span class="hole-number">2</span>
+                <span class="hole-name">The Practice Green</span>
+                <span class="hole-subtitle">Coverage B: Other Structures</span>
+            </div>
+            <div class="hole-cell"><span class="hole-val">$46,850</span></div>
+            <div class="hole-cell"><span class="hole-val-pro">$60,000</span></div>
+        </div>
+
+        <!-- HOLE 3 -->
+        <div class="hole-row">
+            <div class="hole-cell">
+                <span class="hole-number">3</span>
+                <span class="hole-name">Fairway Protection</span>
+                <span class="hole-subtitle">Coverage C: Personal Property</span>
+            </div>
+            <div class="hole-cell"><span class="hole-val">$351,380</span></div>
+            <div class="hole-cell">
+                <span class="hole-val-pro">$420,000</span>
+                <span class="advantage-tag">Replacement cost included</span>
+            </div>
+        </div>
+
+        <!-- HOLE 4 -->
+        <div class="hole-row">
+            <div class="hole-cell">
+                <span class="hole-number">4</span>
+                <span class="hole-name">The Clubhouse Stay</span>
+                <span class="hole-subtitle">Coverage D: Loss of Use</span>
+            </div>
+            <div class="hole-cell"><span class="hole-val">Actual Loss Sustained</span></div>
+            <div class="hole-cell"><span class="hole-val-pro">$180,000</span></div>
+        </div>
+
+        <!-- HOLE 5 -->
+        <div class="hole-row">
+            <div class="hole-cell">
+                <span class="hole-number">5</span>
+                <span class="hole-name">The Sand Trap</span>
+                <span class="hole-subtitle">Hurricane Deductible</span>
+            </div>
+            <div class="hole-cell">
+                <span class="bogey-val">5% = $23,425 out of pocket</span>
+            </div>
+            <div class="hole-cell">
+                <span class="birdie-val">$2,500 flat</span>
+                <span class="advantage-tag">Save $20,925 in a storm</span>
+            </div>
+        </div>
+
+        <!-- HOLE 6 -->
+        <div class="hole-row">
+            <div class="hole-cell">
+                <span class="hole-number">6</span>
+                <span class="hole-name">The Approach Shot</span>
+                <span class="hole-subtitle">Standard Deductible (AOP)</span>
+            </div>
+            <div class="hole-cell"><span class="hole-val">$1,000</span></div>
+            <div class="hole-cell"><span class="hole-val-pro">$2,500</span></div>
+        </div>
+
+        <!-- HOLE 7 -->
+        <div class="hole-row">
+            <div class="hole-cell">
+                <span class="hole-number">7</span>
+                <span class="hole-name">The Rough</span>
+                <span class="hole-subtitle">Coverage E: Personal Liability</span>
+            </div>
+            <div class="hole-cell"><span class="hole-val">$300,000</span></div>
+            <div class="hole-cell"><span class="hole-val-pro">$300,000</span></div>
+        </div>
+
+        <!-- HOLE 8 -->
+        <div class="hole-row">
+            <div class="hole-cell">
+                <span class="hole-number">8</span>
+                <span class="hole-name">Guest on the Green</span>
+                <span class="hole-subtitle">Coverage F: Medical Payments</span>
+            </div>
+            <div class="hole-cell"><span class="hole-val">$1,000</span></div>
+            <div class="hole-cell">
+                <span class="hole-val-pro">$5,000</span>
+                <span class="advantage-tag">5x the protection</span>
+            </div>
+        </div>
+
+        <!-- HOLE 9 -->
+        <div class="hole-row">
+            <div class="hole-cell">
+                <span class="hole-number">9</span>
+                <span class="hole-name">Water Hazard</span>
+                <span class="hole-subtitle">Sewer / Sump Backup</span>
+            </div>
+            <div class="hole-cell"><span class="hole-val">Limited / Capped</span></div>
+            <div class="hole-cell"><span class="birdie-val">Included</span></div>
+        </div>
+
+        <!-- HOLE 10 -->
+        <div class="hole-row">
+            <div class="hole-cell">
+                <span class="hole-number">10</span>
+                <span class="hole-name">The Caddy's Advice</span>
+                <span class="hole-subtitle">Personal Injury Protection</span>
+            </div>
+            <div class="hole-cell"><span class="bogey-val" style="font-style:italic;">Out of Bounds</span></div>
+            <div class="hole-cell"><span class="birdie-val">In Play</span></div>
+        </div>
+
+        <!-- HOLE 11 -->
+        <div class="hole-row">
+            <div class="hole-cell">
+                <span class="hole-number">11</span>
+                <span class="hole-name">The Equipment Shed</span>
+                <span class="hole-subtitle">Contents Valuation Method</span>
+            </div>
+            <div class="hole-cell">
+                <span class="hole-val">Actual Cash Value</span>
+                <span style="font-size:11px;color:var(--text-soft);">Depreciated "garage sale" pricing</span>
+            </div>
+            <div class="hole-cell">
+                <span class="birdie-val">Replacement Cost</span>
+                <span style="font-size:11px;color:var(--safe);">Brand new, full value</span>
+            </div>
+        </div>
+
+        <!-- HOLE 18: PREMIUM -->
+        <div class="hole-row" style="background:var(--parchment);border-top:2px solid var(--sand);">
+            <div class="hole-cell">
+                <span class="hole-number" style="background:var(--gold);color:var(--augusta-shadow);">18</span>
+                <span class="hole-name">The Clubhouse Fee</span>
+                <span class="hole-subtitle">Annual Premium</span>
+            </div>
+            <div class="hole-cell">
+                <span class="hole-val" style="font-size:20px;font-weight:700;">$1,387</span>
+            </div>
+            <div class="hole-cell">
+                <span class="hole-val-pro" style="font-size:22px;">$1,579</span>
+                <span style="font-size:12px;color:var(--text-soft);margin-top:2px;">Just ~$16/month more</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- WHY THESE HOLES MATTER -->
+    <div class="main-card" style="margin-top:2px;">
+        <div class="hazard-section-title">
+            <span>&#9873;</span>
+            Why These Holes Matter
+        </div>
+        <div class="hazard-section">
+
+            <div class="hazard-card danger">
+                <div class="hc-icon">&#9888;&#65039;</div>
+                <div class="hc-title">Hole #1: The $131,500 Dwelling Gap</div>
+                <div class="hc-body">
+                    This is the single biggest risk on the scorecard. Geico values the dwelling at <strong>$468,500</strong> for a home being purchased at $915,000 in Eastchester. Could we quote you at that same number and save you a few bucks? Absolutely. But we would not recommend it, and here is why: rebuilding a 126-year-old frame home in Westchester County today means specialized labor, materials, and code compliance costs that far exceed national averages. At $468K, you are not insuring your home to be rebuilt. You are insuring it to be <strong>partially</strong> rebuilt, and you are covering the rest out of pocket. If a total loss occurs, you could be <strong>six figures short</strong> with no way to recover it. That is not a coverage gap. That is a financial disaster. We set you at $600,000 because that is what it actually takes to put this house back together.
+                </div>
+                <div class="hc-stat">
+                    <span class="hc-stat-num">$131,500</span>
+                    <span class="hc-stat-label">Less dwelling coverage with Geico vs. NYCM</span>
+                </div>
+            </div>
+
+            <div class="hazard-card danger">
+                <div class="hc-icon">&#127754;</div>
+                <div class="hc-title">Hole #5: The Hurricane Sand Trap</div>
+                <div class="hc-body">
+                    Geico's 5% hurricane deductible means you write a <strong>$23,425 check</strong> before a single dollar of coverage kicks in during a named storm. That is nearly the cost of a brand new car. The NYCM policy keeps the hurricane deductible at a flat <strong>$2,500</strong>, which is the same as any other claim. In the lower NY metro area, hurricanes and tropical storms are not hypothetical. Superstorm Sandy proved that. Isaias proved that. This is real money at real risk.
+                </div>
+                <div class="hc-stat">
+                    <span class="hc-stat-num">$20,925</span>
+                    <span class="hc-stat-label">More out of pocket with Geico in a hurricane</span>
+                </div>
+            </div>
+
+            <div class="hazard-card danger">
+                <div class="hc-icon">&#127960;&#65039;</div>
+                <div class="hc-title">The 126-Year-Old Factor: Ordinance or Law</div>
+                <div class="hc-body">
+                    A home built in 1899 is almost certainly not up to modern building codes. If a major loss occurs, the town of Eastchester will require updated electrical, plumbing, and HVAC during the rebuild. These code-compliance upgrades are expensive and <strong>not covered under a standard policy</strong> without Ordinance or Law endorsements. The NYCM quote includes additional limits of liability that help absorb these costs. With Geico's already-low dwelling limit, even their standard 10% Ordinance or Law provision barely moves the needle. You would be rebuilding a 2026-code house on an 1899-code budget.
+                </div>
+            </div>
+
+            <div class="hazard-card birdie">
+                <div class="hc-icon">&#127942;</div>
+                <div class="hc-title">Hole #11: New for Old, Not Garage Sale Prices</div>
+                <div class="hc-body">
+                    The NYCM policy includes <strong>Replacement Cost on contents</strong>. If your 3-year-old TV gets destroyed, the policy pays for a brand new equivalent. Geico uses Actual Cash Value, which depreciates belongings based on age. That same TV might be valued at a fraction of what it costs to replace. Over a full home's worth of furniture, electronics, clothing, and personal items, this difference adds up fast. You do not want to find out what your couch is "worth" to an adjuster using depreciation tables.
+                </div>
+            </div>
+
+            <div class="hazard-card birdie">
+                <div class="hc-icon">&#9971;</div>
+                <div class="hc-title">Hole #8: 5x Guest Medical Protection</div>
+                <div class="hc-body">
+                    Geico provides $1,000 in medical payments if a guest gets hurt on your property. One trip to the ER blows through that in minutes. The NYCM policy provides <strong>$5,000</strong>, which covers real-world medical costs and keeps small incidents from turning into lawsuits. When your buddy trips on the patio at a barbecue, you want this number to actually mean something.
+                </div>
+            </div>
+
+            <div class="hazard-card birdie">
+                <div class="hc-icon">&#128171;</div>
+                <div class="hc-title">Hole #10: Personal Injury, a.k.a. The Caddy's Advice</div>
+                <div class="hc-body">
+                    Geico does not include Personal Injury coverage at all. The NYCM policy does. This protects against claims of libel, slander, defamation, or invasion of privacy. In 2026, one social media post that goes sideways can trigger a lawsuit. This is cheap protection that the other policy simply does not offer. It is like playing without a caddy and hoping you read the green right on your own.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SCORECARD FOOTER -->
+    <div class="scorecard-footer" style="border-radius:0;">
+        <div class="trophy-block">
+            <div class="trophy-icon">&#127942;</div>
+            <div class="trophy-title">Championship Advantage</div>
+            <div class="trophy-number">+$131,500</div>
+            <div class="trophy-sub">Additional dwelling protection for a 126-year-old home</div>
+            <div class="cost-pill">
+                Total difference: <strong>$192/year</strong> &mdash; that is <strong>$16/month</strong>
+            </div>
+        </div>
+        <div class="final-line">
+            <p>"The most dangerous shot in golf is the one you don't plan for. For $16 a month, you never have to guess."</p>
+        </div>
+    </div>
+
+    <!-- BRANDING -->
+    <div class="brand-bar">
+        <img src="https://gosafeshield.com/safeshield-logo.png" alt="Safeshield Insurance">
+        <span class="brand-text">Prepared by <a href="https://gosafeshield.com">Safeshield Insurance</a> &middot; (203) 204-2555</span>
+    </div>
+
+</div>
+</div>
+</body>
+</html>
