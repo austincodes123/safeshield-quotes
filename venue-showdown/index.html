@@ -3,207 +3,248 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Venue Showdown | Mollie's Saturday Night</title>
+<title>The Venue Masters | Mollie's Birthday</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     min-height: 100vh;
-    background: #0a0a0f;
-    color: #e8e4df;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    padding: 24px 16px;
+    background: #0d4f2b;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    padding: 0;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(0,80,30,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(0,60,20,0.3) 0%, transparent 50%),
+      linear-gradient(180deg, #0a3d22 0%, #0d4f2b 30%, #0b4425 70%, #093a1e 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .content { position: relative; z-index: 1; padding: 20px 16px 40px; max-width: 480px; margin: 0 auto; }
+
   @keyframes growBar { from { width: 0%; } }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes flagWave { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
 
-  .header { text-align: center; margin-bottom: 32px; animation: fadeUp 0.5s ease both; }
-  .header-sub { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #666; margin-bottom: 8px; }
-  .header h1 {
-    font-size: 28px; font-weight: 800; margin: 0 0 4px 0; letter-spacing: -0.5px;
-    background: linear-gradient(135deg, #c9a96e, #f0d48a, #c9a96e);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .header-hint { font-size: 13px; color: #555; }
+  .masters-header { text-align: center; padding: 28px 0 24px; animation: fadeUp 0.6s ease both; }
+  .masters-flag { font-size: 36px; display: inline-block; animation: flagWave 3s ease-in-out infinite; margin-bottom: 4px; }
+  .masters-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 32px; letter-spacing: 1px; color: #fde68a; text-shadow: 0 2px 8px rgba(0,0,0,0.3); margin-bottom: 2px; }
+  .masters-sub { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 400; font-style: italic; color: rgba(253,230,138,0.7); letter-spacing: 2px; margin-bottom: 6px; }
+  .masters-detail { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 3px; text-transform: uppercase; }
+  .masters-bday { display: inline-block; margin-top: 10px; padding: 5px 16px; border: 1px solid rgba(253,230,138,0.3); border-radius: 20px; font-size: 11px; color: #fde68a; letter-spacing: 1px; background: rgba(253,230,138,0.06); }
 
-  .vs-container { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 28px; animation: fadeUp 0.5s 0.1s ease both; }
-  .vs-card {
-    flex: 1; text-align: center; padding: 16px 8px; border-radius: 12px;
-    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
-    cursor: pointer; transition: all 0.3s ease;
-  }
-  .vs-card.active-flyfish { background: linear-gradient(135deg, #1a1a3e, #0d0d2b); border-color: #4a6cf7; animation: pulse 1.5s ease infinite; }
-  .vs-card.active-cantina { background: linear-gradient(135deg, #2b1a0d, #1a0d00); border-color: #e8772e; animation: pulse 1.5s ease infinite; }
-  .vs-emoji { font-size: 24px; margin-bottom: 4px; }
-  .vs-name-ff { font-size: 13px; font-weight: 700; color: #4a6cf7; letter-spacing: 1px; }
-  .vs-name-ct { font-size: 13px; font-weight: 700; color: #e8772e; letter-spacing: 1px; }
-  .vs-addr { font-size: 10px; color: #555; margin-top: 2px; }
-  .vs-score-ff { font-size: 22px; font-weight: 800; color: #4a6cf7; margin-top: 6px; }
-  .vs-score-ct { font-size: 22px; font-weight: 800; color: #e8772e; margin-top: 6px; }
-  .vs-label { font-size: 9px; color: #444; }
-  .vs-text { font-size: 18px; font-weight: 900; color: #333; flex-shrink: 0; }
+  .leaderboard-header { display: flex; align-items: center; padding: 10px 16px; margin-bottom: 2px; border-bottom: 2px solid rgba(253,230,138,0.2); animation: fadeUp 0.5s 0.15s ease both; }
+  .lb-col-pos { width: 36px; font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; }
+  .lb-col-name { flex: 1; font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; }
+  .lb-col-score { width: 50px; text-align: right; font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; }
+  .lb-col-thru { width: 40px; text-align: right; font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; }
 
-  .vote-indicator { text-align: center; margin-bottom: 20px; font-size: 12px; animation: fadeUp 0.3s ease both; display: none; }
+  .venue-row { display: flex; align-items: center; padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); cursor: pointer; transition: background 0.2s ease; animation: fadeUp 0.5s 0.2s ease both; }
+  .venue-row:nth-child(4) { animation-delay: 0.25s; }
+  .venue-row:hover, .venue-row:active { background: rgba(255,255,255,0.04); }
+  .venue-row.leader { background: rgba(253,230,138,0.06); }
+  .venue-pos { width: 36px; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #fde68a; }
+  .venue-pos.second { color: rgba(255,255,255,0.6); }
+  .venue-info { flex: 1; }
+  .venue-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; color: #fff; margin-bottom: 2px; }
+  .venue-name.leader-name { color: #fde68a; }
+  .venue-loc { font-size: 11px; color: rgba(255,255,255,0.4); }
+  .venue-score { width: 50px; text-align: right; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; }
+  .score-under { color: #ef4444; }
+  .score-over { color: rgba(255,255,255,0.5); }
+  .venue-thru { width: 40px; text-align: right; font-size: 11px; color: rgba(255,255,255,0.4); }
+  .venue-arrow { margin-left: 8px; font-size: 10px; color: rgba(255,255,255,0.25); transition: transform 0.2s ease; }
+  .venue-row.open .venue-arrow { transform: rotate(180deg); }
 
-  .categories { display: flex; flex-direction: column; gap: 8px; }
-  .cat-card {
-    background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 12px; padding: 14px 16px; cursor: pointer; transition: all 0.25s ease;
-  }
-  .cat-card.open { background: rgba(255,255,255,0.05); padding-bottom: 18px; }
-  .cat-row { display: flex; align-items: center; justify-content: space-between; }
-  .cat-left { display: flex; align-items: center; gap: 10px; }
-  .cat-icon { font-size: 18px; }
-  .cat-label { font-size: 14px; font-weight: 600; letter-spacing: 0.3px; }
-  .cat-right { display: flex; align-items: center; gap: 12px; }
-  .cat-score { font-size: 14px; font-weight: 700; }
-  .cat-vs { font-size: 10px; color: #333; }
-  .cat-arrow { font-size: 12px; color: #444; transition: transform 0.2s ease; display: inline-block; }
-  .cat-card.open .cat-arrow { transform: rotate(180deg); }
+  .scorecard { display: none; padding: 0 16px 16px; animation: fadeUp 0.3s ease both; }
+  .scorecard.open { display: block; }
+  .scorecard-inner { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,0.06); }
+  .hole-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .hole-row:last-child { border-bottom: none; }
+  .hole-icon { font-size: 16px; width: 28px; text-align: center; }
+  .hole-label { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; flex: 1; }
+  .hole-val { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; min-width: 40px; text-align: right; }
+  .hole-val.birdie { color: #ef4444; }
+  .hole-val.bogey { color: rgba(255,255,255,0.35); }
+  .hole-val.eagle { color: #fde68a; }
+  .hole-val.par { color: #fff; }
+  .hole-desc { font-size: 10px; color: rgba(255,255,255,0.3); margin-top: 2px; text-align: right; max-width: 180px; }
+  .hole-bar-track { width: 100%; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.06); margin-top: 6px; overflow: hidden; }
+  .hole-bar-fill { height: 100%; border-radius: 2px; animation: growBar 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .bar-ff { background: #fde68a; }
+  .bar-io { background: rgba(255,255,255,0.35); }
 
-  .cat-detail { margin-top: 14px; display: none; flex-direction: column; gap: 12px; animation: fadeUp 0.25s ease both; }
-  .cat-card.open .cat-detail { display: flex; }
-  .bar-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
-  .bar-label-ff { font-size: 11px; color: #4a6cf7; font-weight: 600; }
-  .bar-label-ct { font-size: 11px; color: #e8772e; font-weight: 600; }
-  .bar-val-ff { font-size: 11px; color: #4a6cf7; }
-  .bar-val-ct { font-size: 11px; color: #e8772e; }
-  .bar-track { width: 100%; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.08); overflow: hidden; }
-  .bar-fill { height: 100%; border-radius: 4px; animation: growBar 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
-  .bar-fill-ff { background: #4a6cf7; }
-  .bar-fill-ct { background: #e8772e; animation-delay: 0.1s; }
-  .bar-desc { font-size: 12px; color: #888; margin-top: 6px; line-height: 1.4; }
+  .verdict { margin-top: 24px; padding: 24px 20px; text-align: center; background: rgba(253,230,138,0.05); border: 1px solid rgba(253,230,138,0.15); border-radius: 12px; animation: fadeUp 0.5s 0.5s ease both; }
+  .verdict-jacket { font-size: 40px; margin-bottom: 8px; }
+  .verdict-label { font-family: 'Playfair Display', serif; font-size: 10px; letter-spacing: 4px; color: rgba(253,230,138,0.6); text-transform: uppercase; margin-bottom: 8px; }
+  .verdict-winner { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: #fde68a; margin-bottom: 4px; }
+  .verdict-text { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
 
-  .verdict {
-    margin-top: 28px; padding: 20px 16px; border-radius: 12px; text-align: center;
-    background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(201,169,110,0.02));
-    border: 1px solid rgba(201,169,110,0.15);
-  }
-  .verdict-label { font-size: 10px; letter-spacing: 3px; color: #c9a96e; margin-bottom: 8px; }
-  .verdict-text { font-size: 14px; color: #999; line-height: 1.6; }
-  .verdict-text strong.ff { color: #4a6cf7; }
-  .verdict-text strong.ct { color: #e8772e; }
-  .verdict-sub { font-size: 12px; color: #666; }
-
-  .winner-ff { color: #4a6cf7; }
-  .winner-ct { color: #e8772e; }
-  .loser { color: #555; }
-  .tied { color: #888; }
+  .vote-section { margin-top: 20px; text-align: center; animation: fadeUp 0.5s 0.6s ease both; }
+  .vote-label { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.3); text-transform: uppercase; margin-bottom: 10px; }
+  .vote-btns { display: flex; gap: 10px; justify-content: center; }
+  .vote-btn { padding: 10px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.6); font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+  .vote-btn:hover { background: rgba(255,255,255,0.06); }
+  .vote-btn.voted { border-color: #fde68a; color: #fde68a; background: rgba(253,230,138,0.1); }
+  .vote-result { margin-top: 10px; font-size: 12px; color: #fde68a; font-style: italic; display: none; }
 </style>
 </head>
 <body>
-
-<div class="header">
-  <div class="header-sub">Mollie's Saturday Night</div>
-  <h1>VENUE SHOWDOWN</h1>
-  <div class="header-hint">Tap any category for the breakdown</div>
-</div>
-
-<div class="vs-container">
-  <div class="vs-card" id="vote-flyfish" onclick="castVote('flyfish')">
-    <div class="vs-emoji">🐟</div>
-    <div class="vs-name-ff">FLYFISH</div>
-    <div class="vs-addr">141 E Houston</div>
-    <div class="vs-score-ff" id="ff-total">67</div>
-    <div class="vs-label">POINTS</div>
+<div class="content">
+  <div class="masters-header">
+    <div class="masters-flag">⛳</div>
+    <div class="masters-title">THE VENUE MASTERS</div>
+    <div class="masters-sub">A Tradition Unlike Any Other</div>
+    <div class="masters-detail">Saturday Night Showdown</div>
+    <div class="masters-bday">🎂 Mollie's Birthday | Party of 13</div>
   </div>
-  <div class="vs-text">VS</div>
-  <div class="vs-card" id="vote-cantina" onclick="castVote('cantina')">
-    <div class="vs-emoji">🌮</div>
-    <div class="vs-name-ct">CANTINA</div>
-    <div class="vs-addr">112 E 11th St</div>
-    <div class="vs-score-ct" id="ct-total">60</div>
-    <div class="vs-label">POINTS</div>
+
+  <div class="leaderboard-header">
+    <div class="lb-col-pos">Pos</div>
+    <div class="lb-col-name">Venue</div>
+    <div class="lb-col-score">Score</div>
+    <div class="lb-col-thru">Thru</div>
   </div>
-</div>
 
-<div class="vote-indicator" id="vote-indicator"></div>
+  <div class="venue-row leader" id="row-ff" onclick="toggleCard('ff')">
+    <div class="venue-pos">1</div>
+    <div class="venue-info">
+      <div class="venue-name leader-name">Flyfish Club</div>
+      <div class="venue-loc">141 E Houston St, Lower East Side</div>
+    </div>
+    <div class="venue-score score-under" id="score-ff"></div>
+    <div class="venue-thru">F</div>
+    <div class="venue-arrow">▾</div>
+  </div>
+  <div class="scorecard" id="card-ff"></div>
 
-<div class="categories" id="categories"></div>
+  <div class="venue-row" id="row-io" onclick="toggleCard('io')">
+    <div class="venue-pos second">2</div>
+    <div class="venue-info">
+      <div class="venue-name">Isabelle's Osteria</div>
+      <div class="venue-loc">245 Park Ave S, Gramercy</div>
+    </div>
+    <div class="venue-score score-over" id="score-io"></div>
+    <div class="venue-thru">F</div>
+    <div class="venue-arrow">▾</div>
+  </div>
+  <div class="scorecard" id="card-io"></div>
 
-<div class="verdict">
-  <div class="verdict-label">THE VERDICT</div>
-  <div class="verdict-text">
-    <strong class="ff">Flyfish</strong> is the flex.
-    <strong class="ct">Cantina</strong> is the time.<br>
-    <span class="verdict-sub">One makes people talk about the venue. The other makes people talk about the night.</span>
+  <div class="vote-section">
+    <div class="vote-label">Cast Your Vote</div>
+    <div class="vote-btns">
+      <div class="vote-btn" id="vb-ff" onclick="vote('ff')">🐟 Flyfish</div>
+      <div class="vote-btn" id="vb-io" onclick="vote('io')">🍝 Isabelle's</div>
+    </div>
+    <div class="vote-result" id="vote-result"></div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-jacket">🧥</div>
+    <div class="verdict-label">The Green Jacket Goes To</div>
+    <div class="verdict-winner">Flyfish Club</div>
+    <div class="verdict-text">
+      Members-only, three levels of luxury, hidden omakase, secret speakeasy.<br>
+      This is where Mollie gets the green jacket.
+    </div>
   </div>
 </div>
 
 <script>
-const categories = [
-  { label:"Vibe", icon:"✨", flyfish:"Exclusive, intimate, underground luxury", cantina:"Loud, social, rooftop party energy", fs:9, cs:7 },
-  { label:"Food", icon:"🍣", flyfish:"World-class omakase, curated dining", cantina:"Casual Mexican bites, nachos, quesadillas", fs:10, cs:6 },
-  { label:"Drinks", icon:"🍸", flyfish:"Craft cocktails, speakeasy bar", cantina:"Frozen margs, pitchers, 100oz towers", fs:8, cs:9 },
-  { label:"Party Factor", icon:"🎉", flyfish:"Speakeasy vibes, secret rooms, curated energy", cantina:"Fun rooftop with DJs and frozen drinks", fs:8, cs:8 },
-  { label:"Flex Level", icon:"💎", flyfish:"Members-only, hidden doors, velvet everything", cantina:"Cool rooftop but anyone can book it", fs:10, cs:6 },
-  { label:"Views", icon:"🌃", flyfish:"Three-level immersive design, underwater world", cantina:"Skyline views, retractable glass roof", fs:6, cs:8 },
-  { label:"Group Size", icon:"👥", flyfish:"Exclusive, tight-knit, quality over quantity", cantina:"24 to 150 people, full buyout available", fs:7, cs:7 },
-  { label:"Instagram Factor", icon:"📸", flyfish:"Underwater design, secret speakeasy", cantina:"Rooftop sunsets, colorful murals", fs:9, cs:9 }
+const holes = [
+  { label:"Vibe", icon:"✨", ff:{ s:9, d:"Underground luxury, members-only energy" }, io:{ s:7, d:"Warm Italian bistro, lively Gramercy charm" }},
+  { label:"Food", icon:"🍽️", ff:{ s:10, d:"World-class omakase, curated fine dining" }, io:{ s:9, d:"Handmade pasta daily, Chef Tracey seasonal menu" }},
+  { label:"Drinks", icon:"🍸", ff:{ s:9, d:"Craft cocktails, hidden speakeasy bar" }, io:{ s:8, d:"Curated wine list, signature cocktails" }},
+  { label:"Birthday Fit", icon:"🎂", ff:{ s:9, d:"Exclusive venue, 13 people feel like royalty" }, io:{ s:8, d:"Private back room, handles birthdays well" }},
+  { label:"Flex Level", icon:"💎", ff:{ s:10, d:"Secret doors, velvet rooms, NFT-born club" }, io:{ s:6, d:"Walk-in friendly neighborhood spot" }},
+  { label:"Ambiance", icon:"🕯️", ff:{ s:9, d:"Underwater world, Garrett Singer design" }, io:{ s:8, d:"Classy but casual, enclosed patio" }},
+  { label:"Group of 13", icon:"👥", ff:{ s:8, d:"Intimate, curated, everyone stays close" }, io:{ s:8, d:"Private room up to 50, fits 13 perfectly" }},
+  { label:"Wow Factor", icon:"📸", ff:{ s:10, d:"Hidden omakase behind secret door" }, io:{ s:7, d:"Pretty Italian aesthetic, solid not stunning" }},
 ];
 
-let openIndex = null;
-
-function renderCategories() {
-  const container = document.getElementById('categories');
-  container.innerHTML = categories.map((cat, i) => {
-    const winner = cat.fs > cat.cs ? 'flyfish' : cat.cs > cat.fs ? 'cantina' : 'tie';
-    const isOpen = openIndex === i;
-    const ffClass = winner === 'flyfish' ? 'winner-ff' : winner === 'tie' ? 'tied' : 'loser';
-    const ctClass = winner === 'cantina' ? 'winner-ct' : winner === 'tie' ? 'tied' : 'loser';
-    const delay = 0.15 + i * 0.05;
-    return `
-      <div class="cat-card ${isOpen ? 'open' : ''}" onclick="toggleCat(${i})" style="animation: fadeUp 0.4s ${delay}s ease both;">
-        <div class="cat-row">
-          <div class="cat-left">
-            <span class="cat-icon">${cat.icon}</span>
-            <span class="cat-label">${cat.label}</span>
-          </div>
-          <div class="cat-right">
-            <span class="cat-score ${ffClass}">${cat.fs}</span>
-            <span class="cat-vs">vs</span>
-            <span class="cat-score ${ctClass}">${cat.cs}</span>
-            <span class="cat-arrow">▾</span>
-          </div>
-        </div>
-        <div class="cat-detail">
-          <div>
-            <div class="bar-header"><span class="bar-label-ff">FLYFISH</span><span class="bar-val-ff">${cat.fs}/10</span></div>
-            <div class="bar-track"><div class="bar-fill bar-fill-ff" style="width:${cat.fs*10}%"></div></div>
-            <div class="bar-desc">${cat.flyfish}</div>
-          </div>
-          <div>
-            <div class="bar-header"><span class="bar-label-ct">CANTINA</span><span class="bar-val-ct">${cat.cs}/10</span></div>
-            <div class="bar-track"><div class="bar-fill bar-fill-ct" style="width:${cat.cs*10}%"></div></div>
-            <div class="bar-desc">${cat.cantina}</div>
-          </div>
-        </div>
-      </div>
-    `;
-  }).join('');
+function toGolf(s) { return 7 - s; }
+function golfLabel(g) {
+  if (g <= -3) return "eagle";
+  if (g <= -1) return "birdie";
+  if (g === 0) return "par";
+  return "bogey";
+}
+function golfDisplay(g) {
+  if (g === 0) return "E";
+  return g < 0 ? String(g) : "+" + g;
 }
 
-function toggleCat(i) {
-  openIndex = openIndex === i ? null : i;
-  renderCategories();
+let openCard = null;
+
+function renderScorecard(venue) {
+  const isFF = venue === 'ff';
+  const container = document.getElementById('card-' + venue);
+  let html = '<div class="scorecard-inner">';
+
+  holes.forEach((h, i) => {
+    const data = isFF ? h.ff : h.io;
+    const g = toGolf(data.s);
+    const cls = golfLabel(g);
+    const pct = data.s * 10;
+
+    html += '<div class="hole-row">' +
+      '<div class="hole-icon">' + h.icon + '</div>' +
+      '<div class="hole-label">' + h.label + '</div>' +
+      '<div style="text-align:right;">' +
+        '<div class="hole-val ' + cls + '">' + data.s + '/10</div>' +
+        '<div class="hole-desc">' + data.d + '</div>' +
+        '<div class="hole-bar-track"><div class="hole-bar-fill ' + (isFF ? 'bar-ff' : 'bar-io') + '" style="width:' + pct + '%;animation-delay:' + (i*0.05) + 's"></div></div>' +
+      '</div></div>';
+  });
+
+  const total = holes.reduce(function(s,h){ return s + toGolf(isFF ? h.ff.s : h.io.s); }, 0);
+  html += '<div style="text-align:center;padding-top:12px;margin-top:8px;border-top:1px solid rgba(255,255,255,0.08);">' +
+    '<div style="font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Final Round</div>' +
+    '<div style="font-family:Playfair Display,serif;font-size:24px;font-weight:900;color:' + (total <= 0 ? '#fde68a' : 'rgba(255,255,255,0.5)') + ';">' + golfDisplay(total) + '</div>' +
+    '</div></div>';
+  container.innerHTML = html;
 }
 
-function castVote(choice) {
-  const ff = document.getElementById('vote-flyfish');
-  const ct = document.getElementById('vote-cantina');
-  const ind = document.getElementById('vote-indicator');
-  ff.className = 'vs-card' + (choice === 'flyfish' ? ' active-flyfish' : '');
-  ct.className = 'vs-card' + (choice === 'cantina' ? ' active-cantina' : '');
-  ind.style.display = 'block';
-  ind.style.color = choice === 'flyfish' ? '#4a6cf7' : '#e8772e';
-  const name = choice === 'flyfish' ? 'Flyfish Club' : 'Cantina Rooftop';
-  const emoji = choice === 'flyfish' ? '🐟' : '🌮';
-  ind.innerHTML = `You picked <strong>${name}</strong> ${emoji}`;
+function toggleCard(venue) {
+  var card = document.getElementById('card-' + venue);
+  var row = document.getElementById('row-' + venue);
+  if (openCard === venue) {
+    card.classList.remove('open');
+    row.classList.remove('open');
+    openCard = null;
+  } else {
+    if (openCard) {
+      document.getElementById('card-' + openCard).classList.remove('open');
+      document.getElementById('row-' + openCard).classList.remove('open');
+    }
+    renderScorecard(venue);
+    card.classList.add('open');
+    row.classList.add('open');
+    openCard = venue;
+  }
 }
 
-renderCategories();
+function vote(v) {
+  document.getElementById('vb-ff').className = 'vote-btn' + (v === 'ff' ? ' voted' : '');
+  document.getElementById('vb-io').className = 'vote-btn' + (v === 'io' ? ' voted' : '');
+  var res = document.getElementById('vote-result');
+  res.style.display = 'block';
+  res.textContent = v === 'ff' ? '🐟 Flyfish Club gets your green jacket!' : "🍝 Isabelle's gets your vote!";
+}
+
+var ffTotal = holes.reduce(function(s,h){ return s + toGolf(h.ff.s); }, 0);
+var ioTotal = holes.reduce(function(s,h){ return s + toGolf(h.io.s); }, 0);
+document.getElementById('score-ff').textContent = golfDisplay(ffTotal);
+document.getElementById('score-io').textContent = golfDisplay(ioTotal);
+document.getElementById('score-ff').className = 'venue-score ' + (ffTotal <= 0 ? 'score-under' : 'score-over');
+document.getElementById('score-io').className = 'venue-score ' + (ioTotal <= 0 ? 'score-under' : 'score-over');
 </script>
 </body>
 </html>
