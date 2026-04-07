@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venue Showdown | Mollie's Saturday Night</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    background: #0a0a0f;
+    color: #e8e4df;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    padding: 24px 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  @keyframes growBar { from { width: 0%; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+  .header { text-align: center; margin-bottom: 32px; animation: fadeUp 0.5s ease both; }
+  .header-sub { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #666; margin-bottom: 8px; }
+  .header h1 {
+    font-size: 28px; font-weight: 800; margin: 0 0 4px 0; letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #c9a96e, #f0d48a, #c9a96e);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header-hint { font-size: 13px; color: #555; }
+
+  .vs-container { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 28px; animation: fadeUp 0.5s 0.1s ease both; }
+  .vs-card {
+    flex: 1; text-align: center; padding: 16px 8px; border-radius: 12px;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+    cursor: pointer; transition: all 0.3s ease;
+  }
+  .vs-card.active-flyfish { background: linear-gradient(135deg, #1a1a3e, #0d0d2b); border-color: #4a6cf7; animation: pulse 1.5s ease infinite; }
+  .vs-card.active-cantina { background: linear-gradient(135deg, #2b1a0d, #1a0d00); border-color: #e8772e; animation: pulse 1.5s ease infinite; }
+  .vs-emoji { font-size: 24px; margin-bottom: 4px; }
+  .vs-name-ff { font-size: 13px; font-weight: 700; color: #4a6cf7; letter-spacing: 1px; }
+  .vs-name-ct { font-size: 13px; font-weight: 700; color: #e8772e; letter-spacing: 1px; }
+  .vs-addr { font-size: 10px; color: #555; margin-top: 2px; }
+  .vs-score-ff { font-size: 22px; font-weight: 800; color: #4a6cf7; margin-top: 6px; }
+  .vs-score-ct { font-size: 22px; font-weight: 800; color: #e8772e; margin-top: 6px; }
+  .vs-label { font-size: 9px; color: #444; }
+  .vs-text { font-size: 18px; font-weight: 900; color: #333; flex-shrink: 0; }
+
+  .vote-indicator { text-align: center; margin-bottom: 20px; font-size: 12px; animation: fadeUp 0.3s ease both; display: none; }
+
+  .categories { display: flex; flex-direction: column; gap: 8px; }
+  .cat-card {
+    background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px; padding: 14px 16px; cursor: pointer; transition: all 0.25s ease;
+  }
+  .cat-card.open { background: rgba(255,255,255,0.05); padding-bottom: 18px; }
+  .cat-row { display: flex; align-items: center; justify-content: space-between; }
+  .cat-left { display: flex; align-items: center; gap: 10px; }
+  .cat-icon { font-size: 18px; }
+  .cat-label { font-size: 14px; font-weight: 600; letter-spacing: 0.3px; }
+  .cat-right { display: flex; align-items: center; gap: 12px; }
+  .cat-score { font-size: 14px; font-weight: 700; }
+  .cat-vs { font-size: 10px; color: #333; }
+  .cat-arrow { font-size: 12px; color: #444; transition: transform 0.2s ease; display: inline-block; }
+  .cat-card.open .cat-arrow { transform: rotate(180deg); }
+
+  .cat-detail { margin-top: 14px; display: none; flex-direction: column; gap: 12px; animation: fadeUp 0.25s ease both; }
+  .cat-card.open .cat-detail { display: flex; }
+  .bar-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .bar-label-ff { font-size: 11px; color: #4a6cf7; font-weight: 600; }
+  .bar-label-ct { font-size: 11px; color: #e8772e; font-weight: 600; }
+  .bar-val-ff { font-size: 11px; color: #4a6cf7; }
+  .bar-val-ct { font-size: 11px; color: #e8772e; }
+  .bar-track { width: 100%; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.08); overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; animation: growBar 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .bar-fill-ff { background: #4a6cf7; }
+  .bar-fill-ct { background: #e8772e; animation-delay: 0.1s; }
+  .bar-desc { font-size: 12px; color: #888; margin-top: 6px; line-height: 1.4; }
+
+  .verdict {
+    margin-top: 28px; padding: 20px 16px; border-radius: 12px; text-align: center;
+    background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(201,169,110,0.02));
+    border: 1px solid rgba(201,169,110,0.15);
+  }
+  .verdict-label { font-size: 10px; letter-spacing: 3px; color: #c9a96e; margin-bottom: 8px; }
+  .verdict-text { font-size: 14px; color: #999; line-height: 1.6; }
+  .verdict-text strong.ff { color: #4a6cf7; }
+  .verdict-text strong.ct { color: #e8772e; }
+  .verdict-sub { font-size: 12px; color: #666; }
+
+  .winner-ff { color: #4a6cf7; }
+  .winner-ct { color: #e8772e; }
+  .loser { color: #555; }
+  .tied { color: #888; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-sub">Mollie's Saturday Night</div>
+  <h1>VENUE SHOWDOWN</h1>
+  <div class="header-hint">Tap any category for the breakdown</div>
+</div>
+
+<div class="vs-container">
+  <div class="vs-card" id="vote-flyfish" onclick="castVote('flyfish')">
+    <div class="vs-emoji">🐟</div>
+    <div class="vs-name-ff">FLYFISH</div>
+    <div class="vs-addr">141 E Houston</div>
+    <div class="vs-score-ff" id="ff-total">67</div>
+    <div class="vs-label">POINTS</div>
+  </div>
+  <div class="vs-text">VS</div>
+  <div class="vs-card" id="vote-cantina" onclick="castVote('cantina')">
+    <div class="vs-emoji">🌮</div>
+    <div class="vs-name-ct">CANTINA</div>
+    <div class="vs-addr">112 E 11th St</div>
+    <div class="vs-score-ct" id="ct-total">60</div>
+    <div class="vs-label">POINTS</div>
+  </div>
+</div>
+
+<div class="vote-indicator" id="vote-indicator"></div>
+
+<div class="categories" id="categories"></div>
+
+<div class="verdict">
+  <div class="verdict-label">THE VERDICT</div>
+  <div class="verdict-text">
+    <strong class="ff">Flyfish</strong> is the flex.
+    <strong class="ct">Cantina</strong> is the time.<br>
+    <span class="verdict-sub">One makes people talk about the venue. The other makes people talk about the night.</span>
+  </div>
+</div>
+
+<script>
+const categories = [
+  { label:"Vibe", icon:"✨", flyfish:"Exclusive, intimate, underground luxury", cantina:"Loud, social, rooftop party energy", fs:9, cs:7 },
+  { label:"Food", icon:"🍣", flyfish:"World-class omakase, curated dining", cantina:"Casual Mexican bites, nachos, quesadillas", fs:10, cs:6 },
+  { label:"Drinks", icon:"🍸", flyfish:"Craft cocktails, speakeasy bar", cantina:"Frozen margs, pitchers, 100oz towers", fs:8, cs:9 },
+  { label:"Party Factor", icon:"🎉", flyfish:"Speakeasy vibes, secret rooms, curated energy", cantina:"Fun rooftop with DJs and frozen drinks", fs:8, cs:8 },
+  { label:"Flex Level", icon:"💎", flyfish:"Members-only, hidden doors, velvet everything", cantina:"Cool rooftop but anyone can book it", fs:10, cs:6 },
+  { label:"Views", icon:"🌃", flyfish:"Three-level immersive design, underwater world", cantina:"Skyline views, retractable glass roof", fs:6, cs:8 },
+  { label:"Group Size", icon:"👥", flyfish:"Exclusive, tight-knit, quality over quantity", cantina:"24 to 150 people, full buyout available", fs:7, cs:7 },
+  { label:"Instagram Factor", icon:"📸", flyfish:"Underwater design, secret speakeasy", cantina:"Rooftop sunsets, colorful murals", fs:9, cs:9 }
+];
+
+let openIndex = null;
+
+function renderCategories() {
+  const container = document.getElementById('categories');
+  container.innerHTML = categories.map((cat, i) => {
+    const winner = cat.fs > cat.cs ? 'flyfish' : cat.cs > cat.fs ? 'cantina' : 'tie';
+    const isOpen = openIndex === i;
+    const ffClass = winner === 'flyfish' ? 'winner-ff' : winner === 'tie' ? 'tied' : 'loser';
+    const ctClass = winner === 'cantina' ? 'winner-ct' : winner === 'tie' ? 'tied' : 'loser';
+    const delay = 0.15 + i * 0.05;
+    return `
+      <div class="cat-card ${isOpen ? 'open' : ''}" onclick="toggleCat(${i})" style="animation: fadeUp 0.4s ${delay}s ease both;">
+        <div class="cat-row">
+          <div class="cat-left">
+            <span class="cat-icon">${cat.icon}</span>
+            <span class="cat-label">${cat.label}</span>
+          </div>
+          <div class="cat-right">
+            <span class="cat-score ${ffClass}">${cat.fs}</span>
+            <span class="cat-vs">vs</span>
+            <span class="cat-score ${ctClass}">${cat.cs}</span>
+            <span class="cat-arrow">▾</span>
+          </div>
+        </div>
+        <div class="cat-detail">
+          <div>
+            <div class="bar-header"><span class="bar-label-ff">FLYFISH</span><span class="bar-val-ff">${cat.fs}/10</span></div>
+            <div class="bar-track"><div class="bar-fill bar-fill-ff" style="width:${cat.fs*10}%"></div></div>
+            <div class="bar-desc">${cat.flyfish}</div>
+          </div>
+          <div>
+            <div class="bar-header"><span class="bar-label-ct">CANTINA</span><span class="bar-val-ct">${cat.cs}/10</span></div>
+            <div class="bar-track"><div class="bar-fill bar-fill-ct" style="width:${cat.cs*10}%"></div></div>
+            <div class="bar-desc">${cat.cantina}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function toggleCat(i) {
+  openIndex = openIndex === i ? null : i;
+  renderCategories();
+}
+
+function castVote(choice) {
+  const ff = document.getElementById('vote-flyfish');
+  const ct = document.getElementById('vote-cantina');
+  const ind = document.getElementById('vote-indicator');
+  ff.className = 'vs-card' + (choice === 'flyfish' ? ' active-flyfish' : '');
+  ct.className = 'vs-card' + (choice === 'cantina' ? ' active-cantina' : '');
+  ind.style.display = 'block';
+  ind.style.color = choice === 'flyfish' ? '#4a6cf7' : '#e8772e';
+  const name = choice === 'flyfish' ? 'Flyfish Club' : 'Cantina Rooftop';
+  const emoji = choice === 'flyfish' ? '🐟' : '🌮';
+  ind.innerHTML = `You picked <strong>${name}</strong> ${emoji}`;
+}
+
+renderCategories();
+</script>
+</body>
+</html>
