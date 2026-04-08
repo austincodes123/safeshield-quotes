@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Quote Presentation - Ian & Ashley Beck | Safeshield Insurance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0a1628;
+            color: #FAFAF8;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(160deg, #0a1628 0%, #122240 50%, #0a1628 100%);
+            padding: 72px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -40%; left: -20%;
+            width: 140%; height: 180%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(255,163,0,0.06) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 60%, rgba(0,75,137,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero-inner { position: relative; z-index: 2; }
+
+        .prepared-for {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ffa300;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+            color: #FAFAF8;
+        }
+
+        .hero .subtitle {
+            font-size: 1.15rem;
+            color: #8a9bba;
+            margin-bottom: 44px;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+        }
+
+        .hero-stat-value.green { color: #4ecdc4; }
+        .hero-stat-value.gold { color: #ffa300; }
+        .hero-stat-value.red { color: #ff6b6b; }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: #8a9bba;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+        }
+
+        /* ── DIVIDER ── */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+        }
+
+        /* ── SECTION ── */
+        .section { padding: 72px 0; }
+
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ffa300;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #FAFAF8;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #8a9bba;
+            font-size: 1.05rem;
+            margin-bottom: 48px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ── POLICY CARDS ── */
+        .policy-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .policy-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ffa300, #004B89);
+        }
+
+        .policy-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .policy-title-group {}
+
+        .policy-type {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffa300;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .policy-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FAFAF8;
+        }
+
+        .policy-detail {
+            color: #8a9bba;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .policy-savings {
+            background: rgba(78,205,196,0.1);
+            border: 1px solid rgba(78,205,196,0.25);
+            border-radius: 100px;
+            padding: 10px 24px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .policy-savings-amount {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #4ecdc4;
+        }
+
+        .policy-savings-label {
+            font-size: 0.75rem;
+            color: #8a9bba;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* price row */
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .price-box {
+            flex: 1;
+            min-width: 160px;
+            padding: 18px 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .price-box.old {
+            background: rgba(255,107,107,0.08);
+            border: 1px solid rgba(255,107,107,0.15);
+        }
+
+        .price-box.new {
+            background: rgba(78,205,196,0.08);
+            border: 1px solid rgba(78,205,196,0.2);
+        }
+
+        .price-box-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .price-box.old .price-box-label { color: #ff6b6b; }
+        .price-box.new .price-box-label { color: #4ecdc4; }
+
+        .price-box-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 700;
+        }
+
+        .price-box.old .price-box-amount {
+            color: #ff6b6b;
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+        }
+
+        .price-box.new .price-box-amount { color: #4ecdc4; }
+
+        .price-arrow {
+            font-size: 1.6rem;
+            color: #ffa300;
+            flex-shrink: 0;
+        }
+
+        .price-note {
+            font-size: 0.82rem;
+            color: #8a9bba;
+            text-align: center;
+            margin-top: -16px;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        /* coverage table */
+        .cov-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cov-table th {
+            text-align: left;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #8a9bba;
+            padding: 0 0 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-weight: 500;
+        }
+
+        .cov-table th:last-child { text-align: right; }
+
+        .cov-table td {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-size: 0.95rem;
+        }
+
+        .cov-table td:first-child { color: #B8C5D6; }
+        .cov-table td:last-child { text-align: right; font-weight: 500; color: #FAFAF8; }
+
+        .cov-table tr:last-child td { border-bottom: none; }
+
+        .cov-badge {
+            display: inline-block;
+            background: rgba(78,205,196,0.1);
+            color: #4ecdc4;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cov-badge.gold {
+            background: rgba(255,163,0,0.1);
+            color: #ffa300;
+        }
+
+        /* vehicle grid */
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .vehicle-chip {
+            background: rgba(0,75,137,0.1);
+            border: 1px solid rgba(0,75,137,0.2);
+            border-radius: 12px;
+            padding: 14px 18px;
+            text-align: center;
+        }
+
+        .vehicle-chip-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #FAFAF8;
+        }
+
+        .vehicle-chip-vin {
+            font-size: 0.72rem;
+            color: #8a9bba;
+            margin-top: 4px;
+            font-family: monospace;
+        }
+
+        .vehicle-chip-premium {
+            font-weight: 700;
+            color: #4ecdc4;
+            font-size: 0.95rem;
+            margin-top: 6px;
+        }
+
+        /* included list */
+        .included-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .included-tag {
+            background: rgba(255,163,0,0.08);
+            border: 1px solid rgba(255,163,0,0.15);
+            color: #ffa300;
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 100px;
+        }
+
+        /* ── TOTAL SAVINGS ── */
+        .total-savings {
+            background: linear-gradient(135deg, rgba(78,205,196,0.06), rgba(255,163,0,0.06));
+            border: 2px solid rgba(255,163,0,0.2);
+            border-radius: 24px;
+            padding: 56px 40px;
+            text-align: center;
+            margin: 16px 0 0;
+        }
+
+        .total-savings h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #8a9bba;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .total-grid {
+            display: flex;
+            justify-content: center;
+            gap: 56px;
+            flex-wrap: wrap;
+            margin: 32px 0;
+        }
+
+        .total-item { text-align: center; }
+
+        .total-item-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8a9bba;
+            margin-bottom: 6px;
+        }
+
+        .total-item-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 900;
+        }
+
+        .total-item-value.old { color: #ff6b6b; text-decoration: line-through; text-decoration-thickness: 2px; }
+        .total-item-value.new { color: #4ecdc4; }
+        .total-item-value.save { color: #ffa300; }
+
+        .total-note {
+            color: #8a9bba;
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        /* ── WHY SAFESHIELD ── */
+        .why-section {
+            padding: 72px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .benefit-card:hover { border-color: rgba(255,163,0,0.2); }
+
+        .benefit-icon {
+            width: 52px; height: 52px;
+            background: linear-gradient(135deg, rgba(255,163,0,0.15), rgba(255,163,0,0.05));
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.4rem;
+        }
+
+        .benefit-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #FAFAF8;
+            margin-bottom: 8px;
+        }
+
+        .benefit-desc {
+            color: #8a9bba;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: linear-gradient(160deg, #004B89 0%, #0a1628 100%);
+            padding: 72px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 60%; height: 200%;
+            background: radial-gradient(ellipse, rgba(255,163,0,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-inner { position: relative; z-index: 2; }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #FAFAF8;
+        }
+
+        .cta-sub {
+            font-size: 1.05rem;
+            color: #8a9bba;
+            margin-bottom: 36px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 36px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #ffa300, #ffb843);
+            color: #0a1628;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255,163,0,0.3);
+        }
+
+        .btn-glass {
+            background: rgba(255,255,255,0.08);
+            color: #FAFAF8;
+            border-color: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-glass:hover { border-color: #ffa300; background: rgba(255,255,255,0.12); }
+
+        .cta-contact {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .cta-contact-item { text-align: center; }
+
+        .cta-contact-item h4 {
+            color: #ffa300;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .cta-contact-item p {
+            color: #8a9bba;
+            font-size: 0.9rem;
+        }
+
+        .cta-contact-item a { color: #4ecdc4; text-decoration: none; }
+
+        .footer-note {
+            text-align: center;
+            padding: 32px 0;
+            color: #4a5568;
+            font-size: 0.78rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero-stats { gap: 28px; }
+            .hero-stat-value { font-size: 2rem; }
+            .policy-header { flex-direction: column; }
+            .price-row { flex-direction: column; }
+            .price-arrow { transform: rotate(90deg); }
+            .vehicle-grid { grid-template-columns: 1fr; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .total-grid { gap: 28px; }
+            .total-item-value { font-size: 1.8rem; }
+            .cta-contact { gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <p class="prepared-for">Prepared for</p>
+                <h1>Ian & Ashley Beck</h1>
+                <p class="subtitle">Renewal Analysis & Quote Comparison · Effective April 19, 2026</p>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value red">$9,269</div>
+                        <div class="hero-stat-label">Current Annual Cost</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value green">$6,905</div>
+                        <div class="hero-stat-label">New Annual Cost</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value gold">$2,364</div>
+                        <div class="hero-stat-label">Annual Savings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══ COVERAGE BREAKDOWN ═══ -->
+    <section class="section">
+        <div class="container">
+            <p class="section-label">Coverage Breakdown</p>
+            <h2 class="section-title">Same Protection. Better Price.</h2>
+            <p class="section-sub">We shopped 69+ carriers to find you the best combination of price and coverage. Here's how each policy stacks up against your Travelers renewal.</p>
+
+            <!-- AUTO -->
+            <div class="policy-card">
+                <div class="policy-header">
+                    <div class="policy-title-group">
+                        <p class="policy-type">Auto Insurance</p>
+                        <h3 class="policy-name">Progressive Casualty Insurance Co</h3>
+                        <p class="policy-detail">Two 2024 Honda Prologue E · Pleasure Use</p>
+                    </div>
+                    <div class="policy-savings">
+                        <div class="policy-savings-amount">Save $1,404/yr</div>
+                        <div class="policy-savings-label">39% less than Travelers</div>
+                    </div>
+                </div>
+
+                <div class="price-row">
+                    <div class="price-box old">
+                        <div class="price-box-label">Travelers Renewal</div>
+                        <div class="price-box-amount">$3,588</div>
+                    </div>
+                    <div class="price-arrow">→</div>
+                    <div class="price-box new">
+                        <div class="price-box-label">Progressive (Annualized)</div>
+                        <div class="price-box-amount">$2,184</div>
+                    </div>
+                </div>
+                <p class="price-note">Progressive 6-month premium: $1,092 paid in full · Annualized for comparison</p>
+
+                <div class="vehicle-grid">
+                    <div class="vehicle-chip">
+                        <div class="vehicle-chip-name">2024 Honda Prologue E</div>
+                        <div class="vehicle-chip-vin">VIN: 3GPKHXRJ8RS500367</div>
+                        <div class="vehicle-chip-premium">$546 / 6 mo</div>
+                    </div>
+                    <div class="vehicle-chip">
+                        <div class="vehicle-chip-name">2024 Honda Prologue E</div>
+                        <div class="vehicle-chip-vin">VIN: 3GPKHZRJ3RS541534</div>
+                        <div class="vehicle-chip-premium">$546 / 6 mo</div>
+                    </div>
+                </div>
+
+                <table class="cov-table">
+                    <thead>
+                        <tr><th>Coverage</th><th>Limits / Deductible</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Bodily Injury Liability</td><td>$250,000 / $500,000 <span class="cov-badge">same</span></td></tr>
+                        <tr><td>Property Damage Liability</td><td>$100,000 <span class="cov-badge">same</span></td></tr>
+                        <tr><td>Uninsured/Underinsured Motorist</td><td>$250,000 / $500,000 <span class="cov-badge">same</span></td></tr>
+                        <tr><td>Comprehensive</td><td>$1,000 deductible <span class="cov-badge">same</span></td></tr>
+                        <tr><td>Full Comprehensive Glass</td><td>$0 glass deductible <span class="cov-badge">same</span></td></tr>
+                        <tr><td>Collision</td><td>$1,000 deductible <span class="cov-badge">same</span></td></tr>
+                        <tr><td>Rental Reimbursement</td><td>$50/day, 30 days max <span class="cov-badge gold">enhanced</span></td></tr>
+                        <tr><td>Roadside Assistance</td><td>Included <span class="cov-badge">same</span></td></tr>
+                    </tbody>
+                </table>
+
+                <div class="included-list">
+                    <span class="included-tag">Safe Driving Discount</span>
+                    <span class="included-tag">Paid in Full Discount</span>
+                    <span class="included-tag">Multi-Car Discount</span>
+                    <span class="included-tag">Homeowner Discount</span>
+                    <span class="included-tag">Continuous Insurance</span>
+                    <span class="included-tag">Paperless</span>
+                    <span class="included-tag">Smart Technology</span>
+                    <span class="included-tag">Five-Year Accident Free</span>
+                </div>
+            </div>
+
+            <!-- HOME -->
+            <div class="policy-card">
+                <div class="policy-header">
+                    <div class="policy-title-group">
+                        <p class="policy-type">Homeowners Insurance · HO3</p>
+                        <h3 class="policy-name">SageSure (HARCO National Insurance Co)</h3>
+                        <p class="policy-detail">5385 Main St, Trumbull, CT 06611 · Built 1806 · Frame · 3,397 sq ft</p>
+                    </div>
+                    <div class="policy-savings">
+                        <div class="policy-savings-amount">Save $960/yr</div>
+                        <div class="policy-savings-label">18% less than Travelers</div>
+                    </div>
+                </div>
+
+                <div class="price-row">
+                    <div class="price-box old">
+                        <div class="price-box-label">Travelers Renewal</div>
+                        <div class="price-box-amount">$5,231</div>
+                    </div>
+                    <div class="price-arrow">→</div>
+                    <div class="price-box new">
+                        <div class="price-box-label">SageSure</div>
+                        <div class="price-box-amount">$4,271</div>
+                    </div>
+                </div>
+
+                <table class="cov-table">
+                    <thead>
+                        <tr><th>Coverage</th><th>Limits</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Coverage A · Dwelling</td><td>$1,100,000 <span class="cov-badge">comparable</span></td></tr>
+                        <tr><td>Coverage B · Other Structures</td><td>$110,000 <span class="cov-badge">comparable</span></td></tr>
+                        <tr><td>Coverage C · Personal Property</td><td>$550,000 <span class="cov-badge">comparable</span></td></tr>
+                        <tr><td>Coverage D · Loss of Use</td><td>$220,000 <span class="cov-badge">comparable</span></td></tr>
+                        <tr><td>Coverage E · Personal Liability</td><td>$500,000 <span class="cov-badge">same</span></td></tr>
+                        <tr><td>Coverage F · Medical Payments</td><td>$1,000 <span class="cov-badge">same</span></td></tr>
+                        <tr><td>All Perils Deductible</td><td>$2,500 <span class="cov-badge">same</span></td></tr>
+                    </tbody>
+                </table>
+
+                <div class="included-list">
+                    <span class="included-tag">Water/Sewer Backup $10K</span>
+                    <span class="included-tag">Replacement Cost on Personal Property</span>
+                    <span class="included-tag">Functional Replacement Cost</span>
+                    <span class="included-tag">Law & Ordinance 10%</span>
+                    <span class="included-tag">Personal Injury $500K</span>
+                    <span class="included-tag">Liquid Fuel Tank Liability $50K</span>
+                    <span class="included-tag">Mold Coverage Included</span>
+                    <span class="included-tag">Multi-Policy Discount</span>
+                    <span class="included-tag">Insurance Score: Excellent</span>
+                </div>
+            </div>
+
+            <!-- UMBRELLA -->
+            <div class="policy-card">
+                <div class="policy-header">
+                    <div class="policy-title-group">
+                        <p class="policy-type">Personal Umbrella</p>
+                        <h3 class="policy-name">Travelers (Renewing)</h3>
+                        <p class="policy-detail">Policy #615494238 · $1,000,000 Occurrence Limit</p>
+                    </div>
+                    <div class="policy-savings">
+                        <div class="policy-savings-amount">$450/yr</div>
+                        <div class="policy-savings-label">Competitive rate maintained</div>
+                    </div>
+                </div>
+
+                <div class="price-row">
+                    <div class="price-box new" style="flex: 1;">
+                        <div class="price-box-label">Travelers Umbrella</div>
+                        <div class="price-box-amount">$450</div>
+                    </div>
+                </div>
+
+                <table class="cov-table">
+                    <thead>
+                        <tr><th>Coverage</th><th>Details</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Per Occurrence Limit</td><td>$1,000,000</td></tr>
+                        <tr><td>Underlying Auto Liability</td><td>$250K/$500K required</td></tr>
+                        <tr><td>Underlying Home Liability</td><td>$300K required</td></tr>
+                        <tr><td>Underlying Watercraft Liability</td><td>$300K required</td></tr>
+                        <tr><td>Loss Assessment</td><td>$25,000</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="included-list">
+                    <span class="included-tag">Covers Auto Liability Excess</span>
+                    <span class="included-tag">Covers Home Liability Excess</span>
+                    <span class="included-tag">Covers Recreational Vehicle Liability</span>
+                    <span class="included-tag">Covers Business Pursuits</span>
+                    <span class="included-tag">Companion Policy Credit</span>
+                </div>
+            </div>
+
+            <!-- TOTAL SAVINGS -->
+            <div class="total-savings">
+                <h3>Total Annual Package</h3>
+                <div class="total-grid">
+                    <div class="total-item">
+                        <div class="total-item-label">Travelers (Current)</div>
+                        <div class="total-item-value old">$9,269</div>
+                    </div>
+                    <div class="total-item">
+                        <div class="total-item-label">Safeshield Package</div>
+                        <div class="total-item-value new">$6,905</div>
+                    </div>
+                    <div class="total-item">
+                        <div class="total-item-label">You Save</div>
+                        <div class="total-item-value save">$2,364</div>
+                    </div>
+                </div>
+                <p class="total-note">That's $197 back in your pocket every month with the same or better coverage across all three policies.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══ WHY SAFESHIELD ═══ -->
+    <section class="why-section">
+        <div class="container">
+            <p class="section-label">Why Safeshield</p>
+            <h2 class="section-title">Your Insurance, Our Priority</h2>
+            <p class="section-sub">We're not just saving you money today. We're building a relationship that protects your family year after year.</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h4 class="benefit-title">69+ Carrier Partners</h4>
+                    <p class="benefit-desc">We shop the entire market every year so you never overpay. If a better deal exists, we'll find it.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h4 class="benefit-title">Same-Day Everything</h4>
+                    <p class="benefit-desc">Quotes, ID cards, certificates, policy changes. Need it today? Done today. No waiting, no runaround.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <h4 class="benefit-title">Direct Agent Access</h4>
+                    <p class="benefit-desc">Call or text your agent directly. No call centers, no hold music. We know your name and your policies.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h4 class="benefit-title">Claims Advocacy</h4>
+                    <p class="benefit-desc">When claims happen, we go to bat for you. Our team fights to make sure you get what you're owed.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔄</div>
+                    <h4 class="benefit-title">Annual Re-Shop Guarantee</h4>
+                    <p class="benefit-desc">Every year before renewal, we re-shop your policies across all our carriers. You'll always be competitive.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💻</div>
+                    <h4 class="benefit-title">Tech-Powered Service</h4>
+                    <p class="benefit-desc">Digital delivery, automated tracking, online access to all your docs. Modern insurance for modern life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-inner">
+                <h2 class="cta-title">Ready to Lock In $2,364 in Savings?</h2>
+                <p class="cta-sub">Your Travelers policies renew April 19, 2026. Let's get these bound before then.</p>
+
+                <div class="cta-buttons">
+                    <a href="tel:+12035649817" class="btn btn-gold">📞 Call (203) 564-9817</a>
+                    <a href="mailto:justin@gosafeshield.com" class="btn btn-glass">✉️ Email Justin</a>
+                </div>
+
+                <div class="cta-contact">
+                    <div class="cta-contact-item">
+                        <h4>Justin Cronk</h4>
+                        <p>Your Agent</p>
+                        <p><a href="mailto:justin@gosafeshield.com">justin@gosafeshield.com</a></p>
+                    </div>
+                    <div class="cta-contact-item">
+                        <h4>Safeshield Insurance</h4>
+                        <p>2777 Summer St, 6th Floor</p>
+                        <p>Stamford, CT 06905</p>
+                    </div>
+                    <div class="cta-contact-item">
+                        <h4>Website</h4>
+                        <p><a href="https://gosafeshield.com">gosafeshield.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-note">
+        <div class="container">
+            Quote prepared April 8, 2026 by Safeshield Insurance LLC. All quotes subject to underwriting approval and verification of information. Premiums may vary based on final application details. Progressive auto premium shown as 6-month rate annualized for comparison purposes.
+        </div>
+    </div>
+
+</body>
+</html>
