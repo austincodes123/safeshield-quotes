@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Proposal — Mary-Lisa Sullivan | Safeshield Insurance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a1628;--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--text:#FAFAF8;--muted:rgba(250,250,248,0.55);--navy:#004B89;--gold:#FFA300;--gold-dim:rgba(255,163,0,0.25)}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+/* HERO */
+.hero{padding:80px 0 60px;text-align:center}
+.badge{display:inline-block;background:var(--gold-dim);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border-radius:100px;margin-bottom:28px}
+.hero h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(32px,5vw,52px);line-height:1.15;margin-bottom:16px}
+.hero h1 span{color:var(--gold)}
+.hero .subtitle{font-size:18px;color:var(--muted);max-width:600px;margin:0 auto 36px}
+.hero-meta{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.hero-meta strong{color:var(--text);display:block;font-size:16px;margin-top:2px}
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);margin:48px 0}
+/* SECTION */
+.section{padding:32px 0}
+.section-label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.section h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(24px,3.5vw,36px);margin-bottom:8px}
+.section .desc{color:var(--muted);font-size:16px;max-width:680px;margin-bottom:32px}
+/* PROPERTY CARD */
+.prop-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;margin-bottom:32px}
+.prop-card h3{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:20px}
+.prop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.prop-item{padding:12px 0}
+.prop-item .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.prop-item .value{font-size:17px;font-weight:600}
+/* COVERAGE CARDS */
+.cov-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.cov-grid{grid-template-columns:1fr}}
+.cov-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 28px}
+.cov-card .cov-icon{font-size:26px;margin-bottom:10px}
+.cov-card h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.cov-card .cov-limit{color:var(--gold);font-weight:700;font-size:20px;margin-bottom:6px}
+.cov-card p{font-size:13px;color:var(--muted);line-height:1.55}
+/* FULL-WIDTH COV CARD */
+.cov-full{grid-column:1/-1}
+/* PREMIUM */
+.premium-box{text-align:center;padding:48px 24px;background:var(--card);border:1px solid var(--border);border-radius:20px;margin:32px 0}
+.premium-box .amount{font-family:'Playfair Display',serif;font-size:clamp(44px,7vw,64px);font-weight:900;color:var(--gold);line-height:1}
+.premium-box .per{font-size:16px;color:var(--muted);margin-top:8px}
+.premium-box .total-note{font-size:14px;color:var(--muted);margin-top:16px}
+/* DISCOUNTS */
+.disc-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.disc-pill{background:rgba(0,75,137,0.25);color:#6db8ff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:100px;border:1px solid rgba(0,75,137,0.35)}
+/* WHY SECTION */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px}
+.why-card .why-icon{font-size:28px;margin-bottom:12px}
+.why-card h4{font-size:16px;font-weight:700;margin-bottom:6px}
+.why-card p{font-size:14px;color:var(--muted);line-height:1.55}
+/* CTA */
+.cta{text-align:center;padding:56px 0 80px}
+.cta h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,34px);margin-bottom:12px}
+.cta p{color:var(--muted);font-size:16px;margin-bottom:32px}
+.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-gold{display:inline-block;background:var(--gold);color:#0a1628;font-weight:700;font-size:15px;padding:14px 36px;border-radius:100px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,163,0,0.3)}
+.btn-glass{display:inline-block;background:rgba(255,255,255,0.06);color:var(--text);font-weight:600;font-size:15px;padding:14px 36px;border-radius:100px;text-decoration:none;border:1px solid var(--border);transition:background .2s}
+.btn-glass:hover{background:rgba(255,255,255,0.1)}
+/* FOOTER */
+.footer{text-align:center;padding:32px 0;font-size:12px;color:var(--muted);border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HERO -->
+<section class="hero">
+<div class="badge">Landlord Property Insurance</div>
+<h1>Protecting Your <span>Investment Property</span></h1>
+<p class="subtitle">A comprehensive coverage proposal for your 2-family rental at 144 Colonial Road, Stamford, CT — built to protect the property, your rental income, and you.</p>
+<div class="hero-meta">
+<div>Prepared For<strong>Mary-Lisa Sullivan</strong></div>
+<div>Property<strong>144 Colonial Rd, Stamford</strong></div>
+<div>Policy Term<strong>04/08/2026 – 04/08/2027</strong></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROPERTY SNAPSHOT -->
+<section class="section">
+<span class="section-label">Your Property</span>
+<h2>Property Snapshot</h2>
+<p class="desc">Here's what we're working with. American Modern is a strong fit for this type of older, well-maintained rental property.</p>
+<div class="prop-card">
+<h3>144 Colonial Rd, Stamford CT 06906</h3>
+<div class="prop-grid">
+<div class="prop-item"><div class="label">Property Type</div><div class="value">2-Family Residence</div></div>
+<div class="prop-item"><div class="label">Occupancy</div><div class="value">Tenant Occupied</div></div>
+<div class="prop-item"><div class="label">Year Built</div><div class="value">1890</div></div>
+<div class="prop-item"><div class="label">Construction</div><div class="value">Frame</div></div>
+<div class="prop-item"><div class="label">Roof Replaced</div><div class="value">2018</div></div>
+<div class="prop-item"><div class="label">Carrier</div><div class="value">American Modern</div></div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COVERAGE BREAKDOWN -->
+<section class="section">
+<span class="section-label">Your Coverage</span>
+<h2>What's Protected</h2>
+<p class="desc">Every coverage below was selected to protect you as a landlord. Here's what each one does and why it matters.</p>
+
+<div class="cov-grid">
+
+<div class="cov-card">
+<div class="cov-icon">🏠</div>
+<h4>Dwelling Coverage</h4>
+<div class="cov-limit">$580,000</div>
+<p>This is the big one. It covers the cost to repair or rebuild your property if it's damaged by fire, storms, vandalism, or other covered events. This limit reflects the estimated cost to rebuild the entire structure.</p>
+</div>
+
+<div class="cov-card">
+<div class="cov-icon">🏗️</div>
+<h4>Other Structures</h4>
+<div class="cov-limit">$58,000</div>
+<p>Covers detached structures on the property like garages, sheds, or fences. Set at 10% of your dwelling limit, which is standard and usually plenty.</p>
+</div>
+
+<div class="cov-card">
+<div class="cov-icon">💰</div>
+<h4>Fair Rental Value</h4>
+<div class="cov-limit">$58,000</div>
+<p>If a covered loss makes your property uninhabitable, this reimburses the rental income you'd lose while repairs are underway. Critical for a 2-family rental.</p>
+</div>
+
+<div class="cov-card">
+<div class="cov-icon">⚖️</div>
+<h4>Premises Liability</h4>
+<div class="cov-limit">$500,000</div>
+<p>If a tenant, visitor, or delivery person gets hurt on your property and sues you, this pays for legal defense and any settlement. As a landlord, this is essential.</p>
+</div>
+
+<div class="cov-card">
+<div class="cov-icon">🩺</div>
+<h4>Medical Payments</h4>
+<div class="cov-limit">$500 / person</div>
+<p>Pays small medical bills if someone gets injured on your property, regardless of fault. Helps resolve minor incidents before they turn into lawsuits. $25,000 max per occurrence.</p>
+</div>
+
+<div class="cov-card">
+<div class="cov-icon">💧</div>
+<h4>Water Backup &amp; Sump Overflow</h4>
+<div class="cov-limit">$5,000</div>
+<p>Covers damage caused by water that backs up through drains or sump pumps. This is one of the most common claims for older homes with basements. $250 deductible.</p>
+</div>
+
+<div class="cov-card">
+<div class="cov-icon">🔧</div>
+<h4>Ordinance or Law</h4>
+<div class="cov-limit">$58,000</div>
+<p>Older homes like yours (built 1890) may not meet current building codes. If you rebuild after a loss, this pays the extra cost to bring everything up to modern code requirements.</p>
+</div>
+
+<div class="cov-card">
+<div class="cov-icon">🦠</div>
+<h4>Mold Remediation</h4>
+<div class="cov-limit">$10,000</div>
+<p>Covers mold cleanup and remediation on the property side, plus $50,000 on the liability side if a tenant claims mold-related health issues.</p>
+</div>
+
+<div class="cov-card">
+<div class="cov-icon">🛡️</div>
+<h4>Lead &amp; Fuel Oil Liability</h4>
+<div class="cov-limit">$50,000</div>
+<p>Specifically covers claims related to lead paint exposure or escaped liquid fuel. For a pre-1978 home, this is a valuable layer of protection. Also includes $10,000 for fuel-related property damage.</p>
+</div>
+
+<div class="cov-card">
+<div class="cov-icon">🔐</div>
+<h4>Additional Coverages</h4>
+<div class="cov-limit">Included</div>
+<p>Vandalism &amp; malicious mischief, full water damage, property manager premises liability extension, and $500 fire department service charge are all baked in at no extra cost.</p>
+</div>
+
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DEDUCTIBLES -->
+<section class="section">
+<span class="section-label">Your Deductibles</span>
+<h2>What You Pay Before Coverage Kicks In</h2>
+<p class="desc">A deductible is your out-of-pocket cost before insurance takes over. Here's how yours breaks down.</p>
+<div class="cov-grid">
+<div class="cov-card">
+<div class="cov-icon">📋</div>
+<h4>All Other Perils</h4>
+<div class="cov-limit">$2,500</div>
+<p>This applies to most claims like fire, theft, or storm damage. A standard deductible that keeps your premium in check.</p>
+</div>
+<div class="cov-card">
+<div class="cov-icon">💧</div>
+<h4>Water Backup</h4>
+<div class="cov-limit">$250</div>
+<p>A low deductible on water backup claims, which is great since these tend to be the most frequent for older properties.</p>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PREMIUM -->
+<section class="section">
+<div class="premium-box">
+<span class="section-label">Your Annual Premium</span>
+<div class="amount">$3,192</div>
+<div class="per">per year — American Modern</div>
+<div class="total-note">Total cost with CT Healthy Homes Fund: $3,204.00</div>
+<div class="disc-row">
+<span class="disc-pill">✓ Claims Free Discount</span>
+<span class="disc-pill">✓ Paperless Discount</span>
+<span class="disc-pill">✓ Safety Device Credits</span>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<section class="section">
+<span class="section-label">Why Safeshield</span>
+<h2>Your Dedicated Insurance Team</h2>
+<p class="desc">We're not a call center. We're a small team that takes care of our clients like they're family.</p>
+<div class="why-grid">
+<div class="why-card">
+<div class="why-icon">🔍</div>
+<h4>69+ Carrier Partners</h4>
+<p>We shop the entire market to find the best coverage at the best price. If a better deal exists, we'll find it.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">⚡</div>
+<h4>Same-Day Everything</h4>
+<p>Quotes, certificates, ID cards, policy changes. We move fast because we know your time matters.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">📞</div>
+<h4>Direct Agent Access</h4>
+<p>You'll always reach a real person. No phone trees, no hold music, no runaround.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">🤝</div>
+<h4>Claims Advocacy</h4>
+<p>When something happens, we go to bat for you with the carrier to make sure your claim is handled right.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">🔄</div>
+<h4>Annual Re-Shop Guarantee</h4>
+<p>Every year before renewal, we re-shop your policy across all our carriers to make sure you're still getting the best deal.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">💻</div>
+<h4>Tech-Powered Service</h4>
+<p>Automated policy tracking, digital delivery, and smart reminders so nothing ever slips through the cracks.</p>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta">
+<h2>Ready to Protect Your Investment?</h2>
+<p>Let's get this policy in place. Reach out and we'll have you covered today.</p>
+<div class="cta-buttons">
+<a href="tel:2035649817" class="btn-gold">Call (203) 564-9817</a>
+<a href="mailto:austin@gosafeshield.com" class="btn-glass">Email Austin</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+<p>Prepared by Austin Glazer · Safeshield Insurance · 2777 Summer St, Floor 6, Stamford CT 06905</p>
+<p style="margin-top:6px">This is a quote summary for informational purposes. Coverage is not bound until confirmed by the carrier.</p>
+</div>
+
+</div>
+</body>
+</html>
