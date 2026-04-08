@@ -18,7 +18,7 @@
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-        /* ── HERO ── */
+        /* HERO */
         .hero {
             background: linear-gradient(160deg, #0a1628 0%, #122240 50%, #0a1628 100%);
             padding: 72px 0 100px;
@@ -68,9 +68,7 @@
             flex-wrap: wrap;
         }
 
-        .hero-stat {
-            text-align: center;
-        }
+        .hero-stat { text-align: center; }
 
         .hero-stat-value {
             font-family: 'Playfair Display', serif;
@@ -91,13 +89,13 @@
             font-weight: 500;
         }
 
-        /* ── DIVIDER ── */
+        /* DIVIDER */
         .divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
         }
 
-        /* ── SECTION ── */
+        /* SECTION */
         .section { padding: 72px 0; }
 
         .section-label {
@@ -129,7 +127,7 @@
             margin-right: auto;
         }
 
-        /* ── POLICY CARDS ── */
+        /* POLICY CARDS */
         .policy-card {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.07);
@@ -201,6 +199,15 @@
             color: #8a9bba;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        .policy-savings.gold-border {
+            background: rgba(255,163,0,0.08);
+            border: 1px solid rgba(255,163,0,0.25);
+        }
+
+        .policy-savings.gold-border .policy-savings-amount {
+            color: #ffa300;
         }
 
         /* price row */
@@ -372,7 +379,72 @@
             border-radius: 100px;
         }
 
-        /* ── TOTAL SAVINGS ── */
+        /* UMBRELLA TIER TABLE */
+        .tier-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .tier-table th {
+            text-align: left;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #8a9bba;
+            padding: 0 0 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-weight: 500;
+        }
+
+        .tier-table th:last-child { text-align: right; }
+
+        .tier-table td {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-size: 0.95rem;
+            color: #B8C5D6;
+        }
+
+        .tier-table td:last-child { text-align: right; font-weight: 500; color: #FAFAF8; }
+
+        .tier-table tr:last-child td { border-bottom: none; }
+
+        .tier-table tr.highlighted td {
+            color: #FAFAF8;
+            font-weight: 600;
+        }
+
+        .tier-table tr.highlighted td:last-child {
+            color: #4ecdc4;
+            font-weight: 700;
+        }
+
+        .tier-recommended {
+            display: inline-block;
+            background: rgba(255,163,0,0.12);
+            color: #ffa300;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .paid-full-note {
+            background: rgba(255,163,0,0.06);
+            border: 1px solid rgba(255,163,0,0.12);
+            border-radius: 10px;
+            padding: 12px 18px;
+            font-size: 0.88rem;
+            color: #ffa300;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        /* TOTAL SAVINGS */
         .total-savings {
             background: linear-gradient(135deg, rgba(78,205,196,0.06), rgba(255,163,0,0.06));
             border: 2px solid rgba(255,163,0,0.2);
@@ -424,10 +496,41 @@
             margin-top: 8px;
         }
 
-        /* ── WHY SAFESHIELD ── */
-        .why-section {
-            padding: 72px 0;
+        .total-breakdown {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
         }
+
+        .total-breakdown-item {
+            text-align: center;
+        }
+
+        .total-breakdown-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #8a9bba;
+            margin-bottom: 2px;
+        }
+
+        .total-breakdown-value {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #FAFAF8;
+        }
+
+        .total-breakdown-carrier {
+            font-size: 0.78rem;
+            color: #8a9bba;
+        }
+
+        /* WHY SAFESHIELD */
+        .why-section { padding: 72px 0; }
 
         .benefits-grid {
             display: grid;
@@ -468,7 +571,7 @@
             line-height: 1.5;
         }
 
-        /* ── CTA ── */
+        /* CTA */
         .cta-section {
             background: linear-gradient(160deg, #004B89 0%, #0a1628 100%);
             padding: 72px 0;
@@ -572,7 +675,7 @@
             font-size: 0.78rem;
         }
 
-        /* ── RESPONSIVE ── */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .hero-stats { gap: 28px; }
@@ -585,12 +688,13 @@
             .total-grid { gap: 28px; }
             .total-item-value { font-size: 1.8rem; }
             .cta-contact { gap: 24px; }
+            .total-breakdown { gap: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ═══ HERO ═══ -->
+    <!-- HERO -->
     <section class="hero">
         <div class="container">
             <div class="hero-inner">
@@ -604,11 +708,11 @@
                         <div class="hero-stat-label">Current Annual Cost</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-value green">$6,905</div>
+                        <div class="hero-stat-value green">$6,935</div>
                         <div class="hero-stat-label">New Annual Cost</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-value gold">$2,364</div>
+                        <div class="hero-stat-value gold">$2,334</div>
                         <div class="hero-stat-label">Annual Savings</div>
                     </div>
                 </div>
@@ -618,12 +722,12 @@
 
     <div class="divider"></div>
 
-    <!-- ═══ COVERAGE BREAKDOWN ═══ -->
+    <!-- COVERAGE BREAKDOWN -->
     <section class="section">
         <div class="container">
             <p class="section-label">Coverage Breakdown</p>
             <h2 class="section-title">Same Protection. Better Price.</h2>
-            <p class="section-sub">We shopped 69+ carriers to find you the best combination of price and coverage. Here's how each policy stacks up against your Travelers renewal.</p>
+            <p class="section-sub">We shopped 69+ carriers to find the best combination of price and coverage. Here's how each policy stacks up against your Travelers renewal.</p>
 
             <!-- AUTO -->
             <div class="policy-card">
@@ -650,7 +754,7 @@
                         <div class="price-box-amount">$2,184</div>
                     </div>
                 </div>
-                <p class="price-note">Progressive 6-month premium: $1,092 paid in full · Annualized for comparison</p>
+                <p class="price-note">Progressive 6-month premium: $1,092 · Shown annualized for apples-to-apples comparison</p>
 
                 <div class="vehicle-grid">
                     <div class="vehicle-chip">
@@ -672,24 +776,26 @@
                     <tbody>
                         <tr><td>Bodily Injury Liability</td><td>$250,000 / $500,000 <span class="cov-badge">same</span></td></tr>
                         <tr><td>Property Damage Liability</td><td>$100,000 <span class="cov-badge">same</span></td></tr>
+                        <tr><td>Basic Reparations Benefits</td><td>$200 / $5,000 <span class="cov-badge">same</span></td></tr>
                         <tr><td>Uninsured/Underinsured Motorist</td><td>$250,000 / $500,000 <span class="cov-badge">same</span></td></tr>
                         <tr><td>Comprehensive</td><td>$1,000 deductible <span class="cov-badge">same</span></td></tr>
-                        <tr><td>Full Comprehensive Glass</td><td>$0 glass deductible <span class="cov-badge">same</span></td></tr>
+                        <tr><td>Full Glass Coverage</td><td>$0 glass deductible <span class="cov-badge">same</span></td></tr>
                         <tr><td>Collision</td><td>$1,000 deductible <span class="cov-badge">same</span></td></tr>
-                        <tr><td>Rental Reimbursement</td><td>$50/day, 30 days max <span class="cov-badge gold">enhanced</span></td></tr>
+                        <tr><td>Rental Reimbursement</td><td>$100/day, 30 days <span class="cov-badge gold">enhanced</span></td></tr>
                         <tr><td>Roadside Assistance</td><td>Included <span class="cov-badge">same</span></td></tr>
                     </tbody>
                 </table>
 
                 <div class="included-list">
-                    <span class="included-tag">Safe Driving Discount</span>
+                    <span class="included-tag">Safe Driver Discount</span>
                     <span class="included-tag">Paid in Full Discount</span>
                     <span class="included-tag">Multi-Car Discount</span>
                     <span class="included-tag">Homeowner Discount</span>
                     <span class="included-tag">Continuous Insurance</span>
                     <span class="included-tag">Paperless</span>
-                    <span class="included-tag">Smart Technology</span>
-                    <span class="included-tag">Five-Year Accident Free</span>
+                    <span class="included-tag">Electric Vehicle</span>
+                    <span class="included-tag">Automatic Braking</span>
+                    <span class="included-tag">New Car</span>
                 </div>
             </div>
 
@@ -736,13 +842,14 @@
 
                 <div class="included-list">
                     <span class="included-tag">Water/Sewer Backup $10K</span>
-                    <span class="included-tag">Replacement Cost on Personal Property</span>
+                    <span class="included-tag">Personal Property Replacement Cost</span>
                     <span class="included-tag">Functional Replacement Cost</span>
                     <span class="included-tag">Law & Ordinance 10%</span>
                     <span class="included-tag">Personal Injury $500K</span>
                     <span class="included-tag">Liquid Fuel Tank Liability $50K</span>
+                    <span class="included-tag">Liquid Fuel Tank Remediation $10K</span>
                     <span class="included-tag">Mold Coverage Included</span>
-                    <span class="included-tag">Multi-Policy Discount</span>
+                    <span class="included-tag">Multi-Policy Discount Applied</span>
                     <span class="included-tag">Insurance Score: Excellent</span>
                 </div>
             </div>
@@ -752,41 +859,72 @@
                 <div class="policy-header">
                     <div class="policy-title-group">
                         <p class="policy-type">Personal Umbrella</p>
-                        <h3 class="policy-name">Travelers (Renewing)</h3>
-                        <p class="policy-detail">Policy #615494238 · $1,000,000 Occurrence Limit</p>
+                        <h3 class="policy-name">Markel Insurance Company</h3>
+                        <p class="policy-detail">Quote #Q2114182 · Rates valid for policies effective prior to 5/15/2026</p>
                     </div>
-                    <div class="policy-savings">
-                        <div class="policy-savings-amount">$450/yr</div>
-                        <div class="policy-savings-label">Competitive rate maintained</div>
+                    <div class="policy-savings gold-border">
+                        <div class="policy-savings-amount">$480/yr</div>
+                        <div class="policy-savings-label">Paid in full · $0 policy fee</div>
                     </div>
                 </div>
 
                 <div class="price-row">
-                    <div class="price-box new" style="flex: 1;">
+                    <div class="price-box old">
                         <div class="price-box-label">Travelers Umbrella</div>
                         <div class="price-box-amount">$450</div>
                     </div>
+                    <div class="price-arrow">→</div>
+                    <div class="price-box new">
+                        <div class="price-box-label">Markel ($1M Limit)</div>
+                        <div class="price-box-amount">$480</div>
+                    </div>
                 </div>
 
-                <table class="cov-table">
+                <div class="paid-full-note">⚡ Umbrella must be paid in full at binding · $0 policy expense fee</div>
+
+                <p style="font-size: 0.82rem; color: #8a9bba; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;">Coverage A · Umbrella Limit Options</p>
+                <table class="tier-table">
                     <thead>
-                        <tr><th>Coverage</th><th>Details</th></tr>
+                        <tr><th>Umbrella Limit</th><th>Annual Premium</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>Per Occurrence Limit</td><td>$1,000,000</td></tr>
-                        <tr><td>Underlying Auto Liability</td><td>$250K/$500K required</td></tr>
-                        <tr><td>Underlying Home Liability</td><td>$300K required</td></tr>
-                        <tr><td>Underlying Watercraft Liability</td><td>$300K required</td></tr>
-                        <tr><td>Loss Assessment</td><td>$25,000</td></tr>
+                        <tr class="highlighted"><td>$1,000,000 <span class="tier-recommended">included in package</span></td><td>$480</td></tr>
+                        <tr><td>$2,000,000</td><td>$768</td></tr>
+                        <tr><td>$3,000,000</td><td>$1,046</td></tr>
+                        <tr><td>$4,000,000</td><td>$1,320</td></tr>
+                        <tr><td>$5,000,000</td><td>$1,584</td></tr>
+                    </tbody>
+                </table>
+
+                <p style="font-size: 0.82rem; color: #8a9bba; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;">Coverage B · Excess Uninsured/Underinsured Motorist (Optional)</p>
+                <table class="tier-table">
+                    <thead>
+                        <tr><th>UM/UIM Limit</th><th>Annual Premium</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>None</td><td>$0</td></tr>
+                        <tr><td>$1,000,000</td><td>$284</td></tr>
+                    </tbody>
+                </table>
+
+                <table class="cov-table" style="margin-top: 16px;">
+                    <thead>
+                        <tr><th>Underlying Requirements</th><th>Minimum Limit</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Auto Liability (BI)</td><td>$250,000 / $500,000 ✅ Met by Progressive</td></tr>
+                        <tr><td>Homeowners Liability</td><td>$300,000 ✅ Met by SageSure ($500K)</td></tr>
+                        <tr><td>Watercraft Liability</td><td>$300,000 (if applicable)</td></tr>
                     </tbody>
                 </table>
 
                 <div class="included-list">
-                    <span class="included-tag">Covers Auto Liability Excess</span>
-                    <span class="included-tag">Covers Home Liability Excess</span>
-                    <span class="included-tag">Covers Recreational Vehicle Liability</span>
-                    <span class="included-tag">Covers Business Pursuits</span>
-                    <span class="included-tag">Companion Policy Credit</span>
+                    <span class="included-tag">1 Dwelling Unit</span>
+                    <span class="included-tag">2 Personal Autos</span>
+                    <span class="included-tag">2 Drivers, No Under-21</span>
+                    <span class="included-tag">No Watercraft/Rec Vehicles</span>
+                    <span class="included-tag">No Business Exposure</span>
+                    <span class="included-tag">Protection Class 4</span>
                 </div>
             </div>
 
@@ -800,21 +938,39 @@
                     </div>
                     <div class="total-item">
                         <div class="total-item-label">Safeshield Package</div>
-                        <div class="total-item-value new">$6,905</div>
+                        <div class="total-item-value new">$6,935</div>
                     </div>
                     <div class="total-item">
                         <div class="total-item-label">You Save</div>
-                        <div class="total-item-value save">$2,364</div>
+                        <div class="total-item-value save">$2,334</div>
                     </div>
                 </div>
-                <p class="total-note">That's $197 back in your pocket every month with the same or better coverage across all three policies.</p>
+                <p class="total-note">That's nearly $195 back in your pocket every month with the same or better coverage across all three policies.</p>
+
+                <div class="total-breakdown">
+                    <div class="total-breakdown-item">
+                        <div class="total-breakdown-label">Auto</div>
+                        <div class="total-breakdown-value">$2,184/yr</div>
+                        <div class="total-breakdown-carrier">Progressive · 6mo paid in full</div>
+                    </div>
+                    <div class="total-breakdown-item">
+                        <div class="total-breakdown-label">Home</div>
+                        <div class="total-breakdown-value">$4,271/yr</div>
+                        <div class="total-breakdown-carrier">SageSure · HARCO National</div>
+                    </div>
+                    <div class="total-breakdown-item">
+                        <div class="total-breakdown-label">Umbrella</div>
+                        <div class="total-breakdown-value">$480/yr</div>
+                        <div class="total-breakdown-carrier">Markel · Paid in full</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- ═══ WHY SAFESHIELD ═══ -->
+    <!-- WHY SAFESHIELD -->
     <section class="why-section">
         <div class="container">
             <p class="section-label">Why Safeshield</p>
@@ -858,11 +1014,11 @@
 
     <div class="divider"></div>
 
-    <!-- ═══ CTA ═══ -->
+    <!-- CTA -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-inner">
-                <h2 class="cta-title">Ready to Lock In $2,364 in Savings?</h2>
+                <h2 class="cta-title">Ready to Lock In $2,334 in Savings?</h2>
                 <p class="cta-sub">Your Travelers policies renew April 19, 2026. Let's get these bound before then.</p>
 
                 <div class="cta-buttons">
@@ -892,7 +1048,7 @@
 
     <div class="footer-note">
         <div class="container">
-            Quote prepared April 8, 2026 by Safeshield Insurance LLC. All quotes subject to underwriting approval and verification of information. Premiums may vary based on final application details. Progressive auto premium shown as 6-month rate annualized for comparison purposes.
+            Quote prepared April 8, 2026 by Safeshield Insurance LLC. All quotes subject to underwriting approval and verification of information. Premiums may vary based on final application details. Progressive auto premium shown as 6-month rate annualized for comparison purposes. Markel umbrella rates valid for policies effective prior to 5/15/2026.
         </div>
     </div>
 
