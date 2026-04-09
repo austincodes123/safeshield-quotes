@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Insurance Proposal | Safeshield Insurance</title>
+<link rel="icon" type="image/png" href="https://gosafeshield.com/wp-content/uploads/2025/03/Blue_and_gold_shield_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #004B89;
+  --navy-dark: #0a1628;
+  --navy-deep: #060e1a;
+  --yellow: #FFA300;
+  --yellow-light: #FFB833;
+  --off-white: #FAFAF8;
+  --white: #ffffff;
+  --gray-100: #f0f1f3;
+  --gray-200: #d8dbe0;
+  --gray-300: #b0b5be;
+  --gray-600: #5a6270;
+  --green: #22c55e;
+  --green-dark: #16a34a;
+  --red-soft: #ef4444;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--navy-deep);
+  color: var(--off-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px;
+  background: linear-gradient(170deg, var(--navy-dark) 0%, var(--navy-deep) 60%, #0d1f3c 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(0,75,137,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-logo { width: 180px; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--white);
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.4s;
+}
+
+.hero .subtitle { font-size: clamp(1rem, 2.5vw, 1.25rem); font-weight: 300; color: var(--gray-300); margin-bottom: 8px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
+.hero .address { font-size: 0.95rem; color: var(--yellow); font-weight: 500; letter-spacing: 0.5px; margin-bottom: 48px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s; }
+.hero .prepared-by { font-size: 0.85rem; color: var(--gray-300); font-weight: 400; opacity: 0; animation: fadeUp 0.8s ease forwards 1s; }
+.hero .prepared-by strong { color: var(--white); font-weight: 600; }
+.hero .eff-date { font-size: 0.85rem; color: var(--gray-300); margin-top: 6px; opacity: 0; animation: fadeUp 0.8s ease forwards 1.1s; }
+
+.scroll-indicator { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeUp 0.8s ease forwards 1.4s; }
+.scroll-indicator span { font-size: 0.75rem; color: var(--gray-300); text-transform: uppercase; letter-spacing: 2px; }
+.scroll-indicator .arrow { width: 24px; height: 24px; border-right: 2px solid var(--yellow); border-bottom: 2px solid var(--yellow); transform: rotate(45deg); animation: bounce 2s infinite; }
+
+.nav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 14px; z-index: 100; }
+.nav-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: all 0.3s ease; position: relative; }
+.nav-dot:hover, .nav-dot.active { background: var(--yellow); border-color: var(--yellow); transform: scale(1.3); }
+.nav-dot .dot-label { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 0.72rem; font-weight: 600; color: var(--yellow); white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; text-transform: uppercase; letter-spacing: 1px; }
+.nav-dot:hover .dot-label { opacity: 1; }
+
+.section { padding: 80px 24px; max-width: 960px; margin: 0 auto; }
+.section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--yellow); margin-bottom: 12px; }
+.section-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--white); margin-bottom: 16px; }
+.section-desc { font-size: 1.05rem; font-weight: 300; color: var(--gray-300); max-width: 640px; margin-bottom: 40px; line-height: 1.7; }
+
+.coverage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 32px; }
+
+.coverage-card { background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
+.coverage-card:hover { border-color: rgba(255,163,0,0.3); background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%); transform: translateY(-2px); }
+.coverage-card.active { border-color: var(--yellow); background: linear-gradient(135deg, rgba(255,163,0,0.08) 0%, rgba(255,163,0,0.02) 100%); }
+
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.card-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,163,0,0.12); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.card-toggle { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; flex-shrink: 0; }
+.coverage-card.active .card-toggle { background: var(--yellow); transform: rotate(180deg); }
+.card-toggle svg { width: 14px; height: 14px; stroke: var(--gray-300); }
+.coverage-card.active .card-toggle svg { stroke: var(--navy-dark); }
+
+.card-label { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-top: 12px; }
+.card-value { font-size: 1.5rem; font-weight: 800; color: var(--yellow); margin-top: 4px; }
+.card-details { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, margin-top 0.3s ease; margin-top: 0; }
+.coverage-card.active .card-details { max-height: 300px; margin-top: 16px; }
+.card-details p { font-size: 0.88rem; color: var(--gray-300); line-height: 1.65; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+.enhancements { margin-top: 16px; }
+.enhancement-item { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.enhancement-check { width: 22px; height: 22px; border-radius: 50%; background: rgba(34,197,94,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.enhancement-check svg { width: 12px; height: 12px; stroke: var(--green); stroke-width: 3; }
+.enhancement-text { font-size: 0.9rem; color: var(--gray-200); font-weight: 400; }
+
+.section-divider { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+.section-divider hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,163,0,0.2), transparent); }
+
+.vehicle-tabs { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.vehicle-tab { padding: 12px 20px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.3s ease; font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500; color: var(--gray-300); }
+.vehicle-tab:hover { border-color: rgba(255,163,0,0.3); }
+.vehicle-tab.active { background: rgba(255,163,0,0.1); border-color: var(--yellow); color: var(--yellow); }
+
+.vehicle-detail { display: none; }
+.vehicle-detail.active { display: block; }
+.vehicle-coverage-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.vehicle-coverage-row:last-child { border-bottom: none; }
+.vcr-label { font-size: 0.9rem; color: var(--gray-300); font-weight: 400; }
+.vcr-value { font-size: 0.9rem; color: var(--white); font-weight: 600; text-align: right; }
+
+.driver-list { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
+.driver-chip { display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+.driver-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--yellow); }
+.driver-name { font-size: 0.9rem; font-weight: 500; color: var(--white); }
+.driver-status { font-size: 0.75rem; color: var(--gray-300); }
+
+.discount-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.discount-badge { padding: 8px 14px; border-radius: 100px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2); font-size: 0.78rem; font-weight: 600; color: var(--green); white-space: nowrap; }
+
+.exposure-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.exposure-item { text-align: center; padding: 28px 16px; border-radius: 16px; background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid rgba(255,255,255,0.08); }
+.exposure-icon { font-size: 28px; margin-bottom: 10px; }
+.exposure-label { font-size: 0.85rem; color: var(--gray-300); font-weight: 400; }
+.exposure-value { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-top: 4px; }
+
+.umbrella-visual { background: linear-gradient(135deg, rgba(255,163,0,0.06) 0%, rgba(0,75,137,0.08) 100%); border: 1px solid rgba(255,163,0,0.15); border-radius: 20px; padding: 32px; text-align: center; margin: 32px 0; }
+.umbrella-visual .big-number { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--yellow); }
+.umbrella-visual .big-label { font-size: 1rem; color: var(--gray-300); margin-top: 4px; }
+.umbrella-visual .sub-text { font-size: 0.9rem; color: var(--gray-300); margin-top: 16px; font-weight: 300; }
+
+.package-summary { background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 32px; margin-top: 32px; }
+.package-line { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.package-line:last-of-type { border-bottom: none; }
+.pl-left { display: flex; align-items: center; gap: 12px; }
+.pl-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.pl-icon.home { background: rgba(59,130,246,0.15); }
+.pl-icon.auto { background: rgba(168,85,247,0.15); }
+.pl-icon.umbrella { background: rgba(255,163,0,0.15); }
+.pl-name { font-size: 1rem; font-weight: 600; color: var(--white); }
+.pl-sub { font-size: 0.8rem; color: var(--gray-300); }
+.pl-price { font-size: 1.2rem; font-weight: 700; color: var(--white); }
+
+.package-total { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; margin-top: 8px; border-top: 2px solid var(--yellow); }
+.package-total .pt-label { font-size: 1rem; font-weight: 700; color: var(--yellow); text-transform: uppercase; letter-spacing: 1px; }
+.package-total .pt-price { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--yellow); }
+
+.payment-toggle { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; margin-bottom: 24px; }
+.pay-option { padding: 10px 18px; border-radius: 100px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 500; color: var(--gray-300); transition: all 0.3s ease; }
+.pay-option:hover { border-color: rgba(255,163,0,0.3); }
+.pay-option.active { background: var(--yellow); border-color: var(--yellow); color: var(--navy-dark); font-weight: 700; }
+
+.payment-breakdown { margin-top: 16px; }
+.payment-breakdown-row { display: flex; justify-content: space-between; padding: 10px 0; font-size: 0.9rem; }
+.payment-breakdown-row .pbr-label { color: var(--gray-300); }
+.payment-breakdown-row .pbr-value { color: var(--white); font-weight: 600; }
+.payment-breakdown-row.total { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px; margin-top: 4px; }
+.payment-breakdown-row.total .pbr-label { color: var(--yellow); font-weight: 700; }
+.payment-breakdown-row.total .pbr-value { color: var(--yellow); font-weight: 800; font-size: 1.1rem; }
+
+.comparison-box { border-radius: 16px; padding: 24px; }
+.comparison-box.old { background: linear-gradient(135deg, rgba(239,68,68,0.06) 0%, rgba(239,68,68,0.02) 100%); border: 1px solid rgba(239,68,68,0.15); }
+.comparison-box.new { background: linear-gradient(135deg, rgba(34,197,94,0.06) 0%, rgba(34,197,94,0.02) 100%); border: 1px solid rgba(34,197,94,0.15); }
+.comparison-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 8px; }
+.comparison-box.old .comparison-label { color: var(--red-soft); }
+.comparison-box.new .comparison-label { color: var(--green); }
+.comparison-amount { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--white); }
+.comparison-note { font-size: 0.85rem; color: var(--gray-300); margin-top: 4px; }
+
+.savings-callout { text-align: center; margin-top: 20px; padding: 24px; border-radius: 16px; background: linear-gradient(135deg, rgba(34,197,94,0.08) 0%, rgba(34,197,94,0.03) 100%); border: 1px solid rgba(34,197,94,0.15); }
+.savings-callout .sc-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--green); font-weight: 700; }
+.savings-callout .sc-amount { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: var(--green); margin-top: 4px; }
+.savings-callout .sc-note { font-size: 0.85rem; color: var(--gray-300); margin-top: 4px; }
+
+.footer { text-align: center; padding: 32px 24px; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer p { font-size: 0.75rem; color: var(--gray-600); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+.footer .brand { font-weight: 700; color: var(--gray-300); margin-bottom: 8px; font-size: 0.8rem; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: rotate(45deg) translateY(0); } 40% { transform: rotate(45deg) translateY(-6px); } 60% { transform: rotate(45deg) translateY(-3px); } }
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 600px) {
+  .section { padding: 60px 20px; }
+  .coverage-grid { grid-template-columns: 1fr; }
+  .exposure-grid { grid-template-columns: repeat(2, 1fr); }
+  .vehicle-tabs { flex-direction: column; }
+  .package-line { flex-direction: column; gap: 8px; align-items: flex-start; }
+  .pl-price { align-self: flex-end; }
+  .nav-dots { display: none; }
+  .comparison-grid { grid-template-columns: 1fr !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="nav-dots">
+  <div class="nav-dot active" onclick="scrollTo('hero')"><span class="dot-label">Welcome</span></div>
+  <div class="nav-dot" onclick="scrollTo('home')"><span class="dot-label">Home</span></div>
+  <div class="nav-dot" onclick="scrollTo('auto')"><span class="dot-label">Auto</span></div>
+  <div class="nav-dot" onclick="scrollTo('umbrella')"><span class="dot-label">Umbrella</span></div>
+  <div class="nav-dot" onclick="scrollTo('summary')"><span class="dot-label">Your Package</span></div>
+</div>
+
+<div class="hero" id="hero">
+  <img src="https://gosafeshield.com/wp-content/uploads/2025/03/safeshield-logo.png" alt="Safeshield Insurance" class="hero-logo">
+  <h1>Jonathan, welcome to<br>your coverage proposal.</h1>
+  <p class="subtitle">Complete protection for your new home, vehicles, and family</p>
+  <p class="address">5 Mohawk Ln, Woodbridge, CT 06525</p>
+  <p class="prepared-by">Prepared by <strong>Austin Glazer</strong> &middot; Safeshield Insurance</p>
+  <p class="eff-date">Proposed Effective Date: May 15, 2026</p>
+  <div class="scroll-indicator"><span>Explore Your Coverage</span><div class="arrow"></div></div>
+</div>
+
+<!-- HOME -->
+<div class="section fade-in" id="home">
+  <div class="section-label">Homeowners Insurance</div>
+  <div class="section-title">Your Home, Fully Protected</div>
+  <div class="section-desc">Plymouth Rock Home Assurance is providing comprehensive HO-3 Special Form coverage for your new property. Tap each card to see exactly what's included.</div>
+
+  <div class="coverage-grid">
+    <div class="coverage-card" onclick="toggleCard(this)">
+      <div class="card-header"><div class="card-icon">&#127968;</div><div class="card-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="card-label">Dwelling (Coverage A)</div>
+      <div class="card-value">$1,351,000</div>
+      <div class="card-details"><p>The cost to rebuild your home from the ground up. Covers walls, roof, foundation, built-in appliances, and attached structures like your garage. Based on reconstruction cost, not market value.</p></div>
+    </div>
+    <div class="coverage-card" onclick="toggleCard(this)">
+      <div class="card-header"><div class="card-icon">&#127960;</div><div class="card-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="card-label">Other Structures (Coverage B)</div>
+      <div class="card-value">$135,100</div>
+      <div class="card-details"><p>Covers detached structures on your property: fences, sheds, detached garages, the pool area, basketball court, and any other standalone structures not connected to the main dwelling.</p></div>
+    </div>
+    <div class="coverage-card" onclick="toggleCard(this)">
+      <div class="card-header"><div class="card-icon">&#128188;</div><div class="card-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="card-label">Personal Property (Coverage C)</div>
+      <div class="card-value">$945,700</div>
+      <div class="card-details"><p>Your belongings: furniture, electronics, clothing, appliances, and more. Includes items temporarily away from home. Replacement Cost on Contents is included, so you're reimbursed for new items, not depreciated value.</p></div>
+    </div>
+    <div class="coverage-card" onclick="toggleCard(this)">
+      <div class="card-header"><div class="card-icon">&#127751;</div><div class="card-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="card-label">Loss of Use (Coverage D)</div>
+      <div class="card-value">$405,300</div>
+      <div class="card-details"><p>If your home becomes uninhabitable due to a covered loss, this pays for additional living expenses: hotel stays, meals, temporary housing, and other costs above your normal expenses while your home is repaired.</p></div>
+    </div>
+    <div class="coverage-card" onclick="toggleCard(this)">
+      <div class="card-header"><div class="card-icon">&#128737;</div><div class="card-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="card-label">Personal Liability (Coverage E)</div>
+      <div class="card-value">$500,000</div>
+      <div class="card-details"><p>Protects you if someone is injured on your property or you accidentally damage someone else's property. Covers legal defense costs and settlements. Especially important with a pool and basketball court on the premises.</p></div>
+    </div>
+    <div class="coverage-card" onclick="toggleCard(this)">
+      <div class="card-header"><div class="card-icon">&#129658;</div><div class="card-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="card-label">Medical Payments (Coverage F)</div>
+      <div class="card-value">$1,000</div>
+      <div class="card-details"><p>Covers medical expenses for guests injured on your property, regardless of fault. Pays out quickly without requiring a liability claim, helping resolve minor incidents before they escalate.</p></div>
+    </div>
+  </div>
+
+  <div class="coverage-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+    <div class="coverage-card" style="cursor:default;"><div class="card-label">Policy Deductible</div><div class="card-value" style="font-size:1.2rem;">$5,000</div></div>
+    <div class="coverage-card" style="cursor:default;"><div class="card-label">Hurricane Deductible</div><div class="card-value" style="font-size:1.2rem;">2%</div></div>
+  </div>
+
+  <div class="section-label" style="margin-top:40px;">Included Enhancements</div>
+  <div class="enhancements">
+    <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">125% Additional Replacement Cost Coverage</div></div>
+    <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">Replacement Cost on Contents</div></div>
+    <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">Water Back Up & Sump Overflow ($10,000 limit)</div></div>
+    <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">Identity Theft Resolution Services</div></div>
+    <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">Inflation Guard Protection</div></div>
+    <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">Personal Injury Liability</div></div>
+    <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">Home-Sharing Host Activities Coverage</div></div>
+    <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">Homeowners 3 Special Form (broadest standard coverage)</div></div>
+  </div>
+
+  <div class="discount-row" style="margin-top:40px;">
+    <div class="discount-badge">Advanced Quote</div>
+    <div class="discount-badge">New Business</div>
+    <div class="discount-badge">Auto Policy Companion</div>
+    <div class="discount-badge">Loss Free</div>
+    <div class="discount-badge">Security Protection</div>
+    <div class="discount-badge">Fire Protection</div>
+    <div class="discount-badge">Deductible Discount</div>
+    <div class="discount-badge">Optional Coverage</div>
+  </div>
+</div>
+
+<div class="section-divider"><hr></div>
+
+<!-- AUTO -->
+<div class="section fade-in" id="auto">
+  <div class="section-label">Auto Insurance</div>
+  <div class="section-title">Your Vehicles, Covered Right</div>
+  <div class="section-desc">Since you're making the move to Connecticut, we ran your auto through Plymouth Rock as well to make sure you're fully protected across the board. Here's the coverage on all three vehicles.</div>
+
+  <div class="vehicle-tabs">
+    <button class="vehicle-tab active" onclick="switchVehicle(0, this)">2020 Volvo XC90</button>
+    <button class="vehicle-tab" onclick="switchVehicle(1, this)">2013 Toyota Highlander</button>
+    <button class="vehicle-tab" onclick="switchVehicle(2, this)">2021 Toyota Tundra</button>
+  </div>
+
+  <div class="vehicle-detail active" id="v0">
+    <div class="vehicle-coverage-row"><span class="vcr-label">Bodily Injury</span><span class="vcr-value">$250,000 / $500,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Property Damage</span><span class="vcr-value">$100,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Uninsured/Underinsured Motorist</span><span class="vcr-value">$250,000 / $500,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Medical Payments</span><span class="vcr-value">$5,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Comprehensive Deductible</span><span class="vcr-value">$500</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Collision Deductible</span><span class="vcr-value">$1,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Substitute Transportation</span><span class="vcr-value">$45/day, $1,350 max</span></div>
+  </div>
+
+  <div class="vehicle-detail" id="v1">
+    <div class="vehicle-coverage-row"><span class="vcr-label">Bodily Injury</span><span class="vcr-value">$250,000 / $500,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Property Damage</span><span class="vcr-value">$100,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Uninsured/Underinsured Motorist</span><span class="vcr-value">$250,000 / $500,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Medical Payments</span><span class="vcr-value">$5,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Comprehensive Deductible</span><span class="vcr-value">$500</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Collision Deductible</span><span class="vcr-value">$1,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Substitute Transportation</span><span class="vcr-value">$45/day, $1,350 max</span></div>
+  </div>
+
+  <div class="vehicle-detail" id="v2">
+    <div class="vehicle-coverage-row"><span class="vcr-label">Bodily Injury</span><span class="vcr-value">$250,000 / $500,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Property Damage</span><span class="vcr-value">$100,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Uninsured/Underinsured Motorist</span><span class="vcr-value">$250,000 / $500,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Medical Payments</span><span class="vcr-value">$5,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Comprehensive Deductible</span><span class="vcr-value">$500</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Collision Deductible</span><span class="vcr-value">$1,000</span></div>
+    <div class="vehicle-coverage-row"><span class="vcr-label">Substitute Transportation</span><span class="vcr-value">$45/day, $1,350 max</span></div>
+  </div>
+
+  <div class="driver-list">
+    <div class="driver-chip"><div class="driver-avatar">JH</div><div><div class="driver-name">Jonathan Howard</div><div class="driver-status">Insured on Policy</div></div></div>
+    <div class="driver-chip"><div class="driver-avatar">NT</div><div><div class="driver-name">Natasha Trivers</div><div class="driver-status">Insured on Policy</div></div></div>
+    <div class="driver-chip"><div class="driver-avatar">AH</div><div><div class="driver-name">Adrienne Howard</div><div class="driver-status">Insured on Policy</div></div></div>
+  </div>
+
+  <div style="margin-top:32px;">
+    <div class="section-label">Coverage Enhancements</div>
+    <div class="enhancements">
+      <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">Essential Assurance (included with policy)</div></div>
+      <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">No Accident Forgiveness Coverage</div></div>
+      <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">Door to Door Valet Claim Service</div></div>
+      <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">Crashbusters Mobile Claim Adjuster</div></div>
+      <div class="enhancement-item"><div class="enhancement-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div><div class="enhancement-text">Get Home Safe ($50 cab reimbursement)</div></div>
+    </div>
+  </div>
+
+  <div class="discount-row">
+    <div class="discount-badge">Advance Shopper</div>
+    <div class="discount-badge">Companion Package</div>
+    <div class="discount-badge">Umbrella Companion</div>
+    <div class="discount-badge">Paid in Full</div>
+    <div class="discount-badge">Homeowner</div>
+    <div class="discount-badge">Agency Transfer</div>
+  </div>
+</div>
+
+<div class="section-divider"><hr></div>
+
+<!-- UMBRELLA -->
+<div class="section fade-in" id="umbrella">
+  <div class="section-label">Personal Umbrella</div>
+  <div class="section-title">An Extra Layer of Protection</div>
+  <div class="section-desc">An umbrella policy provides additional liability coverage beyond your home and auto policies. Given the property you're purchasing and your overall exposure, this is an essential piece of the puzzle.</div>
+
+  <div class="exposure-grid">
+    <div class="exposure-item"><div class="exposure-icon">&#127968;</div><div class="exposure-value">$1.35M</div><div class="exposure-label">Home Value</div></div>
+    <div class="exposure-item"><div class="exposure-icon">&#127946;</div><div class="exposure-value">Pool</div><div class="exposure-label">On Property</div></div>
+    <div class="exposure-item"><div class="exposure-icon">&#127936;</div><div class="exposure-value">Court</div><div class="exposure-label">Basketball Court</div></div>
+    <div class="exposure-item"><div class="exposure-icon">&#128663;</div><div class="exposure-value">3</div><div class="exposure-label">Vehicles Insured</div></div>
+    <div class="exposure-item"><div class="exposure-icon">&#128100;</div><div class="exposure-value">3</div><div class="exposure-label">Drivers</div></div>
+  </div>
+
+  <div class="umbrella-visual">
+    <div class="big-number">$1,000,000</div>
+    <div class="big-label">Additional Liability Protection</div>
+    <div class="sub-text">Sits on top of your home and auto liability limits. If a claim exceeds those policies, the umbrella kicks in to cover the rest, up to $1M per occurrence ($2M aggregate).</div>
+  </div>
+
+  <div class="coverage-grid" style="grid-template-columns: 1fr 1fr;">
+    <div class="coverage-card" onclick="toggleCard(this)">
+      <div class="card-header"><div class="card-icon">&#9989;</div><div class="card-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="card-label">What It Covers</div>
+      <div class="card-details" style="max-height:none; margin-top:16px;"><p style="border:none; padding:0;">Bodily injury to others, property damage you cause, personal injury claims (libel, slander), legal defense costs, dog bite liability, incidents at your pool or basketball court, auto accidents exceeding your policy limits, and more.</p></div>
+    </div>
+    <div class="coverage-card" onclick="toggleCard(this)">
+      <div class="card-header"><div class="card-icon">&#128712;</div><div class="card-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="card-label">Required Underlying Limits</div>
+      <div class="card-details" style="max-height:none; margin-top:16px;"><p style="border:none; padding:0;">Your auto and home policies already meet the underlying requirements: $250K/$500K/$100K auto liability, $300K personal liability on home, $250K/$500K UM/UIM. You're fully eligible with no changes needed.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"><hr></div>
+
+<!-- PACKAGE SUMMARY -->
+<div class="section fade-in" id="summary">
+  <div class="section-label">Your Package</div>
+  <div class="section-title">Three Policies, One Carrier</div>
+  <div class="section-desc">All three policies with Plymouth Rock, bundled together through one agency for seamless management and maximum discounts.</div>
+
+  <div class="package-summary">
+    <div class="package-line">
+      <div class="pl-left"><div class="pl-icon home">&#127968;</div><div><div class="pl-name">Homeowners</div><div class="pl-sub">Plymouth Rock Home Assurance</div></div></div>
+      <div class="pl-price">$4,940<span style="font-size:0.7rem;font-weight:400;color:var(--gray-300);display:block;">per year</span></div>
+    </div>
+    <div class="package-line">
+      <div class="pl-left"><div class="pl-icon auto">&#128663;</div><div><div class="pl-name">Personal Auto</div><div class="pl-sub">Plymouth Rock Assurance</div></div></div>
+      <div class="pl-price">$4,927<span style="font-size:0.7rem;font-weight:400;color:var(--gray-300);display:block;">per year (pay in full)</span></div>
+    </div>
+    <div class="package-line" style="border-bottom:none;">
+      <div class="pl-left"><div class="pl-icon umbrella">&#9748;</div><div><div class="pl-name">Personal Umbrella</div><div class="pl-sub">Plymouth Rock Assurance</div></div></div>
+      <div class="pl-price">$395<span style="font-size:0.7rem;font-weight:400;color:var(--gray-300);display:block;">per year</span></div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;">
+    <div class="section-label">Auto Savings vs. Your Current Policy</div>
+    <div class="section-desc" style="margin-bottom:20px;">You're currently paying $2,936 every 6 months for auto insurance in New York. Here's how this compares.</div>
+    <div class="comparison-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+      <div class="comparison-box old"><div class="comparison-label">Current (NY Auto)</div><div class="comparison-amount">$5,872</div><div class="comparison-note">per year (auto only)</div></div>
+      <div class="comparison-box new"><div class="comparison-label">Plymouth Rock (CT Auto)</div><div class="comparison-amount">$4,927</div><div class="comparison-note">per year (pay in full)</div></div>
+    </div>
+    <div class="savings-callout"><div class="sc-label">Annual Savings on Auto</div><div class="sc-amount">$945</div><div class="sc-note">With matching or better coverage across the board</div></div>
+  </div>
+
+  <div style="margin-top:48px;">
+    <div class="section-label">Auto Payment Options</div>
+    <div class="section-desc" style="margin-bottom:16px;">Homeowners and umbrella are pay in full. Here are your options for auto.</div>
+    <div class="payment-toggle">
+      <button class="pay-option active" onclick="switchPay('full', this)">Pay in Full</button>
+      <button class="pay-option" onclick="switchPay('2pay', this)">2 Pay</button>
+      <button class="pay-option" onclick="switchPay('4pay', this)">4 Pay</button>
+      <button class="pay-option" onclick="switchPay('10pay', this)">10 Pay</button>
+      <button class="pay-option" onclick="switchPay('10cc', this)">10 Pay (Card)</button>
+      <button class="pay-option" onclick="switchPay('12pay', this)">12 Pay EFT</button>
+    </div>
+    <div class="payment-breakdown" id="payBreakdown"></div>
+  </div>
+</div>
+
+<div class="footer">
+  <p class="brand">Safeshield Insurance</p>
+  <p>This proposal is a temporary offer and is not binding and does not provide coverage. Rates can change over time. The quoted price could change if any additional information is submitted. Coverage is conditioned on completion of an application and payment of premiums when due. Quote date: April 9, 2026.</p>
+</div>
+
+<script>
+function toggleCard(el) { el.classList.toggle('active'); }
+
+function switchVehicle(idx, btn) {
+  document.querySelectorAll('.vehicle-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.vehicle-detail').forEach(d => d.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('v' + idx).classList.add('active');
+}
+
+function scrollTo(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
+
+const sectionIds = ['hero', 'home', 'auto', 'umbrella', 'summary'];
+const dots = document.querySelectorAll('.nav-dot');
+window.addEventListener('scroll', () => {
+  let current = 0;
+  sectionIds.forEach((id, i) => { const el = document.getElementById(id); if (el && window.scrollY >= el.offsetTop - 300) current = i; });
+  dots.forEach((d, i) => d.classList.toggle('active', i === current));
+});
+
+const autoPlans = {
+  full: { label: 'Pay in Full (Best Price)', total: '$4,927.00', down: '$4,927.00', inst: '0', each: 'N/A', note: 'Up to 6% discount. No service fees.' },
+  '2pay': { label: '2 Pay (3% Discount)', total: '$5,067.00', down: '$2,533.50', inst: '1', each: '$2,533.50', note: 'Up to 3% discount applied.' },
+  '4pay': { label: '4 Pay', total: '$5,209.00', down: '$1,302.25', inst: '3', each: '$1,302.25', note: 'Quarterly installments.' },
+  '10pay': { label: '10 Pay', total: '$5,209.00', down: '$520.90', inst: '9', each: '$520.90', note: '$6 service fee per installment.' },
+  '10cc': { label: '10 Pay (Auto Credit Card)', total: '$5,209.00', down: '$520.90', inst: '9', each: '$520.90', note: 'Automatic credit card payments.' },
+  '12pay': { label: '12 Pay (EFT Only)', total: '$5,209.00', down: '$434.43', inst: '11', each: '$434.43', note: 'Lowest monthly. EFT required. No service fees.' }
+};
+
+function switchPay(plan, btn) {
+  document.querySelectorAll('.pay-option').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPay(plan);
+}
+
+function renderPay(plan) {
+  const p = autoPlans[plan], bd = document.getElementById('payBreakdown');
+  let h = '';
+  h += '<div class="payment-breakdown-row"><span class="pbr-label">Total Premium</span><span class="pbr-value">' + p.total + '</span></div>';
+  h += '<div class="payment-breakdown-row"><span class="pbr-label">Down Payment</span><span class="pbr-value">' + p.down + '</span></div>';
+  if (p.each !== 'N/A') {
+    h += '<div class="payment-breakdown-row"><span class="pbr-label">Future Installments</span><span class="pbr-value">' + p.inst + ' x ' + p.each + '</span></div>';
+  }
+  if (p.note) h += '<div style="margin-top:12px;font-size:0.82rem;color:var(--gray-600);">' + p.note + '</div>';
+  bd.innerHTML = h;
+}
+
+renderPay('full');
+
+const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
