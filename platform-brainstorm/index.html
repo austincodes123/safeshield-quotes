@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Platform Brainstorm</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #08090d;
+  --surface: #0f1118;
+  --surface2: #161822;
+  --border: #1e2030;
+  --border-glow: #2a3050;
+  --text: #e8e9ed;
+  --text-dim: #7a7f94;
+  --accent: #4f8aff;
+  --accent2: #22d68a;
+  --accent3: #ff6b4a;
+  --accent4: #c084fc;
+  --gold: #ffa300;
+  --navy: #004B89;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ---- HERO ---- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(79,138,255,0.08) 0%, transparent 70%);
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 100px;
+  background: rgba(79,138,255,0.08);
+  border: 1px solid rgba(79,138,255,0.15);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  animation: fadeDown 0.8s ease;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent2);
+  box-shadow: 0 0 8px var(--accent2);
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(40px, 7vw, 80px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  animation: fadeDown 0.8s ease 0.1s both;
+}
+
+.hero h1 span {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent4) 50%, var(--accent3) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--text-dim);
+  max-width: 600px;
+  margin-bottom: 48px;
+  animation: fadeDown 0.8s ease 0.2s both;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-dim);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: fadeDown 0.8s ease 0.5s both;
+}
+
+.hero-scroll .line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--text-dim), transparent);
+  animation: scrollBounce 2s ease infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(0.5); opacity: 0.3; }
+}
+
+/* ---- SECTIONS ---- */
+.section {
+  padding: 100px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--accent);
+}
+
+.section h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+.section .desc {
+  color: var(--text-dim);
+  font-size: 16px;
+  max-width: 650px;
+  margin-bottom: 48px;
+}
+
+/* ---- PLATFORM STACK ---- */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2px;
+}
+
+.stack-card {
+  background: var(--surface);
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+}
+
+.stack-card:hover {
+  background: var(--surface2);
+  border-color: var(--border-glow);
+  transform: translateY(-2px);
+}
+
+.stack-card .icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.stack-card:nth-child(1) .icon { background: rgba(79,138,255,0.12); color: var(--accent); }
+.stack-card:nth-child(2) .icon { background: rgba(34,214,138,0.12); color: var(--accent2); }
+.stack-card:nth-child(3) .icon { background: rgba(255,107,74,0.12); color: var(--accent3); }
+.stack-card:nth-child(4) .icon { background: rgba(192,132,252,0.12); color: var(--accent4); }
+.stack-card:nth-child(5) .icon { background: rgba(255,163,0,0.12); color: var(--gold); }
+
+.stack-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.stack-card p {
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.stack-card .tag {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.stack-card:nth-child(1) .tag { background: rgba(79,138,255,0.1); color: var(--accent); }
+.stack-card:nth-child(2) .tag { background: rgba(34,214,138,0.1); color: var(--accent2); }
+.stack-card:nth-child(3) .tag { background: rgba(255,107,74,0.1); color: var(--accent3); }
+.stack-card:nth-child(4) .tag { background: rgba(192,132,252,0.1); color: var(--accent4); }
+.stack-card:nth-child(5) .tag { background: rgba(255,163,0,0.1); color: var(--gold); }
+
+/* ---- BRAND IDEAS ---- */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.brand-option {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.brand-option:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(79,138,255,0.08);
+}
+
+.brand-option.selected {
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 1px var(--accent2), 0 12px 40px rgba(34,214,138,0.1);
+}
+
+.brand-option.selected::after {
+  content: '\\2713';
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 24px; height: 24px;
+  background: var(--accent2);
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.brand-option .brand-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.brand-option .brand-tagline {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.brand-option .brand-rationale {
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ---- POSITIONING ---- */
+.positioning-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.pos-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+  position: relative;
+}
+
+.pos-card .audience {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent3);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pos-card .hook {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.pos-card .body-text {
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ---- PRICING ---- */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+@media (max-width: 800px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+}
+
+.price-card {
+  background: var(--surface);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.price-card.featured {
+  background: var(--surface2);
+  border-top: 2px solid var(--accent2);
+}
+
+.price-card.featured::before {
+  content: 'MOST POPULAR';
+  position: absolute;
+  top: 16px; right: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--accent2);
+  background: rgba(34,214,138,0.1);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.price-tier {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.price-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.price-amount {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  margin-bottom: 4px;
+}
+
+.price-amount span {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.price-note {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+}
+
+.price-features {
+  list-style: none;
+  flex: 1;
+}
+
+.price-features li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.price-features li::before {
+  content: '+';
+  color: var(--accent2);
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.price-features li.highlight {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ---- MOAT ---- */
+.moat-items {
+  display: grid;
+  gap: 0;
+}
+
+.moat-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.moat-num {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  color: var(--border-glow);
+  line-height: 1;
+}
+
+.moat-item h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.moat-item p {
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ---- NOTES / BRAINSTORM ---- */
+.notes-area {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin-top: 32px;
+}
+
+.notes-area h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notes-area textarea {
+  width: 100%;
+  min-height: 120px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.notes-area textarea:focus {
+  border-color: var(--accent);
+}
+
+.notes-area textarea::placeholder {
+  color: var(--text-dim);
+  opacity: 0.5;
+}
+
+/* ---- COMPARISON TABLE ---- */
+.compare-table-wrap {
+  overflow-x: auto;
+  margin-top: 32px;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.compare-table th {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  text-align: left;
+  padding: 16px;
+  border-bottom: 2px solid var(--border);
+}
+
+.compare-table th:first-child {
+  color: var(--text);
+}
+
+.compare-table th.ours {
+  color: var(--accent2);
+}
+
+.compare-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+}
+
+.compare-table tr:hover td {
+  background: rgba(255,255,255,0.01);
+}
+
+.compare-table .check { color: var(--accent2); font-weight: 700; }
+.compare-table .x { color: #ff4444; opacity: 0.5; }
+.compare-table .partial { color: var(--gold); }
+
+/* ---- FOOTER ---- */
+.footer {
+  text-align: center;
+  padding: 60px 24px 40px;
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+.footer .logo-text {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+/* ---- SCROLL ANIMATIONS ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- NAV ---- */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(8,9,13,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.nav.visible { transform: translateY(0); }
+
+.nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.nav a:hover {
+  color: var(--text);
+  background: var(--surface2);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-glow), transparent);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#stack">Platform</a>
+  <a href="#brand">Brand</a>
+  <a href="#positioning">Positioning</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#moat">Moat</a>
+  <a href="#compare">vs. Market</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Brainstorm Session <span style="opacity:0.5">|</span> April 2026</div>
+  <h1>Insurance Agency<br><span>In a Box.</span></h1>
+  <p class="hero-sub">Five native systems. One platform. Zero excuses. Built by someone who actually writes policies. Everything below is live brainstorm material for brand, positioning, and pricing.</p>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PLATFORM STACK -->
+<section class="section" id="stack">
+  <div class="reveal">
+    <div class="section-label">The Platform</div>
+    <h2>Five engines. All native.<br>All yours.</h2>
+    <p class="desc">Not integrations. Not API wrappers. Fully owned components that talk to each other out of the box. Agents sign up and they're operational day one.</p>
+  </div>
+
+  <div class="stack-grid reveal">
+    <div class="stack-card">
+      <div class="icon">DB</div>
+      <h3>AMS</h3>
+      <p>Proprietary PostgreSQL database. Ivans bot feeds it live every morning: new business, endorsements, cancellations, renewals, commission statements, eDocs. Full client/policy/vehicle/driver/property records. PII encryption. Command palette search. Renewals center. Download center.</p>
+      <span class="tag">Core</span>
+    </div>
+    <div class="stack-card">
+      <div class="icon">RQ</div>
+      <h3>Rater (RPA Studio)</h3>
+      <p>Agent builds household once. RPA Studio logs into every carrier portal simultaneously and runs all quotes in parallel. Results delivered back inside the platform. No re-keying. No portal hopping. 8+ carriers in ~10 minutes vs. 2+ hours manually.</p>
+      <span class="tag">Add-on</span>
+    </div>
+    <div class="stack-card">
+      <div class="icon">PH</div>
+      <h3>Phone System</h3>
+      <p>Calls, texts, group chats. AI transcription and call summaries auto-logged to the client file. Every communication tied to the client record automatically. No third-party softphone app.</p>
+      <span class="tag">Add-on</span>
+    </div>
+    <div class="stack-card">
+      <div class="icon">$$</div>
+      <h3>Commission Engine</h3>
+      <p>Ivans commission data parsed nightly. Agent splits calculated automatically. Per-policy tracking. Two-month lag built in. Payroll push to Gusto. Full transparency: every agent sees exactly what they earned and why.</p>
+      <span class="tag">Core</span>
+    </div>
+    <div class="stack-card">
+      <div class="icon">AI</div>
+      <h3>AI Brain</h3>
+      <p>Claude Sonnet. Conversational interface across all modules. Talk to your AMS. Ask about renewals. Draft emails in your voice. Intake leads. Extract data from uploaded dec pages. The layer that ties everything together.</p>
+      <span class="tag">Core</span>
+    </div>
+  </div>
+
+  <div class="notes-area reveal">
+    <h3>&#128221; Platform Notes</h3>
+    <textarea placeholder="What else should the platform include? What's missing? Drop notes here..."></textarea>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BRAND -->
+<section class="section" id="brand">
+  <div class="reveal">
+    <div class="section-label">Brand Identity</div>
+    <h2>What do we call this thing?</h2>
+    <p class="desc">New brand. Separate from Safeshield. Under Terrpain Ventures. Click any name to favorite it. These are starting points to riff on.</p>
+  </div>
+
+  <div class="brand-grid reveal">
+    <div class="brand-option" onclick="toggleBrand(this)">
+      <div class="brand-name">DESKBOUND</div>
+      <div class="brand-tagline">"Your agency. All in one place."</div>
+      <div class="brand-rationale">Where the work happens. The desk. Speaks to the physical reality of being an agent: everything lands at the desk, and now everything runs from it. Clean, grounded, no InsurTech buzzwords.</div>
+    </div>
+    <div class="brand-option" onclick="toggleBrand(this)">
+      <div class="brand-name">BASECAMP</div>
+      <div class="brand-tagline">"Your operation starts here."</div>
+      <div class="brand-rationale">HQ energy. The foundation. Where every expedition launches from. Implies structure and support without being corporate. Problem: 37signals owns the project management brand.</div>
+    </div>
+    <div class="brand-option" onclick="toggleBrand(this)">
+      <div class="brand-name">LOCKBOX</div>
+      <div class="brand-tagline">"Everything your agency runs on. Locked in."</div>
+      <div class="brand-rationale">Insurance industry resonance (lockbox payments are a real thing). Implies security, containment, everything in one vault. Dark, premium, slightly aggressive. Memorable.</div>
+    </div>
+    <div class="brand-option" onclick="toggleBrand(this)">
+      <div class="brand-name">PROWL</div>
+      <div class="brand-tagline">"Hunt. Quote. Close. Repeat."</div>
+      <div class="brand-rationale">Predatory energy. Agents are hunters. The platform makes them dangerous. Short, punchy, brandable, domain-friendly. Different from everything in the space.</div>
+    </div>
+    <div class="brand-option" onclick="toggleBrand(this)">
+      <div class="brand-name">MAINLINE</div>
+      <div class="brand-tagline">"One line. Every tool."</div>
+      <div class="brand-rationale">Direct injection. The main artery everything flows through. Implies connectivity and centrality. Has tech energy without sounding like a startup that'll fold in 18 months.</div>
+    </div>
+    <div class="brand-option" onclick="toggleBrand(this)">
+      <div class="brand-name">BULLPEN</div>
+      <div class="brand-tagline">"Built by the guy in the chair."</div>
+      <div class="brand-rationale">Where the closers warm up. Baseball heritage. "The bullpen" is where the work gets done before it hits the mound. Already in Austin's vocabulary (office display). Raw, authentic, team energy.</div>
+    </div>
+    <div class="brand-option" onclick="toggleBrand(this)">
+      <div class="brand-name">KEYSTROKE</div>
+      <div class="brand-tagline">"One platform. Zero re-keying."</div>
+      <div class="brand-rationale">Directly attacks the #1 pain point: agents re-key the same data 8 times a day across portals. "Keystroke" is the problem AND the solution. Enter it once, never again. Clever double meaning.</div>
+    </div>
+    <div class="brand-option" onclick="toggleBrand(this)">
+      <div class="brand-name">[YOUR IDEA]</div>
+      <div class="brand-tagline">"..."</div>
+      <div class="brand-rationale">Got something better? These are just sparks. The right name might come from a completely different angle. Drop it in the notes below.</div>
+    </div>
+  </div>
+
+  <div class="notes-area reveal">
+    <h3>&#128161; Brand Notes</h3>
+    <textarea placeholder="Riff on names, taglines, vibes. What feels right? What's the energy?"></textarea>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- POSITIONING -->
+<section class="section" id="positioning">
+  <div class="reveal">
+    <div class="section-label">Positioning</div>
+    <h2>Different pitch.<br>Same killer product.</h2>
+    <p class="desc">The product doesn't change. The hook does. Here's how the story lands for each buyer.</p>
+  </div>
+
+  <div class="positioning-cards reveal">
+    <div class="pos-card">
+      <div class="audience">Solo / Scratch Agent</div>
+      <div class="hook">"This is your staff."</div>
+      <div class="body-text">You can't afford a CSR, a VA, and a rater subscription. You're re-keying data for 3 hours a day. This platform IS your team. AI answers questions, the rater quotes 8 carriers while you're on the phone, commissions calculate themselves. You just produce.</div>
+    </div>
+    <div class="pos-card">
+      <div class="audience">Small Team (3-10)</div>
+      <div class="hook">"Your best producers are doing admin all day. Stop that."</div>
+      <div class="body-text">Every hour your top closer spends in a carrier portal is revenue lost. One platform. One entry. All carriers quoted. All calls logged. All commissions tracked. Your producers produce. The system handles the rest.</div>
+    </div>
+    <div class="pos-card">
+      <div class="audience">Established Agency</div>
+      <div class="hook">"You're paying $500+/month for a CMS built in 2009. This one thinks."</div>
+      <div class="body-text">Your AMS doesn't talk to your rater. Your rater doesn't talk to your phone system. Your phone system doesn't log to client files. You're duct-taping 6 tools together. Replace all of them. One login. One bill.</div>
+    </div>
+  </div>
+
+  <div class="notes-area reveal">
+    <h3>&#127908; Positioning Notes</h3>
+    <textarea placeholder="Which hook hits hardest? Any angles missing? Specific pain points to lean into?"></textarea>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="reveal">
+    <div class="section-label">Pricing Strategy</div>
+    <h2>Modular. Simple.<br>Scales with you.</h2>
+    <p class="desc">Agencies pick what they need. Nobody pays for modules they won't use. These are starting-point numbers to pressure test.</p>
+  </div>
+
+  <div class="pricing-grid reveal">
+    <div class="price-card">
+      <div class="price-tier">Foundation</div>
+      <div class="price-name">Core</div>
+      <div class="price-amount">$199<span>/mo</span></div>
+      <div class="price-note">per agency, up to 3 users</div>
+      <ul class="price-features">
+        <li class="highlight">Full AMS (PostgreSQL, client/policy/vehicle/driver/property)</li>
+        <li class="highlight">Ivans Downloads (live daily carrier feed)</li>
+        <li class="highlight">AI Brain (Claude Sonnet, conversational AMS)</li>
+        <li>Commission tracking + agent splits</li>
+        <li>Renewal center with YoY comparisons</li>
+        <li>Training center (11 modules, quizzes)</li>
+        <li>Carrier intelligence (69+ carriers)</li>
+        <li>Gmail + Calendar integration</li>
+        <li>Deal log + reporting</li>
+        <li>PWA (mobile + desktop)</li>
+      </ul>
+    </div>
+
+    <div class="price-card featured">
+      <div class="price-tier">Power</div>
+      <div class="price-name">Core + Rater</div>
+      <div class="price-amount">$349<span>/mo</span></div>
+      <div class="price-note">per agency, up to 5 users</div>
+      <ul class="price-features">
+        <li class="highlight">Everything in Core</li>
+        <li class="highlight">RPA Studio invisible rater</li>
+        <li class="highlight">All carrier portals quoted simultaneously</li>
+        <li>Quote results delivered inside platform</li>
+        <li>No re-keying, no portal switching</li>
+        <li>8+ carriers in ~10 minutes</li>
+        <li>Branded quote comparison pages</li>
+        <li>Up to 5 users included</li>
+      </ul>
+    </div>
+
+    <div class="price-card">
+      <div class="price-tier">Full Stack</div>
+      <div class="price-name">Everything</div>
+      <div class="price-amount">$499<span>/mo</span></div>
+      <div class="price-note">per agency, up to 10 users</div>
+      <ul class="price-features">
+        <li class="highlight">Everything in Core + Rater</li>
+        <li class="highlight">Phone system (calls, texts, group chat)</li>
+        <li class="highlight">AI call transcription + summaries</li>
+        <li>All communications auto-logged to client file</li>
+        <li>Call recording + playback</li>
+        <li>Up to 10 users included</li>
+        <li>Priority support</li>
+        <li>Custom onboarding</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="notes-area reveal" style="margin-top:40px;">
+    <h3>&#128176; Pricing Notes</h3>
+    <textarea placeholder="Too cheap? Too expensive? Per-user vs per-agency? Revenue share models? Thoughts on margins with RPA Studio and phone system partners?"></textarea>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MOAT -->
+<section class="section" id="moat">
+  <div class="reveal">
+    <div class="section-label">Competitive Moat</div>
+    <h2>Why nobody can copy this.</h2>
+  </div>
+
+  <div class="moat-items reveal">
+    <div class="moat-item">
+      <div class="moat-num">01</div>
+      <div>
+        <h4>Built by a Producer</h4>
+        <p>Not by a dev who's never sat in the chair. Every workflow, every field, every confirmation card was designed by someone who writes policies. That's not a tagline. That's the product spec. No InsurTech company can claim this.</p>
+      </div>
+    </div>
+    <div class="moat-item">
+      <div class="moat-num">02</div>
+      <div>
+        <h4>The Ivans Moat</h4>
+        <p>Carrier downloads, policy changes, endorsements, cancellations, AND commission statements flowing into your own database automatically, for free, every single day. That's infrastructure NowCerts charges $535/month to provide. This platform does it natively.</p>
+      </div>
+    </div>
+    <div class="moat-item">
+      <div class="moat-num">03</div>
+      <div>
+        <h4>True Vertical Integration</h4>
+        <p>AMS, rater, phone, commissions, AI. Not five vendors duct-taped together. Not "partnerships" that break when APIs change. Five native components that share one database. Build the household once, everything downstream just works.</p>
+      </div>
+    </div>
+    <div class="moat-item">
+      <div class="moat-num">04</div>
+      <div>
+        <h4>AI That Understands Insurance</h4>
+        <p>The brain isn't a chatbot bolted on for marketing. It's the interface layer. It reads your AMS, drafts in your voice, extracts dec pages by vision, knows your carriers, your book, your renewals. It's been trained on a live operating agency since day one.</p>
+      </div>
+    </div>
+    <div class="moat-item">
+      <div class="moat-num">05</div>
+      <div>
+        <h4>Proof of Concept = Live Agency</h4>
+        <p>Safeshield runs on this platform today. $2.4M book. Real clients. Real commissions. Real renewals. It's not a prototype or a demo environment. The pitch is: "We run our agency on this. You should too."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPARISON -->
+<section class="section" id="compare">
+  <div class="reveal">
+    <div class="section-label">Competitive Landscape</div>
+    <h2>Us vs. the field.</h2>
+    <p class="desc">What agents are paying for today vs. what they'd get.</p>
+  </div>
+
+  <div class="compare-table-wrap reveal">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th class="ours">This Platform</th>
+          <th>NowCerts</th>
+          <th>HawkSoft</th>
+          <th>AMS360</th>
+          <th>EZLynx</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Full AMS</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Built-in Rater (all portals)</td>
+          <td class="check">&#10003;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+          <td class="partial">PL only</td>
+        </tr>
+        <tr>
+          <td>Built-in Phone System</td>
+          <td class="check">&#10003;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+        </tr>
+        <tr>
+          <td>AI Chat Interface</td>
+          <td class="check">&#10003;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+        </tr>
+        <tr>
+          <td>Auto Commission Tracking</td>
+          <td class="check">&#10003;</td>
+          <td class="partial">Manual</td>
+          <td class="partial">Manual</td>
+          <td class="partial">Manual</td>
+          <td class="x">&#10007;</td>
+        </tr>
+        <tr>
+          <td>Ivans Downloads (native)</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Training System</td>
+          <td class="check">&#10003;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+        </tr>
+        <tr>
+          <td>AI Call Transcription</td>
+          <td class="check">&#10003;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+        </tr>
+        <tr>
+          <td>Dec Page Vision Extraction</td>
+          <td class="check">&#10003;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+          <td class="x">&#10007;</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">Typical Monthly Cost</td>
+          <td style="color:var(--accent2);font-weight:700">$199-499</td>
+          <td>$535+</td>
+          <td>$300+</td>
+          <td>$500+</td>
+          <td>$250+</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">Built by an Agent?</td>
+          <td class="check" style="font-weight:700">Yes</td>
+          <td class="x">No</td>
+          <td class="x">No</td>
+          <td class="x">No</td>
+          <td class="x">No</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="notes-area reveal" style="margin-top:40px;">
+    <h3>&#9876;&#65039; Competitive Notes</h3>
+    <textarea placeholder="Missing any competitors? Anything wrong in the comparison? What objections will agencies raise?"></textarea>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="logo-text">Terrpain Ventures</div>
+  <p>Brainstorm document. Not public. Not final. Just ideas on a page.</p>
+</div>
+
+<script>
+// Toggle brand selection
+function toggleBrand(el) {
+  el.classList.toggle('selected');
+}
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+revealEls.forEach(el => observer.observe(el));
+
+// Nav show on scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > window.innerHeight * 0.6) {
+    nav.classList.add('visible');
+  } else {
+    nav.classList.remove('visible');
+  }
+});
+</script>
+</body>
+</html>
