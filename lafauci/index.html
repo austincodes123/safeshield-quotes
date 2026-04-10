@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safeshield Insurance — Lafauci Quote Presentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a1628; color: #FAFAF8; font-family: 'Outfit', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+/* HERO */
+.hero { padding: 80px 0 60px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 50% 0%, rgba(0,75,137,0.15) 0%, transparent 60%); pointer-events: none; }
+.badge { display: inline-block; background: rgba(255,163,0,0.12); border: 1px solid rgba(255,163,0,0.3); color: #FFA300; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 8px 20px; border-radius: 100px; margin-bottom: 28px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px, 5vw, 56px); line-height: 1.15; margin-bottom: 16px; }
+.hero h1 .gold { color: #FFA300; }
+.hero .subtitle { font-size: 18px; font-weight: 300; color: rgba(250,250,248,0.6); max-width: 600px; margin: 0 auto 12px; }
+.hero .client-detail { font-size: 15px; color: rgba(250,250,248,0.4); margin-top: 8px; }
+
+/* DIVIDER */
+.divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent); margin: 50px 0; }
+
+/* SAVINGS HERO */
+.savings-hero { text-align: center; padding: 50px 0; }
+.savings-hero h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 28px; margin-bottom: 12px; }
+.savings-number { font-family: 'Playfair Display', serif; font-size: clamp(48px, 7vw, 72px); font-weight: 900; color: #FFA300; line-height: 1.1; margin-bottom: 8px; }
+.savings-label { font-size: 16px; font-weight: 400; color: rgba(250,250,248,0.5); }
+.savings-context { font-size: 15px; color: rgba(250,250,248,0.55); max-width: 560px; margin: 20px auto 0; line-height: 1.7; }
+
+/* SECTION HEADERS */
+.section-header { margin-bottom: 32px; }
+.section-header .label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #FFA300; margin-bottom: 10px; }
+.section-header h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 32px; line-height: 1.2; }
+.section-header p { font-size: 15px; color: rgba(250,250,248,0.5); margin-top: 8px; max-width: 650px; }
+
+/* CARDS */
+.card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 36px; margin-bottom: 24px; transition: border-color 0.3s; }
+.card:hover { border-color: rgba(255,163,0,0.2); }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+.carrier-badge { display: flex; align-items: center; gap: 12px; }
+.carrier-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; }
+.carrier-icon.progressive { background: linear-gradient(135deg, #0033A0, #0055D4); color: white; }
+.carrier-icon.openly { background: linear-gradient(135deg, #1a6b4a, #2ea66e); color: white; }
+.carrier-name { font-weight: 700; font-size: 20px; }
+.carrier-type { font-size: 13px; color: rgba(250,250,248,0.4); }
+.premium-tag { text-align: right; }
+.premium-amount { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #FFA300; }
+.premium-period { font-size: 12px; color: rgba(250,250,248,0.4); }
+
+/* COVERAGE GRID */
+.coverage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .coverage-grid { grid-template-columns: 1fr; } }
+.coverage-item { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.coverage-item:last-child { border-bottom: none; }
+.coverage-label { font-size: 13px; color: rgba(250,250,248,0.45); margin-bottom: 3px; }
+.coverage-value { font-size: 15px; font-weight: 600; }
+.coverage-full { grid-column: 1 / -1; }
+
+/* VEHICLE CARDS */
+.vehicle-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+.vehicle-name { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+.vehicle-vin { font-size: 12px; color: rgba(250,250,248,0.35); font-family: monospace; margin-bottom: 12px; }
+.vehicle-premium { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #FFA300; }
+.vehicle-premium-label { font-size: 12px; color: rgba(250,250,248,0.4); }
+
+/* PROPERTY DETAILS */
+.prop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
+@media (max-width: 600px) { .prop-grid { grid-template-columns: 1fr 1fr; } }
+.prop-item { text-align: center; padding: 20px 12px; background: rgba(255,255,255,0.03); border-radius: 10px; }
+.prop-value { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #FFA300; margin-bottom: 4px; }
+.prop-label { font-size: 12px; color: rgba(250,250,248,0.45); }
+
+/* CHUBB CONTEXT */
+.context-box { background: rgba(255,163,0,0.06); border: 1px solid rgba(255,163,0,0.15); border-radius: 12px; padding: 28px 32px; margin: 32px 0; }
+.context-box p { font-size: 15px; line-height: 1.8; color: rgba(250,250,248,0.7); }
+.context-box strong { color: #FAFAF8; font-weight: 600; }
+
+/* TOTAL SECTION */
+.total-section { text-align: center; padding: 50px 0; }
+.total-label { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: rgba(250,250,248,0.4); margin-bottom: 8px; }
+.total-amount { font-family: 'Playfair Display', serif; font-size: clamp(40px, 6vw, 60px); font-weight: 900; color: #FFA300; margin-bottom: 4px; }
+.total-breakdown { font-size: 14px; color: rgba(250,250,248,0.45); }
+
+/* WHY SAFESHIELD */
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
+@media (max-width: 600px) { .why-grid { grid-template-columns: 1fr; } }
+.why-item { padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; }
+.why-icon { font-size: 24px; margin-bottom: 10px; }
+.why-title { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+.why-desc { font-size: 13px; color: rgba(250,250,248,0.5); line-height: 1.6; }
+
+/* CTA */
+.cta { text-align: center; padding: 60px 0 80px; }
+.cta h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+.cta p { font-size: 15px; color: rgba(250,250,248,0.5); margin-bottom: 28px; }
+.cta-btn { display: inline-block; background: #FFA300; color: #0a1628; font-weight: 700; font-size: 15px; padding: 16px 40px; border-radius: 100px; text-decoration: none; transition: all 0.3s; }
+.cta-btn:hover { background: #ffb733; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,163,0,0.25); }
+.cta-contact { margin-top: 24px; font-size: 14px; color: rgba(250,250,248,0.4); }
+.cta-contact a { color: #FFA300; text-decoration: none; }
+
+/* FOOTER */
+.footer { text-align: center; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer p { font-size: 12px; color: rgba(250,250,248,0.25); }
+
+/* COMPARISON PILL */
+.comparison-row { display: flex; justify-content: center; align-items: center; gap: 16px; margin: 24px 0; flex-wrap: wrap; }
+.comp-pill { padding: 10px 20px; border-radius: 100px; font-size: 14px; font-weight: 600; }
+.comp-pill.old { background: rgba(255,255,255,0.06); color: rgba(250,250,248,0.5); text-decoration: line-through; }
+.comp-pill.new { background: rgba(255,163,0,0.15); color: #FFA300; }
+.comp-arrow { font-size: 20px; color: rgba(250,250,248,0.3); }
+
+/* EFFECTIVE DATE RIBBON */
+.eff-date { display: inline-block; font-size: 12px; font-weight: 600; color: rgba(250,250,248,0.5); background: rgba(255,255,255,0.06); padding: 6px 14px; border-radius: 100px; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HERO -->
+<section class="hero">
+<div class="badge">Prepared Exclusively For You</div>
+<h1>Josephine & Frank <span class="gold">Lafauci</span></h1>
+<p class="subtitle">A complete insurance package built around your family, not around a price tag.</p>
+<p class="client-detail">130 Shelter Rock Road, Stamford, CT 06903</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- SAVINGS -->
+<section class="savings-hero">
+<h2>Your Auto Savings Alone</h2>
+<div class="savings-number">$3,700+</div>
+<div class="savings-label">estimated annual savings on auto insurance</div>
+<div class="comparison-row">
+<span class="comp-pill old">~$7,000/yr current</span>
+<span class="comp-arrow">→</span>
+<span class="comp-pill new">$2,470/yr with Progressive</span>
+</div>
+<p class="savings-context">Same vehicles. Same drivers. Stronger coverage. Over three thousand dollars back in your pocket every single year, and that's just the auto side of things.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- AUTO SECTION -->
+<section>
+<div class="section-header">
+<span class="label">Auto Insurance</span>
+<h2>Progressive Personal Auto</h2>
+<p>Full coverage for both vehicles with premium limits and every discount you qualify for.</p>
+</div>
+
+<div class="card">
+<div class="card-header">
+<div class="carrier-badge">
+<div class="carrier-icon progressive">P</div>
+<div>
+<div class="carrier-name">Progressive</div>
+<div class="carrier-type">Personal Auto — 6 Month Term</div>
+</div>
+</div>
+<div class="premium-tag">
+<div class="premium-amount">$1,235</div>
+<div class="premium-period">per 6 months · paid in full</div>
+</div>
+</div>
+
+<div class="coverage-grid">
+<div class="coverage-item">
+<div class="coverage-label">Bodily Injury Liability</div>
+<div class="coverage-value">$250K / $500K</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Property Damage Liability</div>
+<div class="coverage-value">$100,000</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Uninsured/Underinsured Motorist</div>
+<div class="coverage-value">$250K / $500K</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Medical Payments</div>
+<div class="coverage-value">$5,000 per person</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Comprehensive Deductible</div>
+<div class="coverage-value">$1,000</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Collision Deductible</div>
+<div class="coverage-value">$1,000</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Rental Reimbursement</div>
+<div class="coverage-value">$60/day · 30 days</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Roadside Assistance</div>
+<div class="coverage-value">Included ✓</div>
+</div>
+<div class="coverage-item coverage-full">
+<div class="coverage-label">Full Glass Coverage</div>
+<div class="coverage-value">$0 deductible ✓</div>
+</div>
+</div>
+</div>
+
+<!-- VEHICLES -->
+<div class="vehicle-card">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
+<div>
+<div class="vehicle-name">2023 Lexus UX 250H</div>
+<div class="vehicle-vin">VIN: JTHR9JBH0P2066387</div>
+<div style="font-size: 13px; color: rgba(250,250,248,0.45);">Pleasure use · 6,000–7,999 mi/yr</div>
+</div>
+<div style="text-align: right;">
+<div class="vehicle-premium">$658</div>
+<div class="vehicle-premium-label">per 6 months</div>
+</div>
+</div>
+</div>
+
+<div class="vehicle-card">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
+<div>
+<div class="vehicle-name">2017 Lexus RX 450H</div>
+<div class="vehicle-vin">VIN: 2T2BGMCA7HC019464</div>
+<div style="font-size: 13px; color: rgba(250,250,248,0.45);">Pleasure use · 6,000–7,999 mi/yr</div>
+</div>
+<div style="text-align: right;">
+<div class="vehicle-premium">$577</div>
+<div class="vehicle-premium-label">per 6 months</div>
+</div>
+</div>
+</div>
+
+<p style="font-size: 13px; color: rgba(250,250,248,0.35); margin-top: 12px; text-align: center;">Discounts applied: Three-Year Safe Driving · Paid in Full · Continuous Insurance Platinum · Paperless · Homeowner · Multi-Car · Smart Technology</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOME SECTION -->
+<section>
+<div class="section-header">
+<span class="label">Home Insurance</span>
+<h2>Openly Homeowners</h2>
+<p>Premium-tier coverage that rivals the carrier you know, without the premium-tier price tag.</p>
+</div>
+
+<div class="context-box">
+<p>Chubb is a fantastic carrier. There's a reason they're known as the gold standard in high-value homeowners insurance. But that reputation comes with a cost, and it's a significant one. <strong>Openly delivers the same caliber of coverage</strong> you'd expect from a top-tier carrier: guaranteed replacement cost up to $5 million, replacement cost on the roof, and high limits across the board. The difference? You're not paying the Chubb premium to get it.</p>
+</div>
+
+<div class="card">
+<div class="card-header">
+<div class="carrier-badge">
+<div class="carrier-icon openly">O</div>
+<div>
+<div class="carrier-name">Openly</div>
+<div class="carrier-type">Homeowners — Annual Term</div>
+</div>
+</div>
+<div class="premium-tag">
+<div class="premium-amount">$8,116</div>
+<div class="premium-period">per year</div>
+</div>
+</div>
+
+<div class="coverage-grid">
+<div class="coverage-item">
+<div class="coverage-label">Dwelling (Coverage A)</div>
+<div class="coverage-value">Guaranteed Replacement up to $5M</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Replacement Cost Estimate</div>
+<div class="coverage-value">$1,806,078</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Other Structures (Coverage B)</div>
+<div class="coverage-value">$185,000</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Personal Property (Coverage C)</div>
+<div class="coverage-value">$910,000</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Loss of Use (Coverage D)</div>
+<div class="coverage-value">$370,000</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Personal Liability (Coverage E)</div>
+<div class="coverage-value">$500,000</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Medical Payments (Coverage F)</div>
+<div class="coverage-value">$10,000</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Section 1 Deductible</div>
+<div class="coverage-value">$5,000</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Wind/Hail Deductible</div>
+<div class="coverage-value">$5,000</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Hurricane Deductible</div>
+<div class="coverage-value">$36,121</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Roof Settlement</div>
+<div class="coverage-value">Replacement Cost ✓</div>
+</div>
+<div class="coverage-item">
+<div class="coverage-label">Water Back-Up</div>
+<div class="coverage-value">$10,000</div>
+</div>
+</div>
+</div>
+
+<div class="prop-grid">
+<div class="prop-item">
+<div class="prop-value">1964</div>
+<div class="prop-label">Year Built</div>
+</div>
+<div class="prop-item">
+<div class="prop-value">3,696</div>
+<div class="prop-label">Square Feet</div>
+</div>
+<div class="prop-item">
+<div class="prop-value">$488</div>
+<div class="prop-label">Per Sq. Ft. RCE</div>
+</div>
+<div class="prop-item">
+<div class="prop-value">Wood Frame</div>
+<div class="prop-label">Construction</div>
+</div>
+<div class="prop-item">
+<div class="prop-value">2 Stories</div>
+<div class="prop-label">Stories</div>
+</div>
+<div class="prop-item">
+<div class="prop-value">2013</div>
+<div class="prop-label">Roof Updated</div>
+</div>
+</div>
+
+<div class="eff-date" style="margin-top: 20px; display: block; text-align: center;">
+Effective April 19, 2026 · Quote valid through May 10, 2026
+</div>
+
+<p style="font-size: 13px; color: rgba(250,250,248,0.4); margin-top: 16px; text-align: center; line-height: 1.7;">Backed by Rock Ridge Insurance Company (Clear Blue Insurance Group) · AM Best A- (Excellent) Rated · Admitted Carrier</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- TOTAL -->
+<section class="total-section">
+<div class="total-label">Your Total Annual Package</div>
+<div class="total-amount">$10,586</div>
+<div class="total-breakdown">Progressive Auto: $2,470/yr + Openly Home: $8,116/yr</div>
+<p style="font-size: 15px; color: rgba(250,250,248,0.5); margin-top: 20px; max-width: 500px; margin-left: auto; margin-right: auto;">With auto savings alone exceeding $3,700 annually, your total package cost may end up lower than what you're paying for home insurance alone with Chubb.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<section>
+<div class="section-header">
+<span class="label">Your Brokerage</span>
+<h2>Why Safeshield</h2>
+</div>
+
+<div class="why-grid">
+<div class="why-item">
+<div class="why-icon">🏪</div>
+<div class="why-title">69+ Carrier Partners</div>
+<div class="why-desc">We shop the entire market so you never have to wonder if there's a better deal out there. There always is, and we find it.</div>
+</div>
+<div class="why-item">
+<div class="why-icon">⚡</div>
+<div class="why-title">Same-Day Everything</div>
+<div class="why-desc">Quotes, certificates, ID cards, policy changes. You ask, we deliver. No waiting rooms, no queues.</div>
+</div>
+<div class="why-item">
+<div class="why-icon">📱</div>
+<div class="why-title">Direct Agent Access</div>
+<div class="why-desc">You'll always reach a real person who knows your account. No call centers, no runaround, no 800 numbers.</div>
+</div>
+<div class="why-item">
+<div class="why-icon">🔄</div>
+<div class="why-title">Annual Re-Shop Guarantee</div>
+<div class="why-desc">Every year at renewal, we re-shop your coverage across all 69+ carriers to make sure you're still getting the best deal.</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta">
+<h2>Ready to move forward?</h2>
+<p>We can have both policies bound and active before your current coverage expires.</p>
+<a href="tel:2035649817" class="cta-btn">Call Austin — (203) 564-9817</a>
+<div class="cta-contact">
+<p>or email <a href="mailto:austin@gosafeshield.com">austin@gosafeshield.com</a></p>
+</div>
+</section>
+
+<footer class="footer">
+<p>Prepared by Austin Glazer · Safeshield Insurance LLC · 2777 Summer St, 6th Floor, Stamford, CT 06905</p>
+<p style="margin-top: 6px;">This is a quote summary for informational purposes. Final rates subject to verification and carrier approval.</p>
+</footer>
+
+</div>
+
+</body>
+</html>
