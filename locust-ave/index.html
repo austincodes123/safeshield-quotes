@@ -114,7 +114,7 @@
   }
   .compare-header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     border-bottom: 2px solid var(--border);
   }
   .compare-header .col {
@@ -154,17 +154,18 @@
   }
   .compare-row {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     border-bottom: 1px solid #f0f2f5;
   }
   .compare-row:last-child {
     border-bottom: none;
   }
   .compare-row .col {
-    padding: 12px 16px;
+    padding: 14px 16px;
     font-size: 13px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
   .compare-row .col:first-child {
     font-weight: 600;
@@ -173,7 +174,7 @@
   }
   .compare-row .col:nth-child(2),
   .compare-row .col:nth-child(3) {
-    justify-content: center;
+    align-items: center;
     text-align: center;
   }
   .check {
@@ -350,8 +351,14 @@
   @media (max-width: 600px) {
     .header h1 { font-size: 22px; }
     .summary-grid { grid-template-columns: 1fr; }
-    .compare-header .col, .compare-row .col { padding: 10px 8px; font-size: 11px; }
-    .compare-header .col-price { font-size: 14px; }
+    .compare-header, .compare-row {
+      grid-template-columns: 1.5fr 1fr 1fr;
+    }
+    .compare-header .col, .compare-row .col { padding: 10px 6px; font-size: 11px; }
+    .compare-header .col-price { font-size: 13px; }
+    .compare-header .col-price .label { font-size: 9px; }
+    .check, .x-mark { font-size: 14px; }
+    .detail { font-size: 10px; }
   }
 </style>
 </head>
@@ -417,7 +424,7 @@
     <div class="compare-row">
       <div class="col">Directors & Officers<span class="detail">$1,000,000</span></div>
       <div class="col"><span class="check">&#10003;</span><span class="detail">Bundled</span></div>
-      <div class="col"><span class="pending-mark">Pending</span><span class="detail">Being placed</span></div>
+      <div class="col"><span class="pending-mark">Pending</span></div>
     </div>
 
     <!-- GAPS -->
