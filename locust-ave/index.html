@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>54-56 Locust Ave Condo | Quote Submission Guide</title>
+<title>54-56 Locust Ave | Insurance Proposal</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -23,9 +23,7 @@
     --green-light: #edf7f2;
     --radius: 12px;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--off-white);
@@ -33,7 +31,6 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-
   .header {
     background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
     color: white;
@@ -41,7 +38,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .header::after {
     content: '';
     position: absolute;
@@ -52,14 +48,12 @@
     background: radial-gradient(circle, rgba(255,163,0,0.15) 0%, transparent 70%);
     border-radius: 50%;
   }
-
   .header-inner {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
   }
-
   .header .badge {
     display: inline-block;
     background: rgba(255,163,0,0.2);
@@ -72,7 +66,6 @@
     border-radius: 20px;
     margin-bottom: 16px;
   }
-
   .header h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
@@ -80,277 +73,262 @@
     line-height: 1.2;
     margin-bottom: 6px;
   }
-
   .header .subtitle {
     font-size: 15px;
     opacity: 0.8;
     font-weight: 400;
   }
-
-  .header .meta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 20px;
-    font-size: 13px;
-    opacity: 0.9;
-  }
-
-  .header .meta-row span {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
   .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 24px 16px 60px;
   }
-
-  /* Accordion / Section Styles */
-  .section {
+  .overview-box {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    margin-bottom: 12px;
-    overflow: hidden;
-    transition: box-shadow 0.2s;
+    padding: 24px 20px;
+    margin-bottom: 20px;
   }
-
-  .section:hover {
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  .overview-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 10px;
   }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 20px;
-    cursor: pointer;
-    user-select: none;
-    gap: 12px;
-  }
-
-  .section-header:hover {
-    background: var(--blue-light);
-  }
-
-  .section-header .icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-
-  .section-header .left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .section-header h2 {
-    font-size: 15px;
-    font-weight: 700;
+  .overview-intro {
+    font-size: 14px;
     color: var(--text);
-    line-height: 1.3;
+    line-height: 1.7;
+    margin-bottom: 14px;
   }
 
-  .section-header .desc {
-    font-size: 12px;
+  /* Comparison Table */
+  .compare-wrap {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .compare-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 2px solid var(--border);
+  }
+  .compare-header .col {
+    padding: 18px 16px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .compare-header .col:first-child {
+    text-align: left;
+    background: #f7f8fa;
     color: var(--text-muted);
-    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 11px;
   }
-
-  .section-header .chevron {
+  .compare-header .col-stern {
+    background: #fdf0ef;
+    color: var(--red);
+  }
+  .compare-header .col-ss {
+    background: var(--green-light);
+    color: var(--green);
+  }
+  .compare-header .col-price {
     font-size: 18px;
-    color: var(--text-muted);
-    transition: transform 0.25s;
-    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
   }
-
-  .section.open .chevron {
-    transform: rotate(180deg);
+  .compare-header .col-price .label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
-
-  .section-body {
-    display: none;
-    padding: 0 20px 20px;
-  }
-
-  .section.open .section-body {
-    display: block;
-  }
-
-  /* Data rows */
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  .data-table tr {
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     border-bottom: 1px solid #f0f2f5;
   }
-
-  .data-table tr:last-child {
+  .compare-row:last-child {
     border-bottom: none;
   }
-
-  .data-table td {
-    padding: 10px 0;
-    font-size: 13.5px;
-    vertical-align: top;
+  .compare-row .col {
+    padding: 12px 16px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
   }
-
-  .data-table td:first-child {
+  .compare-row .col:first-child {
     font-weight: 600;
-    color: var(--text-muted);
-    width: 42%;
-    padding-right: 12px;
-    font-size: 12.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-  }
-
-  .data-table td:last-child {
     color: var(--text);
-    font-weight: 500;
+    font-size: 13px;
   }
-
-  /* Highlight values */
-  .val-money {
+  .compare-row .col:nth-child(2),
+  .compare-row .col:nth-child(3) {
+    justify-content: center;
+    text-align: center;
+  }
+  .check {
     color: var(--green);
     font-weight: 700;
+    font-size: 16px;
   }
-
-  .val-important {
-    color: var(--navy);
-    font-weight: 700;
-  }
-
-  .val-warn {
+  .x-mark {
     color: var(--red);
     font-weight: 700;
+    font-size: 16px;
+  }
+  .pending-mark {
+    color: var(--yellow);
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .compare-row.highlight {
+    background: var(--green-light);
+  }
+  .compare-row .detail {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 400;
+    display: block;
+    margin-top: 2px;
   }
 
-  /* Callout box */
+  /* Summary cards */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .summary-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+  }
+  .summary-card.stern {
+    border-top: 3px solid var(--red);
+  }
+  .summary-card.ss {
+    border-top: 3px solid var(--green);
+  }
+  .summary-card .card-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .summary-card.stern .card-label { color: var(--red); }
+  .summary-card.ss .card-label { color: var(--green); }
+  .summary-card .card-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .summary-card .card-note {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* Policy breakdown */
+  .breakdown {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .breakdown-title {
+    padding: 16px 20px;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--navy);
+    border-bottom: 1px solid var(--border);
+    background: var(--blue-light);
+  }
+  .breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 14px 20px;
+    border-bottom: 1px solid #f0f2f5;
+    font-size: 13.5px;
+  }
+  .breakdown-row:last-child { border-bottom: none; }
+  .breakdown-row .left { flex: 1; }
+  .breakdown-row .left .carrier {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .breakdown-row .left .sub {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+  .breakdown-row .right {
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    margin-left: 16px;
+  }
+  .breakdown-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+    font-weight: 700;
+    font-size: 16px;
+    background: var(--blue-light);
+    border-top: 2px solid var(--navy);
+    color: var(--navy);
+  }
+
   .callout {
     padding: 14px 16px;
     border-radius: 10px;
     font-size: 13px;
     line-height: 1.5;
-    margin-top: 14px;
+    margin-bottom: 16px;
   }
-
-  .callout.yellow {
-    background: var(--yellow-light);
-    border-left: 3px solid var(--yellow);
-  }
-
   .callout.green {
     background: var(--green-light);
     border-left: 3px solid var(--green);
   }
-
-  .callout.blue {
-    background: var(--blue-light);
-    border-left: 3px solid var(--navy);
+  .callout.yellow {
+    background: var(--yellow-light);
+    border-left: 3px solid var(--yellow);
   }
-
   .callout strong {
     display: block;
     margin-bottom: 4px;
-    font-size: 12.5px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 
-  /* Checklist */
-  .checklist {
-    list-style: none;
-    padding: 0;
-  }
-
-  .checklist li {
-    padding: 10px 0;
-    font-size: 13.5px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    border-bottom: 1px solid #f0f2f5;
-  }
-
-  .checklist li:last-child {
-    border-bottom: none;
-  }
-
-  .checklist .check {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--border);
-    border-radius: 5px;
-    flex-shrink: 0;
-    margin-top: 1px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.15s;
-    font-size: 12px;
-    color: transparent;
-  }
-
-  .checklist li.done .check {
-    background: var(--green);
-    border-color: var(--green);
-    color: white;
-  }
-
-  .checklist li.done {
-    color: var(--text-muted);
-    text-decoration: line-through;
-    text-decoration-color: #ccc;
-  }
-
-  /* Unit cards */
-  .unit-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 8px;
-  }
-
-  .unit-card {
-    background: var(--blue-light);
-    border-radius: 10px;
-    padding: 14px;
+  .footer-note {
     text-align: center;
-  }
-
-  .unit-card .unit-name {
-    font-weight: 700;
-    font-size: 16px;
-    color: var(--navy);
-    margin-bottom: 4px;
-  }
-
-  .unit-card .unit-detail {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-muted);
-    line-height: 1.5;
+    padding: 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
   }
+  .footer-note a { color: var(--navy); }
 
-  /* Section color coding */
-  .icon-blue { background: var(--blue-light); color: var(--navy); }
-  .icon-yellow { background: var(--yellow-light); color: #b87400; }
-  .icon-green { background: var(--green-light); color: var(--green); }
-  .icon-red { background: #fdf0ef; color: var(--red); }
-
-  /* Divider label */
   .divider-label {
     font-size: 11px;
     font-weight: 700;
@@ -362,7 +340,6 @@
     align-items: center;
     gap: 12px;
   }
-
   .divider-label::after {
     content: '';
     flex: 1;
@@ -370,123 +347,11 @@
     background: var(--border);
   }
 
-  /* Footer note */
-  .footer-note {
-    text-align: center;
-    font-size: 11px;
-    color: var(--text-muted);
-    padding: 20px;
-    border-top: 1px solid var(--border);
-    margin-top: 24px;
-  }
-
-  /* Overview box */
-  .overview-box {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px 20px;
-    margin-bottom: 8px;
-  }
-
-  .overview-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 900;
-    color: var(--navy);
-    margin-bottom: 10px;
-  }
-
-  .overview-intro {
-    font-size: 14px;
-    color: var(--text);
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
-
-  .opp-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 18px;
-  }
-
-  .opp-card {
-    display: flex;
-    gap: 16px;
-    padding: 18px;
-    border-radius: 10px;
-    background: var(--blue-light);
-    border: 1px solid #d6e4f0;
-  }
-
-  .opp-number {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: var(--navy);
-    color: white;
-    font-weight: 700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .opp-content {
-    flex: 1;
-  }
-
-  .opp-label {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1.2;
-  }
-
-  .opp-sub {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-  }
-
-  .opp-desc {
-    font-size: 13px;
-    color: var(--text);
-    line-height: 1.6;
-    margin-bottom: 10px;
-  }
-
-  .opp-highlight {
-    font-size: 12.5px;
-    color: var(--green);
-    font-weight: 600;
-    background: var(--green-light);
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 6px;
-  }
-
-  .opp-tldr {
-    background: var(--yellow-light);
-    border-left: 3px solid var(--yellow);
-    border-radius: 8px;
-    padding: 14px 16px;
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text);
-  }
-
-  .opp-tldr strong {
-    color: #b87400;
-  }
-
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     .header h1 { font-size: 22px; }
-    .unit-grid { grid-template-columns: 1fr; }
-    .data-table td:first-child { width: 38%; }
+    .summary-grid { grid-template-columns: 1fr; }
+    .compare-header .col, .compare-row .col { padding: 10px 8px; font-size: 11px; }
+    .compare-header .col-price { font-size: 14px; }
   }
 </style>
 </head>
@@ -494,383 +359,147 @@
 
 <div class="header">
   <div class="header-inner">
-    <span class="badge">Insurance Summary</span>
+    <span class="badge">Insurance Proposal</span>
     <h1>54-56 Locust Avenue</h1>
     <div class="subtitle">Rye, Westchester County, NY 10580</div>
-    <div class="meta-row">
-      <span>🏗️ New Construction</span>
-      <span>🏠 4 Units / 2 Buildings</span>
-      <span>📋 Offering Plan Review</span>
-    </div>
   </div>
 </div>
 
 <div class="container">
 
-  <!-- HIGH LEVEL OVERVIEW -->
   <div class="overview-box">
     <h3 class="overview-title">Hi there!</h3>
-    <p class="overview-intro">Thank you for sending over the offering plan for 54-56 Locust Avenue. We've reviewed the full 275-page document and pulled out everything relevant to insurance below.</p>
-    <p class="overview-intro">Based on what we see, you need a <strong>master policy for the condo association</strong> covering property, general liability, D&O, umbrella, flood, and several additional coverages required by your bylaws. We also see there's an existing quote in the offering plan budget at $12,000/year. We'd love the opportunity to put together a competitive package for you.</p>
-    <p class="overview-intro" style="margin-bottom:0">Below is everything we've extracted from the plan. We have enough to get started on most of the package, but there are a few items we'll need from you to complete the full quote. <strong>Please confirm the property details look correct</strong> and send over the items listed below so we can get quotes out quickly.</p>
+    <p class="overview-intro">Thank you for sending over the offering plan for 54-56 Locust Avenue. We've reviewed the full 275-page document, including every insurance requirement in the bylaws and Declaration.</p>
+    <p class="overview-intro">We noticed that the existing $12,000 quote in the offering plan covers the five core policies but is missing several coverages that your bylaws specifically require. Our package includes everything, so there are no gaps and no surprise costs down the road.</p>
+    <p class="overview-intro" style="margin-bottom:0">Here's a side-by-side comparison so you can see exactly what's covered and what's not.</p>
   </div>
 
-  <!-- WHAT WE NEED -->
-  <div class="divider-label">Items We Need From You</div>
+  <div class="divider-label">Coverage Comparison</div>
 
-  <div class="section open">
-    <div class="section-header" onclick="toggle(this)">
-      <div class="left">
-        <div class="icon icon-blue">👥</div>
-        <div>
-          <h2>For Directors & Officers Coverage</h2>
-          <div class="desc">$1,000,000 coverage per offering plan</div>
+  <!-- Comparison Table -->
+  <div class="compare-wrap">
+    <div class="compare-header">
+      <div class="col">Coverage</div>
+      <div class="col col-stern">
+        <div class="col-price">
+          <span class="label">Offering Plan Quote</span>
+          $12,000/yr
         </div>
       </div>
-      <span class="chevron">▾</span>
-    </div>
-    <div class="section-body">
-      <ul class="checklist">
-        <li><span class="check" onclick="toggleCheck(this)">✓</span><div><strong>Board of Managers members</strong><br><span style="font-size:12px;color:var(--text-muted)">Names and roles (President, VP, Secretary, Treasurer) of current or planned Board members.</span></div></li>
-        <li><span class="check" onclick="toggleCheck(this)">✓</span><div><strong>Any pending or prior claims or litigation</strong><br><span style="font-size:12px;color:var(--text-muted)">Please confirm there are no pending claims or lawsuits against the association or Board.</span></div></li>
-        <li><span class="check" onclick="toggleCheck(this)">✓</span><div><strong>Prior D&O coverage history</strong><br><span style="font-size:12px;color:var(--text-muted)">Has the association carried D&O coverage previously? If this is the first policy, we'll note that.</span></div></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="section open">
-    <div class="section-header" onclick="toggle(this)">
-      <div class="left">
-        <div class="icon icon-blue">🔒</div>
-        <div>
-          <h2>For Fidelity Coverage</h2>
-          <div class="desc">Required by bylaws for anyone handling condo funds</div>
+      <div class="col col-ss">
+        <div class="col-price">
+          <span class="label">Safeshield Package</span>
+          $13,158/yr*
         </div>
       </div>
-      <span class="chevron">▾</span>
     </div>
-    <div class="section-body">
-      <ul class="checklist">
-        <li><span class="check" onclick="toggleCheck(this)">✓</span><div><strong>Who has access to association funds?</strong><br><span style="font-size:12px;color:var(--text-muted)">We know the managing agent is Cygnet Realty LLC. Do any Board members or officers also have signing authority or access to the condo bank accounts?</span></div></li>
-        <li><span class="check" onclick="toggleCheck(this)">✓</span><div><strong>Reserve fund and working capital balances</strong><br><span style="font-size:12px;color:var(--text-muted)">We see $46,600/year in common charges and a $2,500 per-unit working capital contribution. Are there any other reserve fund balances we should account for?</span></div></li>
-      </ul>
-    </div>
-  </div>
 
-  <div class="section">
-    <div class="section-header" onclick="toggle(this)">
-      <div class="left">
-        <div class="icon icon-green">📋</div>
-        <div>
-          <h2>General</h2>
-          <div class="desc">A few other items to confirm</div>
-        </div>
-      </div>
-      <span class="chevron">▾</span>
+    <div class="compare-row">
+      <div class="col">Building Property<span class="detail">$5,600,000 Agreed Amount Replacement Cost</span></div>
+      <div class="col"><span class="check">&#10003;</span></div>
+      <div class="col"><span class="check">&#10003;</span></div>
     </div>
-    <div class="section-body">
-      <ul class="checklist">
-        <li><span class="check" onclick="toggleCheck(this)">✓</span><div><strong>Desired effective date</strong><br><span style="font-size:12px;color:var(--text-muted)">When do you need coverage to start? The plan references a June 1, 2026 budget start date.</span></div></li>
-        <li><span class="check" onclick="toggleCheck(this)">✓</span><div><strong>Confirm the $5,600,000 replacement cost</strong><br><span style="font-size:12px;color:var(--text-muted)">The offering plan uses this figure. Please confirm this is still accurate or if construction costs have changed.</span></div></li>
-        <li><span class="check" onclick="toggleCheck(this)">✓</span><div><strong>Any claims during construction?</strong><br><span style="font-size:12px;color:var(--text-muted)">Please confirm there have been no builder's risk or other claims during the construction phase.</span></div></li>
-        <li><span class="check" onclick="toggleCheck(this)">✓</span><div><strong>Primary contact for the policy</strong><br><span style="font-size:12px;color:var(--text-muted)">Who should be listed as the primary contact on behalf of the Board of Managers or Sponsor?</span></div></li>
-      </ul>
+    <div class="compare-row">
+      <div class="col">General Liability<span class="detail">$1,000,000 / $2,000,000</span></div>
+      <div class="col"><span class="check">&#10003;</span></div>
+      <div class="col"><span class="check">&#10003;</span></div>
     </div>
-  </div>
+    <div class="compare-row">
+      <div class="col">Umbrella<span class="detail">$5,000,000</span></div>
+      <div class="col"><span class="check">&#10003;</span></div>
+      <div class="col"><span class="check">&#10003;</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="col">Flood (RCBAP)<span class="detail">$1,000,000 / $50,000 Deductible / Zone AE</span></div>
+      <div class="col"><span class="check">&#10003;</span></div>
+      <div class="col"><span class="check">&#10003;</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="col">Directors & Officers<span class="detail">$1,000,000</span></div>
+      <div class="col"><span class="check">&#10003;</span></div>
+      <div class="col"><span class="pending-mark">Pending</span></div>
+    </div>
 
-  <div class="divider-label">Property Details</div>
-
-  <!-- PROPERTY OVERVIEW -->
-  <div class="section open">
-    <div class="section-header" onclick="toggle(this)">
-      <div class="left">
-        <div class="icon icon-blue">🏢</div>
-        <div>
-          <h2>Property Overview</h2>
-          <div class="desc">Address, size, construction, zoning</div>
-        </div>
-      </div>
-      <span class="chevron">▾</span>
+    <!-- GAPS -->
+    <div class="compare-row highlight">
+      <div class="col">Equipment Breakdown / Boiler & Machinery<span class="detail">Covers 4 Generac generators, 4 Penco boilers, 2 Kone elevators</span></div>
+      <div class="col"><span class="x-mark">&#10007;</span></div>
+      <div class="col"><span class="check">&#10003; Included</span></div>
     </div>
-    <div class="section-body">
-      <table class="data-table">
-        <tr><td>Address</td><td>54-56 Locust Avenue, Rye, NY 10580</td></tr>
-        <tr><td>Sponsor</td><td>Locust Rye Townhouse Project LLC<br><span style="font-size:12px;color:var(--text-muted)">622 W 256th St, Bronx, NY 10471</span></td></tr>
-        <tr><td>Year Built</td><td class="val-important">2025-2026 (New Construction)</td></tr>
-        <tr><td>Buildings</td><td>2 buildings, 4 residential units total</td></tr>
-        <tr><td>Stories</td><td>3 (garage level + 2 above)</td></tr>
-        <tr><td>Building Height</td><td>38 feet</td></tr>
-        <tr><td>Total Site</td><td>19,902 SF (0.45 acres)</td></tr>
-        <tr><td>Total Habitable SF</td><td>9,099 SF + 936 SF balconies</td></tr>
-        <tr><td>Section/Block/Lot</td><td>146-7.2.2 & 146-7.2.2.1</td></tr>
-        <tr><td>Zoning</td><td>R-2 (Two-Family Residential)</td></tr>
-        <tr><td>Permit</td><td>P2401074 issued 11/04/2024</td></tr>
-        <tr><td>Building Code</td><td>2020 Residential Code of NYS</td></tr>
-      </table>
+    <div class="compare-row highlight">
+      <div class="col">Elevator Liability<span class="detail">2 Kone Mono Space 300 DX elevators</span></div>
+      <div class="col"><span class="x-mark">&#10007;</span></div>
+      <div class="col"><span class="check">&#10003; Included</span></div>
+    </div>
+    <div class="compare-row highlight">
+      <div class="col">Fidelity / Employee Theft<span class="detail">$25,000 limit</span></div>
+      <div class="col"><span class="x-mark">&#10007;</span></div>
+      <div class="col"><span class="check">&#10003; Included</span></div>
+    </div>
+    <div class="compare-row highlight">
+      <div class="col">Employment Practices Liability<span class="detail">EPLI coverage</span></div>
+      <div class="col"><span class="x-mark">&#10007;</span></div>
+      <div class="col"><span class="check">&#10003; Included</span></div>
     </div>
   </div>
 
-  <!-- CONSTRUCTION & STRUCTURE -->
-  <div class="section">
-    <div class="section-header" onclick="toggle(this)">
+  <div class="callout green">
+    <strong>Bottom Line</strong>
+    The existing $12,000 quote covers 5 policies. Our $13,158 package covers 9, including 4 additional coverages required by your bylaws that would need to be purchased separately on top of the $12,000. Once D&O is finalized, we'll have the complete package ready to bind.
+  </div>
+
+  <div class="divider-label">Our Package Breakdown</div>
+
+  <div class="breakdown">
+    <div class="breakdown-title">Policy Details</div>
+    <div class="breakdown-row">
       <div class="left">
-        <div class="icon icon-yellow">🔨</div>
-        <div>
-          <h2>Construction & Structure</h2>
-          <div class="desc">Frame, exterior, roof, foundation</div>
-        </div>
+        <strong>Business Owners Policy</strong>
+        <div class="carrier">Travelers</div>
+        <div class="sub">Building $5.6M | GL $1M/$2M | Equipment Breakdown | Elevator Liability | Fidelity $25K | EPLI</div>
       </div>
-      <span class="chevron">▾</span>
+      <div class="right">$7,016</div>
     </div>
-    <div class="section-body">
-      <table class="data-table">
-        <tr><td>Construction Class</td><td class="val-important">Type Vb (Wood Frame, Non-Fire Rated)</td></tr>
-        <tr><td>Frame</td><td>2x6 wood studs at 16" on center</td></tr>
-        <tr><td>Exterior Walls</td><td>Stucco, stone veneer, and Boral siding</td></tr>
-        <tr><td>Insulation</td><td>Open cell spray foam, R-20 exterior</td></tr>
-        <tr><td>Foundation</td><td>Poured reinforced concrete on wood piles to bedrock. Walls 10" thick.</td></tr>
-        <tr><td>Roof (Pitched)</td><td>Tremco Heritage asphalt shingles over 30# felt on 5/8" plywood, engineered trusses. Ice & water shield.</td></tr>
-        <tr><td>Roof (Flat/Decks)</td><td>EPDM membrane. Pitched 1/4" per foot, self-draining.</td></tr>
-        <tr><td>Roof Insulation</td><td>Closed cell, R-49</td></tr>
-        <tr><td>Fire Separation</td><td>1-hour dwelling separation wall, 2-hour party wall</td></tr>
-        <tr><td>Floor Joists</td><td>11 7/8" TJI 230 @16" o.c. and 11 7/8" TJI 360 @16" o.c.</td></tr>
-        <tr><td>Windows</td><td>Marvin double-glazed, thermal break, clad w/ screens</td></tr>
-        <tr><td>Exterior Doors</td><td>Insulated aluminum w/ push bar, thermal break</td></tr>
-      </table>
+    <div class="breakdown-row">
+      <div class="left">
+        <strong>Commercial Umbrella</strong>
+        <div class="carrier">Travelers</div>
+        <div class="sub">$5,000,000 limit over GL</div>
+      </div>
+      <div class="right">$3,200</div>
+    </div>
+    <div class="breakdown-row">
+      <div class="left">
+        <strong>Flood (RCBAP)</strong>
+        <div class="carrier">Neptune</div>
+        <div class="sub">$1,000,000 building | $50,000 deductible | Flood Zone AE | Private flood meeting federal requirements</div>
+      </div>
+      <div class="right">$2,942</div>
+    </div>
+    <div class="breakdown-row">
+      <div class="left">
+        <strong>Directors & Officers</strong>
+        <div class="carrier">Pending</div>
+        <div class="sub">$1,000,000 limit | Being placed through Travelers</div>
+      </div>
+      <div class="right" style="color: var(--yellow);">TBD</div>
+    </div>
+    <div class="breakdown-total">
+      <span>Subtotal (without D&O)</span>
+      <span>$13,158/yr</span>
     </div>
   </div>
 
-  <!-- FIRE PROTECTION & SAFETY -->
-  <div class="section">
-    <div class="section-header" onclick="toggle(this)">
-      <div class="left">
-        <div class="icon icon-red">🔥</div>
-        <div>
-          <h2>Fire Protection & Safety</h2>
-          <div class="desc">Sprinklers, alarms, fire rating</div>
-        </div>
-      </div>
-      <span class="chevron">▾</span>
-    </div>
-    <div class="section-body">
-      <table class="data-table">
-        <tr><td>Sprinklers</td><td class="val-important">YES - Fully Sprinklered (Wet System)</td></tr>
-        <tr><td>Sprinkler Standard</td><td>NFPA 13D (2016 Ed), NFPA 13R (2015 Ed)</td></tr>
-        <tr><td>Sprinkler Heads</td><td>Flush type (RFC-49165F, FI/RES-49-175F)</td></tr>
-        <tr><td>Fire Alarm</td><td>FAID (Fire Alarm Initiating Device)</td></tr>
-        <tr><td>Alarm Monitoring</td><td>Outsourced (per budget)</td></tr>
-        <tr><td>Fire Dept Distance</td><td>0.2 miles (Rye FD, 15 Locust Ave)</td></tr>
-        <tr><td>Fire-Rated Doors</td><td>20-min (garage to foyer), 30-min (stair hall)</td></tr>
-        <tr><td>Stair Enclosure</td><td>1-hour fire rated walls</td></tr>
-        <tr><td>Storage Rooms</td><td>1-hour fire rated walls and doors</td></tr>
-        <tr><td>Standpipe</td><td>None</td></tr>
-        <tr><td>Siamese Connection</td><td>None indicated</td></tr>
-      </table>
-      <div class="callout green">
-        <strong>📌 Note</strong>
-        All units are fully sprinklered per NFPA 13D (2016 Edition). New construction with no prior claims history.
-      </div>
-    </div>
-  </div>
-
-  <!-- MECHANICAL & SYSTEMS -->
-  <div class="section">
-    <div class="section-header" onclick="toggle(this)">
-      <div class="left">
-        <div class="icon icon-blue">⚙️</div>
-        <div>
-          <h2>Mechanical Systems</h2>
-          <div class="desc">HVAC, plumbing, electrical, elevators, generators</div>
-        </div>
-      </div>
-      <span class="chevron">▾</span>
-    </div>
-    <div class="section-body">
-      <table class="data-table">
-        <tr><td>Heating</td><td>Hydronic forced air per unit</td></tr>
-        <tr><td>Boiler</td><td>Penco Model #B120, 120,000 BTU (gas-fired, one per unit)</td></tr>
-        <tr><td>Cooling</td><td>Individual HVAC condensers on roof</td></tr>
-        <tr><td>Plumbing</td><td>3/4" PEX main, 1/2" PEX to fixtures. Copper from street. Back-flow preventers per unit.</td></tr>
-        <tr><td>Electrical</td><td>Con Edison, individually metered</td></tr>
-        <tr><td>Gas</td><td>Con Edison, individually metered</td></tr>
-        <tr><td>Water</td><td>Veolia, individually metered</td></tr>
-        <tr><td>Sewer</td><td>City of Rye municipal (4" PVC)</td></tr>
-        <tr><td>Elevators</td><td class="val-important">2 - Kone Mono Space 300 DX (one per building, 3-stop)</td></tr>
-        <tr><td>Elevator Maintenance</td><td>Kone Inc., 150 Bethel Rd, Warren, NJ 07059 (4 visits/yr)</td></tr>
-        <tr><td>Generators</td><td class="val-important">4 x 18kW Generac (one per unit, rooftop)</td></tr>
-        <tr><td>Generator Maintenance</td><td>Aquatech Mechanical LLC, Califon, NJ (annual + 4G monitoring)</td></tr>
-        <tr><td>Sump Pumps</td><td>None</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <!-- FLOOD INFO -->
-  <div class="section">
-    <div class="section-header" onclick="toggle(this)">
-      <div class="left">
-        <div class="icon icon-red">🌊</div>
-        <div>
-          <h2>Flood Zone</h2>
-          <div class="desc">FEMA designation and drainage</div>
-        </div>
-      </div>
-      <span class="chevron">▾</span>
-    </div>
-    <div class="section-body">
-      <table class="data-table">
-        <tr><td>FEMA Flood Zone</td><td class="val-warn">YES - Designated FEMA Flood Zone</td></tr>
-        <tr><td>Specific Zone</td><td class="val-warn">Not specified in plan - PULL THE FEMA MAP to confirm (AE, X, VE, etc.)</td></tr>
-        <tr><td>Ground Water</td><td>No evidence of moisture, seepage, or infiltration per architect</td></tr>
-        <tr><td>Drainage</td><td>Underground Cultec 330HD stormwater chamber system. Footing drains 4" PVC w/ filter fabric. All grading slopes away from buildings.</td></tr>
-        <tr><td>Radon</td><td>Not present; testing not required</td></tr>
-        <tr><td>Environmental</td><td>No issues reported during excavation</td></tr>
-      </table>
-      <div class="callout yellow">
-        <strong>⚠️ Note</strong>
-        The offering plan confirms the property is in a designated FEMA Flood Zone but does not specify the exact zone classification (AE, X, VE, etc.). The specific zone will need to be confirmed via FEMA flood map lookup for this parcel.
-      </div>
-    </div>
-  </div>
-
-  <!-- UNITS -->
-  <div class="section">
-    <div class="section-header" onclick="toggle(this)">
-      <div class="left">
-        <div class="icon icon-green">🏠</div>
-        <div>
-          <h2>The 4 Units</h2>
-          <div class="desc">Layout, size, pricing, common interest</div>
-        </div>
-      </div>
-      <span class="chevron">▾</span>
-    </div>
-    <div class="section-body">
-      <div class="unit-grid">
-        <div class="unit-card">
-          <div class="unit-name">Unit 56A</div>
-          <div class="unit-detail">3 BR / 3.5 BA<br>2,145 SF + 234 SF balcony<br>25.6% common interest<br><strong>$2,800,000</strong></div>
-        </div>
-        <div class="unit-card">
-          <div class="unit-name">Unit 56B</div>
-          <div class="unit-detail">3 BR / 3.5 BA<br>2,185 SF + 234 SF balcony<br>26.8% common interest<br><strong>$2,800,000</strong></div>
-        </div>
-        <div class="unit-card">
-          <div class="unit-name">Unit 54A</div>
-          <div class="unit-detail">3 BR / 3.5 BA<br>2,327 SF + 234 SF balcony<br>23.6% common interest<br><strong>$2,800,000</strong></div>
-        </div>
-        <div class="unit-card">
-          <div class="unit-name">Unit 54B</div>
-          <div class="unit-detail">3 BR / 3.5 BA<br>2,442 SF + 234 SF balcony<br>24.0% common interest<br><strong>$2,800,000</strong></div>
-        </div>
-      </div>
-      <table class="data-table" style="margin-top:14px">
-        <tr><td>Total Offering Price</td><td class="val-money">$11,200,000</td></tr>
-        <tr><td>Garages</td><td>Each unit gets a 2-car garage (limited common element)</td></tr>
-        <tr><td>Outdoor Parking</td><td>4 guest spaces (common element)</td></tr>
-        <tr><td>Balconies</td><td>4 per unit (42 SF + 74 SF + 74 SF + 44 SF = 234 SF each)</td></tr>
-        <tr><td>Decks</td><td>Azek PVC composite, composite balustrade, 42" AZEK railings</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="divider-label">What to Quote</div>
-
-  <!-- MASTER POLICY -->
-  <div class="section open">
-    <div class="section-header" onclick="toggle(this)">
-      <div class="left">
-        <div class="icon icon-yellow">📋</div>
-        <div>
-          <h2>Master Policy Coverages</h2>
-          <div class="desc">Required coverages per offering plan and bylaws</div>
-        </div>
-      </div>
-      <span class="chevron">▾</span>
-    </div>
-    <div class="section-body">
-      <table class="data-table">
-        <tr><td>Named Insured</td><td>54-56 Locust Avenue Condominium (Board of Managers)</td></tr>
-        <tr><td>Building Replacement</td><td class="val-money">$5,600,000 (Agreed Amount, both buildings)</td></tr>
-        <tr><td>General Liability</td><td>$1,000,000 / $2,000,000</td></tr>
-        <tr><td>Directors & Officers</td><td>$1,000,000</td></tr>
-        <tr><td>Umbrella</td><td>$5,000,000</td></tr>
-        <tr><td>Flood</td><td>$1,000,000</td></tr>
-        <tr><td>Property Deductible</td><td>$5,000</td></tr>
-        <tr><td>D&O Deductible</td><td>$5,000</td></tr>
-        <tr><td>Flood Deductible</td><td class="val-warn">$50,000</td></tr>
-        <tr><td>Current Premium</td><td>$12,000/year (per offering plan budget)</td></tr>
-      </table>
-
-      <div class="callout blue" style="margin-top:16px">
-        <strong>Additional Coverages Required by Bylaws</strong>
-        The following coverages are also required per the condo documents:
-      </div>
-
-      <ul class="checklist" style="margin-top:10px">
-        <li><span class="check" onclick="toggleCheck(this)">✓</span>Fidelity insurance (officers, employees, managing agent)</li>
-        <li><span class="check" onclick="toggleCheck(this)">✓</span>Rent / Loss of Rents insurance (1 year common charges = $46,600)</li>
-        <li><span class="check" onclick="toggleCheck(this)">✓</span>Workers' Comp & NYS Disability</li>
-        <li><span class="check" onclick="toggleCheck(this)">✓</span>Boiler & Machinery</li>
-        <li><span class="check" onclick="toggleCheck(this)">✓</span>Water Damage Legal Liability</li>
-        <li><span class="check" onclick="toggleCheck(this)">✓</span>Elevator Liability & Collision</li>
-        <li><span class="check" onclick="toggleCheck(this)">✓</span>Cross-liability coverage on GL</li>
-      </ul>
-
-      <table class="data-table" style="margin-top:14px">
-        <tr><td>Managing Agent</td><td>Cygnet Realty LLC<br><span style="font-size:12px;color:var(--text-muted)">2124 Central Park Ave, Yonkers, NY 10701</span></td></tr>
-        <tr><td>Employees</td><td>None (all outsourced contractors)</td></tr>
-        <tr><td>Annual Budget</td><td>$46,600 total common charges</td></tr>
-        <tr><td>Recreational Facilities</td><td>None</td></tr>
-        <tr><td>Pool</td><td>None</td></tr>
-        <tr><td>Prior Losses</td><td>None (new construction)</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <!-- KEY CONTACTS -->
-  <div class="section">
-    <div class="section-header" onclick="toggle(this)">
-      <div class="left">
-        <div class="icon icon-blue">📞</div>
-        <div>
-          <h2>Key Contacts</h2>
-          <div class="desc">Sponsor, attorneys, agents, vendors</div>
-        </div>
-      </div>
-      <span class="chevron">▾</span>
-    </div>
-    <div class="section-body">
-      <table class="data-table">
-        <tr><td>Sponsor</td><td>Locust Rye Townhouse Project LLC<br>622 W 256th St, Bronx, NY 10471</td></tr>
-        <tr><td>Sponsor Attorney</td><td>Marshall S. Schiff, P.C.<br>110 Cross River Rd, Mt Kisco, NY 10549</td></tr>
-        <tr><td>Closing Attorney</td><td>Frank Gadaleta, Esq.<br>31 Purchase St, 2nd Floor, Rye, NY 10580<br>(914) 612-4499</td></tr>
-        <tr><td>Architect</td><td>Crozier Gedney Architects, P.C.<br>41 Elm Place, Rye, NY 10580<br>(914) 967-6060</td></tr>
-        <tr><td>Engineer</td><td>Badaly Engineering PLLC<br>2 Wilson Pl, Mt Vernon, NY 10550</td></tr>
-        <tr><td>Managing Agent</td><td>Cygnet Realty LLC<br>2124 Central Park Ave, Yonkers, NY 10701</td></tr>
-        <tr><td>Elevator</td><td>Kone Inc.<br>150 Bethel Rd, Warren, NJ 07059</td></tr>
-        <tr><td>Generator</td><td>Aquatech Mechanical LLC, Califon, NJ</td></tr>
-        <tr><td>Landscaping/Snow</td><td>A. Vega Masonry & Landscaping LLC<br>PO Box 376, Norwalk, CT 06856</td></tr>
-        <tr><td>Accountant</td><td>Kaushik Patel LLC<br>310 Passaic Ave, Bldg A, Fairfield, NJ 07004</td></tr>
-        <tr><td>Escrow Bank</td><td>J.P. Morgan Chase Bank</td></tr>
-      </table>
-    </div>
+  <div class="callout yellow">
+    <strong>Note</strong>
+    *Total will be updated once D&O pricing is finalized. For a 4-unit new construction association with no claims history, we expect D&O to be very competitive.
   </div>
 
   <div class="footer-note">
-    Extracted from Condominium Offering Plan CD25-0289<br>
-    Prepared by Safeshield Insurance | <a href="https://gosafeshield.com" style="color:var(--navy)">gosafeshield.com</a> | (203) 204-2555
+    Prepared for 54-56 Locust Avenue Condominium<br>
+    Safeshield Insurance | <a href="https://gosafeshield.com">gosafeshield.com</a> | (203) 204-2555
   </div>
 
 </div>
-
-<script>
-function toggle(header) {
-  header.closest('.section').classList.toggle('open');
-}
-
-function toggleCheck(el) {
-  el.closest('li').classList.toggle('done');
-}
-</script>
 </body>
 </html>
