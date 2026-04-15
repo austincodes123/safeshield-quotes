@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cameron Levine - Insurance Quote Comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #004B89;
+  --yellow: #FFA300;
+  --dark: #0a1628;
+  --off-white: #FAFAF8;
+  --green: #22c55e;
+  --red: #ef4444;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --subtle: #94a3b8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--dark);
+  color: #1e293b;
+  min-height: 100vh;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--dark) 0%, #0f2440 50%, var(--navy) 100%);
+  padding: 48px 24px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(255,163,0,0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(0,75,137,0.15) 0%, transparent 50%);
+  animation: drift 20s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-3%, 3%); }
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+.logo-mark {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(28px, 5vw, 42px);
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.hero .client-name {
+  color: var(--yellow);
+}
+
+.hero p {
+  color: rgba(255,255,255,0.6);
+  font-size: 15px;
+  font-weight: 400;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.prepared-date {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
+/* Tab Navigation */
+.tab-nav {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 24px 0;
+  background: var(--dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tab-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border: none;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  border-radius: 10px 10px 0 0;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+.tab-btn.active { background: var(--off-white); color: var(--dark); }
+
+.tab-content {
+  display: none;
+  background: var(--off-white);
+  padding: 32px 24px 48px;
+  min-height: 60vh;
+}
+
+.tab-content.active { display: block; }
+
+.section-container { max-width: 900px; margin: 0 auto; }
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.section-header p {
+  color: var(--subtle);
+  font-size: 14px;
+}
+
+/* Home Coverage Cards */
+.coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.cov-card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cov-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.cov-card .label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-bottom: 8px;
+}
+
+.cov-card .value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--dark);
+}
+
+.cov-card .value.money { color: var(--navy); }
+
+.cov-card .sub {
+  font-size: 12px;
+  color: var(--subtle);
+  margin-top: 4px;
+}
+
+.cov-card .explain {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 10px;
+  line-height: 1.5;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* Endorsements */
+.endorsement-list {
+  background: var(--card-bg);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.endorsement-list h3 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+
+.endorse-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.endorse-item:last-child { border-bottom: none; }
+
+.endorse-item .name {
+  font-size: 14px;
+  color: #475569;
+  flex: 1;
+}
+
+.endorse-item .price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+/* Premium callout */
+.premium-callout {
+  background: linear-gradient(135deg, var(--navy), #003a6b);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  color: white;
+  margin-bottom: 32px;
+}
+
+.premium-callout .amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--yellow);
+}
+
+.premium-callout .per {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+}
+
+.premium-callout .note {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 8px;
+}
+
+/* Credits box */
+.credits-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+
+.credits-box h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #166534;
+  margin-bottom: 12px;
+}
+
+.credit-tag {
+  display: inline-block;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin: 3px 4px 3px 0;
+}
+
+/* Auto Comparison Table */
+.compare-table-wrap {
+  background: var(--card-bg);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.compare-table thead th {
+  padding: 16px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: left;
+  border-bottom: 2px solid var(--border);
+}
+
+.compare-table thead th:first-child { color: var(--subtle); }
+.compare-table thead th.geico { color: #0066b2; background: #f0f7ff; }
+.compare-table thead th.nycm { color: var(--navy); background: #fffbf0; }
+
+.compare-table tbody td {
+  padding: 12px 20px;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.compare-table tbody tr:last-child td { border-bottom: none; }
+
+.compare-table tbody td:first-child {
+  font-weight: 600;
+  color: #334155;
+  font-size: 13px;
+}
+
+.compare-table tbody td.geico-col { background: #fafcff; color: #64748b; }
+.compare-table tbody td.nycm-col { background: #fffdf7; }
+
+.upgrade-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: #166534;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-left: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.downgrade-badge {
+  display: inline-block;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-left: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Vehicle header rows */
+.veh-header {
+  background: #f8fafc !important;
+}
+
+.veh-header td {
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  color: var(--dark) !important;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 14px 20px !important;
+}
+
+/* Totals row */
+.totals-row td {
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  padding: 18px 20px !important;
+  border-top: 2px solid var(--border) !important;
+}
+
+.price-old {
+  text-decoration: line-through;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.price-new {
+  font-weight: 800;
+  color: var(--navy);
+  font-size: 18px;
+}
+
+.savings-banner {
+  background: linear-gradient(135deg, #166534, #15803d);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 32px;
+}
+
+.savings-banner .big {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: #86efac;
+}
+
+.savings-banner .desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  margin-top: 4px;
+}
+
+/* Umbrella */
+.umbrella-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.umbrella-top {
+  background: linear-gradient(135deg, var(--navy), #003a6b);
+  padding: 32px;
+  text-align: center;
+  color: white;
+}
+
+.umbrella-top .limit {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--yellow);
+}
+
+.umbrella-top .limit-label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+}
+
+.umbrella-body { padding: 24px 32px 32px; }
+
+.umb-detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+.umb-detail:last-child { border-bottom: none; }
+.umb-detail .k { color: #64748b; }
+.umb-detail .v { font-weight: 700; color: var(--dark); }
+
+.umb-premium {
+  margin-top: 16px;
+  text-align: center;
+  padding: 20px;
+  background: #fffbf0;
+  border-radius: 12px;
+}
+
+.umb-premium .amt {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--navy);
+}
+
+.umb-premium .per {
+  font-size: 13px;
+  color: var(--subtle);
+}
+
+.umb-why {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: #fef3c7;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #92400e;
+  line-height: 1.5;
+}
+
+/* UW Note */
+.uw-note {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-top: 32px;
+  font-size: 13px;
+  color: #92400e;
+  line-height: 1.6;
+}
+
+.uw-note strong { color: #78350f; }
+
+/* Footer */
+.footer {
+  background: var(--dark);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--yellow);
+  margin-bottom: 8px;
+}
+
+.footer p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .tab-btn { padding: 10px 16px; font-size: 11px; }
+  .compare-table { font-size: 12px; }
+  .compare-table thead th, .compare-table tbody td { padding: 10px 12px; }
+  .coverage-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="logo-mark">Safeshield Insurance</div>
+    <h1>Insurance Review for<br><span class="client-name">Cameron & Kimberly Levine</span></h1>
+    <p>Complete coverage comparison with NYCM. Better protection, better price.</p>
+    <div class="prepared-date">Prepared April 15, 2026</div>
+  </div>
+</div>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('home')">Homeowners</button>
+  <button class="tab-btn" onclick="switchTab('auto')">Auto</button>
+  <button class="tab-btn" onclick="switchTab('umbrella')">Umbrella</button>
+</nav>
+
+<!-- HOMEOWNERS TAB -->
+<div id="home" class="tab-content active">
+  <div class="section-container">
+    <div class="section-header">
+      <h2>Homeowners - HO3 Special Form</h2>
+      <p>2038 Berfond Ct, Merrick, NY 11566 &bull; Frame Construction &bull; 2,687 sq ft</p>
+    </div>
+
+    <div class="coverage-grid">
+      <div class="cov-card">
+        <div class="label">A: Dwelling</div>
+        <div class="value">$950,000</div>
+        <div class="explain">This is the cost to rebuild your home from the ground up if it's destroyed. It covers the structure itself, including walls, roof, floors, built-in appliances, and attached garage.</div>
+      </div>
+      <div class="cov-card">
+        <div class="label">B: Other Structures</div>
+        <div class="value">$95,000</div>
+        <div class="sub">10% of Dwelling</div>
+        <div class="explain">Covers structures on your property that aren't attached to the main house, like a detached garage, shed, fence, or driveway.</div>
+      </div>
+      <div class="cov-card">
+        <div class="label">C: Personal Property</div>
+        <div class="value">$665,000</div>
+        <div class="sub">70% of Dwelling</div>
+        <div class="explain">Covers your belongings inside the home: furniture, clothing, electronics, appliances, and more. With Replacement Cost included, items are paid at today's value, not depreciated.</div>
+      </div>
+      <div class="cov-card">
+        <div class="label">D: Loss of Use</div>
+        <div class="value">$285,000</div>
+        <div class="sub">30% of Dwelling</div>
+        <div class="explain">If your home becomes unlivable after a covered loss, this pays for your additional living expenses like hotel stays, meals, and temporary housing while repairs are made.</div>
+      </div>
+      <div class="cov-card">
+        <div class="label">E: Personal Liability</div>
+        <div class="value">$100,000</div>
+        <div class="sub">Each Occurrence</div>
+        <div class="explain">Protects you if someone is injured on your property or you accidentally damage someone else's property. Covers legal defense costs and settlements up to the limit.</div>
+      </div>
+      <div class="cov-card">
+        <div class="label">F: Medical Payments</div>
+        <div class="value">$1,000</div>
+        <div class="sub">To Others</div>
+        <div class="explain">Pays for minor medical bills if a guest is injured at your home, regardless of fault. It's designed to handle small claims without a lawsuit.</div>
+      </div>
+      <div class="cov-card">
+        <div class="label">Deductible</div>
+        <div class="value">$2,500</div>
+        <div class="explain">This is the amount you pay out of pocket before insurance kicks in on a claim. We recommend $2,500 as the standard because it keeps your premium lower and discourages filing small claims that can cause your rate to increase at renewal. The goal is to use insurance for the big stuff, not the small stuff.</div>
+      </div>
+    </div>
+
+    <div class="endorsement-list">
+      <h3>Included Endorsements</h3>
+      <div class="endorse-item">
+        <span class="name">Windstorm Deductible - NY Catastrophe Percentage & Non-Catastrophe Fixed Dollar<br><span style="font-size:12px;color:#94a3b8;font-weight:400;">Separates your windstorm deductible into two tiers: a percentage-based deductible for named storms (hurricanes) and a fixed-dollar deductible for regular wind events. Required in coastal areas of NY.</span></span>
+        <span class="price">Incl.</span>
+      </div>
+      <div class="endorse-item">
+        <span class="name">Personal Property Replacement Cost<br><span style="font-size:12px;color:#94a3b8;font-weight:400;">If your belongings are damaged or destroyed, you get paid what it costs to buy them new today, not a depreciated value. A 5-year-old TV gets replaced at today's price.</span></span>
+        <span class="price">$254</span>
+      </div>
+      <div class="endorse-item">
+        <span class="name">Limited Water Back-Up & Sump Discharge<br><span style="font-size:12px;color:#94a3b8;font-weight:400;">Covers damage from water that backs up through drains or your sump pump overflows. Standard homeowner policies don't include this, but it's one of the most common claims.</span></span>
+        <span class="price">$173</span>
+      </div>
+      <div class="endorse-item">
+        <span class="name">Personal Injury Coverage<br><span style="font-size:12px;color:#94a3b8;font-weight:400;">Extends your liability protection beyond physical injuries to cover claims like libel, slander, defamation, or invasion of privacy.</span></span>
+        <span class="price">$14</span>
+      </div>
+    </div>
+
+    <div class="credits-box">
+      <h3>Credits Applied - $1,440 in Savings</h3>
+      <span class="credit-tag">Coupler (Multi-Policy)</span>
+      <span class="credit-tag">Renovation Primary Heat</span>
+      <span class="credit-tag">Home Buyer Discount</span>
+      <span class="credit-tag">Renovation New Roof</span>
+    </div>
+
+    <div class="premium-callout">
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Annual Premium</div>
+      <div class="amount">$3,382</div>
+      <div class="per">per year</div>
+      <div class="note">Minimum down payment: $508 (15%)</div>
+    </div>
+
+    <div class="uw-note">
+      <strong>Underwriting Note:</strong> This quote has been submitted to the NYCM underwriting department for review due to coastal exposure at the Merrick location. Nassau County's proximity to the coast requires additional review, but this is routine for Long Island properties. We expect approval and will keep you posted on timing.
+    </div>
+  </div>
+</div>
+
+<!-- AUTO TAB -->
+<div id="auto" class="tab-content">
+  <div class="section-container">
+    <div class="section-header">
+      <h2>Auto - Side by Side Comparison</h2>
+      <p>GEICO (current, 6-month) vs NYCM (proposed, 12-month full year)</p>
+    </div>
+
+    <div class="savings-banner">
+      <div style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:4px;">Your Annual Savings with NYCM</div>
+      <div class="big">$1,471 Saved</div>
+      <div class="desc">GEICO annualized: $4,791/yr &rarr; NYCM: $3,320/yr with massively better coverage</div>
+    </div>
+
+    <!-- Coverage Gap Callout -->
+    <div style="background:white;border-radius:16px;border:2px solid var(--yellow);padding:28px 28px 24px;margin-bottom:32px;">
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--yellow);margin-bottom:6px;">The Real Story</div>
+        <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--dark);line-height:1.3;">Your current policy has $50,000 in liability.<br>We're putting you at $500,000. For less money.</div>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:20px;">
+        <div style="flex:1;min-width:240px;background:#fef2f2;border-radius:12px;padding:20px;text-align:center;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#dc2626;margin-bottom:8px;">GEICO - Current</div>
+          <div style="font-size:32px;font-weight:900;color:#dc2626;">$50K</div>
+          <div style="font-size:13px;color:#7f1d1d;margin-top:4px;">Max Bodily Injury per accident</div>
+          <div style="font-size:12px;color:#94a3b8;margin-top:8px;">$25K per person / $50K per accident</div>
+          <div style="font-size:12px;color:#94a3b8;">$25K property damage</div>
+          <div style="margin-top:12px;font-size:13px;font-weight:600;color:#dc2626;">$4,791/year</div>
+        </div>
+        <div style="flex:1;min-width:240px;background:#f0fdf4;border-radius:12px;padding:20px;text-align:center;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#166534;margin-bottom:8px;">NYCM - Proposed</div>
+          <div style="font-size:32px;font-weight:900;color:#166534;">$500K</div>
+          <div style="font-size:13px;color:#14532d;margin-top:4px;">Max Bodily Injury per accident</div>
+          <div style="font-size:12px;color:#64748b;margin-top:8px;">$250K per person / $500K per accident</div>
+          <div style="font-size:12px;color:#64748b;">$100K property damage</div>
+          <div style="margin-top:12px;font-size:13px;font-weight:600;color:#166534;">$3,320/year</div>
+        </div>
+      </div>
+      <div style="background:#fffbeb;border-radius:10px;padding:16px 20px;font-size:13px;color:#92400e;line-height:1.6;">
+        <strong>What this means in plain English:</strong> Right now, if Cameron causes an accident and seriously injures someone, his GEICO policy maxes out at $25,000 per person. In New York, a single ER visit with surgery can easily exceed $100,000. That means Cameron would be personally responsible for everything above $25K out of his own pocket. With the NYCM policy, that same scenario is covered up to $250,000 per person and $500,000 per accident. The property damage limit jumps from $25K to $100K, which matters when you consider that even a fender bender with a newer luxury car can run $30-40K in repairs. We're also adding Supplemental Spousal Liability (SSL), which GEICO doesn't have, so Cameron and Kimberly are both protected if one injures the other in an accident. And the SUM (Supplementary Uninsured/Underinsured Motorist) coverage goes from $25K/$50K to $250K/$500K, meaning if someone without enough insurance hits them, they're covered at the same high limits. All of this for $1,471 less per year.
+      </div>
+    </div>
+
+    <!-- Vehicle 1 -->
+    <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:12px;">Vehicle 1: 2009 Dodge Caliber</h3>
+    <div class="compare-table-wrap" style="margin-bottom:28px;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Coverage</th>
+            <th class="geico">GEICO (6-Mo)</th>
+            <th class="nycm">NYCM (12-Mo)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bodily Injury</td>
+            <td class="geico-col">$25K/$50K <span style="font-size:11px;color:#94a3b8;">($320)</span></td>
+            <td class="nycm-col"><strong>$250K/$500K</strong> <span style="font-size:11px;color:#64748b;">($251)</span> <span class="upgrade-badge">10x</span></td>
+          </tr>
+          <tr>
+            <td>Property Damage</td>
+            <td class="geico-col">$25,000 <span style="font-size:11px;color:#94a3b8;">($239)</span></td>
+            <td class="nycm-col"><strong>$100,000</strong> <span style="font-size:11px;color:#64748b;">($471)</span> <span class="upgrade-badge">4x</span></td>
+          </tr>
+          <tr>
+            <td>SSL</td>
+            <td class="geico-col">Not Carried</td>
+            <td class="nycm-col"><strong>Yes</strong> <span style="font-size:11px;color:#64748b;">($23)</span> <span class="upgrade-badge">Added</span></td>
+          </tr>
+          <tr>
+            <td>PIP / No-Fault</td>
+            <td class="geico-col">Opt-A / $50K <span style="font-size:11px;color:#94a3b8;">($416)</span></td>
+            <td class="nycm-col"><strong>Full PIP</strong> <span style="font-size:11px;color:#64748b;">($281)</span> <span class="upgrade-badge">Better</span></td>
+          </tr>
+          <tr>
+            <td>SUM</td>
+            <td class="geico-col">$25K/$50K <span style="font-size:11px;color:#94a3b8;">($33)</span></td>
+            <td class="nycm-col"><strong>$250K/$500K</strong> <span style="font-size:11px;color:#64748b;">($187)</span> <span class="upgrade-badge">10x</span></td>
+          </tr>
+          <tr>
+            <td>Comp / Collision</td>
+            <td class="geico-col">None</td>
+            <td class="nycm-col">None</td>
+          </tr>
+          <tr>
+            <td>Roadside / Rental</td>
+            <td class="geico-col">None</td>
+            <td class="nycm-col">None</td>
+          </tr>
+          <tr class="totals-row">
+            <td>Vehicle Total</td>
+            <td class="geico-col"><span class="price-old">$1,008 (6-mo)</span></td>
+            <td class="nycm-col"><span class="price-new">$1,213 / year</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Vehicle 2 -->
+    <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:12px;">Vehicle 2: 2025 Hyundai Tucson</h3>
+    <div class="compare-table-wrap" style="margin-bottom:28px;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Coverage</th>
+            <th class="geico">GEICO (6-Mo)</th>
+            <th class="nycm">NYCM (12-Mo)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bodily Injury</td>
+            <td class="geico-col">$25K/$50K <span style="font-size:11px;color:#94a3b8;">($241)</span></td>
+            <td class="nycm-col"><strong>$250K/$500K</strong> <span style="font-size:11px;color:#64748b;">($534)</span> <span class="upgrade-badge">10x</span></td>
+          </tr>
+          <tr>
+            <td>Property Damage</td>
+            <td class="geico-col">$25,000 <span style="font-size:11px;color:#94a3b8;">($193)</span></td>
+            <td class="nycm-col"><strong>$100,000</strong> <span style="font-size:11px;color:#64748b;">($275)</span> <span class="upgrade-badge">4x</span></td>
+          </tr>
+          <tr>
+            <td>SSL</td>
+            <td class="geico-col">Not Carried</td>
+            <td class="nycm-col"><strong>Yes</strong> <span style="font-size:11px;color:#64748b;">($23)</span> <span class="upgrade-badge">Added</span></td>
+          </tr>
+          <tr>
+            <td>PIP / No-Fault</td>
+            <td class="geico-col">Opt-A / $50K <span style="font-size:11px;color:#94a3b8;">($333)</span></td>
+            <td class="nycm-col"><strong>Full PIP</strong> <span style="font-size:11px;color:#64748b;">($223)</span> <span class="upgrade-badge">Better</span></td>
+          </tr>
+          <tr>
+            <td>SUM</td>
+            <td class="geico-col">$25K/$50K <span style="font-size:11px;color:#94a3b8;">($33)</span></td>
+            <td class="nycm-col"><strong>$250K/$500K</strong> <span style="font-size:11px;color:#64748b;">($196)</span> <span class="upgrade-badge">10x</span></td>
+          </tr>
+          <tr>
+            <td>Comp</td>
+            <td class="geico-col">$500 ded <span style="font-size:11px;color:#94a3b8;">($112)</span></td>
+            <td class="nycm-col"><strong>$1,000 ded</strong> <span style="font-size:11px;color:#64748b;">($180)</span></td>
+          </tr>
+          <tr>
+            <td>Collision</td>
+            <td class="geico-col">$500 ded <span style="font-size:11px;color:#94a3b8;">($397)</span></td>
+            <td class="nycm-col"><strong>$1,000 ded</strong> <span style="font-size:11px;color:#64748b;">($627)</span></td>
+          </tr>
+          <tr>
+            <td>Roadside</td>
+            <td class="geico-col">Yes <span style="font-size:11px;color:#94a3b8;">($6)</span></td>
+            <td class="nycm-col"><strong>Basic</strong> <span style="font-size:11px;color:#64748b;">($12)</span></td>
+          </tr>
+          <tr>
+            <td>Rental Reimbursement</td>
+            <td class="geico-col">$50/day, $1,500 max <span style="font-size:11px;color:#94a3b8;">($42)</span></td>
+            <td class="nycm-col"><strong>$50/day, $1,500 max</strong> <span style="font-size:11px;color:#64748b;">($11)</span></td>
+          </tr>
+          <tr>
+            <td>Trip Interruption</td>
+            <td class="geico-col">None</td>
+            <td class="nycm-col"><strong>$100/$400</strong> <span style="font-size:11px;color:#64748b;">($6)</span> <span class="upgrade-badge">Added</span></td>
+          </tr>
+          <tr>
+            <td>Pet Injury</td>
+            <td class="geico-col">None</td>
+            <td class="nycm-col"><strong>$500</strong> <span style="font-size:11px;color:#64748b;">(Incl.)</span> <span class="upgrade-badge">Added</span></td>
+          </tr>
+          <tr>
+            <td>Mech. Breakdown</td>
+            <td class="geico-col">$250 ded <span style="font-size:11px;color:#94a3b8;">($30)</span></td>
+            <td class="nycm-col">N/A</td>
+          </tr>
+          <tr class="totals-row">
+            <td>Vehicle Total</td>
+            <td class="geico-col"><span class="price-old">$1,387 (6-mo)</span></td>
+            <td class="nycm-col"><span class="price-new">$2,087 / year</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Grand total comparison -->
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Total Premium</th>
+            <th class="geico">GEICO</th>
+            <th class="nycm">NYCM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Policy Term</td>
+            <td class="geico-col">6 Months</td>
+            <td class="nycm-col"><strong>12 Months</strong></td>
+          </tr>
+          <tr>
+            <td>As Quoted</td>
+            <td class="geico-col">$2,396 / 6 mo</td>
+            <td class="nycm-col"><strong>$3,320 / 12 mo</strong></td>
+          </tr>
+          <tr class="totals-row">
+            <td>Annualized Cost</td>
+            <td class="geico-col" style="color:var(--red);"><strong>$4,791 / year</strong></td>
+            <td class="nycm-col" style="color:var(--green);"><strong>$3,320 / year</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="credits-box" style="margin-top:24px;">
+      <h3>NYCM Auto Discounts Applied</h3>
+      <span class="credit-tag">Multi-Car</span>
+      <span class="credit-tag">Coupler (Multi-Policy)</span>
+      <span class="credit-tag">Accident Prevention Course (10%)</span>
+      <span class="credit-tag">Home Ownership (2.5%)</span>
+      <span class="credit-tag">Passive Restraint</span>
+      <span class="credit-tag">Anti-Theft (Tucson)</span>
+      <span class="credit-tag">Anti-Lock Brakes (Tucson)</span>
+      <span class="credit-tag">Daytime Running Lights</span>
+      <span class="credit-tag">Advanced Safety (Tucson)</span>
+      <span class="credit-tag">New Car (Tucson 8%)</span>
+    </div>
+
+    <div class="uw-note">
+      <strong>Additional Notes:</strong> The GEICO policy currently has an accident surcharge applied from 03/12/2025 that is inflating the premium. NYCM is quoting a 12-month term (vs GEICO's 6-month), which means one renewal per year instead of two, and rate lock for a full 12 months. The NYCM auto quote also includes coverages GEICO doesn't offer here: trip interruption ($100/$400) and pet injury ($500) on the Tucson, both included at minimal or no additional cost. The comp and collision deductibles on the Tucson move from $500 to $1,000, but with the umbrella in place and the massive liability upgrade, that trade-off makes sense.
+    </div>
+  </div>
+</div>
+
+<!-- UMBRELLA TAB -->
+<div id="umbrella" class="tab-content">
+  <div class="section-container">
+    <div class="section-header">
+      <h2>Personal Umbrella Policy</h2>
+      <p>NYCM - Extra liability protection above your auto and home</p>
+    </div>
+
+    <div class="umbrella-card">
+      <div class="umbrella-top">
+        <div style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;">Umbrella Limit</div>
+        <div class="limit">$1,000,000</div>
+        <div class="limit-label">Excess Liability Coverage</div>
+      </div>
+      <div class="umbrella-body">
+        <div class="umb-detail">
+          <span class="k">Effective Date</span>
+          <span class="v">05/06/2026</span>
+        </div>
+        <div class="umb-detail">
+          <span class="k">Policy Term</span>
+          <span class="v">1 Year</span>
+        </div>
+        <div class="umb-detail">
+          <span class="k">Deductible</span>
+          <span class="v">$1,000</span>
+        </div>
+        <div class="umb-detail">
+          <span class="k">Vehicles Covered</span>
+          <span class="v">2 Automobiles</span>
+        </div>
+        <div class="umb-detail">
+          <span class="k">Auto Liability Premium</span>
+          <span class="v">$371</span>
+        </div>
+        <div class="umb-detail">
+          <span class="k">Umbrella Base Premium</span>
+          <span class="v">$155</span>
+        </div>
+        <div class="umb-detail">
+          <span class="k">Form</span>
+          <span class="v">DL 98 01 + DL 98 12 (Auto Incl.)</span>
+        </div>
+
+        <div class="umb-premium">
+          <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--subtle);margin-bottom:6px;">Annual Premium</div>
+          <div class="amt">$526</div>
+          <div class="per">per year &bull; Min. down: $79</div>
+        </div>
+
+        <div class="umb-why">
+          <strong>Why this matters:</strong> With a home valued at $950K and a leased 2025 Tucson, Cameron has real asset exposure. An umbrella provides an additional $1M of liability protection above the auto ($250K/$500K) and home ($100K) liability limits. At $526/year, it is one of the highest value coverages available.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-logo">Safeshield Insurance</div>
+  <p>(203) 204-2555 &bull; help@gosafeshield.com &bull; gosafeshield.com</p>
+  <p style="margin-top:8px;">We Work For You. Not The Insurance Company.</p>
+</div>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: document.querySelector('.tab-nav').offsetTop, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
