@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moss & Albert — Renewal Review | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #004B89;
+    --navy-deep: #003866;
+    --dark: #0a1628;
+    --yellow: #FFA300;
+    --yellow-bright: #FFB933;
+    --cream: #FFF9ED;
+    --ink: #0a1628;
+    --muted: #6b7788;
+    --line: #e8ecf1;
+    --win: #0f7a3e;
+    --win-bg: #e8f5ee;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+
+  .serif { font-family: 'Playfair Display', Georgia, serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: var(--dark);
+    color: #fff;
+    padding: 32px 0 120px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,163,0,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 60px;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--yellow); }
+
+  .nav-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    font-weight: 600;
+    padding: 6px 14px;
+    border: 1px solid rgba(255,163,0,0.3);
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(44px, 6vw, 78px);
+    line-height: 0.95;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+  }
+  .hero h1 .accent {
+    color: var(--yellow);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 19px;
+    color: rgba(255,255,255,0.75);
+    max-width: 620px;
+    font-weight: 300;
+    margin-bottom: 48px;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 32px 0;
+  }
+
+  .hero-stat {
+    padding: 0 24px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat:first-child { padding-left: 0; }
+
+  .hero-stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+  }
+  .hero-stat-value {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 38px;
+    color: #fff;
+    letter-spacing: -1px;
+  }
+  .hero-stat-value.win { color: var(--yellow); }
+
+  /* ===== COMPARISON TEASER ===== */
+  .teaser {
+    background: var(--cream);
+    padding: 80px 0 40px;
+    position: relative;
+    margin-top: -60px;
+  }
+
+  .teaser-card {
+    background: #fff;
+    border-radius: 2px;
+    padding: 48px 56px;
+    box-shadow: 0 30px 80px rgba(0, 75, 137, 0.12);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .teaser-side h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .teaser-side .carrier {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 28px;
+    margin-bottom: 4px;
+  }
+  .teaser-side .price {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 48px;
+    letter-spacing: -1.5px;
+  }
+  .teaser-side .price-unit {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--muted);
+  }
+  .teaser-side.current .price { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: #d4352d; }
+  .teaser-side.new .price { color: var(--navy); }
+
+  .teaser-arrow {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    color: var(--yellow);
+    line-height: 1;
+  }
+
+  /* ===== SECTION ===== */
+  .section {
+    padding: 100px 0;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 64px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(36px, 4.5vw, 56px);
+    line-height: 1;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+  }
+
+  .section h2 .accent { color: var(--yellow); font-style: italic; }
+
+  .section-desc {
+    font-size: 17px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* ===== TIER CARDS ===== */
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .tier {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 40px 32px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+
+  .tier::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--line);
+    transition: background 0.3s;
+  }
+
+  .tier:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 75, 137, 0.12);
+    border-color: var(--navy);
+  }
+  .tier:hover::before { background: var(--navy); }
+
+  .tier.selected {
+    border-color: var(--yellow);
+    box-shadow: 0 20px 50px rgba(255, 163, 0, 0.2);
+  }
+  .tier.selected::before { background: var(--yellow); }
+
+  .tier.recommended {
+    background: linear-gradient(180deg, #fff 0%, #fffbf3 100%);
+  }
+
+  .tier-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 5px 10px;
+    background: var(--yellow);
+    color: var(--dark);
+  }
+
+  .tier-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .tier-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .tier-tagline {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 32px;
+    min-height: 40px;
+  }
+
+  .tier-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .tier-price-amount {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 52px;
+    color: var(--navy);
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+  .tier-price-unit {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .tier-breakdown {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .tier-savings {
+    background: var(--win-bg);
+    border-left: 3px solid var(--win);
+    padding: 16px 20px;
+    margin-bottom: 28px;
+  }
+  .tier-savings-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--win);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .tier-savings-amount {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--win);
+    letter-spacing: -1px;
+  }
+  .tier-savings-sub {
+    font-size: 12px;
+    color: var(--win);
+    margin-top: 2px;
+  }
+
+  .tier-details {
+    list-style: none;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--line);
+  }
+  .tier-details li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .tier-details li strong { color: var(--ink); font-weight: 600; }
+
+  .tier-select {
+    margin-top: 24px;
+    padding: 14px 20px;
+    background: var(--dark);
+    color: #fff;
+    border: none;
+    width: 100%;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tier.selected .tier-select {
+    background: var(--yellow);
+    color: var(--dark);
+  }
+  .tier-select:hover {
+    background: var(--navy);
+  }
+  .tier.selected .tier-select:hover {
+    background: var(--yellow-bright);
+  }
+
+  /* ===== SELECTED TIER SUMMARY ===== */
+  .selection-bar {
+    background: var(--dark);
+    color: #fff;
+    padding: 32px 40px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 32px;
+    position: sticky;
+    bottom: 20px;
+    z-index: 50;
+    box-shadow: 0 20px 60px rgba(10, 22, 40, 0.3);
+  }
+
+  .selection-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 4px;
+  }
+  .selection-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+  }
+  .selection-name .yellow { color: var(--yellow); }
+
+  .selection-cta {
+    background: var(--yellow);
+    color: var(--dark);
+    border: none;
+    padding: 18px 32px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .selection-cta:hover {
+    background: var(--yellow-bright);
+    transform: translateY(-2px);
+  }
+
+  /* ===== COVERAGE TABLE ===== */
+  .coverage-section {
+    background: #fff;
+    padding: 100px 0;
+  }
+
+  .coverage-table {
+    background: var(--cream);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .coverage-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    background: var(--dark);
+    color: #fff;
+    padding: 24px 32px;
+  }
+  .coverage-header > div {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .coverage-header > div:not(:first-child) { text-align: center; }
+
+  .coverage-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .coverage-row:hover { background: #fff; }
+  .coverage-row:last-child { border-bottom: none; }
+
+  .coverage-row > div:not(:first-child) { text-align: center; font-weight: 500; }
+
+  .cov-name {
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .cov-sub {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .cov-current { color: var(--muted); }
+  .cov-new { color: var(--navy); font-weight: 700; }
+  .cov-delta {
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .cov-delta.up { background: var(--win-bg); color: var(--win); font-weight: 600; }
+  .cov-delta.down { background: #fef2f1; color: #c62828; font-weight: 600; }
+  .cov-delta.same { background: transparent; color: var(--muted); }
+  .cov-delta.new-cov { background: var(--yellow); color: var(--dark); font-weight: 700; letter-spacing: 1px; font-size: 10px; text-transform: uppercase; }
+
+  /* ===== WINS ===== */
+  .wins-section {
+    padding: 100px 0;
+    background: var(--cream);
+  }
+
+  .wins {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .win-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 4px;
+    border-left: 4px solid var(--yellow);
+    transition: all 0.3s;
+  }
+  .win-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 10px 30px rgba(0, 75, 137, 0.08);
+  }
+
+  .win-number {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 64px;
+    color: var(--yellow);
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+  }
+  .win-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 24px;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .win-card p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ===== UMBRELLA ===== */
+  .umbrella-section {
+    padding: 100px 0;
+    background: var(--dark);
+    color: #fff;
+  }
+
+  .umbrella-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .umbrella-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+  }
+  .umbrella-left h2 .accent { color: var(--yellow); font-style: italic; }
+  .umbrella-left p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+
+  .umbrella-compare {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 40px;
+    border-radius: 4px;
+  }
+
+  .umbrella-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .umbrella-row:last-child { border-bottom: none; padding-top: 20px; }
+
+  .umbrella-label {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .umbrella-val {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+  }
+  .umbrella-val.old { color: rgba(255,255,255,0.5); text-decoration: line-through; text-decoration-thickness: 2px; }
+  .umbrella-val.new { color: var(--yellow); font-size: 36px; }
+
+  /* ===== FINE PRINT ===== */
+  .note-section {
+    padding: 80px 0;
+    background: var(--cream);
+  }
+
+  .note-card {
+    background: #fff;
+    padding: 48px 56px;
+    border-top: 4px solid var(--navy);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .note-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .note-card p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .note-card strong { color: var(--ink); }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    padding: 120px 0;
+    background: var(--dark);
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255,163,0,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-section .container { position: relative; z-index: 2; }
+
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(44px, 6vw, 72px);
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+  }
+  .cta-section h2 .accent { color: var(--yellow); font-style: italic; }
+
+  .cta-sub {
+    font-size: 19px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 48px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 20px 40px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn-primary {
+    background: var(--yellow);
+    color: var(--dark);
+  }
+  .btn-primary:hover {
+    background: var(--yellow-bright);
+    transform: translateY(-2px);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .btn-secondary:hover {
+    border-color: var(--yellow);
+    color: var(--yellow);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #050d1a;
+    color: rgba(255,255,255,0.4);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 13px;
+  }
+  footer .logo-small {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  footer .logo-small span { color: var(--yellow); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .hero-stats { grid-template-columns: 1fr; gap: 16px; }
+    .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 16px 0; }
+    .hero-stat:last-child { border-bottom: none; }
+    .teaser-card { grid-template-columns: 1fr; text-align: center; padding: 32px; gap: 24px; }
+    .teaser-arrow { transform: rotate(90deg); font-size: 40px; }
+    .tiers { grid-template-columns: 1fr; }
+    .coverage-header, .coverage-row { grid-template-columns: 1.5fr 1fr 1fr; font-size: 13px; padding: 16px 20px; }
+    .coverage-header > div:nth-child(4), .coverage-row > div:nth-child(4) { display: none; }
+    .wins { grid-template-columns: 1fr; }
+    .umbrella-grid { grid-template-columns: 1fr; gap: 32px; }
+    .selection-bar { grid-template-columns: 1fr; text-align: center; padding: 24px; }
+    .note-card { padding: 32px 24px; }
+    .container { padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <nav class="nav">
+      <div class="logo">Safe<span>shield</span></div>
+      <div class="nav-meta">Renewal Review · Apr 2026</div>
+    </nav>
+
+    <div class="hero-eyebrow">Prepared for Gregory Moss & Kristen Albert</div>
+    <h1>We didn't just<br>save you money.<br><span class="accent">We fixed the gaps.</span></h1>
+    <p class="hero-sub">Your Utica renewal hit our desk. We shopped it hard, brought in Kingstone, and what came back is a better policy for a lot less money. Here's the breakdown.</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-label">Current Premium</div>
+        <div class="hero-stat-value">$6,811</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">New Premium (from)</div>
+        <div class="hero-stat-value">$3,766</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">You Save (up to)</div>
+        <div class="hero-stat-value win">$3,045</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEASER -->
+<section class="teaser">
+  <div class="container">
+    <div class="teaser-card">
+      <div class="teaser-side current">
+        <h3>Current Carrier</h3>
+        <div class="carrier">Utica National</div>
+        <div class="price">$6,811<span class="price-unit">/yr</span></div>
+      </div>
+      <div class="teaser-arrow">→</div>
+      <div class="teaser-side new">
+        <h3>New Carrier</h3>
+        <div class="carrier">Kingstone</div>
+        <div class="price">$3,967<span class="price-unit">/yr</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="section" id="tiers">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Choose Your Deductible</div>
+      <h2>Three ways to <span class="accent">win.</span></h2>
+      <p class="section-desc">All three options include the dwelling coverage increase, the inland flood add, and the umbrella. The only variable is your deductible — how much you want to self-insure on a claim in exchange for a lower premium.</p>
+    </div>
+
+    <div class="tiers" id="tier-cards">
+
+      <!-- TIER 1 -->
+      <div class="tier" data-tier="1" data-price="4288" data-savings="2523" data-ded="$2,500">
+        <div class="tier-label">Option 01</div>
+        <div class="tier-name">Lowest Deductible</div>
+        <div class="tier-tagline">Keep the same $2,500 deductible you have today. Biggest out-of-pocket protection.</div>
+        <div class="tier-price">
+          <span class="tier-price-amount">$4,288</span>
+          <span class="tier-price-unit">/year</span>
+        </div>
+        <div class="tier-breakdown">$3,991 home + $297 umbrella</div>
+        <div class="tier-savings">
+          <div class="tier-savings-label">Annual Savings</div>
+          <div class="tier-savings-amount">$2,523</div>
+          <div class="tier-savings-sub">vs. current $6,811</div>
+        </div>
+        <ul class="tier-details">
+          <li><span>Deductible</span><strong>$2,500</strong></li>
+          <li><span>Dwelling Coverage</span><strong>$2.79M</strong></li>
+          <li><span>Inland Flood</span><strong>$15,000</strong></li>
+          <li><span>Umbrella Limit</span><strong>$1M</strong></li>
+        </ul>
+        <button class="tier-select">Select This Option</button>
+      </div>
+
+      <!-- TIER 2 -->
+      <div class="tier recommended selected" data-tier="2" data-price="3967" data-savings="2844" data-ded="$10,000">
+        <div class="tier-badge">Recommended</div>
+        <div class="tier-label">Option 02</div>
+        <div class="tier-name">The Sweet Spot</div>
+        <div class="tier-tagline">Step up the deductible, keep more money. Our pick.</div>
+        <div class="tier-price">
+          <span class="tier-price-amount">$3,967</span>
+          <span class="tier-price-unit">/year</span>
+        </div>
+        <div class="tier-breakdown">$3,670 home + $297 umbrella</div>
+        <div class="tier-savings">
+          <div class="tier-savings-label">Annual Savings</div>
+          <div class="tier-savings-amount">$2,844</div>
+          <div class="tier-savings-sub">vs. current $6,811</div>
+        </div>
+        <ul class="tier-details">
+          <li><span>Deductible</span><strong>$10,000</strong></li>
+          <li><span>Dwelling Coverage</span><strong>$2.79M</strong></li>
+          <li><span>Inland Flood</span><strong>$15,000</strong></li>
+          <li><span>Umbrella Limit</span><strong>$1M</strong></li>
+        </ul>
+        <button class="tier-select">Selected ✓</button>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="tier" data-tier="3" data-price="3766" data-savings="3045" data-ded="$25,000">
+        <div class="tier-label">Option 03</div>
+        <div class="tier-name">Max Savings</div>
+        <div class="tier-tagline">Self-insure the small stuff. Keep the big savings.</div>
+        <div class="tier-price">
+          <span class="tier-price-amount">$3,766</span>
+          <span class="tier-price-unit">/year</span>
+        </div>
+        <div class="tier-breakdown">$3,469 home + $297 umbrella</div>
+        <div class="tier-savings">
+          <div class="tier-savings-label">Annual Savings</div>
+          <div class="tier-savings-amount">$3,045</div>
+          <div class="tier-savings-sub">vs. current $6,811</div>
+        </div>
+        <ul class="tier-details">
+          <li><span>Deductible</span><strong>$25,000</strong></li>
+          <li><span>Dwelling Coverage</span><strong>$2.79M</strong></li>
+          <li><span>Inland Flood</span><strong>$15,000</strong></li>
+          <li><span>Umbrella Limit</span><strong>$1M</strong></li>
+        </ul>
+        <button class="tier-select">Select This Option</button>
+      </div>
+
+    </div>
+
+    <!-- SELECTION BAR -->
+    <div class="selection-bar">
+      <div>
+        <div class="selection-label">Your Selection</div>
+        <div class="selection-name" id="selection-name">The Sweet Spot · <span class="yellow">$3,967/yr</span></div>
+      </div>
+      <button class="selection-cta" onclick="document.getElementById('cta').scrollIntoView()">Let's Bind This</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- COVERAGE COMPARISON -->
+<section class="coverage-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Coverage, Line by Line</div>
+      <h2>Better coverage.<br>Not just <span class="accent">cheaper.</span></h2>
+      <p class="section-desc">Here's exactly what changes between your current Utica policy and the Kingstone quote.</p>
+    </div>
+
+    <div class="coverage-table">
+      <div class="coverage-header">
+        <div>Coverage</div>
+        <div>Utica (Current)</div>
+        <div>Kingstone (New)</div>
+        <div>Change</div>
+      </div>
+
+      <div class="coverage-row">
+        <div>
+          <div class="cov-name">Dwelling (Coverage A)</div>
+          <div class="cov-sub">Replacement cost on the home</div>
+        </div>
+        <div class="cov-current">$1,656,300</div>
+        <div class="cov-new">$2,792,000</div>
+        <div><span class="cov-delta up">+$1.1M</span></div>
+      </div>
+
+      <div class="coverage-row">
+        <div>
+          <div class="cov-name">Other Structures (B)</div>
+          <div class="cov-sub">Fences, detached structures</div>
+        </div>
+        <div class="cov-current">$165,600</div>
+        <div class="cov-new">$279,200</div>
+        <div><span class="cov-delta up">+$113K</span></div>
+      </div>
+
+      <div class="coverage-row">
+        <div>
+          <div class="cov-name">Personal Property (C)</div>
+          <div class="cov-sub">Contents of the home</div>
+        </div>
+        <div class="cov-current">$1,159,500</div>
+        <div class="cov-new">$1,116,800</div>
+        <div><span class="cov-delta same">Similar</span></div>
+      </div>
+
+      <div class="coverage-row">
+        <div>
+          <div class="cov-name">Loss of Use (D)</div>
+          <div class="cov-sub">Hotel / temp housing if displaced</div>
+        </div>
+        <div class="cov-current">$496,900</div>
+        <div class="cov-new">$558,400</div>
+        <div><span class="cov-delta up">+$61K</span></div>
+      </div>
+
+      <div class="coverage-row">
+        <div>
+          <div class="cov-name">Personal Liability (E)</div>
+          <div class="cov-sub">If someone sues you</div>
+        </div>
+        <div class="cov-current">$500,000</div>
+        <div class="cov-new">$500,000</div>
+        <div><span class="cov-delta same">Same</span></div>
+      </div>
+
+      <div class="coverage-row">
+        <div>
+          <div class="cov-name">Inland Flood Coverage</div>
+          <div class="cov-sub">Not included on current policy</div>
+        </div>
+        <div class="cov-current">Not included</div>
+        <div class="cov-new">$15,000</div>
+        <div><span class="cov-delta new-cov">New</span></div>
+      </div>
+
+      <div class="coverage-row">
+        <div>
+          <div class="cov-name">Equipment Breakdown</div>
+          <div class="cov-sub">HVAC, appliances, electronics</div>
+        </div>
+        <div class="cov-current">Not listed</div>
+        <div class="cov-new">$100,000</div>
+        <div><span class="cov-delta new-cov">New</span></div>
+      </div>
+
+      <div class="coverage-row">
+        <div>
+          <div class="cov-name">Service Line Coverage</div>
+          <div class="cov-sub">Underground utility lines</div>
+        </div>
+        <div class="cov-current">$10,000</div>
+        <div class="cov-new">$10,000</div>
+        <div><span class="cov-delta same">Same</span></div>
+      </div>
+
+      <div class="coverage-row">
+        <div>
+          <div class="cov-name">Personal Injury</div>
+          <div class="cov-sub">Libel, slander coverage</div>
+        </div>
+        <div class="cov-current">$500,000</div>
+        <div class="cov-new">$500,000</div>
+        <div><span class="cov-delta same">Same</span></div>
+      </div>
+
+      <div class="coverage-row">
+        <div>
+          <div class="cov-name">Water Backup / Sump</div>
+          <div class="cov-sub">Sewer and sump overflow</div>
+        </div>
+        <div class="cov-current">$10,000</div>
+        <div class="cov-new">$5,000</div>
+        <div><span class="cov-delta down">-$5K</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WINS -->
+<section class="wins-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">The Real Headlines</div>
+      <h2>What you're<br><span class="accent">actually</span> gaining.</h2>
+    </div>
+
+    <div class="wins">
+      <div class="win-card">
+        <div class="win-number">01</div>
+        <h3>Dwelling properly insured.</h3>
+        <p>Your 5,500 sqft home was sitting at $1.65M of dwelling coverage with Utica. For a home that size, that was thin. Kingstone writes it at $2.79M, which is where it should be to fully rebuild if the worst happens.</p>
+      </div>
+
+      <div class="win-card">
+        <div class="win-number">02</div>
+        <h3>Inland flood added.</h3>
+        <p>This wasn't on your Utica policy at all. Kingstone bakes in $15,000 of inland flood coverage automatically. Small limit, but real protection for a risk you weren't covered for before.</p>
+      </div>
+
+      <div class="win-card">
+        <div class="win-number">03</div>
+        <h3>House on the market? Still approved.</h3>
+        <p>Most carriers run for the hills when a home is listed. Kingstone is fully aware and still binding the risk. That means we don't have to scramble for a surplus lines placement at 2x the cost.</p>
+      </div>
+
+      <div class="win-card">
+        <div class="win-number">04</div>
+        <h3>Umbrella, half the price.</h3>
+        <p>Same $1M limit, same protection over your home and auto. Premium drops from $573 to $297. No change in coverage or underlying requirements, just a better rate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UMBRELLA -->
+<section class="umbrella-section">
+  <div class="container">
+    <div class="umbrella-grid">
+      <div class="umbrella-left">
+        <div class="section-eyebrow" style="color: var(--yellow)">The Umbrella</div>
+        <h2>Same protection.<br><span class="accent">Half the cost.</span></h2>
+        <p>Your $1M personal umbrella sits over your home liability and auto liability. Nothing about that coverage changes. The underlying limits on your Hartford and Travelers auto policies still satisfy Kingstone's requirements at 250/500/100.</p>
+        <p>The only thing that changes is the price.</p>
+      </div>
+      <div class="umbrella-compare">
+        <div class="umbrella-row">
+          <span class="umbrella-label">Utica Umbrella</span>
+          <span class="umbrella-val old">$573</span>
+        </div>
+        <div class="umbrella-row">
+          <span class="umbrella-label">Kingstone Umbrella</span>
+          <span class="umbrella-val new">$297</span>
+        </div>
+        <div class="umbrella-row">
+          <span class="umbrella-label">You Save</span>
+          <span class="umbrella-val" style="color: var(--win)">$276</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTE -->
+<section class="note-section">
+  <div class="container">
+    <div class="note-card">
+      <h3>One thing worth knowing.</h3>
+      <p>Kingstone writes this as an <strong>HO3</strong> policy form versus Utica's <strong>HO5</strong>. In practice, that means personal property (your contents) is covered on a named-perils basis instead of open-perils. The dwelling itself is still covered on an open-perils basis, which is what matters most.</p>
+      <p>On a home you are currently preparing to sell, this is a non-issue. The overwhelming majority of homeowner claims are dwelling-related, not contents-related, and the contents coverage itself still includes replacement cost settlement.</p>
+      <p>If you want to keep HO5 specifically, we can discuss other carrier options, but the savings and coverage upgrades on this Kingstone quote are hard to walk away from.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <h2>Ready to <span class="accent">lock it in?</span></h2>
+    <p class="cta-sub">Pick the option that fits and we'll handle the rest. Binding takes a few minutes, and we'll coordinate the Utica cancellation so nothing lapses.</p>
+    <div class="cta-buttons">
+      <a href="mailto:austin@gosafeshield.com?subject=Ready%20to%20bind%20the%20Kingstone%20policy" class="btn btn-primary">Email Austin →</a>
+      <a href="tel:2035649817" class="btn btn-secondary">Call (203) 564-9817</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo-small">Safe<span>shield</span> Insurance</div>
+    <div>Quote review prepared April 2026 · Policy numbers 3031026 (Home) · 3031033 (Umbrella)</div>
+    <div style="margin-top:12px; font-size:11px; opacity:0.6;">This is a quote indication, not an insurance policy or binder. Actual premium subject to underwriting review.</div>
+  </div>
+</footer>
+
+<script>
+  const tiers = document.querySelectorAll('.tier');
+  const selectionName = document.getElementById('selection-name');
+  const tierData = {
+    1: { name: 'Lowest Deductible', price: '$4,288/yr' },
+    2: { name: 'The Sweet Spot', price: '$3,967/yr' },
+    3: { name: 'Max Savings', price: '$3,766/yr' }
+  };
+
+  tiers.forEach(tier => {
+    tier.addEventListener('click', () => {
+      tiers.forEach(t => {
+        t.classList.remove('selected');
+        t.querySelector('.tier-select').textContent = 'Select This Option';
+      });
+      tier.classList.add('selected');
+      tier.querySelector('.tier-select').textContent = 'Selected ✓';
+      const id = tier.dataset.tier;
+      selectionName.innerHTML = `${tierData[id].name} · <span class="yellow">${tierData[id].price}</span>`;
+    });
+  });
+</script>
+
+</body>
+</html>
