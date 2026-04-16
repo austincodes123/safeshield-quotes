@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Insurance Proposal | Milky Medina | Safeshield Insurance</title>
+<link rel="icon" type="image/png" href="https://gosafeshield.com/wp-content/uploads/2025/03/Blue_and_gold_shield_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #004B89;
+  --navy-dark: #0a1628;
+  --navy-deep: #060e1a;
+  --yellow: #FFA300;
+  --yellow-light: #FFB833;
+  --off-white: #FAFAF8;
+  --white: #ffffff;
+  --gray-100: #f0f1f3;
+  --gray-200: #d8dbe0;
+  --gray-300: #b0b5be;
+  --gray-500: #737984;
+  --gray-600: #5a6270;
+  --gray-700: #3d4350;
+  --green: #22c55e;
+  --green-dark: #16a34a;
+  --red-soft: #ef4444;
+  --border: #1a2940;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--navy-deep);
+  color: var(--off-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px;
+  background: linear-gradient(170deg, var(--navy-dark) 0%, var(--navy-deep) 60%, #0d1f3c 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -30%;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(255,163,0,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: drift 22s ease-in-out infinite;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -20%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(0,75,137,0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: drift 28s ease-in-out infinite reverse;
+}
+@keyframes drift {
+  0%,100% { transform: translate(0,0); }
+  50% { transform: translate(-4%, 4%); }
+}
+
+.hero-logo { width: 160px; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; position: relative; z-index: 2;}
+
+.hero-eyebrow {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.3s;
+  position: relative; z-index: 2;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 5.2vw, 3.6rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.4s;
+  position: relative; z-index: 2;
+}
+.hero h1 .name { color: var(--yellow); }
+
+.hero .subtitle { font-size: clamp(1rem, 2.2vw, 1.2rem); font-weight: 300; color: var(--gray-200); margin-bottom: 6px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; position: relative; z-index: 2;}
+.hero .address { font-size: 0.95rem; color: var(--yellow); font-weight: 500; letter-spacing: 0.3px; margin-bottom: 48px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s; position: relative; z-index: 2;}
+
+.hero-meta { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s ease forwards 1s; position: relative; z-index: 2;}
+.hero-meta-item { text-align: center; }
+.hero-meta-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 6px; }
+.hero-meta-value { font-size: 15px; color: var(--white); font-weight: 500; }
+
+.scroll-hint {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gray-300); opacity: 0; animation: fadeUp 0.8s ease forwards 1.4s;
+}
+.scroll-hint::after {
+  content: ''; display: block; width: 1px; height: 28px; background: linear-gradient(to bottom, var(--yellow), transparent);
+  margin: 10px auto 0;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SECTIONS */
+section { padding: 80px 24px; position: relative; }
+
+.container { max-width: 1080px; margin: 0 auto; }
+
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-eyebrow {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-style: italic;
+  font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--yellow); margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.section-subtitle {
+  font-size: 1.05rem; color: var(--gray-300); font-weight: 300;
+  max-width: 620px; margin: 0 auto;
+}
+
+/* PREMIUM SPOTLIGHT */
+.premium-section {
+  background: linear-gradient(180deg, var(--navy-deep) 0%, #08121f 100%);
+  padding: 100px 24px;
+}
+
+.premium-card {
+  max-width: 760px; margin: 0 auto;
+  background: linear-gradient(145deg, rgba(0,75,137,0.25) 0%, rgba(10,22,40,0.6) 100%);
+  border: 1px solid rgba(255,163,0,0.2);
+  border-radius: 20px;
+  padding: 56px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+}
+.premium-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+}
+
+.carrier-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(255,163,0,0.12);
+  border: 1px solid rgba(255,163,0,0.3);
+  border-radius: 999px;
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--yellow); font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.carrier-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-size: clamp(1.6rem, 3.2vw, 2rem);
+  color: var(--white); margin-bottom: 8px;
+}
+.carrier-tag { color: var(--gray-300); font-size: 0.95rem; margin-bottom: 40px; }
+
+.premium-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 8px; }
+.premium-amount {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(3.6rem, 9vw, 5.6rem);
+  color: var(--yellow);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.premium-amount .dollar { font-size: 0.55em; vertical-align: top; margin-right: 2px; color: var(--yellow-light); }
+.premium-amount .period {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px; font-weight: 500; color: var(--gray-200);
+  letter-spacing: 3px; text-transform: uppercase;
+  margin-top: 14px;
+}
+
+.premium-monthly {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 28px; padding: 10px 22px;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.25);
+  border-radius: 999px;
+  color: #86efac; font-size: 14px; font-weight: 500;
+}
+.premium-monthly strong { color: var(--green); font-weight: 700; }
+
+/* PROPERTY SNAPSHOT */
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 980px; margin: 0 auto;
+}
+.snapshot-item {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 22px;
+  transition: all 0.3s ease;
+}
+.snapshot-item:hover { border-color: rgba(255,163,0,0.35); transform: translateY(-2px); }
+.snapshot-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 8px; }
+.snapshot-value { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.25rem; color: var(--white); }
+
+/* COVERAGE TABLE */
+.coverage-section { background: linear-gradient(180deg, #08121f 0%, var(--navy-dark) 100%); }
+
+.coverage-table {
+  max-width: 880px; margin: 0 auto;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.coverage-row {
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease;
+}
+.coverage-row:last-child { border-bottom: none; }
+.coverage-row:hover { background: rgba(255,163,0,0.03); }
+
+.coverage-letter {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,163,0,0.1);
+  border: 1px solid rgba(255,163,0,0.3);
+  border-radius: 10px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-size: 18px;
+  color: var(--yellow);
+}
+.coverage-info-name { color: var(--white); font-weight: 600; font-size: 1rem; margin-bottom: 3px; }
+.coverage-info-desc { color: var(--gray-300); font-size: 0.85rem; line-height: 1.45; }
+.coverage-limit {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-size: 1.3rem; color: var(--white);
+  white-space: nowrap;
+}
+
+/* EXTRAS GRID */
+.extras-section { background: var(--navy-dark); }
+
+.extras-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  max-width: 980px; margin: 0 auto;
+}
+.extra-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  display: flex; align-items: flex-start; gap: 14px;
+  transition: all 0.3s ease;
+}
+.extra-card:hover { border-color: rgba(255,163,0,0.35); background: rgba(255,163,0,0.03); }
+.extra-icon {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  background: rgba(255,163,0,0.12);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--yellow); font-size: 16px;
+}
+.extra-name { color: var(--white); font-weight: 600; font-size: 0.95rem; margin-bottom: 3px; }
+.extra-detail { color: var(--gray-300); font-size: 0.82rem; }
+
+/* DISCOUNTS CALLOUT */
+.discounts-section {
+  background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy-deep) 100%);
+}
+.discounts-wrap {
+  max-width: 760px; margin: 0 auto;
+  background: linear-gradient(145deg, rgba(34,197,94,0.06) 0%, rgba(10,22,40,0.4) 100%);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: 16px;
+  padding: 40px;
+}
+.discounts-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.discounts-icon {
+  width: 44px; height: 44px;
+  background: rgba(34,197,94,0.15);
+  border: 1px solid rgba(34,197,94,0.3);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--green); font-size: 20px; font-weight: 700;
+}
+.discounts-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-size: 1.4rem; color: var(--white);
+}
+
+.discount-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.discount-row:last-child { border-bottom: none; }
+.discount-name { color: var(--gray-200); font-size: 0.95rem; }
+.discount-amount { font-weight: 600; font-family: 'Outfit', sans-serif; }
+.discount-amount.credit { color: var(--green); }
+.discount-amount.charge { color: var(--gray-300); }
+
+/* PAYMENT */
+.payment-section { background: var(--navy-deep); }
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 980px; margin: 0 auto;
+}
+.payment-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.payment-card:hover { transform: translateY(-4px); border-color: rgba(255,163,0,0.4); }
+.payment-card.recommended { border-color: var(--yellow); background: linear-gradient(145deg, rgba(255,163,0,0.08) 0%, rgba(10,22,40,0.4) 100%); }
+.payment-card.recommended::before {
+  content: 'RECOMMENDED';
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  background: var(--yellow); color: var(--navy-dark);
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  padding: 4px 12px; border-radius: 999px;
+}
+.payment-plan { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 12px; }
+.payment-down { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 2rem; color: var(--white); line-height: 1; }
+.payment-down .dollar { color: var(--yellow); font-size: 0.7em; }
+.payment-label-small { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-300); margin-top: 4px; }
+.payment-installment { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--gray-200); }
+.payment-installment strong { color: var(--yellow); font-weight: 600; }
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(170deg, var(--navy) 0%, var(--navy-dark) 100%);
+  text-align: center;
+  padding: 100px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255,163,0,0.15) 0%, transparent 70%);
+}
+.cta-content { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.cta-subtitle { color: var(--gray-200); font-size: 1.05rem; margin-bottom: 36px; font-weight: 300; }
+
+.cta-btn {
+  display: inline-block;
+  padding: 18px 44px;
+  background: var(--yellow);
+  color: var(--navy-dark);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(255,163,0,0.3);
+}
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(255,163,0,0.45); background: var(--yellow-light); }
+
+.cta-contact { margin-top: 32px; color: var(--gray-200); font-size: 0.95rem; }
+.cta-contact a { color: var(--yellow); text-decoration: none; font-weight: 600; }
+.cta-contact a:hover { text-decoration: underline; }
+
+/* FOOTER */
+footer {
+  background: var(--navy-deep);
+  padding: 40px 24px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--white);
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}
+.footer-logo .shield { color: var(--yellow); font-weight: 700; }
+.footer-text { color: var(--gray-300); font-size: 0.82rem; line-height: 1.6; }
+.footer-disclaimer { color: var(--gray-500); font-size: 0.72rem; margin-top: 16px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.55; }
+
+/* MOBILE */
+@media (max-width: 640px) {
+  section { padding: 60px 20px; }
+  .premium-card { padding: 40px 24px; }
+  .discounts-wrap { padding: 28px 22px; }
+  .coverage-row { grid-template-columns: 40px 1fr; gap: 14px; padding: 18px 20px; }
+  .coverage-limit { grid-column: 2; margin-top: 6px; font-size: 1.15rem; }
+  .hero-meta { gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="https://gosafeshield.com/wp-content/uploads/2025/03/Blue_and_gold_shield_logo.png" alt="Safeshield" class="hero-logo">
+  <div class="hero-eyebrow">A Proposal Prepared For</div>
+  <h1><span class="name">Milky Medina</span></h1>
+  <div class="subtitle">Homeowners Insurance Proposal</div>
+  <div class="address">105 Fairchild Rd, Stratford, CT 06614</div>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Effective</div>
+      <div class="hero-meta-value">April 20, 2026</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Term</div>
+      <div class="hero-meta-value">12 Months</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Prepared</div>
+      <div class="hero-meta-value">April 16, 2026</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">Your Proposal Below</div>
+</section>
+
+<!-- PREMIUM SPOTLIGHT -->
+<section class="premium-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Recommended Carrier</div>
+      <h2 class="section-title">A coverage plan built for your home.</h2>
+      <p class="section-subtitle">We shopped this placement through our network of 69+ carriers. The best fit for your property, coverage profile, and the coastal Stratford market is Narragansett Bay.</p>
+    </div>
+
+    <div class="premium-card">
+      <div class="carrier-badge">Narragansett Bay Insurance</div>
+      <div class="carrier-name">HO-3 Homeowners Policy</div>
+      <div class="carrier-tag">Full replacement cost coverage with coastal expertise</div>
+
+      <div class="premium-label">Annual Premium</div>
+      <div class="premium-amount">
+        <span class="dollar">$</span>2,281
+        <span class="period">Per Year · All-In</span>
+      </div>
+
+      <div class="premium-monthly">
+        As low as <strong>$189/mo</strong> on the 11-Pay EFT plan
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTY SNAPSHOT -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Your Property</div>
+      <h2 class="section-title">The details we're insuring.</h2>
+    </div>
+
+    <div class="snapshot-grid">
+      <div class="snapshot-item">
+        <div class="snapshot-label">Property Type</div>
+        <div class="snapshot-value">Residential Dwelling</div>
+      </div>
+      <div class="snapshot-item">
+        <div class="snapshot-label">Year Built</div>
+        <div class="snapshot-value">1965</div>
+      </div>
+      <div class="snapshot-item">
+        <div class="snapshot-label">Construction</div>
+        <div class="snapshot-value">Frame</div>
+      </div>
+      <div class="snapshot-item">
+        <div class="snapshot-label">Protection Class</div>
+        <div class="snapshot-value">Class 2</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="coverage-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">What's Protected</div>
+      <h2 class="section-title">Full coverage, explained clearly.</h2>
+      <p class="section-subtitle">Every line your HO-3 policy covers, broken down the way it should be — in plain English.</p>
+    </div>
+
+    <div class="coverage-table">
+      <div class="coverage-row">
+        <div class="coverage-letter">A</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Dwelling</div>
+          <div class="coverage-info-desc">Rebuilding cost for your home's structure if it's damaged or destroyed.</div>
+        </div>
+        <div class="coverage-limit">$417,000</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">B</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Other Structures</div>
+          <div class="coverage-info-desc">Detached garages, fences, sheds, and anything not attached to the main home.</div>
+        </div>
+        <div class="coverage-limit">$41,700</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">C</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Personal Property</div>
+          <div class="coverage-info-desc">Your furniture, electronics, clothing, and everything inside the home.</div>
+        </div>
+        <div class="coverage-limit">$291,900</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">D</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Loss of Use</div>
+          <div class="coverage-info-desc">Hotel, meals, and temporary living costs if your home becomes unlivable.</div>
+        </div>
+        <div class="coverage-limit">$125,100</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">E</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Personal Liability</div>
+          <div class="coverage-info-desc">Legal protection if someone is injured on your property or you cause damage.</div>
+        </div>
+        <div class="coverage-limit">$500,000</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">F</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Medical Payments</div>
+          <div class="coverage-info-desc">Covers medical bills for guests injured on your property, no fault required.</div>
+        </div>
+        <div class="coverage-limit">$5,000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXTRAS / ENHANCEMENTS -->
+<section class="extras-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Built-In Enhancements</div>
+      <h2 class="section-title">The coverage that goes beyond the basics.</h2>
+      <p class="section-subtitle">These are the endorsements and features included in your policy that most agents don't bother to explain.</p>
+    </div>
+
+    <div class="extras-grid">
+      <div class="extra-card">
+        <div class="extra-icon">+</div>
+        <div>
+          <div class="extra-name">Extra Dwelling Coverage</div>
+          <div class="extra-detail">25% additional replacement buffer on Cov A</div>
+        </div>
+      </div>
+      <div class="extra-card">
+        <div class="extra-icon">⚙</div>
+        <div>
+          <div class="extra-name">Equipment Breakdown</div>
+          <div class="extra-detail">$100,000 for HVAC, appliances, electronics</div>
+        </div>
+      </div>
+      <div class="extra-card">
+        <div class="extra-icon">ID</div>
+        <div>
+          <div class="extra-name">Identity Fraud</div>
+          <div class="extra-detail">$15,000 expense coverage included</div>
+        </div>
+      </div>
+      <div class="extra-card">
+        <div class="extra-icon">%</div>
+        <div>
+          <div class="extra-name">Inflation Guard</div>
+          <div class="extra-detail">4% auto-adjust to keep pace with rebuild costs</div>
+        </div>
+      </div>
+      <div class="extra-card">
+        <div class="extra-icon">~</div>
+        <div>
+          <div class="extra-name">Water Backup</div>
+          <div class="extra-detail">$5,000 for sump failures and sewer backups</div>
+        </div>
+      </div>
+      <div class="extra-card">
+        <div class="extra-icon">$</div>
+        <div>
+          <div class="extra-name">Replacement Cost on Contents</div>
+          <div class="extra-detail">Brand-new replacement, no depreciation</div>
+        </div>
+      </div>
+      <div class="extra-card">
+        <div class="extra-icon">⚓</div>
+        <div>
+          <div class="extra-name">Mariner Plus Package</div>
+          <div class="extra-detail">Coastal-focused enhancements from NBIC</div>
+        </div>
+      </div>
+      <div class="extra-card">
+        <div class="extra-icon">§</div>
+        <div>
+          <div class="extra-name">Ordinance or Law</div>
+          <div class="extra-detail">10% for building code upgrade costs after a loss</div>
+        </div>
+      </div>
+      <div class="extra-card">
+        <div class="extra-icon">⚖</div>
+        <div>
+          <div class="extra-name">Personal Injury</div>
+          <div class="extra-detail">Libel, slander, wrongful eviction protection</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCOUNTS -->
+<section class="discounts-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">The Math Behind the Number</div>
+      <h2 class="section-title">Credits and adjustments applied.</h2>
+      <p class="section-subtitle">Transparency matters. Here's exactly how your $2,281 premium was built.</p>
+    </div>
+
+    <div class="discounts-wrap">
+      <div class="discounts-header">
+        <div class="discounts-icon">✓</div>
+        <div class="discounts-title">Applied to Your Policy</div>
+      </div>
+
+      <div class="discount-row">
+        <div class="discount-name">Protective Devices Discount</div>
+        <div class="discount-amount credit">-$25</div>
+      </div>
+      <div class="discount-row">
+        <div class="discount-name">Roof Age &amp; Roof Cover Discount</div>
+        <div class="discount-amount credit">-$13</div>
+      </div>
+      <div class="discount-row">
+        <div class="discount-name">$2,500 AOP Deductible Credit</div>
+        <div class="discount-amount credit">-$162</div>
+      </div>
+      <div class="discount-row">
+        <div class="discount-name">2% Hurricane Deductible Credit</div>
+        <div class="discount-amount credit">-$131</div>
+      </div>
+      <div class="discount-row">
+        <div class="discount-name">Age of Home Factor</div>
+        <div class="discount-amount charge">+$115</div>
+      </div>
+      <div class="discount-row">
+        <div class="discount-name">Siding Type Factor</div>
+        <div class="discount-amount charge">+$31</div>
+      </div>
+      <div class="discount-row">
+        <div class="discount-name">Healthy Homes Fund Surcharge</div>
+        <div class="discount-amount charge">+$12</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT OPTIONS -->
+<section class="payment-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Payment Plans</div>
+      <h2 class="section-title">Pay the way that works for you.</h2>
+      <p class="section-subtitle">Four options. No pressure. Most clients go with the 11-Pay EFT for the lowest monthly.</p>
+    </div>
+
+    <div class="payment-grid">
+      <div class="payment-card">
+        <div class="payment-plan">Full Pay</div>
+        <div class="payment-down"><span class="dollar">$</span>2,281</div>
+        <div class="payment-label-small">One Time</div>
+        <div class="payment-installment">No service fees. Paid in full.</div>
+      </div>
+
+      <div class="payment-card">
+        <div class="payment-plan">4-Pay</div>
+        <div class="payment-down"><span class="dollar">$</span>579</div>
+        <div class="payment-label-small">Down Payment</div>
+        <div class="payment-installment">3 installments of <strong>$572</strong></div>
+      </div>
+
+      <div class="payment-card">
+        <div class="payment-plan">9-Pay</div>
+        <div class="payment-down"><span class="dollar">$</span>466</div>
+        <div class="payment-label-small">Down Payment</div>
+        <div class="payment-installment">8 installments of <strong>$232</strong></div>
+      </div>
+
+      <div class="payment-card recommended">
+        <div class="payment-plan">11-Pay EFT</div>
+        <div class="payment-down"><span class="dollar">$</span>391</div>
+        <div class="payment-label-small">Down Payment</div>
+        <div class="payment-installment">10 installments of <strong>$189</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-content">
+    <h2 class="cta-title">Ready to lock it in?</h2>
+    <p class="cta-subtitle">Reach out and we'll have the policy bound, documents sent, and you insured in under an hour.</p>
+    <a href="tel:2032042555" class="cta-btn">Call To Bind · (203) 204-2555</a>
+    <div class="cta-contact">
+      Prefer email? <a href="mailto:austin@gosafeshield.com">austin@gosafeshield.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SAFE<span class="shield">SHIELD</span></div>
+  <div class="footer-text">
+    Safeshield Insurance LLC · 2777 Summer Street, 6th Floor · Stamford, CT 06905<br>
+    Licensed in NY, CT, NJ, PA, DE · 69+ Carrier Partners
+  </div>
+  <div class="footer-disclaimer">
+    This is a proposal based on the information provided and is not a binder of coverage. Rates are not guaranteed and may change. Payment of premium does not automatically bind coverage. Coverage is not in effect until confirmed by an authorized representative. Please review the actual policy document when received for complete terms and conditions.
+  </div>
+</footer>
+
+</body>
+</html>
