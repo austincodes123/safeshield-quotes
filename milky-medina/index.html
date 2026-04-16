@@ -80,7 +80,19 @@ body {
   50% { transform: translate(-4%, 4%); }
 }
 
-.hero-logo { width: 160px; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; position: relative; z-index: 2;}
+.hero-logo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 4px;
+  color: var(--white);
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.2s;
+  position: relative;
+  z-index: 2;
+}
+.hero-logo-text span { color: var(--yellow); }
 
 .hero-eyebrow {
   font-family: 'Playfair Display', serif;
@@ -463,7 +475,7 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <img src="https://gosafeshield.com/wp-content/uploads/2025/03/Blue_and_gold_shield_logo.png" alt="Safeshield" class="hero-logo">
+  <div class="hero-logo-text">SAFE<span>SHIELD</span></div>
   <div class="hero-eyebrow">A Proposal Prepared For</div>
   <h1><span class="name">Milky Medina</span></h1>
   <div class="subtitle">Homeowners Insurance Proposal</div>
