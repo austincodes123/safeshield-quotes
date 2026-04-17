@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Review · Antonio Viveros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #004B89;
+    --navy-deep: #002D52;
+    --navy-soft: #E8EFF6;
+    --yellow: #FFA300;
+    --yellow-soft: #FFF4E0;
+    --ink: #0F1B2B;
+    --muted: #5A6B7D;
+    --line: #E5EAF0;
+    --paper: #FAFBFC;
+    --white: #FFFFFF;
+    --success: #0A7A4A;
+    --danger: #B8312F;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif { font-family: 'Playfair Display', Georgia, serif; }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 18px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 22px;
+    color: var(--navy); letter-spacing: -0.01em;
+  }
+  .logo span { color: var(--yellow); }
+  .nav-meta {
+    font-size: 13px; color: var(--muted);
+    letter-spacing: 0.04em; text-transform: uppercase;
+  }
+
+  /* HERO */
+  .hero {
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px 40px 60px;
+    position: relative;
+  }
+  .hero-label {
+    font-size: 12px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--yellow);
+    font-weight: 600; margin-bottom: 24px;
+  }
+  .hero-label::before {
+    content: ''; display: inline-block;
+    width: 32px; height: 1px; background: var(--yellow);
+    vertical-align: middle; margin-right: 14px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(44px, 6vw, 76px);
+    font-weight: 500; line-height: 1.02;
+    color: var(--navy-deep); letter-spacing: -0.02em;
+    max-width: 900px;
+  }
+  .hero h1 em {
+    font-style: italic; color: var(--navy);
+    font-weight: 400;
+  }
+  .hero-sub {
+    margin-top: 32px; max-width: 680px;
+    font-size: 19px; color: var(--muted);
+    line-height: 1.6; font-weight: 300;
+  }
+  .hero-meta {
+    margin-top: 48px;
+    display: flex; gap: 48px; flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta-item .label {
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted);
+    font-weight: 500; margin-bottom: 6px;
+  }
+  .hero-meta-item .value {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--navy-deep);
+    font-weight: 500;
+  }
+
+  /* SECTION */
+  section { padding: 80px 40px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--navy);
+    font-weight: 600; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .eyebrow::before {
+    content: ''; width: 32px; height: 1px; background: var(--navy);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 500; line-height: 1.1;
+    color: var(--navy-deep); letter-spacing: -0.015em;
+    max-width: 800px; margin-bottom: 20px;
+  }
+  .section-title em {
+    font-style: italic; font-weight: 400;
+  }
+  .section-lead {
+    font-size: 18px; color: var(--muted);
+    max-width: 700px; line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* THE ASK */
+  .ask-panel {
+    background: var(--navy-deep);
+    color: var(--white);
+    border-radius: 4px;
+    padding: 56px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ask-panel::before {
+    content: ''; position: absolute;
+    top: 0; right: 0; width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(255,163,0,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .ask-panel .eyebrow {
+    color: var(--yellow);
+  }
+  .ask-panel .eyebrow::before { background: var(--yellow); }
+  .ask-panel h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px; font-weight: 500;
+    line-height: 1.15; margin-bottom: 28px;
+    color: var(--white);
+  }
+  .ask-panel h2 em {
+    font-style: italic; color: var(--yellow); font-weight: 400;
+  }
+  .ask-panel p {
+    font-size: 17px; line-height: 1.7;
+    color: rgba(255,255,255,0.82);
+    max-width: 720px; font-weight: 300;
+  }
+
+  /* COMPARE TABLE */
+  .compare-wrap {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .compare-header {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    background: var(--navy-soft);
+  }
+  .compare-header > div {
+    padding: 32px 28px;
+    border-right: 1px solid var(--line);
+  }
+  .compare-header > div:last-child { border-right: none; }
+  .carrier-current { background: var(--white); }
+  .carrier-proposed {
+    background: var(--navy-deep);
+    color: var(--white);
+    position: relative;
+  }
+  .carrier-proposed::before {
+    content: 'RECOMMENDED';
+    position: absolute; top: 12px; right: 16px;
+    font-size: 9px; letter-spacing: 0.2em; font-weight: 700;
+    color: var(--yellow);
+    background: rgba(255,163,0,0.12);
+    padding: 5px 10px; border-radius: 2px;
+  }
+  .carrier-label {
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted);
+    font-weight: 500; margin-bottom: 8px;
+  }
+  .carrier-proposed .carrier-label { color: rgba(255,255,255,0.6); }
+  .carrier-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; font-weight: 600;
+    color: var(--navy-deep);
+    letter-spacing: -0.01em;
+  }
+  .carrier-proposed .carrier-name { color: var(--white); }
+  .carrier-sub {
+    margin-top: 4px; font-size: 13px;
+    color: var(--muted);
+  }
+  .carrier-proposed .carrier-sub { color: rgba(255,255,255,0.6); }
+
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .compare-row > div {
+    padding: 22px 28px;
+    border-right: 1px solid var(--line);
+    display: flex; align-items: center;
+    font-size: 15px;
+  }
+  .compare-row > div:last-child { border-right: none; }
+  .compare-row .label {
+    color: var(--ink); font-weight: 500;
+    font-size: 14px;
+  }
+  .compare-row .current-val {
+    color: var(--muted);
+  }
+  .compare-row .proposed-val {
+    color: var(--navy-deep);
+    font-weight: 500;
+  }
+  .compare-row .proposed-val.up {
+    color: var(--success);
+    font-weight: 600;
+  }
+  .compare-row .proposed-val.up::before {
+    content: '↑'; margin-right: 8px; font-weight: 700;
+  }
+  .compare-row.total {
+    background: var(--yellow-soft);
+    border-top: 2px solid var(--yellow);
+  }
+  .compare-row.total > div {
+    padding: 28px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 600;
+    color: var(--navy-deep);
+  }
+  .compare-row.total .proposed-val {
+    color: var(--navy-deep);
+  }
+  .compare-row.total .savings-tag {
+    display: inline-block; margin-left: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px; font-weight: 600;
+    background: var(--success); color: var(--white);
+    padding: 4px 10px; border-radius: 2px;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
+  }
+
+  /* SAVINGS CALLOUT */
+  .savings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    margin-top: 40px;
+    border: 1px solid var(--line);
+  }
+  .savings-card {
+    background: var(--white);
+    padding: 40px 32px;
+  }
+  .savings-card .label {
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted);
+    font-weight: 500; margin-bottom: 14px;
+  }
+  .savings-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px; font-weight: 600;
+    color: var(--navy-deep);
+    line-height: 1; letter-spacing: -0.02em;
+  }
+  .savings-card .num.accent { color: var(--success); }
+  .savings-card .desc {
+    margin-top: 10px; font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* UMBRELLA */
+  .umbrella-section {
+    background: var(--white);
+    border-top: 1px solid var(--line);
+  }
+  .umbrella-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 50px;
+    align-items: start;
+  }
+  .umbrella-copy h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 600;
+    color: var(--navy-deep); margin-bottom: 16px;
+    margin-top: 32px;
+  }
+  .umbrella-copy h3:first-child { margin-top: 0; }
+  .umbrella-copy p {
+    font-size: 16px; color: var(--ink);
+    line-height: 1.65; margin-bottom: 14px;
+  }
+  .umbrella-copy .muted { color: var(--muted); }
+
+  .caveat {
+    background: var(--yellow-soft);
+    border-left: 3px solid var(--yellow);
+    padding: 24px 28px;
+    margin-top: 32px;
+    border-radius: 0 4px 4px 0;
+  }
+  .caveat .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 600;
+    color: var(--navy-deep); margin-bottom: 8px;
+  }
+  .caveat p {
+    font-size: 14.5px; color: var(--ink);
+    line-height: 1.6; margin-bottom: 10px;
+  }
+  .caveat p:last-child { margin-bottom: 0; }
+
+  /* UMBRELLA LIMITS TABLE */
+  .limits-table {
+    background: var(--navy-deep); color: var(--white);
+    border-radius: 4px; overflow: hidden;
+    box-shadow: 0 20px 50px -20px rgba(0,75,137,0.3);
+  }
+  .limits-header {
+    padding: 28px 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .limits-header .label {
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--yellow); font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .limits-header h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 500;
+    color: var(--white);
+  }
+  .limits-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    padding: 20px 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    align-items: center;
+    font-size: 15px;
+  }
+  .limits-row:last-child { border-bottom: none; }
+  .limits-row.featured {
+    background: rgba(255,163,0,0.08);
+    border-left: 3px solid var(--yellow);
+    padding-left: 29px;
+  }
+  .limits-row .limit {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 17px;
+  }
+  .limits-row .um {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+  }
+  .limits-row .price {
+    text-align: right;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600; color: var(--yellow);
+    font-size: 18px;
+  }
+  .limits-row.featured .price { color: var(--yellow); }
+  .limits-col-head {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    padding: 14px 32px;
+    background: rgba(0,0,0,0.2);
+    font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5); font-weight: 600;
+  }
+  .limits-col-head > div:last-child { text-align: right; }
+
+  /* TOTAL STACK */
+  .stack {
+    margin-top: 80px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 56px;
+  }
+  .stack-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .stack-left .label {
+    font-size: 11px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--yellow);
+    font-weight: 600; margin-bottom: 18px;
+  }
+  .stack-left h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 500;
+    color: var(--navy-deep); line-height: 1.15;
+    letter-spacing: -0.01em; margin-bottom: 20px;
+  }
+  .stack-left h3 em { font-style: italic; font-weight: 400; }
+  .stack-left p {
+    font-size: 16px; color: var(--muted);
+    line-height: 1.65;
+  }
+  .stack-right {
+    background: var(--paper);
+    padding: 36px;
+    border-radius: 4px;
+  }
+  .stack-line {
+    display: flex; justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 15px;
+  }
+  .stack-line:last-child { border-bottom: none; }
+  .stack-line .name { color: var(--ink); }
+  .stack-line .name small {
+    display: block; font-size: 12px;
+    color: var(--muted); margin-top: 2px;
+  }
+  .stack-line .amount {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600; color: var(--navy-deep);
+  }
+  .stack-total {
+    display: flex; justify-content: space-between;
+    align-items: baseline;
+    padding-top: 20px; margin-top: 8px;
+    border-top: 2px solid var(--navy-deep);
+  }
+  .stack-total .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; letter-spacing: 0.04em;
+    text-transform: uppercase; font-weight: 600;
+    color: var(--navy-deep);
+  }
+  .stack-total .amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 600;
+    color: var(--navy-deep);
+  }
+
+  /* NEXT STEPS */
+  .next {
+    background: var(--navy-deep);
+    color: var(--white);
+  }
+  .next h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 500; color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    max-width: 720px;
+  }
+  .next h2 em {
+    font-style: italic; color: var(--yellow);
+    font-weight: 400;
+  }
+  .next .eyebrow { color: var(--yellow); }
+  .next .eyebrow::before { background: var(--yellow); }
+  .next-lead {
+    font-size: 17px; color: rgba(255,255,255,0.75);
+    max-width: 640px; line-height: 1.65;
+    margin-bottom: 48px; font-weight: 300;
+  }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .step {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 32px 28px;
+    border-radius: 4px;
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; font-weight: 400;
+    color: var(--yellow); line-height: 1;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .step h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px; font-weight: 600;
+    color: var(--white); margin-bottom: 10px;
+  }
+  .step p {
+    font-size: 14px; color: rgba(255,255,255,0.7);
+    line-height: 1.55;
+  }
+
+  /* FOOTER */
+  .foot {
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    background: var(--white);
+  }
+  .foot-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 20px;
+    color: var(--navy); letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .foot-logo span { color: var(--yellow); }
+  .foot p {
+    font-size: 12px; color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .foot .contact {
+    margin-top: 10px;
+    font-size: 13px; color: var(--ink);
+  }
+  .foot .disclaimer {
+    margin-top: 24px;
+    font-size: 11px; color: var(--muted);
+    max-width: 700px; margin-left: auto; margin-right: auto;
+    line-height: 1.6;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { padding: 60px 24px 40px; }
+    section { padding: 60px 24px; }
+    .ask-panel { padding: 40px 28px; }
+    .ask-panel h2 { font-size: 30px; }
+    .compare-header, .compare-row { grid-template-columns: 1fr; }
+    .compare-header > div, .compare-row > div {
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+    }
+    .compare-row .label { font-weight: 600; background: var(--paper); }
+    .savings { grid-template-columns: 1fr; }
+    .umbrella-grid { grid-template-columns: 1fr; gap: 40px; }
+    .stack { padding: 32px 24px; }
+    .stack-grid { grid-template-columns: 1fr; gap: 32px; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .hero-meta { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">Safeshield<span>.</span></div>
+    <div class="nav-meta">Private Client Review · April 2026</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-label">Prepared for Antonio Viveros</div>
+  <h1>A smarter way to <em>protect</em> what you've built.</h1>
+  <p class="hero-sub">
+    A side-by-side review of your current auto policy, a stronger replacement, and the umbrella layer that ties it all together. Cleaner coverage, lower cost, better protected.
+  </p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="label">Prepared By</div>
+      <div class="value">Austin Glazer</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Date</div>
+      <div class="value">April 17, 2026</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Vehicle On File</div>
+      <div class="value">2023 Porsche Macan</div>
+    </div>
+  </div>
+</header>
+
+<!-- THE PICTURE -->
+<section>
+  <div class="container">
+    <div class="ask-panel">
+      <div class="eyebrow">The Picture Today</div>
+      <h2>You're paying more for <em>less protection</em> than you should be.</h2>
+      <p>
+        Your GEICO renewal comes in at $950.70 for six months on the Macan, with $100,000/$300,000 bodily injury and matching uninsured motorist limits. For a household of your profile — two drivers, a Porsche, a home, assets worth protecting — those limits sit well below where they should be, and the premium is not competitive. We can do materially better on both fronts, and it opens the door to an umbrella that should have been in place already.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section style="padding-top: 20px;">
+  <div class="container">
+    <div class="eyebrow">Auto · Side by Side</div>
+    <h2 class="section-title">Same vehicle. <em>Stronger limits.</em> Lower premium.</h2>
+    <p class="section-lead" style="margin-bottom: 48px;">
+      Both quotes are for the same six-month term on the Porsche Macan at 291 Rowayton Ave, with Antonio and Angela as rated drivers. The only things that change are the carrier, the coverage limits, and the price.
+    </p>
+
+    <div class="compare-wrap">
+      <div class="compare-header">
+        <div>
+          <div class="carrier-label">Coverage</div>
+          <div class="carrier-name" style="font-size: 20px;">6-Month Policy Term</div>
+          <div class="carrier-sub">Porsche Macan · Garaged Norwalk, CT</div>
+        </div>
+        <div class="carrier-current">
+          <div class="carrier-label">Current Carrier</div>
+          <div class="carrier-name">GEICO</div>
+          <div class="carrier-sub">Renewal · 04/22/26 – 10/22/26</div>
+        </div>
+        <div class="carrier-proposed">
+          <div class="carrier-label">Proposed</div>
+          <div class="carrier-name">Progressive</div>
+          <div class="carrier-sub">New business · 6-month term</div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">Bodily Injury Liability</div>
+        <div class="current-val">$100,000 / $300,000</div>
+        <div class="proposed-val up">$250,000 / $500,000</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Property Damage Liability</div>
+        <div class="current-val">$100,000</div>
+        <div class="proposed-val">$100,000</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Uninsured / Underinsured Motorist</div>
+        <div class="current-val">$100,000 / $300,000</div>
+        <div class="proposed-val up">$250,000 / $500,000</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Medical Payments</div>
+        <div class="current-val">Not included</div>
+        <div class="proposed-val up">$1,000 per person</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Comprehensive</div>
+        <div class="current-val">$1,000 deductible · Full Glass</div>
+        <div class="proposed-val">$1,000 deductible · Full Glass</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Collision</div>
+        <div class="current-val">$1,000 deductible</div>
+        <div class="proposed-val">$1,000 deductible</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Rental Reimbursement</div>
+        <div class="current-val">$50/day · $1,500 max</div>
+        <div class="proposed-val">$40/day · 30 days</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Roadside Assistance</div>
+        <div class="current-val">Included</div>
+        <div class="proposed-val">Included</div>
+      </div>
+      <div class="compare-row total">
+        <div>6-Month Premium</div>
+        <div class="current-val">$950.70</div>
+        <div class="proposed-val">
+          $767.00
+          <span class="savings-tag">Paid in Full</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAVINGS CARDS -->
+    <div class="savings">
+      <div class="savings-card">
+        <div class="label">6-Month Savings</div>
+        <div class="num accent">$183.70</div>
+        <div class="desc">Paid-in-full vs. current GEICO renewal</div>
+      </div>
+      <div class="savings-card">
+        <div class="label">Annual Savings</div>
+        <div class="num accent">$367.40</div>
+        <div class="desc">Projected over the next 12 months</div>
+      </div>
+      <div class="savings-card">
+        <div class="label">Liability Increase</div>
+        <div class="num">2.5<span style="font-size: 26px;">×</span></div>
+        <div class="desc">BI & UM limits raised from $100/300 to $250/500</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UMBRELLA -->
+<section class="umbrella-section">
+  <div class="container">
+    <div class="eyebrow">Umbrella · The Next Layer</div>
+    <h2 class="section-title">Every dollar you've built deserves a <em>second fence</em> around it.</h2>
+    <p class="section-lead">
+      An umbrella sits above your auto and home policies and takes over when those limits run out. For a household with a net worth comfortably north of $500,000, an umbrella is not optional — it's the lowest-cost, highest-impact dollar you spend on insurance.
+    </p>
+
+    <div class="umbrella-grid">
+      <div class="umbrella-copy">
+        <h3>Why this matters for you</h3>
+        <p>
+          One serious at-fault accident in a $250,000 vehicle, with a passenger injured, can burn through $500,000 in liability limits in an afternoon. Once those limits are exhausted, the injured party's attorney looks at your balance sheet — income, investments, real estate — to make up the difference.
+        </p>
+        <p>
+          A $1 million Markel umbrella sits on top of your new Progressive auto limits for $380 per year. Adding $1 million of Excess Uninsured/Underinsured Motorist — which protects <em>you and Angela</em> if you're hit by a driver with no insurance or insufficient coverage — brings the total to $522 per year. That's roughly $1.43 a day for seven figures of extra protection on both sides of the equation.
+        </p>
+
+        <h3>The net-worth test</h3>
+        <p>
+          The rule of thumb is simple: <strong>your umbrella limit should equal or exceed your net worth.</strong> If you're worth more than $500,000, an umbrella is no longer a nice-to-have — it's the piece of the puzzle that keeps a single bad day from undoing years of work.
+        </p>
+
+        <div class="caveat">
+          <div class="title">One thing to flag on homes held in an LLC</div>
+          <p>
+            A personal umbrella only extends over <em>personally-owned</em> assets and policies. If a home is titled in the name of an LLC, it's not covered by your personal umbrella and needs its own commercial liability layer. This doesn't affect your auto umbrella at all — but if there's LLC-owned real estate in the picture, we should review that separately to make sure there's no gap.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="limits-table">
+          <div class="limits-header">
+            <div class="label">Markel Insurance Company</div>
+            <h4>Personal Umbrella Options</h4>
+          </div>
+          <div class="limits-col-head">
+            <div>Umbrella Limit</div>
+            <div>+ Excess UM/UIM</div>
+            <div>Annual</div>
+          </div>
+          <div class="limits-row featured">
+            <div class="limit">$1,000,000</div>
+            <div class="um">+ $1M UM/UIM</div>
+            <div class="price">$522</div>
+          </div>
+          <div class="limits-row">
+            <div class="limit">$1,000,000</div>
+            <div class="um">Liability only</div>
+            <div class="price">$380</div>
+          </div>
+          <div class="limits-row">
+            <div class="limit">$2,000,000</div>
+            <div class="um">Liability only</div>
+            <div class="price">$608</div>
+          </div>
+          <div class="limits-row">
+            <div class="limit">$3,000,000</div>
+            <div class="um">Liability only</div>
+            <div class="price">$828</div>
+          </div>
+          <div class="limits-row">
+            <div class="limit">$5,000,000</div>
+            <div class="um">Liability only</div>
+            <div class="price">$1,254</div>
+          </div>
+        </div>
+        <p style="margin-top: 20px; font-size: 13px; color: var(--muted); line-height: 1.6;">
+          Rates require the underlying Progressive auto limits of $250/500, which the proposed policy meets. Quote ID Q2120181, effective prior to 5/15/2026.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE STACK -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="stack">
+      <div class="stack-grid">
+        <div class="stack-left">
+          <div class="label">Recommended Stack</div>
+          <h3>Better coverage, lower premium, umbrella <em>built in.</em></h3>
+          <p>
+            The full recommendation puts you into stronger auto limits, adds a meaningful umbrella layer, and still comes in at an annual spend that's competitive with what you were about to pay GEICO alone.
+          </p>
+        </div>
+        <div class="stack-right">
+          <div class="stack-line">
+            <div class="name">
+              Progressive Auto · Annual
+              <small>$250/500 BI &amp; UM · Paid in full · 2 terms</small>
+            </div>
+            <div class="amount">$1,534</div>
+          </div>
+          <div class="stack-line">
+            <div class="name">
+              Markel Umbrella · Annual
+              <small>$1M liability + $1M Excess UM/UIM</small>
+            </div>
+            <div class="amount">$522</div>
+          </div>
+          <div class="stack-total">
+            <div class="name">Total Annual</div>
+            <div class="amount">$2,056</div>
+          </div>
+          <p style="margin-top: 18px; font-size: 13px; color: var(--muted); line-height: 1.55;">
+            Compared to your current GEICO annual of <strong style="color: var(--ink);">$1,901</strong> with no umbrella — a $155/year increase for 2.5× the liability limits <em>and</em> $1M of umbrella protection.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="next">
+  <div class="container">
+    <div class="eyebrow">Next Steps</div>
+    <h2>Three moves. <em>One conversation.</em></h2>
+    <p class="next-lead">
+      Nothing here is complex or time-consuming on your end — most of the work happens on ours. Here's how we close it out.
+    </p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Bind Progressive</h4>
+        <p>
+          We issue the Progressive auto policy effective before your GEICO renews on 04/22, cancel GEICO same-day, and you're covered continuously with no gap.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Issue the Umbrella</h4>
+        <p>
+          Markel umbrella bound same week on the back of the Progressive underlying. One short application, three initials, and it's in force.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Review LLC exposure</h4>
+        <p>
+          Quick 15-minute call to walk through any LLC-held property and confirm whether we need to layer in commercial liability to close the gap.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot-logo">Safeshield<span>.</span></div>
+  <p>Licensed in NY · CT · NJ · PA · DE</p>
+  <p class="contact">
+    <strong>Austin Glazer</strong> · 203-564-9817 · austin@gosafeshield.com<br>
+    2777 Summer St, 6th Floor · Stamford, CT 06905
+  </p>
+  <p class="disclaimer">
+    This proposal is a summary of the quoted coverage options and is not a contract of insurance. Actual coverage is governed by the terms, conditions, and exclusions of the issued policies. Premiums quoted are subject to underwriting review and verification. Markel umbrella rates effective prior to 5/15/2026.
+  </p>
+</footer>
+
+</body>
+</html>
