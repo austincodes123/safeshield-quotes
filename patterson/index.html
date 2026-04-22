@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Safeshield | Douglas Patterson — Condo Insurance Quote</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #004B89;
+    --gold: #FFA300;
+    --dark: #0a1628;
+    --darker: #060e1a;
+    --surface: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+    --text: #FAFAF8;
+    --muted: rgba(250,250,248,0.55);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 24px 72px;
+    text-align: center;
+    background: linear-gradient(160deg, #060e1a 0%, #0d1f3c 50%, #060e1a 100%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0,75,137,0.35) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,163,0,0.12);
+    border: 1px solid rgba(255,163,0,0.3);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 60px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 span { color: var(--gold); }
+
+  .hero-sub {
+    font-size: clamp(15px, 2vw, 18px);
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    font-weight: 400;
+  }
+
+  .hero-price-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,163,0,0.25);
+    border-radius: 20px;
+    padding: 28px 52px;
+    margin-bottom: 14px;
+    backdrop-filter: blur(10px);
+  }
+  .hero-price-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+  .hero-price { font-family: 'Playfair Display', serif; font-size: clamp(52px, 9vw, 80px); font-weight: 900; color: var(--text); line-height: 1; }
+  .hero-price-sub { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+  .hero-savings {
+    display: inline-block;
+    background: rgba(0,200,100,0.1);
+    border: 1px solid rgba(0,200,100,0.25);
+    border-radius: 100px;
+    padding: 6px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4ade80;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin: 0;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 64px 24px; max-width: 900px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .section-body {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 640px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  /* ── POLICY DETAILS CARD ── */
+  .policy-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .policy-card-header {
+    background: linear-gradient(90deg, rgba(0,75,137,0.4), rgba(0,75,137,0.15));
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .policy-card-header .carrier-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .policy-card-header .policy-meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  .policy-rows { padding: 0; }
+  .policy-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .policy-row:last-child { border-bottom: none; }
+  .policy-row-label { font-size: 14px; color: var(--muted); font-weight: 400; }
+  .policy-row-value { font-size: 15px; font-weight: 600; color: var(--text); }
+  .policy-row-value.highlight { color: var(--gold); }
+
+  /* ── COVERAGE GRID ── */
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .coverage-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 20px;
+    transition: border-color 0.2s;
+  }
+  .coverage-card:hover { border-color: rgba(255,163,0,0.3); }
+  .cov-icon { font-size: 24px; margin-bottom: 10px; }
+  .cov-letter {
+    display: inline-block;
+    background: rgba(255,163,0,0.15);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 8px;
+  }
+  .cov-name { font-size: 14px; color: var(--muted); margin-bottom: 4px; font-weight: 400; }
+  .cov-limit { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--text); }
+
+  /* ── EXTRAS ── */
+  .extras-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+  .extras-row .check {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(74,222,128,0.12);
+    border: 1px solid rgba(74,222,128,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; flex-shrink: 0;
+  }
+  .extras-row .ext-title { font-size: 14px; font-weight: 600; }
+  .extras-row .ext-sub { font-size: 12px; color: var(--muted); }
+  .extras-row .ext-tag {
+    margin-left: auto;
+    font-size: 11px; font-weight: 700;
+    color: #4ade80;
+    background: rgba(74,222,128,0.1);
+    border: 1px solid rgba(74,222,128,0.25);
+    border-radius: 100px;
+    padding: 3px 12px;
+    white-space: nowrap;
+  }
+
+  /* ── DISCOUNTS ── */
+  .discount-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .chip {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,163,0,0.08);
+    border: 1px solid rgba(255,163,0,0.2);
+    border-radius: 100px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gold);
+  }
+  .chip::before { content: '✓'; font-weight: 700; }
+
+  .savings-banner {
+    background: linear-gradient(90deg, rgba(74,222,128,0.08), rgba(74,222,128,0.04));
+    border: 1px solid rgba(74,222,128,0.2);
+    border-radius: 14px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .savings-banner .sb-text { font-size: 15px; color: var(--muted); }
+  .savings-banner .sb-amount { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: #4ade80; white-space: nowrap; }
+
+  /* ── BILLING ── */
+  .billing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .billing-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 18px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .billing-card:hover { border-color: rgba(255,163,0,0.3); }
+  .billing-card.featured {
+    border-color: rgba(255,163,0,0.4);
+    background: rgba(255,163,0,0.05);
+  }
+  .billing-method { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .billing-amount { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--text); }
+  .billing-note { font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+  @media (max-width: 580px) {
+    .billing-grid { grid-template-columns: 1fr; }
+    .coverage-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── WHY SAFESHIELD ── */
+  .why-section {
+    background: linear-gradient(160deg, #0d1f3c, #060e1a);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .why-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 18px;
+  }
+  .why-icon { font-size: 26px; margin-bottom: 10px; }
+  .why-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .why-body { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+  /* ── CTA ── */
+  .cta-section {
+    text-align: center;
+    padding: 72px 24px 80px;
+    background: linear-gradient(160deg, #060e1a 0%, #0d1f3c 50%, #060e1a 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(0,75,137,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .cta-section p { font-size: 16px; color: var(--muted); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+  .btn-group { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: #0a1628;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-block;
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.15);
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--darker);
+    border-top: 1px solid var(--border);
+    padding: 28px 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  footer strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge"><span class="dot"></span>Travelers Protect® — Cooperative Coverage</div>
+  <h1>Douglas,<br>here's your <span>condo quote.</span></h1>
+  <p class="hero-sub">165 Hudson St, Apt 6A — New York, NY 10013. Effective May 15, 2026.</p>
+  <div class="hero-price-wrap">
+    <div class="hero-price-label">Annual Premium</div>
+    <div class="hero-price">$1,154</div>
+    <div class="hero-price-sub">12-month policy · Travelers Personal Insurance Company</div>
+  </div>
+  <br>
+  <div class="hero-savings">✓ $328 in discounts already applied</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- POLICY DETAILS -->
+<section>
+  <div class="section-label">The Details</div>
+  <h2 class="section-title">Your coverage at a glance</h2>
+  <p class="section-body">This is a co-op policy — not a standard condo or renters policy. It's built specifically for cooperative apartment owners and covers your unit's interior, your belongings, and your personal liability. Here's exactly what you're getting.</p>
+
+  <div class="policy-card">
+    <div class="policy-card-header">
+      <span class="carrier-logo">Travelers</span>
+      <span class="policy-meta">05/15/2026 – 05/15/2027 · Travelers Protect® Level</span>
+    </div>
+    <div class="policy-rows">
+      <div class="policy-row">
+        <span class="policy-row-label">Property</span>
+        <span class="policy-row-value">165 Hudson St, Apt 6A, New York NY 10013</span>
+      </div>
+      <div class="policy-row">
+        <span class="policy-row-label">All-Perils Deductible</span>
+        <span class="policy-row-value">$1,000</span>
+      </div>
+      <div class="policy-row">
+        <span class="policy-row-label">Coverage Level</span>
+        <span class="policy-row-value highlight">Travelers Protect®</span>
+      </div>
+      <div class="policy-row">
+        <span class="policy-row-label">Annual Premium</span>
+        <span class="policy-row-value highlight">$1,154.00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coverage Grid -->
+  <div class="coverage-grid">
+    <div class="coverage-card">
+      <div class="cov-icon">🏠</div>
+      <div class="cov-letter">Cov A</div>
+      <div class="cov-name">Dwelling</div>
+      <div class="cov-limit">$540,000</div>
+    </div>
+    <div class="coverage-card">
+      <div class="cov-icon">📦</div>
+      <div class="cov-letter">Cov C</div>
+      <div class="cov-name">Personal Property</div>
+      <div class="cov-limit">$50,000</div>
+    </div>
+    <div class="coverage-card">
+      <div class="cov-icon">🏨</div>
+      <div class="cov-letter">Cov D</div>
+      <div class="cov-name">Loss of Use</div>
+      <div class="cov-limit">$25,000</div>
+    </div>
+    <div class="coverage-card">
+      <div class="cov-icon">⚖️</div>
+      <div class="cov-letter">Cov E</div>
+      <div class="cov-name">Personal Liability</div>
+      <div class="cov-limit">$500,000</div>
+    </div>
+    <div class="coverage-card">
+      <div class="cov-icon">🏥</div>
+      <div class="cov-letter">Cov F</div>
+      <div class="cov-name">Medical Payments</div>
+      <div class="cov-limit">$5,000</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BONUS COVERAGES -->
+<section>
+  <div class="section-label">Included Extras</div>
+  <h2 class="section-title">More than the basics</h2>
+  <p class="section-body">Two valuable add-ons are already baked into your premium — no extra charge.</p>
+
+  <div class="extras-row">
+    <div class="check">✓</div>
+    <div>
+      <div class="ext-title">Water Back Up &amp; Sump Discharge Coverage</div>
+      <div class="ext-sub">Covers damage from backed-up drains or sump pump failure — up to $10,000. Huge in NYC.</div>
+    </div>
+    <div class="ext-tag">$10,000 · Included</div>
+  </div>
+
+  <div class="extras-row">
+    <div class="check">✓</div>
+    <div>
+      <div class="ext-title">Personal Property Replacement Cost</div>
+      <div class="ext-sub">Your belongings are paid out at today's replacement value — not depreciated. No haggling over what your 5-year-old laptop was "worth."</div>
+    </div>
+    <div class="ext-tag">Included</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DISCOUNTS -->
+<section>
+  <div class="section-label">Your Savings</div>
+  <h2 class="section-title">$328 knocked off your premium</h2>
+  <p class="section-body">Travelers applied every discount you qualify for. Here's what brought your rate down:</p>
+
+  <div class="discount-chips">
+    <div class="chip">Loss Free</div>
+    <div class="chip">Good Payer</div>
+    <div class="chip">Fire Protective Device</div>
+    <div class="chip">Home Buyer</div>
+  </div>
+
+  <div class="savings-banner">
+    <div class="sb-text">Total savings reflected in your premium</div>
+    <div class="sb-amount">−$328</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BILLING -->
+<section>
+  <div class="section-label">Payment Options</div>
+  <h2 class="section-title">How you want to pay</h2>
+  <p class="section-body">Your premium is essentially $0/month for the policy itself — you're just paying a small service charge based on payment method. EFT is cheapest.</p>
+
+  <div class="billing-grid">
+    <div class="billing-card featured">
+      <div class="billing-method">EFT (Auto-Pay)</div>
+      <div class="billing-amount">$2/mo</div>
+      <div class="billing-note">Service charge only · Lowest cost</div>
+    </div>
+    <div class="billing-card">
+      <div class="billing-method">Credit Card</div>
+      <div class="billing-amount">$4/mo</div>
+      <div class="billing-note">Recurring credit card · Auto-enroll</div>
+    </div>
+    <div class="billing-card">
+      <div class="billing-method">Bill by Mail</div>
+      <div class="billing-amount">$6/mo</div>
+      <div class="billing-note">Paper billing · Highest service charge</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<div class="why-section">
+  <section style="max-width:900px;">
+    <div class="section-label">Why Safeshield</div>
+    <h2 class="section-title">We shop the whole market so you don't have to</h2>
+    <p class="section-body">We're independent — no quotas, no carrier allegiance. Just the best coverage at the right price for you.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🏪</div>
+        <div class="why-title">69+ Carrier Partners</div>
+        <div class="why-body">We compare dozens of carriers and bring you the winner.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Same-Day Everything</div>
+        <div class="why-body">Quotes, ID cards, certs, and policy changes — all done fast.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📞</div>
+        <div class="why-title">Real Person, Always</div>
+        <div class="why-body">No call centers. You get a direct line to your agent.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔄</div>
+        <div class="why-title">Annual Re-Shop</div>
+        <div class="why-body">We review your rate every year and move you if something better comes up.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <div class="why-title">Claims Advocacy</div>
+        <div class="why-body">We go to bat for you when you have a claim. You're not alone.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to lock this in?</h2>
+  <p>Let's get your co-op protected. Reach out and we'll bind this today.</p>
+  <div class="btn-group">
+    <a href="tel:2038065889" class="btn-primary">📞 Call Eric — (203) 806-5889</a>
+    <a href="mailto:eric@gosafeshield.com" class="btn-secondary">✉️ Email Eric</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Safeshield Insurance</strong> · 191 King Street Bldg B, Chappaqua, NY 10514 · (877) 872-8737<br>
+  Quote prepared by Eric Kelly · eric@gosafeshield.com · (203) 806-5889<br>
+  This quote is a preliminary estimate effective 04/22/2026. Subject to change based on final underwriting. Insurance underwritten by Travelers Personal Insurance Company.
+</footer>
+
+</body>
+</html>
