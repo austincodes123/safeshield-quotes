@@ -30,7 +30,7 @@
     min-height: 100vh;
   }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     position: relative;
     overflow: hidden;
@@ -113,7 +113,7 @@
     margin: 0;
   }
 
-  /* ── SECTIONS ── */
+  /* SECTIONS */
   section { padding: 64px 24px; max-width: 900px; margin: 0 auto; }
 
   .section-label {
@@ -139,7 +139,7 @@
     margin-bottom: 40px;
   }
 
-  /* ── POLICY DETAILS CARD ── */
+  /* POLICY DETAILS CARD */
   .policy-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -179,7 +179,7 @@
   .policy-row-value { font-size: 15px; font-weight: 600; color: var(--text); }
   .policy-row-value.highlight { color: var(--gold); }
 
-  /* ── COVERAGE GRID ── */
+  /* COVERAGE GRID */
   .coverage-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -210,7 +210,7 @@
   .cov-name { font-size: 14px; color: var(--muted); margin-bottom: 4px; font-weight: 400; }
   .cov-limit { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--text); }
 
-  /* ── EXTRAS ── */
+  /* EXTRAS */
   .extras-row {
     display: flex;
     align-items: center;
@@ -241,7 +241,7 @@
     white-space: nowrap;
   }
 
-  /* ── DISCOUNTS ── */
+  /* DISCOUNTS */
   .discount-chips {
     display: flex;
     flex-wrap: wrap;
@@ -275,35 +275,11 @@
   .savings-banner .sb-text { font-size: 15px; color: var(--muted); }
   .savings-banner .sb-amount { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: #4ade80; white-space: nowrap; }
 
-  /* ── BILLING ── */
-  .billing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-  }
-  .billing-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px 18px;
-    text-align: center;
-    transition: border-color 0.2s;
-  }
-  .billing-card:hover { border-color: rgba(255,163,0,0.3); }
-  .billing-card.featured {
-    border-color: rgba(255,163,0,0.4);
-    background: rgba(255,163,0,0.05);
-  }
-  .billing-method { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-  .billing-amount { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--text); }
-  .billing-note { font-size: 11px; color: var(--muted); margin-top: 6px; }
-
   @media (max-width: 580px) {
-    .billing-grid { grid-template-columns: 1fr; }
     .coverage-grid { grid-template-columns: 1fr 1fr; }
   }
 
-  /* ── WHY SAFESHIELD ── */
+  /* WHY SAFESHIELD */
   .why-section {
     background: linear-gradient(160deg, #0d1f3c, #060e1a);
     border-top: 1px solid var(--border);
@@ -324,7 +300,7 @@
   .why-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
   .why-body { font-size: 13px; color: var(--muted); line-height: 1.55; }
 
-  /* ── CTA ── */
+  /* CTA */
   .cta-section {
     text-align: center;
     padding: 72px 24px 80px;
@@ -376,7 +352,7 @@
   }
   .btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-1px); }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   footer {
     background: var(--darker);
     border-top: 1px solid var(--border);
@@ -518,33 +494,6 @@
   <div class="savings-banner">
     <div class="sb-text">Total savings reflected in your premium</div>
     <div class="sb-amount">−$328</div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- BILLING -->
-<section>
-  <div class="section-label">Payment Options</div>
-  <h2 class="section-title">How you want to pay</h2>
-  <p class="section-body">Your premium is essentially $0/month for the policy itself — you're just paying a small service charge based on payment method. EFT is cheapest.</p>
-
-  <div class="billing-grid">
-    <div class="billing-card featured">
-      <div class="billing-method">EFT (Auto-Pay)</div>
-      <div class="billing-amount">$2/mo</div>
-      <div class="billing-note">Service charge only · Lowest cost</div>
-    </div>
-    <div class="billing-card">
-      <div class="billing-method">Credit Card</div>
-      <div class="billing-amount">$4/mo</div>
-      <div class="billing-note">Recurring credit card · Auto-enroll</div>
-    </div>
-    <div class="billing-card">
-      <div class="billing-method">Bill by Mail</div>
-      <div class="billing-amount">$6/mo</div>
-      <div class="billing-note">Paper billing · Highest service charge</div>
-    </div>
   </div>
 </section>
 
