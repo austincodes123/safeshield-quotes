@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Insurance Quote | Corrie Raynor & Adam Aluise</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #004B89;
+    --gold: #FFA300;
+    --bg: #0a1628;
+    --bg2: #0f1e38;
+    --text: #FAFAF8;
+    --muted: rgba(250,250,248,0.6);
+    --card-bg: rgba(255,255,255,0.04);
+    --card-border: rgba(255,255,255,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,22,40,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--card-border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
+    border: 1px solid rgba(255,163,0,0.35);
+    border-radius: 100px;
+    padding: 4px 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 20%, rgba(0,75,137,0.25) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 80% 80%, rgba(255,163,0,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .hero-address {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 36px;
+    font-weight: 400;
+  }
+  .hero-price-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,163,0,0.25);
+    border-radius: 20px;
+    padding: 36px 56px;
+    margin-bottom: 32px;
+    display: inline-block;
+    position: relative;
+  }
+  .hero-price-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .hero-price {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hero-price-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  .hero-carrier {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+  .hero-carrier strong { color: var(--text); }
+  .hero-cta-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: #0a1628;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 32px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-glass {
+    background: rgba(255,255,255,0.07);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 14px 32px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.15);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .btn-glass:hover { background: rgba(255,255,255,0.12); }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 80px 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .section-lead {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 620px;
+    margin-bottom: 48px;
+    line-height: 1.7;
+  }
+
+  /* COVERAGE GRID */
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .cov-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    transition: border-color 0.2s;
+  }
+  .cov-card:hover { border-color: rgba(255,163,0,0.3); }
+  .cov-icon {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+  .cov-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .cov-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .cov-note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .cov-card.highlight {
+    border-color: rgba(255,163,0,0.3);
+    background: rgba(255,163,0,0.06);
+  }
+  .cov-card.highlight .cov-value { color: var(--gold); }
+
+  /* DEDUCTIBLE ROW */
+  .ded-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .ded-pill {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 14px 22px;
+    flex: 1;
+    min-width: 200px;
+  }
+  .ded-pill-label { font-size: 0.75rem; font-weight: 600; color: var(--muted); margin-bottom: 4px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .ded-pill-val { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+
+  /* EXTRAS */
+  .extras-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+  }
+  .extras-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .extras-list li .extra-check {
+    color: var(--gold);
+    font-size: 1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .extras-list li strong { color: var(--text); display: block; margin-bottom: 2px; font-size: 0.9rem; }
+
+  /* PAYMENT PLANS */
+  .payment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .pay-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .pay-card:hover { border-color: rgba(255,163,0,0.3); }
+  .pay-card.featured {
+    border-color: rgba(255,163,0,0.35);
+    background: rgba(255,163,0,0.06);
+  }
+  .pay-card-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .pay-card.featured .pay-card-label { color: var(--gold); }
+  .pay-due-now {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .pay-card.featured .pay-due-now { color: var(--gold); }
+  .pay-details {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .pay-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #0a1628;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+
+  /* PROPERTY DETAILS */
+  .prop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .prop-item {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .prop-item-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .prop-item-val { font-size: 1rem; font-weight: 600; color: var(--text); }
+
+  /* WHY SAFESHIELD */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .why-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: border-color 0.2s;
+  }
+  .why-card:hover { border-color: rgba(255,163,0,0.3); }
+  .why-icon { font-size: 1.8rem; margin-bottom: 14px; }
+  .why-title { font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+  .why-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+  /* CTA FOOTER */
+  .cta-section {
+    padding: 80px 24px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(0,75,137,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-inner { position: relative; max-width: 600px; margin: 0 auto; }
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+  .cta-sub { font-size: 1rem; color: var(--muted); margin-bottom: 36px; line-height: 1.7; }
+  .cta-agent {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 18px 28px;
+    margin-top: 32px;
+    text-align: left;
+  }
+  .cta-agent-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1.1rem; color: #fff;
+    flex-shrink: 0;
+  }
+  .cta-agent-name { font-weight: 700; font-size: 0.95rem; }
+  .cta-agent-role { font-size: 0.8rem; color: var(--muted); }
+  .cta-agent-contact { font-size: 0.8rem; color: var(--gold); margin-top: 2px; }
+
+  /* VALID NOTICE */
+  .valid-notice {
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(250,250,248,0.3);
+    padding: 24px;
+    border-top: 1px solid var(--card-border);
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 14px 20px; }
+    .hero-price-card { padding: 28px 32px; }
+    section { padding: 60px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Safe<span>shield</span></div>
+  <div class="nav-badge">Homeowners Quote</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Your Home Insurance Quote — May 14, 2026</div>
+  <h1 class="hero-name">Corrie Raynor &amp; Adam Aluise</h1>
+  <p class="hero-address">77 Rachelle Ave, Stamford, CT 06905</p>
+
+  <div class="hero-price-card">
+    <div class="hero-price-label">Annual Premium</div>
+    <div class="hero-price">$2,692</div>
+    <div class="hero-price-sub">$224/month &nbsp;·&nbsp; HO3 Policy</div>
+  </div>
+
+  <p class="hero-carrier">Carrier: <strong>SageSure / Harco National Insurance Company</strong> &nbsp;·&nbsp; NAIC: 26433</p>
+
+  <div class="hero-cta-row">
+    <a href="tel:+12038065889" class="btn-primary">Let's Get This Started</a>
+    <a href="#coverage" class="btn-glass">Review Coverage</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- COVERAGE -->
+<section id="coverage">
+  <div class="section-eyebrow">Coverage Breakdown</div>
+  <h2 class="section-title">What You're Protected For</h2>
+  <p class="section-lead">This is a comprehensive HO3 open-perils policy. That means your home and belongings are covered against all risks unless specifically excluded — not just a named list of disasters. Here's exactly what's included.</p>
+
+  <div class="coverage-grid">
+    <div class="cov-card highlight">
+      <div class="cov-icon">🏠</div>
+      <div class="cov-label">Dwelling (Coverage A)</div>
+      <div class="cov-value">$858,000</div>
+      <div class="cov-note">Full replacement cost of your home's structure</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-icon">🏚️</div>
+      <div class="cov-label">Other Structures (Cov B)</div>
+      <div class="cov-value">$85,800</div>
+      <div class="cov-note">Fences, detached garage, sheds</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-icon">📦</div>
+      <div class="cov-label">Personal Property (Cov C)</div>
+      <div class="cov-value">$429,000</div>
+      <div class="cov-note">Replacement cost — brand new for old</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-icon">🏨</div>
+      <div class="cov-label">Loss of Use (Cov D)</div>
+      <div class="cov-value">$171,600</div>
+      <div class="cov-note">Hotel &amp; living costs if home is uninhabitable</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-icon">⚖️</div>
+      <div class="cov-label">Personal Liability (Cov E)</div>
+      <div class="cov-value">$500,000</div>
+      <div class="cov-note">Per occurrence — protects your assets</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-icon">🏥</div>
+      <div class="cov-label">Medical Payments (Cov F)</div>
+      <div class="cov-value">$1,000</div>
+      <div class="cov-note">Per person — guest injuries on your property</div>
+    </div>
+  </div>
+
+  <!-- Deductibles -->
+  <div class="section-eyebrow" style="margin-top: 48px;">Deductibles</div>
+  <div class="ded-row">
+    <div class="ded-pill">
+      <div class="ded-pill-label">All Other Perils (AOP)</div>
+      <div class="ded-pill-val">$2,500</div>
+    </div>
+    <div class="ded-pill">
+      <div class="ded-pill-label">Hurricane Deductible</div>
+      <div class="ded-pill-val">$17,160 <span style="font-size:0.8rem; font-weight:400; color:var(--muted);">(2% of Dwelling)</span></div>
+    </div>
+  </div>
+
+  <!-- Optional Coverages -->
+  <div class="section-eyebrow" style="margin-top: 48px;">What's Included — At No Extra Cost</div>
+  <ul class="extras-list">
+    <li>
+      <span class="extra-check">✦</span>
+      <div>
+        <strong>Personal Property Replacement Cost</strong>
+        If your stuff gets damaged or stolen, we pay for brand-new replacements — not depreciated value.
+      </div>
+    </li>
+    <li>
+      <span class="extra-check">✦</span>
+      <div>
+        <strong>Law &amp; Ordinance — 10%</strong>
+        Covers the cost to bring your home up to current building codes after a covered loss. Critical for older homes.
+      </div>
+    </li>
+    <li>
+      <span class="extra-check">✦</span>
+      <div>
+        <strong>Liquid Fuel Tank Liability — $50,000</strong>
+        Covers liability from your oil/fuel tank. Required by many lenders and smart for any home with a tank.
+      </div>
+    </li>
+    <li>
+      <span class="extra-check">✦</span>
+      <div>
+        <strong>Liquid Fuel Tank Remediation — $10,000</strong>
+        Pays for environmental cleanup if your fuel tank leaks. This can cost tens of thousands without coverage.
+      </div>
+    </li>
+    <li>
+      <span class="extra-check">✦</span>
+      <div>
+        <strong>Mold — Property $10,000 / Liability $50,000</strong>
+        Mold damage and mold-related liability, both covered. Often excluded by standard carriers.
+      </div>
+    </li>
+    <li>
+      <span class="extra-check">✦</span>
+      <div>
+        <strong>Multi-Policy Discount Applied</strong>
+        Bundling your home with auto saves money — this discount is already reflected in your premium.
+      </div>
+    </li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROPERTY DETAILS -->
+<section>
+  <div class="section-eyebrow">Your Property</div>
+  <h2 class="section-title">How This Was Rated</h2>
+  <p class="section-lead">These are the property characteristics used to build your quote. Accuracy matters — they directly affect your premium and whether a claim gets paid in full.</p>
+
+  <div class="prop-grid">
+    <div class="prop-item">
+      <div class="prop-item-label">Year Built</div>
+      <div class="prop-item-val">1900</div>
+    </div>
+    <div class="prop-item">
+      <div class="prop-item-label">Living Area</div>
+      <div class="prop-item-val">2,120 sq ft</div>
+    </div>
+    <div class="prop-item">
+      <div class="prop-item-label">Roof Age</div>
+      <div class="prop-item-val">8 Years</div>
+    </div>
+    <div class="prop-item">
+      <div class="prop-item-label">Roof Covering</div>
+      <div class="prop-item-val">Architectural Shingles</div>
+    </div>
+    <div class="prop-item">
+      <div class="prop-item-label">Construction</div>
+      <div class="prop-item-val">Frame</div>
+    </div>
+    <div class="prop-item">
+      <div class="prop-item-label">Foundation</div>
+      <div class="prop-item-val">Basement</div>
+    </div>
+    <div class="prop-item">
+      <div class="prop-item-label">Stories</div>
+      <div class="prop-item-val">2</div>
+    </div>
+    <div class="prop-item">
+      <div class="prop-item-label">Occupancy</div>
+      <div class="prop-item-val">Owner Occupied</div>
+    </div>
+    <div class="prop-item">
+      <div class="prop-item-label">Credit Score Tier</div>
+      <div class="prop-item-val">Outstanding Plus</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PAYMENT PLANS -->
+<section>
+  <div class="section-eyebrow">Payment Options</div>
+  <h2 class="section-title">Pay How It Works for You</h2>
+  <p class="section-lead">No fees on EasyPay (auto-draft) or full pay. Installment plans have a one-time $7 setup + $7 per installment.</p>
+
+  <div class="payment-grid">
+    <div class="pay-card featured">
+      <div class="pay-badge">Best Value</div>
+      <div class="pay-card-label">Full Pay</div>
+      <div class="pay-due-now">$2,692</div>
+      <div class="pay-details">One and done.<br>No fees, no installments.</div>
+    </div>
+    <div class="pay-card">
+      <div class="pay-card-label">2-Pay Plan</div>
+      <div class="pay-due-now">$1,671</div>
+      <div class="pay-details">Due now<br>Then $1,035 in 180 days</div>
+    </div>
+    <div class="pay-card">
+      <div class="pay-card-label">4-Pay Plan</div>
+      <div class="pay-due-now">$1,157</div>
+      <div class="pay-details">Due now<br>Then 3 installments of ~$521</div>
+    </div>
+    <div class="pay-card">
+      <div class="pay-card-label">10-Pay Plan</div>
+      <div class="pay-due-now">$643</div>
+      <div class="pay-details">Due now<br>Then 9 installments of ~$236</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<section>
+  <div class="section-eyebrow">Why Safeshield</div>
+  <h2 class="section-title">We Work For You, Not the Carrier</h2>
+  <p class="section-lead">As an independent brokerage with 69+ carrier relationships, we shop the entire market to find the right fit — and we stick around when you need us most.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🔍</div>
+      <div class="why-title">69+ Carrier Partners</div>
+      <div class="why-desc">We compare the entire market so you're not stuck with one company's pricing or exclusions.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">Same-Day Everything</div>
+      <div class="why-desc">Quotes, policy docs, ID cards, certificates — all delivered the same day. No waiting, no runaround.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📞</div>
+      <div class="why-title">Direct Agent Access</div>
+      <div class="why-desc">You get a real person who knows your account. No call centers, no hold music, no starting over.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <div class="why-title">Claims Advocacy</div>
+      <div class="why-desc">When you have a claim, we're in your corner — not the carrier's. We fight to get you paid fairly.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔄</div>
+      <div class="why-title">Annual Re-Shop</div>
+      <div class="why-desc">Every year at renewal, we check the market again. If a better rate exists, we find it for you.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📱</div>
+      <div class="why-title">Tech-Powered</div>
+      <div class="why-desc">Digital delivery, automated tracking, and real-time policy management. Insurance without the headache.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <div class="section-eyebrow">Ready to Move Forward?</div>
+    <h2 class="cta-title">Lock In Your Rate Before It Expires</h2>
+    <p class="cta-sub">This quote is valid for 30 days from April 29, 2026. Rates can change — let's get your home protected today.</p>
+    <div class="hero-cta-row">
+      <a href="tel:+12038065889" class="btn-primary">Call Eric — (203) 806-5889</a>
+      <a href="mailto:eric@gosafeshield.com" class="btn-glass">Email Eric</a>
+    </div>
+    <div class="cta-agent">
+      <div class="cta-agent-avatar">EK</div>
+      <div>
+        <div class="cta-agent-name">Eric Kelly</div>
+        <div class="cta-agent-role">Safeshield Insurance — Stamford, CT</div>
+        <div class="cta-agent-contact">(203) 806-5889 &nbsp;·&nbsp; eric@gosafeshield.com</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="valid-notice">
+  Quote #CRU4Q-23801598 &nbsp;·&nbsp; Valid through May 29, 2026 &nbsp;·&nbsp; Safeshield Insurance LLC, Licensed in CT, NY, NJ, PA, DE &nbsp;·&nbsp; This quote does not bind coverage.
+</div>
+
+</body>
+</html>
