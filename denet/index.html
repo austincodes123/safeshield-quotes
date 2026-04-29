@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Matthew Denet | Condo Insurance Quote | Safeshield</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #004B89;
+    --gold: #FFA300;
+    --bg: #0a1628;
+    --surface: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+    --text: #FAFAF8;
+    --muted: rgba(250,250,248,0.6);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; line-height: 1.6; min-height: 100vh; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    background: radial-gradient(ellipse at 60% 0%, rgba(0,75,137,0.35) 0%, transparent 65%),
+                radial-gradient(ellipse at 20% 80%, rgba(255,163,0,0.08) 0%, transparent 55%),
+                var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .logo-bar {
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-bar .shield { font-size: 24px; }
+  .logo-bar span { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
+  .logo-bar .gold { color: var(--gold); }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    max-width: 720px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 48px;
+  }
+  .premium-bubble {
+    background: linear-gradient(135deg, rgba(0,75,137,0.5), rgba(0,75,137,0.2));
+    border: 1px solid rgba(255,163,0,0.3);
+    border-radius: 24px;
+    padding: 40px 60px;
+    display: inline-block;
+    margin-bottom: 48px;
+    backdrop-filter: blur(10px);
+  }
+  .premium-bubble .amount {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+  .premium-bubble .period { font-size: 1rem; color: var(--muted); margin-top: 8px; }
+  .premium-bubble .monthly { font-size: 0.9rem; color: rgba(255,163,0,0.7); margin-top: 6px; }
+
+  .carrier-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .carrier-badge .dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent); margin: 0 auto; max-width: 800px; }
+
+  /* SECTIONS */
+  section { padding: 80px 24px; max-width: 1000px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .section-sub { color: var(--muted); font-size: 1rem; max-width: 600px; margin-bottom: 48px; }
+
+  /* COVERAGE GRID */
+  .coverage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .cov-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 28px 24px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .cov-card:hover { border-color: rgba(255,163,0,0.25); transform: translateY(-3px); }
+  .cov-icon { font-size: 28px; margin-bottom: 16px; }
+  .cov-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .cov-value { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+  .cov-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+  /* EXTRAS */
+  .extras-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 16px; }
+  .extra-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .extra-check { color: var(--gold); font-size: 18px; margin-top: 2px; flex-shrink: 0; }
+  .extra-name { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+  .extra-detail { font-size: 0.8rem; color: var(--muted); }
+
+  /* DISCOUNTS */
+  .discount-band {
+    background: linear-gradient(135deg, rgba(0,75,137,0.3), rgba(255,163,0,0.06));
+    border: 1px solid rgba(255,163,0,0.2);
+    border-radius: 20px;
+    padding: 40px 44px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .discount-left h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 8px; }
+  .discount-left p { color: var(--muted); font-size: 0.9rem; }
+  .discount-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pill {
+    background: rgba(255,163,0,0.12);
+    border: 1px solid rgba(255,163,0,0.25);
+    border-radius: 100px;
+    padding: 7px 18px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--gold);
+  }
+  .savings-tag {
+    background: var(--gold);
+    color: #0a1628;
+    border-radius: 100px;
+    padding: 10px 24px;
+    font-weight: 800;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  /* BILLING */
+  .billing-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .billing-table th, .billing-table td { padding: 16px 20px; text-align: center; border-bottom: 1px solid var(--border); }
+  .billing-table th { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .billing-table td { font-size: 1rem; }
+  .billing-table .best { color: var(--gold); font-weight: 700; }
+  .billing-table tr:last-child td { border-bottom: none; font-weight: 700; font-size: 1.1rem; }
+  .billing-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  /* WHY */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .why-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 22px;
+  }
+  .why-icon { font-size: 26px; margin-bottom: 12px; }
+  .why-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
+  .why-body { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 80px 24px 100px;
+    background: radial-gradient(ellipse at center top, rgba(0,75,137,0.25) 0%, transparent 65%);
+  }
+  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 14px; }
+  .cta-section h2 span { color: var(--gold); }
+  .cta-section p { color: var(--muted); max-width: 500px; margin: 0 auto 40px; }
+  .cta-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .btn-primary {
+    background: var(--gold);
+    color: #0a1628;
+    border: none;
+    border-radius: 100px;
+    padding: 16px 40px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    padding: 16px 40px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+  .agent-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 28px;
+    margin-top: 48px;
+    text-align: left;
+  }
+  .agent-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, var(--navy), rgba(255,163,0,0.4)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: var(--text); flex-shrink: 0; }
+  .agent-name { font-weight: 700; font-size: 0.95rem; }
+  .agent-title { font-size: 0.8rem; color: var(--muted); }
+
+  .footer-bar {
+    text-align: center;
+    padding: 24px;
+    font-size: 0.75rem;
+    color: rgba(250,250,248,0.3);
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .premium-bubble { padding: 28px 32px; }
+    .discount-band { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="logo-bar">
+    <span class="shield">🛡️</span>
+    <span>SAFE<span class="gold">SHIELD</span></span>
+  </div>
+
+  <p class="hero-eyebrow">Condominium Insurance &nbsp;·&nbsp; Prepared for Matthew Denet</p>
+  <h1>Your Condo, <span>Fully Protected.</span></h1>
+  <p class="hero-sub">70 West St Apt C4, Harrison, NY &nbsp;·&nbsp; 12-Month Policy: Apr 30, 2026 – Apr 30, 2027</p>
+
+  <div class="premium-bubble">
+    <span class="amount">$500</span>
+    <p class="period">Annual Premium &nbsp;·&nbsp; Travelers Protect®</p>
+    <p class="monthly">As low as $43.67/mo with EFT</p>
+  </div>
+
+  <div class="carrier-badge">
+    <span class="dot"></span>
+    Underwritten by Travelers Personal Insurance Company
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- COVERAGE BREAKDOWN -->
+<section>
+  <p class="section-label">Coverage Details</p>
+  <h2 class="section-title">What's Covered</h2>
+  <p class="section-sub">Here's exactly what this policy protects — no jargon, no fine print surprises.</p>
+
+  <div class="coverage-grid">
+    <div class="cov-card">
+      <div class="cov-icon">🏢</div>
+      <div class="cov-label">Coverage A — Dwelling</div>
+      <div class="cov-value">$75,000</div>
+      <div class="cov-desc">Covers structural improvements inside your unit — think walls, flooring, fixtures — anything your HOA's master policy doesn't.</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-icon">📦</div>
+      <div class="cov-label">Coverage C — Personal Property</div>
+      <div class="cov-value">$30,000</div>
+      <div class="cov-desc">Your furniture, electronics, clothing, and everything else you own inside the unit. Covered for replacement cost, not depreciated value.</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-icon">🏨</div>
+      <div class="cov-label">Coverage D — Loss of Use</div>
+      <div class="cov-value">$15,000</div>
+      <div class="cov-desc">If a covered loss makes your unit uninhabitable, this pays for your hotel, meals, and additional living expenses while repairs happen.</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-icon">⚖️</div>
+      <div class="cov-label">Coverage E — Personal Liability</div>
+      <div class="cov-value">$1,000,000</div>
+      <div class="cov-desc">$1 million in liability protection. If someone gets hurt in your unit or you accidentally damage a neighbor's property, this has you covered.</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-icon">🏥</div>
+      <div class="cov-label">Coverage F — Medical Payments</div>
+      <div class="cov-value">$5,000</div>
+      <div class="cov-desc">Pays a guest's medical bills if they're injured on your property — no lawsuit required, no fault determination needed.</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-icon">🏘️</div>
+      <div class="cov-label">Loss Assessment</div>
+      <div class="cov-value">$50,000</div>
+      <div class="cov-desc">If your HOA gets hit with a covered loss that exceeds their master policy, this covers your share of the assessment bill.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BONUS COVERAGES -->
+<section>
+  <p class="section-label">Included Extras</p>
+  <h2 class="section-title">Built Right In</h2>
+  <p class="section-sub">These endorsements are baked into your premium — no additional cost.</p>
+
+  <div class="extras-grid">
+    <div class="extra-item">
+      <div class="extra-check">✦</div>
+      <div>
+        <div class="extra-name">Water Backup & Sump Overflow</div>
+        <div class="extra-detail">$10,000 limit — covers damage from backed-up drains or sump pump failure. One of the most common condo claims that standard policies miss.</div>
+      </div>
+    </div>
+    <div class="extra-item">
+      <div class="extra-check">✦</div>
+      <div>
+        <div class="extra-name">Personal Property Replacement Cost</div>
+        <div class="extra-detail">When you file a claim, you get what it costs to buy new — not what your 4-year-old laptop was "worth." No depreciation deducted.</div>
+      </div>
+    </div>
+    <div class="extra-item">
+      <div class="extra-check">✦</div>
+      <div>
+        <div class="extra-name">$1,000 All-Perils Deductible</div>
+        <div class="extra-detail">One simple deductible for property losses. No separate wind or hail deductible eating into your claim payout.</div>
+      </div>
+    </div>
+    <div class="extra-item">
+      <div class="extra-check">✦</div>
+      <div>
+        <div class="extra-name">Travelers Protect® Coverage Level</div>
+        <div class="extra-detail">Travelers' enhanced coverage tier — broader protection and fewer exclusions than their base HO6 package.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DISCOUNTS -->
+<section>
+  <p class="section-label">Your Savings</p>
+  <h2 class="section-title">Discounts Applied</h2>
+  <p class="section-sub">You're already getting $128 knocked off your premium from day one.</p>
+
+  <div class="discount-band">
+    <div class="discount-left">
+      <h3>$128 Saved</h3>
+      <p>Four discounts applied automatically at quote.</p>
+    </div>
+    <div class="discount-pills">
+      <span class="pill">✓ Loss Free</span>
+      <span class="pill">✓ Good Payer</span>
+      <span class="pill">✓ Fire Protective Device</span>
+      <span class="pill">✓ Home Buyer</span>
+    </div>
+    <span class="savings-tag">$128 Off</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BILLING OPTIONS -->
+<section>
+  <p class="section-label">Payment Options</p>
+  <h2 class="section-title">Pay Your Way</h2>
+  <p class="section-sub">Flexible billing — pay in full or spread it out monthly. EFT is the lowest-cost option.</p>
+
+  <div class="billing-wrap">
+    <table class="billing-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>EFT (Auto-Pay) ★ Best</th>
+          <th>Recurring Credit Card</th>
+          <th>Bill by Mail/Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align:left; color: var(--muted); font-size:0.9rem;">Monthly Premium</td>
+          <td class="best">$41.67</td>
+          <td>$41.67</td>
+          <td>$41.67</td>
+        </tr>
+        <tr>
+          <td style="text-align:left; color: var(--muted); font-size:0.9rem;">Service Charge</td>
+          <td class="best">$2.00</td>
+          <td>$4.00</td>
+          <td>$6.00</td>
+        </tr>
+        <tr>
+          <td style="text-align:left; font-size:0.9rem;">Total Monthly</td>
+          <td class="best">$43.67</td>
+          <td>$45.67</td>
+          <td>$47.67</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<section>
+  <p class="section-label">Why Safeshield</p>
+  <h2 class="section-title">We Work for <span style="color:var(--gold)">You</span>, Not the Carrier</h2>
+  <p class="section-sub">Independent agents mean we shop your coverage across 69+ carriers to find the best price and protection. Every year.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🏪</div>
+      <div class="why-title">69+ Carrier Partners</div>
+      <div class="why-body">We shop the entire market — not just one or two carriers. More options means better rates and coverage for you.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">Same-Day Everything</div>
+      <div class="why-body">Quotes, ID cards, policy changes, certificates — if you need it, we get it done today. No waiting on hold with a call center.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📞</div>
+      <div class="why-title">Direct Agent Access</div>
+      <div class="why-body">You get a real person who knows your policy. Text, call, or email — we actually pick up.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <div class="why-title">Claims Advocacy</div>
+      <div class="why-body">When something goes wrong, we go to bat for you with the carrier. You're not on your own when it matters most.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔄</div>
+      <div class="why-title">Annual Re-Shop</div>
+      <div class="why-body">Every renewal, we re-shop your policy across the market. If we can save you money, we will. Automatically.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📱</div>
+      <div class="why-title">Tech-Powered Service</div>
+      <div class="why-body">Digital delivery, automated tracking, and instant policy access. Modern insurance without the friction.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to <span>Lock It In?</span></h2>
+  <p>This quote is good and we can bind same-day. Just say the word and we'll get your condo covered before your move-in date.</p>
+  <div class="cta-buttons">
+    <a href="tel:2038065889" class="btn-primary">📞 Call to Bind Now</a>
+    <a href="mailto:justin@gosafeshield.com" class="btn-secondary">✉ Email Your Agent</a>
+  </div>
+
+  <div class="agent-card">
+    <div class="agent-avatar">JC</div>
+    <div>
+      <div class="agent-name">Justin Cronk</div>
+      <div class="agent-title">Safeshield Insurance &nbsp;·&nbsp; justin@gosafeshield.com</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">
+  © 2026 Safeshield Insurance &nbsp;·&nbsp; Licensed in NY, CT, NJ, PA & DE &nbsp;·&nbsp; Quote effective 04/29/2026 &nbsp;·&nbsp; Subject to underwriting approval
+</div>
+
+</body>
+</html>
