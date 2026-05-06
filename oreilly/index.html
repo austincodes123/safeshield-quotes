@@ -898,6 +898,172 @@ footer {
   grid-template-rows: auto;
 }
 
+/* EXTENDED REPLACEMENT COST SECTION */
+.erc-section {
+  background: linear-gradient(180deg, var(--navy-dark) 0%, #08121f 100%);
+  padding: 90px 24px;
+}
+.erc-wrap {
+  max-width: 980px; margin: 0 auto;
+}
+.erc-header {
+  text-align: center; margin-bottom: 48px;
+}
+.erc-eyebrow {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-style: italic;
+  font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--yellow); margin-bottom: 12px;
+}
+.erc-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.erc-title .highlight { color: var(--yellow); }
+.erc-sub {
+  color: var(--gray-300);
+  font-size: 1.02rem;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.erc-stack {
+  max-width: 720px;
+  margin: 0 auto 36px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 32px;
+}
+
+.erc-bar-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+.erc-bar-name {
+  font-size: 0.92rem;
+  color: var(--gray-200);
+  font-weight: 600;
+}
+.erc-bar-amount {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--white);
+}
+.erc-bar-amount .accent { color: var(--yellow); }
+
+.erc-bar-track {
+  height: 24px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 22px;
+  position: relative;
+  border: 1px solid var(--border);
+}
+.erc-bar-fill-base {
+  height: 100%;
+  width: 66.6%;
+  background: linear-gradient(90deg, var(--navy) 0%, #2563eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+.erc-bar-fill-extended {
+  position: absolute;
+  top: 0; left: 66.6%;
+  height: 100%;
+  width: 33.3%;
+  background: linear-gradient(90deg, var(--yellow) 0%, var(--yellow-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--navy-dark);
+  letter-spacing: 0.5px;
+}
+
+.erc-arrows {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0;
+  margin-bottom: 18px;
+}
+.erc-arrow-block {
+  text-align: center;
+  padding: 10px 6px;
+}
+.erc-arrow-block.base {
+  border-right: 1px dashed var(--border);
+}
+.erc-arrow-num {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3.5vw, 2rem);
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.erc-arrow-block.base .erc-arrow-num { color: var(--white); }
+.erc-arrow-block.bonus .erc-arrow-num { color: var(--yellow); }
+.erc-arrow-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gray-300);
+  font-weight: 600;
+}
+
+.erc-total {
+  text-align: center;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+.erc-total-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.erc-total-amount {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.erc-total-amount .dollar { color: var(--yellow); font-size: 0.65em; vertical-align: top; }
+
+.erc-explanation {
+  max-width: 780px;
+  margin: 0 auto;
+  font-size: 0.98rem;
+  color: var(--gray-200);
+  line-height: 1.75;
+  text-align: center;
+}
+.erc-explanation strong { color: var(--white); font-weight: 600; }
+
+@media (max-width: 640px) {
+  .erc-stack { padding: 28px 22px; }
+  .erc-bar-fill-base, .erc-bar-fill-extended { font-size: 10px; }
+}
+
 /* DEDUCTIBLE PHILOSOPHY SECTION */
 .philosophy-section {
   background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-dark) 100%);
@@ -1009,7 +1175,7 @@ footer {
   <div class="hero-meta">
     <div class="hero-meta-item">
       <div class="hero-meta-label">Effective</div>
-      <div class="hero-meta-value">May 7, 2026</div>
+      <div class="hero-meta-value">May 25, 2026</div>
     </div>
     <div class="hero-meta-item">
       <div class="hero-meta-label">Carrier</div>
@@ -1064,7 +1230,7 @@ footer {
 
         <div class="bundle-features">
           <div class="bundle-features-label">Coverage Summary</div>
-          $648,000 Dwelling<br>
+          $648,000 Dwelling <span style="color: var(--yellow);">(+50% buffer)</span><br>
           $500,000 Liability<br>
           $2,500 AOP / 2% Hurricane
         </div>
@@ -1269,6 +1435,46 @@ footer {
       </div>
       <p class="philosophy-body" style="margin-top: 24px; margin-bottom: 0;"><strong>The rule of thumb:</strong> If the loss is roughly 2x your deductible or less, pay it yourself. Save the policy for the events that would actually hurt. <strong>Always call us first before filing</strong> — we'll walk through it with you and recommend the smart move. That's part of the service.</p>
     </div>
+  </div>
+</section>
+
+<!-- EXTENDED REPLACEMENT COST -->
+<section class="erc-section">
+  <div class="erc-wrap">
+    <div class="erc-header">
+      <div class="erc-eyebrow">A Hidden Layer Of Protection</div>
+      <h2 class="erc-title">Your dwelling limit is <span class="highlight">$648,000.</span> Your real protection goes higher.</h2>
+      <p class="erc-sub">One of the most important features of this Hartford policy isn't on the dec page in big letters. It's the Extended Replacement Cost endorsement, and it's worth understanding before anything else.</p>
+    </div>
+
+    <div class="erc-stack">
+      <div class="erc-bar-label">
+        <div class="erc-bar-name">Total Available Rebuild Protection</div>
+        <div class="erc-bar-amount"><span class="accent">$972,000</span></div>
+      </div>
+      <div class="erc-bar-track">
+        <div class="erc-bar-fill-base">$648,000 Stated Limit</div>
+        <div class="erc-bar-fill-extended">+$324,000</div>
+      </div>
+
+      <div class="erc-arrows">
+        <div class="erc-arrow-block base">
+          <div class="erc-arrow-num">$648,000</div>
+          <div class="erc-arrow-label">Coverage A · Stated Dwelling Limit</div>
+        </div>
+        <div class="erc-arrow-block bonus">
+          <div class="erc-arrow-num">+50%</div>
+          <div class="erc-arrow-label">Extended Replacement Cushion</div>
+        </div>
+      </div>
+
+      <div class="erc-total">
+        <div class="erc-total-label">Effective Maximum Rebuild Coverage</div>
+        <div class="erc-total-amount"><span class="dollar">$</span>972,000</div>
+      </div>
+    </div>
+
+    <p class="erc-explanation">When you read your policy, the dwelling limit says $648,000. But Hartford's HO-3 form here includes a <strong>50% Extended Replacement Cost endorsement</strong>, which means if a total loss happens and rebuild costs come in higher than the stated limit (which is increasingly common after major events when material and labor costs spike), the policy will pay <strong>up to an additional $324,000</strong> on top of Coverage A to finish the job. You're not paying extra for it. It's built into this policy. <strong>This is one of the main reasons Hartford won the bid for your home.</strong></p>
   </div>
 </section>
 
@@ -1608,7 +1814,7 @@ footer {
 <section class="cta-section">
   <div class="cta-content">
     <h2 class="cta-title">Ready to lock it in before closing?</h2>
-    <p class="cta-subtitle">Send the green light and we'll bind all three policies, send certificates to your lender, and have everything in place for May 7.</p>
+    <p class="cta-subtitle">Send the green light and we'll bind all three policies, send certificates to your lender, and have everything in place for May 25.</p>
     <a href="tel:2032042555" class="cta-btn">Call To Bind · (203) 204-2555</a>
     <div class="cta-contact">
       Prefer email? <a href="mailto:austin@gosafeshield.com">austin@gosafeshield.com</a>
@@ -1620,7 +1826,7 @@ footer {
 <footer>
   <div class="footer-logo">SAFE<span class="shield">SHIELD</span></div>
   <div class="footer-text">
-    Safeshield Insurance LLC · 2299 Summer Street, Stamford, CT 06905<br>
+    Safeshield Insurance LLC · 2777 Summer Street, Stamford, CT 06905<br>
     Licensed in NY, CT, NJ, PA, DE, NC · 70+ Carrier Partners
   </div>
   <div class="footer-disclaimer">
