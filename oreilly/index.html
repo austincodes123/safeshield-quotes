@@ -616,16 +616,42 @@ section { padding: 80px 24px; position: relative; }
 .auto-section { background: var(--navy-dark); }
 
 .auto-vehicle {
-  max-width: 880px; margin: 0 auto 32px;
   background: linear-gradient(135deg, rgba(255,163,0,0.05) 0%, rgba(10,22,40,0.6) 100%);
   border: 1px solid rgba(255,163,0,0.2);
   border-radius: 16px;
-  padding: 28px 32px;
+  padding: 24px 26px;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   flex-wrap: wrap;
 }
+
+.auto-vehicles-grid {
+  max-width: 880px;
+  margin: 0 auto 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.auto-vehicles-grid .auto-vehicle { margin: 0; }
+
+.vehicle-premium-pill {
+  background: rgba(255,163,0,0.15);
+  border: 1px solid rgba(255,163,0,0.35);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  color: var(--yellow);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+@media (max-width: 720px) {
+  .auto-vehicles-grid { grid-template-columns: 1fr; }
+}
+
 .auto-vehicle-emblem {
   width: 60px; height: 60px;
   background: rgba(255,163,0,0.12);
@@ -896,6 +922,104 @@ footer {
 /* Adjust grid for expanded content */
 .coverage-row {
   grid-template-rows: auto;
+}
+
+/* ESCROW VS STANDALONE BILLING */
+.billing-section {
+  background: linear-gradient(180deg, var(--navy-dark) 0%, #08121f 100%);
+  padding: 90px 24px;
+}
+.billing-wrap { max-width: 980px; margin: 0 auto; }
+.billing-header { text-align: center; margin-bottom: 48px; }
+
+.billing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  max-width: 880px;
+  margin: 0 auto 28px;
+}
+
+.billing-option {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 26px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.billing-option.recommended {
+  border-color: rgba(255,163,0,0.4);
+  background: linear-gradient(145deg, rgba(255,163,0,0.06) 0%, rgba(10,22,40,0.5) 100%);
+}
+.billing-option-tag {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: rgba(0,75,137,0.4);
+  color: var(--gray-200);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+.billing-option.recommended .billing-option-tag {
+  background: var(--yellow);
+  color: var(--navy-dark);
+}
+.billing-option-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.billing-option-tagline {
+  font-size: 0.88rem;
+  color: var(--gray-300);
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.billing-option-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.billing-option-list li {
+  font-size: 0.88rem;
+  color: var(--gray-100);
+  line-height: 1.55;
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.billing-option-list li:last-child { border-bottom: none; }
+.billing-option-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0; top: 4px;
+  color: var(--yellow);
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.billing-bottom-line {
+  max-width: 880px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, rgba(255,163,0,0.08), rgba(10,22,40,0.4));
+  border-left: 3px solid var(--yellow);
+  border-radius: 8px;
+  padding: 20px 26px;
+  font-size: 0.95rem;
+  color: var(--gray-100);
+  line-height: 1.65;
+}
+.billing-bottom-line strong { color: var(--yellow); font-weight: 700; }
+
+@media (max-width: 720px) {
+  .billing-grid { grid-template-columns: 1fr; }
 }
 
 /* EXTENDED REPLACEMENT COST SECTION */
@@ -1195,9 +1319,9 @@ footer {
   <div class="container">
     <div class="intro-card">
       <div class="intro-greeting">Tara &amp; Richard,</div>
-      <p class="intro-body">First, congratulations. Buying your first home is a milestone, and the way you protect it from day one shapes everything that comes after. <strong>Tom Watters sent you our way</strong>, and we don't take that referral lightly. Tom only sends his clients to people he trusts to handle the home right, and that's exactly what this proposal is built to do.</p>
-      <p class="intro-body">After running it through our top markets, <strong>The Hartford came back the strongest</strong>, both on price and on the quality of coverage available to you as new homeowners. What you're about to see is a complete protection plan: your new home (where most of the focus is), the Subaru, and a layer of personal liability protection that most agents don't bother to explain to first-time buyers, but absolutely should.</p>
-      <p class="intro-body">I built this so you can see exactly what you're getting, why each piece matters, and how it all fits together. Click any home coverage card to see real-world examples. No fluff, no surprises. Just the plan.</p>
+      <p class="intro-body">Quick update on your proposal. Two things changed since the first version: <strong>Richard's 2016 Mini Cooper is now in the auto quote</strong>, and I rebuilt the comparison to address the two questions you flagged: why the auto looked higher than what you pay now, and what the difference is between escrowing insurance through your lender or paying it standalone.</p>
+      <p class="intro-body">You were right to ask about both. <strong>Tom Watters sent you our way</strong> and we don't take that referral lightly, so this proposal is built to give you the honest math, not just a sales pitch. With both vehicles together, the multi-vehicle credit kicks in, the umbrella sits on top of all of it, and the picture lines up the way it should for a household stepping into homeownership.</p>
+      <p class="intro-body">Click any home coverage card below to see real-world examples of what each line actually pays out for. Everything you need to make the call is on this page, and I'm available Friday after 10am or Monday at 9 or 11:15 to walk through any of it on a call.</p>
       <div class="intro-sign">
         <div class="intro-sign-name">Austin Glazer</div>
         <div class="intro-sign-title">Founder, Safeshield Insurance</div>
@@ -1238,21 +1362,21 @@ footer {
 
       <!-- AUTO -->
       <div class="bundle-card">
-        <div class="bundle-type">Auto <span style="color: var(--yellow);">*</span></div>
+        <div class="bundle-type">Auto · Both Vehicles</div>
         <div class="bundle-carrier">The Hartford</div>
-        <div class="bundle-policy">6 Month Term · Tara's Subaru</div>
+        <div class="bundle-policy">6 Month Term · Subaru + Mini Cooper</div>
 
         <div class="bundle-price">
           <span class="dollar">$</span>
-          <span class="amount">672</span>
+          <span class="amount">1,090</span>
           <span class="term">/ 6 mo</span>
         </div>
 
         <div class="bundle-features">
           <div class="bundle-features-label">Coverage Summary</div>
-          250/500 Bodily Injury<br>
-          250/500 UM/UIM<br>
-          Full Comp &amp; Collision
+          250/500 BI &amp; UM/UIM<br>
+          Full Comp &amp; Collision · Both Cars<br>
+          Multi-Vehicle Credit Applied
         </div>
       </div>
 
@@ -1265,7 +1389,7 @@ footer {
 
         <div class="bundle-price">
           <span class="dollar">$</span>
-          <span class="amount">100</span>
+          <span class="amount">117</span>
           <span class="term">/ year</span>
         </div>
 
@@ -1281,16 +1405,16 @@ footer {
     <div class="bundle-total">
       <div class="bundle-total-label">Estimated First-Year Total</div>
       <div class="bundle-total-amount">
-        <span class="dollar">$</span>4,307
+        <span class="dollar">$</span>5,160
         <span class="note">All Three Policies</span>
       </div>
       <div class="bundle-total-sub">
-        Home $2,863 + Auto $1,344 (annualized, 1 vehicle) + Umbrella $100 · <strong>Account Credits Applied</strong>
+        Home $2,863 + Auto $2,180 (annualized, 2 vehicles) + Umbrella $117 · <strong>Account Credits Applied</strong>
       </div>
     </div>
 
     <div class="bundle-future">
-      <strong>* Auto premium drops significantly once Richard is added.</strong> Multi-vehicle and multi-driver credits typically reduce the per-vehicle rate noticeably. We'll quote both cars together as soon as we have Richard's vehicle info, and the comparison is included further down in this proposal.
+      <strong>Both vehicles are now in the quote.</strong> The 6-month auto premium ($1,090) covers Tara's 2022 Subaru Forester and Richard's 2016 Mini Cooper, with full coverage on both and matched UM/UIM at $250K/$500K. Multi-vehicle credit is applied.
     </div>
   </div>
 </section>
@@ -1347,9 +1471,9 @@ footer {
 <section class="comparison-section">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">What's Different From Your Current GEICO Policy</div>
-      <h2 class="section-title">Same car. Stronger plan. Honest comparison.</h2>
-      <p class="section-subtitle">Your current policy was built for someone who didn't own a home. The new one is built for someone who does.</p>
+      <div class="section-eyebrow">Addressing The Auto Question Head-On</div>
+      <h2 class="section-title">"The auto looks higher than what I pay now."</h2>
+      <p class="section-subtitle">You're right, and you should ask. Here's the honest math, what you're getting in return, and why the bundle still wins.</p>
     </div>
 
     <div class="comparison-card">
@@ -1357,6 +1481,11 @@ footer {
         <div>Coverage</div>
         <div>GEICO (Current)</div>
         <div>Hartford (New)</div>
+      </div>
+      <div class="comparison-row">
+        <div class="comparison-label">Tara's Subaru · 6-Month Premium</div>
+        <div class="comparison-old">$466</div>
+        <div class="comparison-new">$569</div>
       </div>
       <div class="comparison-row">
         <div class="comparison-label">Bodily Injury Liability</div>
@@ -1395,7 +1524,7 @@ footer {
       </div>
 
       <div class="comparison-note">
-        <strong>The upgrade:</strong> Same liability protection on the auto, plus a $1,000,000 umbrella sitting on top of everything, plus a multi-policy account credit on each policy. The higher deductibles are intentional, and we explain why in the next section.
+        <strong>The honest math on Tara's Subaru:</strong> $103 more per 6 months, or about $17/month. In return: a $1M umbrella, an account credit on the home, and one carrier handling everything. <strong>The umbrella alone is worth the difference,</strong> and it's a level of liability protection your old setup didn't even offer. The bundle isn't more expensive when you compare apples-to-apples. It's more protection.
       </div>
     </div>
   </div>
@@ -1434,6 +1563,49 @@ footer {
         </div>
       </div>
       <p class="philosophy-body" style="margin-top: 24px; margin-bottom: 0;"><strong>The rule of thumb:</strong> If the loss is roughly 2x your deductible or less, pay it yourself. Save the policy for the events that would actually hurt. <strong>Always call us first before filing</strong> — we'll walk through it with you and recommend the smart move. That's part of the service.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ESCROW VS STANDALONE BILLING -->
+<section class="billing-section">
+  <div class="billing-wrap">
+    <div class="billing-header">
+      <div class="section-eyebrow">Addressing Your Second Question</div>
+      <h2 class="section-title">Escrow your home insurance, or pay it standalone?</h2>
+      <p class="section-subtitle">Both work. The premium is the same either way. The difference is how you want to manage cash flow with your lender.</p>
+    </div>
+
+    <div class="billing-grid">
+      <div class="billing-option">
+        <div class="billing-option-tag">Most Common</div>
+        <div class="billing-option-name">Escrow Through Lender</div>
+        <div class="billing-option-tagline">Insurance is paid out of your monthly mortgage payment by the lender.</div>
+        <ul class="billing-option-list">
+          <li>One monthly payment covers principal, interest, taxes, and insurance</li>
+          <li>Lender holds funds and pays Hartford directly when premium comes due</li>
+          <li>Most lenders require this on first-year, especially for first-time buyers</li>
+          <li>Premium itself does not change. No discount or surcharge for escrowing</li>
+          <li>Lender handles renewal payment automatically once set up</li>
+        </ul>
+      </div>
+
+      <div class="billing-option recommended">
+        <div class="billing-option-tag">If You Prefer Control</div>
+        <div class="billing-option-name">Standalone (Direct Billed)</div>
+        <div class="billing-option-tagline">You pay Hartford directly. Lender only collects taxes (or nothing) in escrow.</div>
+        <ul class="billing-option-list">
+          <li>You pay Hartford in full upfront, or in installments via direct billing</li>
+          <li>Paid in Full Discount is available either way and is currently applied to your quote</li>
+          <li>You control the renewal cycle and see every premium change directly</li>
+          <li>Sometimes lowers your monthly mortgage payment if it removes insurance escrow</li>
+          <li>Requires lender approval to waive insurance escrow. Many waive it with 20%+ down</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="billing-bottom-line">
+      <strong>The straight answer:</strong> The Hartford premium is identical whether your lender escrows or you pay direct. It's not a quote-level decision, it's a cash-flow and lender-policy decision. We can bind either way and switch the billing method later without re-quoting. <strong>Talk to Tom Watters about whether your lender will waive insurance escrow</strong>, and we'll match whatever structure works best for you.
     </div>
   </div>
 </section>
@@ -1700,17 +1872,29 @@ footer {
 <section class="auto-section">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">Auto Coverage</div>
-      <h2 class="section-title">Tara's Subaru, fully protected.</h2>
-      <p class="section-subtitle">Hartford auto policy stacked with the Welcome to The Hartford Discount, Vehicle Safety Credit, Good Payer Discount, Clean Driving Record, and Account Credit from bundling.</p>
+      <div class="section-eyebrow">Auto Coverage · Both Vehicles</div>
+      <h2 class="section-title">Two cars. One policy. Multi-vehicle credit applied.</h2>
+      <p class="section-subtitle">Hartford auto policy stacked with the Welcome to The Hartford Discount, Vehicle Safety Credit, Good Payer, Clean Driving Record, Multi-Vehicle Credit, and Account Credit from bundling.</p>
     </div>
 
-    <div class="auto-vehicle">
-      <div class="auto-vehicle-emblem">SU</div>
-      <div class="auto-vehicle-info">
-        <div class="auto-vehicle-year">2022 · Pleasure Use · Lienholder: JP Morgan Chase</div>
-        <div class="auto-vehicle-name">Subaru Forester</div>
-        <div class="auto-vehicle-vin">VIN: JF2SKAPC7NH450408</div>
+    <div class="auto-vehicles-grid">
+      <div class="auto-vehicle">
+        <div class="auto-vehicle-emblem">SU</div>
+        <div class="auto-vehicle-info">
+          <div class="auto-vehicle-year">2022 · Tara · Lienholder: JP Morgan Chase</div>
+          <div class="auto-vehicle-name">Subaru Forester</div>
+          <div class="auto-vehicle-vin">VIN: JF2SKAPC7NH450408</div>
+          <div class="vehicle-premium-pill">$569 / 6 mo</div>
+        </div>
+      </div>
+      <div class="auto-vehicle">
+        <div class="auto-vehicle-emblem">MC</div>
+        <div class="auto-vehicle-info">
+          <div class="auto-vehicle-year">2016 · Richard · Pleasure Use</div>
+          <div class="auto-vehicle-name">Mini Cooper</div>
+          <div class="auto-vehicle-vin">VIN: WMWZC3C50GWT09740</div>
+          <div class="vehicle-premium-pill">$521 / 6 mo</div>
+        </div>
       </div>
     </div>
 
@@ -1718,14 +1902,14 @@ footer {
       <div class="auto-row">
         <div>
           <div class="auto-row-name">Bodily Injury Liability</div>
-          <div class="auto-row-detail">Per person / per accident</div>
+          <div class="auto-row-detail">Per person / per accident · Both vehicles</div>
         </div>
         <div class="auto-row-limit">$250,000 / $500,000</div>
       </div>
       <div class="auto-row">
         <div>
           <div class="auto-row-name">Property Damage Liability</div>
-          <div class="auto-row-detail">Per accident</div>
+          <div class="auto-row-detail">Per accident · Both vehicles</div>
         </div>
         <div class="auto-row-limit">$100,000</div>
       </div>
@@ -1739,7 +1923,7 @@ footer {
       <div class="auto-row">
         <div>
           <div class="auto-row-name">Uninsured / Underinsured Motorist</div>
-          <div class="auto-row-detail">Per person / per accident · Matches your liability limits</div>
+          <div class="auto-row-detail">Per person / per accident · Matched to liability</div>
         </div>
         <div class="auto-row-limit">$250,000 / $500,000</div>
       </div>
@@ -1774,9 +1958,9 @@ footer {
     </div>
 
     <div class="future-richard">
-      <div class="future-richard-icon">+</div>
+      <div class="future-richard-icon">$</div>
       <div class="future-richard-text">
-        <strong>* Pricing note: Richard's car changes everything.</strong> The $672 / 6-month rate above is for one vehicle on the policy. As soon as Richard's vehicle is added, the auto policy rerates with multi-vehicle and multi-driver credits, which historically drops the per-vehicle cost meaningfully. We'll quote both cars together and send a side-by-side so you can see the savings before you bind.
+        <strong>Multi-vehicle credit at work:</strong> Richard's Mini Cooper comes in at $521 / 6 months — a strong rate for full coverage, and lower than the Subaru even though he's a rated driver on both. The combined 6-month auto premium of $1,090 includes multi-vehicle and multi-driver credits that would not have applied to either car standalone.
       </div>
     </div>
   </div>
@@ -1813,11 +1997,11 @@ footer {
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-content">
-    <h2 class="cta-title">Ready to lock it in before closing?</h2>
-    <p class="cta-subtitle">Send the green light and we'll bind all three policies, send certificates to your lender, and have everything in place for May 25.</p>
-    <a href="tel:2032042555" class="cta-btn">Call To Bind · (203) 204-2555</a>
+    <h2 class="cta-title">Let's get on a call and walk through it.</h2>
+    <p class="cta-subtitle">Available Friday 5/9 after 10am, or Monday at 9:00am or 11:15am. Pick whichever works and I'll send a calendar invite.</p>
+    <a href="tel:2032042555" class="cta-btn">Call Now · (203) 204-2555</a>
     <div class="cta-contact">
-      Prefer email? <a href="mailto:austin@gosafeshield.com">austin@gosafeshield.com</a>
+      Or email me to lock the time: <a href="mailto:austin@gosafeshield.com">austin@gosafeshield.com</a>
     </div>
   </div>
 </section>
