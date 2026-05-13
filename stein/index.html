@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auto Proposal | Eric Stein &amp; Dana Carretta | Safeshield Insurance</title>
+<title>Bundle Proposal | Eric Stein &amp; Dana Carretta | Safeshield Insurance</title>
 <link rel="icon" type="image/png" href="https://gosafeshield.com/wp-content/uploads/2025/03/Blue_and_gold_shield_logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -17,15 +17,10 @@
   --yellow-light: #FFB833;
   --off-white: #FAFAF8;
   --white: #ffffff;
-  --gray-100: #f0f1f3;
   --gray-200: #d8dbe0;
   --gray-300: #b0b5be;
   --gray-500: #737984;
-  --gray-600: #5a6270;
-  --gray-700: #3d4350;
   --green: #22c55e;
-  --green-dark: #16a34a;
-  --red-soft: #ef4444;
   --border: #1a2940;
 }
 
@@ -52,25 +47,16 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 .hero::before {
-  content: '';
-  position: absolute;
-  top: -40%;
-  right: -30%;
-  width: 900px;
-  height: 900px;
+  content: ''; position: absolute; top: -40%; right: -30%;
+  width: 900px; height: 900px;
   background: radial-gradient(circle, rgba(255,163,0,0.08) 0%, transparent 70%);
   border-radius: 50%;
   animation: drift 22s ease-in-out infinite;
 }
 .hero::after {
-  content: '';
-  position: absolute;
-  bottom: -30%;
-  left: -20%;
-  width: 700px;
-  height: 700px;
+  content: ''; position: absolute; bottom: -30%; left: -20%;
+  width: 700px; height: 700px;
   background: radial-gradient(circle, rgba(0,75,137,0.25) 0%, transparent 70%);
   border-radius: 50%;
   animation: drift 28s ease-in-out infinite reverse;
@@ -82,29 +68,19 @@ body {
 
 .hero-logo-text {
   font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 20px;
-  letter-spacing: 4px;
-  color: var(--white);
-  margin-bottom: 40px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.2s;
-  position: relative;
-  z-index: 2;
+  font-weight: 900; font-size: 20px; letter-spacing: 4px;
+  color: var(--white); margin-bottom: 40px;
+  opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
+  position: relative; z-index: 2;
 }
 .hero-logo-text span { color: var(--yellow); }
 
 .hero-eyebrow {
   font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--yellow);
-  margin-bottom: 18px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.3s;
+  font-weight: 700; font-style: italic;
+  font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--yellow); margin-bottom: 18px;
+  opacity: 0; animation: fadeUp 0.8s ease forwards 0.3s;
   position: relative; z-index: 2;
 }
 
@@ -112,11 +88,9 @@ body {
   font-family: 'Playfair Display', serif;
   font-weight: 900;
   font-size: clamp(2rem, 4.8vw, 3.4rem);
-  color: var(--white);
-  line-height: 1.1;
+  color: var(--white); line-height: 1.1;
   margin-bottom: 14px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.4s;
+  opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s;
   position: relative; z-index: 2;
 }
 .hero h1 .name { color: var(--yellow); }
@@ -135,7 +109,8 @@ body {
   color: var(--gray-300); opacity: 0; animation: fadeUp 0.8s ease forwards 1.4s;
 }
 .scroll-hint::after {
-  content: ''; display: block; width: 1px; height: 28px; background: linear-gradient(to bottom, var(--yellow), transparent);
+  content: ''; display: block; width: 1px; height: 28px;
+  background: linear-gradient(to bottom, var(--yellow), transparent);
   margin: 10px auto 0;
 }
 
@@ -144,7 +119,6 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* SECTIONS */
 section { padding: 80px 24px; position: relative; }
 .container { max-width: 1080px; margin: 0 auto; }
 
@@ -159,22 +133,17 @@ section { padding: 80px 24px; position: relative; }
   font-family: 'Playfair Display', serif;
   font-weight: 900;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
-  color: var(--white);
-  line-height: 1.15;
-  margin-bottom: 14px;
+  color: var(--white); line-height: 1.15; margin-bottom: 14px;
 }
 .section-subtitle {
   font-size: 1.05rem; color: var(--gray-300); font-weight: 300;
   max-width: 640px; margin: 0 auto;
 }
 
-/* SWAP SPOTLIGHT */
-.swap-section {
-  background: linear-gradient(180deg, var(--navy-deep) 0%, #08121f 100%);
-  padding: 100px 24px;
-}
+/* BOTTOM LINE */
+.bl-section { background: linear-gradient(180deg, var(--navy-deep) 0%, #08121f 100%); padding: 100px 24px; }
 
-.swap-grid {
+.bl-grid {
   max-width: 1080px; margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -182,233 +151,222 @@ section { padding: 80px 24px; position: relative; }
   align-items: stretch;
 }
 
-.swap-card {
+.bl-card {
   background: linear-gradient(145deg, rgba(0,75,137,0.2) 0%, rgba(10,22,40,0.6) 100%);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 36px 32px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
 }
-.swap-card.current { border-color: rgba(115,121,132,0.3); }
-.swap-card.proposed { border-color: rgba(255,163,0,0.3); }
-.swap-card.proposed::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+.bl-card.current { border-color: rgba(115,121,132,0.3); }
+.bl-card.proposed { border-color: rgba(255,163,0,0.3); }
+.bl-card.proposed::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
   background: linear-gradient(90deg, transparent, var(--yellow), transparent);
 }
 
-.swap-type {
-  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--gray-300); margin-bottom: 10px;
-}
-.swap-carrier {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900; font-size: 1.5rem;
-  color: var(--white); margin-bottom: 4px;
-}
-.swap-policy { color: var(--gray-300); font-size: 0.88rem; margin-bottom: 28px; }
+.bl-type { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 10px; }
+.bl-carrier { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem; color: var(--white); margin-bottom: 4px; }
+.bl-policy { color: var(--gray-300); font-size: 0.88rem; margin-bottom: 28px; }
 
-.swap-price {
-  display: flex; align-items: baseline; gap: 6px;
-  margin-bottom: 4px;
-}
-.swap-price .amount {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 3rem;
-  line-height: 1;
-  letter-spacing: -1px;
-}
-.swap-card.current .swap-price .amount { color: var(--gray-200); }
-.swap-card.proposed .swap-price .amount { color: var(--yellow); }
-.swap-price .dollar { font-size: 1.8rem; font-weight: 700; }
-.swap-card.current .swap-price .dollar { color: var(--gray-300); }
-.swap-card.proposed .swap-price .dollar { color: var(--yellow-light); }
-.swap-price .term { color: var(--gray-300); font-size: 0.85rem; font-weight: 500; margin-left: 6px; }
+.bl-price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
+.bl-price .amount { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 2.8rem; line-height: 1; letter-spacing: -1px; }
+.bl-card.current .bl-price .amount { color: var(--gray-200); }
+.bl-card.proposed .bl-price .amount { color: var(--yellow); }
+.bl-price .dollar { font-size: 1.6rem; font-weight: 700; }
+.bl-card.current .bl-price .dollar { color: var(--gray-300); }
+.bl-card.proposed .bl-price .dollar { color: var(--yellow-light); }
+.bl-price .term { color: var(--gray-300); font-size: 0.85rem; font-weight: 500; margin-left: 6px; }
 
-.swap-term { color: var(--gray-500); font-size: 0.88rem; margin-top: 4px; }
+.bl-term { color: var(--gray-500); font-size: 0.88rem; margin-top: 4px; }
 
-.swap-badge {
+.bl-badge {
   display: inline-flex; align-items: center; gap: 6px;
   margin-top: 18px; padding: 6px 14px;
   background: rgba(34,197,94,0.1);
   border: 1px solid rgba(34,197,94,0.25);
   border-radius: 999px;
-  color: #86efac; font-size: 12px; font-weight: 600;
-  letter-spacing: 0.5px;
+  color: #86efac; font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
   align-self: flex-start;
 }
-.swap-badge.muted {
-  background: rgba(115,121,132,0.1);
-  border-color: rgba(115,121,132,0.25);
-  color: var(--gray-300);
-}
+.bl-badge.muted { background: rgba(115,121,132,0.1); border-color: rgba(115,121,132,0.25); color: var(--gray-300); }
 
-.swap-features {
-  margin-top: auto;
-  padding-top: 24px;
+.bl-breakdown {
+  margin-top: auto; padding-top: 24px;
   border-top: 1px solid var(--border);
-  font-size: 0.82rem;
-  color: var(--gray-200);
-  line-height: 1.8;
+  font-size: 0.82rem; color: var(--gray-200);
 }
-.swap-features-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 8px; }
+.bl-breakdown-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 10px; }
+.bl-line { display: flex; justify-content: space-between; padding: 6px 0; }
+.bl-line-name { color: var(--gray-200); }
+.bl-line-amount { color: var(--white); font-weight: 600; font-family: 'Playfair Display', serif; }
 
-.swap-arrow {
+.bl-arrow {
   display: flex; align-items: center; justify-content: center;
   font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 3rem;
-  color: var(--yellow);
+  font-weight: 900; font-size: 3rem; color: var(--yellow);
   min-width: 80px;
 }
 
-.swap-total {
+.bl-total {
   max-width: 760px; margin: 40px auto 0;
   background: linear-gradient(145deg, rgba(255,163,0,0.12) 0%, rgba(10,22,40,0.6) 100%);
   border: 2px solid var(--yellow);
   border-radius: 16px;
   padding: 32px 40px;
   text-align: center;
-  position: relative;
 }
-.swap-total-label {
+.bl-total-label {
   font-family: 'Playfair Display', serif;
   font-weight: 700; font-style: italic;
   font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
   color: var(--yellow); margin-bottom: 12px;
 }
-.swap-total-amount {
+.bl-total-amount {
   font-family: 'Playfair Display', serif;
   font-weight: 900;
   font-size: clamp(3rem, 7vw, 4.4rem);
-  color: var(--white);
-  line-height: 1;
-  letter-spacing: -1px;
+  color: var(--white); line-height: 1; letter-spacing: -1px;
   margin-bottom: 10px;
 }
-.swap-total-amount .dollar { color: var(--yellow); font-size: 0.6em; vertical-align: top; }
-.swap-total-amount .note { display: inline-block; font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500; color: var(--gray-300); letter-spacing: 1.5px; text-transform: uppercase; margin-left: 8px; vertical-align: middle; }
-.swap-total-sub { color: var(--gray-200); font-size: 1rem; }
-.swap-total-sub strong { color: var(--green); font-weight: 700; }
+.bl-total-amount .dollar { color: var(--yellow); font-size: 0.6em; vertical-align: top; }
+.bl-total-sub { color: var(--gray-200); font-size: 1rem; }
+.bl-total-sub strong { color: var(--green); font-weight: 700; }
 
-/* LADDER — IT CAN GO LOWER */
-.ladder-section {
-  background: var(--navy-dark);
-  position: relative;
-  overflow: hidden;
-}
-.ladder-section::before {
-  content: '';
-  position: absolute;
-  top: -20%; right: -10%;
+/* LINES */
+.lines-section { background: var(--navy-dark); position: relative; overflow: hidden; }
+.lines-section::before {
+  content: ''; position: absolute; top: -20%; right: -10%;
   width: 600px; height: 600px;
   background: radial-gradient(circle, rgba(255,163,0,0.06) 0%, transparent 70%);
   border-radius: 50%;
 }
 
-.ladder-intro {
-  max-width: 760px; margin: 0 auto 48px;
-  text-align: center;
-  color: var(--gray-200);
-  font-size: 1.05rem;
-  line-height: 1.7;
+.lines-stack {
+  max-width: 880px; margin: 0 auto;
   position: relative; z-index: 1;
+  display: flex; flex-direction: column; gap: 18px;
 }
-.ladder-intro strong { color: var(--yellow); font-weight: 600; }
 
-.ladder-grid {
+.line-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.02) 0%, rgba(10,22,40,0.6) 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 32px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1080px;
-  margin: 0 auto;
-  position: relative; z-index: 1;
+  grid-template-columns: auto 1fr auto auto auto;
+  gap: 28px;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.line-card:hover { border-color: rgba(255,163,0,0.3); transform: translateY(-2px); }
+
+.line-icon {
+  width: 56px; height: 56px;
+  background: rgba(255,163,0,0.12);
+  border: 1px solid rgba(255,163,0,0.3);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-size: 0.85rem;
+  color: var(--yellow); letter-spacing: 1px;
 }
 
-.ladder-step {
+.line-name { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.3rem; color: var(--white); margin-bottom: 4px; }
+.line-detail { color: var(--gray-300); font-size: 0.88rem; }
+
+.line-price-block { text-align: right; min-width: 120px; }
+.line-price-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 4px; }
+.line-price { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.4rem; color: var(--white); }
+.line-price-block.proposed .line-price { color: var(--yellow); }
+.line-price.included { font-size: 1rem; color: var(--green); font-style: italic; }
+
+.line-arrow { color: var(--gray-500); font-size: 1.5rem; }
+
+.lines-totals {
+  max-width: 880px; margin: 32px auto 0;
   background: rgba(255,255,255,0.02);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 36px 28px;
-  position: relative;
-  transition: all 0.3s ease;
+  padding: 24px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto auto auto auto;
+  gap: 28px; align-items: center;
 }
-.ladder-step:hover { transform: translateY(-4px); border-color: rgba(255,163,0,0.3); }
+.lines-totals-label { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.1rem; color: var(--white); }
+.lines-totals-current { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.4rem; color: var(--gray-200); }
+.lines-totals-proposed { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.4rem; color: var(--yellow); }
 
-.ladder-step.active {
-  background: linear-gradient(145deg, rgba(255,163,0,0.08) 0%, rgba(10,22,40,0.4) 100%);
-  border-color: var(--yellow);
-  box-shadow: 0 20px 50px rgba(255,163,0,0.15);
+/* ERC */
+.erc-section { background: linear-gradient(180deg, #08121f 0%, var(--navy-dark) 100%); }
+
+.erc-card {
+  max-width: 880px; margin: 0 auto;
+  background: linear-gradient(145deg, rgba(255,163,0,0.05) 0%, rgba(10,22,40,0.6) 100%);
+  border: 1px solid rgba(255,163,0,0.2);
+  border-radius: 20px;
+  padding: 48px;
 }
 
-.ladder-step.destination {
-  background: linear-gradient(145deg, rgba(255,163,0,0.18) 0%, rgba(10,22,40,0.4) 100%);
-  border: 2px solid var(--yellow);
-}
-
-.ladder-num {
+.erc-label {
+  display: inline-block;
   font-family: 'Playfair Display', serif;
-  font-weight: 900; font-style: italic;
-  font-size: 2.2rem;
+  font-weight: 700; font-style: italic;
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
   color: var(--yellow);
-  line-height: 1;
-  margin-bottom: 14px;
-}
-
-.ladder-label {
-  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--gray-300); margin-bottom: 8px;
-}
-
-.ladder-title {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 1.5rem;
-  color: var(--white);
-  margin-bottom: 18px;
-  line-height: 1.2;
-}
-
-.ladder-price {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 2.2rem;
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.ladder-price .dollar { color: var(--yellow); font-size: 0.7em; vertical-align: top; font-weight: 700; }
-.ladder-price.est { color: var(--yellow); font-size: 1.6rem; }
-
-.ladder-price-note {
-  color: var(--gray-300);
-  font-size: 0.82rem;
+  padding: 6px 14px;
+  background: rgba(255,163,0,0.1);
+  border: 1px solid rgba(255,163,0,0.3);
+  border-radius: 999px;
   margin-bottom: 20px;
 }
 
-.ladder-text {
-  color: var(--gray-200);
-  font-size: 0.92rem;
-  line-height: 1.6;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
+.erc-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  color: var(--white); line-height: 1.2;
+  margin-bottom: 20px;
 }
+.erc-title .accent { color: var(--yellow); }
 
-.ladder-footnote {
-  max-width: 760px; margin: 40px auto 0;
-  text-align: center;
-  color: var(--gray-500);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  position: relative; z-index: 1;
+.erc-body { color: var(--gray-200); font-size: 1.05rem; line-height: 1.7; margin-bottom: 28px; }
+
+.erc-compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-top: 24px;
+}
+.erc-compare-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+.erc-compare-box.proposed { border-color: rgba(255,163,0,0.3); background: rgba(255,163,0,0.04); }
+
+.erc-compare-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 8px; }
+.erc-compare-carrier { color: var(--white); font-weight: 700; font-size: 0.95rem; margin-bottom: 14px; }
+
+.erc-compare-stat { display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px; }
+.erc-compare-amount { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.8rem; color: var(--white); }
+.erc-compare-box.proposed .erc-compare-amount { color: var(--yellow); }
+.erc-compare-stat .dollar { font-size: 1.1rem; font-weight: 700; color: var(--yellow-light); }
+
+.erc-compare-meta { color: var(--gray-300); font-size: 0.82rem; line-height: 1.5; }
+
+.erc-compare-tag {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 10px;
+  background: rgba(34,197,94,0.12);
+  color: #86efac;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+  border-radius: 6px;
 }
 
 /* COVERAGE TABLE */
-.coverage-section { background: linear-gradient(180deg, #08121f 0%, var(--navy-dark) 100%); }
+.coverage-section { background: var(--navy-deep); }
 
 .coverage-table {
   max-width: 880px; margin: 0 auto;
@@ -420,8 +378,7 @@ section { padding: 80px 24px; position: relative; }
 .coverage-row {
   display: grid;
   grid-template-columns: 50px 1fr auto;
-  gap: 20px;
-  align-items: center;
+  gap: 20px; align-items: center;
   padding: 22px 28px;
   border-bottom: 1px solid var(--border);
   transition: background 0.2s ease;
@@ -444,19 +401,17 @@ section { padding: 80px 24px; position: relative; }
 .coverage-limit {
   font-family: 'Playfair Display', serif;
   font-weight: 700; font-size: 1.2rem; color: var(--white);
-  white-space: nowrap;
-  text-align: right;
+  white-space: nowrap; text-align: right;
 }
 
 /* VEHICLES */
-.vehicles-section { background: var(--navy-dark); }
+.vehicles-section { background: linear-gradient(180deg, var(--navy-dark) 0%, #08121f 100%); }
 
 .vehicles-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 20px;
-  max-width: 980px;
-  margin: 0 auto;
+  max-width: 980px; margin: 0 auto;
 }
 
 .vehicle-card {
@@ -467,11 +422,8 @@ section { padding: 80px 24px; position: relative; }
 }
 
 .vehicle-header {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 24px;
-  padding-bottom: 24px;
+  display: flex; align-items: center; gap: 18px;
+  margin-bottom: 24px; padding-bottom: 24px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -489,14 +441,9 @@ section { padding: 80px 24px; position: relative; }
 .vehicle-info { flex: 1; min-width: 0; }
 .vehicle-year { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 4px; }
 .vehicle-name { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.25rem; color: var(--white); margin-bottom: 4px; line-height: 1.2; }
-.vehicle-vin { font-family: 'Outfit', monospace; font-size: 0.72rem; color: var(--gray-300); letter-spacing: 1px; word-break: break-all; }
+.vehicle-vin { font-family: monospace; font-size: 0.72rem; color: var(--gray-300); letter-spacing: 1px; word-break: break-all; }
 
-.vehicle-pricing {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 20px;
-}
+.vehicle-pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
 
 .vehicle-pricebox {
   padding: 16px;
@@ -506,25 +453,58 @@ section { padding: 80px 24px; position: relative; }
 }
 .vehicle-pricebox.proposed { border-color: rgba(255,163,0,0.3); background: rgba(255,163,0,0.04); }
 .vehicle-pricebox-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 6px; }
-.vehicle-pricebox-amount {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 1.5rem;
-  color: var(--white);
-}
+.vehicle-pricebox-amount { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem; color: var(--white); }
 .vehicle-pricebox.proposed .vehicle-pricebox-amount { color: var(--yellow); }
 
 .vehicle-driver {
-  font-size: 0.85rem;
-  color: var(--gray-300);
+  font-size: 0.85rem; color: var(--gray-300);
   padding: 12px 14px;
   background: rgba(0,75,137,0.12);
   border-radius: 10px;
 }
 .vehicle-driver strong { color: var(--white); font-weight: 600; }
 
+/* JEWELRY */
+.jewelry-section { background: var(--navy-dark); }
+
+.jewelry-grid {
+  max-width: 880px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.jewelry-item {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  transition: all 0.3s ease;
+}
+.jewelry-item:hover { border-color: rgba(255,163,0,0.3); }
+
+.jewelry-name { color: var(--white); font-weight: 600; font-size: 1rem; margin-bottom: 6px; }
+.jewelry-amount { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem; color: var(--yellow); }
+
+.jewelry-summary {
+  max-width: 880px; margin: 28px auto 0;
+  padding: 24px 32px;
+  background: linear-gradient(145deg, rgba(34,197,94,0.08) 0%, rgba(10,22,40,0.4) 100%);
+  border: 1px solid rgba(34,197,94,0.25);
+  border-radius: 16px;
+  text-align: center;
+}
+.jewelry-summary-eyebrow {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-style: italic;
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--green); margin-bottom: 8px;
+}
+.jewelry-summary-text { color: var(--white); font-size: 1.1rem; font-weight: 500; }
+.jewelry-summary-text strong { color: var(--green); font-weight: 700; }
+
 /* DISCOUNTS */
-.discounts-section { background: linear-gradient(180deg, var(--navy-dark) 0%, #08121f 100%); }
+.discounts-section { background: linear-gradient(180deg, #08121f 0%, var(--navy-dark) 100%); }
 
 .discounts-grid {
   display: grid;
@@ -542,13 +522,7 @@ section { padding: 80px 24px; position: relative; }
 }
 .discount-card:hover { border-color: rgba(34,197,94,0.35); }
 
-.discount-amount {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 1.4rem;
-  color: var(--green);
-  margin-bottom: 4px;
-}
+.discount-amount { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.4rem; color: var(--green); margin-bottom: 4px; }
 .discount-name { color: var(--white); font-weight: 600; font-size: 0.92rem; }
 
 .discount-total {
@@ -558,18 +532,12 @@ section { padding: 80px 24px; position: relative; }
   border: 1px solid rgba(34,197,94,0.25);
   border-radius: 14px;
   display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-wrap: wrap; gap: 12px;
 }
 .discount-total-label { color: var(--gray-200); font-size: 0.95rem; font-weight: 500; }
-.discount-total-amount {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 1.8rem;
-  color: var(--green);
-}
+.discount-total-amount { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.8rem; color: var(--green); }
 
-/* WHY SAFESHIELD */
+/* WHY */
 .why-section { background: var(--navy-deep); }
 
 .why-grid {
@@ -588,10 +556,8 @@ section { padding: 80px 24px; position: relative; }
 .why-number {
   font-family: 'Playfair Display', serif;
   font-weight: 900; font-style: italic;
-  font-size: 3rem;
-  color: var(--yellow);
-  line-height: 1;
-  margin-bottom: 12px;
+  font-size: 3rem; color: var(--yellow);
+  line-height: 1; margin-bottom: 12px;
 }
 .why-title { color: var(--white); font-weight: 700; font-size: 1.05rem; margin-bottom: 8px; }
 .why-text { color: var(--gray-300); font-size: 0.88rem; line-height: 1.55; }
@@ -601,12 +567,10 @@ section { padding: 80px 24px; position: relative; }
   background: linear-gradient(170deg, var(--navy) 0%, var(--navy-dark) 100%);
   text-align: center;
   padding: 100px 24px;
-  position: relative;
-  overflow: hidden;
+  position: relative; overflow: hidden;
 }
 .cta-section::before {
-  content: '';
-  position: absolute; inset: 0;
+  content: ''; position: absolute; inset: 0;
   background: radial-gradient(circle at 50% 50%, rgba(255,163,0,0.15) 0%, transparent 70%);
 }
 .cta-content { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
@@ -615,9 +579,7 @@ section { padding: 80px 24px; position: relative; }
   font-family: 'Playfair Display', serif;
   font-weight: 900;
   font-size: clamp(1.8rem, 4.5vw, 2.8rem);
-  color: var(--white);
-  line-height: 1.15;
-  margin-bottom: 16px;
+  color: var(--white); line-height: 1.15; margin-bottom: 16px;
 }
 .cta-subtitle { color: var(--gray-200); font-size: 1.05rem; margin-bottom: 36px; font-weight: 300; }
 
@@ -627,10 +589,8 @@ section { padding: 80px 24px; position: relative; }
   background: var(--yellow);
   color: var(--navy-dark);
   font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  font-weight: 700; font-size: 0.95rem;
+  letter-spacing: 1.5px; text-transform: uppercase;
   text-decoration: none;
   border-radius: 999px;
   transition: all 0.3s ease;
@@ -642,40 +602,48 @@ section { padding: 80px 24px; position: relative; }
 .cta-contact a { color: var(--yellow); text-decoration: none; font-weight: 600; }
 .cta-contact a:hover { text-decoration: underline; }
 
-/* FOOTER */
 footer {
   background: var(--navy-deep);
   padding: 40px 24px;
   text-align: center;
   border-top: 1px solid var(--border);
 }
-.footer-logo {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 1.2rem;
-  color: var(--white);
-  margin-bottom: 8px;
-  letter-spacing: 2px;
-}
+.footer-logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.2rem; color: var(--white); margin-bottom: 8px; letter-spacing: 2px; }
 .footer-logo .shield { color: var(--yellow); font-weight: 700; }
 .footer-text { color: var(--gray-300); font-size: 0.82rem; line-height: 1.6; }
 .footer-disclaimer { color: var(--gray-500); font-size: 0.72rem; margin-top: 16px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.55; }
 
 /* MOBILE */
 @media (max-width: 820px) {
-  .swap-grid { grid-template-columns: 1fr; gap: 16px; }
-  .swap-arrow { font-size: 2.5rem; padding: 8px 0; transform: rotate(90deg); }
-  .ladder-grid { grid-template-columns: 1fr; }
+  .bl-grid { grid-template-columns: 1fr; gap: 16px; }
+  .bl-arrow { font-size: 2.5rem; padding: 8px 0; transform: rotate(90deg); }
   .vehicles-grid { grid-template-columns: 1fr; }
+  .jewelry-grid { grid-template-columns: 1fr; }
+  .erc-compare { grid-template-columns: 1fr; }
+  .line-card { grid-template-columns: auto 1fr; gap: 16px; }
+  .line-card > .line-info { grid-column: 2; }
+  .line-card > .line-price-block, .line-card > .line-arrow {
+    grid-column: 1 / -1; text-align: left;
+  }
+  .line-card > .line-arrow { display: none; }
+  .line-card > .line-price-block {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 10px;
+  }
+  .line-card > .line-price-block .line-price-label { margin-bottom: 0; }
+  .lines-totals { grid-template-columns: 1fr; gap: 12px; text-align: center; }
 }
 @media (max-width: 640px) {
   section { padding: 60px 20px; }
-  .swap-total { padding: 28px 24px; }
+  .bl-total { padding: 28px 24px; }
   .coverage-row { grid-template-columns: 40px 1fr; gap: 14px; padding: 18px 20px; }
   .coverage-limit { grid-column: 2; margin-top: 6px; font-size: 1.1rem; text-align: left; }
   .hero-meta { gap: 20px; }
   .vehicle-pricing { grid-template-columns: 1fr; }
   .discount-total { flex-direction: column; text-align: center; }
+  .erc-card { padding: 32px 24px; }
 }
 </style>
 </head>
@@ -684,150 +652,339 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-logo-text">SAFE<span>SHIELD</span></div>
-  <div class="hero-eyebrow">A Proposal Prepared For</div>
+  <div class="hero-eyebrow">A Full Household Proposal Prepared For</div>
   <h1><span class="name">Eric Stein &amp; Dana Carretta</span></h1>
-  <div class="subtitle">Auto Insurance Proposal</div>
+  <div class="subtitle">Auto, Home &amp; Jewelry Bundle</div>
   <div class="address">17 Monrovia Blvd, Tuckahoe, NY 10707</div>
 
   <div class="hero-meta">
     <div class="hero-meta-item">
-      <div class="hero-meta-label">Effective</div>
-      <div class="hero-meta-value">April 23, 2026</div>
+      <div class="hero-meta-label">Auto</div>
+      <div class="hero-meta-value">NYCM · BMW X5 + GLE350</div>
     </div>
     <div class="hero-meta-item">
-      <div class="hero-meta-label">Carrier</div>
-      <div class="hero-meta-value">NYCM Insurance</div>
+      <div class="hero-meta-label">Home</div>
+      <div class="hero-meta-value">NYCM · $1.5M Dwelling</div>
     </div>
     <div class="hero-meta-item">
-      <div class="hero-meta-label">Vehicles</div>
-      <div class="hero-meta-value">BMW X5 · Mercedes GLE350</div>
+      <div class="hero-meta-label">Jewelry</div>
+      <div class="hero-meta-value">Bundled In · $53K Scheduled</div>
     </div>
   </div>
 
-  <div class="scroll-hint">Your Proposal Below</div>
+  <div class="scroll-hint">Your Bundle Below</div>
 </section>
 
-<!-- SWAP SPOTLIGHT -->
-<section class="swap-section">
+<!-- BOTTOM LINE -->
+<section class="bl-section">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">Current vs Proposed</div>
-      <h2 class="section-title">You are overpaying on auto.</h2>
-      <p class="section-subtitle">Same coverage, same limits, same two vehicles. Different carrier, better pricing. Here is the side by side.</p>
+      <div class="section-eyebrow">The Full Household View</div>
+      <h2 class="section-title">Everything you're paying. Everything you'd pay with us.</h2>
+      <p class="section-subtitle">Auto, home, and the separate jewelry rider you carry today. Side by side with the Safeshield bundle.</p>
     </div>
 
-    <div class="swap-grid">
-      <!-- CURRENT -->
-      <div class="swap-card current">
-        <div class="swap-type">Current Carrier</div>
-        <div class="swap-carrier">Travelers</div>
-        <div class="swap-policy">12 Month Term · Renews 11/21/2026</div>
+    <div class="bl-grid">
+      <div class="bl-card current">
+        <div class="bl-type">Current Setup</div>
+        <div class="bl-carrier">Travelers</div>
+        <div class="bl-policy">3 separate Travelers policies + RLI umbrella</div>
 
-        <div class="swap-price">
+        <div class="bl-price">
           <span class="dollar">$</span>
-          <span class="amount">7,159</span>
+          <span class="amount">12,121</span>
           <span class="term">/ year</span>
         </div>
-        <div class="swap-term">Policy period 11/21/2025 to 11/21/2026</div>
+        <div class="bl-term">Across multiple billing accounts</div>
 
-        <div class="swap-badge muted">What you are paying today</div>
+        <div class="bl-badge muted">What you're paying today</div>
 
-        <div class="swap-features">
-          <div class="swap-features-label">Coverage Summary</div>
-          250k / 500k Liability<br>
-          250k / 500k Uninsured Motorists<br>
-          $1,000 Comp &amp; Collision
+        <div class="bl-breakdown">
+          <div class="bl-breakdown-label">Premium Breakdown</div>
+          <div class="bl-line"><span class="bl-line-name">Auto (2 vehicles)</span><span class="bl-line-amount">$7,159</span></div>
+          <div class="bl-line"><span class="bl-line-name">Homeowners</span><span class="bl-line-amount">$3,707</span></div>
+          <div class="bl-line"><span class="bl-line-name">Jewelry Rider</span><span class="bl-line-amount">$770</span></div>
+          <div class="bl-line"><span class="bl-line-name">Umbrella (RLI)</span><span class="bl-line-amount">~$485</span></div>
         </div>
       </div>
 
-      <div class="swap-arrow">&rarr;</div>
+      <div class="bl-arrow">&rarr;</div>
 
-      <!-- PROPOSED -->
-      <div class="swap-card proposed">
-        <div class="swap-type">Proposed — Safeshield</div>
-        <div class="swap-carrier">NYCM Insurance</div>
-        <div class="swap-policy">12 Month Term · Effective 04/23/2026</div>
+      <div class="bl-card proposed">
+        <div class="bl-type">Proposed — Safeshield</div>
+        <div class="bl-carrier">NYCM Bundle</div>
+        <div class="bl-policy">Auto + Home (jewelry built in) · Keep RLI</div>
 
-        <div class="swap-price">
+        <div class="bl-price">
           <span class="dollar">$</span>
-          <span class="amount">5,892</span>
+          <span class="amount">10,476</span>
           <span class="term">/ year</span>
         </div>
-        <div class="swap-term">$884 minimum down (15%)</div>
+        <div class="bl-term">One carrier, one agency, one bundle</div>
 
-        <div class="swap-badge">Save $1,267 a year</div>
+        <div class="bl-badge">Save $1,645 a year</div>
 
-        <div class="swap-features">
-          <div class="swap-features-label">Coverage Summary</div>
-          250k / 500k Liability<br>
-          250k / 500k Uninsured Motorists<br>
-          $1,000 Comp &amp; Collision
+        <div class="bl-breakdown">
+          <div class="bl-breakdown-label">Premium Breakdown</div>
+          <div class="bl-line"><span class="bl-line-name">Auto (2 vehicles)</span><span class="bl-line-amount">$5,892</span></div>
+          <div class="bl-line"><span class="bl-line-name">Homeowners</span><span class="bl-line-amount">$4,099</span></div>
+          <div class="bl-line"><span class="bl-line-name">Jewelry</span><span class="bl-line-amount">Built in</span></div>
+          <div class="bl-line"><span class="bl-line-name">Umbrella (RLI)</span><span class="bl-line-amount">~$485</span></div>
         </div>
       </div>
     </div>
 
-    <!-- SAVINGS TOTAL -->
-    <div class="swap-total">
-      <div class="swap-total-label">Annual Savings on Auto</div>
-      <div class="swap-total-amount"><span class="dollar">$</span>1,267</div>
-      <div class="swap-total-sub">That is a <strong>17.7% drop</strong> for the same protection on both vehicles.</div>
+    <div class="bl-total">
+      <div class="bl-total-label">Annual Household Savings</div>
+      <div class="bl-total-amount"><span class="dollar">$</span>1,645</div>
+      <div class="bl-total-sub"><strong>13.6% reduction</strong> across the household, with the jewelry now bundled in.</div>
     </div>
   </div>
 </section>
 
-<!-- LADDER - IT CAN GO LOWER -->
-<section class="ladder-section">
+<!-- LINE BY LINE -->
+<section class="lines-section">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">And That Is Just Auto</div>
-      <h2 class="section-title">It can go a lot lower from here.</h2>
+      <div class="section-eyebrow">Line By Line</div>
+      <h2 class="section-title">Where the savings actually come from.</h2>
+      <p class="section-subtitle">Auto drops, jewelry goes to zero, home goes up slightly. The bundle math still works out hard in your favor.</p>
     </div>
 
-    <p class="ladder-intro">The $5,892 figure above is our <strong>standalone auto price</strong>. It does NOT include a multi-policy discount yet. When we write your home and umbrella through Safeshield too, the total spend across your whole household drops further. Here is the ladder.</p>
-
-    <div class="ladder-grid">
-      <!-- STEP 1 -->
-      <div class="ladder-step active">
-        <div class="ladder-num">01</div>
-        <div class="ladder-label">Step One</div>
-        <div class="ladder-title">Switch Auto Today</div>
-        <div class="ladder-price"><span class="dollar">$</span>5,892</div>
-        <div class="ladder-price-note">Locked in for 12 months</div>
-        <div class="ladder-text">Move off Travelers and onto NYCM through Safeshield. Immediate $1,267 savings on the auto line alone.</div>
+    <div class="lines-stack">
+      <div class="line-card">
+        <div class="line-icon">AUTO</div>
+        <div class="line-info">
+          <div class="line-name">Auto Insurance</div>
+          <div class="line-detail">2020 BMW X5 + 2025 Mercedes GLE350 · Identical coverage limits</div>
+        </div>
+        <div class="line-price-block">
+          <div class="line-price-label">Travelers</div>
+          <div class="line-price">$7,159</div>
+        </div>
+        <div class="line-arrow">&rarr;</div>
+        <div class="line-price-block proposed">
+          <div class="line-price-label">NYCM</div>
+          <div class="line-price">$5,892</div>
+        </div>
       </div>
 
-      <!-- STEP 2 -->
-      <div class="ladder-step">
-        <div class="ladder-num">02</div>
-        <div class="ladder-label">Step Two</div>
-        <div class="ladder-title">Add Your Home</div>
-        <div class="ladder-price est">Lower Still</div>
-        <div class="ladder-price-note">Multi-policy credit kicks in</div>
-        <div class="ladder-text">Bundling home with auto unlocks the multi-policy discount on both lines. Typical savings of 10 to 20% layered on top of today's price.</div>
+      <div class="line-card">
+        <div class="line-icon">HOME</div>
+        <div class="line-info">
+          <div class="line-name">Homeowners Insurance</div>
+          <div class="line-detail">17 Monrovia Blvd · $1.5M dwelling + extended replacement cost</div>
+        </div>
+        <div class="line-price-block">
+          <div class="line-price-label">Travelers</div>
+          <div class="line-price">$3,707</div>
+        </div>
+        <div class="line-arrow">&rarr;</div>
+        <div class="line-price-block proposed">
+          <div class="line-price-label">NYCM</div>
+          <div class="line-price">$4,099</div>
+        </div>
       </div>
 
-      <!-- STEP 3 -->
-      <div class="ladder-step destination">
-        <div class="ladder-num">03</div>
-        <div class="ladder-label">Step Three</div>
-        <div class="ladder-title">Add Umbrella</div>
-        <div class="ladder-price est">Account Round</div>
-        <div class="ladder-price-note">Full household discount</div>
-        <div class="ladder-text">A $1M umbrella rounds out the account. Stronger liability protection, the deepest discount tier, and one agency handling everything.</div>
+      <div class="line-card">
+        <div class="line-icon">JWL</div>
+        <div class="line-info">
+          <div class="line-name">Scheduled Jewelry</div>
+          <div class="line-detail">$53,074 across 4 items · watch, earrings, engagement ring, wedding band</div>
+        </div>
+        <div class="line-price-block">
+          <div class="line-price-label">Travelers</div>
+          <div class="line-price">$770</div>
+        </div>
+        <div class="line-arrow">&rarr;</div>
+        <div class="line-price-block proposed">
+          <div class="line-price-label">NYCM</div>
+          <div class="line-price included">Built in</div>
+        </div>
       </div>
     </div>
 
-    <p class="ladder-footnote">The more we consolidate under one roof, the more the total cost comes down. Send over your home dec page and we will run the bundle math for you this week.</p>
+    <div class="lines-totals">
+      <div class="lines-totals-label">Bundle Subtotal</div>
+      <div class="line-price-block">
+        <div class="line-price-label">Today</div>
+        <div class="lines-totals-current">$11,636</div>
+      </div>
+      <div class="line-arrow">&rarr;</div>
+      <div class="line-price-block proposed">
+        <div class="line-price-label">With Safeshield</div>
+        <div class="lines-totals-proposed">$9,991</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- COVERAGE TABLE -->
+<!-- ERC -->
+<section class="erc-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Important — Read This</div>
+      <h2 class="section-title">About the dwelling coverage difference.</h2>
+    </div>
+
+    <div class="erc-card">
+      <div class="erc-label">Apples to Apples</div>
+      <h3 class="erc-title">Your NYCM home includes <span class="accent">Extended Replacement Cost</span>. That changes the math.</h3>
+      <p class="erc-body">At a glance, Travelers shows $1.74M dwelling and NYCM shows $1.5M dwelling. That looks like a coverage gap. It's not. The NYCM policy includes the <strong style="color: var(--white)">Additional Limits of Liability endorsement (NYC HO 500 25)</strong>, which adds extra dwelling protection on top of Coverage A in the event of a total loss. With that endorsement stacked, the effective rebuild ceiling on NYCM is materially higher than the printed Coverage A number, and in most cases it lands above what the flat Travelers limit gives you.</p>
+
+      <div class="erc-compare">
+        <div class="erc-compare-box">
+          <div class="erc-compare-label">Current — Travelers</div>
+          <div class="erc-compare-carrier">Flat Coverage A</div>
+          <div class="erc-compare-stat">
+            <span class="dollar">$</span>
+            <span class="erc-compare-amount">1,744,500</span>
+          </div>
+          <div class="erc-compare-meta">Hard ceiling at total loss. No additional dwelling cushion stacked on top.</div>
+        </div>
+        <div class="erc-compare-box proposed">
+          <div class="erc-compare-label">Proposed — NYCM</div>
+          <div class="erc-compare-carrier">Coverage A + Extended Replacement</div>
+          <div class="erc-compare-stat">
+            <span class="dollar">$</span>
+            <span class="erc-compare-amount">1,500,000</span>
+          </div>
+          <div class="erc-compare-meta">Plus NYC HO 500 25 endorsement, which adds additional dwelling limit on top of Coverage A at total loss.</div>
+          <span class="erc-compare-tag">Effective ceiling is higher</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOME COVERAGE -->
+<section class="coverage-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Home Coverage</div>
+      <h2 class="section-title">What's on your NYCM homeowners policy.</h2>
+      <p class="section-subtitle">Same protection structure as your current Travelers Protect policy, plus the jewelry now built into the form instead of as a separate rider.</p>
+    </div>
+
+    <div class="coverage-table">
+      <div class="coverage-row">
+        <div class="coverage-letter">A</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Dwelling</div>
+          <div class="coverage-info-desc">Rebuild cost of your home structure. Plus the NYC HO 500 25 endorsement for extended replacement cost.</div>
+        </div>
+        <div class="coverage-limit">$1,500,000</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">B</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Other Structures</div>
+          <div class="coverage-info-desc">Detached garages, sheds, fences, and other structures on the property.</div>
+        </div>
+        <div class="coverage-limit">$150,000</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">C</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Personal Property</div>
+          <div class="coverage-info-desc">Contents of the home. Furniture, electronics, clothing, and personal belongings.</div>
+        </div>
+        <div class="coverage-limit">$750,000</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">D</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Loss of Use</div>
+          <div class="coverage-info-desc">Pays for temporary living expenses if the home is uninhabitable after a covered loss.</div>
+        </div>
+        <div class="coverage-limit">$450,000</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">E</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Personal Liability</div>
+          <div class="coverage-info-desc">Protects you if someone is injured on your property or you cause damage to others.</div>
+        </div>
+        <div class="coverage-limit">$300,000</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">F</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Medical Payments</div>
+          <div class="coverage-info-desc">Medical expenses for guests injured on your property, regardless of fault.</div>
+        </div>
+        <div class="coverage-limit">$5,000</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">+</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Personal Articles Coverage (IM-175)</div>
+          <div class="coverage-info-desc">Schedules your $53,074 of jewelry into the home policy. Replaces the standalone Travelers rider you pay $770 for today.</div>
+        </div>
+        <div class="coverage-limit">Built In</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">+</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Water Back-Up &amp; Sump Discharge</div>
+          <div class="coverage-info-desc">Covers damage from sewer or sump pump backup. Critical for any home with a basement.</div>
+        </div>
+        <div class="coverage-limit">Included</div>
+      </div>
+      <div class="coverage-row">
+        <div class="coverage-letter">+</div>
+        <div class="coverage-info">
+          <div class="coverage-info-name">Protective Device Credits</div>
+          <div class="coverage-info-desc">Discounts applied for your alarm system and other protective features.</div>
+        </div>
+        <div class="coverage-limit">Applied</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JEWELRY -->
+<section class="jewelry-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">The Jewelry Win</div>
+      <h2 class="section-title">Your $53K of jewelry is now part of the home.</h2>
+      <p class="section-subtitle">You currently pay Travelers $770/year on a separate Personal Articles rider for these four items. On the NYCM home, all four are scheduled directly inside the policy at the same agreed value with the same worldwide coverage.</p>
+    </div>
+
+    <div class="jewelry-grid">
+      <div class="jewelry-item">
+        <div class="jewelry-name">Men's Diamond Watch</div>
+        <div class="jewelry-amount">$15,173</div>
+      </div>
+      <div class="jewelry-item">
+        <div class="jewelry-name">Diamond Engagement Ring</div>
+        <div class="jewelry-amount">$20,000</div>
+      </div>
+      <div class="jewelry-item">
+        <div class="jewelry-name">Diamond Wedding Band</div>
+        <div class="jewelry-amount">$11,901</div>
+      </div>
+      <div class="jewelry-item">
+        <div class="jewelry-name">Women's Diamond Earrings</div>
+        <div class="jewelry-amount">$6,000</div>
+      </div>
+    </div>
+
+    <div class="jewelry-summary">
+      <div class="jewelry-summary-eyebrow">The Move</div>
+      <div class="jewelry-summary-text">$53,074 in scheduled jewelry covered worldwide. <strong>Same agreed value, no separate rider, no extra premium.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTO COVERAGE -->
 <section class="coverage-section">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Auto Coverage</div>
-      <h2 class="section-title">Full protection, explained clearly.</h2>
-      <p class="section-subtitle">Every coverage on your NYCM auto policy, side by side with what you have on Travelers today. Identical where it matters.</p>
+      <h2 class="section-title">Full protection on both vehicles.</h2>
+      <p class="section-subtitle">Every coverage on your NYCM auto policy, matching your current Travelers limits where it matters and going richer in a few places.</p>
     </div>
 
     <div class="coverage-table">
@@ -835,7 +992,7 @@ footer {
         <div class="coverage-letter">A</div>
         <div class="coverage-info">
           <div class="coverage-info-name">Bodily Injury Liability</div>
-          <div class="coverage-info-desc">Protects you if you injure someone else in an accident. Pays their medical bills, lost wages, and legal costs up to the limit.</div>
+          <div class="coverage-info-desc">Protects you if you injure someone else in an accident. Pays medical bills, lost wages, and legal costs up to the limit.</div>
         </div>
         <div class="coverage-limit">$250k / $500k</div>
       </div>
@@ -851,7 +1008,7 @@ footer {
         <div class="coverage-letter">C</div>
         <div class="coverage-info">
           <div class="coverage-info-name">Supplemental Spousal Liability</div>
-          <div class="coverage-info-desc">Allows one spouse to be covered if sued by the other after an accident. Often overlooked but important for married drivers in New York.</div>
+          <div class="coverage-info-desc">Allows one spouse to be covered if sued by the other after an accident. Important for married drivers in New York.</div>
         </div>
         <div class="coverage-limit">Included</div>
       </div>
@@ -898,16 +1055,8 @@ footer {
       <div class="coverage-row">
         <div class="coverage-letter">I</div>
         <div class="coverage-info">
-          <div class="coverage-info-name">Medical Payments</div>
-          <div class="coverage-info-desc">Additional medical coverage for injuries you or your passengers sustain, regardless of fault.</div>
-        </div>
-        <div class="coverage-limit">$5,000</div>
-      </div>
-      <div class="coverage-row">
-        <div class="coverage-letter">J</div>
-        <div class="coverage-info">
           <div class="coverage-info-name">Pet Injury + Personal Articles</div>
-          <div class="coverage-info-desc">Bonus coverage not included on your Travelers policy. Covers vet bills after an accident and personal property inside the vehicle.</div>
+          <div class="coverage-info-desc">Bonus coverage not on your Travelers auto policy. Covers vet bills after an accident and personal property inside the vehicle.</div>
         </div>
         <div class="coverage-limit">$500 + $100</div>
       </div>
@@ -921,11 +1070,10 @@ footer {
     <div class="section-header">
       <div class="section-eyebrow">Your Vehicles</div>
       <h2 class="section-title">Both cars, fully covered.</h2>
-      <p class="section-subtitle">Identical coverage, matched deductibles, and a side by side look at what each vehicle saves you on the switch.</p>
+      <p class="section-subtitle">Identical coverage, matched deductibles, and a per-vehicle look at the auto savings.</p>
     </div>
 
     <div class="vehicles-grid">
-      <!-- BMW -->
       <div class="vehicle-card">
         <div class="vehicle-header">
           <div class="vehicle-emblem">BMW</div>
@@ -952,7 +1100,6 @@ footer {
         </div>
       </div>
 
-      <!-- MERCEDES -->
       <div class="vehicle-card">
         <div class="vehicle-header">
           <div class="vehicle-emblem">MB</div>
@@ -988,56 +1135,29 @@ footer {
     <div class="section-header">
       <div class="section-eyebrow">What We Stacked</div>
       <h2 class="section-title">Every credit, layered in.</h2>
-      <p class="section-subtitle">NYCM rewards safety features, account size, and payment behavior. Here is what is already baked into the $5,892 price.</p>
+      <p class="section-subtitle">NYCM rewards safety features, account size, and payment behavior. Here's what's baked into the auto price.</p>
     </div>
 
     <div class="discounts-grid">
-      <div class="discount-card">
-        <div class="discount-amount">$1,370</div>
-        <div class="discount-name">Multi-Car Discount</div>
-      </div>
-      <div class="discount-card">
-        <div class="discount-amount">$416</div>
-        <div class="discount-name">Accident Prevention Course</div>
-      </div>
-      <div class="discount-card">
-        <div class="discount-amount">$273</div>
-        <div class="discount-name">Home Ownership Discount</div>
-      </div>
-      <div class="discount-card">
-        <div class="discount-amount">$258</div>
-        <div class="discount-name">Anti-Theft Discount</div>
-      </div>
-      <div class="discount-card">
-        <div class="discount-amount">$196</div>
-        <div class="discount-name">Advanced Safety Discount</div>
-      </div>
-      <div class="discount-card">
-        <div class="discount-amount">$134</div>
-        <div class="discount-name">EFT Discount</div>
-      </div>
-      <div class="discount-card">
-        <div class="discount-amount">$118</div>
-        <div class="discount-name">Daytime Running Lights</div>
-      </div>
-      <div class="discount-card">
-        <div class="discount-amount">$84</div>
-        <div class="discount-name">Anti-Lock Brakes</div>
-      </div>
-      <div class="discount-card">
-        <div class="discount-amount">$77</div>
-        <div class="discount-name">New Car Discount (GLE)</div>
-      </div>
+      <div class="discount-card"><div class="discount-amount">$1,370</div><div class="discount-name">Multi-Car Discount</div></div>
+      <div class="discount-card"><div class="discount-amount">$416</div><div class="discount-name">Accident Prevention Course</div></div>
+      <div class="discount-card"><div class="discount-amount">$273</div><div class="discount-name">Home Ownership Discount</div></div>
+      <div class="discount-card"><div class="discount-amount">$258</div><div class="discount-name">Anti-Theft Discount</div></div>
+      <div class="discount-card"><div class="discount-amount">$196</div><div class="discount-name">Advanced Safety Discount</div></div>
+      <div class="discount-card"><div class="discount-amount">$134</div><div class="discount-name">EFT Discount</div></div>
+      <div class="discount-card"><div class="discount-amount">$118</div><div class="discount-name">Daytime Running Lights</div></div>
+      <div class="discount-card"><div class="discount-amount">$84</div><div class="discount-name">Anti-Lock Brakes</div></div>
+      <div class="discount-card"><div class="discount-amount">$77</div><div class="discount-name">New Car Discount</div></div>
     </div>
 
     <div class="discount-total">
-      <div class="discount-total-label">And the biggest credit we have not applied yet is the multi-policy discount. Add home and it comes off the top.</div>
-      <div class="discount-total-amount">Bundle = More</div>
+      <div class="discount-total-label">Plus $1,599 in modifications and credits already applied to the NYCM home policy.</div>
+      <div class="discount-total-amount">Stacked Savings</div>
     </div>
   </div>
 </section>
 
-<!-- WHY SAFESHIELD -->
+<!-- WHY -->
 <section class="why-section">
   <div class="container">
     <div class="section-header">
@@ -1049,7 +1169,7 @@ footer {
       <div class="why-card">
         <div class="why-number">01</div>
         <div class="why-title">Independent by Design</div>
-        <div class="why-text">69+ carrier appointments. We shop your account every renewal so you are never stuck with one company's price hike.</div>
+        <div class="why-text">69+ carrier appointments. We shop your account every renewal so you're never stuck with one company's price hike.</div>
       </div>
       <div class="why-card">
         <div class="why-number">02</div>
@@ -1058,13 +1178,13 @@ footer {
       </div>
       <div class="why-card">
         <div class="why-number">03</div>
-        <div class="why-title">Account Strategy</div>
-        <div class="why-text">We look at the whole picture. Auto, home, umbrella, life. Built to save you more as we do more under one roof.</div>
+        <div class="why-title">One Account, One Strategy</div>
+        <div class="why-text">Auto, home, jewelry, umbrella. All under one roof. Easier to manage, easier to claim, savings compound.</div>
       </div>
       <div class="why-card">
         <div class="why-number">04</div>
         <div class="why-title">We Work For You</div>
-        <div class="why-text">Not the insurance company. We represent you at claim time and every year after that. That is the whole reason we exist.</div>
+        <div class="why-text">Not the insurance company. We represent you at claim time and every year after that.</div>
       </div>
     </div>
   </div>
@@ -1074,7 +1194,7 @@ footer {
 <section class="cta-section">
   <div class="cta-content">
     <h2 class="cta-title">Ready to lock it in?</h2>
-    <p class="cta-subtitle">Reach out and we will bind the auto this week. Send over your home dec page and we will run the bundle math at the same time.</p>
+    <p class="cta-subtitle">Auto effective 4/23. Home effective 5/6. We'll handle the cancellations on Travelers and the lienholder notifications on both ends.</p>
     <a href="tel:2032042555" class="cta-btn">Call To Bind · (203) 204-2555</a>
     <div class="cta-contact">
       Prefer email? <a href="mailto:austin@gosafeshield.com">austin@gosafeshield.com</a>
@@ -1082,15 +1202,14 @@ footer {
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">SAFE<span class="shield">SHIELD</span></div>
   <div class="footer-text">
     Safeshield Insurance LLC · 2777 Summer Street, 6th Floor · Stamford, CT 06905<br>
-    Licensed in NY, CT, NJ, PA, DE · 69+ Carrier Partners
+    Licensed in NY, CT, NJ, PA, DE, NC · 69+ Carrier Partners
   </div>
   <div class="footer-disclaimer">
-    This is a proposal based on the information provided and is not a binder of coverage. Rates are not guaranteed and may change. Payment of premium does not automatically bind coverage. Coverage is not in effect until confirmed by an authorized representative. Please review the actual policy documents when received for complete terms and conditions.
+    This is a proposal based on the information provided and is not a binder of coverage. Rates are not guaranteed and may change. Payment of premium does not automatically bind coverage. Coverage is not in effect until confirmed by an authorized representative. Please review the actual policy documents when received for complete terms and conditions. Umbrella estimate based on current RLI PUP2091138.
   </div>
 </footer>
 
