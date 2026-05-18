@@ -239,6 +239,21 @@
   .ci-limit { font-size: 0.88rem; font-weight: 600; text-align: right; min-width: 120px; }
   .ci-premium { font-size: 0.85rem; color: var(--gold); font-weight: 600; text-align: right; min-width: 60px; }
 
+  .ci-highlight {
+    display: inline-block;
+    background: rgba(255,163,0,0.15);
+    border: 1px solid rgba(255,163,0,0.3);
+    color: var(--gold);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
   /* VEHICLE TABS */
   .vehicle-section { margin-bottom: 16px; }
   .vehicle-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
@@ -365,8 +380,8 @@
   <p class="hero-sub">We shopped the market and put together a package with The Hartford — solid coverage, real value, all in one place.</p>
   <div class="hero-total">
     <span class="label">Combined Annual Premium</span>
-    <span class="amount">$1,649</span>
-    <span class="period">Auto + Renters — effective May 29, 2026</span>
+    <span class="amount">$1,658</span>
+    <span class="period">Auto + Condo — effective May 29, 2026</span>
   </div>
   <div class="hero-meta">
     <div class="hero-meta-item"><strong>Carrier:</strong> The Hartford</div>
@@ -382,7 +397,7 @@
 <div class="section">
   <div class="section-label">Policy Summary</div>
   <h2 class="section-title">Two policies. One carrier. One bill.</h2>
-  <p class="section-desc">Bundling your auto and renters with The Hartford unlocks an account discount and keeps things simple — one renewal date, one relationship.</p>
+  <p class="section-desc">Bundling your auto and condo with The Hartford unlocks an account discount and keeps things simple — one renewal date, one relationship.</p>
 
   <div class="policy-grid">
     <!-- AUTO -->
@@ -400,13 +415,13 @@
         <div class="detail-row"><span class="d-label">Drivers</span><span class="d-val">James + Kathryn</span></div>
       </div>
     </div>
-    <!-- RENTERS -->
+    <!-- CONDO -->
     <div class="policy-card">
-      <div class="policy-type">🏠 Renters (HO6 Condo/Renters)</div>
-      <div class="policy-name">Renters Insurance</div>
+      <div class="policy-type">🏠 Condo (HO6)</div>
+      <div class="policy-name">Condo Insurance</div>
       <div class="policy-carrier">The Hartford — 12-Month Policy</div>
-      <div class="policy-premium">$432</div>
-      <div class="policy-premium-label">annual premium (≈ $36/mo)</div>
+      <div class="policy-premium">$441</div>
+      <div class="policy-premium-label">annual premium (≈ $37/mo)</div>
       <div class="policy-details">
         <div class="detail-row"><span class="d-label">Effective</span><span class="d-val">May 29, 2026</span></div>
         <div class="detail-row"><span class="d-label">Expires</span><span class="d-val">May 29, 2027</span></div>
@@ -547,7 +562,7 @@
   <!-- DISCOUNTS AUTO -->
   <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:16px;">Discounts applied to your auto quote</h3>
   <div class="discounts-grid" style="margin-bottom:48px;">
-    <div class="discount-pill"><span class="dp-icon">✓</span> Account Credit (bundled renters)</div>
+    <div class="discount-pill"><span class="dp-icon">✓</span> Account Credit (bundled condo)</div>
     <div class="discount-pill"><span class="dp-icon">✓</span> Paid in Full Discount</div>
     <div class="discount-pill"><span class="dp-icon">✓</span> Advanced Quote Discount</div>
     <div class="discount-pill"><span class="dp-icon">✓</span> Welcome to The Hartford Discount</div>
@@ -558,11 +573,11 @@
 
 <div class="divider"></div>
 
-<!-- RENTERS COVERAGE BREAKDOWN -->
+<!-- CONDO COVERAGE BREAKDOWN -->
 <div class="section">
-  <div class="section-label">Renters Coverage</div>
-  <h2 class="section-title">What your renters policy covers</h2>
-  <p class="section-desc">Most people underestimate how much their stuff is worth. Renters insurance protects everything inside your apartment — and your wallet if something goes wrong.</p>
+  <div class="section-label">Condo Coverage</div>
+  <h2 class="section-title">What your condo policy covers</h2>
+  <p class="section-desc">As a condo owner, your association's master policy covers the building structure — but everything from the walls in is on you. Here's how The Hartford protects your unit, your stuff, and your wallet.</p>
 
   <div class="coverage-card" style="margin-bottom:16px;">
     <div class="coverage-card-header">
@@ -572,8 +587,8 @@
     <div class="coverage-items">
       <div class="coverage-item">
         <div>
-          <div class="ci-name">Dwelling (Cov A)</div>
-          <div class="ci-explain">Covers improvements or additions you've made to the unit — built-in shelving, upgraded fixtures, etc. Standard for HO6 renters/condo form.</div>
+          <div class="ci-name">Dwelling (Cov A) — "Walls In"</div>
+          <div class="ci-explain">Covers the interior of your unit — built-in cabinets, flooring, fixtures, any improvements you've made. If a pipe bursts and damages your kitchen, this rebuilds it.</div>
         </div>
         <div class="ci-limit">$60,000</div>
         <div class="ci-premium">Included</div>
@@ -589,7 +604,7 @@
       <div class="coverage-item">
         <div>
           <div class="ci-name">Loss of Use (Cov D)</div>
-          <div class="ci-explain">If your apartment becomes unlivable after a covered loss (fire, flood, etc.), this pays your hotel and additional living expenses while repairs are made.</div>
+          <div class="ci-explain">If your condo becomes unlivable after a covered loss (fire, water damage, etc.), this pays your hotel and additional living expenses while repairs are made.</div>
         </div>
         <div class="ci-limit">$20,000</div>
         <div class="ci-premium">Included</div>
@@ -606,7 +621,7 @@
       <div class="coverage-item">
         <div>
           <div class="ci-name">Personal Liability (Cov E)</div>
-          <div class="ci-explain">If someone gets hurt in your apartment or you accidentally cause damage to someone else's property, this covers your legal defense and any judgment against you. $500K is excellent coverage — most policies default to $100K.</div>
+          <div class="ci-explain">If someone gets hurt in your unit or you accidentally cause damage to a neighbor's condo (think: overflowing bathtub leaks into the unit below), this covers your legal defense and any judgment against you. $500K is excellent coverage — most policies default to $100K.</div>
         </div>
         <div class="ci-limit">$500,000</div>
         <div class="ci-premium">Included</div>
@@ -630,6 +645,14 @@
     <div class="coverage-items">
       <div class="coverage-item">
         <div>
+          <div class="ci-name">Loss Assessment <span class="ci-highlight">Condo Essential</span></div>
+          <div class="ci-explain">This is huge for condo owners. If your HOA gets hit with a major loss — a fire in the lobby, a slip-and-fall in the hallway, roof damage from a storm — and the master policy doesn't cover all of it, the association can bill every unit owner for their share. This pays YOUR share of that assessment up to $25,000. Without it, you're writing a check out of pocket.</div>
+        </div>
+        <div class="ci-limit">$25,000</div>
+        <div class="ci-premium">$9</div>
+      </div>
+      <div class="coverage-item">
+        <div>
           <div class="ci-name">Limited Fungi / Mold Coverage</div>
           <div class="ci-explain">Covers mold-related property damage and liability up to the sublimits. Most policies exclude mold entirely — this is a meaningful addition.</div>
         </div>
@@ -647,8 +670,8 @@
     </div>
   </div>
 
-  <!-- DISCOUNTS RENTERS -->
-  <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:16px;">Discounts applied to your renters quote</h3>
+  <!-- DISCOUNTS CONDO -->
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:16px;">Discounts applied to your condo quote</h3>
   <div class="discounts-grid">
     <div class="discount-pill"><span class="dp-icon">✓</span> Protective Devices Credit</div>
     <div class="discount-pill"><span class="dp-icon">✓</span> Auto Account Credit</div>
@@ -712,7 +735,7 @@
 
 <footer>
   <p>Prepared by Safeshield Insurance &bull; 2299 Summer St #1061, Stamford, CT 06905 &bull; Licensed in CT, NY, NJ, PA, DE</p>
-  <p style="margin-top:6px;">Quote #PA1012779669Q2026 (Auto) &bull; Quote #PH1012780567Q2026 (Renters) &bull; Rates subject to change. Not a binder of coverage.</p>
+  <p style="margin-top:6px;">Quote #PA1012779669Q2026 (Auto) &bull; Quote #PH1012780567Q2026 (Condo) &bull; Rates subject to change. Not a binder of coverage.</p>
 </footer>
 
 </body>
