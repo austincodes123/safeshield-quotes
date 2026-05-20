@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Finance Intern – Safeshield Insurance</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -26,7 +26,7 @@
     overflow: hidden;
   }
 
-  /* ── TOP HEADER BAND ── */
+  /* HEADER BAND */
   .header-band {
     background: linear-gradient(135deg, #003a6e 0%, #004B89 60%, #005fa3 100%);
     padding: 48px 60px 40px;
@@ -107,10 +107,10 @@
     margin-top: 4px;
   }
 
-  /* ── BODY ── */
+  /* BODY */
   .body { padding: 52px 60px; }
 
-  /* ── ABOUT CALLOUT ── */
+  /* ABOUT CALLOUT */
   .about-callout {
     display: flex;
     gap: 20px;
@@ -123,7 +123,7 @@
   .about-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
   .about-callout p { font-size: 14.5px; color: #334; line-height: 1.8; }
 
-  /* ── SECTION HEADERS ── */
+  /* SECTION HEADERS */
   .section-label {
     display: flex;
     align-items: center;
@@ -150,7 +150,7 @@
   .section-block { margin-bottom: 44px; }
   p.summary { font-size: 14.5px; color: #445; line-height: 1.8; }
 
-  /* ── M&A HIGHLIGHT ── */
+  /* M&A HIGHLIGHT */
   .ma-box {
     background: linear-gradient(135deg, #002d5a 0%, #004B89 100%);
     border-radius: 12px;
@@ -198,7 +198,7 @@
   .ma-item-dot { width: 6px; height: 6px; background: #FFA300; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
   .ma-item p { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.6; }
 
-  /* ── RESPONSIBILITIES ── */
+  /* RESPONSIBILITIES */
   .resp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .resp-card {
     background: #f9fbff;
@@ -217,7 +217,7 @@
   .resp-card-body strong { display: block; font-size: 13.5px; color: #004B89; font-weight: 600; margin-bottom: 3px; }
   .resp-card-body p { font-size: 13px; color: #556; line-height: 1.55; }
 
-  /* ── QUALIFICATIONS ── */
+  /* QUALIFICATIONS */
   .qual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 44px; }
   .qual-box { border-radius: 10px; padding: 24px; border: 1.5px solid #e2eef9; }
   .qual-box.required { background: #f0f6ff; }
@@ -234,7 +234,7 @@
   .qual-box.required .qual-list li::before { color: #004B89; }
   .qual-box.preferred .qual-list li::before { color: #FFA300; }
 
-  /* ── BENEFITS ── */
+  /* BENEFITS */
   .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .benefit-card {
     background: #f9fbff;
@@ -247,20 +247,16 @@
   .benefit-card h5 { font-size: 13.5px; font-weight: 700; color: #004B89; margin-bottom: 5px; }
   .benefit-card p { font-size: 12.5px; color: #667; line-height: 1.55; }
 
-  /* ── SIGNATURE ── */
+  /* SIGNATURE — name/title only, no SVG, no date */
   .sig-section { margin-top: 52px; padding-top: 32px; border-top: 2px solid #e8eef8; }
   .sig-section p.closing { font-size: 14.5px; color: #445; line-height: 1.8; margin-bottom: 36px; max-width: 600px; }
-  .sig-wrapper { display: flex; align-items: flex-end; gap: 48px; }
-  .sig-left { flex-shrink: 0; }
-  .sig-svg-wrap { margin-bottom: 8px; line-height: 1; }
-  .sig-line { width: 220px; height: 1px; background: #c0cfe8; margin-bottom: 8px; }
-  .sig-name-printed { font-size: 15px; font-weight: 700; color: #1a1a2e; letter-spacing: 0.2px; }
-  .sig-title-text { font-size: 13px; color: #004B89; font-weight: 500; margin-top: 2px; }
-  .sig-company-text { font-size: 12.5px; color: #888; margin-top: 2px; }
-  .sig-date-block { font-size: 13px; color: #667; line-height: 1.8; }
-  .sig-date-block strong { display: block; font-size: 13.5px; color: #1a1a2e; font-weight: 600; }
+  .sig-block { display: flex; flex-direction: column; gap: 4px; }
+  .sig-line { width: 240px; height: 1px; background: #c0cfe8; margin-bottom: 10px; }
+  .sig-name-printed { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #004B89; letter-spacing: 0.3px; }
+  .sig-title-text { font-size: 16px; color: #1a1a2e; font-weight: 600; margin-top: 2px; }
+  .sig-company-text { font-size: 13.5px; color: #888; margin-top: 3px; }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   .footer {
     background: #f0f6ff;
     border-top: 1px solid #d8eaf8;
@@ -270,7 +266,6 @@
   .footer p { font-size: 12px; color: #889; }
   .footer-right { display: flex; align-items: center; gap: 16px; }
   .footer-tag { font-size: 12px; color: #FFA300; font-weight: 700; }
-  .footer-contact { font-size: 12px; color: #889; }
 
   @media print {
     body { background: #fff; }
@@ -422,7 +417,7 @@
         <div class="benefit-card">
           <span class="benefit-icon">💰</span>
           <h5>Commission &amp; Bonus Potential</h5>
-          <p>While unpaid, strong performers can earn commission and performance bonuses based on results</p>
+          <p>Strong performers can earn commission and performance bonuses based on results</p>
         </div>
         <div class="benefit-card">
           <span class="benefit-icon">🏢</span>
@@ -432,42 +427,14 @@
       </div>
     </div>
 
-    <!-- SIGNATURE -->
+    <!-- SIGNATURE — name + title only, big and clean -->
     <div class="sig-section">
       <p class="closing">We're growing fast, actively acquiring agencies, and expanding our financial services division. Join us and be in the room as it happens. We look forward to hearing from you.</p>
-      <div class="sig-wrapper">
-        <div class="sig-left">
-          <div class="sig-svg-wrap">
-            <svg width="220" height="72" viewBox="0 0 220 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 52 C10 28, 14 18, 20 16 C26 14, 24 22, 20 28 C16 34, 12 36, 18 36 C24 36, 28 34, 30 30" stroke="#1a3a6e" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M30 30 C32 26, 36 22, 40 24 C38 28, 36 36, 38 42" stroke="#1a3a6e" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M38 42 C40 36, 44 28, 46 32 C47 36, 46 42, 48 44" stroke="#1a3a6e" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="46" cy="20" r="2" fill="#1a3a6e"/>
-              <path d="M48 44 C52 36, 58 28, 62 32 C64 36, 62 42, 60 46" stroke="#1a3a6e" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M68 16 C68 28, 68 38, 68 52" stroke="#1a3a6e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-              <path d="M68 34 C74 28, 82 22, 88 18" stroke="#1a3a6e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-              <path d="M68 34 C74 38, 82 44, 90 54" stroke="#1a3a6e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-              <path d="M92 44 C94 34, 100 26, 106 30 C110 34, 108 40, 104 44 C100 48, 94 48, 96 42 C98 38, 106 36, 110 38" stroke="#1a3a6e" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M112 18 C112 28, 110 38, 112 50 C113 54, 116 54, 118 50" stroke="#1a3a6e" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M118 20 C118 30, 116 40, 118 50 C119 54, 122 54, 124 50" stroke="#1a3a6e" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M126 28 C128 36, 130 42, 128 50" stroke="#1a3a6e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-              <path d="M138 28 C136 36, 132 44, 124 58 C120 64, 116 66, 112 64" stroke="#1a3a6e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-              <path d="M6 58 Q70 62, 140 58" stroke="#FFA300" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.7"/>
-            </svg>
-          </div>
-          <div class="sig-line"></div>
-          <div class="sig-name-printed">Eric Kelly</div>
-          <div class="sig-title-text">Vice President</div>
-          <div class="sig-company-text">Safeshield Insurance LLC</div>
-        </div>
-        <div class="sig-date-block">
-          <strong>Date</strong>
-          May 20, 2026
-          <br><br>
-          <strong>Contact</strong>
-          eric@gosafeshield.com<br>
-          (203) 806-5889
-        </div>
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name-printed">Eric Kelly</div>
+        <div class="sig-title-text">Vice President</div>
+        <div class="sig-company-text">Safeshield Insurance LLC</div>
       </div>
     </div>
 
@@ -477,7 +444,7 @@
   <div class="footer">
     <p>Safeshield Insurance LLC &nbsp;·&nbsp; 2777 Summer St, 6th Floor, Stamford, CT 06905</p>
     <div class="footer-right">
-      <span class="footer-contact">gosafeshield.com</span>
+      <span class="footer-contact" style="font-size:12px;color:#889;">gosafeshield.com</span>
       <span class="footer-tag">#SafeshieldInsurance</span>
     </div>
   </div>
