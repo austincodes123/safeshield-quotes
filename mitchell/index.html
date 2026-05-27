@@ -242,9 +242,16 @@
   .premium-item-amount { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 400; color: var(--brand); letter-spacing: -0.02em; }
   .premium-item-period { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
   .premium-total { margin-top: 2rem; background: var(--navy); color: var(--cream); padding: 2.5rem; text-align: center; }
-  .premium-total-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--yellow); margin-bottom: 1rem; font-weight: 600; }
-  .premium-total-amount { font-family: 'Fraunces', serif; font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 300; color: var(--cream); letter-spacing: -0.02em; }
-  .premium-total-context { margin-top: 1rem; font-size: 0.92rem; color: rgba(250, 246, 239, 0.6); font-style: italic; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .premium-total-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--yellow); margin-bottom: 1.5rem; font-weight: 600; }
+
+  .billing-toggle { display: inline-flex; gap: 0; margin: 0 auto 2rem; background: rgba(250, 246, 239, 0.06); border: 1px solid rgba(250, 246, 239, 0.15); padding: 0.35rem; border-radius: 2px; }
+  .billing-option { background: transparent; color: rgba(250, 246, 239, 0.55); border: none; padding: 0.7rem 1.4rem; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; border-radius: 1px; }
+  .billing-option:hover { color: var(--cream); }
+  .billing-option.active { background: var(--yellow); color: var(--navy); }
+
+  .premium-total-amount { font-family: 'Fraunces', serif; font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 300; color: var(--cream); letter-spacing: -0.02em; transition: opacity 0.2s ease; }
+  .premium-total-period { font-size: 0.85rem; color: rgba(250, 246, 239, 0.55); margin-top: 0.5rem; font-style: italic; }
+  .premium-total-context { margin-top: 1.5rem; font-size: 0.92rem; color: rgba(250, 246, 239, 0.6); font-style: italic; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.6; }
   @media (max-width: 720px) { .premium-breakdown { grid-template-columns: 1fr 1fr; } }
 
   /* ───── CTA ───── */
@@ -306,7 +313,7 @@
 
   <div class="hero-meta">
     <div class="hero-meta-item">Primary Property<span class="hero-meta-value">12 Terhune Drive, Westport CT</span></div>
-    <div class="hero-meta-item">Secondary Property<span class="hero-meta-value">116 Mayflower Terrace, South Yarmouth MA</span></div>
+    <div class="hero-meta-item">Secondary Property<span class="hero-meta-value">27 Sea View Lane, Chatham MA</span></div>
     <div class="hero-meta-item">Your Agent<span class="hero-meta-value">Austin Glazer</span></div>
     <div class="hero-meta-item">Carrier<span class="hero-meta-value">Chubb Masterpiece®</span></div>
   </div>
@@ -317,16 +324,16 @@
   <div class="wrap">
     <div class="section-eyebrow reveal">The Philosophy</div>
     <h2 class="display section-title reveal">We work for <em>you</em>, not the carrier.</h2>
-    <p class="lead reveal">Most agents quote what the system spits out. They take whatever liability limits the carrier defaults to, skip the umbrella conversation entirely, and never ask about the assets sitting just outside the file in front of them. That's not how we operate.</p>
+    <p class="lead reveal">A protection plan should be built around the life you're actually living — not the life on the application form. Our process starts with understanding the full picture before we ever quote a number.</p>
 
     <div class="philosophy-grid">
       <div class="philosophy-quote reveal">
-        <strong>Every number on this page was a decision.</strong> Built around the life you're actually living — including the assets your previous broker never asked about.
+        <strong>Every number on this page was a decision.</strong> Built around the assets you've worked for and the life you're stepping into — including the things that often get missed in a standard insurance conversation.
       </div>
       <div class="philosophy-body reveal">
         <p>Insurance is built around a simple framework we call the <strong>Triangle of Protection</strong>. At the center sit the things you've worked for. Around them stand three pillars — Rebuild, Replace, and Protect Beyond.</p>
         <p>For a first-time homeowner stepping into a $2.5M home in Westport, the triangle has to scale to a new altitude. The protection that worked when you were a renter doesn't work now. Today is the day that changes.</p>
-        <p>And before we get into the coverages — we want to start with what we found that the previous broker missed.</p>
+        <p>Before we get to the coverage details, we want to start with what our discovery process mapped out together.</p>
 
         <div class="invite-hint">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
@@ -340,9 +347,9 @@
 <!-- ASSETS UNCOVERED -->
 <section class="assets-band">
   <div class="wrap">
-    <div class="section-eyebrow reveal">What We Found On Our Discovery Call</div>
-    <h2 class="display section-title reveal">Your real exposure isn't <em>$2.5M.</em></h2>
-    <p class="lead reveal">During our first conversation, we asked questions your previous broker never did. Here's what we mapped out — the total picture of the assets that need to sit inside your triangle.</p>
+    <div class="section-eyebrow reveal">From Our Discovery Call</div>
+    <h2 class="display section-title reveal">Your protection plan starts with <em>the full picture.</em></h2>
+    <p class="lead reveal">During our first conversation, we mapped out everything the triangle needs to cover. Here's what we put together — the assets the plan is built around.</p>
 
     <div class="assets-ledger reveal">
 
@@ -369,7 +376,7 @@
         </div>
         <div class="assets-label-block">
           <span class="assets-name">Secondary Home — Cape Cod</span>
-          <span class="assets-sub">116 Mayflower Terrace · South Yarmouth, MA</span>
+          <span class="assets-sub">27 Sea View Lane · Chatham, MA</span>
         </div>
         <div class="assets-value">$1,150,000</div>
       </div>
@@ -415,19 +422,6 @@
         <div class="assets-value">$100,000</div>
       </div>
 
-      <div class="assets-row">
-        <div class="assets-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
-            <path d="M4 26 L4 16 L10 16 L10 26 M14 26 L14 10 L20 10 L20 26 M24 26 L24 6 L30 6 L30 26 M2 28 L32 28"/>
-          </svg>
-        </div>
-        <div class="assets-label-block">
-          <span class="assets-name">Future Earnings &amp; Retirement</span>
-          <span class="assets-sub">Lifetime income at risk in a judgment</span>
-        </div>
-        <div class="assets-value">$2,500,000+</div>
-      </div>
-
       <div class="assets-row total">
         <div class="assets-icon">
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -436,16 +430,16 @@
           </svg>
         </div>
         <div class="assets-label-block">
-          <span class="assets-name">Total Exposure</span>
-          <span class="assets-sub">What your triangle must actually protect</span>
+          <span class="assets-name">Total Asset Base</span>
+          <span class="assets-sub">What your triangle is built around</span>
         </div>
-        <div class="assets-value">$6,423,000+</div>
+        <div class="assets-value">$3,923,000</div>
       </div>
 
     </div>
 
     <div class="assets-callout reveal">
-      Your previous broker quoted you a renters policy at <strong>$100,000 / $300,000 auto liability</strong>. That's enough protection for a fraction of one of your assets. The plan below is built for the entire ledger.
+      Add in future earnings, retirement growth, and a Connecticut judicial environment where awards frequently exceed asset value — and the right liability ceiling is <strong>well above your current asset base.</strong> That's exactly what the plan below delivers.
     </div>
   </div>
 </section>
@@ -522,9 +516,9 @@
 <!-- LIMITS RAISED -->
 <section class="limits-band">
   <div class="wrap">
-    <div class="section-eyebrow reveal">Why We Raised Your Limits</div>
+    <div class="section-eyebrow reveal">Why These Are the Right Limits</div>
     <h2 class="display section-title reveal">The most important conversation in <em>this entire plan.</em></h2>
-    <p class="lead reveal">Your previous broker had you at limits built for someone with a fraction of your exposure. Here's exactly what we raised, and why each one matters now.</p>
+    <p class="lead reveal">Renter limits don't translate to a $2.5M homeowner's life. Here's the math behind each limit we built — and what it actually buys you.</p>
 
     <div class="limits-grid">
 
@@ -535,12 +529,12 @@
           <div class="limit-bar-col">
             <span class="limit-bar-value">$100K / $300K</span>
             <div class="limit-bar before"></div>
-            <span class="limit-bar-tag">Before</span>
+            <span class="limit-bar-tag">Renter Standard</span>
           </div>
           <div class="limit-bar-col">
             <span class="limit-bar-value">$1,000,000 CSL</span>
             <div class="limit-bar after"></div>
-            <span class="limit-bar-tag">Now</span>
+            <span class="limit-bar-tag">Your New Plan</span>
           </div>
         </div>
         <div class="limit-card-title">From split limits to a $1M Combined Single Limit.</div>
@@ -548,22 +542,22 @@
       </div>
 
       <div class="limit-card featured reveal">
-        <div class="limit-card-multiplier">∞ from $0</div>
+        <div class="limit-card-multiplier">New layer</div>
         <div class="limit-card-label">Personal Umbrella</div>
         <div class="limit-card-bars">
           <div class="limit-bar-col">
-            <span class="limit-bar-value">$0</span>
+            <span class="limit-bar-value">None</span>
             <div class="limit-bar before" style="height: 0;"></div>
-            <span class="limit-bar-tag">Before</span>
+            <span class="limit-bar-tag">Not Required for Renters</span>
           </div>
           <div class="limit-bar-col">
             <span class="limit-bar-value">$5,000,000</span>
             <div class="limit-bar after"></div>
-            <span class="limit-bar-tag">Now</span>
+            <span class="limit-bar-tag">Your New Plan</span>
           </div>
         </div>
         <div class="limit-card-title">$5,000,000 of additional liability protection.</div>
-        <div class="limit-card-why">Sitting over your home, both vehicles, and your Cape Cod property. <strong>Your previous broker never quoted this. With $6.4M+ in exposed assets, this isn't optional anymore.</strong></div>
+        <div class="limit-card-why">Sitting over both homes and both vehicles. <strong>For a household at this asset level, an umbrella isn't optional — it's the structural piece that makes the triangle whole.</strong></div>
       </div>
 
       <div class="limit-card reveal">
@@ -573,15 +567,15 @@
           <div class="limit-bar-col">
             <span class="limit-bar-value">$100K / $300K</span>
             <div class="limit-bar before"></div>
-            <span class="limit-bar-tag">Before</span>
+            <span class="limit-bar-tag">Renter Standard</span>
           </div>
           <div class="limit-bar-col">
             <span class="limit-bar-value">$1,000,000 CSL</span>
             <div class="limit-bar after"></div>
-            <span class="limit-bar-tag">Now</span>
+            <span class="limit-bar-tag">Your New Plan</span>
           </div>
         </div>
-        <div class="limit-card-title">Plus another $1M of UM/UIM on the umbrella.</div>
+        <div class="limit-card-title">Plus another $1M of UM/UIM elected on the umbrella.</div>
         <div class="limit-card-why">Most umbrellas don't include UM/UIM by default — you have to specifically elect it. We did. <strong>If an uninsured driver hits you, your total UM protection is $2M.</strong></div>
       </div>
 
@@ -597,7 +591,7 @@
           <div class="limit-bar-col">
             <span class="limit-bar-value">$10,000</span>
             <div class="limit-bar after" style="height: 44px;"></div>
-            <span class="limit-bar-tag">Now</span>
+            <span class="limit-bar-tag">Chubb HNW Default</span>
           </div>
         </div>
         <div class="limit-card-title">Doubled to match Chubb's HNW standard.</div>
@@ -969,7 +963,7 @@
         <div class="coverage-toggle">Why CSL matters</div>
         <div class="coverage-detail"><div class="coverage-detail-inner">
           <p class="coverage-explain">Combined Single Limit means the full $1,000,000 is available per accident — regardless of how many people are hurt or how the dollars need to be split between injury and property damage. This is the gold standard auto liability structure.</p>
-          <p class="coverage-reason"><strong>Why we built it this way —</strong> Your previous broker had you at 100/300 split limits. That means $100,000 max per injured person, $300,000 max per accident — and the money doesn't flex between people or between injury and property damage. <strong>$1M CSL is the structure HNW clients buy. It's also the underlying limit Chubb requires to issue your $5M umbrella.</strong></p>
+          <p class="coverage-reason"><strong>Why we built it this way —</strong> Renter limits typically sit at 100/300 split — meaning $100,000 max per injured person, $300,000 max per accident, with no flex between people or between injury and property damage. As a homeowner with the asset base we mapped out, that's not the right structure anymore. <strong>$1M CSL is the structure HNW clients buy. It's also the underlying limit Chubb requires to issue your $5M umbrella.</strong></p>
         </div></div>
       </button>
 
@@ -991,7 +985,7 @@
         <div class="coverage-toggle">Why we added this</div>
         <div class="coverage-detail"><div class="coverage-detail-inner">
           <p class="coverage-explain">Pays medical bills for anyone hurt in your car — driver, passengers, kids in the backseat — regardless of fault. No deductible. $10K per accident is double the typical $5K offered by standard carriers.</p>
-          <p class="coverage-reason"><strong>Why we built it this way —</strong> Your previous broker likely had this at $5K or declined. For about $25-35 per vehicle, $10K is the right number. <strong>It's the easiest yes in insurance.</strong></p>
+          <p class="coverage-reason"><strong>Why we built it this way —</strong> Most renter policies have this at $5K or declined entirely. For about $25-35 per vehicle, $10K is the right number for a household with the exposure profile we mapped. <strong>It's the easiest yes in insurance.</strong></p>
         </div></div>
       </button>
 
@@ -1020,7 +1014,7 @@
         </div>
         <div class="coverage-hero-detail"><div class="coverage-hero-detail-inner">
           <p class="coverage-explain">A personal umbrella is an additional layer of liability protection that sits on top of your home and auto policies. If a claim exhausts the limits below it, the umbrella picks up. Your $5M umbrella covers liability arising from both the Westport home and the Cape Cod home, both vehicles, and personal activities anywhere in the world. We also elected UM/UIM coverage on the umbrella itself — a feature most carriers offer but very few agents bother to add. It means if an uninsured driver causes you catastrophic injury, the umbrella provides another $1M of recovery beyond your auto policy.</p>
-          <p class="coverage-reason"><strong>Here's the math —</strong> $1,000,000 home liability + $5,000,000 umbrella = <strong>$6,000,000 of total liability protection.</strong> Plus $1,000,000 auto UM/UIM + $1,000,000 umbrella UM/UIM = <strong>$2,000,000 of total uninsured motorist protection.</strong> Your total asset exposure is $6.4M+. <strong>Your liability ceiling is now $6M — designed to match the asset base your previous broker never asked about.</strong></p>
+          <p class="coverage-reason"><strong>Here's the math —</strong> $1,000,000 home liability + $5,000,000 umbrella = <strong>$6,000,000 of total liability protection.</strong> Plus $1,000,000 auto UM/UIM + $1,000,000 umbrella UM/UIM = <strong>$2,000,000 of total uninsured motorist protection.</strong> Your current asset base is $3.92M. <strong>That means your liability ceiling sits well above your current assets — with intentional headroom for future earnings, growth, and the unpredictable size of modern judgments.</strong></p>
         </div></div>
       </button>
 
@@ -1051,7 +1045,7 @@
       </div>
     </div>
 
-    <p class="math-conclusion reveal">Your total exposed assets: <strong>$6,423,000+.</strong><br/>Your liability protection ceiling: <strong>$6,000,000.</strong><br/>That's not a coincidence. It's the entire point of the plan.</p>
+    <p class="math-conclusion reveal">Your current asset base: <strong>$3,923,000.</strong><br/>Your liability protection ceiling: <strong>$6,000,000.</strong><br/>That headroom isn't excess — it's room for your life to grow, and a buffer against the size of modern judgments.</p>
   </div>
 </section>
 
@@ -1174,19 +1168,19 @@
       <div class="premium-item">
         <div class="premium-item-label">Home</div>
         <div class="premium-item-carrier">Chubb Masterpiece</div>
-        <div class="premium-item-amount">$10,500</div>
+        <div class="premium-item-amount">$10,287</div>
         <div class="premium-item-period">per year</div>
       </div>
       <div class="premium-item">
         <div class="premium-item-label">Auto</div>
         <div class="premium-item-carrier">Chubb Masterpiece</div>
-        <div class="premium-item-amount">$4,200</div>
+        <div class="premium-item-amount">$4,143</div>
         <div class="premium-item-period">per year</div>
       </div>
       <div class="premium-item">
         <div class="premium-item-label">Umbrella</div>
         <div class="premium-item-carrier">Chubb Excess Liability</div>
-        <div class="premium-item-amount">$1,500</div>
+        <div class="premium-item-amount">$1,582</div>
         <div class="premium-item-period">per year</div>
       </div>
       <div class="premium-item">
@@ -1198,9 +1192,18 @@
     </div>
 
     <div class="premium-total reveal">
-      <div class="premium-total-label">Complete Plan · Annual</div>
-      <div class="premium-total-amount">$17,500</div>
-      <div class="premium-total-context">For perspective — that's $1,458 per month to protect $6.4M+ in exposed assets, with $6M of total liability protection and $2M of total uninsured motorist coverage. Designed around the life you're stepping into, not the life you were renting.</div>
+      <div class="premium-total-label">Complete Plan</div>
+
+      <div class="billing-toggle">
+        <button class="billing-option active" data-billing="annual">Pay in Full</button>
+        <button class="billing-option" data-billing="quarterly">Quarterly</button>
+        <button class="billing-option" data-billing="monthly">Monthly</button>
+      </div>
+
+      <div class="premium-total-amount" id="premiumAmount">$17,312</div>
+      <div class="premium-total-period" id="premiumPeriod">per year, paid in full</div>
+
+      <div class="premium-total-context">For perspective — that's about $1,443 per month to protect $3.92M of current assets, with $6M of total liability protection and $2M of total uninsured motorist coverage. Designed around the life you're stepping into.</div>
     </div>
   </div>
 </section>
@@ -1254,6 +1257,31 @@
     card.addEventListener('click', () => {
       const expanded = card.getAttribute('aria-expanded') === 'true';
       card.setAttribute('aria-expanded', !expanded);
+    });
+  });
+
+  // Billing toggle
+  const billingOptions = {
+    annual: { amount: '$17,312', period: 'per year, paid in full' },
+    quarterly: { amount: '$4,328', period: 'per quarter · 4 payments of $4,328' },
+    monthly: { amount: '$1,443', period: 'per month · 12 payments of $1,443' }
+  };
+  const billingButtons = document.querySelectorAll('.billing-option');
+  const premiumAmountEl = document.getElementById('premiumAmount');
+  const premiumPeriodEl = document.getElementById('premiumPeriod');
+
+  billingButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const choice = btn.dataset.billing;
+      const data = billingOptions[choice];
+      billingButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      premiumAmountEl.style.opacity = '0';
+      setTimeout(() => {
+        premiumAmountEl.textContent = data.amount;
+        premiumPeriodEl.textContent = data.period;
+        premiumAmountEl.style.opacity = '1';
+      }, 180);
     });
   });
 </script>
