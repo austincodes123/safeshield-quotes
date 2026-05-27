@@ -34,6 +34,7 @@
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    max-width: 100vw;
   }
   .display { font-family: 'Fraunces', Georgia, serif; font-weight: 400; letter-spacing: -0.02em; line-height: 1.05; }
 
@@ -244,8 +245,8 @@
   .premium-total { margin-top: 2rem; background: var(--navy); color: var(--cream); padding: 2.5rem; text-align: center; }
   .premium-total-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--yellow); margin-bottom: 1.5rem; font-weight: 600; }
 
-  .billing-toggle { display: inline-flex; gap: 0; margin: 0 auto 2rem; background: rgba(250, 246, 239, 0.06); border: 1px solid rgba(250, 246, 239, 0.15); padding: 0.35rem; border-radius: 2px; }
-  .billing-option { background: transparent; color: rgba(250, 246, 239, 0.55); border: none; padding: 0.7rem 1.4rem; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; border-radius: 1px; }
+  .billing-toggle { display: inline-flex; gap: 0; margin: 0 auto 2rem; background: rgba(250, 246, 239, 0.06); border: 1px solid rgba(250, 246, 239, 0.15); padding: 0.35rem; border-radius: 2px; max-width: 100%; flex-wrap: wrap; justify-content: center; }
+  .billing-option { background: transparent; color: rgba(250, 246, 239, 0.55); border: none; padding: 0.7rem 1.1rem; font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; border-radius: 1px; white-space: nowrap; }
   .billing-option:hover { color: var(--cream); }
   .billing-option.active { background: var(--yellow); color: var(--navy); }
 
@@ -287,14 +288,299 @@
     .assets-row { grid-template-columns: 36px 1fr auto; padding: 1.1rem 1.25rem; gap: 1rem; }
   }
   @media (max-width: 520px) { .coverage-grid { grid-template-columns: 1fr; } }
+
+  /* ========== SIDEBAR NAV ========== */
+  .sidenav { position: fixed; left: 0; top: 0; bottom: 0; width: 220px; padding: 1.75rem 1.1rem; background: rgba(10, 22, 40, 0.98); color: var(--cream); z-index: 900; overflow-y: auto; transform: translateX(-100%); transition: transform 0.35s ease; border-right: 1px solid rgba(255, 163, 0, 0.15); scrollbar-width: none; }
+  .sidenav::-webkit-scrollbar { display: none; }
+  .sidenav.open { transform: translateX(0); }
+  .sidenav-mark { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 163, 0, 0.2); }
+  .sidenav-mark svg { width: 20px; height: 20px; color: var(--yellow); flex-shrink: 0; }
+  .sidenav-mark-text { font-family: 'Fraunces', serif; font-size: 0.95rem; letter-spacing: 0.04em; color: var(--cream); }
+  .sidenav-eyebrow { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.6rem; opacity: 0.8; padding-left: 0.5rem; }
+  .sidenav-list { list-style: none; padding: 0; margin: 0; }
+  .sidenav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0.65rem; margin: 0.05rem 0; color: rgba(250, 246, 239, 0.72); font-size: 0.85rem; letter-spacing: 0.01em; cursor: pointer; border-left: 2px solid transparent; transition: all 0.2s ease; text-decoration: none; font-family: 'Inter', sans-serif; position: relative; }
+  .sidenav-item:hover { color: var(--cream); background: rgba(255, 163, 0, 0.06); }
+  .sidenav-item.active { color: var(--yellow); border-left-color: var(--yellow); background: rgba(255, 163, 0, 0.08); }
+  .sidenav-item svg { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.85; }
+  .sidenav-item.active svg { opacity: 1; }
+  .sidenav-item-label { font-weight: 400; flex: 1; }
+  .sidenav-item-tag { font-family: 'Fraunces', serif; font-size: 0.7rem; font-style: italic; color: rgba(255, 163, 0, 0.7); white-space: nowrap; }
+  .sidenav-toggle { position: fixed; top: 1.25rem; right: 1.25rem; z-index: 950; width: 42px; height: 42px; border-radius: 50%; background: var(--navy); color: var(--cream); border: 1px solid rgba(255, 163, 0, 0.3); cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(10, 22, 40, 0.25); transition: all 0.2s ease; }
+  .sidenav-toggle:hover { background: var(--navy-mid); border-color: var(--yellow); }
+  .sidenav-toggle svg { width: 17px; height: 17px; transition: transform 0.3s ease; }
+  body.sidenav-open .sidenav-toggle svg { transform: rotate(90deg); }
+  /* Push content right when sidebar is open (tablet only) */
+  body { transition: padding-left 0.35s ease; }
+  @media (min-width: 900px) and (max-width: 1279px) {
+    body.sidenav-open { padding-left: 220px; }
+  }
+  @media (min-width: 1280px) {
+    .sidenav { transform: translateX(0); }
+    .sidenav-toggle { display: none; }
+    body { padding-left: 220px; }
+  }
+  /* Phones and small tablets: sidebar overlays with backdrop, doesn't push */
+  @media (max-width: 899px) {
+    body.sidenav-open .sidenav { box-shadow: 0 0 60px rgba(0, 0, 0, 0.5); }
+    .sidenav-backdrop { position: fixed; inset: 0; background: rgba(10, 22, 40, 0.5); z-index: 899; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
+    body.sidenav-open .sidenav-backdrop { opacity: 1; pointer-events: auto; }
+  }
+
+  /* ========== PLAN AT A GLANCE ========== */
+  .glance { background: var(--navy); color: var(--cream); padding: clamp(3.5rem, 7vw, 5.5rem) 2rem; position: relative; }
+  .glance::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, var(--yellow) 50%, transparent 100%); opacity: 0.5; }
+  .glance-eyebrow { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.78rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1rem; }
+  .glance-title { font-family: 'Fraunces', serif; font-size: clamp(1.85rem, 3.4vw, 2.6rem); font-weight: 300; line-height: 1.15; margin-bottom: 0.75rem; color: var(--cream); letter-spacing: -0.01em; }
+  .glance-title em { font-style: italic; color: var(--yellow); font-weight: 400; }
+  .glance-sub { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.02rem; color: rgba(250, 246, 239, 0.75); margin-bottom: 2.5rem; max-width: 640px; }
+  .glance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .glance-card { background: rgba(255, 163, 0, 0.04); border: 1px solid rgba(255, 163, 0, 0.18); padding: 1.5rem 1.4rem; position: relative; }
+  .glance-card.featured { background: rgba(255, 163, 0, 0.08); border-color: rgba(255, 163, 0, 0.35); }
+  .glance-card-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(250, 246, 239, 0.6); margin-bottom: 0.65rem; }
+  .glance-card-value { font-family: 'Fraunces', serif; font-size: 1.55rem; font-weight: 400; color: var(--cream); letter-spacing: -0.01em; line-height: 1.1; }
+  .glance-card-value.yellow { color: var(--yellow); }
+  .glance-card-note { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.8rem; color: rgba(250, 246, 239, 0.55); margin-top: 0.5rem; }
+  .glance-status { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.65rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--yellow); }
+  .glance-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); display: inline-block; }
+  .glance-disclaimer { margin-top: 2rem; padding: 1rem 1.25rem; border-left: 2px solid rgba(255, 163, 0, 0.4); font-family: 'Fraunces', serif; font-style: italic; font-size: 0.82rem; line-height: 1.55; color: rgba(250, 246, 239, 0.7); max-width: 780px; }
+
+  /* ========== "WHAT THIS MEANS IN REAL LIFE" EXPANDABLE ========== */
+  .real-life { margin-top: 1.25rem; padding: 1rem 1.15rem; background: rgba(255, 163, 0, 0.05); border-left: 2px solid var(--yellow); }
+  .real-life-label { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brand); margin-bottom: 0.45rem; }
+  .real-life-text { font-family: 'Inter', sans-serif; font-size: 0.92rem; line-height: 1.6; color: var(--ink-soft); }
+
+  /* ========== WHAT HAPPENS IF SCENARIOS ========== */
+  .scenarios { background: var(--cream); padding: clamp(4rem, 8vw, 6rem) 2rem; border-top: 1px solid var(--line); }
+  .scenarios-header { max-width: 720px; margin-bottom: 2.5rem; }
+  .scenarios-grid { display: grid; grid-template-columns: 280px 1fr; gap: 2rem; align-items: start; }
+  .scenarios-tabs { display: flex; flex-direction: column; gap: 0.5rem; }
+  .scenario-tab { background: transparent; border: 1px solid var(--line); padding: 1.1rem 1.25rem; text-align: left; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif; color: var(--ink); display: flex; align-items: center; gap: 0.85rem; }
+  .scenario-tab:hover { border-color: var(--yellow); background: rgba(255, 163, 0, 0.04); }
+  .scenario-tab.active { border-color: var(--yellow); background: rgba(255, 163, 0, 0.08); border-left: 3px solid var(--yellow); }
+  .scenario-tab-icon { width: 24px; height: 24px; color: var(--brand); flex-shrink: 0; }
+  .scenario-tab-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 500; }
+  .scenario-panel { background: #fff; border: 1px solid var(--line); padding: 2rem 2.25rem; min-height: 380px; }
+  .scenario-panel-eyebrow { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand); margin-bottom: 0.65rem; }
+  .scenario-panel-title { font-family: 'Fraunces', serif; font-size: 1.65rem; font-weight: 400; line-height: 1.2; color: var(--ink); margin-bottom: 1.25rem; }
+  .scenario-panel-situation { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; line-height: 1.55; color: var(--ink-soft); margin-bottom: 1.75rem; padding: 1rem 1.2rem; background: rgba(0, 75, 137, 0.04); border-left: 2px solid var(--brand); }
+  .scenario-panel-section { margin-bottom: 1.5rem; }
+  .scenario-panel-section-label { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brand); margin-bottom: 0.65rem; }
+  .scenario-panel-list { list-style: none; padding: 0; margin: 0; }
+  .scenario-panel-list li { padding: 0.5rem 0 0.5rem 1.5rem; position: relative; font-size: 0.95rem; line-height: 1.55; color: var(--ink-soft); border-bottom: 1px solid var(--line); }
+  .scenario-panel-list li:last-child { border-bottom: none; }
+  .scenario-panel-list li::before { content: ''; position: absolute; left: 0; top: 1rem; width: 8px; height: 1px; background: var(--yellow); }
+  .scenario-disclaimer { margin-top: 1.5rem; padding: 0.85rem 1rem; background: rgba(10, 22, 40, 0.04); font-size: 0.78rem; line-height: 1.5; color: var(--muted); font-style: italic; font-family: 'Fraunces', serif; }
+  @media (max-width: 900px) {
+    .scenarios-grid { grid-template-columns: 1fr; }
+    .scenarios-tabs { flex-direction: row; overflow-x: auto; gap: 0.5rem; padding-bottom: 0.5rem; max-width: 100%; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .scenarios-tabs::-webkit-scrollbar { display: none; }
+    .scenario-tab { flex-shrink: 0; min-width: 180px; }
+    .scenario-panel { padding: 1.5rem 1.25rem; }
+  }
+
+  /* ========== BEFORE / AFTER TOGGLE ========== */
+  .compare { background: var(--paper); padding: clamp(4rem, 8vw, 6rem) 2rem; }
+  .compare-header { max-width: 720px; margin-bottom: 2.5rem; }
+  .compare-toggle { display: inline-flex; background: #fff; border: 1px solid var(--line); padding: 4px; margin-bottom: 2.5rem; }
+  .compare-toggle-btn { background: transparent; border: none; padding: 0.6rem 1.4rem; font-family: 'Inter', sans-serif; font-size: 0.88rem; letter-spacing: 0.04em; color: var(--muted); cursor: pointer; transition: all 0.2s ease; }
+  .compare-toggle-btn.active { background: var(--navy); color: var(--cream); }
+  .compare-table { background: #fff; border: 1px solid var(--line); }
+  .compare-row { display: grid; grid-template-columns: 1.2fr 1.5fr 1.5fr; gap: 1.5rem; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line); align-items: center; }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row-head { background: rgba(10, 22, 40, 0.03); }
+  .compare-row-label { font-family: 'Fraunces', serif; font-size: 1rem; color: var(--ink); font-weight: 500; }
+  .compare-row-head .compare-row-label { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brand); font-weight: 400; }
+  .compare-cell { font-family: 'Fraunces', serif; font-size: 1.02rem; color: var(--ink-soft); line-height: 1.4; }
+  .compare-cell.before-cell { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(107, 114, 128, 0.4); text-decoration-thickness: 1px; }
+  .compare-cell.after-cell { color: var(--ink); font-weight: 500; }
+  .compare-cell.after-cell::before { content: '→ '; color: var(--yellow); font-weight: 500; }
+  @media (max-width: 720px) {
+    .compare-row { grid-template-columns: 1fr; gap: 0.4rem; padding: 1rem 1.15rem; }
+    .compare-row-head { display: none; }
+    .compare-row-label::after { content: ''; display: block; height: 1px; background: var(--line); margin-top: 0.4rem; }
+    .compare-cell.before-cell::before { content: 'Before: '; font-style: italic; color: var(--brand); margin-right: 0.4rem; text-decoration: none; }
+    .compare-cell.after-cell::before { content: 'Recommended: '; font-style: italic; color: var(--brand); margin-right: 0.4rem; }
+  }
+
+  /* ========== PROTECTION LAYER VISUAL ========== */
+  .layers { background: var(--cream); padding: clamp(4rem, 8vw, 6rem) 2rem; border-top: 1px solid var(--line); }
+  .layers-stack { max-width: 720px; margin: 2rem auto 0 auto; }
+  .layer { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem; padding: 1.5rem 1.75rem; background: #fff; border: 1px solid var(--line); margin-bottom: 0.5rem; position: relative; transition: all 0.25s ease; }
+  .layer:hover { border-color: var(--yellow); }
+  .layer.layer-top { background: linear-gradient(135deg, #fffbf2 0%, #fff7e3 100%); border-color: var(--yellow); }
+  .layer-tier { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brand); }
+  .layer-name { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 500; color: var(--ink); margin-top: 0.25rem; }
+  .layer-desc { font-family: 'Inter', sans-serif; font-size: 0.92rem; color: var(--ink-soft); line-height: 1.5; margin-top: 0.5rem; max-width: 460px; }
+  .layer-limit { font-family: 'Fraunces', serif; font-size: 1.75rem; color: var(--brand); font-weight: 400; letter-spacing: -0.01em; white-space: nowrap; }
+  .layer-top .layer-limit { color: var(--yellow); }
+  .layers-foundation { text-align: center; padding: 1.25rem; font-family: 'Fraunces', serif; font-style: italic; font-size: 0.95rem; color: var(--muted); border: 1px dashed var(--line-strong); margin-top: 0.5rem; background: rgba(10, 22, 40, 0.02); }
+  .layers-caption { max-width: 720px; margin: 1.5rem auto 0 auto; font-family: 'Fraunces', serif; font-style: italic; font-size: 0.88rem; line-height: 1.55; color: var(--muted); text-align: center; }
+  @media (max-width: 600px) {
+    .layer { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.25rem; }
+    .layer-limit { font-size: 1.4rem; }
+  }
+
+  /* ========== FLOATING CHAT BUBBLE ========== */
+  .chat-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color: var(--cream); border: 1px solid rgba(255, 163, 0, 0.4); cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 32px rgba(10, 22, 40, 0.35); z-index: 850; transition: all 0.3s ease; opacity: 0; transform: translateY(20px); pointer-events: none; }
+  .chat-fab.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .chat-fab:hover { background: var(--navy-mid); transform: translateY(-2px); box-shadow: 0 16px 40px rgba(10, 22, 40, 0.4); }
+  .chat-fab svg { width: 22px; height: 22px; }
+  @media (max-width: 600px) {
+    .chat-fab { bottom: 1.25rem; right: 1.25rem; width: 50px; height: 50px; }
+    .chat-fab svg { width: 19px; height: 19px; }
+  }
+  .chat-fab-pulse { position: absolute; top: -4px; right: -4px; width: 14px; height: 14px; border-radius: 50%; background: var(--yellow); border: 2px solid var(--cream); animation: pulse 2.5s ease-in-out infinite; }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.7; }
+  }
+  .chat-panel { position: fixed; bottom: 1.75rem; right: 1.75rem; width: min(380px, calc(100vw - 2rem)); max-height: min(560px, calc(100vh - 4rem)); background: var(--cream); border: 1px solid var(--line); display: flex; flex-direction: column; box-shadow: 0 24px 60px rgba(10, 22, 40, 0.25); z-index: 851; transform: translateY(20px) scale(0.96); opacity: 0; pointer-events: none; transition: all 0.28s ease; transform-origin: bottom right; }
+  .chat-panel.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+  .chat-header { background: var(--navy); color: var(--cream); padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: 0.85rem; border-bottom: 1px solid rgba(255, 163, 0, 0.2); }
+  .chat-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--yellow); color: var(--navy); display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 500; }
+  .chat-header-info { flex: 1; }
+  .chat-header-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 500; line-height: 1.1; }
+  .chat-header-status { font-size: 0.72rem; letter-spacing: 0.05em; color: rgba(250, 246, 239, 0.7); margin-top: 0.15rem; display: flex; align-items: center; gap: 0.4rem; }
+  .chat-header-status::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #4ade80; display: inline-block; }
+  .chat-close { background: transparent; border: none; color: var(--cream); cursor: pointer; padding: 0.35rem; opacity: 0.7; transition: opacity 0.2s ease; }
+  .chat-close:hover { opacity: 1; }
+  .chat-close svg { width: 18px; height: 18px; }
+  .chat-body { flex: 1; padding: 1.25rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.85rem; }
+  .chat-message { max-width: 85%; padding: 0.7rem 0.95rem; font-size: 0.9rem; line-height: 1.45; }
+  .chat-message.from-austin { align-self: flex-start; background: #fff; border: 1px solid var(--line); color: var(--ink); }
+  .chat-message.from-user { align-self: flex-end; background: var(--navy); color: var(--cream); }
+  .chat-message-greeting { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.95rem; }
+  .chat-form { padding: 0.85rem 1rem 1.1rem 1rem; border-top: 1px solid var(--line); background: #fff; }
+  .chat-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .chat-form input, .chat-form textarea { width: 100%; padding: 0.55rem 0.7rem; border: 1px solid var(--line); font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--ink); background: var(--cream); resize: none; }
+  .chat-form input:focus, .chat-form textarea:focus { outline: none; border-color: var(--yellow); }
+  .chat-form textarea { min-height: 64px; }
+  .chat-form-send { width: 100%; margin-top: 0.55rem; padding: 0.7rem; background: var(--navy); color: var(--cream); border: none; font-family: 'Inter', sans-serif; font-size: 0.85rem; letter-spacing: 0.05em; cursor: pointer; transition: background 0.2s ease; text-transform: uppercase; }
+  .chat-form-send:hover { background: var(--navy-mid); }
+  .chat-form-note { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.72rem; color: var(--muted); margin-top: 0.55rem; text-align: center; line-height: 1.4; }
+
+  /* ========== GLOBAL DISCLAIMER ========== */
+  .global-disclaimer { background: var(--navy); color: rgba(250, 246, 239, 0.6); padding: 2rem; font-family: 'Inter', sans-serif; font-size: 0.78rem; line-height: 1.6; border-top: 1px solid rgba(255, 163, 0, 0.15); }
+  .global-disclaimer .wrap { max-width: 980px; margin: 0 auto; }
+  .global-disclaimer-label { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.75rem; opacity: 0.85; }
+
+  /* ========== SCROLL OFFSET FOR ANCHORS ========== */
+  section[id], header[id] { scroll-margin-top: 1.5rem; }
 </style>
 </head>
 <body>
 
 <div class="progress-bar" id="progress"></div>
 
+<!-- SIDEBAR NAV -->
+<button class="sidenav-toggle" id="sidenavToggle" aria-label="Open navigation" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+</button>
+<div class="sidenav-backdrop" id="sidenavBackdrop"></div>
+<aside class="sidenav" id="sidenav" aria-label="Section navigation">
+  <div class="sidenav-mark">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 2 L22 6 V12 C22 17 17.5 21.5 12 23 C6.5 21.5 2 17 2 12 V6 Z"/>
+    </svg>
+    <span class="sidenav-mark-text">Safeshield</span>
+  </div>
+  <div class="sidenav-eyebrow">The Plan</div>
+  <ul class="sidenav-list">
+    <li><a href="#overview" class="sidenav-item" data-nav>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+      <span class="sidenav-item-label">Overview</span>
+    </a></li>
+    <li><a href="#glance" class="sidenav-item" data-nav>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <span class="sidenav-item-label">At a Glance</span>
+    </a></li>
+    <li><a href="#discovery" class="sidenav-item" data-nav>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>
+      <span class="sidenav-item-label">Discovery</span>
+    </a></li>
+    <li><a href="#assets" class="sidenav-item" data-nav>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l9-7 9 7v12M9 21v-7h6v7"/></svg>
+      <span class="sidenav-item-label">Asset Map</span>
+    </a></li>
+    <li><a href="#scenarios" class="sidenav-item" data-nav>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      <span class="sidenav-item-label">What Happens If</span>
+    </a></li>
+    <li><a href="#compare" class="sidenav-item" data-nav>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h7M3 12h7M3 18h7M14 6h7M14 12h7M14 18h7"/></svg>
+      <span class="sidenav-item-label">Before / After</span>
+    </a></li>
+    <li><a href="#limits" class="sidenav-item" data-nav>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg>
+      <span class="sidenav-item-label">Limit Changes</span>
+    </a></li>
+    <li><a href="#rebuild" class="sidenav-item" data-nav>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V10l7-6 7 6v11M10 21v-7h4v7"/></svg>
+      <span class="sidenav-item-label">Coverages</span>
+    </a></li>
+    <li><a href="#layers" class="sidenav-item" data-nav>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5M3 18l9 5 9-5"/></svg>
+      <span class="sidenav-item-label">Liability Stack</span>
+      <span class="sidenav-item-tag">$6M</span>
+    </a></li>
+    <li><a href="#flood" class="sidenav-item" data-nav>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0M12 3v6"/></svg>
+      <span class="sidenav-item-label">Flood</span>
+      <span class="sidenav-item-tag">Review</span>
+    </a></li>
+    <li><a href="#premium" class="sidenav-item" data-nav>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 010 7H6"/></svg>
+      <span class="sidenav-item-label">Premium</span>
+      <span class="sidenav-item-tag">$17.3K</span>
+    </a></li>
+    <li><a href="#next-steps" class="sidenav-item" data-nav>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      <span class="sidenav-item-label">Next Steps</span>
+    </a></li>
+  </ul>
+</aside>
+
+<!-- FLOATING CHAT FAB -->
+<button class="chat-fab" id="chatFab" aria-label="Chat with Austin">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <path d="M21 11.5c0 4.7-4 8.5-9 8.5-1.4 0-2.7-.3-3.9-.8L3 21l1.4-4.1C3.5 15.4 3 13.5 3 11.5 3 6.8 7 3 12 3s9 3.8 9 8.5z"/>
+  </svg>
+  <span class="chat-fab-pulse"></span>
+</button>
+
+<!-- CHAT PANEL -->
+<div class="chat-panel" id="chatPanel" role="dialog" aria-label="Chat with Austin" aria-hidden="true">
+  <div class="chat-header">
+    <div class="chat-avatar">A</div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">Austin Glazer</div>
+      <div class="chat-header-status">Typically replies within an hour</div>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Close chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="chat-body">
+    <div class="chat-message from-austin chat-message-greeting">
+      Hi — happy to answer any questions on the plan. Just send a quick note and I'll get back to you directly.
+    </div>
+    <div class="chat-message from-austin">
+      You can ask about specific coverages, the umbrella, the flood decision, the premium — anything.
+    </div>
+  </div>
+  <form class="chat-form" id="chatForm">
+    <div class="chat-form-row">
+      <input type="text" id="chatName" placeholder="Your name" aria-label="Your name" required>
+      <input type="email" id="chatEmail" placeholder="Your email" aria-label="Your email" required>
+    </div>
+    <textarea id="chatMessage" placeholder="Type your question..." aria-label="Your message" required></textarea>
+    <button type="submit" class="chat-form-send">Send to Austin</button>
+    <div class="chat-form-note">Opens your email client to send to austin@gosafeshield.com</div>
+  </form>
+</div>
+
 <!-- HERO -->
-<header class="hero">
+<header class="hero" id="overview">
   <div class="hero-top">
     <div class="hero-mark">
       <svg class="hero-mark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -302,7 +588,6 @@
       </svg>
       <span class="hero-mark-text">Safeshield Insurance</span>
     </div>
-    <div>Prepared 05·27·2026</div>
   </div>
 
   <div class="hero-content">
@@ -313,14 +598,61 @@
 
   <div class="hero-meta">
     <div class="hero-meta-item">Primary Property<span class="hero-meta-value">12 Terhune Drive, Westport CT</span></div>
-    <div class="hero-meta-item">Secondary Property<span class="hero-meta-value">27 Seaview Street, Chatham MA</span></div>
+    <div class="hero-meta-item">Secondary Property<span class="hero-meta-value">48 Seaview Street, Chatham MA</span></div>
     <div class="hero-meta-item">Your Agent<span class="hero-meta-value">Austin Glazer</span></div>
     <div class="hero-meta-item">Carrier<span class="hero-meta-value">Chubb Masterpiece®</span></div>
   </div>
 </header>
 
+<!-- PLAN AT A GLANCE -->
+<section class="glance" id="glance">
+  <div class="wrap">
+    <div class="glance-eyebrow reveal">The Plan at a Glance</div>
+    <h2 class="glance-title reveal">Built around <em>$3.92M</em> of current assets.</h2>
+    <p class="glance-sub reveal">A snapshot of the recommended protection plan. The pages that follow walk through the reasoning behind every number.</p>
+
+    <div class="glance-grid">
+      <div class="glance-card featured reveal">
+        <div class="glance-card-label">Total Asset Base</div>
+        <div class="glance-card-value yellow">$3.92M</div>
+        <div class="glance-card-note">Current snapshot</div>
+      </div>
+      <div class="glance-card reveal">
+        <div class="glance-card-label">Dwelling Coverage</div>
+        <div class="glance-card-value">$4.2M</div>
+        <div class="glance-card-note">+ Extended Replacement Cost</div>
+      </div>
+      <div class="glance-card reveal">
+        <div class="glance-card-label">Total Liability Stack</div>
+        <div class="glance-card-value">$6,000,000</div>
+        <div class="glance-card-note">Home + Umbrella combined</div>
+      </div>
+      <div class="glance-card reveal">
+        <div class="glance-card-label">Auto Liability</div>
+        <div class="glance-card-value">$1M CSL</div>
+        <div class="glance-card-note">Combined Single Limit</div>
+      </div>
+      <div class="glance-card reveal">
+        <div class="glance-card-label">Personal Umbrella</div>
+        <div class="glance-card-value">$5,000,000</div>
+        <div class="glance-card-note">+ $1M UM/UIM elected</div>
+      </div>
+      <div class="glance-card reveal">
+        <div class="glance-card-label">Carrier</div>
+        <div class="glance-card-value">Chubb</div>
+        <div class="glance-card-note">Masterpiece® · HO-5</div>
+        <div class="glance-status">Recommended Plan</div>
+      </div>
+    </div>
+
+    <div class="glance-disclaimer reveal">
+      Illustrative summary only. Coverage is subject to underwriting approval, issued policy forms, endorsements, exclusions, limits, deductibles, and claim facts. In the event of any conflict, the issued policy controls.
+    </div>
+  </div>
+</section>
+
 <!-- PHILOSOPHY -->
-<section class="philosophy">
+<section class="philosophy" id="discovery">
   <div class="wrap">
     <div class="section-eyebrow reveal">The Philosophy</div>
     <h2 class="display section-title reveal">We work for <em>you</em>, not the carrier.</h2>
@@ -345,7 +677,7 @@
 </section>
 
 <!-- ASSETS UNCOVERED -->
-<section class="assets-band">
+<section class="assets-band" id="assets">
   <div class="wrap">
     <div class="section-eyebrow reveal">From Our Discovery Call</div>
     <h2 class="display section-title reveal">Your protection plan starts with <em>the full picture.</em></h2>
@@ -376,7 +708,7 @@
         </div>
         <div class="assets-label-block">
           <span class="assets-name">Secondary Home — Cape Cod</span>
-          <span class="assets-sub">27 Seaview Street · Chatham, MA</span>
+          <span class="assets-sub">48 Seaview Street · Chatham, MA</span>
         </div>
         <div class="assets-value">$1,150,000</div>
       </div>
@@ -445,7 +777,7 @@
 </section>
 
 <!-- TRIANGLE -->
-<section class="triangle-section">
+<section class="triangle-section" id="triangle">
   <div class="wrap">
     <div class="section-eyebrow reveal">Your Triangle</div>
     <h2 class="display section-title reveal">This is what we're <em>protecting</em>.</h2>
@@ -514,7 +846,7 @@
 </section>
 
 <!-- LIMITS RAISED -->
-<section class="limits-band">
+<section class="limits-band" id="limits">
   <div class="wrap">
     <div class="section-eyebrow reveal">Why These Are the Right Limits</div>
     <h2 class="display section-title reveal">The most important conversation in <em>this entire plan.</em></h2>
@@ -602,6 +934,113 @@
   </div>
 </section>
 
+<!-- WHAT HAPPENS IF SCENARIOS -->
+<section class="scenarios" id="scenarios">
+  <div class="wrap">
+    <div class="scenarios-header">
+      <div class="section-eyebrow reveal">What Happens If</div>
+      <h2 class="display section-title reveal">Three moments your plan was <em>built for.</em></h2>
+      <p class="lead reveal">Insurance is abstract until it isn't. These are walkthroughs of how your recommended plan is designed to respond to common high-stakes events — not promises of outcome.</p>
+    </div>
+
+    <div class="scenarios-grid reveal">
+      <div class="scenarios-tabs" role="tablist">
+        <button class="scenario-tab active" data-scenario="fire" role="tab" aria-selected="true">
+          <svg class="scenario-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2c1 3 3 4 3 7a3 3 0 11-6 0c0-1 .5-2 1-3M5 14c0 4 3 7 7 7s7-3 7-7c0-2-1-3-2-4-1 2-2 3-4 3-3 0-4-3-4-5-2 2-4 3-4 6z"/>
+          </svg>
+          <span class="scenario-tab-name">House Fire</span>
+        </button>
+        <button class="scenario-tab" data-scenario="auto" role="tab" aria-selected="false">
+          <svg class="scenario-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 13l2-6h14l2 6M3 13v5h2v-2h14v2h2v-5M3 13h18M7 16h.01M17 16h.01"/>
+          </svg>
+          <span class="scenario-tab-name">Serious Car Accident</span>
+        </button>
+        <button class="scenario-tab" data-scenario="lawsuit" role="tab" aria-selected="false">
+          <svg class="scenario-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 3v18M5 8l7-5 7 5M3 10l4 8h-4zM17 10l4 8h-4zM4 18h6M14 18h6"/>
+          </svg>
+          <span class="scenario-tab-name">Lawsuit Above Limits</span>
+        </button>
+      </div>
+
+      <div class="scenario-panel" id="scenarioPanel" role="tabpanel">
+        <!-- Content injected by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER COMPARISON -->
+<section class="compare" id="compare">
+  <div class="wrap">
+    <div class="compare-header">
+      <div class="section-eyebrow reveal">Where the Plan Improves Your Position</div>
+      <h2 class="display section-title reveal">Side by side, in <em>plain numbers.</em></h2>
+      <p class="lead reveal">A standard-market policy and a Chubb Masterpiece plan answer different questions. Here is the position you came in with versus the position this plan is designed to put you in.</p>
+    </div>
+
+    <div class="compare-toggle reveal" role="tablist">
+      <button class="compare-toggle-btn" data-view="before" role="tab">Before</button>
+      <button class="compare-toggle-btn active" data-view="after" role="tab">Recommended Plan</button>
+      <button class="compare-toggle-btn" data-view="both" role="tab">Side by Side</button>
+    </div>
+
+    <div class="compare-table reveal" id="compareTable">
+      <div class="compare-row compare-row-head">
+        <div class="compare-row-label">Coverage Area</div>
+        <div class="compare-cell" data-col="before">Before</div>
+        <div class="compare-cell" data-col="after">Recommended Plan</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-row-label">Auto Liability</div>
+        <div class="compare-cell before-cell" data-col="before">$100K / $300K split</div>
+        <div class="compare-cell after-cell" data-col="after">$1,000,000 Combined Single Limit</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-row-label">Personal Umbrella</div>
+        <div class="compare-cell before-cell" data-col="before">None</div>
+        <div class="compare-cell after-cell" data-col="after">$5,000,000 + $1M UM/UIM elected</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-row-label">Home Rebuild Basis</div>
+        <div class="compare-cell before-cell" data-col="before">Purchase-price mindset</div>
+        <div class="compare-cell after-cell" data-col="after">$4.2M rebuild + Extended Replacement Cost</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-row-label">Uninsured Motorist (UM/UIM)</div>
+        <div class="compare-cell before-cell" data-col="before">Basic split limits</div>
+        <div class="compare-cell after-cell" data-col="after">$1M CSL + $1M stacked on umbrella</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-row-label">Jewelry &amp; Valuables</div>
+        <div class="compare-cell before-cell" data-col="before">Capped at home-policy sublimit</div>
+        <div class="compare-cell after-cell" data-col="after">$100K blanket worldwide PAF</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-row-label">Loss of Use</div>
+        <div class="compare-cell before-cell" data-col="before">Stated dollar cap with time limit</div>
+        <div class="compare-cell after-cell" data-col="after">Unlimited under Chubb Masterpiece</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-row-label">Personal Property</div>
+        <div class="compare-cell before-cell" data-col="before">Actual Cash Value (depreciated)</div>
+        <div class="compare-cell after-cell" data-col="after">Full Replacement Cost</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-row-label">Flood</div>
+        <div class="compare-cell before-cell" data-col="before">Often not included</div>
+        <div class="compare-cell after-cell" data-col="after">Reviewed separately · Optional</div>
+      </div>
+    </div>
+
+    <div class="scenario-disclaimer reveal" style="margin-top: 1.5rem; max-width: 980px;">
+      "Before" descriptions reflect typical standard-market configurations. Final coverage is subject to underwriting, issued policy language, endorsements, exclusions, and claim facts.
+    </div>
+  </div>
+</section>
+
 <!-- PILLAR 1 — REBUILD -->
 <section class="pillar" id="rebuild">
   <div class="wrap">
@@ -642,6 +1081,10 @@
         <div class="coverage-hero-detail"><div class="coverage-hero-detail-inner">
           <p class="coverage-explain">Here's something most first-time buyers don't realize: the rebuild cost of a home is rarely the same as the purchase price. Your $2.5M price tag reflects the land, the school district, the neighborhood. The rebuild number is what it actually costs to put 6,731 square feet of finished Westport construction back together — and at current market rates, that's roughly $625 per square foot. We built your dwelling at $4,200,000 to reflect that reality. Then we added Chubb's Extended Replacement Cost endorsement on top, meaning if a total loss runs even higher, the carrier still pays.</p>
           <p class="coverage-reason"><strong>Why this matters —</strong> Most agents quote the carrier's default estimator, which on a $2.5M Westport home often comes in around $2-2.5M — drastically underinsured. When the rebuild bill comes in at $3.5M, the homeowner is stuck with the gap. We don't let that happen. <strong>This is the kind of decision that separates a broker from an agent who just fills out forms.</strong></p>
+          <div class="real-life">
+            <div class="real-life-label">What this means in real life</div>
+            <div class="real-life-text">If construction costs spike after a major storm or fire — which they often do — this position is designed to help reduce the chance you're stuck with a rebuild gap. Subject to policy terms, the dwelling limit plus Extended Replacement Cost is built to bend with the cost of putting your home back together.</div>
+          </div>
         </div></div>
       </button>
 
@@ -676,7 +1119,7 @@
         <div class="coverage-toggle">What this covers</div>
         <div class="coverage-detail"><div class="coverage-detail-inner">
           <p class="coverage-explain">Detached structures on your property — pool houses, sheds, detached garages, fences, driveways, retaining walls. Anything not attached to the main house.</p>
-          <p class="coverage-reason"><strong>Why we built it this way —</strong> Set at 20% of dwelling — Chubb's default, which is double what most carriers offer. The Cape property and Westport property both qualify for this treatment.</p>
+          <p class="coverage-reason"><strong>Why we built it this way —</strong> Set at 20% of dwelling — Chubb's default, which is double what most carriers offer.</p>
         </div></div>
       </button>
 
@@ -687,7 +1130,7 @@
         <div class="coverage-toggle">Why this is rare</div>
         <div class="coverage-detail"><div class="coverage-detail-inner">
           <p class="coverage-explain">For any loss above $50,000, your deductible is waived entirely — you pay zero out of pocket. The carrier picks up the full claim.</p>
-          <p class="coverage-reason"><strong>Why we built it this way —</strong> This is a Chubb Masterpiece feature most carriers don't offer at any price. On a major loss — fire, tree through the roof, water damage — your $5,000 deductible disappears. <strong>It's the kind of detail that separates a real HNW carrier from one that just labels itself that way.</strong></p>
+          <p class="coverage-reason"><strong>Why we built it this way —</strong> This is a Chubb Masterpiece feature most carriers don't offer at any price. On a major loss — fire, tree through the roof, water damage — your $10,000 deductible disappears. <strong>It's the kind of detail that separates a real HNW carrier from one that just labels itself that way.</strong></p>
         </div></div>
       </button>
 
@@ -763,7 +1206,7 @@
       <div class="pillar-meta reveal">
         <div class="pillar-kicker">Pillar Two</div>
         <div class="pillar-name">Replace.</div>
-        <div class="pillar-q">If everything inside both homes was destroyed — could you replace it at today's prices, not yesterday's?</div>
+        <div class="pillar-q">If everything inside your home was destroyed — could you replace it at today's prices, not yesterday's?</div>
       </div>
     </div>
 
@@ -779,21 +1222,19 @@
           <div class="coverage-hero-main">
             <span class="coverage-hero-badge">★ Replacement Cost · No Depreciation</span>
             <div class="coverage-hero-label">Home · Coverage C + Endorsement</div>
-            <div class="coverage-hero-name">Personal Property at <em>full replacement value</em> — across both homes.</div>
+            <div class="coverage-hero-name">Personal Property at <em>full replacement value</em>.</div>
             <div class="coverage-hero-tagline">Furniture, art, electronics, clothing, kitchen. If a covered loss destroys it, Chubb pays what it costs to buy the item brand new today — not its depreciated used value.</div>
           </div>
           <div class="coverage-hero-side">
             <div class="coverage-hero-limit">$2,100,000</div>
             <div class="coverage-hero-limit-stack">
-              <div class="coverage-hero-limit-stack-line">50% of Dwelling</div>
-              <div class="coverage-hero-limit-stack-divider"></div>
               <div class="coverage-hero-limit-stack-line benefit">At Replacement Cost</div>
             </div>
             <div class="coverage-hero-toggle">Read the reasoning</div>
           </div>
         </div>
         <div class="coverage-hero-detail"><div class="coverage-hero-detail-inner">
-          <p class="coverage-explain">The default on most policies is Actual Cash Value, which depreciates everything. A 7-year-old couch you paid $3,000 for might pay out $400. Replacement Cost pays the full $3,000 to replace it with a new one. Set at 50% of your dwelling limit — Chubb's HNW default — and applied across all your belongings whether they're at Terhune, at the Cape, or in transit between them.</p>
+          <p class="coverage-explain">The default on most policies is Actual Cash Value, which depreciates everything. A 7-year-old couch you paid $3,000 for might pay out $400. Replacement Cost pays the full $3,000 to replace it with a new one. Set at 50% of your dwelling limit — Chubb's HNW default — and applied to everything inside your Westport home.</p>
           <p class="coverage-reason"><strong>Why this matters —</strong> For a couple furnishing a $2.5M home from scratch as first-time buyers, this is the difference between starting over and starting over at a discount. Every dollar you spent at the design store, the gallery, the kitchen showroom — all of it pays out at what it costs to replace, not at depreciated value. <strong>Chubb writes this as the default. Most carriers don't.</strong></p>
         </div></div>
       </button>
@@ -819,6 +1260,10 @@
         <div class="coverage-hero-detail"><div class="coverage-hero-detail-inner">
           <p class="coverage-explain">A major rebuild on a 6,731 sqft Westport home can take 18-24 months. During that time, you need a place to live. Chubb pays for a comparable rental — same neighborhood, same school district, same number of bedrooms — plus added living expenses like restaurant meals, pet boarding, additional commuting, storage of surviving belongings. There is no stated dollar cap on this coverage in most states.</p>
           <p class="coverage-reason"><strong>Why this matters —</strong> Standard carriers cap Loss of Use at 30% of dwelling — for your home, that would be $1.26M, sounds like a lot. But a comparable Westport rental could run $15,000-$25,000 per month, and 18 months of that hits the cap fast. With Chubb's unlimited Loss of Use, you don't have to do the math. <strong>This is the single biggest reason HNW clients move to Chubb — they understand that the disaster isn't the fire, it's the months that come after it.</strong></p>
+          <div class="real-life">
+            <div class="real-life-label">What this means in real life</div>
+            <div class="real-life-text">If a covered event makes your home unlivable, this is designed to help pay for somewhere comparable for your family to live — and the added costs that come with displacement — while repairs or rebuilding happen. Subject to policy terms.</div>
+          </div>
         </div></div>
       </button>
 
@@ -843,6 +1288,10 @@
         <div class="coverage-hero-detail"><div class="coverage-hero-detail-inner">
           <p class="coverage-explain">Your home policy has a sublimit on jewelry, art, watches, and similar valuables — typically $5,000-$10,000 even on a Chubb policy. The Personal Articles Floater (PAF) is a separate policy that extends $100,000 of true coverage to those items. Blanket means you don't need to schedule every individual piece — items under $25,000 are covered automatically. The coverage is all-risk worldwide, which means if your wedding ring slips down a sink in Paris, you're covered. No deductible. Mysterious disappearance is covered. Breakage is covered.</p>
           <p class="coverage-reason"><strong>Why we built it this way —</strong> This is the coverage every newly married couple needs and almost no one is offered. Your wedding rings, the watch you got from your father, the pieces you've collected together — they're at risk every single day. <strong>$100,000 blanket gives you room to grow without scheduling every piece individually. We can add scheduled coverage later for anything that exceeds $25,000.</strong></p>
+          <div class="real-life">
+            <div class="real-life-label">What this means in real life</div>
+            <div class="real-life-text">If a ring slips down a sink, a watch is dropped, or a piece simply goes missing, this policy is designed to respond — at home, while traveling, anywhere in the world. Subject to policy terms, with no deductible for covered losses.</div>
+          </div>
         </div></div>
       </button>
 
@@ -924,7 +1373,7 @@
         <div class="coverage-limit">$1,000,000</div>
         <div class="coverage-toggle">The first half of the math</div>
         <div class="coverage-detail"><div class="coverage-detail-inner">
-          <p class="coverage-explain">If someone is injured at either of your homes or you accidentally cause damage to someone else's property, this covers their medical bills, legal defense, and any settlement awarded against you.</p>
+          <p class="coverage-explain">If someone is injured at your home or you accidentally cause damage to someone else's property, this covers their medical bills, legal defense, and any settlement awarded against you.</p>
           <p class="coverage-reason"><strong>Why we built it this way —</strong> Maxed at the highest limit Chubb Masterpiece offers on the home policy. But for a household with $6.4M+ in exposed assets, $1M alone isn't enough. It's the foundation the umbrella stacks on top of. <strong>Keep scrolling. The umbrella math is the point.</strong></p>
         </div></div>
       </button>
@@ -935,8 +1384,8 @@
         <div class="coverage-limit">$10,000</div>
         <div class="coverage-toggle">What this covers</div>
         <div class="coverage-detail"><div class="coverage-detail-inner">
-          <p class="coverage-explain">If a guest is injured at either of your homes — regardless of fault — this pays their medical bills with no deductible and no fight. Chubb's $10,000 limit is double what standard carriers offer.</p>
-          <p class="coverage-reason"><strong>Why we built it this way —</strong> The small-claim solver. Pays out without a lawsuit, keeps a friendship intact. Especially useful at the Cape during summer entertaining season.</p>
+          <p class="coverage-explain">If a guest is injured at your home — regardless of fault — this pays their medical bills with no deductible and no fight. Chubb's $10,000 limit is double what standard carriers offer.</p>
+          <p class="coverage-reason"><strong>Why we built it this way —</strong> The small-claim solver. Pays out without a lawsuit, keeps a friendship intact.</p>
         </div></div>
       </button>
 
@@ -1015,6 +1464,10 @@
         <div class="coverage-hero-detail"><div class="coverage-hero-detail-inner">
           <p class="coverage-explain">A personal umbrella is an additional layer of liability protection that sits on top of your home and auto policies. If a claim exhausts the limits below it, the umbrella picks up. Your $5M umbrella covers liability arising from both the Westport home and the Cape Cod home, both vehicles, and personal activities anywhere in the world. We also elected UM/UIM coverage on the umbrella itself — a feature most carriers offer but very few agents bother to add. It means if an uninsured driver causes you catastrophic injury, the umbrella provides another $1M of recovery beyond your auto policy.</p>
           <p class="coverage-reason"><strong>Here's the math —</strong> $1,000,000 home liability + $5,000,000 umbrella = <strong>$6,000,000 of total liability protection.</strong> Plus $1,000,000 auto UM/UIM + $1,000,000 umbrella UM/UIM = <strong>$2,000,000 of total uninsured motorist protection.</strong> Your current asset base is $3.92M. <strong>That means your liability ceiling sits well above your current assets — with intentional headroom for future earnings, growth, and the unpredictable size of modern judgments.</strong></p>
+          <div class="real-life">
+            <div class="real-life-label">What this means in real life</div>
+            <div class="real-life-text">If a serious claim or lawsuit goes beyond your home or auto liability limits, this adds another layer of liability protection — designed to help reduce potential personal asset exposure. Subject to policy terms, exclusions, and claim facts.</div>
+          </div>
         </div></div>
       </button>
 
@@ -1049,8 +1502,51 @@
   </div>
 </section>
 
+<!-- PROTECTION LAYER VISUAL -->
+<section class="layers" id="layers">
+  <div class="wrap">
+    <div class="scenarios-header">
+      <div class="section-eyebrow reveal">How a Liability Claim Moves Through Your Plan</div>
+      <h2 class="display section-title reveal">The stack, <em>visualized.</em></h2>
+      <p class="lead reveal">Liability protection is layered. Depending on the facts and the policy terms, an underlying policy may respond first. If a covered claim exceeds that layer, the umbrella may provide additional limits.</p>
+    </div>
+
+    <div class="layers-stack reveal">
+      <div class="layer layer-top">
+        <div>
+          <div class="layer-tier">Top Layer</div>
+          <div class="layer-name">Personal Umbrella</div>
+          <div class="layer-desc">Designed to add a second layer over your home and auto liability for covered events.</div>
+        </div>
+        <div class="layer-limit">$5,000,000</div>
+      </div>
+      <div class="layer">
+        <div>
+          <div class="layer-tier">Underlying · Auto</div>
+          <div class="layer-name">Auto Liability (CSL)</div>
+          <div class="layer-desc">Combined Single Limit — same dollar pool available regardless of how dollars split.</div>
+        </div>
+        <div class="layer-limit">$1,000,000</div>
+      </div>
+      <div class="layer">
+        <div>
+          <div class="layer-tier">Underlying · Home</div>
+          <div class="layer-name">Home Personal Liability</div>
+          <div class="layer-desc">Designed to address bodily injury and property damage liability arising from the home.</div>
+        </div>
+        <div class="layer-limit">$1,000,000</div>
+      </div>
+      <div class="layers-foundation">
+        Your assets sit beneath these layers — $3.92M of current household assets.
+      </div>
+    </div>
+
+    <p class="layers-caption reveal">Illustrative structure only. Whether a claim is eligible for coverage, and which layer may respond, depends on the issued policy language, endorsements, exclusions, and claim facts.</p>
+  </div>
+</section>
+
 <!-- FLOOD -->
-<section class="flood-band">
+<section class="flood-band" id="flood">
   <div class="wrap">
     <div class="section-eyebrow reveal">One More Thing — Flood</div>
     <h2 class="display section-title reveal">Good news: <em>you're in Zone X.</em></h2>
@@ -1101,8 +1597,6 @@
         <div class="flood-options">
           If you'd like to close that gap, we can write an optional private flood policy through Chubb or a specialty market — typically <strong>$400-$800 per year</strong> for Zone X properties. Entirely your call. We just want you to know it exists and what it costs.
         </div>
-
-        <p style="margin-top: 1.25rem;">For your Cape Cod property, we'll do the same analysis — coastal Massachusetts has materially different flood exposure, and we'll handle that separately.</p>
       </div>
     </div>
   </div>
@@ -1129,7 +1623,7 @@
         <span class="claims-principle-num">— Principle · 02</span>
         <div class="claims-principle-title">The deductible is a signal, not just a number.</div>
         <div class="claims-principle-body">
-          Your $5,000 deductible isn't random. It's the line where insurance is supposed to take over. If a loss is meaningfully above the deductible, that's exactly what your policy is for — and the deductible waiver above $50K means you pay nothing on a major loss. <strong>For the in-between losses, we'll do the math with you in the moment.</strong>
+          Your $10,000 deductible isn't random. It's the line where insurance is supposed to take over. If a loss is meaningfully above the deductible, that's exactly what your policy is for — and the deductible waiver above $50K means you pay nothing on a major loss. <strong>For the in-between losses, we'll do the math with you in the moment.</strong>
         </div>
       </div>
 
@@ -1158,7 +1652,7 @@
 </section>
 
 <!-- PREMIUM -->
-<section class="premium">
+<section class="premium" id="premium">
   <div class="wrap">
     <div class="section-eyebrow reveal">The Investment</div>
     <h2 class="display section-title reveal">One coordinated plan — <em>one carrier, four policies.</em></h2>
@@ -1209,7 +1703,7 @@
 </section>
 
 <!-- CTA -->
-<section class="cta">
+<section class="cta" id="next-steps">
   <div class="cta-content reveal">
     <h2 class="display cta-title">Ready when <em>you are.</em></h2>
     <p class="cta-sub">A short call to walk through any of this, answer questions, or move forward. Whatever fits your schedule.</p>
@@ -1223,6 +1717,14 @@
   </div>
 </section>
 
+<!-- GLOBAL DISCLAIMER -->
+<aside class="global-disclaimer">
+  <div class="wrap">
+    <div class="global-disclaimer-label">Important Disclosures</div>
+    This proposal is for discussion and educational purposes only. It is not a policy, binder, or guarantee of coverage. Coverage is subject to underwriting approval, issued policy forms, endorsements, exclusions, limits, deductibles, and claim facts. Scenario walkthroughs are illustrative and are not claim determinations. Comparisons reflect typical standard-market configurations and may not match every prior policy. Premium and limit figures are based on stated assumptions and may change at binding. In the event of any conflict between this summary and the issued policy, the issued policy controls. Safeshield Insurance is licensed in NY, CT, NJ, PA, DE, and NC.
+  </div>
+</aside>
+
 <footer>
   <div>
     Austin Glazer · Founder &amp; CEO, Safeshield Insurance<br/>
@@ -1235,6 +1737,7 @@
 </footer>
 
 <script>
+  // ───── Progress bar ─────
   const progress = document.getElementById('progress');
   window.addEventListener('scroll', () => {
     const h = document.documentElement;
@@ -1242,6 +1745,7 @@
     progress.style.width = pct + '%';
   });
 
+  // ───── Reveal animations ─────
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -1253,6 +1757,7 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   revealEls.forEach(el => io.observe(el));
 
+  // ───── Coverage card expand/collapse ─────
   document.querySelectorAll('[data-card]').forEach(card => {
     card.addEventListener('click', () => {
       const expanded = card.getAttribute('aria-expanded') === 'true';
@@ -1260,7 +1765,7 @@
     });
   });
 
-  // Billing toggle
+  // ───── Billing toggle ─────
   const billingOptions = {
     annual: { amount: '$17,312', period: 'per year, paid in full' },
     quarterly: { amount: '$4,328', period: 'per quarter · 4 payments of $4,328' },
@@ -1270,19 +1775,262 @@
   const premiumAmountEl = document.getElementById('premiumAmount');
   const premiumPeriodEl = document.getElementById('premiumPeriod');
 
-  billingButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const choice = btn.dataset.billing;
-      const data = billingOptions[choice];
-      billingButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      premiumAmountEl.style.opacity = '0';
-      setTimeout(() => {
-        premiumAmountEl.textContent = data.amount;
-        premiumPeriodEl.textContent = data.period;
-        premiumAmountEl.style.opacity = '1';
-      }, 180);
+  if (billingButtons.length) {
+    billingButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const choice = btn.dataset.billing;
+        const data = billingOptions[choice];
+        billingButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        premiumAmountEl.style.opacity = '0';
+        setTimeout(() => {
+          premiumAmountEl.textContent = data.amount;
+          premiumPeriodEl.textContent = data.period;
+          premiumAmountEl.style.opacity = '1';
+        }, 180);
+      });
     });
+  }
+
+  // ───── Sidebar nav: toggle + active-section tracking ─────
+  const sidenav = document.getElementById('sidenav');
+  const sidenavToggle = document.getElementById('sidenavToggle');
+  const navItems = document.querySelectorAll('.sidenav-item');
+
+  sidenavToggle.addEventListener('click', () => {
+    const isOpen = sidenav.classList.toggle('open');
+    document.body.classList.toggle('sidenav-open', isOpen);
+    sidenavToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Backdrop click closes sidebar on mobile
+  const sidenavBackdrop = document.getElementById('sidenavBackdrop');
+  sidenavBackdrop.addEventListener('click', () => {
+    sidenav.classList.remove('open');
+    document.body.classList.remove('sidenav-open');
+    sidenavToggle.setAttribute('aria-expanded', 'false');
+  });
+
+  // Smooth scroll + close mobile nav on click
+  navItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      const targetId = item.getAttribute('href');
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (window.innerWidth < 1280) {
+          sidenav.classList.remove('open');
+          document.body.classList.remove('sidenav-open');
+        }
+      }
+    });
+  });
+
+  // Active section highlight via IntersectionObserver
+  const navSections = Array.from(document.querySelectorAll('[id]')).filter(el => {
+    const id = el.id;
+    return ['overview','glance','discovery','assets','scenarios','compare','limits','rebuild','layers','flood','premium','next-steps'].includes(id);
+  });
+
+  const setActiveNav = (id) => {
+    navItems.forEach(item => {
+      if (item.getAttribute('href') === '#' + id) item.classList.add('active');
+      else item.classList.remove('active');
+    });
+  };
+
+  const navIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.intersectionRatio > 0.15) {
+        setActiveNav(e.target.id);
+      }
+    });
+  }, { threshold: [0.15, 0.5], rootMargin: '-20% 0px -50% 0px' });
+  navSections.forEach(s => navIO.observe(s));
+
+  // ───── What Happens If scenarios ─────
+  const scenarios = {
+    fire: {
+      eyebrow: 'Scenario · House Fire',
+      title: 'A covered fire causes major damage to your home.',
+      situation: 'A kitchen fire spreads, damaging significant portions of the home. The home is unlivable for an extended period during repairs and rebuilding.',
+      layers: [
+        'Dwelling Coverage A is designed to address structural repair and rebuilding costs, subject to policy terms.',
+        'Extended Replacement Cost may help address cost overruns if rebuilding runs higher than the stated limit.',
+        'Personal Property at Full Replacement Cost is designed to address contents — furniture, electronics, clothing — at replacement value rather than depreciated value.',
+        'Loss of Use is designed to help pay for comparable temporary housing and added living expenses while repairs are underway.',
+        'Large Loss Deductible Waiver may apply on losses above $50,000.'
+      ],
+      assumptions: 'Assumes the loss is a covered peril, the cause is not excluded, and the claim is reported and documented per policy requirements.'
+    },
+    auto: {
+      eyebrow: 'Scenario · Serious Car Accident',
+      title: 'A serious accident generates a claim that may exceed underlying auto limits.',
+      situation: 'A multi-vehicle accident results in injury claims and property damage that, in aggregate, may exceed the underlying auto liability limit.',
+      layers: [
+        'Auto Liability ($1M CSL) is designed to respond first, subject to policy terms — Combined Single Limit means the full $1M is available regardless of how dollars are split between injury and property damage.',
+        'If the covered claim exceeds the underlying limit, the Personal Umbrella ($5M) is designed to provide additional liability protection.',
+        'If an uninsured or underinsured driver is at fault, $1M UM/UIM on auto plus $1M UM/UIM elected on the umbrella ($2M total) is designed to help cover your own injuries.',
+        'Medical Payments ($10K) is designed to address medical bills for occupants of your vehicle regardless of fault.'
+      ],
+      assumptions: 'Assumes a covered accident, no policy exclusions apply, and underlying coverage triggers before excess coverage. Actual outcome depends on liability facts, damages, and claim handling.'
+    },
+    lawsuit: {
+      eyebrow: 'Scenario · Lawsuit Above Underlying Limits',
+      title: 'A claim or lawsuit may exceed your home or auto liability limit.',
+      situation: 'A liability claim — from a serious accident, an injury at the home, or another covered event — results in damages that may exceed the underlying policy limit.',
+      layers: [
+        'The underlying home or auto liability policy is designed to respond first, up to its stated limit, subject to policy terms.',
+        'Once the underlying limit is exhausted, the $5M Personal Umbrella is designed to provide an additional layer of liability protection.',
+        'The total liability ceiling — underlying $1M + umbrella $5M — is $6M of liability protection, designed to help reduce potential personal asset exposure relative to your current $3.92M asset base.',
+        'Legal defense costs may be addressed by the responding policy, subject to policy terms.'
+      ],
+      assumptions: 'Assumes a covered event, no policy exclusions apply, and the claim falls within the scope of issued coverage. Final outcome depends on policy language, exclusions, and claim facts.'
+    }
+  };
+
+  const scenarioPanel = document.getElementById('scenarioPanel');
+  const scenarioTabs = document.querySelectorAll('.scenario-tab');
+
+  const renderScenario = (key) => {
+    const s = scenarios[key];
+    if (!s) return;
+    scenarioPanel.innerHTML = `
+      <div class="scenario-panel-eyebrow">${s.eyebrow}</div>
+      <div class="scenario-panel-title">${s.title}</div>
+      <div class="scenario-panel-situation">${s.situation}</div>
+      <div class="scenario-panel-section">
+        <div class="scenario-panel-section-label">Which coverage layers may respond</div>
+        <ul class="scenario-panel-list">
+          ${s.layers.map(l => `<li>${l}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="scenario-panel-section">
+        <div class="scenario-panel-section-label">Important assumptions</div>
+        <div style="font-size: 0.9rem; color: var(--ink-soft); line-height: 1.55;">${s.assumptions}</div>
+      </div>
+      <div class="scenario-disclaimer">
+        Illustrative example only. Not a claim determination. Coverage depends on issued policy language, endorsements, exclusions, underwriting, and claim facts.
+      </div>
+    `;
+  };
+
+  scenarioTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      scenarioTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      renderScenario(tab.dataset.scenario);
+    });
+  });
+
+  // Initial render
+  renderScenario('fire');
+
+  // ───── Before / After toggle ─────
+  const compareButtons = document.querySelectorAll('.compare-toggle-btn');
+  const compareTable = document.getElementById('compareTable');
+
+  const setCompareView = (view) => {
+    compareTable.querySelectorAll('[data-col]').forEach(cell => {
+      const col = cell.getAttribute('data-col');
+      if (view === 'both') {
+        cell.style.display = '';
+      } else if (view === col) {
+        cell.style.display = '';
+      } else {
+        cell.style.display = 'none';
+      }
+    });
+    // Toggle table grid columns based on view
+    if (view === 'both') {
+      compareTable.style.setProperty('--cols', '1.2fr 1.5fr 1.5fr');
+      compareTable.querySelectorAll('.compare-row').forEach(r => r.style.gridTemplateColumns = '1.2fr 1.5fr 1.5fr');
+    } else {
+      compareTable.querySelectorAll('.compare-row').forEach(r => r.style.gridTemplateColumns = '1.2fr 1fr');
+    }
+  };
+
+  compareButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      compareButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      setCompareView(btn.dataset.view);
+    });
+  });
+
+  // Default view: after
+  setCompareView('after');
+
+  // ───── Chat panel ─────
+  const chatFab = document.getElementById('chatFab');
+  const chatPanel = document.getElementById('chatPanel');
+  const chatClose = document.getElementById('chatClose');
+  const chatForm = document.getElementById('chatForm');
+
+  // Reveal FAB only after scrolling past the hero
+  const heroEl = document.querySelector('.hero');
+  const fabIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) chatFab.classList.add('visible');
+      else chatFab.classList.remove('visible');
+    });
+  }, { threshold: 0.1 });
+  if (heroEl) fabIO.observe(heroEl);
+
+  const openChat = () => {
+    chatPanel.classList.add('open');
+    chatPanel.setAttribute('aria-hidden', 'false');
+    chatFab.style.opacity = '0';
+    chatFab.style.pointerEvents = 'none';
+  };
+  const closeChat = () => {
+    chatPanel.classList.remove('open');
+    chatPanel.setAttribute('aria-hidden', 'true');
+    setTimeout(() => {
+      chatFab.style.opacity = '';
+      chatFab.style.pointerEvents = '';
+    }, 300);
+  };
+
+  chatFab.addEventListener('click', openChat);
+  chatClose.addEventListener('click', closeChat);
+
+  chatForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('chatName').value.trim();
+    const email = document.getElementById('chatEmail').value.trim();
+    const message = document.getElementById('chatMessage').value.trim();
+
+    if (!name || !email || !message) return;
+
+    // mailto handoff — swap to Formspree endpoint later by changing this block
+    const subject = encodeURIComponent(`Question from ${name} re: your Safeshield proposal`);
+    const body = encodeURIComponent(
+      `From: ${name}\nEmail: ${email}\n\nQuestion:\n${message}\n\n— Sent from the Safeshield proposal page`
+    );
+    window.location.href = `mailto:austin@gosafeshield.com?subject=${subject}&body=${body}`;
+
+    // Show a "sent" message in the chat
+    const chatBody = chatPanel.querySelector('.chat-body');
+    const userMsg = document.createElement('div');
+    userMsg.className = 'chat-message from-user';
+    userMsg.textContent = message;
+    chatBody.appendChild(userMsg);
+
+    const reply = document.createElement('div');
+    reply.className = 'chat-message from-austin';
+    reply.innerHTML = `Thanks ${name.split(' ')[0]} — your email client is opening now. Once you hit send, I'll get back to you directly.`;
+    chatBody.appendChild(reply);
+
+    document.getElementById('chatMessage').value = '';
+    chatBody.scrollTop = chatBody.scrollHeight;
+  });
+
+  // Close chat on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatPanel.classList.contains('open')) closeChat();
   });
 </script>
 
