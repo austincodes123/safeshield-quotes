@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sydney Almeida | Auto Insurance Quote | Safeshield</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #004B89;
+    --gold: #FFA300;
+    --dark: #0a1628;
+    --dark2: #0f1e35;
+    --text: #FAFAF8;
+    --muted: rgba(250,250,248,0.6);
+    --card: rgba(255,255,255,0.04);
+    --card-border: rgba(255,255,255,0.08);
+    --green: #22c55e;
+    --red: #f87171;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--dark); color: var(--text); font-family: 'Outfit', sans-serif; line-height: 1.6; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--card-border);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo-shield {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--navy), var(--gold));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .nav-logo-text { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.5px; }
+  .nav-logo-text span { color: var(--gold); }
+  .nav-badge {
+    background: rgba(255,163,0,0.12);
+    border: 1px solid rgba(255,163,0,0.3);
+    color: var(--gold);
+    font-size: 12px; font-weight: 600;
+    padding: 4px 14px; border-radius: 100px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,75,137,0.35) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 80% 80%, rgba(255,163,0,0.08) 0%, transparent 60%),
+                var(--dark);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,163,0,0.1); border: 1px solid rgba(255,163,0,0.25);
+    color: var(--gold); font-size: 13px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase;
+    padding: 6px 18px; border-radius: 100px; margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    max-width: 800px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--muted);
+    max-width: 560px;
+    margin-bottom: 48px;
+    font-weight: 400;
+  }
+
+  /* SAVINGS HERO CARD */
+  .savings-hero {
+    display: flex; gap: 24px; align-items: stretch; justify-content: center;
+    flex-wrap: wrap; margin-bottom: 40px; position: relative; z-index: 1;
+  }
+  .savings-number {
+    background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(34,197,94,0.05));
+    border: 2px solid rgba(34,197,94,0.4);
+    border-radius: 20px;
+    padding: 32px 48px;
+    text-align: center;
+  }
+  .savings-number .label { font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+  .savings-number .amount { font-family: 'Playfair Display', serif; font-size: clamp(52px, 8vw, 80px); font-weight: 900; color: var(--green); line-height: 1; }
+  .savings-number .sublabel { font-size: 14px; color: rgba(34,197,94,0.7); margin-top: 6px; font-weight: 500; }
+
+  .hero-stat-group {
+    display: flex; flex-direction: column; gap: 16px; justify-content: center;
+  }
+  .hero-stat {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 14px; padding: 18px 28px; text-align: left; min-width: 200px;
+  }
+  .hero-stat .stat-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .hero-stat .stat-val { font-size: 22px; font-weight: 700; }
+  .hero-stat .stat-val.old { color: var(--red); text-decoration: line-through; opacity: 0.8; }
+  .hero-stat .stat-val.new { color: var(--green); }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold); color: #0a1628;
+    font-weight: 700; font-size: 16px;
+    padding: 16px 40px; border-radius: 100px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 32px rgba(255,163,0,0.3);
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,163,0,0.45); }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin: 0 40px;
+  }
+
+  /* SECTIONS */
+  section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700; margin-bottom: 16px;
+  }
+  .section-sub { color: var(--muted); font-size: 16px; max-width: 600px; margin-bottom: 48px; line-height: 1.7; }
+
+  /* COMPARISON TABLE */
+  .comparison-wrapper { overflow-x: auto; border-radius: 20px; border: 1px solid var(--card-border); }
+  .comparison-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  .comparison-table thead tr {
+    background: rgba(255,255,255,0.03);
+  }
+  .comparison-table th {
+    padding: 20px 24px; text-align: left; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.5px; border-bottom: 1px solid var(--card-border);
+  }
+  .comparison-table th.col-coverage { color: var(--muted); width: 35%; }
+  .comparison-table th.col-prog { color: var(--red); }
+  .comparison-table th.col-nycm { color: var(--green); }
+  .comparison-table td {
+    padding: 16px 24px; font-size: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .comparison-table tr:last-child td { border-bottom: none; }
+  .comparison-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .comparison-table td.coverage-name { color: var(--muted); font-size: 14px; font-weight: 500; }
+  .comparison-table td.prog-val { color: rgba(248,113,113,0.85); }
+  .comparison-table td.nycm-val { color: var(--green); font-weight: 600; }
+  .upgrade-badge {
+    display: inline-block;
+    background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25);
+    color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 100px; margin-left: 6px; vertical-align: middle;
+  }
+  .premium-row td { font-weight: 800 !important; font-size: 17px !important; }
+  .premium-row td.coverage-name { color: var(--text) !important; }
+  .premium-row td.prog-val { color: var(--red) !important; font-size: 20px !important; }
+  .premium-row td.nycm-val { color: var(--green) !important; font-size: 20px !important; }
+  .savings-row td { background: rgba(34,197,94,0.06) !important; }
+  .savings-row td.nycm-val { color: var(--green) !important; font-size: 18px !important; font-weight: 800 !important; }
+
+  /* WHAT CHANGED */
+  .changes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .change-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 16px; padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .change-card:hover { border-color: rgba(255,163,0,0.2); transform: translateY(-2px); }
+  .change-card.upgrade { border-left: 3px solid var(--green); }
+  .change-card.savings-card { border-left: 3px solid var(--gold); }
+  .change-card .change-icon { font-size: 28px; margin-bottom: 12px; }
+  .change-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .change-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .change-card p strong { color: var(--text); }
+  .change-card .before-after {
+    display: flex; align-items: center; gap: 10px; margin-top: 12px;
+    font-size: 14px; font-weight: 600;
+  }
+  .before-after .before { color: var(--red); text-decoration: line-through; opacity: 0.8; }
+  .before-after .arrow { color: var(--muted); }
+  .before-after .after { color: var(--green); }
+
+  /* WHY SAFESHIELD */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .why-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 14px; padding: 24px;
+    text-align: center;
+  }
+  .why-card .why-icon { font-size: 32px; margin-bottom: 12px; }
+  .why-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .why-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* FOOTER CTA */
+  .footer-cta {
+    background: linear-gradient(135deg, rgba(0,75,137,0.4), rgba(255,163,0,0.08));
+    border: 1px solid rgba(0,75,137,0.3);
+    border-radius: 24px;
+    padding: 60px 40px;
+    text-align: center;
+    margin: 0 24px 60px;
+  }
+  .footer-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    margin-bottom: 16px;
+  }
+  .footer-cta p { color: var(--muted); font-size: 16px; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-ghost {
+    display: inline-block;
+    background: transparent; color: var(--text);
+    border: 1px solid rgba(255,255,255,0.2);
+    font-weight: 600; font-size: 15px;
+    padding: 14px 32px; border-radius: 100px;
+    text-decoration: none; cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
+
+  .footer-bar {
+    text-align: center; padding: 24px;
+    font-size: 13px; color: var(--muted);
+    border-top: 1px solid var(--card-border);
+  }
+  .footer-bar a { color: var(--gold); text-decoration: none; }
+
+  /* PREPARED BY */
+  .prepared-by {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 100px; padding: 10px 20px; margin-top: 40px;
+    font-size: 14px;
+  }
+  .prepared-by .avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 13px;
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .savings-hero { flex-direction: column; align-items: center; }
+    .hero-stat-group { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    section { padding: 60px 20px; }
+    .footer-cta { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-shield">🛡️</div>
+    <div class="nav-logo-text">Safe<span>shield</span></div>
+  </div>
+  <div class="nav-badge">Personal Auto Quote</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">✦ Your Quote is Ready, Sydney</div>
+  <h1>You're Overpaying.<br/>We <span>Fixed</span> That.</h1>
+  <p class="hero-sub">Same car. Same driver. Better coverage — and $726 back in your pocket every year.</p>
+
+  <div class="savings-hero">
+    <div class="savings-number">
+      <div class="label">Annual Savings</div>
+      <div class="amount">$726</div>
+      <div class="sublabel">switching to NYCM</div>
+    </div>
+    <div class="hero-stat-group">
+      <div class="hero-stat">
+        <div class="stat-label">Progressive (Current)</div>
+        <div class="stat-val old">$2,038 / yr</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-label">NYCM (New)</div>
+        <div class="stat-val new">$1,312 / yr</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prepared-by">
+    <div class="avatar">EK</div>
+    <span>Prepared by <strong>Eric Kelly</strong> · Safeshield Insurance · (203) 806-5889</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- COMPARISON TABLE -->
+<section>
+  <div class="section-eyebrow">Side-by-Side Breakdown</div>
+  <h2 class="section-title">Coverage Comparison</h2>
+  <p class="section-sub">Not only is NYCM cheaper — the coverage is actually better. Here's exactly what changed.</p>
+
+  <div class="comparison-wrapper">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th class="col-coverage">Coverage</th>
+          <th class="col-prog">Progressive (Current)</th>
+          <th class="col-nycm">NYCM (New) <span style="font-size:11px;color:rgba(34,197,94,0.6);font-weight:500;">12-month policy</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="coverage-name">Bodily Injury Liability</td>
+          <td class="prog-val">$25,000 / $50,000</td>
+          <td class="nycm-val">$50,000 / $100,000 <span class="upgrade-badge">2× upgrade</span></td>
+        </tr>
+        <tr>
+          <td class="coverage-name">Property Damage Liability</td>
+          <td class="prog-val">$10,000</td>
+          <td class="nycm-val">$50,000 <span class="upgrade-badge">5× upgrade</span></td>
+        </tr>
+        <tr>
+          <td class="coverage-name">SUM / Uninsured Motorist</td>
+          <td class="prog-val">$25,000 / $50,000</td>
+          <td class="nycm-val">$50,000 / $100,000 <span class="upgrade-badge">2× upgrade</span></td>
+        </tr>
+        <tr>
+          <td class="coverage-name">Mandatory PIP</td>
+          <td class="prog-val">$50,000</td>
+          <td class="nycm-val">Basic PIP included</td>
+        </tr>
+        <tr>
+          <td class="coverage-name">Medical Payments</td>
+          <td class="prog-val">$5,000</td>
+          <td class="nycm-val">$5,000</td>
+        </tr>
+        <tr>
+          <td class="coverage-name">Collision / Comprehensive</td>
+          <td class="prog-val">Not included</td>
+          <td class="nycm-val">Not included</td>
+        </tr>
+        <tr>
+          <td class="coverage-name">Policy Term</td>
+          <td class="prog-val">6 months</td>
+          <td class="nycm-val">12 months <span class="upgrade-badge">full year</span></td>
+        </tr>
+        <tr class="premium-row">
+          <td class="coverage-name">Policy Premium</td>
+          <td class="prog-val">$1,019 / 6 mo<br/><span style="font-size:13px;opacity:0.7;">($2,038 annualized)</span></td>
+          <td class="nycm-val">$1,312 / year</td>
+        </tr>
+        <tr class="savings-row">
+          <td class="coverage-name" style="font-weight:700;color:#FAFAF8;">You Save</td>
+          <td class="prog-val">—</td>
+          <td class="nycm-val">$726 per year ✓</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT CHANGED -->
+<section>
+  <div class="section-eyebrow">What Actually Changed</div>
+  <h2 class="section-title">More Coverage. Less Money.</h2>
+  <p class="section-sub">This isn't a downgrade to save a buck. You're getting meaningfully stronger protection.</p>
+
+  <div class="changes-grid">
+    <div class="change-card upgrade">
+      <div class="change-icon">🚗</div>
+      <h3>Property Damage — 5x More Coverage</h3>
+      <p>If you hit another car or property, Progressive only covers up to <strong>$10,000</strong>. That barely covers a fender bender today. NYCM gives you <strong>$50,000</strong> — real protection.</p>
+      <div class="before-after">
+        <span class="before">$10,000</span>
+        <span class="arrow">→</span>
+        <span class="after">$50,000</span>
+      </div>
+    </div>
+
+    <div class="change-card upgrade">
+      <div class="change-icon">🏥</div>
+      <h3>Bodily Injury — Doubled Limits</h3>
+      <p>If someone is injured in an accident you cause, your current <strong>25/50k limits</strong> could leave you personally liable. NYCM bumps you to <strong>50/100k</strong> — much safer ground legally.</p>
+      <div class="before-after">
+        <span class="before">$25K/$50K</span>
+        <span class="arrow">→</span>
+        <span class="after">$50K/$100K</span>
+      </div>
+    </div>
+
+    <div class="change-card upgrade">
+      <div class="change-icon">🛡️</div>
+      <h3>SUM Coverage — Doubled</h3>
+      <p>Uninsured/underinsured motorist protects <em>you</em> when the other driver has no insurance. Going from <strong>25/50k to 50/100k</strong> means you're covered for what actually matters.</p>
+      <div class="before-after">
+        <span class="before">$25K/$50K</span>
+        <span class="arrow">→</span>
+        <span class="after">$50K/$100K</span>
+      </div>
+    </div>
+
+    <div class="change-card savings-card">
+      <div class="change-icon">📅</div>
+      <h3>12-Month Policy — Price Lock</h3>
+      <p>Progressive renews every 6 months, meaning your rate can jump twice a year. NYCM locks you in for a <strong>full 12 months</strong> — no surprises mid-year.</p>
+      <div class="before-after">
+        <span class="before">6-month</span>
+        <span class="arrow">→</span>
+        <span class="after">12-month lock</span>
+      </div>
+    </div>
+
+    <div class="change-card savings-card">
+      <div class="change-icon">💸</div>
+      <h3>$726 Back in Your Pocket</h3>
+      <p>Progressive charges $2,038 annually. NYCM quotes $1,312 for the full year — <strong>better coverage at $726 less</strong>. That's real money, every year.</p>
+      <div class="before-after">
+        <span class="before">$2,038/yr</span>
+        <span class="arrow">→</span>
+        <span class="after">$1,312/yr</span>
+      </div>
+    </div>
+
+    <div class="change-card upgrade">
+      <div class="change-icon">⭐</div>
+      <h3>NYCM — A+ Rated Carrier</h3>
+      <p>A. Central Insurance Company (NYCM) is a <strong>New York-based regional carrier</strong> with an exceptional claims reputation and strong financial ratings. Not a faceless national chain.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<section>
+  <div class="section-eyebrow">Why Work With Us</div>
+  <h2 class="section-title">The Safeshield Difference</h2>
+  <p class="section-sub">We shop 69+ carriers so you never overpay. And we stick around long after the sale.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🏪</div>
+      <h4>69+ Carrier Partners</h4>
+      <p>We shop the whole market — not just one company. You get the best rate every time.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <h4>Same-Day Everything</h4>
+      <p>Quotes, ID cards, policy changes — done fast. No waiting, no runaround.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📞</div>
+      <h4>Direct Agent Access</h4>
+      <p>You call us, we pick up. No call centers, no robots, no being transferred 5 times.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔄</div>
+      <h4>Annual Re-Shop</h4>
+      <p>Every year we check the market to make sure your rate is still the best available.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOOTER CTA -->
+<div class="footer-cta">
+  <h2>Ready to Save <span style="color:var(--green);">$726 a Year?</span></h2>
+  <p>This quote is ready to bind. Effective date: May 30, 2026. Let's get you switched over today.</p>
+  <div class="btn-group">
+    <a href="tel:2038065889" class="cta-btn">📞 Call Eric: (203) 806-5889</a>
+    <a href="mailto:eric@gosafeshield.com" class="btn-ghost">Send an Email</a>
+  </div>
+</div>
+
+<div class="footer-bar">
+  <p>© 2026 Safeshield Insurance Agency LLC · Licensed in NY, CT, NJ, PA & DE · <a href="https://gosafeshield.com/review" target="_blank">Leave a Review ⭐</a></p>
+</div>
+
+</body>
+</html>
