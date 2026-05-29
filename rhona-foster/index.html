@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rhona Foster — Auto Insurance Quote | Safeshield</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #004B89;
+    --gold: #FFA300;
+    --bg: #0a1628;
+    --surface: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+    --text: #FAFAF8;
+    --muted: rgba(250,250,248,0.6);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 24px 100px;
+    text-align: center;
+    background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0a1628 100%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,75,137,0.35), transparent);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,163,0,0.12);
+    border: 1px solid rgba(255,163,0,0.3);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 48px;
+    font-weight: 400;
+  }
+  .hero-price-row {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .price-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 36px;
+    min-width: 220px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+  }
+  .price-card.featured {
+    border-color: rgba(255,163,0,0.4);
+    background: rgba(255,163,0,0.06);
+  }
+  .price-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .price-amount.dark { color: var(--text); }
+  .price-period {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .savings-badge {
+    display: inline-block;
+    background: rgba(0,200,100,0.12);
+    border: 1px solid rgba(0,200,100,0.3);
+    color: #4ade80;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-top: 12px;
+  }
+  .carrier-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 24px;
+  }
+  .carrier-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin: 0 auto;
+    max-width: 800px;
+  }
+
+  /* SECTION */
+  section { padding: 72px 24px; }
+  .container { max-width: 900px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .section-desc {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 580px;
+    margin-bottom: 48px;
+  }
+
+  /* VEHICLES */
+  .vehicles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .vehicle-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .vehicle-header {
+    background: linear-gradient(135deg, rgba(0,75,137,0.4), rgba(0,75,137,0.2));
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .vehicle-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .vehicle-vin {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .vehicle-body { padding: 20px 24px; }
+  .cov-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 12px;
+  }
+  .cov-row:last-child { border-bottom: none; }
+  .cov-name {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+    flex: 1;
+  }
+  .cov-detail {
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 600;
+    text-align: right;
+    max-width: 200px;
+  }
+  .vehicle-total {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,163,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .vehicle-total-label { font-size: 13px; font-weight: 700; color: var(--muted); }
+  .vehicle-total-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .vehicle-total-period { font-size: 11px; color: var(--muted); }
+
+  /* PAYMENT OPTIONS */
+  .payment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .pay-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .pay-card.best {
+    border-color: rgba(255,163,0,0.4);
+    background: rgba(255,163,0,0.05);
+    position: relative;
+  }
+  .best-tag {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: #0a1628;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .pay-method {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .pay-total {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .pay-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .pay-detail {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .pay-detail strong { color: var(--text); font-weight: 600; }
+
+  /* DRIVERS */
+  .drivers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .driver-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .driver-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0,75,137,0.6), rgba(0,75,137,0.3));
+    border: 1px solid rgba(255,163,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .driver-name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .driver-meta { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+  /* DISCOUNTS */
+  .discounts-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .discount-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid rgba(255,163,0,0.2);
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .discount-pill .icon { color: var(--gold); font-size: 15px; }
+
+  /* WHY SAFESHIELD */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .why-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .why-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+  .why-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .why-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 80px 24px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0,75,137,0.15) 0%, transparent 50%, rgba(0,75,137,0.1) 100%);
+  }
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .cta-sub {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: #0a1628;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 16px 36px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-glass {
+    background: rgba(255,255,255,0.07);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 36px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-glass:hover { background: rgba(255,255,255,0.12); }
+
+  .agent-block {
+    margin-top: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 28px;
+  }
+  .agent-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), rgba(0,75,137,0.5));
+    border: 2px solid rgba(255,163,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--gold);
+  }
+  .agent-name { font-size: 15px; font-weight: 700; }
+  .agent-contact { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: rgba(250,250,248,0.3);
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 60px 20px 80px; }
+    .price-card { min-width: 160px; padding: 20px 24px; }
+    .price-amount { font-size: 38px; }
+    section { padding: 56px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Auto Insurance Quote · May 29, 2026</div>
+  <h1>Your Progressive<br/>Quote is <span>Ready.</span></h1>
+  <p class="hero-sub">We shopped the market and locked in your rate with Progressive Casualty. Here's everything you need to know — clear, simple, no surprises.</p>
+
+  <div class="hero-price-row">
+    <div class="price-card featured">
+      <div class="price-label">Pay in Full</div>
+      <div class="price-amount">$2,803</div>
+      <div class="price-period">6-month premium</div>
+      <div class="savings-badge">Save $483 — Best Value</div>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Monthly EFT</div>
+      <div class="price-amount dark">$493</div>
+      <div class="price-period">first payment · ~$497/mo after</div>
+    </div>
+  </div>
+
+  <div class="carrier-tag">
+    <span class="carrier-dot"></span>
+    Underwritten by Progressive Casualty Insurance Co
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VEHICLES -->
+<section>
+  <div class="container">
+    <div class="section-label">Your Vehicles</div>
+    <h2 class="section-title">Two Vehicles. Full Protection.</h2>
+    <p class="section-desc">Both vehicles are covered with comprehensive and collision. Here's the full breakdown for each.</p>
+
+    <div class="vehicles-grid">
+      <!-- Mitsubishi -->
+      <div class="vehicle-card">
+        <div class="vehicle-header">
+          <div class="vehicle-name">2022 Mitsubishi Outlander</div>
+          <div class="vehicle-vin">VIN: JA4J4UA85NZ011769</div>
+        </div>
+        <div class="vehicle-body">
+          <div class="cov-row">
+            <div class="cov-name">Bodily Injury Liability</div>
+            <div class="cov-detail">$50K / $100K</div>
+          </div>
+          <div class="cov-row">
+            <div class="cov-name">Property Damage Liability</div>
+            <div class="cov-detail">$50,000</div>
+          </div>
+          <div class="cov-row">
+            <div class="cov-name">Uninsured/Underinsured Motorist</div>
+            <div class="cov-detail">$50K / $100K</div>
+          </div>
+          <div class="cov-row">
+            <div class="cov-name">Medical Payments</div>
+            <div class="cov-detail">$1,000 / person</div>
+          </div>
+          <div class="cov-row">
+            <div class="cov-name">Comprehensive</div>
+            <div class="cov-detail">ACV · $1,000 ded.</div>
+          </div>
+          <div class="cov-row">
+            <div class="cov-name">Collision</div>
+            <div class="cov-detail">ACV · $1,000 ded.</div>
+          </div>
+          <div class="vehicle-total">
+            <div>
+              <div class="vehicle-total-label">6-Month Premium</div>
+              <div class="vehicle-total-period">Pleasure use · ~7K mi/yr</div>
+            </div>
+            <div class="vehicle-total-amount">$1,472</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ford -->
+      <div class="vehicle-card">
+        <div class="vehicle-header">
+          <div class="vehicle-name">2021 Ford Explorer</div>
+          <div class="vehicle-vin">VIN: 1FMSK8DH9MGA55170</div>
+        </div>
+        <div class="vehicle-body">
+          <div class="cov-row">
+            <div class="cov-name">Bodily Injury Liability</div>
+            <div class="cov-detail">$50K / $100K</div>
+          </div>
+          <div class="cov-row">
+            <div class="cov-name">Property Damage Liability</div>
+            <div class="cov-detail">$50,000</div>
+          </div>
+          <div class="cov-row">
+            <div class="cov-name">Uninsured/Underinsured Motorist</div>
+            <div class="cov-detail">$50K / $100K</div>
+          </div>
+          <div class="cov-row">
+            <div class="cov-name">Medical Payments</div>
+            <div class="cov-detail">$1,000 / person</div>
+          </div>
+          <div class="cov-row">
+            <div class="cov-name">Comprehensive</div>
+            <div class="cov-detail">ACV · $1,000 ded.</div>
+          </div>
+          <div class="cov-row">
+            <div class="cov-name">Collision</div>
+            <div class="cov-detail">ACV · $1,000 ded.</div>
+          </div>
+          <div class="vehicle-total">
+            <div>
+              <div class="vehicle-total-label">6-Month Premium</div>
+              <div class="vehicle-total-period">Pleasure use · ~7K mi/yr</div>
+            </div>
+            <div class="vehicle-total-amount">$1,488</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PAYMENT OPTIONS -->
+<section>
+  <div class="container">
+    <div class="section-label">Payment Options</div>
+    <h2 class="section-title">Choose How You Pay</h2>
+    <p class="section-desc">Flexibility built in. Pay in full and pocket the discount, or spread it out monthly — your call.</p>
+
+    <div class="payment-grid">
+      <div class="pay-card best">
+        <div class="best-tag">⭐ Best Value</div>
+        <div class="pay-method">Pay in Full</div>
+        <div class="pay-total">$2,803</div>
+        <div class="pay-sub">6-month term — no installment fees</div>
+        <div class="pay-detail">
+          <strong>Save $483</strong> vs. installment plans<br/>
+          No monthly fees · Coverage starts immediately
+        </div>
+      </div>
+
+      <div class="pay-card">
+        <div class="pay-method">Monthly EFT (Auto-Pay)</div>
+        <div class="pay-total">$2,960</div>
+        <div class="pay-sub">6-month term with installments</div>
+        <div class="pay-detail">
+          <strong>1st payment:</strong> $493.44<br/>
+          <strong>Then 5 payments:</strong> ~$497/mo<br/>
+          $4.00 installment fee per payment
+        </div>
+      </div>
+
+      <div class="pay-card">
+        <div class="pay-method">Monthly by Card</div>
+        <div class="pay-total">$2,960</div>
+        <div class="pay-sub">6-month term with installments</div>
+        <div class="pay-detail">
+          <strong>1st payment:</strong> $493.44<br/>
+          <strong>Then 5 payments:</strong> ~$501/mo<br/>
+          $8.00 installment fee per payment
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DRIVERS -->
+<section>
+  <div class="container">
+    <div class="section-label">Rated Drivers</div>
+    <h2 class="section-title">Everyone on the Policy</h2>
+    <p class="section-desc">All household drivers are rated and covered. No surprises at claim time.</p>
+
+    <div class="drivers-grid">
+      <div class="driver-card">
+        <div class="driver-avatar">RF</div>
+        <div>
+          <div class="driver-name">Rhona Foster</div>
+          <div class="driver-meta">
+            DOB: Feb 3, 1954 · Female<br/>
+            Married · Named Insured<br/>
+            College Degree · Admin. Assistant
+          </div>
+        </div>
+      </div>
+      <div class="driver-card">
+        <div class="driver-avatar">DL</div>
+        <div>
+          <div class="driver-name">Danny Locario</div>
+          <div class="driver-meta">
+            DOB: Dec 24, 1957 · Male<br/>
+            Married · Spouse<br/>
+            College Degree · Admin. Assistant
+          </div>
+        </div>
+      </div>
+      <div class="driver-card">
+        <div class="driver-avatar">BJ</div>
+        <div>
+          <div class="driver-name">Bermude Jules</div>
+          <div class="driver-meta">
+            DOB: Sep 18, 1990 · Male<br/>
+            Single · Child<br/>
+            Rated Driver
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DISCOUNTS -->
+<section>
+  <div class="container">
+    <div class="section-label">Applied Discounts</div>
+    <h2 class="section-title">Savings Already Built In</h2>
+    <p class="section-desc">Progressive applied every discount you qualify for. These are already reflected in your quoted premium.</p>
+
+    <div class="discounts-list">
+      <div class="discount-pill"><span class="icon">📄</span> Paperless</div>
+      <div class="discount-pill"><span class="icon">🏠</span> Home Owner</div>
+      <div class="discount-pill"><span class="icon">🚗</span> Multi-Car</div>
+      <div class="discount-pill"><span class="icon">🏦</span> Electronic Funds Transfer (EFT)</div>
+      <div class="discount-pill"><span class="icon">📱</span> Smart Technology — Outlander</div>
+      <div class="discount-pill"><span class="icon">📱</span> Smart Technology — Explorer</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<section>
+  <div class="container">
+    <div class="section-label">Why Safeshield</div>
+    <h2 class="section-title">An Agency That Works for You</h2>
+    <p class="section-desc">We're not just quoting you a number. We're your advocate — from day one through every claim.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🏪</div>
+        <div class="why-title">69+ Carrier Partners</div>
+        <div class="why-desc">We shop the entire market so you're always getting the most competitive rate — not just what one carrier offers.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Same-Day Everything</div>
+        <div class="why-desc">Quotes, ID cards, policy changes, certificates — all handled fast. No waiting on hold with a call center.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📞</div>
+        <div class="why-title">Direct Agent Access</div>
+        <div class="why-desc">You call or text us directly. Your agent knows your account and picks up — no phone trees, ever.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <div class="why-title">Claims Advocacy</div>
+        <div class="why-desc">When something goes wrong, we go to bat for you. We stay in your corner through the entire claims process.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔄</div>
+        <div class="why-title">Annual Re-Shop</div>
+        <div class="why-desc">Every year at renewal, we re-shop your coverage to make sure you're still getting the best deal available.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📲</div>
+        <div class="why-title">Tech-Powered</div>
+        <div class="why-desc">Digital delivery, automated tracking, and instant policy management — your insurance handled the modern way.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-title">Ready to Lock This In?</h2>
+    <p class="cta-sub">Your rate is valid and ready to bind today. Give us a call or shoot us a text and we'll get your coverage active right away.</p>
+    <div class="cta-buttons">
+      <a href="tel:2038065889" class="btn-primary">📞 Call Eric to Bind</a>
+      <a href="mailto:eric@gosafeshield.com" class="btn-glass">Send an Email</a>
+    </div>
+
+    <div class="agent-block">
+      <div class="agent-avatar">EK</div>
+      <div>
+        <div class="agent-name">Eric Kelly · Safeshield Insurance</div>
+        <div class="agent-contact">
+          📱 (203) 806-5889 · eric@gosafeshield.com<br/>
+          Licensed in CT · 69+ Carrier Relationships
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Safeshield Insurance LLC · 2777 Summer St 6th Fl, Stamford, CT 06905 · Rates are estimates and subject to underwriting verification.</p>
+</footer>
+
+</body>
+</html>
