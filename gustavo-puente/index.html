@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gustavo Puente — Homeowners Quote | Safeshield Insurance</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --navy: #004B89;
       --gold: #FFA300;
-      --gold-light: rgba(255,163,0,0.15);
       --dark: #0a1628;
       --card: rgba(255,255,255,0.04);
       --card-border: rgba(255,255,255,0.08);
       --text: #FAFAF8;
-      --muted: rgba(250,250,248,0.6);
+      --muted: rgba(250,250,248,0.58);
     }
 
     html { scroll-behavior: smooth; }
@@ -29,346 +28,416 @@
       overflow-x: hidden;
     }
 
-    /* ── HERO ── */
+    /* ── TOP BAR ── */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 2rem;
+      background: rgba(10,22,40,0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .topbar-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .topbar-logo span { color: var(--gold); }
+
+    .topbar-cta {
+      background: var(--gold);
+      color: #0a1628;
+      font-weight: 700;
+      font-size: 0.82rem;
+      border: none;
+      border-radius: 100px;
+      padding: 0.55rem 1.3rem;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+    }
+
+    .topbar-cta:hover { opacity: 0.85; }
+
+    /* ── HERO PHOTO ── */
     .hero {
       position: relative;
-      min-height: 92vh;
+      height: 100vh;
+      min-height: 560px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       overflow: hidden;
     }
 
-    .hero-img {
+    .hero-photo {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 30%;
-      filter: brightness(0.45) saturate(0.85);
+      object-position: center 35%;
     }
 
-    .hero-gradient {
+    .hero-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(10,22,40,0.1) 0%,
-        rgba(10,22,40,0.0) 30%,
-        rgba(10,22,40,0.6) 70%,
-        rgba(10,22,40,1) 100%
+        rgba(10,22,40,0.25) 0%,
+        rgba(10,22,40,0.05) 25%,
+        rgba(10,22,40,0.55) 60%,
+        rgba(10,22,40,0.97) 100%
       );
     }
-
-    .hero-badge {
-      position: absolute;
-      top: 2rem;
-      left: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(10,22,40,0.75);
-      border: 1px solid var(--card-border);
-      border-radius: 100px;
-      padding: 0.5rem 1.1rem;
-      backdrop-filter: blur(12px);
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      color: var(--gold);
-      text-transform: uppercase;
-    }
-
-    .hero-badge span { color: var(--text); font-weight: 400; }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      padding: 0 2rem 3.5rem;
-      max-width: 900px;
+      padding: 0 2.5rem 4rem;
+      max-width: 960px;
       margin: 0 auto;
       width: 100%;
     }
 
-    .hero-eyebrow {
-      font-size: 0.78rem;
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,163,0,0.18);
+      border: 1px solid rgba(255,163,0,0.35);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 0.9rem;
+      margin-bottom: 1.2rem;
     }
 
-    .hero-title {
+    .hero-name {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-size: clamp(2.8rem, 7vw, 5rem);
       font-weight: 900;
-      line-height: 1.08;
+      line-height: 1.0;
       color: var(--text);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
     .hero-address {
-      font-size: 1.05rem;
-      color: var(--muted);
+      font-size: 1.1rem;
+      color: rgba(250,250,248,0.75);
       font-weight: 400;
-      margin-bottom: 1.8rem;
+      margin-bottom: 2rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
 
     .hero-address::before {
       content: '';
-      display: inline-block;
-      width: 6px;
-      height: 6px;
+      width: 6px; height: 6px;
       background: var(--gold);
       border-radius: 50%;
+      flex-shrink: 0;
     }
 
-    .hero-meta {
+    .hero-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 0.75rem;
     }
 
     .hero-pill {
       background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.16);
       border-radius: 100px;
-      padding: 0.45rem 1.1rem;
-      font-size: 0.82rem;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
       font-weight: 500;
       backdrop-filter: blur(8px);
-      color: var(--text);
     }
 
-    /* ── SECTION WRAPPER ── */
+    /* ── SECTION ── */
     .section {
-      max-width: 920px;
+      max-width: 940px;
       margin: 0 auto;
-      padding: 4.5rem 2rem;
+      padding: 5rem 2rem;
     }
 
-    .section-label {
-      font-size: 0.72rem;
+    .section-eyebrow {
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.55rem;
     }
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
     }
 
     .section-sub {
       color: var(--muted);
       font-size: 1rem;
-      max-width: 580px;
-      line-height: 1.6;
-      margin-bottom: 2.5rem;
+      max-width: 560px;
+      line-height: 1.65;
+      margin-bottom: 3rem;
     }
 
     .divider {
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,163,0,0.3), transparent);
-      margin: 0 auto 4rem;
-      max-width: 920px;
+      background: linear-gradient(90deg, transparent, rgba(255,163,0,0.22), transparent);
+      max-width: 940px;
+      margin: 0 auto;
     }
 
-    /* ── DEDUCTIBLE CARDS ── */
-    .options-grid {
+    /* ── DEDUCTIBLE SHOWDOWN ── */
+    .ded-intro {
+      background: linear-gradient(135deg, rgba(255,163,0,0.1), rgba(255,163,0,0.03));
+      border: 1px solid rgba(255,163,0,0.22);
+      border-radius: 18px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .ded-intro-icon { font-size: 2.2rem; flex-shrink: 0; }
+
+    .ded-intro-body { flex: 1; min-width: 200px; }
+
+    .ded-intro-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .ded-intro-body p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .ded-intro-save {
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .save-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .save-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── BIG PRICE CARDS ── */
+    .ded-cards {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
+      margin-bottom: 2rem;
     }
 
-    @media (max-width: 640px) {
-      .options-grid { grid-template-columns: 1fr; }
+    @media(max-width:640px) {
+      .ded-cards { grid-template-columns: 1fr; }
     }
 
-    .option-card {
+    .ded-card {
+      border-radius: 24px;
+      padding: 2.8rem 2.2rem 2.4rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease;
+    }
+
+    .ded-card:hover { transform: translateY(-5px); }
+
+    .ded-card.best {
+      background: linear-gradient(145deg, rgba(255,163,0,0.14), rgba(0,75,137,0.18));
+      border: 1.5px solid rgba(255,163,0,0.45);
+    }
+
+    .ded-card.standard {
       background: var(--card);
       border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 2.2rem 2rem;
-      position: relative;
-      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    .option-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,163,0,0.3);
-    }
-
-    .option-card.featured {
-      border-color: rgba(255,163,0,0.4);
-      background: rgba(255,163,0,0.05);
-    }
-
-    .option-badge {
+    .ded-card-badge {
       position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
+      top: 0; left: 0; right: 0;
       background: var(--gold);
       color: #0a1628;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.3rem 1rem;
-      border-radius: 100px;
-      white-space: nowrap;
-    }
-
-    .option-ded {
-      font-size: 0.75rem;
-      font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
+      text-align: center;
+      padding: 0.45rem;
     }
 
-    .option-price {
+    .ded-card-badge.has-badge { display: block; }
+    .ded-card-badge.no-badge { display: none; }
+
+    .ded-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .ded-label.gold-label { color: var(--gold); }
+
+    .ded-amount {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.2rem;
+      margin-bottom: 0.3rem;
+      line-height: 1;
+    }
+
+    .ded-dollar {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 0.5rem;
+    }
+
+    .ded-price {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
+      font-size: 4.5rem;
       font-weight: 900;
       color: var(--text);
-      line-height: 1;
-      margin-bottom: 0.25rem;
     }
 
-    .option-price sup {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      vertical-align: super;
-      line-height: 0;
-    }
-
-    .option-period {
+    .ded-yr {
       font-size: 0.82rem;
       color: var(--muted);
-      margin-bottom: 1.6rem;
+      margin-bottom: 2rem;
     }
 
-    .option-divider {
+    .ded-sep {
       height: 1px;
-      background: var(--card-border);
-      margin: 1.4rem 0;
+      background: rgba(255,255,255,0.1);
+      margin: 1.8rem 0;
     }
 
-    .option-row {
+    .ded-stat {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.88rem;
-      padding: 0.3rem 0;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
     }
 
-    .option-row-label { color: var(--muted); }
-    .option-row-val { font-weight: 600; color: var(--text); }
-    .option-row-val.highlight { color: var(--gold); }
+    .ded-stat-label { color: var(--muted); }
+    .ded-stat-val { font-weight: 600; color: var(--text); }
+    .ded-stat-val.gold { color: var(--gold); font-size: 1.05rem; }
 
-    .option-note {
-      margin-top: 1.5rem;
-      font-size: 0.8rem;
+    .ded-tag {
+      margin-top: 1.8rem;
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 0.9rem 1.1rem;
+      font-size: 0.82rem;
       color: var(--muted);
       line-height: 1.5;
       font-style: italic;
     }
 
-    /* ── PAY PLAN TABLE ── */
-    .pay-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 0;
-    }
-
-    @media (max-width: 640px) {
-      .pay-grid { grid-template-columns: 1fr; }
-    }
-
-    .pay-card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .pay-card-header {
-      background: rgba(0,75,137,0.35);
-      padding: 1rem 1.4rem;
-      border-bottom: 1px solid var(--card-border);
+    /* ── VS DIVIDER ── */
+    .vs-row {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-    }
-
-    .pay-card-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .pay-card-title {
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-
-    .pay-card-ded {
-      font-size: 0.75rem;
+      justify-content: center;
+      gap: 1rem;
+      margin: 0.5rem 0 1.5rem;
       color: var(--muted);
-      margin-left: auto;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
-    .pay-table {
+    .vs-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
+
+    /* ── COMPARISON TABLE ── */
+    .compare-table-wrap {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    .compare-table {
       width: 100%;
       border-collapse: collapse;
     }
 
-    .pay-table th {
-      padding: 0.6rem 1.4rem;
-      text-align: left;
-      font-size: 0.7rem;
+    .compare-table thead tr {
+      background: rgba(0,75,137,0.3);
+    }
+
+    .compare-table thead th {
+      padding: 1.1rem 1.5rem;
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--muted);
+      text-align: left;
+      color: var(--text);
       border-bottom: 1px solid var(--card-border);
     }
 
-    .pay-table th:last-child { text-align: right; }
+    .compare-table thead th:not(:first-child) { text-align: center; }
 
-    .pay-table td {
-      padding: 0.7rem 1.4rem;
-      font-size: 0.88rem;
+    .compare-table tbody td {
+      padding: 0.9rem 1.5rem;
+      font-size: 0.9rem;
       border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--muted);
     }
 
-    .pay-table td:last-child { text-align: right; font-weight: 600; }
-    .pay-table tr:last-child td { border-bottom: none; }
+    .compare-table tbody td:not(:first-child) { text-align: center; font-weight: 600; color: var(--text); }
 
-    .pay-table .plan-name { color: var(--text); font-weight: 500; }
-    .pay-table .plan-sub { font-size: 0.72rem; color: var(--muted); }
+    .compare-table tbody tr:last-child td { border-bottom: none; }
 
-    /* ── COVERAGE LIST ── */
+    .compare-table tbody tr.highlight-row td { background: rgba(255,163,0,0.04); }
+
+    .compare-table .gold-cell { color: var(--gold) !important; }
+
+    /* ── COVERAGES ── */
     .cov-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -379,17 +448,19 @@
       background: var(--card);
       border: 1px solid var(--card-border);
       border-radius: 14px;
-      padding: 1.3rem 1.4rem;
+      padding: 1.3rem 1.5rem;
       display: flex;
       gap: 1rem;
       align-items: flex-start;
+      transition: border-color 0.2s;
     }
 
+    .cov-card:hover { border-color: rgba(255,163,0,0.2); }
+
     .cov-icon {
-      width: 38px;
-      height: 38px;
+      width: 40px; height: 40px;
       border-radius: 10px;
-      background: rgba(0,75,137,0.4);
+      background: rgba(0,75,137,0.35);
       border: 1px solid rgba(0,75,137,0.5);
       display: flex;
       align-items: center;
@@ -399,24 +470,20 @@
     }
 
     .cov-name {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.25rem;
     }
 
-    .cov-val {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-    }
+    .cov-val { font-size: 1rem; font-weight: 600; color: var(--text); }
 
     /* ── WHY SAFESHIELD ── */
     .why-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1.2rem;
     }
 
@@ -424,49 +491,48 @@
       background: var(--card);
       border: 1px solid var(--card-border);
       border-radius: 16px;
-      padding: 1.6rem 1.5rem;
+      padding: 2rem 1.5rem;
       text-align: center;
+      transition: border-color 0.2s;
     }
+
+    .why-card:hover { border-color: rgba(255,163,0,0.2); }
 
     .why-num {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       font-weight: 900;
       color: var(--gold);
       line-height: 1;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
-    .why-label {
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
+    .why-label { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
 
-    /* ── CTA FOOTER ── */
+    /* ── CTA ── */
     .cta {
-      background: linear-gradient(135deg, rgba(0,75,137,0.3) 0%, rgba(10,22,40,0) 100%);
+      background: linear-gradient(140deg, rgba(0,75,137,0.28) 0%, rgba(10,22,40,0) 100%);
       border-top: 1px solid var(--card-border);
       text-align: center;
-      padding: 5rem 2rem;
+      padding: 5.5rem 2rem 4.5rem;
     }
 
     .cta-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
       font-weight: 900;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.9rem;
     }
 
     .cta-sub {
       color: var(--muted);
       font-size: 1rem;
-      max-width: 480px;
-      margin: 0 auto 2.2rem;
-      line-height: 1.6;
+      max-width: 460px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.65;
     }
 
-    .cta-buttons {
+    .cta-btns {
       display: flex;
       gap: 1rem;
       justify-content: center;
@@ -481,14 +547,14 @@
       font-size: 0.92rem;
       border: none;
       border-radius: 100px;
-      padding: 0.85rem 2rem;
-      cursor: pointer;
+      padding: 0.9rem 2.2rem;
       text-decoration: none;
       display: inline-block;
       transition: opacity 0.2s;
+      letter-spacing: 0.01em;
     }
 
-    .btn-primary:hover { opacity: 0.88; }
+    .btn-primary:hover { opacity: 0.87; }
 
     .btn-glass {
       background: rgba(255,255,255,0.07);
@@ -496,194 +562,221 @@
       font-family: 'Outfit', sans-serif;
       font-weight: 600;
       font-size: 0.92rem;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.16);
       border-radius: 100px;
-      padding: 0.85rem 2rem;
-      cursor: pointer;
+      padding: 0.9rem 2.2rem;
       text-decoration: none;
       display: inline-block;
       transition: background 0.2s;
     }
 
-    .btn-glass:hover { background: rgba(255,255,255,0.12); }
+    .btn-glass:hover { background: rgba(255,255,255,0.13); }
 
     .cta-agent {
-      margin-top: 2.5rem;
+      margin-top: 3rem;
       font-size: 0.82rem;
       color: var(--muted);
     }
 
     .cta-agent strong { color: var(--text); }
-
-    /* ── SAVINGS CALLOUT ── */
-    .savings-banner {
-      background: linear-gradient(135deg, rgba(255,163,0,0.12), rgba(255,163,0,0.04));
-      border: 1px solid rgba(255,163,0,0.25);
-      border-radius: 16px;
-      padding: 1.8rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
-    }
-
-    .savings-icon {
-      font-size: 2rem;
-      flex-shrink: 0;
-    }
-
-    .savings-text h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-      color: var(--gold);
-    }
-
-    .savings-text p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .savings-amount {
-      margin-left: auto;
-      text-align: right;
-    }
-
-    .savings-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .savings-label {
-      font-size: 0.72rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
   </style>
 </head>
 <body>
 
-<!-- ── HERO ── -->
+<!-- TOP BAR -->
+<nav class="topbar">
+  <div class="topbar-logo">Safe<span>shield</span></div>
+  <a class="topbar-cta" href="mailto:eric@gosafeshield.com?subject=Ready to Bind - Gustavo Puente 150 Summit St">Bind My Policy</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- HERO — HOME PHOTO FULL BLEED               -->
+<!-- ═══════════════════════════════════════════ -->
 <section class="hero">
-  <img class="hero-img" src="https://photos.zillowstatic.com/fp/a1e7e1c8e2c2a3b4c5d6e7f8g9h0i1j2-p_e.jpg" 
-       onerror="this.style.display='none'"
+  <!-- Actual uploaded home photo embedded as base64 -->
+  <img class="hero-photo"
+       src="data:image/jpeg;base64,__HOME_PHOTO_BASE64__"
+       onerror="this.style.background='linear-gradient(145deg,#0d1e3a,#0a1628)'"
        alt="150 Summit St, Bridgeport CT"/>
-  <!-- Fallback: solid dark bg already on body -->
-  <div style="position:absolute;inset:0;background:linear-gradient(135deg,#0d1e3a 0%,#0a1628 100%);z-index:0;"></div>
-  <!-- Home photo rendered as CSS bg for reliability -->
-  <div style="position:absolute;inset:0;background-image:url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AJQAB/9k=');background-size:cover;background-position:center 30%;filter:brightness(0.42) saturate(0.8);z-index:1;"></div>
-  <div class="hero-gradient" style="z-index:2;"></div>
+  <div class="hero-overlay"></div>
 
-  <div class="hero-badge" style="z-index:3;">
-    Safeshield Insurance <span>· Homeowners Quote</span>
-  </div>
-
-  <div class="hero-content" style="z-index:3;">
-    <p class="hero-eyebrow">Narragansett Bay Insurance Company · HO-3</p>
-    <h1 class="hero-title">Gustavo Puente</h1>
+  <div class="hero-content">
+    <div class="hero-tag">
+      🏠 Narragansett Bay &nbsp;·&nbsp; HO-3 Homeowners
+    </div>
+    <h1 class="hero-name">Gustavo Puente</h1>
     <p class="hero-address">150 Summit St, Bridgeport, CT 06606</p>
-    <div class="hero-meta">
+    <div class="hero-pills">
       <span class="hero-pill">Effective 06/19/2026</span>
-      <span class="hero-pill">Year Built: 1928</span>
+      <span class="hero-pill">Built 1928</span>
       <span class="hero-pill">Frame Construction</span>
       <span class="hero-pill">$321,000 Dwelling</span>
+      <span class="hero-pill">$500K Liability</span>
     </div>
   </div>
 </section>
 
-<!-- ── DEDUCTIBLE OPTIONS ── -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- DEDUCTIBLE COMPARISON                       -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="section">
-  <p class="section-label">Your Options</p>
-  <h2 class="section-title">Two Plans, One Decision</h2>
-  <p class="section-sub">Same carrier, same coverage, same property. The only difference is your deductible — which determines how much you'd pay out of pocket on a claim, and your annual premium.</p>
+  <p class="section-eyebrow">Your Two Options</p>
+  <h2 class="section-title">Same Coverage.<br/>One Decision.</h2>
+  <p class="section-sub">Both quotes are with Narragansett Bay on an HO-3. Identical coverage across the board. The only variable is your deductible — which affects what you'd pay after a claim and what you pay every year.</p>
 
-  <div class="savings-banner">
-    <span class="savings-icon">💡</span>
-    <div class="savings-text">
+  <!-- Callout Banner -->
+  <div class="ded-intro">
+    <div class="ded-intro-icon">💡</div>
+    <div class="ded-intro-body">
       <h3>Higher Deductible = Lower Premium</h3>
-      <p>Going from a $5,000 to a $10,000 deductible saves you $203/year. It's a trade-off: you'd pay more out of pocket on a claim, but your monthly cost drops. Ask yourself: can I cover $10K if something happens?</p>
+      <p>Going from $5,000 to $10,000 saves you <strong style="color:var(--gold)">$203/year</strong> in premium. The trade-off: if something happens, you cover more out of pocket before insurance kicks in. If you have solid savings, the $10K option is the smarter buy.</p>
     </div>
-    <div class="savings-amount">
-      <div class="savings-num">$203</div>
-      <div class="savings-label">Annual Savings</div>
+    <div class="ded-intro-save">
+      <div class="save-num">$203</div>
+      <div class="save-label">Annual Savings</div>
     </div>
   </div>
 
-  <div class="options-grid">
+  <!-- Big Price Cards -->
+  <div class="ded-cards">
 
-    <!-- OPTION 1: $10K Deductible -->
-    <div class="option-card featured">
-      <div class="option-badge">Best Rate</div>
-      <p class="option-ded">$10,000 Deductible</p>
-      <div class="option-price"><sup>$</sup>1,499</div>
-      <p class="option-period">per year &nbsp;·&nbsp; $124.92/mo (EFT)</p>
+    <!-- $10K — BEST RATE -->
+    <div class="ded-card best">
+      <div class="ded-card-badge has-badge">✦ Best Rate Option</div>
+      <p class="ded-label gold-label" style="margin-top:1.8rem;">$10,000 Deductible</p>
+      <div class="ded-amount">
+        <span class="ded-dollar">$</span>
+        <span class="ded-price">1,499</span>
+      </div>
+      <p class="ded-yr">per year</p>
 
-      <div class="option-divider"></div>
+      <div class="ded-sep"></div>
 
-      <div class="option-row">
-        <span class="option-row-label">AOP Deductible</span>
-        <span class="option-row-val highlight">$10,000</span>
+      <div class="ded-stat">
+        <span class="ded-stat-label">AOP Deductible</span>
+        <span class="ded-stat-val gold">$10,000</span>
       </div>
-      <div class="option-row">
-        <span class="option-row-label">Hurricane Deductible</span>
-        <span class="option-row-val highlight">$10,000</span>
+      <div class="ded-stat">
+        <span class="ded-stat-label">Hurricane Deductible</span>
+        <span class="ded-stat-val gold">$10,000</span>
       </div>
-      <div class="option-row">
-        <span class="option-row-label">Annual Premium</span>
-        <span class="option-row-val">$1,499</span>
-      </div>
-      <div class="option-row">
-        <span class="option-row-label">Monthly (11-Pay EFT)</span>
-        <span class="option-row-val">$123.88</span>
+      <div class="ded-stat">
+        <span class="ded-stat-label">You save vs. $5K option</span>
+        <span class="ded-stat-val gold">$203/yr</span>
       </div>
 
-      <p class="option-note">Best for those who have savings set aside and want to keep monthly costs as low as possible.</p>
+      <div class="ded-tag">
+        Best for homeowners with reserves. Pay less every year, cover more if a claim hits.
+      </div>
     </div>
 
-    <!-- OPTION 2: $5K Deductible -->
-    <div class="option-card">
-      <p class="option-ded">$5,000 Deductible</p>
-      <div class="option-price"><sup>$</sup>1,702</div>
-      <p class="option-period">per year &nbsp;·&nbsp; $140.79/mo (EFT)</p>
+    <!-- $5K — MORE COVERAGE -->
+    <div class="ded-card standard">
+      <div class="ded-card-badge no-badge"></div>
+      <p class="ded-label" style="margin-top:0.5rem;">$5,000 Deductible</p>
+      <div class="ded-amount">
+        <span class="ded-dollar">$</span>
+        <span class="ded-price">1,702</span>
+      </div>
+      <p class="ded-yr">per year</p>
 
-      <div class="option-divider"></div>
+      <div class="ded-sep"></div>
 
-      <div class="option-row">
-        <span class="option-row-label">AOP Deductible</span>
-        <span class="option-row-val highlight">$5,000</span>
+      <div class="ded-stat">
+        <span class="ded-stat-label">AOP Deductible</span>
+        <span class="ded-stat-val">$5,000</span>
       </div>
-      <div class="option-row">
-        <span class="option-row-label">Hurricane Deductible</span>
-        <span class="option-row-val highlight">$5,000</span>
+      <div class="ded-stat">
+        <span class="ded-stat-label">Hurricane Deductible</span>
+        <span class="ded-stat-val">$5,000</span>
       </div>
-      <div class="option-row">
-        <span class="option-row-label">Annual Premium</span>
-        <span class="option-row-val">$1,702</span>
-      </div>
-      <div class="option-row">
-        <span class="option-row-label">Monthly (11-Pay EFT)</span>
-        <span class="option-row-val">$140.79</span>
+      <div class="ded-stat">
+        <span class="ded-stat-label">Lower out-of-pocket on a claim</span>
+        <span class="ded-stat-val">✓</span>
       </div>
 
-      <p class="option-note">Best for those who prefer less exposure on a claim and don't mind paying a little more in premium.</p>
+      <div class="ded-tag">
+        Best for those who prefer less financial exposure after a loss and don't mind the extra premium.
+      </div>
     </div>
 
+  </div>
+
+  <!-- Side-by-Side Comparison Table -->
+  <div class="compare-table-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>What Changes</th>
+          <th style="color:var(--gold);">$10K Deductible</th>
+          <th>$5K Deductible</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td>Annual Premium</td>
+          <td class="gold-cell">$1,499</td>
+          <td>$1,702</td>
+        </tr>
+        <tr>
+          <td>AOP Deductible (wind, hail, fire, etc.)</td>
+          <td class="gold-cell">$10,000</td>
+          <td>$5,000</td>
+        </tr>
+        <tr>
+          <td>Hurricane Deductible</td>
+          <td class="gold-cell">$10,000</td>
+          <td>$5,000</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>Annual Premium Difference</td>
+          <td class="gold-cell">Save $203/yr</td>
+          <td>+$203/yr</td>
+        </tr>
+        <tr>
+          <td>Coverage — Dwelling (Cov A)</td>
+          <td>$321,000</td>
+          <td>$321,000</td>
+        </tr>
+        <tr>
+          <td>Coverage — Personal Property (Cov C)</td>
+          <td>$160,500</td>
+          <td>$160,500</td>
+        </tr>
+        <tr>
+          <td>Coverage — Liability (Cov E)</td>
+          <td>$500,000</td>
+          <td>$500,000</td>
+        </tr>
+        <tr>
+          <td>Coverage — Loss of Use (Cov D)</td>
+          <td>$96,300</td>
+          <td>$96,300</td>
+        </tr>
+        <tr>
+          <td>Equipment Breakdown</td>
+          <td>$100,000</td>
+          <td>$100,000</td>
+        </tr>
+        <tr>
+          <td>Water Back-Up / Sump</td>
+          <td>$5,000</td>
+          <td>$5,000</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
 <div class="divider"></div>
 
-<!-- ── COVERAGE SUMMARY ── -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- COVERAGE BREAKDOWN                          -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="section" style="padding-top:0;">
-  <p class="section-label">What's Covered</p>
-  <h2 class="section-title">Full Coverage Breakdown</h2>
-  <p class="section-sub">Both plans include identical coverage — only the deductible differs.</p>
+  <p class="section-eyebrow">What's Included</p>
+  <h2 class="section-title">Full Coverage at a Glance</h2>
+  <p class="section-sub">Both options carry identical protection. Here's everything that's covered on this policy.</p>
 
   <div class="cov-grid">
     <div class="cov-card">
@@ -745,7 +838,7 @@
     <div class="cov-card">
       <div class="cov-icon">📦</div>
       <div>
-        <p class="cov-name">Personal Property Replacement Cost</p>
+        <p class="cov-name">Personal Property — Replacement Cost</p>
         <p class="cov-val">Included</p>
       </div>
     </div>
@@ -760,7 +853,7 @@
       <div class="cov-icon">📈</div>
       <div>
         <p class="cov-name">Inflation Guard</p>
-        <p class="cov-val">4%</p>
+        <p class="cov-val">4% Annual</p>
       </div>
     </div>
     <div class="cov-card">
@@ -775,102 +868,13 @@
 
 <div class="divider"></div>
 
-<!-- ── PAY PLANS ── -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- WHY SAFESHIELD                              -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="section" style="padding-top:0;">
-  <p class="section-label">Payment Options</p>
-  <h2 class="section-title">Pay Your Way</h2>
-  <p class="section-sub">Choose the plan that works best for your budget — side by side for each deductible option.</p>
-
-  <div class="pay-grid">
-
-    <div class="pay-card">
-      <div class="pay-card-header">
-        <div class="pay-card-dot"></div>
-        <span class="pay-card-title">$10,000 Deductible</span>
-        <span class="pay-card-ded">$1,499/yr</span>
-      </div>
-      <table class="pay-table">
-        <thead>
-          <tr>
-            <th>Plan</th>
-            <th>Down Payment</th>
-            <th>Installment</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="plan-name">Full Pay</span></td>
-            <td>—</td>
-            <td>$1,499.00</td>
-          </tr>
-          <tr>
-            <td><span class="plan-name">4-Pay</span><br/><span class="plan-sub">+$5/pmt fee</span></td>
-            <td>$383.75</td>
-            <td>$376.75</td>
-          </tr>
-          <tr>
-            <td><span class="plan-name">9-Pay</span><br/><span class="plan-sub">+$5/pmt fee</span></td>
-            <td>$309.40</td>
-            <td>$153.70</td>
-          </tr>
-          <tr>
-            <td><span class="plan-name">11-Pay EFT</span></td>
-            <td>$260.33</td>
-            <td>$123.88</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="pay-card">
-      <div class="pay-card-header">
-        <div class="pay-card-dot"></div>
-        <span class="pay-card-title">$5,000 Deductible</span>
-        <span class="pay-card-ded">$1,702/yr</span>
-      </div>
-      <table class="pay-table">
-        <thead>
-          <tr>
-            <th>Plan</th>
-            <th>Down Payment</th>
-            <th>Installment</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="plan-name">Full Pay</span></td>
-            <td>—</td>
-            <td>$1,702.00</td>
-          </tr>
-          <tr>
-            <td><span class="plan-name">4-Pay</span><br/><span class="plan-sub">+$5/pmt fee</span></td>
-            <td>$434.50</td>
-            <td>$427.50</td>
-          </tr>
-          <tr>
-            <td><span class="plan-name">9-Pay</span><br/><span class="plan-sub">+$5/pmt fee</span></td>
-            <td>$350.00</td>
-            <td>$174.00</td>
-          </tr>
-          <tr>
-            <td><span class="plan-name">11-Pay EFT</span></td>
-            <td>$294.23</td>
-            <td>$140.79</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- ── WHY SAFESHIELD ── -->
-<div class="section" style="padding-top:0;">
-  <p class="section-label">Why Safeshield</p>
-  <h2 class="section-title">We Work for You, Not the Carrier</h2>
-  <p class="section-sub">As an independent agency, we shop 69+ carriers to find you the best rate. And when you have a claim, we're in your corner.</p>
+  <p class="section-eyebrow">Why Safeshield</p>
+  <h2 class="section-title">We Work for You,<br/>Not the Carrier</h2>
+  <p class="section-sub">As an independent agency we shop 69+ carriers to find the best rate. When you have a claim, we're your advocate — not the insurance company's.</p>
 
   <div class="why-grid">
     <div class="why-card">
@@ -879,48 +883,37 @@
     </div>
     <div class="why-card">
       <div class="why-num">Same<br/>Day</div>
-      <div class="why-label">Quotes, certs, ID cards<br/>& policy changes</div>
+      <div class="why-label">Quotes, certs, ID cards<br/>&amp; policy changes</div>
     </div>
     <div class="why-card">
       <div class="why-num">0</div>
-      <div class="why-label">Call centers. Direct<br/>agent access always</div>
+      <div class="why-label">Call centers. Direct<br/>agent access, always</div>
     </div>
     <div class="why-card">
       <div class="why-num">Annual</div>
-      <div class="why-label">Re-shop guarantee.<br/>We check every year.</div>
+      <div class="why-label">Re-shop guarantee —<br/>we check every year</div>
     </div>
   </div>
 </div>
 
-<!-- ── CTA FOOTER ── -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- CTA FOOTER                                  -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="cta">
   <h2 class="cta-title">Ready to Get Protected?</h2>
-  <p class="cta-sub">Pick your deductible and we'll get your policy bound today. Questions? Just reach out — we make this easy.</p>
-  <div class="cta-buttons">
+  <p class="cta-sub">Pick your deductible and we'll get this bound today. Have a question? Reach out directly — no hold music, no runaround.</p>
+  <div class="cta-btns">
     <a class="btn-primary" href="mailto:eric@gosafeshield.com?subject=Ready to Bind - Gustavo Puente 150 Summit St">Bind My Policy</a>
     <a class="btn-glass" href="tel:2038065889">Call Eric: (203) 806-5889</a>
   </div>
-  <p class="cta-agent" style="margin-top:2.5rem;">
-    Prepared by <strong>Eric Kelly</strong> · Safeshield Insurance · <strong>eric@gosafeshield.com</strong> · (203) 806-5889
+  <p class="cta-agent">
+    Prepared by <strong>Eric Kelly</strong> &nbsp;·&nbsp; Safeshield Insurance &nbsp;·&nbsp;
+    <strong>eric@gosafeshield.com</strong> &nbsp;·&nbsp; (203) 806-5889
   </p>
-  <p style="margin-top:0.6rem;font-size:0.72rem;color:var(--muted);">Quote #CTHQ01460781 · Prepared 06/02/2026 · Rates not guaranteed and subject to change. Coverage not in effect until bound by an authorized representative.</p>
+  <p style="margin-top:0.6rem;font-size:0.7rem;color:var(--muted);">
+    Quote #CTHQ01460781 &nbsp;·&nbsp; Prepared 06/02/2026 &nbsp;·&nbsp; Rates subject to change. Coverage not in effect until bound by an authorized representative.
+  </p>
 </div>
-
-<!-- ── HOME PHOTO SECTION (below hero for mobile) ── -->
-<style>
-  .home-photo-section {
-    display: none;
-  }
-  @media(max-width:768px) {
-    .home-photo-section {
-      display: block;
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      object-position: center 30%;
-    }
-  }
-</style>
 
 </body>
 </html>
