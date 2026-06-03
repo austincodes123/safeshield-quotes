@@ -67,11 +67,11 @@
 
     .topbar-cta:hover { opacity: 0.85; }
 
-    /* ── HERO PHOTO ── */
+    /* ── HERO ── */
     .hero {
       position: relative;
       height: 100vh;
-      min-height: 560px;
+      min-height: 600px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -84,7 +84,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 35%;
+      object-position: center 40%;
     }
 
     .hero-overlay {
@@ -92,18 +92,25 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(10,22,40,0.25) 0%,
-        rgba(10,22,40,0.05) 25%,
-        rgba(10,22,40,0.55) 60%,
-        rgba(10,22,40,0.97) 100%
+        rgba(10,22,40,0.15) 0%,
+        rgba(10,22,40,0.02) 20%,
+        rgba(10,22,40,0.45) 55%,
+        rgba(10,22,40,0.96) 100%
       );
+    }
+
+    /* warm vignette sides */
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(10,22,40,0.55) 100%);
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      padding: 0 2.5rem 4rem;
-      max-width: 960px;
+      padding: 0 2.8rem 4.5rem;
+      max-width: 980px;
       margin: 0 auto;
       width: 100%;
     }
@@ -113,29 +120,31 @@
       align-items: center;
       gap: 0.5rem;
       background: rgba(255,163,0,0.18);
-      border: 1px solid rgba(255,163,0,0.35);
+      border: 1px solid rgba(255,163,0,0.38);
       border-radius: 100px;
-      padding: 0.4rem 1rem;
-      font-size: 0.72rem;
+      padding: 0.42rem 1rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.1rem;
+      backdrop-filter: blur(8px);
     }
 
     .hero-name {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-size: clamp(2.8rem, 6.5vw, 5rem);
       font-weight: 900;
       line-height: 1.0;
       color: var(--text);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
+      text-shadow: 0 2px 30px rgba(0,0,0,0.4);
     }
 
     .hero-address {
-      font-size: 1.1rem;
-      color: rgba(250,250,248,0.75);
+      font-size: 1.05rem;
+      color: rgba(250,250,248,0.8);
       font-weight: 400;
       margin-bottom: 2rem;
       display: flex;
@@ -154,17 +163,17 @@
     .hero-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.7rem;
     }
 
     .hero-pill {
       background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.18);
       border-radius: 100px;
-      padding: 0.4rem 1rem;
-      font-size: 0.8rem;
+      padding: 0.38rem 1rem;
+      font-size: 0.78rem;
       font-weight: 500;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
     }
 
     /* ── SECTION ── */
@@ -206,11 +215,11 @@
       margin: 0 auto;
     }
 
-    /* ── DEDUCTIBLE SHOWDOWN ── */
+    /* ── DEDUCTIBLE INTRO BANNER ── */
     .ded-intro {
-      background: linear-gradient(135deg, rgba(255,163,0,0.1), rgba(255,163,0,0.03));
-      border: 1px solid rgba(255,163,0,0.22);
-      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255,163,0,0.1), rgba(0,75,137,0.12));
+      border: 1px solid rgba(255,163,0,0.25);
+      border-radius: 20px;
       padding: 2rem 2.2rem;
       margin-bottom: 2.5rem;
       display: flex;
@@ -236,21 +245,18 @@
       line-height: 1.6;
     }
 
-    .ded-intro-save {
-      text-align: center;
-      flex-shrink: 0;
-    }
+    .ded-intro-save { text-align: center; flex-shrink: 0; }
 
     .save-num {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       font-weight: 900;
       color: var(--gold);
       line-height: 1;
     }
 
     .save-label {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -267,20 +273,24 @@
 
     @media(max-width:640px) {
       .ded-cards { grid-template-columns: 1fr; }
+      .hero-content { padding: 0 1.5rem 3.5rem; }
     }
 
     .ded-card {
       border-radius: 24px;
-      padding: 2.8rem 2.2rem 2.4rem;
+      padding: 0 2.2rem 2.4rem;
       position: relative;
       overflow: hidden;
-      transition: transform 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .ded-card:hover { transform: translateY(-5px); }
+    .ded-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
 
     .ded-card.best {
-      background: linear-gradient(145deg, rgba(255,163,0,0.14), rgba(0,75,137,0.18));
+      background: linear-gradient(145deg, rgba(255,163,0,0.13), rgba(0,75,137,0.2));
       border: 1.5px solid rgba(255,163,0,0.45);
     }
 
@@ -290,20 +300,24 @@
     }
 
     .ded-card-badge {
-      position: absolute;
-      top: 0; left: 0; right: 0;
       background: var(--gold);
       color: #0a1628;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 800;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       text-align: center;
-      padding: 0.45rem;
+      padding: 0.5rem;
+      margin: 0 -2.2rem 2rem;
     }
 
-    .ded-card-badge.has-badge { display: block; }
-    .ded-card-badge.no-badge { display: none; }
+    .ded-card-badge.no-badge {
+      background: transparent;
+      color: transparent;
+      padding: 0.5rem;
+      margin: 0 -2.2rem 2rem;
+      border-bottom: 1px solid var(--card-border);
+    }
 
     .ded-label {
       font-size: 0.72rem;
@@ -311,7 +325,6 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-top: 0.5rem;
       margin-bottom: 1.2rem;
     }
 
@@ -320,9 +333,9 @@
     .ded-amount {
       display: flex;
       align-items: flex-start;
-      gap: 0.2rem;
-      margin-bottom: 0.3rem;
+      gap: 0.15rem;
       line-height: 1;
+      margin-bottom: 0.25rem;
     }
 
     .ded-dollar {
@@ -340,17 +353,9 @@
       color: var(--text);
     }
 
-    .ded-yr {
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
+    .ded-yr { font-size: 0.82rem; color: var(--muted); margin-bottom: 2rem; }
 
-    .ded-sep {
-      height: 1px;
-      background: rgba(255,255,255,0.1);
-      margin: 1.8rem 0;
-    }
+    .ded-sep { height: 1px; background: rgba(255,255,255,0.1); margin: 1.8rem 0; }
 
     .ded-stat {
       display: flex;
@@ -366,30 +371,14 @@
 
     .ded-tag {
       margin-top: 1.8rem;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.05);
       border-radius: 10px;
       padding: 0.9rem 1.1rem;
       font-size: 0.82rem;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.55;
       font-style: italic;
     }
-
-    /* ── VS DIVIDER ── */
-    .vs-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      margin: 0.5rem 0 1.5rem;
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .vs-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
 
     /* ── COMPARISON TABLE ── */
     .compare-table-wrap {
@@ -400,18 +389,13 @@
       margin-top: 2rem;
     }
 
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+    .compare-table { width: 100%; border-collapse: collapse; }
 
-    .compare-table thead tr {
-      background: rgba(0,75,137,0.3);
-    }
+    .compare-table thead tr { background: rgba(0,75,137,0.3); }
 
     .compare-table thead th {
       padding: 1.1rem 1.5rem;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -430,11 +414,8 @@
     }
 
     .compare-table tbody td:not(:first-child) { text-align: center; font-weight: 600; color: var(--text); }
-
     .compare-table tbody tr:last-child td { border-bottom: none; }
-
     .compare-table tbody tr.highlight-row td { background: rgba(255,163,0,0.04); }
-
     .compare-table .gold-cell { color: var(--gold) !important; }
 
     /* ── COVERAGES ── */
@@ -470,7 +451,7 @@
     }
 
     .cov-name {
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -496,7 +477,7 @@
       transition: border-color 0.2s;
     }
 
-    .why-card:hover { border-color: rgba(255,163,0,0.2); }
+    .why-card:hover { border-color: rgba(255,163,0,0.22); }
 
     .why-num {
       font-family: 'Playfair Display', serif;
@@ -590,15 +571,17 @@
 </nav>
 
 <!-- ═══════════════════════════════════════════ -->
-<!-- HERO — HOME PHOTO FULL BLEED               -->
+<!-- HERO — REAL HOME PHOTO                     -->
 <!-- ═══════════════════════════════════════════ -->
 <section class="hero">
-  <!-- Actual uploaded home photo embedded as base64 -->
-  <img class="hero-photo"
-       src="data:image/jpeg;base64,__HOME_PHOTO_BASE64__"
-       onerror="this.style.background='linear-gradient(145deg,#0d1e3a,#0a1628)'"
-       alt="150 Summit St, Bridgeport CT"/>
+  <img
+    class="hero-photo"
+    src="https://casey.gosafeshield.com/api/quotes/gustavo-puente/hero-image"
+    onerror="this.src='https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1600&q=80'; this.onerror=null;"
+    alt="150 Summit St, Bridgeport CT"
+  />
   <div class="hero-overlay"></div>
+  <div class="hero-vignette"></div>
 
   <div class="hero-content">
     <div class="hero-tag">
@@ -622,14 +605,13 @@
 <div class="section">
   <p class="section-eyebrow">Your Two Options</p>
   <h2 class="section-title">Same Coverage.<br/>One Decision.</h2>
-  <p class="section-sub">Both quotes are with Narragansett Bay on an HO-3. Identical coverage across the board. The only variable is your deductible — which affects what you'd pay after a claim and what you pay every year.</p>
+  <p class="section-sub">Both quotes are with Narragansett Bay on an HO-3. Identical coverage across the board — the only variable is your deductible, which changes what you pay annually and what you'd owe after a claim.</p>
 
-  <!-- Callout Banner -->
   <div class="ded-intro">
     <div class="ded-intro-icon">💡</div>
     <div class="ded-intro-body">
       <h3>Higher Deductible = Lower Premium</h3>
-      <p>Going from $5,000 to $10,000 saves you <strong style="color:var(--gold)">$203/year</strong> in premium. The trade-off: if something happens, you cover more out of pocket before insurance kicks in. If you have solid savings, the $10K option is the smarter buy.</p>
+      <p>Bumping from $5,000 to $10,000 saves you <strong style="color:var(--gold)">$203/year</strong> in premium. The trade-off: if something happens, you cover more out of pocket before insurance kicks in. If you have solid savings set aside, the $10K option is the smarter financial move.</p>
     </div>
     <div class="ded-intro-save">
       <div class="save-num">$203</div>
@@ -642,8 +624,8 @@
 
     <!-- $10K — BEST RATE -->
     <div class="ded-card best">
-      <div class="ded-card-badge has-badge">✦ Best Rate Option</div>
-      <p class="ded-label gold-label" style="margin-top:1.8rem;">$10,000 Deductible</p>
+      <div class="ded-card-badge">✦ Best Rate Option</div>
+      <p class="ded-label gold-label">$10,000 Deductible</p>
       <div class="ded-amount">
         <span class="ded-dollar">$</span>
         <span class="ded-price">1,499</span>
@@ -661,19 +643,19 @@
         <span class="ded-stat-val gold">$10,000</span>
       </div>
       <div class="ded-stat">
-        <span class="ded-stat-label">You save vs. $5K option</span>
+        <span class="ded-stat-label">Savings vs. $5K option</span>
         <span class="ded-stat-val gold">$203/yr</span>
       </div>
 
       <div class="ded-tag">
-        Best for homeowners with reserves. Pay less every year, cover more if a claim hits.
+        Best for homeowners with reserves. Pay less every year — cover more out of pocket only if a claim happens.
       </div>
     </div>
 
-    <!-- $5K — MORE COVERAGE -->
+    <!-- $5K — LOWER EXPOSURE -->
     <div class="ded-card standard">
-      <div class="ded-card-badge no-badge"></div>
-      <p class="ded-label" style="margin-top:0.5rem;">$5,000 Deductible</p>
+      <div class="ded-card-badge no-badge">‎</div>
+      <p class="ded-label">$5,000 Deductible</p>
       <div class="ded-amount">
         <span class="ded-dollar">$</span>
         <span class="ded-price">1,702</span>
@@ -691,12 +673,12 @@
         <span class="ded-stat-val">$5,000</span>
       </div>
       <div class="ded-stat">
-        <span class="ded-stat-label">Lower out-of-pocket on a claim</span>
+        <span class="ded-stat-label">Lower claim exposure</span>
         <span class="ded-stat-val">✓</span>
       </div>
 
       <div class="ded-tag">
-        Best for those who prefer less financial exposure after a loss and don't mind the extra premium.
+        Best for those who prefer less financial exposure after a loss and don't mind the extra $17/month in premium.
       </div>
     </div>
 
@@ -734,22 +716,22 @@
           <td>+$203/yr</td>
         </tr>
         <tr>
-          <td>Coverage — Dwelling (Cov A)</td>
+          <td>Coverage A — Dwelling</td>
           <td>$321,000</td>
           <td>$321,000</td>
         </tr>
         <tr>
-          <td>Coverage — Personal Property (Cov C)</td>
+          <td>Coverage C — Personal Property</td>
           <td>$160,500</td>
           <td>$160,500</td>
         </tr>
         <tr>
-          <td>Coverage — Liability (Cov E)</td>
+          <td>Coverage E — Personal Liability</td>
           <td>$500,000</td>
           <td>$500,000</td>
         </tr>
         <tr>
-          <td>Coverage — Loss of Use (Cov D)</td>
+          <td>Coverage D — Loss of Use</td>
           <td>$96,300</td>
           <td>$96,300</td>
         </tr>
@@ -874,7 +856,7 @@
 <div class="section" style="padding-top:0;">
   <p class="section-eyebrow">Why Safeshield</p>
   <h2 class="section-title">We Work for You,<br/>Not the Carrier</h2>
-  <p class="section-sub">As an independent agency we shop 69+ carriers to find the best rate. When you have a claim, we're your advocate — not the insurance company's.</p>
+  <p class="section-sub">As an independent agency we shop 69+ carriers to find the best rate. When you have a claim, we're in your corner — not the insurance company's.</p>
 
   <div class="why-grid">
     <div class="why-card">
