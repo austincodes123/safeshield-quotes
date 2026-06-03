@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joseph Dellolio — Homeowners Insurance Proposal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0a1628;
+      color: #FAFAF8;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    a { color: #FFA300; text-decoration: none; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0a1628 0%, #0d2040 50%, #0a1628 100%);
+      border-bottom: 1px solid rgba(255,163,0,0.2);
+      padding: 72px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,163,0,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255,163,0,0.12);
+      border: 1px solid rgba(255,163,0,0.35);
+      color: #FFA300;
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 62px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: #FAFAF8;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: #FFA300; }
+    .hero .subtitle {
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(250,250,248,0.65);
+      max-width: 540px;
+      margin: 0 auto 36px;
+    }
+    .hero .savings-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, rgba(255,163,0,0.18), rgba(255,163,0,0.08));
+      border: 1px solid rgba(255,163,0,0.5);
+      border-radius: 100px;
+      padding: 14px 32px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFA300;
+    }
+    .hero .savings-pill .label {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(250,250,248,0.7);
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section { padding: 72px 24px; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+      margin: 0 24px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #FFA300;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: rgba(250,250,248,0.6);
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    /* ── COMPARISON TABLE ── */
+    .compare-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 640px) { .compare-wrap { grid-template-columns: 1fr; } }
+
+    .carrier-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 32px;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .carrier-card.winner {
+      border-color: rgba(255,163,0,0.45);
+      background: rgba(255,163,0,0.05);
+    }
+    .winner-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #FFA300;
+      color: #0a1628;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .carrier-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .carrier-subname {
+      font-size: 13px;
+      color: rgba(250,250,248,0.5);
+      margin-bottom: 28px;
+    }
+    .carrier-premium {
+      font-size: 46px;
+      font-weight: 800;
+      color: #FFA300;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .carrier-premium-label {
+      font-size: 13px;
+      color: rgba(250,250,248,0.5);
+      margin-bottom: 28px;
+    }
+    .cov-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 14px;
+    }
+    .cov-row:last-child { border-bottom: none; }
+    .cov-label { color: rgba(250,250,248,0.65); }
+    .cov-val { font-weight: 600; color: #FAFAF8; }
+    .cov-val.gold { color: #FFA300; }
+    .cov-val.dim { color: rgba(250,250,248,0.4); }
+
+    /* ── SAVINGS CALLOUT ── */
+    .savings-block {
+      background: linear-gradient(135deg, rgba(255,163,0,0.12), rgba(255,163,0,0.06));
+      border: 1px solid rgba(255,163,0,0.35);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      margin-top: 32px;
+    }
+    .savings-block .amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 900;
+      color: #FFA300;
+      line-height: 1;
+    }
+    .savings-block .desc {
+      font-size: 16px;
+      color: rgba(250,250,248,0.65);
+      margin-top: 8px;
+    }
+
+    /* ── COVERAGE HIGHLIGHTS ── */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .highlight-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .highlight-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+    .highlight-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .highlight-detail {
+      font-size: 22px;
+      font-weight: 800;
+      color: #FFA300;
+      margin-bottom: 6px;
+    }
+    .highlight-note {
+      font-size: 13px;
+      color: rgba(250,250,248,0.5);
+      line-height: 1.5;
+    }
+
+    /* ── UPGRADE CALLOUTS ── */
+    .upgrade-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .upgrade-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 20px 24px;
+    }
+    .upgrade-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .upgrade-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .upgrade-desc { font-size: 13px; color: rgba(250,250,248,0.55); line-height: 1.5; }
+
+    /* ── WHY SAFESHIELD ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .why-icon { font-size: 24px; margin-bottom: 12px; }
+    .why-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .why-desc { font-size: 13px; color: rgba(250,250,248,0.55); line-height: 1.5; }
+
+    /* ── CTA FOOTER ── */
+    .cta {
+      background: linear-gradient(135deg, #004B89 0%, #003566 100%);
+      border-top: 1px solid rgba(255,163,0,0.2);
+      padding: 72px 24px;
+      text-align: center;
+    }
+    .cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .cta p {
+      font-size: 16px;
+      color: rgba(250,250,248,0.7);
+      max-width: 500px;
+      margin: 0 auto 36px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #FFA300;
+      color: #0a1628;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 16px 42px;
+      border-radius: 100px;
+      letter-spacing: 0.5px;
+    }
+    .cta-agent {
+      margin-top: 28px;
+      font-size: 14px;
+      color: rgba(250,250,248,0.5);
+    }
+    .cta-agent strong { color: rgba(250,250,248,0.85); }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">Home Insurance Proposal &mdash; White Plains, NY</div>
+  <h1>Better Coverage.<br/><span>Better Price.</span></h1>
+  <p class="subtitle">We shopped the market for Dr. Joseph Dellolio and found a smarter option for 12 Hartford Lane.</p>
+  <div class="savings-pill">
+    <div>
+      <div class="label">Annual Savings</div>
+      $524 / year
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SIDE BY SIDE COMPARISON -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Side-by-Side</div>
+    <h2 class="section-title">The Numbers Don't Lie</h2>
+    <p class="section-sub">Same home, same dwelling coverage — but a significantly better price and stronger liability protection.</p>
+
+    <div class="compare-wrap">
+
+      <!-- NYCM -->
+      <div class="carrier-card winner">
+        <div class="winner-badge">✦ Recommended</div>
+        <div class="carrier-name">NYCM</div>
+        <div class="carrier-subname">New York Central Mutual &mdash; Quote #Q32648157</div>
+        <div class="carrier-premium">$2,281</div>
+        <div class="carrier-premium-label">Annual Premium &mdash; Eff. 07/05/2026</div>
+
+        <div class="cov-row"><span class="cov-label">A: Dwelling</span><span class="cov-val gold">$858,000</span></div>
+        <div class="cov-row"><span class="cov-label">B: Other Structures</span><span class="cov-val">$171,600</span></div>
+        <div class="cov-row"><span class="cov-label">C: Personal Property</span><span class="cov-val">$600,600</span></div>
+        <div class="cov-row"><span class="cov-label">D: Loss of Use</span><span class="cov-val">$257,400</span></div>
+        <div class="cov-row"><span class="cov-label">E: Personal Liability</span><span class="cov-val gold">$500,000</span></div>
+        <div class="cov-row"><span class="cov-label">F: Medical Payments</span><span class="cov-val">$5,000</span></div>
+        <div class="cov-row"><span class="cov-label">Deductible</span><span class="cov-val">$2,500</span></div>
+        <div class="cov-row"><span class="cov-label">Water Back-Up</span><span class="cov-val gold">✓ Included</span></div>
+        <div class="cov-row"><span class="cov-label">Alarm Credit</span><span class="cov-val gold">✓ Applied</span></div>
+        <div class="cov-row"><span class="cov-label">New Roof Discount</span><span class="cov-val gold">✓ Applied</span></div>
+      </div>
+
+      <!-- TRAVELERS (CURRENT) -->
+      <div class="carrier-card">
+        <div class="carrier-name">Travelers</div>
+        <div class="carrier-subname">Current Policy &mdash; #978276588 633 1</div>
+        <div class="carrier-premium" style="color: rgba(250,250,248,0.5);">$2,805</div>
+        <div class="carrier-premium-label">Annual Premium &mdash; Eff. 07/05/2026</div>
+
+        <div class="cov-row"><span class="cov-label">A: Dwelling</span><span class="cov-val">$858,000</span></div>
+        <div class="cov-row"><span class="cov-label">B: Other Structures</span><span class="cov-val">$85,800</span></div>
+        <div class="cov-row"><span class="cov-label">C: Personal Property</span><span class="cov-val">$600,600</span></div>
+        <div class="cov-row"><span class="cov-label">D: Loss of Use</span><span class="cov-val">$257,400</span></div>
+        <div class="cov-row"><span class="cov-label">E: Personal Liability</span><span class="cov-val dim">$300,000</span></div>
+        <div class="cov-row"><span class="cov-label">F: Medical Payments</span><span class="cov-val dim">$2,000</span></div>
+        <div class="cov-row"><span class="cov-label">Deductible</span><span class="cov-val">$2,500</span></div>
+        <div class="cov-row"><span class="cov-label">Water Back-Up</span><span class="cov-val dim">Not listed</span></div>
+        <div class="cov-row"><span class="cov-label">Hurricane Deductible</span><span class="cov-val dim">3% of Cov A ($25,740)</span></div>
+        <div class="cov-row"><span class="cov-label">Value Added Package</span><span class="cov-val dim">+$419 add-on</span></div>
+      </div>
+
+    </div>
+
+    <!-- SAVINGS CALLOUT -->
+    <div class="savings-block">
+      <div class="amount">$524</div>
+      <div class="desc">Saved every year by switching to NYCM &mdash; with more liability coverage included.</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- COVERAGE HIGHLIGHTS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">What You're Getting</div>
+    <h2 class="section-title">Strong Coverage, Top to Bottom</h2>
+    <p class="section-sub">The NYCM policy is built to fully protect the home at 12 Hartford Lane — with meaningful upgrades over what Travelers offers.</p>
+
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <div class="highlight-icon">🏠</div>
+        <div class="highlight-title">Dwelling Coverage</div>
+        <div class="highlight-detail">$858,000</div>
+        <div class="highlight-note">Full replacement cost on the structure. Matches Travelers exactly — no gap in coverage here.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🛡️</div>
+        <div class="highlight-title">Personal Liability</div>
+        <div class="highlight-detail">$500,000</div>
+        <div class="highlight-note">67% more liability than your current Travelers policy ($300K). Protects against lawsuits from injuries or property damage.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🌊</div>
+        <div class="highlight-title">Water Back-Up</div>
+        <div class="highlight-detail">Included</div>
+        <div class="highlight-note">Covers sewer and sump pump backup — one of the most common and costly claims homeowners face. Built right into this policy.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🏗️</div>
+        <div class="highlight-title">Other Structures</div>
+        <div class="highlight-detail">$171,600</div>
+        <div class="highlight-note">NYCM covers 20% of dwelling for detached structures (garage, fences, sheds). Travelers only had $85,800 — half as much.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">📦</div>
+        <div class="highlight-title">Personal Property</div>
+        <div class="highlight-detail">$600,600</div>
+        <div class="highlight-note">Everything inside the home — furniture, electronics, clothing, valuables. Matches your current coverage exactly.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🏨</div>
+        <div class="highlight-title">Loss of Use</div>
+        <div class="highlight-detail">$257,400</div>
+        <div class="highlight-note">Covers hotel, meals, and living expenses if your home becomes uninhabitable due to a covered loss.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- WHAT'S BETTER WITH NYCM -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Key Upgrades</div>
+    <h2 class="section-title">Where NYCM Wins</h2>
+    <p class="section-sub">It's not just the price — the coverage is actually better in several important ways.</p>
+
+    <div class="upgrade-list">
+      <div class="upgrade-item">
+        <div class="upgrade-icon">⬆️</div>
+        <div>
+          <div class="upgrade-title">$200,000 More Liability Protection</div>
+          <div class="upgrade-desc">Travelers caps you at $300,000 per occurrence. NYCM gives you $500,000. If someone gets hurt on your property and sues, that extra $200K is real protection — especially important for a physician.</div>
+        </div>
+      </div>
+      <div class="upgrade-item">
+        <div class="upgrade-icon">🏚️</div>
+        <div>
+          <div class="upgrade-title">Double the Other Structures Coverage</div>
+          <div class="upgrade-desc">NYCM covers other structures at 20% of your dwelling ($171,600 vs. Travelers' $85,800). If you have an attached 3-car garage, a shed, or fence damage, that difference matters.</div>
+        </div>
+      </div>
+      <div class="upgrade-item">
+        <div class="upgrade-icon">💧</div>
+        <div>
+          <div class="upgrade-title">Water Back-Up Coverage Built In</div>
+          <div class="upgrade-desc">Sewer backup and sump overflow claims are among the most common — and most expensive. NYCM includes this in the policy. Travelers didn't show this on your current dec page.</div>
+        </div>
+      </div>
+      <div class="upgrade-item">
+        <div class="upgrade-icon">💰</div>
+        <div>
+          <div class="upgrade-title">No $419 Value-Added Package Tacked On</div>
+          <div class="upgrade-desc">Travelers' total included a $419 endorsement package. NYCM's price is all-in at $2,281 — clean, simple, and $524 less per year.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Why Safeshield</div>
+    <h2 class="section-title">We Work for You, Not the Carrier</h2>
+    <p class="section-sub">Independent agents with access to 69+ carriers — we find the best fit, every time.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🔍</div>
+        <div class="why-title">We Shop the Whole Market</div>
+        <div class="why-desc">69+ carrier relationships means we always find the most competitive option — not just what one company offers.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Same-Day Everything</div>
+        <div class="why-desc">Quotes, ID cards, policy changes, certificates — all done fast. No waiting on hold with a 1-800 number.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📞</div>
+        <div class="why-title">Direct Agent Access</div>
+        <div class="why-desc">You call or text your agent directly. No call centers, no transfers, no frustration.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <div class="why-title">Claims Advocacy</div>
+        <div class="why-desc">When you have a claim, we go to bat for you. We're your advocate — not the carrier's.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔄</div>
+        <div class="why-title">Annual Re-Shop Guarantee</div>
+        <div class="why-desc">Every renewal, we check the market again to make sure you're still getting the best deal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to Make the Switch?</h2>
+  <p>Lock in your NYCM rate before 07/05/2026 and start saving $524 a year with better coverage.</p>
+  <a href="tel:2038065889" class="cta-btn">Call Eric to Get Started</a>
+  <div class="cta-agent">
+    <strong>Eric Kelly</strong> &mdash; Safeshield Insurance &mdash; (203) 806-5889 &mdash; eric@gosafeshield.com
+  </div>
+</section>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"dellolio","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
