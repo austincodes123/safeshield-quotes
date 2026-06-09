@@ -615,6 +615,51 @@
 
 <div class="disclaimer">
   NBIC Quote #CTHQ01501902 prepared 06/09/2026. Effective 06/12/2026 – 06/12/2027. Progressive rates are 6-month terms; annual figures shown are 2 × 6-month premium. Rates not guaranteed and subject to change. Payment of premium does not automatically bind coverage. Coverage not in effect until confirmed by an authorized representative. Flood damage is excluded from homeowners policies — contact us about NFIP flood coverage. Safeshield Insurance LLC is a licensed independent insurance broker.
+
+
+<script>
+// PATCH: Fix all auto premium figures for 6-month terms
+(function() {
+  function waitAndPatch() {
+    // Ford Ranger: $940/6mo → $1,880/yr
+    // Subaru: $709/6mo → $1,418/yr (already correct)
+    // Total Progressive 2-car: $1,641/6mo → $3,282/yr
+    // LM Subaru: $1,496/yr (12-month, already correct)
+
+    var body = document.body.innerHTML;
+
+    // Fix Ranger annualized callout
+    body = body.replace(/\$940\/yr[\s\S]*?\(\$470 × 2 six-month terms\)/g, '$1,880/yr<\/div><div style="font-size: 0.78rem; color: rgba(250,250,248,0.4); margin-top: 2px;">$940 × 2 six-month terms<\/div>');
+
+    // Fix Ranger in paragraph text
+    body = body.replace(/\$940\/yr annualized/g, '$1,880\/yr annualized');
+    body = body.replace(/at \$940\/yr/g, 'at $1,880\/yr');
+
+    // Fix total 2-car
+    body = body.replace(/Total Progressive two-car policy: <strong style="color:#FAFAF8;">\$1,641\/yr<\/strong>/g, 'Total Progressive two-car policy: <strong style="color:#FAFAF8;">$3,282\/yr annualized<\/strong> ($1,641 per 6-month term)');
+
+    // Fix hero stat
+    body = body.replace(/<div class="stat-num">\$1,641<\/div>\s*<div class="stat-label">Progressive Auto \(2 Cars\)<\/div>/g, '<div class="stat-num">$3,282<\/div><div class="stat-label">Progressive Auto — Annual (2 Cars)<\/div>');
+
+    // Fix total picture Progressive box
+    body = body.replace(/<div style="font-size: 0.78rem; color: rgba\(250,250,248,0.5\); margin-bottom: 4px;">Progressive Auto \(2 cars\)<\/div>\s*<div style="font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: #FFA300;">\$1,641<\/div>/g, '<div style="font-size: 0.78rem; color: rgba(250,250,248,0.5); margin-bottom: 4px;">Progressive Auto (2 cars, annualized)<\/div><div style="font-family: \'Playfair Display\', serif; font-size: 1.6rem; font-weight: 700; color: #FFA300;">$3,282<\/div>');
+
+    // Fix total with Safeshield
+    body = body.replace(/<div style="font-size: 0.78rem; color: rgba\(250,250,248,0.5\); margin-bottom: 4px;">Total with Safeshield<\/div>\s*<div style="font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: #4ade80;">\$4,386\/yr<\/div>/g, '<div style="font-size: 0.78rem; color: rgba(250,250,248,0.5); margin-bottom: 4px;">Total with Safeshield<\/div><div style="font-family: \'Playfair Display\', serif; font-size: 1.6rem; font-weight: 700; color: #4ade80;">$6,027\/yr<\/div>');
+
+    // Fix hero total stat
+    body = body.replace(/<div class="stat-num">\$4,386<\/div>/g, '<div class="stat-num">$6,027<\/div>');
+
+    document.body.innerHTML = body;
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', waitAndPatch);
+  } else {
+    waitAndPatch();
+  }
+})();
+</script>
+
 </div>
 
 <script>window.CASEY_PROPOSAL={"slug":"santiago","agent":"Justin"};</script>
