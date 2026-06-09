@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NBIC — The Right Choice for Coastal Homeowners | Safeshield Insurance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark: #0a1628;
+      --navy: #004B89;
+      --gold: #FFA300;
+      --gold-light: rgba(255,163,0,0.15);
+      --text: #FAFAF8;
+      --muted: rgba(250,250,248,0.65);
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── TICKER ── */
+    .ticker-bar {
+      background: var(--navy);
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-flex;
+      gap: 60px;
+      animation: ticker 30s linear infinite;
+    }
+    .ticker-item {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+    .ticker-item span { color: var(--gold); margin-right: 8px; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,22,40,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-badge {
+      background: var(--gold-light);
+      border: 1px solid rgba(255,163,0,0.35);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 24px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,75,137,0.45) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 80% 100%, rgba(255,163,0,0.12) 0%, transparent 60%),
+        linear-gradient(180deg, #0a1628 0%, #061020 100%);
+      z-index: 0;
+    }
+    .hero-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='%230a1628' fill-opacity='1' d='M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,120L0,120Z'/%3E%3C/svg%3E") no-repeat bottom / cover;
+      z-index: 1;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 860px; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold-light);
+      border: 1px solid rgba(255,163,0,0.3);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before { content: '🌊'; font-size: 0.9rem; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+    .hero-title .accent { color: var(--gold); }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      font-weight: 400;
+      color: var(--muted);
+      max-width: 660px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .hero-address {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 24px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+    .hero-address strong { color: var(--text); }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px 28px;
+      text-align: center;
+      min-width: 140px;
+    }
+    .hero-stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+      margin: 0 auto;
+      max-width: 900px;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 88px 24px; }
+    .section-inner { max-width: 1060px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 56px;
+      line-height: 1.7;
+    }
+
+    /* ── CARDS ── */
+    .cards-grid { display: grid; gap: 20px; }
+    .cards-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .cards-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 32px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .card:hover {
+      border-color: rgba(255,163,0,0.3);
+      transform: translateY(-3px);
+    }
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .card-body {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .card-highlight {
+      border-color: rgba(255,163,0,0.2);
+      background: linear-gradient(135deg, rgba(255,163,0,0.06), rgba(0,75,137,0.08));
+    }
+
+    /* ── WHY COASTAL MATTERS ── */
+    .coastal-risk-section { background: linear-gradient(180deg, #061020 0%, #0a1628 100%); }
+
+    /* ── COMPARISON TABLE ── */
+    .compare-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 40px;
+    }
+    .compare-table thead tr {
+      background: var(--navy);
+    }
+    .compare-table th {
+      padding: 20px 24px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: left;
+    }
+    .compare-table th.nbic-col { color: var(--gold); }
+    .compare-table th.lm-col { color: rgba(250,250,248,0.5); }
+    .compare-table tbody tr {
+      border-bottom: 1px solid var(--card-border);
+      transition: background 0.2s;
+    }
+    .compare-table tbody tr:last-child { border-bottom: none; }
+    .compare-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+    .compare-table td {
+      padding: 18px 24px;
+      font-size: 0.9rem;
+      vertical-align: middle;
+    }
+    .compare-table td:first-child {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.85rem;
+      border-right: 1px solid var(--card-border);
+      background: rgba(255,255,255,0.02);
+    }
+    .compare-table td.win {
+      color: #4ade80;
+      font-weight: 600;
+    }
+    .compare-table td.lose {
+      color: rgba(250,250,248,0.4);
+    }
+    .compare-table td.neutral {
+      color: var(--muted);
+    }
+    .win-tag {
+      display: inline-block;
+      background: rgba(74,222,128,0.12);
+      border: 1px solid rgba(74,222,128,0.25);
+      color: #4ade80;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 10px;
+      border-radius: 100px;
+      margin-left: 8px;
+    }
+    .lose-tag {
+      display: inline-block;
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.2);
+      color: rgba(239,68,68,0.7);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 10px;
+      border-radius: 100px;
+      margin-left: 8px;
+    }
+
+    /* ── NBIC STRENGTHS ── */
+    .strengths-section {}
+
+    /* ── STAMFORD CONTEXT ── */
+    .stamford-section {
+      background: linear-gradient(135deg, rgba(0,75,137,0.12) 0%, rgba(255,163,0,0.05) 100%);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .risk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 22px;
+    }
+    .risk-icon { font-size: 1.8rem; flex-shrink: 0; margin-top: 2px; }
+    .risk-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+    .risk-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── COVERAGE BREAKDOWN ── */
+    .coverage-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+    .coverage-row:hover { border-color: rgba(255,163,0,0.25); }
+    .coverage-check {
+      width: 28px;
+      height: 28px;
+      background: rgba(74,222,128,0.12);
+      border: 1px solid rgba(74,222,128,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .coverage-name { font-weight: 600; font-size: 0.95rem; flex: 1; }
+    .coverage-note { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── WHY SAFESHIELD ── */
+    .why-section {
+      background: linear-gradient(180deg, #061020 0%, #0a1628 100%);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .why-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .why-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      min-width: 44px;
+    }
+    .why-text h4 { font-weight: 700; margin-bottom: 4px; font-size: 0.95rem; }
+    .why-text p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(0,75,137,0.25) 0%, rgba(255,163,0,0.08) 100%);
+      border-top: 1px solid var(--card-border);
+    }
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .cta-sub { font-size: 1.05rem; color: var(--muted); margin-bottom: 40px; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .btn-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: #0a1628;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 16px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-gold:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-glass {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 16px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-glass:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 1px solid var(--card-border);
+      font-size: 0.78rem;
+      color: rgba(250,250,248,0.3);
+    }
+    footer strong { color: rgba(250,250,248,0.55); }
+
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      section { padding: 64px 20px; }
+      .compare-table th, .compare-table td { padding: 14px 14px; font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span>🌊</span>NBIC — Built for Coastal CT</span>
+    <span class="ticker-item"><span>⭐</span>40+ Years Coastal Expertise</span>
+    <span class="ticker-item"><span>🏠</span>494 Fairfield Ave, Stamford CT 06902</span>
+    <span class="ticker-item"><span>✅</span>Demotech "A Exceptional" Rating</span>
+    <span class="ticker-item"><span>📞</span>Safeshield Insurance — Justin Cronk</span>
+    <span class="ticker-item"><span>🌊</span>NBIC — Built for Coastal CT</span>
+    <span class="ticker-item"><span>⭐</span>40+ Years Coastal Expertise</span>
+    <span class="ticker-item"><span>🏠</span>494 Fairfield Ave, Stamford CT 06902</span>
+    <span class="ticker-item"><span>✅</span>Demotech "A Exceptional" Rating</span>
+    <span class="ticker-item"><span>📞</span>Safeshield Insurance — Justin Cronk</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Safe<span>shield</span> Insurance</div>
+  <div class="nav-badge">Coastal Specialist</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-wave"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Coastal Homeowners Insurance Analysis</div>
+    <h1 class="hero-title">
+      Why <span class="accent">NBIC</span> Is The<br/>Right Choice for<br/>Your Coastal Home
+    </h1>
+    <p class="hero-subtitle">
+      Not all homeowners insurance is created equal — especially near the coast. Here's exactly why NBIC outperforms Liberty Mutual for properties like yours in Stamford, CT.
+    </p>
+    <div class="hero-address">
+      📍 <strong>494 Fairfield Ave, Stamford, CT 06902</strong> &nbsp;|&nbsp; Coastal Risk Zone
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">40+</div>
+        <div class="hero-stat-label">Years Coastal<br/>Experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">"A"</div>
+        <div class="hero-stat-label">Demotech<br/>Financial Rating</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">0.58</div>
+        <div class="hero-stat-label">NAIC Complaint<br/>Index (vs 1.0 avg)</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">9</div>
+        <div class="hero-stat-label">Northeast<br/>States Covered</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY COASTAL MATTERS -->
+<section class="coastal-risk-section">
+  <div class="section-inner">
+    <div class="section-label">The Stakes</div>
+    <h2 class="section-title">Why Your Coastal Address<br/>Changes Everything</h2>
+    <p class="section-sub">
+      Stamford sits on Long Island Sound. That stunning location also means real exposure to storm surge, coastal wind events, and nor'easters. A generic insurer won't price or cover that correctly.
+    </p>
+    <div class="risk-grid">
+      <div class="risk-item">
+        <div class="risk-icon">🌀</div>
+        <div>
+          <div class="risk-title">Nor'easter Wind Damage</div>
+          <div class="risk-desc">Coastal CT sees repeated high-wind events that can strip roofs, blow out windows, and cause serious structural damage. Coverage specifics matter.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-icon">🌊</div>
+        <div>
+          <div class="risk-title">Storm Surge &amp; Flooding</div>
+          <div class="risk-desc">Long Island Sound funnels storm surge directly toward Fairfield County. Properties near the water are at elevated risk during named storms.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-icon">🏚️</div>
+        <div>
+          <div class="risk-title">Salt Air Deterioration</div>
+          <div class="risk-desc">Coastal salt air accelerates wear on roofs, siding, and HVAC systems. Standard inland carriers don't underwrite with this in mind.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-icon">📉</div>
+        <div>
+          <div class="risk-title">Carrier Non-Renewal Risk</div>
+          <div class="risk-desc">Many national carriers are quietly pulling back from coastal markets. NBIC was built specifically to stay — it's their entire business model.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HEAD-TO-HEAD COMPARISON -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">Side-by-Side Comparison</div>
+    <h2 class="section-title">NBIC vs. Liberty Mutual<br/>For Coastal Properties</h2>
+    <p class="section-sub">The differences aren't cosmetic. When the storm hits, these details determine whether you're made whole — or left short.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="width:28%;">Category</th>
+          <th class="nbic-col" style="width:36%;">✅ NBIC</th>
+          <th class="lm-col" style="width:36%;">Liberty Mutual</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Coastal Specialization</td>
+          <td class="win">Purpose-built for coastal homes — it's literally the company's entire mission <span class="win-tag">Advantage</span></td>
+          <td class="lose">General national carrier; coastal is a small slice of a massive book</td>
+        </tr>
+        <tr>
+          <td>Northeast Market Experience</td>
+          <td class="win">40+ years covering Northeast &amp; Mid-Atlantic coastal risks <span class="win-tag">Advantage</span></td>
+          <td class="lose">National footprint with limited coastal-specific expertise for CT market</td>
+        </tr>
+        <tr>
+          <td>Coastal Premium Pricing</td>
+          <td class="win">Priced accurately for coastal risk — no surprise inland rate applied to a water-adjacent property</td>
+          <td class="lose">Known for higher premiums in coastal zones, often uncompetitive near the water <span class="lose-tag">Disadvantage</span></td>
+        </tr>
+        <tr>
+          <td>Property Inspection Program</td>
+          <td class="win">ShelterPride program — every property inspected, risk properly assessed, coverage matched to actual home condition <span class="win-tag">Advantage</span></td>
+          <td class="lose">Standard underwriting; less granular coastal risk evaluation</td>
+        </tr>
+        <tr>
+          <td>NAIC Complaint Ratio</td>
+          <td class="win">0.58 — 42% fewer complaints than the industry average <span class="win-tag">Advantage</span></td>
+          <td class="lose">Significantly more complaints than expected for its size per NAIC data <span class="lose-tag">Disadvantage</span></td>
+        </tr>
+        <tr>
+          <td>J.D. Power Customer Satisfaction</td>
+          <td class="neutral">Regional carrier, not rated</td>
+          <td class="lose">Ranked below average in J.D. Power's 2025 Home Insurance Study <span class="lose-tag">Disadvantage</span></td>
+        </tr>
+        <tr>
+          <td>Financial Strength</td>
+          <td class="win">Demotech "A, Exceptional" | KBRA BBB+ (affirmed Dec 2025) | $431M+ total assets</td>
+          <td class="neutral">Large national carrier, financially stable but bloated bureaucracy</td>
+        </tr>
+        <tr>
+          <td>Market Commitment to CT Coast</td>
+          <td class="win">Coastal CT is core territory — active and growing in this market <span class="win-tag">Advantage</span></td>
+          <td class="lose">National carriers increasingly restricting or non-renewing coastal exposure</td>
+        </tr>
+        <tr>
+          <td>Claims Service</td>
+          <td class="win">24/7 direct claims hotline — smaller book means you're not a number</td>
+          <td class="lose">Low claims satisfaction scores; call center experience, not dedicated access</td>
+        </tr>
+        <tr>
+          <td>Extended Replacement Cost</td>
+          <td class="win">Available — critical after coastal storms when contractor costs spike</td>
+          <td class="lose">Costs extra as a separate endorsement <span class="lose-tag">Disadvantage</span></td>
+        </tr>
+        <tr>
+          <td>Independent Agent Only</td>
+          <td class="win">Only available through independent agents like Safeshield — you get advocacy built in</td>
+          <td class="neutral">Sold direct and through agents — less consistent service</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- NBIC STRENGTHS DEEP DIVE -->
+<section class="strengths-section">
+  <div class="section-inner">
+    <div class="section-label">Why NBIC Wins</div>
+    <h2 class="section-title">What Makes NBIC Different<br/>for Homes Like Yours</h2>
+    <p class="section-sub">These aren't marketing bullet points. These are structural advantages that matter when a major storm rolls through Stamford.</p>
+
+    <div class="cards-grid cards-2">
+      <div class="card card-highlight">
+        <span class="card-icon">🎯</span>
+        <div class="card-title">Built Exclusively for Coastal Homeowners</div>
+        <div class="card-body">
+          NBIC's stated purpose is providing "peace of mind to responsible homeowners living in coastal regions." This isn't a side business — it's the entire company. That focus means their underwriters understand salt-air exposure, storm surge patterns, and coastal construction in ways a national generalist simply doesn't.
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔍</span>
+        <div class="card-title">ShelterPride Property Inspections</div>
+        <div class="card-body">
+          Every NBIC-insured home gets a physical inspection before the policy is issued. This isn't a hurdle — it's protection. It means your coverage is calibrated to your actual home, not a generic risk model. When you file a claim, there are no surprises about what the carrier believed they were insuring.
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-icon">📊</span>
+        <div class="card-title">Better Complaint Record Than Liberty Mutual</div>
+        <div class="card-body">
+          NBIC's NAIC complaint index of 0.58 means they receive far fewer complaints than the national average of 1.0. Liberty Mutual, by contrast, has received significantly more complaints than expected for its size. When claims happen, how a carrier handles them matters as much as the coverage itself.
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-icon">💪</span>
+        <div class="card-title">Financially Backed &amp; Committed</div>
+        <div class="card-body">
+          NBIC is a subsidiary of Heritage Insurance Holdings (NYSE: HRTG), with a Demotech "A, Exceptional" rating and KBRA BBB+ affirmed December 2025. Over $431 million in total assets. They're not pulling out of CT — this is their core market and they're here for the long term.
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-icon">🌐</span>
+        <div class="card-title">40+ Years of Northeast Expertise</div>
+        <div class="card-body">
+          NBIC has been insuring coastal properties in the Northeast and Mid-Atlantic for over four decades. They know what a Stamford nor'easter looks like, how Long Island Sound storms behave, and how to price and pay claims for the specific risks your address faces.
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-icon">🤝</span>
+        <div class="card-title">Independent Agent Only — You Have an Advocate</div>
+        <div class="card-body">
+          NBIC only sells through independent agents. That means when you have a claim or issue, you're not calling a 1-800 number at a call center. You call Safeshield. We know your policy, we know NBIC, and we fight for you. That's a layer of protection Liberty Mutual's direct-sales model can't replicate.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COVERAGE WHAT YOU GET -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">Your Coverage</div>
+    <h2 class="section-title">What an NBIC Policy<br/>Covers at 494 Fairfield Ave</h2>
+    <p class="section-sub">A coastal homeowners policy through NBIC is designed to cover the risks that actually threaten this address — not a watered-down inland template.</p>
+
+    <div class="coverage-row">
+      <div class="coverage-check">✓</div>
+      <div class="coverage-name">Dwelling (Coverage A)</div>
+      <div class="coverage-note">Full replacement cost of your home's structure — calibrated after ShelterPride inspection</div>
+    </div>
+    <div class="coverage-row">
+      <div class="coverage-check">✓</div>
+      <div class="coverage-name">Wind &amp; Named Storm Coverage</div>
+      <div class="coverage-note">Critical for coastal CT — nor'easters, tropical systems, and high-wind events included</div>
+    </div>
+    <div class="coverage-row">
+      <div class="coverage-check">✓</div>
+      <div class="coverage-name">Personal Property (Coverage C)</div>
+      <div class="coverage-note">Your belongings protected against covered perils including wind-driven rain and storm damage</div>
+    </div>
+    <div class="coverage-row">
+      <div class="coverage-check">✓</div>
+      <div class="coverage-name">Liability (Coverage E)</div>
+      <div class="coverage-note">Personal liability protection if someone is injured on your property</div>
+    </div>
+    <div class="coverage-row">
+      <div class="coverage-check">✓</div>
+      <div class="coverage-name">Additional Living Expenses (Coverage D)</div>
+      <div class="coverage-note">Pays hotel, meals, and displacement costs if your home becomes uninhabitable after a covered loss</div>
+    </div>
+    <div class="coverage-row">
+      <div class="coverage-check">✓</div>
+      <div class="coverage-name">Extended Replacement Cost</div>
+      <div class="coverage-note">Covers rebuild cost spikes after a coastal storm — contractor demand surges post-disaster can far exceed standard limits</div>
+    </div>
+    <div class="coverage-row">
+      <div class="coverage-check">✓</div>
+      <div class="coverage-name">Other Structures (Coverage B)</div>
+      <div class="coverage-note">Detached garage, fence, shed — covered for the same perils as your main dwelling</div>
+    </div>
+    <div style="margin-top: 20px; padding: 20px 24px; background: var(--gold-light); border: 1px solid rgba(255,163,0,0.3); border-radius: 14px; font-size: 0.88rem; color: var(--muted);">
+      <strong style="color: var(--gold);">⚠️ Important Note on Flood:</strong> Flood damage is excluded from all standard homeowners policies, including NBIC. For a coastal address like 494 Fairfield Ave, we strongly recommend pairing this policy with a separate NFIP or private flood insurance policy. Ask Justin about flood options.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<section class="why-section">
+  <div class="section-inner">
+    <div class="section-label">Why Safeshield</div>
+    <h2 class="section-title">What You Get When<br/>You Work with Us</h2>
+    <p class="section-sub">We're not a website. We're your insurance advisor — with access to 69+ carriers and a personal stake in making sure you're covered right.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">69+</div>
+        <div class="why-text">
+          <h4>Carrier Relationships</h4>
+          <p>We shop the entire market to find the right fit — not the most convenient one.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">📞</div>
+        <div class="why-text">
+          <h4>Same-Day Everything</h4>
+          <p>Quotes, certificates, policy changes, ID cards — done the same day you ask.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">⚖️</div>
+        <div class="why-text">
+          <h4>Claims Advocacy</h4>
+          <p>When you have a claim, we're in your corner. We call NBIC on your behalf and fight for a fair outcome.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">🔄</div>
+        <div class="why-text">
+          <h4>Annual Re-Shop Guarantee</h4>
+          <p>Every renewal, we re-shop your policy to make sure you're still getting the best available rate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-inner">
+    <h2 class="cta-title">Ready to Protect<br/>494 Fairfield Ave Right?</h2>
+    <p class="cta-sub">NBIC is the smart choice for this address. Let's get a formal quote started — same-day turnaround.</p>
+    <div class="btn-row">
+      <a href="tel:2035649817" class="btn-gold">📞 Call Justin Cronk</a>
+      <a href="mailto:justin@gosafeshield.com" class="btn-glass">✉️ justin@gosafeshield.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Prepared by <strong>Justin Cronk</strong> · Safeshield Insurance · Licensed in CT, NY, NJ, PA, DE</p>
+  <p style="margin-top:6px;">This presentation is for informational purposes. Final coverage terms, exclusions, and pricing are determined by NBIC upon underwriting review. Flood insurance is not included in standard homeowners policies and must be purchased separately.</p>
+</footer>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"nbic-coastal-stamford","agent":"Justin"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
