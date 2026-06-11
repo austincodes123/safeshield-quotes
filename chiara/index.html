@@ -24,7 +24,6 @@
 html{scroll-behavior:smooth}
 body{font-family:'Outfit',sans-serif;background:var(--off);color:var(--ink);font-size:17px;line-height:1.6}
 h1,h2,h3{font-family:'Playfair Display',serif}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 
 /* ===== layout with sidebar ===== */
 .layout{display:flex;align-items:flex-start;gap:0}
@@ -59,7 +58,7 @@ h1,h2,h3{font-family:'Playfair Display',serif}
 .hero .eyebrow{color:var(--yellow);font-weight:800;letter-spacing:.22em;font-size:12.5px;text-transform:uppercase;margin-bottom:22px}
 .hero h1{font-weight:900;font-size:clamp(38px,5vw,62px);line-height:1.08;max-width:740px}
 .hero h1 .y{color:var(--yellow)}
-.hero .sub{color:#b9c4d4;font-size:19px;max-width:620px;margin:24px 0 38px}
+.hero .sub{color:#b9c4d4;font-size:19px;max-width:640px;margin:24px 0 38px}
 .hero .chips{display:flex;flex-wrap:wrap;gap:12px}
 .hero .chip{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:600;color:#dfe6ef}
 .hero .chip b{color:var(--yellow);font-weight:800}
@@ -81,12 +80,11 @@ section.block.alt{background:#f3f2ec}
 .bin{max-width:1040px;margin:0 auto}
 .kicker{color:var(--navy);font-weight:800;letter-spacing:.2em;font-size:12px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:12px}
 .kicker::before{content:"";width:34px;height:3px;background:var(--yellow);border-radius:2px}
-.block h2{font-size:clamp(28px,3.4vw,40px);font-weight:900;color:var(--dark);line-height:1.12;max-width:720px}
-.lead{font-size:18px;color:var(--grey);max-width:680px;margin-top:16px}
+.block h2{font-size:clamp(28px,3.4vw,40px);font-weight:900;color:var(--dark);line-height:1.12;max-width:760px}
+.lead{font-size:18px;color:var(--grey);max-width:700px;margin-top:16px}
 
 .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px;box-shadow:0 1px 3px rgba(10,22,40,.04)}
 .cardrow{display:grid;gap:22px;margin-top:38px}
-.cards3{grid-template-columns:repeat(3,1fr)}
 .cards2{grid-template-columns:repeat(2,1fr)}
 
 .price{display:flex;align-items:baseline;gap:8px}
@@ -111,20 +109,16 @@ section.block.alt{background:#f3f2ec}
 .key h3{font-family:'Outfit';font-weight:800;font-size:17px;margin:12px 0 8px}
 .key p{font-size:14.5px;color:#aab6c8;line-height:1.55}
 
-/* stack */
-.stack{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;margin-top:40px}
-.layercol{display:flex;flex-direction:column;gap:10px}
-.layer{border-radius:14px;padding:22px 26px;color:#fff;position:relative}
-.layer .amt{font-family:'Playfair Display';font-weight:900;font-size:26px}
-.layer .lbl{font-size:13px;font-weight:600;opacity:.85;letter-spacing:.04em;text-transform:uppercase;margin-top:2px}
-.layer.umb{background:var(--yellow);color:var(--dark);box-shadow:0 10px 30px rgba(255,163,0,.28)}
-.layer.umb .lbl{opacity:.75}
-.layer.gl{background:var(--navy)}
-.layer.base{background:var(--dark)}
-.arrowup{text-align:center;color:var(--grey);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:2px 0}
-.stacknote{font-size:16.5px;color:var(--grey)}
-.stacknote b{color:var(--ink)}
-.stacknote ul{margin:16px 0 0 18px;display:flex;flex-direction:column;gap:10px;font-size:15.5px}
+/* upgrade comparison */
+.compare{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 1px 3px rgba(10,22,40,.05);margin-top:36px}
+.compare th{background:var(--dark);color:#fff;text-align:left;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:16px 24px}
+.compare th.hl{background:var(--navy)}
+.compare td{padding:15px 24px;border-bottom:1px solid var(--line);font-size:15.5px;vertical-align:middle}
+.compare tr:last-child td{border-bottom:none}
+.compare td:first-child{color:var(--grey);font-weight:600;width:34%}
+.compare td.old{color:var(--grey)}
+.compare td.new{font-weight:800;color:var(--ink)}
+.compare td.new .up{display:inline-block;background:#eaf3ea;color:var(--good);border-radius:6px;font-size:11px;font-weight:800;letter-spacing:.05em;padding:2px 8px;margin-left:8px;text-transform:uppercase;vertical-align:middle}
 
 /* total table */
 .total{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 1px 3px rgba(10,22,40,.05);margin-top:36px}
@@ -134,10 +128,6 @@ section.block.alt{background:#f3f2ec}
 .total td b{font-weight:800}
 .total tr.sum td{background:#fdf4e3;font-weight:800;font-size:17px;border-bottom:none}
 .total .mut{color:var(--grey);font-size:13.5px;display:block;margin-top:2px;font-weight:500}
-.benchmark{margin-top:22px;background:#eaf3ea;border:1px solid #cfe3cf;border-radius:14px;padding:20px 26px;display:flex;gap:16px;align-items:flex-start}
-.benchmark .ic{width:34px;height:34px;border-radius:50%;background:var(--good);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0;font-size:17px}
-.benchmark p{font-size:15.5px;color:#214a2e}
-.benchmark b{color:#163b22}
 
 /* fine print */
 details.fp{background:#fff;border:1px solid var(--line);border-radius:14px;margin-top:18px;overflow:hidden}
@@ -175,9 +165,10 @@ footer .brand .i{color:#fff;font-weight:600;letter-spacing:.12em;font-size:12px}
   .sidebar{display:none}
   .mobilebar{display:flex}
   .hero,section.block,.cta,footer,.parcel{padding-left:24px;padding-right:24px}
-  .cards3,.keys{grid-template-columns:1fr}
-  .cards2,.stack,.cta .bin,.parcel .pgrid{grid-template-columns:1fr}
+  .keys{grid-template-columns:1fr}
+  .cards2,.cta .bin,.parcel .pgrid{grid-template-columns:1fr}
   .hero{padding-top:60px;padding-bottom:54px}
+  .compare td,.compare th{padding:12px 14px;font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
 </style>
@@ -192,10 +183,9 @@ footer .brand .i{color:#fff;font-weight:600;letter-spacing:.12em;font-size:12px}
   <button class="x" onclick="document.getElementById('mnav').classList.remove('open')">&times;</button>
   <a href="#top" onclick="closeNav()">Overview</a>
   <a href="#property" onclick="closeNav()">The Property</a>
+  <a href="#liability" onclick="closeNav()">Liability</a>
+  <a href="#upgrades" onclick="closeNav()">What We Upgraded</a>
   <a href="#keys" onclick="closeNav()">Before You Get the Keys</a>
-  <a href="#liability" onclick="closeNav()">Landlord Liability</a>
-  <a href="#umbrella" onclick="closeNav()">The Umbrella</a>
-  <a href="#auto" onclick="closeNav()">Auto</a>
   <a href="#full" onclick="closeNav()">The Full Picture</a>
   <a href="#next" onclick="closeNav()">Next Steps</a>
 </div>
@@ -211,10 +201,9 @@ footer .brand .i{color:#fff;font-weight:600;letter-spacing:.12em;font-size:12px}
   <nav id="snav">
     <a href="#top" class="on">Overview</a>
     <a href="#property">The Property</a>
+    <a href="#liability">Liability</a>
+    <a href="#upgrades">What We Upgraded</a>
     <a href="#keys">Before You Get the Keys</a>
-    <a href="#liability">Landlord Liability</a>
-    <a href="#umbrella">The Umbrella</a>
-    <a href="#auto">Auto</a>
     <a href="#full">The Full Picture</a>
     <a href="#next">Next Steps</a>
   </nav>
@@ -231,12 +220,13 @@ footer .brand .i{color:#fff;font-weight:600;letter-spacing:.12em;font-size:12px}
 <div class="hero">
   <div class="eyebrow">Insurance Proposal &middot; 18 South Main Street, New Milford CT</div>
   <h1>Two Buildings.<br>One Address.<br><span class="y">One Plan.</span></h1>
-  <p class="sub">David, congratulations on 18 South Main Street. You are buying something most people never own: two buildings on a single parcel, with your new home in one of them. Your insurance should be built around that, and this plan is.</p>
+  <p class="sub">David, you asked for stronger coverage on the new property, and this is it. One commercial package, one carrier, both buildings insured to $600,000 each, with theft included, contents protected, and lost rental income covered. Built for what 18 South Main Street actually is.</p>
   <div class="chips">
     <span class="chip">Closing <b>July 10, 2026</b></span>
-    <span class="chip">Property carrier rated <b>A++</b></span>
-    <span class="chip">Building package <b>$5,829/yr</b></span>
-    <span class="chip"><b>$1M umbrella</b> included</span>
+    <span class="chip">Nautilus, rated <b>A+ XV</b></span>
+    <span class="chip">Building coverage <b>$1.2M total</b></span>
+    <span class="chip">Theft <b>included</b></span>
+    <span class="chip">Rental income <b>protected</b></span>
   </div>
 </div>
 
@@ -245,7 +235,7 @@ footer .brand .i{color:#fff;font-weight:600;letter-spacing:.12em;font-size:12px}
   <div class="pgrid">
     <div>
       <h2>What makes this property <span class="y">different</span></h2>
-      <p>18 South Main Street is not one house. It is two separate two-family buildings sitting on the same lot, four units in total, with you living in one of them. Most standard home policies are not built for that. So instead of forcing it into the wrong box, we structured coverage that insures each building in its own right, protects you as a landlord across all the rental units, and still treats unit one as what it is: your home.</p>
+      <p>18 South Main Street is not one house. It is two separate two-family buildings sitting on the same lot, four units in total, with you living in one of them. Most standard home policies are not built for that. This plan insures each building in its own right under a single package, protects you as a landlord across the rental units, and protects the rental income those units produce.</p>
       <div class="plegend">
         <span><i style="background:#FFA300"></i> Your home (owner occupied)</span>
         <span><i style="background:#3f5a7d"></i> Rental units</span>
@@ -264,7 +254,7 @@ footer .brand .i{color:#fff;font-weight:600;letter-spacing:.12em;font-size:12px}
           <text x="132" y="162" text-anchor="middle" fill="#0a1628" font-family="Outfit" font-weight="800" font-size="13">UNIT 1 &middot; YOUR HOME</text>
           <text x="132" y="240" text-anchor="middle" fill="#9fb0c8" font-family="Outfit" font-weight="600" font-size="12">UNIT 2 &middot; RENTAL</text>
           <text x="132" y="296" text-anchor="middle" fill="#dfe6ef" font-family="Outfit" font-weight="700" font-size="13">BUILDING ONE</text>
-          <text x="132" y="313" text-anchor="middle" fill="#8fa0b8" font-family="Outfit" font-size="11.5">Insured to $350,000</text>
+          <text x="132" y="313" text-anchor="middle" fill="#8fa0b8" font-family="Outfit" font-size="11.5">Insured to $600,000</text>
         </g>
         <!-- building 2 -->
         <g>
@@ -274,7 +264,7 @@ footer .brand .i{color:#fff;font-weight:600;letter-spacing:.12em;font-size:12px}
           <text x="332" y="240" text-anchor="middle" fill="#9fb0c8" font-family="Outfit" font-weight="600" font-size="12">UNIT 4 &middot; RENTAL</text>
           <line x1="252" y1="195" x2="412" y2="195" stroke="#3f5a7d" stroke-width="1.5"/>
           <text x="332" y="296" text-anchor="middle" fill="#dfe6ef" font-family="Outfit" font-weight="700" font-size="13">BUILDING TWO</text>
-          <text x="332" y="313" text-anchor="middle" fill="#8fa0b8" font-family="Outfit" font-size="11.5">Insured to $350,000</text>
+          <text x="332" y="313" text-anchor="middle" fill="#8fa0b8" font-family="Outfit" font-size="11.5">Insured to $600,000</text>
         </g>
         <line x1="52" y1="195" x2="212" y2="195" stroke="#3f5a7d" stroke-width="1.5"/>
       </svg>
@@ -285,43 +275,104 @@ footer .brand .i{color:#fff;font-weight:600;letter-spacing:.12em;font-size:12px}
 <!-- PROPERTY -->
 <section class="block" id="property">
   <div class="bin">
-    <div class="kicker">Step One &middot; Lead Coverage</div>
-    <h2>The Property: both buildings, properly insured</h2>
-    <p class="lead">Property coverage through Westchester Surplus Lines, part of the Chubb group of companies, carrying an A.M. Best rating of A++, the highest available. Each building is scheduled and insured individually.</p>
+    <div class="kicker">Part One &middot; The Buildings</div>
+    <h2>The Property: both buildings, contents, and the rent they produce</h2>
+    <p class="lead">Property coverage through Nautilus Insurance Company, a W.R. Berkley company carrying an A.M. Best rating of A+ XV. Each building is scheduled individually with its own full set of limits.</p>
     <div class="cardrow cards2">
       <div class="card">
         <div class="carrierline">
-          <span class="tag">Westchester / Chubb Group</span>
-          <span class="tag gold">A++ Rated</span>
+          <span class="tag">Nautilus Insurance</span>
+          <span class="tag gold">A+ XV Rated</span>
+          <span class="tag line">Per building</span>
         </div>
-        <div class="price"><span class="n">$3,247</span><span class="per">per year</span></div>
+        <div class="price"><span class="n">$600,000</span><span class="per">building limit, each building</span></div>
         <table class="spec">
-          <tr><td>Building One limit</td><td>$350,000</td></tr>
-          <tr><td>Building Two limit</td><td>$350,000</td></tr>
-          <tr><td>Total building coverage</td><td>$700,000</td></tr>
-          <tr><td>Coverage form</td><td>Special form (excludes theft)</td></tr>
-          <tr><td>Deductible (all other perils)</td><td>$5,000</td></tr>
-          <tr><td>Wind / hail deductible</td><td>$5,000 minimum</td></tr>
-          <tr><td>Policy term</td><td>June 10, 2026 to June 10, 2027</td></tr>
+          <tr><td>Business personal property</td><td>$50,000 per building</td></tr>
+          <tr><td>Lost rental income with extra expense</td><td>$25,000 per building</td></tr>
+          <tr><td>Coverage form</td><td>Special form, theft included</td></tr>
+          <tr><td>Deductible</td><td>$10,000</td></tr>
+          <tr><td>Wind / hail deductible</td><td>$10,000</td></tr>
+          <tr><td>Policy term</td><td>June 11, 2026 to June 11, 2027</td></tr>
         </table>
       </div>
       <div class="card" style="background:var(--dark);color:#fff;border:none">
         <h3 style="font-family:'Outfit';font-weight:800;font-size:18px;margin-bottom:14px">Why this structure works for you</h3>
-        <p style="color:#aab6c8;font-size:15.5px;margin-bottom:14px">Each building carries its own $350,000 limit, so a loss at one building is designed to respond on its own terms without depending on the other.</p>
-        <p style="color:#aab6c8;font-size:15.5px;margin-bottom:14px">Buildings are valued on a functional replacement cost basis, a practical approach for properties of this vintage that focuses on restoring function after a loss.</p>
-        <p style="color:#aab6c8;font-size:15.5px">This is surplus lines coverage, a market built specifically for properties that do not fit standard boxes, exactly like a four-unit, two-building, owner-occupied parcel.</p>
+        <p style="color:#aab6c8;font-size:15.5px;margin-bottom:14px">Across the parcel that is $1,200,000 in building coverage, $100,000 for contents, and $50,000 designed to respond for lost rental income if a covered loss puts units out of service. When a building is being repaired, the rent stops but the mortgage does not. This is the piece that bridges that gap.</p>
+        <p style="color:#aab6c8;font-size:15.5px;margin-bottom:14px">Special form coverage with theft included, the broadest property form in this package, written for an 1890 frame building in a strong protection class.</p>
+        <p style="color:#aab6c8;font-size:15.5px">This is a surplus lines placement through a market built for properties that do not fit standard boxes, exactly like a four-unit, two-building, owner-occupied parcel.</p>
       </div>
     </div>
     <details class="fp">
-      <summary>Property policy fine print worth knowing</summary>
+      <summary>Property fine print worth knowing</summary>
       <div class="fpin"><ul>
-        <li>Roof coverage carries an actual cash value limitation and a cosmetic damage exclusion. With a roof around 12 years old, depreciation would apply to a roof loss.</li>
-        <li>Theft, flood, sewer or drain backup, and continuous seepage over 14 days are excluded.</li>
-        <li>The policy carries a 25% minimum earned premium. Terrorism coverage was offered at $292 and is not included unless you elect it.</li>
-        <li>As surplus lines coverage, this policy is not protected by the Connecticut Insurance Guaranty Association. The carrier group's A++ financial strength rating is a key reason we selected this market.</li>
-        <li>Occupancy matters: if the buildings fall below 31% occupancy for more than 60 days, certain coverages are reduced or removed. As an owner-occupant with tenants, this is unlikely to affect you, but it should be known.</li>
+        <li>Buildings and contents are valued on an actual cash value basis, meaning depreciation applies to a loss settlement. With buildings of this age, this is how this market writes the risk, and the higher limits help offset it.</li>
+        <li>An 80% coinsurance requirement applies, which the $600,000 limits are set to support. Keep us informed of improvements so limits stay right.</li>
+        <li>Flood and certain pollution, virus, and cyber related losses are excluded.</li>
+        <li>As surplus lines coverage, this policy is not protected by the Connecticut Insurance Guaranty Association. The carrier's A+ XV financial strength rating through W.R. Berkley, a Fortune 500 group, is a key reason we selected this market.</li>
       </ul></div>
     </details>
+  </div>
+</section>
+
+<!-- LIABILITY -->
+<section class="block alt" id="liability">
+  <div class="bin">
+    <div class="kicker">Part Two &middot; You Are Now a Landlord</div>
+    <h2>Liability coverage for the building owner</h2>
+    <p class="lead">The day you close, you become responsible for premises shared by your tenants and their guests. This is the layer designed to respond if someone holds you responsible for an injury or property damage at 18 South Main Street, and it is part of the same Nautilus package, not a separate policy.</p>
+    <div class="cardrow cards2">
+      <div class="card">
+        <div class="carrierline">
+          <span class="tag">Nautilus Insurance</span>
+          <span class="tag gold">Same package</span>
+        </div>
+        <div class="price"><span class="n">$1M / $2M</span><span class="per">occurrence / aggregate</span></div>
+        <table class="spec">
+          <tr><td>Each occurrence limit</td><td>$1,000,000</td></tr>
+          <tr><td>General aggregate</td><td>$2,000,000</td></tr>
+          <tr><td>Personal &amp; advertising injury</td><td>$1,000,000</td></tr>
+          <tr><td>Damage to premises rented to you</td><td>$100,000</td></tr>
+          <tr><td>Medical expenses</td><td>$5,000 per person</td></tr>
+          <tr><td>Deductible</td><td>$1,000 per claim</td></tr>
+          <tr><td>Locations covered</td><td>Both buildings, 18 S Main St</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3 style="font-family:'Outfit';font-weight:800;font-size:18px;margin-bottom:14px;color:var(--dark)">What this is for</h3>
+        <p style="color:var(--grey);font-size:15.5px;margin-bottom:12px">A tenant's guest slips on an icy walkway. A railing gives way. A delivery driver is injured on the premises. These are the everyday exposures of owning a four-unit property, and this coverage provides up to $1,000,000 per occurrence designed to respond to covered claims.</p>
+        <p style="color:var(--grey);font-size:15.5px">It also now includes a $5,000 medical expenses benefit, which can resolve small injuries quickly without a lawsuit, and a much lower $1,000 deductible than the prior option's $2,500.</p>
+      </div>
+    </div>
+    <details class="fp">
+      <summary>Liability fine print worth knowing</summary>
+      <div class="fpin"><ul>
+        <li>Assault or battery claims are fully excluded under this policy, as are claims involving animals, swimming pools, and trampolines. Practical translation: no aggressive dog breeds on premises, and no pools or trampolines for tenants. Put it in the leases.</li>
+        <li>Coverage is limited to the designated premises at 18 South Main Street.</li>
+        <li>The liability premium is auditable: it is based on the exposure reported, and the carrier may adjust at the end of the term if the exposure was higher than reported. For a stable four-unit property this rarely moves.</li>
+      </ul></div>
+    </details>
+  </div>
+</section>
+
+<!-- UPGRADES -->
+<section class="block" id="upgrades">
+  <div class="bin">
+    <div class="kicker">Why This Quote</div>
+    <h2>What we upgraded, side by side</h2>
+    <p class="lead">You asked for better coverage than the first round. Here is exactly what changed, including the two tradeoffs, because you should see those too.</p>
+    <table class="compare">
+      <tr><th>Coverage</th><th>First option</th><th class="hl">This proposal</th></tr>
+      <tr><td>Building coverage</td><td class="old">$350,000 per building</td><td class="new">$600,000 per building <span class="up">+71%</span></td></tr>
+      <tr><td>Theft</td><td class="old">Excluded</td><td class="new">Included <span class="up">Added</span></td></tr>
+      <tr><td>Contents</td><td class="old">Not included</td><td class="new">$50,000 per building <span class="up">Added</span></td></tr>
+      <tr><td>Lost rental income</td><td class="old">Not included</td><td class="new">$25,000 per building <span class="up">Added</span></td></tr>
+      <tr><td>Liability medical expenses</td><td class="old">Excluded</td><td class="new">$5,000 per person <span class="up">Added</span></td></tr>
+      <tr><td>Liability deductible</td><td class="old">$2,500</td><td class="new">$1,000 <span class="up">Lower</span></td></tr>
+      <tr><td>Structure</td><td class="old">Two policies, two carriers</td><td class="new">One package, one carrier <span class="up">Simpler</span></td></tr>
+      <tr><td>Property deductible</td><td class="old">$5,000</td><td class="new">$10,000</td></tr>
+      <tr><td>Building valuation</td><td class="old">Functional replacement cost</td><td class="new">Actual cash value</td></tr>
+    </table>
+    <p style="margin-top:22px;color:var(--grey);font-size:15.5px;max-width:760px">The honest read: you are trading a higher deductible and a depreciated loss settlement basis for substantially more protection where it counts most, the buildings themselves, plus theft, contents, and the rental income stream. For an investment of this size, that is the right trade, and we will revisit valuation options at renewal.</p>
   </div>
 </section>
 
@@ -330,174 +381,59 @@ footer .brand .i{color:#fff;font-weight:600;letter-spacing:.12em;font-size:12px}
   <div class="bin">
     <div class="kicker">Closing Day</div>
     <h2>Three things to do before you get the keys</h2>
-    <p class="lead">This policy includes a few conditions that are easy to satisfy but important to take seriously. Handle these three items at closing and you start ownership on the right foot.</p>
+    <p class="lead">Easy items, but they matter. Handle these three and you start ownership on the right foot.</p>
     <div class="keys">
       <div class="key">
         <div class="kn">1</div>
-        <h3>Working smoke detectors in every unit</h3>
-        <p>The policy requires functioning smoke detectors in all units as a condition of fire coverage. Walk all four units on day one, test every detector, and replace batteries or units as needed. Keep dated photos.</p>
+        <h3>Be inspection ready</h3>
+        <p>The carrier will inspect the property within the first 45 days. Working smoke detectors in every unit, clear walkways, solid railings, and a tidy premises make this a non-event. We will give you a one-page prep list.</p>
       </div>
       <div class="key">
         <div class="kn">2</div>
-        <h3>Keep the heat at 60 degrees or above</h3>
-        <p>Heat must be maintained at a minimum of 60 degrees in both buildings, or the plumbing must be drained and treated, for freeze related losses to be covered. Set thermostats and put it in your tenant leases.</p>
+        <h3>Get signed leases with the right wording</h3>
+        <p>Signed lease agreements with hold harmless language in your favor, plus no-pets-no-pools-no-trampolines provisions that match the policy. We can point you to standard wording your attorney can review.</p>
       </div>
       <div class="key">
         <div class="kn">3</div>
-        <h3>Get signed leases with hold harmless wording</h3>
-        <p>Signed lease agreements with hold harmless language in your favor protect you as the landlord and are information your carriers have asked about. We can point you to standard wording your attorney can review.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LIABILITY -->
-<section class="block" id="liability">
-  <div class="bin">
-    <div class="kicker">Step Two &middot; You Are Now a Landlord</div>
-    <h2>Liability coverage for the building owner</h2>
-    <p class="lead">The day you close, you become responsible for premises shared by your tenants and their guests. This policy is the layer designed to respond if someone holds you responsible for an injury or property damage at 18 South Main Street.</p>
-    <div class="cardrow cards2">
-      <div class="card">
-        <div class="carrierline">
-          <span class="tag">Baleen Specialty</span>
-          <span class="tag gold">A XV Rated</span>
-        </div>
-        <div class="price"><span class="n">$2,050</span><span class="per">per year</span></div>
-        <table class="spec">
-          <tr><td>Each occurrence limit</td><td>$1,000,000</td></tr>
-          <tr><td>General aggregate</td><td>$2,000,000</td></tr>
-          <tr><td>Deductible per occurrence</td><td>$2,500</td></tr>
-          <tr><td>Locations covered</td><td>Both buildings, 18 S Main St</td></tr>
-          <tr><td>Policy term</td><td>June 10, 2026 to June 10, 2027</td></tr>
-        </table>
-      </div>
-      <div class="card">
-        <h3 style="font-family:'Outfit';font-weight:800;font-size:18px;margin-bottom:14px;color:var(--dark)">What this is for</h3>
-        <p style="color:var(--grey);font-size:15.5px;margin-bottom:12px">A tenant's guest slips on an icy walkway. A railing gives way. A delivery driver is injured on the premises. These are the everyday exposures of owning a four-unit property, and this policy provides up to $1,000,000 per occurrence designed to respond to covered claims.</p>
-        <p style="color:var(--grey);font-size:15.5px">It covers you across both buildings and all rental units under a single policy.</p>
-      </div>
-    </div>
-    <details class="fp">
-      <summary>Liability policy fine print worth knowing</summary>
-      <div class="fpin"><ul>
-        <li>Medical payments coverage is excluded. Assault and battery claims are sublimited to $25,000 with a $2,500 deductible.</li>
-        <li>Exclusions apply for certain water damage, animals, swimming pools, playground equipment, and construction work beyond routine non-structural maintenance. If you renovate, call us first.</li>
-        <li>This is surplus lines coverage with a $700 minimum due at binding and binding arbitration provisions. The quote is valid for 45 days.</li>
-      </ul></div>
-    </details>
-  </div>
-</section>
-
-<!-- UMBRELLA -->
-<section class="block alt" id="umbrella">
-  <div class="bin">
-    <div class="kicker">Step Three &middot; The Smartest Line on This Page</div>
-    <h2>A $1,000,000 umbrella over everything you now own</h2>
-    <p class="lead">You are putting $830,000 into real estate and taking on tenants. An umbrella is a second layer of liability protection that sits above your other policies and is designed to respond when an underlying limit runs out. Relative to what it protects, it is the least expensive coverage in this entire plan.</p>
-    <div class="stack">
-      <div>
-        <div class="layercol">
-          <div class="layer umb">
-            <div class="amt">+ $1,000,000</div>
-            <div class="lbl">Personal Umbrella &middot; $532/yr</div>
-          </div>
-          <div class="arrowup">sits on top of</div>
-          <div class="layer gl">
-            <div class="amt">$1,000,000</div>
-            <div class="lbl">Landlord Liability (per occurrence)</div>
-          </div>
-          <div class="layer base">
-            <div class="amt">$250K / $500K</div>
-            <div class="lbl">Auto Liability (Travelers)</div>
-          </div>
-        </div>
-      </div>
-      <div class="stacknote">
-        <p><b>Why it matters now and not later.</b> Liability follows you across your whole life: the property, the tenants, the road. One serious claim, a multi-car accident with injuries, a tenant lawsuit, can move past a single policy's limit. The umbrella adds a full additional million across the picture for <b>$532 a year</b>, about $1.46 a day.</p>
-        <ul>
-          <li><b>One claim away</b> thinking: your net worth just changed. Your liability protection should change with it.</li>
-          <li><b>The auto limits below were chosen on purpose.</b> Umbrella policies require strong underlying limits, which is why the auto quote carries 250/500 rather than state minimums.</li>
-          <li><b>Simple to live with.</b> One premium, one extra layer, no day-to-day maintenance.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AUTO -->
-<section class="block" id="auto">
-  <div class="bin">
-    <div class="kicker">Step Four &middot; Rounding Out the Plan</div>
-    <h2>Auto, built to support the umbrella</h2>
-    <p class="lead">Your 2013 Hyundai Elantra joins the plan with Travelers. The limits here are not an accident: they are set at the level the umbrella needs underneath it, and the quote already includes multi-policy savings for having your insurance under one roof.</p>
-    <div class="cardrow cards2">
-      <div class="card">
-        <div class="carrierline">
-          <span class="tag">Travelers</span>
-          <span class="tag line">6 month policy</span>
-        </div>
-        <div class="price"><span class="n">$429</span><span class="per">per 6 months</span></div>
-        <table class="spec">
-          <tr><td>Bodily injury liability</td><td>$250K / $500K</td></tr>
-          <tr><td>Vehicle</td><td>2013 Hyundai Elantra GL</td></tr>
-          <tr><td>Use</td><td>Pleasure</td></tr>
-          <tr><td>Effective</td><td>June 14, 2026</td></tr>
-          <tr><td>Discounts applied</td><td>Multi-policy &amp; homeowner</td></tr>
-        </table>
-      </div>
-      <div class="card">
-        <h3 style="font-family:'Outfit';font-weight:800;font-size:18px;margin-bottom:14px;color:var(--dark)">Why we wrote it this way</h3>
-        <p style="color:var(--grey);font-size:15.5px;margin-bottom:12px">As a property owner with tenants, the road is now one of your largest liability exposures. We quoted high limits deliberately so the umbrella can sit cleanly on top, rather than chasing the cheapest number with limits that leave you exposed.</p>
-        <p style="color:var(--grey);font-size:15.5px">Liability-only coverage on the vehicle keeps the premium efficient, and bringing auto into the package supports the multi-policy pricing across the plan.</p>
+        <h3>Sign and return the terrorism election</h3>
+        <p>Federal law requires you to formally accept or decline terrorism coverage. Accepting adds $125 per year; declining costs nothing. One signature either way, and we will walk you through it at binding.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FULL PICTURE -->
-<section class="block alt" id="full">
+<section class="block" id="full">
   <div class="bin">
     <div class="kicker">All Together</div>
     <h2>The full picture, on one page</h2>
-    <p class="lead">Everything above, totaled. Simple to read, simple to bind, and timed around your July 10 closing.</p>
+    <p class="lead">One carrier, one package, both buildings. Timed around your July 10 closing, and the quote is valid through July 11.</p>
     <table class="total">
       <tr><th>Coverage</th><th>Carrier</th><th>Limit</th><th>Premium</th></tr>
       <tr>
-        <td><b>Property, both buildings</b><span class="mut">Special form, $5,000 deductible</span></td>
-        <td>Westchester / Chubb Group (A++)</td>
-        <td>$350K per building</td>
-        <td><b>$3,247 / yr</b></td>
+        <td><b>Commercial property, both buildings</b><span class="mut">Special form incl. theft, contents, rental income, $10,000 deductible</span></td>
+        <td>Nautilus (A+ XV)</td>
+        <td>$600K per building</td>
+        <td><b>$6,734 / yr</b></td>
       </tr>
       <tr>
-        <td><b>Landlord liability</b><span class="mut">All four units, both buildings</span></td>
-        <td>Baleen Specialty (A XV)</td>
+        <td><b>General liability</b><span class="mut">All four units, both buildings, $1,000 deductible</span></td>
+        <td>Nautilus (A+ XV)</td>
         <td>$1M / $2M</td>
-        <td><b>$2,050 / yr</b></td>
+        <td><b>$2,556 / yr</b></td>
       </tr>
       <tr>
-        <td><b>Personal umbrella</b><span class="mut">Second layer over the full plan</span></td>
-        <td>To be issued at bind</td>
-        <td>$1,000,000</td>
-        <td><b>$532 / yr</b></td>
+        <td><b>Surplus lines tax &amp; inspection fee</b><span class="mut">CT surplus lines tax $371.60 plus one-time $500 inspection fee</span></td>
+        <td>&mdash;</td>
+        <td>&mdash;</td>
+        <td><b>$871.60</b></td>
       </tr>
       <tr class="sum">
-        <td colspan="3">18 South Main Street protection package</td>
-        <td>$5,829 / yr</td>
+        <td colspan="3">18 South Main Street protection package, total amount due</td>
+        <td>$10,161.60</td>
       </tr>
     </table>
-    <table class="total" style="margin-top:18px">
-      <tr>
-        <td><b>Personal auto</b><span class="mut">2013 Hyundai Elantra, 250/500 limits, multi-policy discount applied</span></td>
-        <td>Travelers</td>
-        <td>$250K / $500K</td>
-        <td><b>$429 / 6 mo</b></td>
-      </tr>
-    </table>
-    <div class="benchmark">
-      <div class="ic">&#10003;</div>
-      <p><b>Context on value:</b> earlier marketing on this same property produced a $5,714 annual benchmark for the building package alone, before any umbrella. This plan delivers the property and landlord liability for <b>$5,297</b>, then adds a full $1,000,000 umbrella and still lands at $5,829, with A++ rated paper on the property.</p>
-    </div>
+    <p style="margin-top:18px;color:var(--grey);font-size:14.5px">Annual policy premium is $9,290. The total above includes Connecticut surplus lines tax and the carrier's one-time inspection fee. Per your request, this proposal covers the property only; your auto remains as currently placed, and we are glad to revisit auto and umbrella whenever you are ready.</p>
   </div>
 </section>
 
@@ -506,17 +442,17 @@ footer .brand .i{color:#fff;font-weight:600;letter-spacing:.12em;font-size:12px}
   <div class="bin">
     <div>
       <h2>Closing is July 10.<br>Here is how we <span class="y">get you there.</span></h2>
-      <p>One conversation and we put the whole plan in motion. Your lender gets evidence of insurance, you get one clean package, and you walk into closing with this handled.</p>
+      <p>One conversation and we put the plan in motion. Your lender gets evidence of insurance, you get one clean package, and you walk into closing with this handled.</p>
       <div class="contactbtns">
         <a class="btn gold" href="tel:12032042555">Call Safeshield: (203) 204-2555</a>
         <a class="btn ghost" href="mailto:austin@gosafeshield.com?subject=Chiara%20Proposal%20-%2018%20S%20Main%20St">Email Austin</a>
       </div>
     </div>
     <div class="steps">
-      <div class="step"><div class="sn">1</div><div><b>Say go</b><span>We confirm final details and bind the property and liability for June 10 effective dates.</span></div></div>
+      <div class="step"><div class="sn">1</div><div><b>Say go</b><span>We confirm final details and bind the Nautilus package effective at closing.</span></div></div>
       <div class="step"><div class="sn">2</div><div><b>Lender paperwork handled</b><span>We deliver evidence of insurance to CMG Home Loans ahead of closing.</span></div></div>
-      <div class="step"><div class="sn">3</div><div><b>Umbrella and auto issued</b><span>Auto effective June 14, umbrella layered over the full plan.</span></div></div>
-      <div class="step"><div class="sn">4</div><div><b>Keys checklist</b><span>Smoke detectors, heat, leases. We will send you the one-page version.</span></div></div>
+      <div class="step"><div class="sn">3</div><div><b>Paperwork signed</b><span>Terrorism election and binding documents, all handled in one short session.</span></div></div>
+      <div class="step"><div class="sn">4</div><div><b>Inspection prep</b><span>We send your one-page prep list so the 45-day inspection is a non-event.</span></div></div>
     </div>
   </div>
 </div>
@@ -524,7 +460,7 @@ footer .brand .i{color:#fff;font-weight:600;letter-spacing:.12em;font-size:12px}
 <footer>
   <div class="bin">
     <div class="brand"><span class="s">SAFESHIELD</span> <span class="i">INSURANCE</span></div>
-    <p><b>Important information.</b> This proposal is a summary prepared for discussion purposes and does not alter, amend, or extend coverage. All coverage descriptions are general in nature; the terms, conditions, limits, deductibles, and exclusions of the issued policies govern in all cases. Coverage is designed to respond to covered losses as defined by each policy; no coverage is guaranteed by this document. Quotes are subject to carrier underwriting review, final rating, and may change or be withdrawn prior to binding. The property and general liability quotes referenced are surplus lines placements; surplus lines insurers are not members of the Connecticut Insurance Guaranty Association and surplus lines taxes and fees apply. Premium figures shown are as quoted on the dates referenced and subject to the validity periods stated by each carrier. Coverage is not bound until confirmed in writing by Safeshield Insurance.</p>
+    <p><b>Important information.</b> This proposal is a summary prepared for discussion purposes and does not alter, amend, or extend coverage. All coverage descriptions are general in nature; the terms, conditions, limits, deductibles, and exclusions of the issued policy govern in all cases. Coverage is designed to respond to covered losses as defined by the policy; no coverage is guaranteed by this document. The quote referenced is subject to carrier underwriting review, inspection, final rating, and may change or be withdrawn prior to binding; quote number 1025623701 expires July 11, 2026. This is a surplus lines placement; surplus lines insurers are not members of the Connecticut Insurance Guaranty Association, and surplus lines taxes and fees apply. The liability premium shown is a minimum and deposit premium subject to audit. A 25% minimum earned premium applies upon insured-requested cancellation, and policy and inspection fees are fully earned. Property and contents are valued on an actual cash value basis. Coverage is not bound until confirmed in writing by Safeshield Insurance.</p>
     <p style="margin-top:14px">Safeshield Insurance &middot; 2777 Summer Street, 6th Floor, Stamford, CT &middot; (203) 204-2555 &middot; gosafeshield.com &middot; Licensed in NY, CT, NJ, PA, DE, NC</p>
   </div>
 </footer>
