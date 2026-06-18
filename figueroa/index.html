@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Insurance Quote | Raphael Figueroa & Luz Benavides</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0a1628; color: #FAFAF8; font-family: 'Outfit', sans-serif; line-height: 1.6; }
+  a { color: #FFA300; text-decoration: none; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 60%, #001a3a 100%);
+    padding: 80px 24px 60px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,163,0,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,75,137,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .logo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,163,0,0.1);
+    border: 1px solid rgba(255,163,0,0.3);
+    border-radius: 100px;
+    padding: 8px 20px;
+    margin-bottom: 28px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #FFA300;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    color: #FAFAF8;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .hero h1 span { color: #FFA300; }
+  .hero .subtitle {
+    font-size: 1.05rem;
+    color: rgba(250,250,248,0.6);
+    margin-bottom: 8px;
+  }
+  .hero .address {
+    font-size: 0.95rem;
+    color: rgba(250,250,248,0.4);
+    letter-spacing: 0.03em;
+  }
+
+  /* PREMIUM CALLOUT */
+  .premium-bar {
+    background: linear-gradient(90deg, #004B89, #005fa3);
+    padding: 36px 24px;
+    text-align: center;
+  }
+  .premium-bar .label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 6px;
+  }
+  .premium-bar .amount {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 4rem);
+    font-weight: 900;
+    color: #FFA300;
+    line-height: 1;
+  }
+  .premium-bar .per {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+  }
+  .premium-bar .carrier-note {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .premium-bar .carrier-note strong { color: #FAFAF8; }
+
+  /* SECTION */
+  section { padding: 60px 24px; max-width: 860px; margin: 0 auto; }
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin: 0 24px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #FAFAF8;
+    margin-bottom: 6px;
+  }
+  .section-sub {
+    font-size: 0.9rem;
+    color: rgba(250,250,248,0.5);
+    margin-bottom: 32px;
+  }
+
+  /* COVERAGE GRID */
+  .cov-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .cov-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 22px 20px;
+  }
+  .cov-card .cov-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFA300;
+    margin-bottom: 8px;
+  }
+  .cov-card .cov-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #FAFAF8;
+  }
+  .cov-card .cov-note {
+    font-size: 0.78rem;
+    color: rgba(250,250,248,0.4);
+    margin-top: 4px;
+  }
+
+  /* DEDUCTIBLES */
+  .ded-list { display: flex; flex-direction: column; gap: 12px; }
+  .ded-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .ded-row .ded-name { font-size: 0.9rem; color: rgba(250,250,248,0.75); }
+  .ded-row .ded-val { font-weight: 700; color: #FFA300; }
+
+  /* INCLUSIONS */
+  .inclusions-list { display: flex; flex-direction: column; gap: 10px; }
+  .inc-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: rgba(250,250,248,0.8);
+  }
+  .inc-row .check {
+    width: 22px; height: 22px; min-width: 22px;
+    background: rgba(255,163,0,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    color: #FFA300;
+  }
+
+  /* PAYMENT */
+  .pay-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .pay-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 22px 20px;
+    text-align: center;
+  }
+  .pay-card.featured {
+    border-color: rgba(255,163,0,0.4);
+    background: rgba(255,163,0,0.06);
+  }
+  .pay-card .pay-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(250,250,248,0.5);
+    margin-bottom: 10px;
+  }
+  .pay-card.featured .pay-title { color: #FFA300; }
+  .pay-card .pay-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FAFAF8;
+  }
+  .pay-card .pay-detail {
+    font-size: 0.78rem;
+    color: rgba(250,250,248,0.45);
+    margin-top: 6px;
+  }
+
+  /* WHY SAFESHIELD */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .why-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 22px 20px;
+  }
+  .why-card .icon { font-size: 1.4rem; margin-bottom: 10px; }
+  .why-card .why-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; color: #FAFAF8; }
+  .why-card .why-text { font-size: 0.82rem; color: rgba(250,250,248,0.5); }
+
+  /* CTA */
+  .cta {
+    background: linear-gradient(135deg, #004B89 0%, #001a3a 100%);
+    padding: 60px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255,163,0,0.15);
+  }
+  .cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .cta p {
+    font-size: 0.95rem;
+    color: rgba(250,250,248,0.6);
+    margin-bottom: 28px;
+    max-width: 480px;
+    margin-left: auto; margin-right: auto;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: #FFA300;
+    color: #0a1628;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 36px;
+    border-radius: 100px;
+    margin: 6px;
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.88; }
+  .cta-btn.ghost {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #FAFAF8;
+  }
+  .footer-note {
+    margin-top: 28px;
+    font-size: 0.75rem;
+    color: rgba(250,250,248,0.3);
+    max-width: 600px;
+    margin-left: auto; margin-right: auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="logo-badge">🛡 Safeshield Insurance</div>
+  <h1>Home Insurance Quote<br/><span>38 Clifton Terrace</span></h1>
+  <p class="subtitle">Prepared for Raphael Figueroa &amp; Luz Benavides</p>
+  <p class="address">38 Clifton Ter, Englewood Cliffs, NJ 07632 &nbsp;·&nbsp; June 18, 2026</p>
+</div>
+
+<!-- PREMIUM BAR -->
+<div class="premium-bar">
+  <div class="label">Annual Premium</div>
+  <div class="amount">$4,200</div>
+  <div class="per">per year &nbsp;·&nbsp; HO-3 Homeowners Policy</div>
+  <div class="carrier-note">Insured by <strong>SafePort Insurance Company</strong> via SageSure &nbsp;·&nbsp; NAIC 36560</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- COVERAGES -->
+<section>
+  <div class="section-title">Your Coverage</div>
+  <div class="section-sub">Here's exactly what's protected — and for how much.</div>
+  <div class="cov-grid">
+    <div class="cov-card">
+      <div class="cov-label">Dwelling (Cov A)</div>
+      <div class="cov-value">$1,243,000</div>
+      <div class="cov-note">Rebuilds your home from the ground up</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-label">Other Structures</div>
+      <div class="cov-value">$124,300</div>
+      <div class="cov-note">Fences, garages, sheds</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-label">Personal Property</div>
+      <div class="cov-value">$372,900</div>
+      <div class="cov-note">Replacement cost — new for old</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-label">Loss of Use</div>
+      <div class="cov-value">$186,450</div>
+      <div class="cov-note">Hotel &amp; living costs if you're displaced</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-label">Liability</div>
+      <div class="cov-value">$500,000</div>
+      <div class="cov-note">Per occurrence — protects your assets</div>
+    </div>
+    <div class="cov-card">
+      <div class="cov-label">Medical Payments</div>
+      <div class="cov-value">$5,000</div>
+      <div class="cov-note">Per person injured on your property</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- DEDUCTIBLES -->
+<section>
+  <div class="section-title">Deductibles</div>
+  <div class="section-sub">What you'd pay out of pocket before the policy kicks in.</div>
+  <div class="ded-list">
+    <div class="ded-row">
+      <span class="ded-name">All Other Perils (fire, theft, water, etc.)</span>
+      <span class="ded-val">$10,000</span>
+    </div>
+    <div class="ded-row">
+      <span class="ded-name">Windstorm or Hail (3% of Coverage A)</span>
+      <span class="ded-val">$37,290</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- INCLUSIONS -->
+<section>
+  <div class="section-title">What's Included</div>
+  <div class="section-sub">Discounts applied and extras built into this policy.</div>
+  <div class="inclusions-list">
+    <div class="inc-row"><div class="check">✓</div> Protective Device Discount applied</div>
+    <div class="inc-row"><div class="check">✓</div> Prime Time Discount applied</div>
+    <div class="inc-row"><div class="check">✓</div> Multi-Policy Discount applied</div>
+    <div class="inc-row"><div class="check">✓</div> Personal Property Replacement Cost — new for old, not depreciated value</div>
+    <div class="inc-row"><div class="check">✓</div> Landlord Furnishings coverage included</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PAYMENT OPTIONS -->
+<section>
+  <div class="section-title">Payment Options</div>
+  <div class="section-sub">Pay in full or split it up — your call.</div>
+  <div class="pay-grid">
+    <div class="pay-card featured">
+      <div class="pay-title">⭐ Full Pay</div>
+      <div class="pay-amount">$4,200</div>
+      <div class="pay-detail">Due today. No fees. Best value.</div>
+    </div>
+    <div class="pay-card">
+      <div class="pay-title">2-Pay</div>
+      <div class="pay-amount">$2,699</div>
+      <div class="pay-detail">Today, then $1,514 in 180 days</div>
+    </div>
+    <div class="pay-card">
+      <div class="pay-title">4-Pay</div>
+      <div class="pay-amount">$1,944</div>
+      <div class="pay-detail">Today, then 3 installments of ~$760</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<section>
+  <div class="section-title">Why Safeshield</div>
+  <div class="section-sub">We're not a call center. We're your people.</div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="icon">🏪</div>
+      <div class="why-title">69+ Carrier Partners</div>
+      <div class="why-text">We shop the whole market to get you the best rate.</div>
+    </div>
+    <div class="why-card">
+      <div class="icon">⚡</div>
+      <div class="why-title">Same-Day Service</div>
+      <div class="why-text">Quotes, certs, ID cards, and policy changes — fast.</div>
+    </div>
+    <div class="why-card">
+      <div class="icon">📞</div>
+      <div class="why-title">Direct Agent Access</div>
+      <div class="why-text">You talk to us, not a 1-800 number.</div>
+    </div>
+    <div class="why-card">
+      <div class="icon">🔄</div>
+      <div class="why-title">Annual Re-Shop</div>
+      <div class="why-text">We check the market every year to keep your rate competitive.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Ready to move forward?</h2>
+  <p>Questions? Want to adjust coverage? Just reach out — we'll get it done today.</p>
+  <a href="tel:2038065889" class="cta-btn">Call Eric: (203) 806-5889</a>
+  <a href="mailto:eric@gosafeshield.com" class="cta-btn ghost">eric@gosafeshield.com</a>
+  <div class="footer-note">
+    This quote is provided by Safeshield Insurance LLC. Coverage is subject to underwriting approval and policy terms. 
+    This policy is written by a surplus lines insurer and is not covered by the NJ Insurance Guaranty Fund.
+    Quote #CRU4Q-24460117 · Valid June 18, 2026.
+  </div>
+</div>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"figueroa","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
