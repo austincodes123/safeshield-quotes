@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Protection Plan · Jose Ortiz · 29 Rogues Ridge, Weston CT</title>
+<meta name="description" content="A custom Chubb Masterpiece protection plan built by Austin Glazer at Safeshield Insurance for Jose Ortiz." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #122844;
+    --navy-soft: #1a3258;
+    --brand: #004B89;
+    --yellow: #FFA300;
+    --yellow-soft: #FFB733;
+    --cream: #faf6ef;
+    --paper: #f4ede0;
+    --ink: #0a1628;
+    --ink-soft: #2a3a52;
+    --muted: #6b7280;
+    --line: rgba(10, 22, 40, 0.12);
+    --line-strong: rgba(10, 22, 40, 0.22);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  .display { font-family: 'Fraunces', Georgia, serif; font-weight: 400; letter-spacing: -0.02em; line-height: 1.05; }
+
+  .progress-bar { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: var(--yellow); z-index: 1000; transition: width 0.1s linear; }
+
+  .hero { min-height: 100vh; background: var(--navy); color: var(--cream); padding: 3rem 2rem 4rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+  .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 80% 20%, rgba(255, 163, 0, 0.08) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(0, 75, 137, 0.4) 0%, transparent 60%); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%); }
+  .hero-top { display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 2; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(250, 246, 239, 0.55); }
+  .hero-mark { display: flex; align-items: center; gap: 0.65rem; }
+  .hero-mark-icon { width: 22px; height: 22px; color: var(--yellow); }
+  .hero-mark-text { color: var(--cream); letter-spacing: 0.25em; font-weight: 500; }
+  .hero-content { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; width: 100%; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 4rem 0; }
+  .hero-eyebrow { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.32em; color: var(--yellow); margin-bottom: 2rem; font-weight: 500; }
+  .hero-title { font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 300; margin-bottom: 1.75rem; color: var(--cream); }
+  .hero-title em { font-style: italic; font-weight: 400; color: var(--yellow); }
+  .hero-subtitle { font-size: clamp(1rem, 1.6vw, 1.2rem); color: rgba(250, 246, 239, 0.7); max-width: 620px; line-height: 1.6; font-weight: 300; }
+  .hero-meta { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2rem; padding-top: 2rem; border-top: 1px solid rgba(250, 246, 239, 0.15); }
+  .hero-meta-item { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(250, 246, 239, 0.5); }
+  .hero-meta-value { display: block; margin-top: 0.5rem; font-size: 0.95rem; color: var(--cream); letter-spacing: 0.05em; text-transform: none; font-weight: 500; font-family: 'Fraunces', serif; }
+
+  section { padding: 7rem 2rem; position: relative; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--brand); font-weight: 600; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--brand); }
+  .section-title { font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 300; margin-bottom: 1.5rem; max-width: 900px; }
+  .section-title em { font-style: italic; color: var(--brand); font-weight: 400; }
+  .lead { font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: var(--ink-soft); max-width: 680px; line-height: 1.7; font-weight: 300; }
+
+  .philosophy { background: var(--cream); border-bottom: 1px solid var(--line); }
+  .philosophy-grid { margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .philosophy-quote { font-family: 'Fraunces', serif; font-size: clamp(1.4rem, 2.2vw, 1.85rem); font-weight: 300; line-height: 1.35; font-style: italic; color: var(--ink); padding-left: 2rem; border-left: 2px solid var(--yellow); }
+  .philosophy-quote strong { font-style: normal; font-weight: 500; color: var(--brand); }
+  .philosophy-body p { margin-bottom: 1.25rem; color: var(--ink-soft); font-size: 1rem; }
+  .philosophy-body p:last-child { margin-bottom: 0; }
+  .invite-hint { margin-top: 2rem; padding: 1.25rem 1.5rem; background: var(--paper); border-left: 2px solid var(--brand); font-size: 0.92rem; color: var(--ink-soft); display: flex; gap: 0.85rem; align-items: center; }
+  .invite-hint svg { color: var(--brand); flex-shrink: 0; }
+
+  /* ───── ASSETS UNCOVERED ───── */
+  .assets-band { background: var(--navy); color: var(--cream); padding: 7rem 2rem; }
+  .assets-band .section-eyebrow { color: var(--yellow); }
+  .assets-band .section-eyebrow::before { background: var(--yellow); }
+  .assets-band .section-title { color: var(--cream); }
+  .assets-band .section-title em { color: var(--yellow); }
+  .assets-band .lead { color: rgba(250, 246, 239, 0.7); }
+  .assets-ledger { margin-top: 4rem; background: var(--navy-mid); border: 1px solid rgba(255, 163, 0, 0.2); overflow: hidden; }
+  .assets-row { display: grid; grid-template-columns: auto 1fr auto; gap: 1.5rem; padding: 1.4rem 2rem; border-bottom: 1px solid rgba(250, 246, 239, 0.08); align-items: center; }
+  .assets-row:last-child { border-bottom: 0; }
+  .assets-row.total { background: rgba(255, 163, 0, 0.08); border-top: 1px solid var(--yellow); border-bottom: 0; padding-top: 1.6rem; padding-bottom: 1.6rem; }
+  .assets-icon { width: 36px; height: 36px; color: var(--yellow); display: flex; align-items: center; justify-content: center; }
+  .assets-label-block { display: flex; flex-direction: column; gap: 0.25rem; }
+  .assets-name { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--cream); font-weight: 500; }
+  .assets-sub { font-size: 0.78rem; color: rgba(250, 246, 239, 0.5); letter-spacing: 0.08em; text-transform: uppercase; }
+  .assets-value { font-family: 'Fraunces', serif; font-size: 1.35rem; color: var(--cream); font-weight: 500; letter-spacing: -0.01em; }
+  .assets-row.total .assets-name { font-size: 1.25rem; color: var(--yellow); }
+  .assets-row.total .assets-value { font-size: 1.85rem; color: var(--yellow); }
+  .assets-callout { margin-top: 2rem; padding: 1.5rem 2rem; background: rgba(255, 163, 0, 0.06); border-left: 3px solid var(--yellow); font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; line-height: 1.55; color: rgba(250, 246, 239, 0.92); }
+  .assets-callout strong { font-style: normal; color: var(--yellow); font-weight: 500; }
+
+  /* ───── TRIANGLE ───── */
+  .triangle-section { background: var(--paper); padding: 7rem 2rem; }
+  .triangle-stage { margin-top: 5rem; display: flex; justify-content: center; align-items: center; position: relative; }
+  .triangle-svg { width: 100%; max-width: 580px; height: auto; }
+  .triangle-labels { margin-top: 4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .triangle-label { text-align: center; padding: 1.5rem 1rem; }
+  .triangle-label-num { display: inline-block; font-family: 'Fraunces', serif; font-size: 0.85rem; color: var(--brand); letter-spacing: 0.25em; margin-bottom: 0.75rem; font-style: italic; }
+  .triangle-label-title { font-family: 'Fraunces', serif; font-size: 1.4rem; color: var(--ink); margin-bottom: 0.75rem; font-weight: 500; }
+  .triangle-label-q { font-size: 0.92rem; color: var(--ink-soft); font-style: italic; line-height: 1.5; }
+
+  /* ───── LIMITS RAISED ───── */
+  .limits-band { background: var(--cream); padding: 7rem 2rem; border-top: 1px solid var(--line); }
+  .limits-grid { margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .limit-card { background: #ffffff; border: 1px solid var(--line); padding: 2rem 2rem 1.75rem; position: relative; overflow: hidden; }
+  .limit-card-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--muted); font-weight: 600; margin-bottom: 1.5rem; }
+  .limit-card-bars { display: flex; gap: 1.5rem; align-items: flex-end; margin-bottom: 1.5rem; min-height: 120px; }
+  .limit-bar-col { display: flex; flex-direction: column; align-items: center; flex: 1; gap: 0.6rem; }
+  .limit-bar { width: 100%; max-width: 90px; background: var(--paper); border-radius: 2px; position: relative; transition: height 0.6s ease; }
+  .limit-bar.before { background: rgba(107, 114, 128, 0.2); height: 30px; }
+  .limit-bar.after { background: linear-gradient(180deg, var(--yellow) 0%, var(--yellow-soft) 100%); height: 110px; }
+  .limit-bar-value { font-family: 'Fraunces', serif; font-size: 0.95rem; color: var(--ink); font-weight: 500; }
+  .limit-bar-tag { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; }
+  .limit-card-title { font-family: 'Fraunces', serif; font-size: 1.2rem; color: var(--ink); margin-bottom: 0.65rem; line-height: 1.3; font-weight: 500; }
+  .limit-card-why { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.55; }
+  .limit-card-why strong { color: var(--brand); font-weight: 600; }
+  .limit-card.featured { border-color: var(--yellow); background: linear-gradient(180deg, #fffbf2 0%, #ffffff 100%); }
+  .limit-card-multiplier { position: absolute; top: 1.5rem; right: 1.5rem; font-family: 'Fraunces', serif; font-style: italic; color: var(--brand); font-size: 0.9rem; font-weight: 500; }
+
+  /* ───── PILLARS / COVERAGE GRID ───── */
+  .pillar { background: var(--cream); border-bottom: 1px solid var(--line); }
+  .pillar:nth-of-type(even) { background: var(--paper); }
+  .pillar-header { display: grid; grid-template-columns: auto 1fr; gap: 3rem; align-items: end; margin-bottom: 4rem; }
+  .pillar-number { font-family: 'Fraunces', serif; font-size: clamp(5rem, 12vw, 9rem); font-weight: 200; line-height: 0.9; color: var(--brand); font-style: italic; letter-spacing: -0.05em; }
+  .pillar-meta { padding-bottom: 1.5rem; }
+  .pillar-kicker { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--brand); font-weight: 600; margin-bottom: 1rem; }
+  .pillar-name { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 5vw, 3.75rem); font-weight: 300; line-height: 1; color: var(--ink); margin-bottom: 1.25rem; }
+  .pillar-q { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(1.1rem, 1.6vw, 1.3rem); color: var(--ink-soft); font-weight: 300; line-height: 1.45; max-width: 580px; }
+
+  .coverage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .coverage-subgroup { grid-column: 1 / -1; margin: 3.5rem 0 0.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line-strong); display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; }
+  .coverage-subgroup:first-child { margin-top: 0; }
+  .coverage-subgroup-label { font-family: 'Fraunces', serif; font-size: 1.4rem; color: var(--ink); font-weight: 400; font-style: italic; }
+  .coverage-subgroup-label::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--brand); margin-right: 0.9rem; vertical-align: middle; }
+  .coverage-subgroup-note { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--muted); font-weight: 600; }
+
+  .coverage-hero { grid-column: 1 / -1; background: linear-gradient(135deg, #fffbf2 0%, #fff7e3 100%); border: 1px solid var(--yellow); padding: 0; cursor: pointer; transition: all 0.25s ease; position: relative; text-align: left; width: 100%; font-family: inherit; overflow: hidden; }
+  .coverage-hero:hover, .coverage-hero:focus-visible { box-shadow: 0 16px 40px -20px rgba(255, 163, 0, 0.45); transform: translateY(-2px); outline: none; }
+  .coverage-hero::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--yellow); }
+  .coverage-hero-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 0; }
+  .coverage-hero-main { padding: 2.25rem 2.25rem 2rem 2.5rem; border-right: 1px solid rgba(255, 163, 0, 0.25); }
+  .coverage-hero-side { padding: 2.25rem 2.25rem 2rem; display: flex; flex-direction: column; justify-content: center; background: rgba(255, 163, 0, 0.06); }
+  .coverage-hero-badge { display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.22em; color: var(--navy); background: var(--yellow); padding: 0.3rem 0.7rem; margin-bottom: 1.25rem; text-transform: uppercase; }
+  .coverage-hero-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--muted); margin-bottom: 0.65rem; font-weight: 600; }
+  .coverage-hero-name { font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-weight: 400; color: var(--ink); line-height: 1.15; margin-bottom: 1rem; letter-spacing: -0.01em; }
+  .coverage-hero-name em { font-style: italic; color: var(--brand); }
+  .coverage-hero-tagline { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.02rem; color: var(--ink-soft); line-height: 1.45; font-weight: 300; }
+  .coverage-hero-limit { font-family: 'Fraunces', serif; font-size: clamp(2rem, 3.7vw, 2.8rem); font-weight: 400; color: var(--brand); letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.5rem; }
+  .coverage-hero-limit-stack { margin-top: 0.6rem; }
+  .coverage-hero-limit-stack-line { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--muted); font-weight: 600; line-height: 1.4; }
+  .coverage-hero-limit-stack-divider { width: 24px; height: 1px; background: var(--yellow); margin: 0.75rem 0; }
+  .coverage-hero-limit-stack-line.benefit { color: var(--brand); font-weight: 700; }
+  .coverage-hero-toggle { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255, 163, 0, 0.3); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--brand); font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+  .coverage-hero-toggle::after { content: '+'; margin-left: auto; font-size: 1.25rem; line-height: 1; transition: transform 0.2s ease; }
+  .coverage-hero[aria-expanded="true"] .coverage-hero-toggle::after { transform: rotate(45deg); }
+  .coverage-hero-detail { grid-column: 1 / -1; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: #ffffff; }
+  .coverage-hero[aria-expanded="true"] .coverage-hero-detail { max-height: 1000px; }
+  .coverage-hero-detail-inner { padding: 2rem 2.5rem 2.25rem; border-top: 1px solid rgba(255, 163, 0, 0.3); }
+
+  @media (max-width: 720px) {
+    .coverage-hero-inner { grid-template-columns: 1fr; }
+    .coverage-hero-main { border-right: none; border-bottom: 1px solid rgba(255, 163, 0, 0.25); padding: 1.75rem 1.5rem 1.5rem 1.75rem; }
+    .coverage-hero-side { padding: 1.75rem 1.5rem; }
+    .coverage-subgroup { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  }
+
+  .coverage-card { background: #ffffff; border: 1px solid var(--line); padding: 1.5rem 1.5rem 1.25rem; cursor: pointer; transition: all 0.25s ease; position: relative; text-align: left; width: 100%; font-family: inherit; }
+  .coverage-card:hover, .coverage-card:focus-visible { border-color: var(--brand); box-shadow: 0 8px 24px -12px rgba(0, 75, 137, 0.25); transform: translateY(-2px); outline: none; }
+  .coverage-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted); margin-bottom: 0.5rem; font-weight: 600; }
+  .coverage-name { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.25; }
+  .coverage-limit { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 400; color: var(--brand); letter-spacing: -0.01em; }
+  .coverage-toggle { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--brand); font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+  .coverage-toggle::after { content: '+'; margin-left: auto; font-size: 1.1rem; line-height: 1; transition: transform 0.2s ease; }
+  .coverage-card[aria-expanded="true"] .coverage-toggle::after { transform: rotate(45deg); }
+  .coverage-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .coverage-card[aria-expanded="true"] .coverage-detail { max-height: 1000px; }
+  .coverage-detail-inner { padding-top: 1.25rem; }
+  .coverage-explain { font-size: 0.92rem; color: var(--ink); line-height: 1.6; margin-bottom: 1rem; }
+  .coverage-reason { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.6; padding-top: 1rem; border-top: 1px solid var(--yellow); font-style: italic; }
+  .coverage-reason strong { font-style: normal; color: var(--brand); font-weight: 600; }
+
+  /* ───── MATH BAND ───── */
+  .math-band { background: var(--paper); padding: 6rem 2rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .math-wrap { max-width: 1100px; margin: 0 auto; text-align: center; }
+  .math-eyebrow { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.32em; color: var(--brand); font-weight: 600; margin-bottom: 1.5rem; }
+  .math-headline { font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-weight: 300; color: var(--ink); max-width: 760px; margin: 0 auto 3rem; line-height: 1.4; }
+  .math-headline em { font-style: italic; color: var(--brand); font-weight: 400; }
+  .math-equation { display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap; margin: 2.5rem 0 3rem; }
+  .math-piece { background: #ffffff; border: 1px solid var(--line); padding: 1.5rem 1.5rem; min-width: 160px; text-align: center; }
+  .math-piece-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--muted); font-weight: 600; margin-bottom: 0.65rem; }
+  .math-piece-value { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 400; color: var(--ink); letter-spacing: -0.01em; }
+  .math-piece.total { background: var(--navy); border-color: var(--navy); }
+  .math-piece.total .math-piece-label { color: var(--yellow); }
+  .math-piece.total .math-piece-value { color: var(--cream); font-weight: 500; }
+  .math-operator { font-family: 'Fraunces', serif; font-size: 1.4rem; color: var(--brand); font-weight: 300; }
+  .math-conclusion { margin-top: 2rem; font-family: 'Fraunces', serif; font-size: clamp(1.1rem, 1.7vw, 1.3rem); font-style: italic; color: var(--ink-soft); max-width: 720px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+  .math-conclusion strong { font-style: normal; color: var(--brand); font-weight: 600; }
+  @media (max-width: 720px) { .math-equation { gap: 0.75rem; } .math-piece { min-width: 130px; padding: 1.1rem 1rem; } .math-piece-value { font-size: 1.2rem; } .math-operator { font-size: 1.2rem; } }
+
+  /* ───── FLOOD ───── */
+  .flood-band { background: var(--cream); padding: 7rem 2rem; border-top: 1px solid var(--line); }
+  .flood-content { margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .flood-visual { background: #ffffff; border: 1px solid var(--line); padding: 2.5rem; }
+  .flood-zone-badge { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.55rem 1rem; background: rgba(40, 167, 69, 0.1); border: 1px solid rgba(40, 167, 69, 0.3); color: #1d7036; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .flood-zone-badge::before { content: ''; width: 8px; height: 8px; background: #28a745; border-radius: 50%; }
+  .flood-svg { width: 100%; max-width: 360px; height: auto; margin: 0 auto; display: block; }
+  .flood-zone-label { text-align: center; margin-top: 1.25rem; font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--ink); }
+  .flood-zone-sub { text-align: center; font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; }
+  .flood-text h3 { font-family: 'Fraunces', serif; font-size: 1.45rem; color: var(--ink); margin-bottom: 1.25rem; font-weight: 500; line-height: 1.3; }
+  .flood-text p { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.65; margin-bottom: 1rem; }
+  .flood-text p strong { color: var(--brand); font-weight: 600; }
+  .flood-options { margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: var(--paper); border-left: 2px solid var(--yellow); font-size: 0.9rem; color: var(--ink-soft); font-style: italic; line-height: 1.6; }
+
+  /* ───── CLAIMS PHILOSOPHY ───── */
+  .claims-band { background: var(--cream); border-top: 1px solid var(--line); padding: 7rem 2rem; }
+  .claims-grid { margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .claims-principle { background: #ffffff; padding: 2.25rem 2rem 2rem; border-left: 3px solid var(--brand); }
+  .claims-principle-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.85rem; color: var(--yellow); letter-spacing: 0.25em; margin-bottom: 1rem; display: block; }
+  .claims-principle-title { font-family: 'Fraunces', serif; font-size: 1.35rem; color: var(--ink); margin-bottom: 1rem; line-height: 1.3; font-weight: 500; }
+  .claims-principle-body { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.65; }
+  .claims-principle-body strong { color: var(--brand); font-weight: 600; }
+  .claims-rule { background: var(--navy); color: var(--cream); padding: 2.5rem 2.5rem 2.25rem; border-left: 3px solid var(--yellow); }
+  .claims-rule-eyebrow { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--yellow); font-weight: 700; margin-bottom: 1.25rem; }
+  .claims-rule-title { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.55rem; color: var(--cream); margin-bottom: 1.25rem; line-height: 1.3; font-weight: 400; }
+  .claims-rule-body { font-size: 0.95rem; color: rgba(250, 246, 239, 0.78); line-height: 1.65; }
+  .claims-rule-body strong { color: var(--cream); font-weight: 500; }
+  .claims-call { margin-top: 3rem; padding: 2rem; background: var(--paper); text-align: center; border: 1px dashed var(--line-strong); }
+  .claims-call-text { font-family: 'Fraunces', serif; font-size: 1.15rem; font-style: italic; color: var(--ink); max-width: 720px; margin: 0 auto; line-height: 1.5; }
+  .claims-call-text strong { font-style: normal; color: var(--brand); font-weight: 600; }
+  @media (max-width: 720px) { .claims-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+
+  /* ───── PREMIUM ───── */
+  .premium { background: var(--cream); }
+  .premium-breakdown { margin-top: 4rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .premium-item { background: #ffffff; padding: 2.25rem 1.5rem; text-align: center; }
+  .premium-item-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--muted); margin-bottom: 1rem; font-weight: 600; }
+  .premium-item-carrier { font-family: 'Fraunces', serif; font-style: italic; color: var(--ink-soft); font-size: 0.88rem; margin-bottom: 1.25rem; }
+  .premium-item-amount { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 400; color: var(--brand); letter-spacing: -0.02em; }
+  .premium-item-period { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+  .premium-total { margin-top: 2rem; background: var(--navy); color: var(--cream); padding: 2.5rem; text-align: center; }
+  .premium-total-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--yellow); margin-bottom: 1.5rem; font-weight: 600; }
+
+  .billing-toggle { display: inline-flex; gap: 0; margin: 0 auto 2rem; background: rgba(250, 246, 239, 0.06); border: 1px solid rgba(250, 246, 239, 0.15); padding: 0.35rem; border-radius: 2px; max-width: 100%; flex-wrap: wrap; justify-content: center; }
+  .billing-option { background: transparent; color: rgba(250, 246, 239, 0.55); border: none; padding: 0.7rem 1.1rem; font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; border-radius: 1px; white-space: nowrap; }
+  .billing-option:hover { color: var(--cream); }
+  .billing-option.active { background: var(--yellow); color: var(--navy); }
+
+  .premium-total-amount { font-family: 'Fraunces', serif; font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 300; color: var(--cream); letter-spacing: -0.02em; transition: opacity 0.2s ease; }
+  .premium-total-period { font-size: 0.85rem; color: rgba(250, 246, 239, 0.55); margin-top: 0.5rem; font-style: italic; }
+  .premium-total-context { margin-top: 1.5rem; font-size: 0.92rem; color: rgba(250, 246, 239, 0.6); font-style: italic; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  @media (max-width: 720px) { .premium-breakdown { grid-template-columns: 1fr 1fr; } }
+
+  /* ───── CTA ───── */
+  .cta { background: var(--navy); color: var(--cream); text-align: center; padding: 8rem 2rem; position: relative; overflow: hidden; }
+  .cta::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at center, rgba(255, 163, 0, 0.06) 0%, transparent 60%); pointer-events: none; }
+  .cta-content { position: relative; z-index: 2; }
+  .cta-title { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300; margin-bottom: 1.25rem; }
+  .cta-title em { font-style: italic; color: var(--yellow); }
+  .cta-sub { font-size: 1rem; color: rgba(250, 246, 239, 0.65); max-width: 540px; margin: 0 auto 3rem; line-height: 1.6; }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 0.65rem; padding: 1.1rem 2rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: all 0.2s ease; }
+  .btn-primary { background: var(--yellow); color: var(--navy); }
+  .btn-primary:hover { background: var(--yellow-soft); transform: translateY(-2px); }
+  .btn-secondary { background: transparent; color: var(--cream); border-color: rgba(250, 246, 239, 0.3); }
+  .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); }
+
+  footer { background: var(--navy); color: rgba(250, 246, 239, 0.5); padding: 3rem 2rem; border-top: 1px solid rgba(250, 246, 239, 0.1); font-size: 0.8rem; text-align: center; line-height: 1.7; }
+  footer a { color: var(--yellow); text-decoration: none; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 880px) {
+    section { padding: 5rem 1.5rem; }
+    .hero { padding: 2rem 1.5rem 3rem; }
+    .philosophy-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .philosophy-quote { padding-left: 1.25rem; }
+    .pillar-header { grid-template-columns: 1fr; gap: 1.5rem; }
+    .triangle-labels { grid-template-columns: 1fr; gap: 1rem; }
+    .limits-grid { grid-template-columns: 1fr; }
+    .flood-content { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-meta { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .assets-row { grid-template-columns: 36px 1fr auto; padding: 1.1rem 1.25rem; gap: 1rem; }
+  }
+  @media (max-width: 520px) { .coverage-grid { grid-template-columns: 1fr; } }
+
+  /* ========== SIDEBAR NAV ========== */
+  .sidenav { position: fixed; left: 0; top: 0; bottom: 0; width: 220px; padding: 1.75rem 1.1rem; background: rgba(10, 22, 40, 0.98); color: var(--cream); z-index: 900; overflow-y: auto; transform: translateX(-100%); transition: transform 0.35s ease; border-right: 1px solid rgba(255, 163, 0, 0.15); scrollbar-width: none; }
+  .sidenav::-webkit-scrollbar { display: none; }
+  .sidenav.open { transform: translateX(0); }
+  .sidenav-mark { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 163, 0, 0.2); }
+  .sidenav-mark svg { width: 20px; height: 20px; color: var(--yellow); flex-shrink: 0; }
+  .sidenav-mark-text { font-family: 'Fraunces', serif; font-size: 0.95rem; letter-spacing: 0.04em; color: var(--cream); }
+  .sidenav-eyebrow { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.6rem; opacity: 0.8; padding-left: 0.5rem; }
+  .sidenav-list { list-style: none; padding: 0; margin: 0; }
+  .sidenav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0.65rem; margin: 0.05rem 0; color: rgba(250, 246, 239, 0.72); font-size: 0.85rem; letter-spacing: 0.01em; cursor: pointer; border-left: 2px solid transparent; transition: all 0.2s ease; text-decoration: none; font-family: 'Inter', sans-serif; position: relative; }
+  .sidenav-item:hover { color: var(--cream); background: rgba(255, 163, 0, 0.06); }
+  .sidenav-item.active { color: var(--yellow); border-left-color: var(--yellow); background: rgba(255, 163, 0, 0.08); }
+  .sidenav-item svg { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.85; }
+  .sidenav-item.active svg { opacity: 1; }
+  .sidenav-item-label { font-weight: 400; flex: 1; }
+  .sidenav-item-tag { font-family: 'Fraunces', serif; font-size: 0.7rem; font-style: italic; color: rgba(255, 163, 0, 0.7); white-space: nowrap; }
+  .sidenav-toggle { position: fixed; top: 1.25rem; right: 1.25rem; z-index: 950; width: 42px; height: 42px; border-radius: 50%; background: var(--navy); color: var(--cream); border: 1px solid rgba(255, 163, 0, 0.3); cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(10, 22, 40, 0.25); transition: all 0.2s ease; }
+  .sidenav-toggle:hover { background: var(--navy-mid); border-color: var(--yellow); }
+  .sidenav-toggle svg { width: 17px; height: 17px; transition: transform 0.3s ease; }
+  body.sidenav-open .sidenav-toggle svg { transform: rotate(90deg); }
+  /* Push content right when sidebar is open (tablet only) */
+  body { transition: padding-left 0.35s ease; }
+  @media (min-width: 900px) and (max-width: 1279px) {
+    body.sidenav-open { padding-left: 220px; }
+  }
+  @media (min-width: 1280px) {
+    .sidenav { transform: translateX(0); }
+    .sidenav-toggle { display: none; }
+    body { padding-left: 220px; }
+  }
+  /* Phones and small tablets: sidebar overlays with backdrop, doesn't push */
+  @media (max-width: 899px) {
+    body.sidenav-open .sidenav { box-shadow: 0 0 60px rgba(0, 0, 0, 0.5); }
+    .sidenav-backdrop { position: fixed; inset: 0; background: rgba(10, 22, 40, 0.5); z-index: 899; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
+    body.sidenav-open .sidenav-backdrop { opacity: 1; pointer-events: auto; }
+  }
+
+  /* ========== PLAN AT A GLANCE ========== */
+  .glance { background: var(--navy); color: var(--cream); padding: clamp(3.5rem, 7vw, 5.5rem) 2rem; position: relative; }
+  .glance::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, var(--yellow) 50%, transparent 100%); opacity: 0.5; }
+  .glance-eyebrow { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.78rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1rem; }
+  .glance-title { font-family: 'Fraunces', serif; font-size: clamp(1.85rem, 3.4vw, 2.6rem); font-weight: 300; line-height: 1.15; margin-bottom: 0.75rem; color: var(--cream); letter-spacing: -0.01em; }
+  .glance-title em { font-style: italic; color: var(--yellow); font-weight: 400; }
+  .glance-sub { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.02rem; color: rgba(250, 246, 239, 0.75); margin-bottom: 2.5rem; max-width: 640px; }
+  .glance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .glance-card { background: rgba(255, 163, 0, 0.04); border: 1px solid rgba(255, 163, 0, 0.18); padding: 1.5rem 1.4rem; position: relative; }
+  .glance-card.featured { background: rgba(255, 163, 0, 0.08); border-color: rgba(255, 163, 0, 0.35); }
+  .glance-card-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(250, 246, 239, 0.6); margin-bottom: 0.65rem; }
+  .glance-card-value { font-family: 'Fraunces', serif; font-size: 1.55rem; font-weight: 400; color: var(--cream); letter-spacing: -0.01em; line-height: 1.1; }
+  .glance-card-value.yellow { color: var(--yellow); }
+  .glance-card-note { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.8rem; color: rgba(250, 246, 239, 0.55); margin-top: 0.5rem; }
+  .glance-status { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.65rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--yellow); }
+  .glance-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); display: inline-block; }
+  .glance-disclaimer { margin-top: 2rem; padding: 1rem 1.25rem; border-left: 2px solid rgba(255, 163, 0, 0.4); font-family: 'Fraunces', serif; font-style: italic; font-size: 0.82rem; line-height: 1.55; color: rgba(250, 246, 239, 0.7); max-width: 780px; }
+
+  /* ========== "WHAT THIS MEANS IN REAL LIFE" EXPANDABLE ========== */
+  .real-life { margin-top: 1.25rem; padding: 1rem 1.15rem; background: rgba(255, 163, 0, 0.05); border-left: 2px solid var(--yellow); }
+  .real-life-label { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brand); margin-bottom: 0.45rem; }
+  .real-life-text { font-family: 'Inter', sans-serif; font-size: 0.92rem; line-height: 1.6; color: var(--ink-soft); }
+
+  /* ========== WHAT HAPPENS IF SCENARIOS ========== */
+  .scenarios { background: var(--cream); padding: clamp(4rem, 8vw, 6rem) 2rem; border-top: 1px solid var(--line); }
+  .scenarios-header { max-width: 720px; margin-bottom: 2.5rem; }
+  .scenarios-grid { display: grid; grid-template-columns: 280px 1fr; gap: 2rem; align-items: start; }
+  .scenarios-tabs { display: flex; flex-direction: column; gap: 0.5rem; }
+  .scenario-tab { background: transparent; border: 1px solid var(--line); padding: 1.1rem 1.25rem; text-align: left; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif; color: var(--ink); display: flex; align-items: center; gap: 0.85rem; }
+  .scenario-tab:hover { border-color: var(--yellow); background: rgba(255, 163, 0, 0.04); }
+  .scenario-tab.active { border-color: var(--yellow); background: rgba(255, 163, 0, 0.08); border-left: 3px solid var(--yellow); }
+  .scenario-tab-icon { width: 24px; height: 24px; color: var(--brand); flex-shrink: 0; }
+  .scenario-tab-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 500; }
+  .scenario-panel { background: #fff; border: 1px solid var(--line); padding: 2rem 2.25rem; min-height: 380px; }
+  .scenario-panel-eyebrow { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand); margin-bottom: 0.65rem; }
+  .scenario-panel-title { font-family: 'Fraunces', serif; font-size: 1.65rem; font-weight: 400; line-height: 1.2; color: var(--ink); margin-bottom: 1.25rem; }
+  .scenario-panel-situation { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; line-height: 1.55; color: var(--ink-soft); margin-bottom: 1.75rem; padding: 1rem 1.2rem; background: rgba(0, 75, 137, 0.04); border-left: 2px solid var(--brand); }
+  .scenario-panel-section { margin-bottom: 1.5rem; }
+  .scenario-panel-section-label { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brand); margin-bottom: 0.65rem; }
+  .scenario-panel-list { list-style: none; padding: 0; margin: 0; }
+  .scenario-panel-list li { padding: 0.5rem 0 0.5rem 1.5rem; position: relative; font-size: 0.95rem; line-height: 1.55; color: var(--ink-soft); border-bottom: 1px solid var(--line); }
+  .scenario-panel-list li:last-child { border-bottom: none; }
+  .scenario-panel-list li::before { content: ''; position: absolute; left: 0; top: 1rem; width: 8px; height: 1px; background: var(--yellow); }
+  .scenario-disclaimer { margin-top: 1.5rem; padding: 0.85rem 1rem; background: rgba(10, 22, 40, 0.04); font-size: 0.78rem; line-height: 1.5; color: var(--muted); font-style: italic; font-family: 'Fraunces', serif; }
+  @media (max-width: 900px) {
+    .scenarios-grid { grid-template-columns: 1fr; }
+    .scenarios-tabs { flex-direction: row; overflow-x: auto; gap: 0.5rem; padding-bottom: 0.5rem; max-width: 100%; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .scenarios-tabs::-webkit-scrollbar { display: none; }
+    .scenario-tab { flex-shrink: 0; min-width: 180px; }
+    .scenario-panel { padding: 1.5rem 1.25rem; }
+  }
+
+  /* ========== BEFORE / AFTER TOGGLE ========== */
+  .compare { background: var(--paper); padding: clamp(4rem, 8vw, 6rem) 2rem; }
+  .compare-header { max-width: 720px; margin-bottom: 2.5rem; }
+  .compare-toggle { display: inline-flex; background: #fff; border: 1px solid var(--line); padding: 4px; margin-bottom: 2.5rem; }
+  .compare-toggle-btn { background: transparent; border: none; padding: 0.6rem 1.4rem; font-family: 'Inter', sans-serif; font-size: 0.88rem; letter-spacing: 0.04em; color: var(--muted); cursor: pointer; transition: all 0.2s ease; }
+  .compare-toggle-btn.active { background: var(--navy); color: var(--cream); }
+  .compare-table { background: #fff; border: 1px solid var(--line); }
+  .compare-row { display: grid; grid-template-columns: 1.2fr 1.5fr 1.5fr; gap: 1.5rem; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line); align-items: center; }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row-head { background: rgba(10, 22, 40, 0.03); }
+  .compare-row-label { font-family: 'Fraunces', serif; font-size: 1rem; color: var(--ink); font-weight: 500; }
+  .compare-row-head .compare-row-label { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brand); font-weight: 400; }
+  .compare-cell { font-family: 'Fraunces', serif; font-size: 1.02rem; color: var(--ink-soft); line-height: 1.4; }
+  .compare-cell.before-cell { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(107, 114, 128, 0.4); text-decoration-thickness: 1px; }
+  .compare-cell.after-cell { color: var(--ink); font-weight: 500; }
+  .compare-cell.after-cell::before { content: '→ '; color: var(--yellow); font-weight: 500; }
+  @media (max-width: 720px) {
+    .compare-row { grid-template-columns: 1fr; gap: 0.4rem; padding: 1rem 1.15rem; }
+    .compare-row-head { display: none; }
+    .compare-row-label::after { content: ''; display: block; height: 1px; background: var(--line); margin-top: 0.4rem; }
+    .compare-cell.before-cell::before { content: 'Before: '; font-style: italic; color: var(--brand); margin-right: 0.4rem; text-decoration: none; }
+    .compare-cell.after-cell::before { content: 'Recommended: '; font-style: italic; color: var(--brand); margin-right: 0.4rem; }
+  }
+
+  /* ========== PROTECTION LAYER VISUAL ========== */
+  .layers { background: var(--cream); padding: clamp(4rem, 8vw, 6rem) 2rem; border-top: 1px solid var(--line); }
+  .layers-stack { max-width: 720px; margin: 2rem auto 0 auto; }
+  .layer { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem; padding: 1.5rem 1.75rem; background: #fff; border: 1px solid var(--line); margin-bottom: 0.5rem; position: relative; transition: all 0.25s ease; }
+  .layer:hover { border-color: var(--yellow); }
+  .layer.layer-top { background: linear-gradient(135deg, #fffbf2 0%, #fff7e3 100%); border-color: var(--yellow); }
+  .layer-tier { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brand); }
+  .layer-name { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 500; color: var(--ink); margin-top: 0.25rem; }
+  .layer-desc { font-family: 'Inter', sans-serif; font-size: 0.92rem; color: var(--ink-soft); line-height: 1.5; margin-top: 0.5rem; max-width: 460px; }
+  .layer-limit { font-family: 'Fraunces', serif; font-size: 1.75rem; color: var(--brand); font-weight: 400; letter-spacing: -0.01em; white-space: nowrap; }
+  .layer-top .layer-limit { color: var(--yellow); }
+  .layers-foundation { text-align: center; padding: 1.25rem; font-family: 'Fraunces', serif; font-style: italic; font-size: 0.95rem; color: var(--muted); border: 1px dashed var(--line-strong); margin-top: 0.5rem; background: rgba(10, 22, 40, 0.02); }
+  .layers-caption { max-width: 720px; margin: 1.5rem auto 0 auto; font-family: 'Fraunces', serif; font-style: italic; font-size: 0.88rem; line-height: 1.55; color: var(--muted); text-align: center; }
+  @media (max-width: 600px) {
+    .layer { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.25rem; }
+    .layer-limit { font-size: 1.4rem; }
+  }
+
+  /* ========== FLOATING CHAT BUBBLE ========== */
+  .chat-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color: var(--cream); border: 1px solid rgba(255, 163, 0, 0.4); cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 32px rgba(10, 22, 40, 0.35); z-index: 850; transition: all 0.3s ease; opacity: 0; transform: translateY(20px); pointer-events: none; }
+  .chat-fab.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .chat-fab:hover { background: var(--navy-mid); transform: translateY(-2px); box-shadow: 0 16px 40px rgba(10, 22, 40, 0.4); }
+  .chat-fab svg { width: 22px; height: 22px; }
+  @media (max-width: 600px) {
+    .chat-fab { bottom: 1.25rem; right: 1.25rem; width: 50px; height: 50px; }
+    .chat-fab svg { width: 19px; height: 19px; }
+  }
+  .chat-fab-pulse { position: absolute; top: -4px; right: -4px; width: 14px; height: 14px; border-radius: 50%; background: var(--yellow); border: 2px solid var(--cream); animation: pulse 2.5s ease-in-out infinite; }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.7; }
+  }
+  .chat-panel { position: fixed; bottom: 1.75rem; right: 1.75rem; width: min(380px, calc(100vw - 2rem)); max-height: min(560px, calc(100vh - 4rem)); background: var(--cream); border: 1px solid var(--line); display: flex; flex-direction: column; box-shadow: 0 24px 60px rgba(10, 22, 40, 0.25); z-index: 851; transform: translateY(20px) scale(0.96); opacity: 0; pointer-events: none; transition: all 0.28s ease; transform-origin: bottom right; }
+  .chat-panel.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+  .chat-header { background: var(--navy); color: var(--cream); padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: 0.85rem; border-bottom: 1px solid rgba(255, 163, 0, 0.2); }
+  .chat-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--yellow); color: var(--navy); display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 500; }
+  .chat-header-info { flex: 1; }
+  .chat-header-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 500; line-height: 1.1; }
+  .chat-header-status { font-size: 0.72rem; letter-spacing: 0.05em; color: rgba(250, 246, 239, 0.7); margin-top: 0.15rem; display: flex; align-items: center; gap: 0.4rem; }
+  .chat-header-status::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #4ade80; display: inline-block; }
+  .chat-close { background: transparent; border: none; color: var(--cream); cursor: pointer; padding: 0.35rem; opacity: 0.7; transition: opacity 0.2s ease; }
+  .chat-close:hover { opacity: 1; }
+  .chat-close svg { width: 18px; height: 18px; }
+  .chat-body { flex: 1; padding: 1.25rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.85rem; }
+  .chat-message { max-width: 85%; padding: 0.7rem 0.95rem; font-size: 0.9rem; line-height: 1.45; }
+  .chat-message.from-austin { align-self: flex-start; background: #fff; border: 1px solid var(--line); color: var(--ink); }
+  .chat-message.from-user { align-self: flex-end; background: var(--navy); color: var(--cream); }
+  .chat-message-greeting { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.95rem; }
+  .chat-form { padding: 0.85rem 1rem 1.1rem 1rem; border-top: 1px solid var(--line); background: #fff; }
+  .chat-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .chat-form input, .chat-form textarea { width: 100%; padding: 0.55rem 0.7rem; border: 1px solid var(--line); font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--ink); background: var(--cream); resize: none; }
+  .chat-form input:focus, .chat-form textarea:focus { outline: none; border-color: var(--yellow); }
+  .chat-form textarea { min-height: 64px; }
+  .chat-form-send { width: 100%; margin-top: 0.55rem; padding: 0.7rem; background: var(--navy); color: var(--cream); border: none; font-family: 'Inter', sans-serif; font-size: 0.85rem; letter-spacing: 0.05em; cursor: pointer; transition: background 0.2s ease; text-transform: uppercase; }
+  .chat-form-send:hover { background: var(--navy-mid); }
+  .chat-form-note { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.72rem; color: var(--muted); margin-top: 0.55rem; text-align: center; line-height: 1.4; }
+
+  /* ========== GLOBAL DISCLAIMER ========== */
+  .global-disclaimer { background: var(--navy); color: rgba(250, 246, 239, 0.6); padding: 2rem; font-family: 'Inter', sans-serif; font-size: 0.78rem; line-height: 1.6; border-top: 1px solid rgba(255, 163, 0, 0.15); }
+  .global-disclaimer .wrap { max-width: 980px; margin: 0 auto; }
+  .global-disclaimer-label { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.75rem; opacity: 0.85; }
+
+  /* ========== SCROLL OFFSET FOR ANCHORS ========== */
+  section[id], header[id] { scroll-margin-top: 1.5rem; }
+
+  .prod { padding: 6.5rem 2rem; }
+  .prod .pwrap { max-width: 1080px; margin: 0 auto; }
+  .prod-cream { background: var(--cream); border-top: 1px solid var(--line); }
+  .prod-navy { background: var(--navy); color: var(--cream); }
+  .prod-navy-deep { background: linear-gradient(180deg, #070d1a 0%, var(--navy) 100%); color: var(--cream); }
+  .prod-eyebrow { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brand); margin-bottom: 1rem; }
+  .prod-navy .prod-eyebrow, .prod-navy-deep .prod-eyebrow { color: var(--yellow); opacity: 0.95; }
+  .prod-title { font-family: 'Fraunces', Georgia, serif; font-weight: 300; letter-spacing: -0.02em; line-height: 1.06; font-size: clamp(2rem, 4vw, 3.1rem); color: var(--ink); margin-bottom: 1.4rem; }
+  .prod-navy .prod-title, .prod-navy-deep .prod-title { color: var(--cream); }
+  .prod-title em { font-style: italic; color: var(--brand); }
+  .prod-navy .prod-title em, .prod-navy-deep .prod-title em { color: var(--yellow); }
+  .prod-lead { font-size: clamp(1.02rem, 1.3vw, 1.18rem); line-height: 1.7; font-weight: 300; max-width: 680px; color: var(--ink-soft); margin-bottom: 3rem; }
+  .prod-navy .prod-lead, .prod-navy-deep .prod-lead { color: rgba(250,246,239,0.78); }
+
+  .cov-ledger { border: 1px solid var(--line); }
+  .prod-navy .cov-ledger, .prod-navy-deep .cov-ledger { border-color: rgba(255,163,0,0.22); background: var(--navy-mid); }
+  .cov-item { border-bottom: 1px solid var(--line); }
+  .prod-navy .cov-item, .prod-navy-deep .cov-item { border-bottom-color: rgba(250,246,239,0.08); }
+  .cov-item:last-child { border-bottom: none; }
+  .cov-row2 { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.15rem 1.6rem; list-style: none; cursor: pointer; }
+  .cov-row2::-webkit-details-marker { display: none; }
+  .cov-row2::marker { content: ""; }
+  .cov-row2:hover { background: rgba(0,75,137,0.035); }
+  .prod-navy .cov-row2:hover, .prod-navy-deep .cov-row2:hover { background: rgba(255,163,0,0.05); }
+  .cov-row2:focus-visible { outline: 2px solid var(--yellow); outline-offset: -2px; }
+  .cov-key { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 500; color: var(--ink); }
+  .prod-navy .cov-key, .prod-navy-deep .cov-key { color: var(--cream); }
+  .cov-val { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 500; color: var(--ink); white-space: nowrap; letter-spacing: -0.01em; }
+  .prod-navy .cov-val, .prod-navy-deep .cov-val { color: var(--cream); }
+  .cov-val.accent { color: var(--brand); }
+  .prod-navy .cov-val.accent, .prod-navy-deep .cov-val.accent { color: var(--yellow); }
+  .cov-more { display: inline-flex; align-items: center; justify-content: center; width: 17px; height: 17px; margin-left: 0.4rem; border: 1px solid currentColor; border-radius: 50%; font-size: 0.72rem; line-height: 1; opacity: 0.4; transition: transform 0.2s ease, opacity 0.2s ease; vertical-align: middle; font-family: 'Inter', sans-serif; }
+  details[open] > .cov-row2 .cov-more { transform: rotate(45deg); opacity: 0.85; }
+  .cov-explain { padding: 0 1.6rem 1.25rem; font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); max-width: 62ch; }
+  .prod-navy .cov-explain, .prod-navy-deep .cov-explain { color: rgba(250,246,239,0.72); }
+  .cov-explain b { color: var(--ink); font-weight: 600; }
+  .prod-navy .cov-explain b, .prod-navy-deep .cov-explain b { color: var(--cream); }
+  .ledger-hint { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.82rem; color: var(--muted); margin: 0 0 0.85rem; }
+  .prod-navy .ledger-hint, .prod-navy-deep .ledger-hint { color: rgba(250,246,239,0.55); }
+
+  .ded-head { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; color: var(--ink-soft); margin: 3.2rem 0 1.3rem; }
+  .ded-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  @media (max-width: 760px) { .ded-grid { grid-template-columns: 1fr; } }
+  .ded-card { position: relative; border: 1px solid var(--line); background: var(--paper); padding: 1.6rem 1.5rem; }
+  .ded-card.rec { border-color: var(--yellow); background: #fff; box-shadow: 0 18px 40px -28px rgba(10,22,40,0.45); }
+  .ded-tag { position: absolute; top: -1px; right: 1.2rem; background: var(--yellow); color: var(--navy); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.35rem 0.7rem; }
+  .ded-ded { font-family: 'Fraunces', serif; font-size: 1.55rem; color: var(--ink); margin-bottom: 0.25rem; }
+  .ded-waiver { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.2rem; }
+  .ded-prem { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 500; color: var(--brand); }
+  .ded-prem span { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--muted); font-weight: 400; }
+
+  .stack { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .stack-row { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.5rem; border: 1px solid rgba(255,163,0,0.22); }
+  .stack-base { background: rgba(250,246,239,0.05); }
+  .stack-umb { background: rgba(255,163,0,0.10); border-color: rgba(255,163,0,0.4); }
+  .stack-k { font-family: 'Fraunces', serif; font-size: 1.02rem; color: var(--cream); }
+  .stack-k small { display: block; font-family: 'Inter', sans-serif; font-size: 0.78rem; color: rgba(250,246,239,0.55); margin-top: 0.2rem; letter-spacing: 0.02em; }
+  .stack-v { font-family: 'Fraunces', serif; font-size: 1.3rem; color: var(--cream); }
+  .stack-umb .stack-v { color: var(--yellow); }
+  .stack-total { display: flex; align-items: center; justify-content: space-between; padding: 1.3rem 1.5rem; background: var(--yellow); margin-top: 0.5rem; }
+  .stack-total .stack-k { color: var(--navy); }
+  .stack-total .stack-v { color: var(--navy); font-size: 1.7rem; }
+
+  .disc-callout { margin-top: 2.4rem; padding: 1.8rem 2rem; background: #fff; border-left: 3px solid var(--yellow); box-shadow: 0 16px 40px -30px rgba(10,22,40,0.4); }
+  .disc-label { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brand); margin-bottom: 0.85rem; }
+  .disc-body { font-size: 0.98rem; line-height: 1.65; color: var(--ink-soft); }
+  .disc-body strong { color: var(--ink); font-weight: 600; }
+
+  .opt3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 0.6rem; }
+  @media (max-width: 680px) { .opt3 { grid-template-columns: 1fr; } }
+  .opt3-card { border: 1px solid rgba(255,163,0,0.22); background: var(--navy-mid); padding: 1.7rem 1.5rem 1.5rem; text-align: center; position: relative; cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
+  .opt3-limit { font-family: 'Fraunces', serif; font-size: 1.9rem; color: var(--cream); }
+  .opt3-cap { font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,246,239,0.5); margin: 0.5rem 0 1.1rem; }
+  .opt3-prem { font-family: 'Fraunces', serif; font-size: 1.3rem; color: var(--yellow); }
+  .opt3-prem span { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: rgba(250,246,239,0.55); }
+  .opt3-flag { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--yellow); font-weight: 700; margin-top: 0.7rem; min-height: 0.9rem; }
+
+  .prod-total { margin-top: 2.6rem; display: inline-flex; align-items: baseline; gap: 1rem; padding: 1.1rem 1.8rem; border: 1px solid var(--line); background: var(--paper); }
+  .prod-navy .prod-total, .prod-navy-deep .prod-total { background: rgba(255,163,0,0.08); border-color: rgba(255,163,0,0.3); }
+  .prod-total-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+  .prod-navy .prod-total-label, .prod-navy-deep .prod-total-label { color: rgba(250,246,239,0.6); }
+  .prod-total-val { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 500; color: var(--ink); }
+  .prod-navy .prod-total-val, .prod-navy-deep .prod-total-val { color: var(--yellow); }
+
+  /* no-JS / static */
+  .reveal { opacity: 1 !important; transform: none !important; }
+  body { padding-left: 0 !important; }
+  .umb-radio, .scn-radio { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+  .opt3-check { display: none; position: absolute; top: 0.7rem; left: 0.8rem; font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--navy); background: var(--yellow); padding: 0.2rem 0.5rem; }
+  .umb-radio:checked + .opt3-card { border-color: var(--yellow); background: rgba(255,163,0,0.14); box-shadow: 0 0 0 1px var(--yellow) inset; }
+  .umb-radio:checked + .opt3-card .opt3-check { display: inline-block; }
+  .umb-radio:focus-visible + .opt3-card { outline: 2px solid var(--yellow); outline-offset: 3px; }
+  .opt3-hint { text-align: center; font-size: 0.82rem; color: rgba(250,246,239,0.6); margin: 0.2rem 0 1.4rem; font-style: italic; font-family: 'Fraunces', serif; }
+
+  .v5 { display: inline; }
+  .v10, .v15 { display: none; }
+  body:has(#umb10:checked) .v5 { display: none; }
+  body:has(#umb10:checked) .v10 { display: inline; }
+  body:has(#umb15:checked) .v5 { display: none; }
+  body:has(#umb15:checked) .v15 { display: inline; }
+
+  /* umbrella explainer (click to open) */
+  .umb-explain { border: 1px solid rgba(255,163,0,0.22); background: var(--navy-mid); margin-bottom: 2rem; }
+  .umb-explain summary { cursor: pointer; padding: 1.05rem 1.5rem; font-family: 'Fraunces', serif; font-style: italic; color: var(--cream); list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .umb-explain summary::-webkit-details-marker { display: none; }
+  .umb-explain summary::marker { content: ""; }
+  .umb-explain summary .cov-more { color: var(--yellow); border-color: var(--yellow); opacity: 0.8; }
+  .umb-explain[open] > summary .cov-more { transform: rotate(45deg); }
+  .umb-explain summary:focus-visible { outline: 2px solid var(--yellow); outline-offset: -2px; }
+  .umb-explain-body { padding: 0 1.5rem 1.3rem; font-size: 0.92rem; line-height: 1.65; color: rgba(250,246,239,0.72); max-width: 66ch; }
+
+  /* CSS-only scenario tabs */
+  .scn { display: grid; grid-template-columns: 250px 1fr; gap: 1.5rem; align-items: start; }
+  .scn .scenarios-tabs { display: flex; flex-direction: column; gap: 0.75rem; }
+  .scn .scenarios-tabs label.scenario-tab { cursor: pointer; }
+  .scn-panels .scenario-panel { display: none; }
+  #scn-fire:checked ~ .scn-panels .scenario-panel[data-p="fire"],
+  #scn-auto:checked ~ .scn-panels .scenario-panel[data-p="auto"],
+  #scn-law:checked ~ .scn-panels .scenario-panel[data-p="law"] { display: block; }
+  #scn-fire:checked ~ .scenarios-tabs label[for="scn-fire"],
+  #scn-auto:checked ~ .scenarios-tabs label[for="scn-auto"],
+  #scn-law:checked ~ .scenarios-tabs label[for="scn-law"] { border-color: var(--yellow); background: rgba(255,163,0,0.08); border-left: 3px solid var(--yellow); }
+  #scn-fire:focus-visible ~ .scenarios-tabs label[for="scn-fire"],
+  #scn-auto:focus-visible ~ .scenarios-tabs label[for="scn-auto"],
+  #scn-law:focus-visible ~ .scenarios-tabs label[for="scn-law"] { outline: 2px solid var(--yellow); outline-offset: 2px; }
+  @media (max-width: 760px) {
+    .scn { grid-template-columns: 1fr; }
+    .scn .scenarios-tabs { flex-direction: row; overflow-x: auto; padding-bottom: 0.25rem; }
+    .scn .scenarios-tabs label.scenario-tab { flex: 0 0 auto; min-width: 175px; }
+  }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { padding-left: 0 !important; }
+    .scn-panels .scenario-panel { display: block !important; margin-bottom: 1rem; }
+    .cov-more, .opt3-hint, .ledger-hint { display: none !important; }
+    details > .cov-explain, details > .umb-explain-body { display: block !important; }
+    section, .prod, .premium, .cta { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero" id="overview">
+  <div class="hero-top">
+    <div class="hero-mark">
+      <svg class="hero-mark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 L22 6 V12 C22 17 17.5 21.5 12 23 C6.5 21.5 2 17 2 12 V6 Z"/></svg>
+      <span class="hero-mark-text">Safeshield Insurance</span>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">A Chubb Masterpiece Protection Plan, Custom Built</div>
+    <h1 class="display hero-title">For Jose <em>Ortiz.</em></h1>
+    <p class="hero-subtitle">A complete protection plan for 29 Rogues Ridge, Weston, built coverage by coverage. We lead with the home, then the auto, the excess liability, and your valuable articles. Tap any line to see what it does, and set your umbrella limit as you go.</p>
+  </div>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Primary Property<span class="hero-meta-value">29 Rogues Ridge, Weston CT</span></div>
+    <div class="hero-meta-item">Policy Term<span class="hero-meta-value">6/23/2026 to 6/23/2027</span></div>
+    <div class="hero-meta-item">Your Agent<span class="hero-meta-value">Austin Glazer</span></div>
+    <div class="hero-meta-item">Carrier<span class="hero-meta-value">Chubb Masterpiece</span></div>
+  </div>
+</header>
+
+<section class="glance" id="glance">
+  <div class="wrap">
+    <div class="glance-eyebrow reveal">The Plan at a Glance</div>
+    <h2 class="glance-title reveal">Built around your home at <em>29 Rogues Ridge.</em></h2>
+    <p class="glance-sub reveal">A snapshot of the recommended starting plan. Each policy is broken out below with its own total, and you can set the umbrella limit yourself as you read.</p>
+    <div class="glance-grid">
+      <div class="glance-card featured reveal"><div class="glance-card-label">Home Dwelling</div><div class="glance-card-value yellow">$3.7M</div><div class="glance-card-note">Deluxe, with extended replacement cost</div></div>
+      <div class="glance-card reveal"><div class="glance-card-label">Contents</div><div class="glance-card-value">$1.85M</div><div class="glance-card-note">Full replacement cost</div></div>
+      <div class="glance-card reveal"><div class="glance-card-label">Total Liability Ceiling</div><div class="glance-card-value">$5.5M</div><div class="glance-card-note">$500K underlying + $5M umbrella to start</div></div>
+      <div class="glance-card reveal"><div class="glance-card-label">Vehicles</div><div class="glance-card-value">Two</div><div class="glance-card-note">Liability, comprehensive and collision</div></div>
+      <div class="glance-card reveal"><div class="glance-card-label">Valuable Articles</div><div class="glance-card-value">$50,000</div><div class="glance-card-note">Blanket jewelry, worldwide</div></div>
+      <div class="glance-card reveal"><div class="glance-card-label">Complete Plan</div><div class="glance-card-value">$25,526</div><div class="glance-card-note">Per year, at the $5M umbrella start</div><div class="glance-status">Recommended Plan</div></div>
+    </div>
+    <div class="glance-disclaimer reveal">Illustrative summary only. Coverage is subject to underwriting approval, issued policy forms, endorsements, exclusions, limits, deductibles, and claim facts. In the event of any conflict, the issued policy controls.</div>
+  </div>
+</section>
+
+<section class="prod prod-cream" id="home">
+  <div class="pwrap">
+    <div class="prod-eyebrow reveal">Coverage 01 &middot; Home</div>
+    <h2 class="prod-title reveal">The home, rebuilt to its <em>full standard.</em></h2>
+    <p class="prod-lead reveal">Everything starts here. Your home at 29 Rogues Ridge is written on Chubb's Deluxe form, which is designed to rebuild to the home's full replacement cost and to settle contents at replacement value rather than a depreciated number. These limits hold across every option below. The only thing that changes is the deductible.</p>
+    <div class="ledger-hint reveal">Tap any line to see what it covers.</div><div class="cov-ledger reveal"><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Dwelling <span class="cov-more">+</span></div><div class="cov-val accent">$3,700,000</div></summary><div class="cov-explain">Deluxe coverage that rebuilds the house after a covered loss. Because it includes <b>extended replacement cost</b>, Chubb is designed to keep paying even if the rebuild comes in higher than this figure.</div></details><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Other structures <span class="cov-more">+</span></div><div class="cov-val ">$740,000</div></summary><div class="cov-explain">Covers detached structures on the property such as a garage, shed, pool house, or fencing, separate from the main home.</div></details><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Contents <span class="cov-more">+</span></div><div class="cov-val ">$1,850,000</div></summary><div class="cov-explain">Your belongings, settled at <b>full replacement cost</b>, meaning what it costs to replace them new today rather than a depreciated value.</div></details><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Personal liability <span class="cov-more">+</span></div><div class="cov-val ">$500,000</div></summary><div class="cov-explain">If someone is hurt or their property is damaged and you are responsible, this is designed to respond per occurrence. It is also the base the umbrella sits on top of.</div></details><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Additional living expense <span class="cov-more">+</span></div><div class="cov-val ">Full</div></summary><div class="cov-explain">If a covered loss makes the home unlivable, full coverage is designed to pay for comparable housing and added living costs while it is repaired.</div></details><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Wind and hail deductible <span class="cov-more">+</span></div><div class="cov-val ">3%</div></summary><div class="cov-explain">Losses from wind or hail carry their own 3% deductible, separate from the base deductible you choose below.</div></details><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Protective credits <span class="cov-more">+</span></div><div class="cov-val ">Applied</div></summary><div class="cov-explain">Your monitored central station burglar and fire alarms lower the premium, since they reduce the chance of a large loss.</div></details></div>
+    <div class="ded-head reveal">Choose your deductible. The coverage above does not change.</div>
+    <div class="ded-grid reveal">
+      <div class="ded-card rec"><div class="ded-tag">Recommended</div><div class="ded-ded">$25,000</div><div class="ded-waiver">Large loss deductible waiver applies</div><div class="ded-prem">$18,637 <span>per year</span></div></div>
+      <div class="ded-card"><div class="ded-ded">$50,000</div><div class="ded-waiver">Large loss deductible waiver applies</div><div class="ded-prem">$18,388 <span>per year</span></div></div>
+      <div class="ded-card"><div class="ded-ded">$100,000</div><div class="ded-waiver">No deductible waiver</div><div class="ded-prem">$14,198 <span>per year</span></div></div>
+    </div>
+    <div class="disc-callout reveal">
+      <div class="disc-label">Why we recommend the $25,000 option</div>
+      <div class="disc-body">The deductible waiver is the reason. On the $25,000 and $50,000 options, the deductible is set up to be forgiven on larger covered losses, so on the claims that matter most your real out of pocket is designed to be far lower than the number on the page. Moving from $25,000 to $50,000 saves only about <strong>$249 a year</strong> while doubling your exposure, so it rarely pays off. The $100,000 option drops the waiver entirely, which is why it sits separately.</div>
+    </div>
+    <div class="prod-total reveal"><span class="prod-total-label">Home premium, recommended option</span><span class="prod-total-val">$18,637 / yr</span></div>
+  </div>
+</section>
+
+<section class="prod prod-navy" id="auto">
+  <div class="pwrap">
+    <div class="prod-eyebrow reveal">Coverage 02 &middot; Auto</div>
+    <h2 class="prod-title reveal">Two vehicles, on the <em>same standard.</em></h2>
+    <p class="prod-lead reveal">Both cars carry the same strong liability and uninsured motorist limits as the rest of the plan, with comprehensive and collision protection and Chubb's repair standards, which are designed to restore the vehicle properly after a covered loss.</p>
+    <div class="ledger-hint reveal">Tap any line to see what it covers.</div><div class="cov-ledger reveal"><details class="cov-item"><summary class="cov-row2"><div class="cov-key">2018 Nissan Armada <span class="cov-more">+</span></div><div class="cov-val accent">$2,712 / yr</div></summary><div class="cov-explain">The annual premium for the Armada, garaged in Weston. It includes liability, uninsured motorist, comprehensive, and collision.</div></details><details class="cov-item"><summary class="cov-row2"><div class="cov-key">2010 Lexus IS 350 <span class="cov-more">+</span></div><div class="cov-val accent">$2,418 / yr</div></summary><div class="cov-explain">The annual premium for the Lexus, garaged in Weston. It includes liability, uninsured motorist, comprehensive, and collision.</div></details><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Liability, each vehicle <span class="cov-more">+</span></div><div class="cov-val ">$500,000</div></summary><div class="cov-explain">If you are at fault in an accident, this is designed to respond to the other party's injuries and property damage, up to $500,000 on each vehicle.</div></details><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Uninsured and underinsured motorist <span class="cov-more">+</span></div><div class="cov-val ">$500,000</div></summary><div class="cov-explain">If a driver with no insurance or too little insurance hurts you or your family, this is designed to step in for your side, up to $500,000.</div></details><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Comprehensive and collision <span class="cov-more">+</span></div><div class="cov-val ">$1,000</div></summary><div class="cov-explain">Covers damage to your own vehicles. The $1,000 is what you pay on each claim before coverage applies.</div></details><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Credits <span class="cov-more">+</span></div><div class="cov-val ">Applied</div></summary><div class="cov-explain">Anti lock brakes, vehicle ownership, and bundling with the home are all applied to lower the premium.</div></details></div>
+    <div class="prod-total reveal"><span class="prod-total-label">Auto premium, both vehicles</span><span class="prod-total-val">$5,130 / yr</span></div>
+  </div>
+</section>
+
+<section class="prod prod-navy-deep" id="umbrella">
+  <div class="pwrap">
+    <div class="prod-eyebrow reveal">Coverage 03 &middot; Excess Liability</div>
+    <h2 class="prod-title reveal">Protection that sits <em>above everything.</em></h2>
+    <p class="prod-lead reveal">Excess liability, often called an umbrella, sits on top of the liability on both of your homes and both vehicles, worldwide. Because you own two homes, five million is the sensible floor. It is the minimum that reflects what is at stake, and you can step up from there anytime.</p>
+
+    <details class="umb-explain reveal">
+      <summary>What does an umbrella actually do? <span class="cov-more">+</span></summary>
+      <div class="umb-explain-body">It sits on top of the liability already on your home and auto. When a covered claim runs past those underlying limits, the umbrella is designed to provide the next layer of protection, worldwide, including certain personal injury suits such as libel, slander, and defamation. Selecting a higher limit raises the ceiling shown below.</div>
+    </details>
+
+    <div class="opt3 reveal" role="radiogroup" aria-label="Excess liability limit">
+      <input class="umb-radio" type="radio" name="umb" id="umb5" checked aria-label="$5 million limit">
+      <label for="umb5" class="opt3-card"><span class="opt3-check">Selected</span><div class="opt3-limit">$5M</div><div class="opt3-cap">Excess limit</div><div class="opt3-prem">$1,078 <span>/ yr</span></div><div class="opt3-flag">Recommended start</div></label>
+      <input class="umb-radio" type="radio" name="umb" id="umb10" aria-label="$10 million limit">
+      <label for="umb10" class="opt3-card"><span class="opt3-check">Selected</span><div class="opt3-limit">$10M</div><div class="opt3-cap">Excess limit</div><div class="opt3-prem">$1,649 <span>/ yr</span></div><div class="opt3-flag">&nbsp;</div></label>
+      <input class="umb-radio" type="radio" name="umb" id="umb15" aria-label="$15 million limit">
+      <label for="umb15" class="opt3-card"><span class="opt3-check">Selected</span><div class="opt3-limit">$15M</div><div class="opt3-cap">Excess limit</div><div class="opt3-prem">$4,144 <span>/ yr</span></div><div class="opt3-flag">&nbsp;</div></label>
+    </div>
+    <div class="opt3-hint reveal">Tap a card to set your limit. The ceiling below and the plan total update with your choice.</div>
+
+    <div class="stack reveal">
+      <div class="stack-row stack-base"><div class="stack-k">Home and auto liability<small>The underlying base on every policy</small></div><div class="stack-v">$500,000</div></div>
+      <div class="stack-row stack-umb"><div class="stack-k">Personal umbrella<small>Sits over both homes and both vehicles</small></div><div class="stack-v"><span class="v5">$5,000,000</span><span class="v10">$10,000,000</span><span class="v15">$15,000,000</span></div></div>
+      <div class="stack-total"><div class="stack-k">Total liability ceiling</div><div class="stack-v"><span class="v5">$5,500,000</span><span class="v10">$10,500,000</span><span class="v15">$15,500,000</span></div></div>
+    </div>
+
+    <div class="prod-total reveal"><span class="prod-total-label">Excess liability premium, your selection</span><span class="prod-total-val"><span class="v5">$1,078</span><span class="v10">$1,649</span><span class="v15">$4,144</span> / yr</span></div>
+  </div>
+</section>
+
+<section class="prod prod-cream" id="valuables">
+  <div class="pwrap">
+    <div class="prod-eyebrow reveal">Coverage 04 &middot; Valuable Articles (PAF)</div>
+    <h2 class="prod-title reveal">Your jewelry, scheduled the <em>right way.</em></h2>
+    <p class="prod-lead reveal">A Personal Articles Floater covers your jewelry on a blanket basis, worldwide, with no appraisal needed under Chubb's threshold and automatic coverage for newly acquired pieces. It is a small line on its own, but it does more work than its premium suggests.</p>
+    <div class="ledger-hint reveal">Tap any line to see what it covers.</div><div class="cov-ledger reveal"><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Jewelry, blanket <span class="cov-more">+</span></div><div class="cov-val accent">$50,000</div></summary><div class="cov-explain">Covers your jewelry anywhere in the world on a blanket basis, with no appraisal needed under Chubb's threshold and broader protection than a standard homeowners sublimit.</div></details><details class="cov-item"><summary class="cov-row2"><div class="cov-key">Newly acquired items <span class="cov-more">+</span></div><div class="cov-val ">Included</div></summary><div class="cov-explain">New pieces you buy are picked up automatically for a period, so you are not exposed between buying an item and scheduling it.</div></details></div>
+    <div class="disc-callout reveal">
+      <div class="disc-label">Why we always add the PAF with Chubb</div>
+      <div class="disc-body">Writing the Personal Articles Floater alongside the home, auto, and excess rounds out the Chubb account. Chubb rewards a complete account with its <strong>portfolio discount</strong>, which is already applied across the home, auto, and excess lines on this proposal. In practice, the modest cost of the floater is designed to be offset by the account credit it helps unlock, so it tends to pay for itself while adding real worldwide coverage on your jewelry. Final discount eligibility is subject to Chubb's underwriting.</div>
+    </div>
+    <div class="prod-total reveal"><span class="prod-total-label">Valuable articles premium</span><span class="prod-total-val">$681 / yr</span></div>
+  </div>
+</section>
+
+<section class="scenarios" id="scenarios">
+  <div class="wrap">
+    <div class="scenarios-header">
+      <div class="section-eyebrow reveal">What Happens If</div>
+      <h2 class="display section-title reveal">Three moments this plan was <em>built for.</em></h2>
+      <p class="lead reveal">Insurance is abstract until it is not. Tap a tab to walk through how the recommended plan is designed to respond. These are illustrations, not promises of outcome.</p>
+    </div>
+    <div class="scn reveal">
+      <input class="scn-radio" type="radio" name="scn" id="scn-fire" checked aria-label="House fire scenario">
+      <input class="scn-radio" type="radio" name="scn" id="scn-auto" aria-label="Car accident scenario">
+      <input class="scn-radio" type="radio" name="scn" id="scn-law" aria-label="Lawsuit scenario">
+      <div class="scenarios-tabs" role="tablist">
+        <label for="scn-fire" class="scenario-tab"><svg class="scenario-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c1 3 3 4 3 7a3 3 0 11-6 0c0-1 .5-2 1-3M5 14c0 4 3 7 7 7s7-3 7-7c0-2-1-3-2-4-1 2-2 3-4 3-3 0-4-3-4-5-2 2-4 3-4 6z"/></svg><span class="scenario-tab-name">House Fire</span></label>
+        <label for="scn-auto" class="scenario-tab"><svg class="scenario-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13l2-6h14l2 6M3 13v5h2v-2h14v2h2v-5M3 13h18M7 16h.01M17 16h.01"/></svg><span class="scenario-tab-name">Serious Car Accident</span></label>
+        <label for="scn-law" class="scenario-tab"><svg class="scenario-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M5 8l7-5 7 5M3 10l4 8h-4zM17 10l4 8h-4zM4 18h6M14 18h6"/></svg><span class="scenario-tab-name">Lawsuit Above Limits</span></label>
+      </div>
+      <div class="scn-panels">
+        <div class="scenario-panel" data-p="fire">
+          <div class="scenario-panel-eyebrow">Scenario &middot; House Fire</div>
+          <div class="scenario-panel-title">A covered fire causes major damage to the home.</div>
+          <div class="scenario-panel-situation">A kitchen fire spreads and damages a significant portion of 29 Rogues Ridge. The home is not livable for an extended period while it is repaired and rebuilt.</div>
+          <div class="scenario-panel-section"><div class="scenario-panel-section-label">Which coverage layers may respond</div><ul class="scenario-panel-list">
+            <li>Dwelling coverage is designed to address structural repair and rebuilding costs, subject to policy terms.</li>
+            <li>Extended replacement cost is designed to help if rebuilding runs higher than the $3,700,000 stated amount.</li>
+            <li>Contents at full replacement cost is designed to address furniture, electronics, and clothing at replacement value rather than a depreciated value.</li>
+            <li>Additional living expense at full coverage is designed to help with comparable temporary housing while repairs are underway.</li>
+            <li>On the recommended option, the $25,000 deductible is set up with a large loss waiver designed to be forgiven on larger covered losses.</li>
+          </ul></div>
+          <div class="scenario-panel-section"><div class="scenario-panel-section-label">Important assumptions</div><div style="font-size:0.9rem;color:var(--ink-soft);line-height:1.55;">Assumes a covered peril, no applicable exclusion, and a claim reported and documented per policy requirements. Wind and hail losses carry a separate 3% deductible.</div></div>
+          <div class="scenario-disclaimer">Illustrative example only. Not a claim determination. Coverage depends on issued policy language, endorsements, exclusions, underwriting, and claim facts.</div>
+        </div>
+        <div class="scenario-panel" data-p="auto">
+          <div class="scenario-panel-eyebrow">Scenario &middot; Serious Car Accident</div>
+          <div class="scenario-panel-title">A serious accident generates a claim that may exceed the underlying auto limit.</div>
+          <div class="scenario-panel-situation">A multi vehicle accident results in injury and property damage claims that, in total, may exceed the $500,000 underlying auto liability limit.</div>
+          <div class="scenario-panel-section"><div class="scenario-panel-section-label">Which coverage layers may respond</div><ul class="scenario-panel-list">
+            <li>Auto liability of $500,000 is designed to respond first, subject to policy terms.</li>
+            <li>If the covered claim runs past the underlying limit, the excess liability policy is designed to provide an additional layer of protection, up to the limit you select.</li>
+            <li>If an uninsured or underinsured driver is at fault, $500,000 of UM and UIM on the auto is designed to help address your own injuries.</li>
+            <li>Comprehensive and collision coverage is designed to address damage to your own vehicles, subject to the deductible.</li>
+          </ul></div>
+          <div class="scenario-panel-section"><div class="scenario-panel-section-label">Important assumptions</div><div style="font-size:0.9rem;color:var(--ink-soft);line-height:1.55;">Assumes a covered accident, no applicable exclusion, and underlying coverage triggering before the excess layer. Actual outcome depends on liability facts, damages, and claim handling.</div></div>
+          <div class="scenario-disclaimer">Illustrative example only. Not a claim determination. Coverage depends on issued policy language, endorsements, exclusions, underwriting, and claim facts.</div>
+        </div>
+        <div class="scenario-panel" data-p="law">
+          <div class="scenario-panel-eyebrow">Scenario &middot; Lawsuit Above Underlying Limits</div>
+          <div class="scenario-panel-title">A claim or lawsuit may exceed the home or auto liability limit.</div>
+          <div class="scenario-panel-situation">A liability claim, whether from an auto accident, an incident at one of the homes, or another covered event, results in damages that may exceed the $500,000 underlying limit.</div>
+          <div class="scenario-panel-section"><div class="scenario-panel-section-label">Which coverage layers may respond</div><ul class="scenario-panel-list">
+            <li>The underlying home or auto liability coverage is designed to respond first, up to its $500,000 limit, subject to policy terms.</li>
+            <li>Once the underlying limit is reached, the excess liability policy is designed to provide an additional layer, up to the limit you select, for a higher total ceiling.</li>
+            <li>Excess liability is worldwide and is designed to respond to covered personal injury matters such as libel, slander, and defamation.</li>
+            <li>Defense costs may be addressed by the responding policy, subject to policy terms.</li>
+          </ul></div>
+          <div class="scenario-panel-section"><div class="scenario-panel-section-label">Important assumptions</div><div style="font-size:0.9rem;color:var(--ink-soft);line-height:1.55;">Assumes a covered event, no applicable exclusion, and a claim within the scope of issued coverage. Final outcome depends on policy language, exclusions, and claim facts.</div></div>
+          <div class="scenario-disclaimer">Illustrative example only. Not a claim determination. Coverage depends on issued policy language, endorsements, exclusions, underwriting, and claim facts.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="premium" id="premium">
+  <div class="wrap">
+    <div class="section-eyebrow reveal">The Investment</div>
+    <h2 class="display section-title reveal">One coordinated plan. <em>One carrier, four policies.</em></h2>
+    <p class="lead reveal">Each line below is totaled on its own, then carried into one complete plan. The umbrella line and the plan total move with the limit you select above.</p>
+    <div class="premium-breakdown reveal">
+      <div class="premium-item"><div class="premium-item-label">Home</div><div class="premium-item-carrier">Chubb Masterpiece &middot; $25,000 deductible</div><div class="premium-item-amount">$18,637</div><div class="premium-item-period">per year</div></div>
+      <div class="premium-item"><div class="premium-item-label">Auto</div><div class="premium-item-carrier">Chubb Masterpiece &middot; two vehicles</div><div class="premium-item-amount">$5,130</div><div class="premium-item-period">per year</div></div>
+      <div class="premium-item"><div class="premium-item-label">Umbrella</div><div class="premium-item-carrier">Chubb Excess Liability &middot; <span class="v5">$5M</span><span class="v10">$10M</span><span class="v15">$15M</span></div><div class="premium-item-amount"><span class="v5">$1,078</span><span class="v10">$1,649</span><span class="v15">$4,144</span></div><div class="premium-item-period">per year</div></div>
+      <div class="premium-item"><div class="premium-item-label">PAF Blanket</div><div class="premium-item-carrier">Chubb Valuable Articles</div><div class="premium-item-amount">$681</div><div class="premium-item-period">per year</div></div>
+    </div>
+    <div class="premium-total reveal">
+      <div class="premium-total-label">Complete Plan</div>
+      <div class="premium-total-amount"><span class="v5">$25,526</span><span class="v10">$26,097</span><span class="v15">$28,592</span></div>
+      <div class="premium-total-period">per year, paid in full</div>
+      <div class="premium-total-context">That is roughly two thousand dollars a month to protect two homes, two vehicles, fifty thousand dollars of jewelry, and your chosen liability ceiling above them. The total moves with the umbrella limit you select above. Quarterly and monthly installments are available. Totals may include state mandated surcharges, taxes, and fees.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="next-steps">
+  <div class="cta-content reveal">
+    <h2 class="display cta-title">Ready when <em>you are.</em></h2>
+    <p class="cta-sub">Tell me which deductible and umbrella limit you would like and I will handle binding, the carrier paperwork, and your effective date. If you want to walk through any line first, that takes about ten minutes.</p>
+    <div class="cta-buttons">
+      <a href="mailto:austin@gosafeshield.com?subject=Ortiz%20%C2%B7%2029%20Rogues%20Ridge%20Plan" class="btn btn-primary">Schedule 15 minutes<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      <a href="tel:+12032042555" class="btn btn-secondary">Call (203) 204-2555</a>
+    </div>
+  </div>
+</section>
+
+<aside class="global-disclaimer">
+  <div class="wrap">
+    <div class="global-disclaimer-label">Important Disclosures</div>
+    This proposal is for discussion and educational purposes only. It is not a policy, binder, or guarantee of coverage. Coverage is subject to underwriting approval, issued policy forms, endorsements, exclusions, limits, deductibles, and claim facts. Scenario walkthroughs are illustrative and are not claim determinations. Premium and limit figures are based on the Chubb quotations referenced below and may change at binding. Quote 1614622401 covers home, auto, and valuable articles. Quote 1614622402 covers excess liability. Proposed term 6/23/2026 to 6/23/2027. Underwritten by Executive Risk Indemnity Inc., a member of the Chubb Group of Insurance Companies. In the event of any conflict between this summary and the issued policy, the issued policy controls. Safeshield Insurance is licensed in NY, CT, NJ, PA, DE, and NC.
+  </div>
+</aside>
+
+<footer>
+  <div>
+    Austin Glazer &middot; Founder &amp; CEO, Safeshield Insurance<br/>
+    2777 Summer Street, 6th Floor &middot; Stamford, CT 06905<br/>
+    <a href="mailto:austin@gosafeshield.com">austin@gosafeshield.com</a> &middot; (203) 204-2555
+  </div>
+  <div style="margin-top: 1.5rem; font-size: 0.7rem; opacity: 0.6;">Quotes shown are based on information provided and are subject to underwriting. Final premium may vary upon binding.</div>
+</footer>
+
+</body>
+</html>
