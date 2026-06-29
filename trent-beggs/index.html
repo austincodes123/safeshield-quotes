@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trent Beggs | The Opportunity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#004B89; --gold:#FFA300; --ink:#0a1628; --ink2:#0f1f38;
+    --paper:#FAFAF8; --line:rgba(10,22,40,0.12); --muted:#5a6573; --glow:rgba(255,163,0,0.5);
+    --blue:#5fa4e0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  .label{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--navy);font-weight:700;margin-bottom:14px}
+  h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.03;letter-spacing:-0.5px;margin-bottom:12px}
+  .lead{font-size:18px;color:var(--muted);max-width:660px;font-weight:300}
+  section{padding:72px 0}
+
+  .hero{background:radial-gradient(1200px 620px at 72% -12%,rgba(0,75,137,0.5),transparent 60%),var(--ink);color:var(--paper);padding:96px 0 92px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:5px;background:linear-gradient(90deg,var(--navy),var(--gold))}
+  .hero .eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+  .hero .pre{font-size:clamp(16px,2.2vw,20px);color:rgba(250,250,248,0.65);font-weight:300;margin-bottom:14px}
+  .hero h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(54px,10vw,118px);line-height:0.94;letter-spacing:-2px;background:linear-gradient(180deg,#fff 8%,var(--gold) 125%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 70px var(--glow)}
+  .hero .sub{margin-top:26px;font-size:clamp(17px,2.2vw,21px);color:rgba(250,250,248,0.82);max-width:660px;font-weight:300}
+  .hero .punch{margin-top:18px;font-size:clamp(18px,2.4vw,22px);color:#fff;font-weight:500;max-width:640px}
+  .scrollcue{margin-top:36px;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,248,0.5);display:inline-flex;align-items:center;gap:10px}
+  .scrollcue .arrow{display:inline-block;animation:bob 1.6s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:38px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 28px}
+  .stat .big{font-family:'Playfair Display',serif;font-weight:900;font-size:38px;color:var(--navy);line-height:1}
+  .stat .big.g{color:var(--gold)}
+  .stat h3{font-size:16px;font-weight:600;margin:14px 0 6px}
+  .stat p{font-size:14px;color:var(--muted);font-weight:300}
+
+  .calc{background:var(--ink);color:var(--paper)}
+  .calc .label{color:var(--gold)} .calc h2{color:#fff} .calc .lead{color:rgba(250,250,248,0.72)}
+  .calc-grid{display:grid;grid-template-columns:320px 1fr;gap:34px;margin-top:44px;align-items:start}
+  .controls{background:var(--ink2);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:28px 26px}
+  .ctrl{margin-bottom:24px}
+  .ctrl:last-child{margin-bottom:0}
+  .ctrl .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+  .ctrl .nm{font-size:13.5px;color:rgba(255,255,255,0.75);font-weight:500}
+  .ctrl .val{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--gold)}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:6px;background:rgba(255,255,255,0.16);outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;background:var(--gold);cursor:pointer;border:3px solid var(--ink);box-shadow:0 0 0 1px var(--gold)}
+  input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--gold);cursor:pointer;border:3px solid var(--ink)}
+  .ctrl-hint{font-size:12px;color:rgba(255,255,255,0.4);margin-top:18px;line-height:1.5}
+
+  .results{display:flex;flex-direction:column;gap:22px}
+  .metric-row{display:grid;grid-template-columns:1fr;gap:18px}
+  .metric{background:var(--ink2);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px}
+  .metric.hero-metric{grid-column:1/-1;background:linear-gradient(135deg,rgba(255,163,0,0.16),rgba(0,75,137,0.16));border:1px solid rgba(255,163,0,0.3)}
+  .metric .cap{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);font-weight:600;margin-bottom:8px}
+  .metric .n{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(28px,5vw,46px);line-height:1;color:#fff}
+  .metric.hero-metric .n{color:var(--gold);font-size:clamp(40px,8vw,64px)}
+  .metric .foot{font-size:13px;color:rgba(255,255,255,0.55);margin-top:8px;font-weight:300}
+
+  .chartcard{background:var(--ink2);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px 24px 18px}
+  .chartcard .ctop{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;flex-wrap:wrap;gap:8px}
+  .chartcard .ctop h4{font-size:15px;font-weight:600;color:#fff}
+  .legend{display:flex;gap:18px;font-size:12px;color:rgba(255,255,255,0.6);margin:6px 0 10px}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:middle}
+  .legend .b{background:var(--blue)} .legend .g{background:var(--gold)}
+  svg{width:100%;height:auto;display:block;overflow:visible}
+
+  /* AWARDS */
+  .awards{background:var(--ink);color:var(--paper);padding-top:0}
+  .awards .label{color:var(--gold)} .awards h2{color:#fff} .awards .lead{color:rgba(250,250,248,0.72)}
+  .tiergrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+  .tier{background:var(--ink2);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;transition:all .3s}
+  .tier.won{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 12px 40px rgba(255,163,0,0.18)}
+  .tier .tn{font-family:'Playfair Display',serif;font-weight:900;font-size:24px;color:#fff}
+  .tier .tpay{font-size:13px;color:var(--gold);font-weight:600;margin:2px 0 4px;letter-spacing:0.5px}
+  .tier .tthr{font-size:12.5px;color:rgba(255,255,255,0.5);margin-bottom:16px}
+  .bar{height:9px;border-radius:6px;background:rgba(255,255,255,0.12);overflow:hidden}
+  .bar > i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#FFC34D,var(--gold));width:0;transition:width .4s ease}
+  .tstate{margin-top:9px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.7)}
+  .tier.won .tstate{color:var(--gold)}
+
+  .extras{display:grid;grid-template-columns:1fr 1.4fr;gap:18px;margin-top:18px}
+  .biggame{background:var(--ink2);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px}
+  .biggame .tn{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:#fff}
+  .biggame .tpay{font-size:13px;color:var(--gold);font-weight:600;margin:2px 0 8px}
+  .biggame p{font-size:13.5px;color:rgba(255,255,255,0.6);font-weight:300}
+  .timepiece{background:linear-gradient(135deg,rgba(255,163,0,0.22),rgba(0,75,137,0.2));border:1px solid rgba(255,163,0,0.4);border-radius:16px;padding:26px 28px;display:flex;flex-direction:column;justify-content:center}
+  .timepiece .kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px}
+  .timepiece .tn{font-family:'Playfair Display',serif;font-weight:900;font-size:26px;color:#fff;line-height:1.1}
+  .timepiece p{font-size:14px;color:rgba(255,255,255,0.75);font-weight:300;margin-top:8px}
+  .timepiece .reach{margin-top:12px;font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--gold)}
+  .timepiece.main{margin-top:18px;align-items:center;text-align:center;padding:42px 32px}
+  .timepiece.main .tn{font-size:clamp(28px,4.4vw,38px)}
+  .timepiece.main p{max-width:580px;margin-left:auto;margin-right:auto}
+  .timepiece.main .reach{font-size:24px;margin-top:16px}
+
+  .bigger{background:var(--paper)}
+  .bigger-box{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:14px;padding:30px 32px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+  .bigger-box .k{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--navy);white-space:nowrap}
+  .bigger-box p{font-size:16px;color:var(--muted);font-weight:300;flex:1;min-width:260px}
+  .bigger-box p b{color:var(--ink);font-weight:600}
+
+  .pay{background:var(--paper);padding-top:24px}
+  .pay h2{font-size:clamp(24px,3.2vw,32px)}
+  .pay .lead{font-size:16px}
+  .paygrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px;max-width:760px}
+  .paycard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+  .paycard .h{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:14px}
+  .payrow{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;font-size:14.5px}
+  .payrow b{font-family:'Playfair Display',serif;font-weight:900;font-size:20px}
+  .payrow.now b{color:var(--navy)} .payrow.col b{color:var(--gold)}
+  .paysal{margin-top:12px;font-size:13.5px;color:var(--muted)}
+  .paysal b{color:var(--ink)}
+  .paynote{margin-top:18px;font-size:13px;color:var(--muted);font-style:italic}
+
+  .platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  .pill{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;font-size:15px;font-weight:600}
+  .pill span{display:block;color:var(--muted);font-weight:300;font-size:13px;margin-top:4px}
+
+  /* ROOKIE YEAR SIMULATOR */
+  .rookie-controls{background:var(--ink2);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:26px 28px;margin:38px 0 22px;display:grid;grid-template-columns:1fr 1fr;gap:18px 36px}
+  .rookie-controls .ctrl{margin-bottom:0}
+  .rookie-controls .ctrl-hint{grid-column:1/-1;color:rgba(255,255,255,0.55);font-size:13px;line-height:1.55}
+  .blend2{margin-top:8px;font-size:12px;color:rgba(255,255,255,0.5)}
+  .metric-row.two{grid-template-columns:1fr 1fr}
+  .metric-row.two .hero-metric{grid-column:auto}
+  .rookie-tiers{margin-top:24px}
+  @media(max-width:760px){.rookie-controls{grid-template-columns:1fr}.metric-row.two{grid-template-columns:1fr}}
+
+  /* FOUNDER NOTE + LAUNCHPAD */
+  .note{background:var(--paper)}
+  .note-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:46px 50px;max-width:840px;box-shadow:0 10px 40px rgba(10,22,40,0.05)}
+  .note-card .eyebrow2{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px}
+  .note-card h2{margin-bottom:18px}
+  .note-card p{font-size:17px;color:#33414f;margin-bottom:15px;font-weight:300;line-height:1.7}
+  .note-quote{border-left:4px solid var(--gold);padding:6px 0 6px 22px;margin:26px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--ink);line-height:1.4}
+  .note-quote span{display:block;font-family:'Outfit',sans-serif;font-style:normal;font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:1.5px;text-transform:uppercase}
+  .note-sign{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--navy);margin-top:22px}
+  .note-sign small{display:block;font-family:'Outfit',sans-serif;font-weight:400;font-size:13px;color:var(--muted);margin-top:3px}
+  .eric-card{background:var(--ink);color:#fff;border-radius:14px;padding:26px 28px;margin-top:30px}
+  .eric-card .k{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+  .eric-card p{color:rgba(255,255,255,0.85);font-size:15.5px;font-weight:300;margin:0;line-height:1.6}
+  .eric-card b{color:#fff;font-weight:600}
+  .launch{background:var(--ink);color:var(--paper)}
+  .launch .label{color:var(--gold)} .launch h2{color:#fff} .launch .lead{color:rgba(250,250,248,0.78)}
+  .ask-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px;max-width:760px}
+  .ask{background:var(--ink2);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px 22px;font-size:15px;color:#fff;font-weight:600}
+  .ask span{display:block;color:rgba(255,255,255,0.6);font-weight:300;font-size:13.5px;margin-top:4px}
+  .launch-close{margin-top:30px;font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(20px,3vw,26px);color:#fff;max-width:700px;line-height:1.3}
+  @media(max-width:840px){.ask-grid{grid-template-columns:1fr}.note-card{padding:34px 26px}}
+
+  .closer{background:var(--navy);color:#fff;text-align:center;padding:84px 0}
+  .closer h2{color:#fff}
+  .closer p{max-width:600px;margin:14px auto 0;font-size:19px;color:rgba(255,255,255,0.85);font-weight:300}
+  .closer .sig{margin-top:18px;font-size:14px;letter-spacing:1px;color:rgba(255,255,255,0.6)}
+  .cta-btn{margin-top:34px;display:inline-block;background:var(--gold);color:var(--ink);font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.3px;padding:18px 38px;border:0;border-radius:12px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(255,163,0,0.3)}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(255,163,0,0.42)}
+  .cta-sub{margin-top:14px;font-size:13px;color:rgba(255,255,255,0.55)}
+
+  footer{padding:34px 0;font-size:12px;color:var(--muted);text-align:center;line-height:1.7}
+
+  /* ICA MODAL */
+  .ica-overlay{display:none;position:fixed;inset:0;background:rgba(10,22,40,0.72);backdrop-filter:blur(3px);z-index:50;padding:34px 18px;overflow-y:auto}
+  .ica-overlay.open{display:flex;align-items:flex-start;justify-content:center}
+  .ica-shell{background:#fff;max-width:840px;width:100%;border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,0.4);overflow:hidden;margin:auto}
+  .ica-top{background:var(--ink);color:#fff;padding:22px 36px;display:flex;justify-content:space-between;align-items:center}
+  .ica-top .t{font-family:'Playfair Display',serif;font-weight:900;font-size:18px;letter-spacing:1px}
+  .ica-top .x{background:rgba(255,255,255,0.12);border:0;color:#fff;width:34px;height:34px;border-radius:8px;font-size:18px;cursor:pointer}
+  .ica-instruct{background:#FFF6E5;border-bottom:1px solid var(--line);padding:16px 36px;font-size:14px;color:#7a5200;display:flex;gap:12px;align-items:flex-start}
+  .ica-instruct b{color:#5a3d00}
+  .ica-body{padding:36px 48px;max-height:60vh;overflow-y:auto;font-size:13.5px;color:#22303f;line-height:1.6}
+  .ica-body h3{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;text-align:center;color:var(--ink);margin-bottom:4px}
+  .ica-body .juris{text-align:center;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+  .ica-body .intro{margin-bottom:18px}
+  .ica-body h4{font-family:'Outfit',sans-serif;font-weight:700;font-size:14.5px;color:var(--navy);margin:20px 0 7px}
+  .ica-body p{margin-bottom:9px}
+  .ica-table{width:100%;border-collapse:collapse;margin:10px 0 4px}
+  .ica-table th,.ica-table td{border:1px solid var(--line);padding:8px 10px;text-align:left;font-size:13px}
+  .ica-table th{background:var(--paper);font-weight:700}
+  .sign-block{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .sign-col .sl{border-top:1.5px solid var(--ink);margin-top:36px;padding-top:6px;font-size:12px;color:var(--muted)}
+  .ica-actions{padding:18px 36px;border-top:1px solid var(--line);display:flex;gap:12px;justify-content:flex-end;background:#fff}
+  .ica-actions button{font-family:'Outfit',sans-serif;font-weight:600;font-size:14px;padding:12px 24px;border-radius:10px;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink)}
+  .ica-actions .print{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+  /* SECONDARY CTA + GETTING STARTED GUIDE */
+  .cta-btn.secondary{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.55);box-shadow:none}
+  .cta-btn.secondary:hover{background:rgba(255,255,255,0.08);box-shadow:none;transform:translateY(-2px)}
+  .gs-sub{font-size:14px;color:#33414f;margin-bottom:6px}
+  .gs-details{background:var(--ink);color:#fff;border-radius:12px;padding:20px 24px;margin:18px 0 26px;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
+  .gs-details .row{font-size:13.5px}
+  .gs-details .row span{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:600;margin-bottom:2px}
+  .gs-details .row b{font-weight:600;color:#fff}
+  .gs-step{display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+  .gs-step:first-of-type{border-top:0}
+  .gs-num{flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-family:'Playfair Display',serif;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .gs-step.first .gs-num{background:var(--gold);color:var(--ink)}
+  .gs-bd h5{font-size:15px;font-weight:700;margin-bottom:4px;color:var(--ink)}
+  .gs-bd p{font-size:13.5px;color:#33414f;margin-bottom:6px}
+  .gs-need{font-size:12.5px;color:var(--navy);font-weight:600}
+  .gs-justin{background:#FFF6E5;border-left:4px solid var(--gold);border-radius:10px;padding:18px 20px;margin-top:26px}
+  .gs-justin h5{font-weight:700;font-size:14.5px;color:#5a3d00;margin-bottom:8px}
+  .gs-justin ul{margin:0 0 0 18px;font-size:13.5px;color:#5a3d00}
+  .gs-justin li{margin-bottom:5px}
+  @media(max-width:840px){.gs-details{grid-template-columns:1fr}}
+
+  @media(max-width:840px){
+    .calc-grid{grid-template-columns:1fr}
+    .stat-row,.platform-grid,.paygrid,.tiergrid{grid-template-columns:1fr}
+    .extras{grid-template-columns:1fr}
+    section{padding:54px 0}
+    .ica-body{padding:28px 24px}
+    .sign-block{grid-template-columns:1fr}
+  }
+  @media(prefers-reduced-motion:reduce){.scrollcue .arrow{animation:none}}
+
+  @media print{
+    html.modal-open body>*:not(.ica-overlay){display:none !important}
+    html.modal-open .ica-overlay:not(.open){display:none !important}
+    html.modal-open .ica-overlay.open{display:block !important;position:static;background:#fff;padding:0;overflow:visible}
+    html.modal-open .ica-shell{box-shadow:none;border-radius:0;max-width:100%}
+    html.modal-open .ica-top,html.modal-open .ica-actions{display:none !important}
+    html.modal-open .ica-instruct{background:#fff;color:#000;border:0;padding:0 12px 10px}
+    html.modal-open .ica-body{max-height:none;overflow:visible;padding:0 12px}
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Safeshield Insurance &nbsp;&bull;&nbsp; The Opportunity</div>
+      <div class="pre">Safeshield is growing fast. So is everything around it.</div>
+      <h1>Get in early.<br>Grow with us.</h1>
+      <p class="sub">You are stepping into a company that is scaling, with a rare shot to build a stream of income that mostly runs itself while we build something big together. We grow, you grow. That is the whole idea.</p>
+      <p class="punch">Most people join a company. You get to help build one.</p>
+      <div class="scrollcue">See where this goes <span class="arrow">&darr;</span></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="label">Where This Is Going</div>
+      <h2>We are just getting started</h2>
+      <p class="lead">Safeshield went from zero to a real brokerage in a few years, and it is only speeding up. Getting in now means you grow as the whole thing grows. Better leads, bigger brand, more shots on goal, all of it lifting you with it.</p>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="big">70+</div>
+          <h3>Carriers and climbing</h3>
+          <p>A platform that took years to build is handed to you on day one. The bigger it gets, the more you have to work with.</p>
+        </div>
+        <div class="stat">
+          <div class="big g">You + us</div>
+          <h3>We grow together</h3>
+          <p>As Safeshield scales, the leads get warmer and the brand does more of the selling for you. Your upside rides the company's momentum.</p>
+        </div>
+        <div class="stat">
+          <div class="big">Hands-off</div>
+          <h3>Income that runs itself</h3>
+          <p>Write a client once and you keep earning on them every year they stay. Build enough and money shows up whether or not you sell that month.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="note">
+    <div class="wrap">
+      <div class="note-card">
+        <div class="eyebrow2">A note from Austin, to Trent</div>
+        <h2>I see what you're putting in</h2>
+        <p>Trent, before I tell you anything about me, I want to tell you what I have already seen in you. For two months now you have been here, in the building, learning how this works. Two hours to get here and two hours to get home, and you keep showing up like it is nothing. People notice that. I notice that. You cannot teach how badly someone wants it, and you want it.</p>
+        <p>Then I put you on the phone cold, no script, just go, and you sold a policy in your first week. You surprised everyone. The talent is unmistakable. So before we get to any numbers or paperwork, know this: you earned this letter.</p>
+        <p>Now let me tell you who you are signing up with. Before anybody else called me Austin the Insurance Guy, I called myself Austin the Insurance Guy. You have to believe it and commit to it before the world ever does. That brand did not come from a big budget or a billboard. I built it myself, with a camera and a refusal to be boring. Videos, social media, content, putting myself out there back when nobody in this business was doing it. That is how I built a career, by being creative and outworking everybody in the room.</p>
+        <p>I started at one of the biggest carriers in the country and became a top producer. But I kept hitting the same wall. Locked into one company's products, one company's rates, one company's rules. I could not always do right by my clients. The system was built for the carrier, not the customer.</p>
+        <p>So I walked away and built Safeshield from scratch. No inherited book, no safety net. Just a laptop, a phone, and a belief that if you actually work for the client and not the insurance company, people notice. They did.</p>
+        <p>Then I did the thing I have always done. When the tools did not exist, I made them. I taught myself to code and built our own technology. The systems that quote, the AI that runs the back office, the whole operation, a lot of it built at midnight at my own desk, because my clients and my team deserved better than the Stone Age software this industry runs on.</p>
+        <p>Today we are 70-plus carriers, hundreds of five-star reviews, five states, and almost all of it built by hand, by us. Walk into our office and there is a record spinning and a championship belt on the wall, because this place is supposed to feel like something. You are getting in at the part most people never see. The early part, while it is still being built.</p>
+        <p>I am a builder. I made the brand, I made the content, I made the software, I made this company. You already showed me you will out-commute and out-work the room. Come learn how it really works from the inside, bring your own creativity, and let's build what is next together.</p>
+        <div class="note-quote">You do not merely want to be considered the best of the best. You want to be considered the only one who does what you do.<span>Jerry Garcia</span></div>
+        <div class="note-sign">Austin Glazer<small>Founder &amp; CEO, Safeshield Insurance</small></div>
+
+        <div class="eric-card">
+          <div class="k">Proof it is real</div>
+          <p>Eric started as my bus boy at a restaurant. Young, hungry, paying attention. He came on as an intern, earned more every single year, and in 2026 he became my <b>partner at the ownership table</b>. He bet on himself and never looked back. That path is real, and it started right where you are.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc">
+    <div class="wrap">
+      <div class="label">See It Build</div>
+      <h2>The automatic income you build</h2>
+      <p class="lead">Do the work once, get paid on it for years. Drag the slider and watch the gold stack up. That gold is income that keeps coming whether or not you sell anything new.</p>
+
+      <div class="calc-grid">
+        <div class="controls">
+          <div class="ctrl">
+            <div class="top"><span class="nm">Premium written per month</span><span class="val" id="premV">$20K</span></div>
+            <input type="range" id="prem" min="2000" max="200000" step="1000" value="20000">
+          </div>
+          <div class="ctrl-hint">Figures use your in-college split. Keep this pace and watch the automatic income compound year after year.</div>
+        </div>
+
+        <div class="results">
+          <div class="metric-row">
+            <div class="metric hero-metric">
+              <div class="cap">Hands-off income by year 10</div>
+              <div class="n" id="passive">$0</div>
+              <div class="foot">Coming in every year from renewals, before you sell anything new.</div>
+            </div>
+            <div class="metric">
+              <div class="cap">Hands-off income collected by year 10</div>
+              <div class="n" id="cumAuto">$0</div>
+              <div class="foot">Money that showed up on its own across the decade.</div>
+            </div>
+          </div>
+
+          <div class="chartcard">
+            <div class="ctop"><h4>Your income, year by year</h4></div>
+            <div class="legend"><span><i class="b"></i>New business you write</span><span><i class="g"></i>Automatic, from renewals</span></div>
+            <svg id="chart" viewBox="0 0 820 300" role="img" aria-label="Income growth chart"></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="awards">
+    <div class="wrap">
+      <div class="label">Your Rookie Year</div>
+      <h2>What year one could look like</h2>
+      <p class="lead">These are first-year goals, not a ceiling. Set your pace and your lead mix, then watch the awards stack and the year-one money add up. The targets climb after rookie year, as you do.</p>
+
+      <div class="rookie-controls">
+        <div class="ctrl">
+          <div class="top"><span class="nm">Premium you write each quarter</span><span class="val" id="rqPremV">$80K</span></div>
+          <input type="range" id="rqPrem" min="0" max="400000" step="5000" value="80000">
+        </div>
+        <div class="ctrl">
+          <div class="top"><span class="nm">How much you bring in yourself</span><span class="val" id="rqMixV">50%</span></div>
+          <input type="range" id="rqMix" min="0" max="100" step="5" value="50">
+          <div class="blend2">Your leads pay 35%. Our leads pay 20%. Rookie year, full-time.</div>
+        </div>
+        <div class="ctrl-hint">You win an award every quarter you hit the mark, so hit a tier all year and it counts four times. Your $750 monthly base is included below.</div>
+      </div>
+
+      <div class="metric-row two">
+        <div class="metric hero-metric">
+          <div class="cap">Your year-one income</div>
+          <div class="n" id="ry1Total">$0</div>
+          <div class="foot" id="ry1Break">Commission, base, and bonuses combined.</div>
+        </div>
+        <div class="metric">
+          <div class="cap">Awards you stack this year</div>
+          <div class="n" id="ry1Awards" style="font-size:clamp(22px,3.8vw,36px)">--</div>
+          <div class="foot">Hit a tier every quarter and it counts every quarter.</div>
+        </div>
+      </div>
+
+      <div class="tiergrid rookie-tiers">
+        <div class="tier" id="gritCard">
+          <div class="tn">Grit</div>
+          <div class="tpay">$500 a quarter</div>
+          <div class="tthr">$30K in premium in a quarter</div>
+          <div class="bar"><i id="gritBar"></i></div>
+          <div class="tstate" id="gritState">--</div>
+        </div>
+        <div class="tier" id="clutchCard">
+          <div class="tn">Clutch</div>
+          <div class="tpay">$1,000 a quarter</div>
+          <div class="tthr">$50K in premium in a quarter</div>
+          <div class="bar"><i id="clutchBar"></i></div>
+          <div class="tstate" id="clutchState">--</div>
+        </div>
+        <div class="tier" id="donicCard">
+          <div class="tn">Donic</div>
+          <div class="tpay">$2,000 a quarter</div>
+          <div class="tthr">$75K in premium in a quarter</div>
+          <div class="bar"><i id="donicBar"></i></div>
+          <div class="tstate" id="donicState">--</div>
+        </div>
+      </div>
+
+      <div class="timepiece main">
+        <div class="kicker">Grand Prize</div>
+        <div class="tn">The Safeshield Timepiece</div>
+        <p>Write $1.2M in premium in your rookie year and you earn an engraved Safeshield watch. The mark of a real producer, and proof you built something real.</p>
+        <div class="reach" id="tpReach">Keep going to earn it</div>
+      </div>
+
+      <p class="paynote" style="color:rgba(250,250,248,0.5);margin-top:26px">These are rookie-year targets. They climb every year as you grow into them.</p>
+    </div>
+  </section>
+
+  <section class="bigger">
+    <div class="wrap">
+      <div class="bigger-box">
+        <div class="k">The bigger play</div>
+        <p>Every client you bring in also grows the <b>Safeshield book</b>, a real company asset that gets more valuable as it gets bigger. The more you help build, the bigger the conversations get about your future here. You are not just earning a check. You are helping build something, and that tends to pay off in ways a paycheck never could.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pay">
+    <div class="wrap">
+      <div class="label">The Details</div>
+      <h2>How the pay works</h2>
+      <p class="lead">You earn more on the clients you bring in yourself, and the structure flexes when you head to college.</p>
+      <div class="paygrid">
+        <div class="paycard">
+          <div class="h">Full-Time, Now</div>
+          <div class="payrow now"><span>Leads we hand you</span><b>20%</b></div>
+          <div class="payrow now"><span>Your own leads</span><b>35%</b></div>
+          <div class="paysal">Plus a base of <b>$750 / month</b>.</div>
+        </div>
+        <div class="paycard">
+          <div class="h">Part-Time, In College</div>
+          <div class="payrow col"><span>Leads we hand you</span><b>30%</b></div>
+          <div class="payrow col"><span>Your own leads</span><b>40%</b></div>
+          <div class="paysal">Higher cut takes the place of the base.</div>
+        </div>
+      </div>
+      <p class="paynote">Splits are revisited together once a year, so the deal grows as you do.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="label">What You Are Walking Into</div>
+      <h2>You are not starting from scratch</h2>
+      <p class="lead">Most new people buy their own leads and wait years for carrier access. You get all of it on day one.</p>
+      <div class="platform-grid">
+        <div class="pill">70+ carriers<span>Appointed and ready to quote</span></div>
+        <div class="pill">Leads handed to you<span>House, dealer, and inbound</span></div>
+        <div class="pill">Full tech stack<span>NowCerts, PL Rater, CASEY</span></div>
+        <div class="pill">A built brand<span>Ranking site, real reputation</span></div>
+        <div class="pill">Stamford office<span>A real place to work</span></div>
+        <div class="pill">Mentorship<span>A proven system behind you</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="launch">
+    <div class="wrap">
+      <div class="label">What This Really Is</div>
+      <h2>A launchpad, not a side job</h2>
+      <p class="lead">This is not just a way to make money during college. It is a head start. You learn from us, you see how a real operation runs from the inside, and we help get you through school. When you graduate, you step in full-time with years of a head start on everyone else walking in the door.</p>
+      <div class="ask-grid">
+        <div class="ask">Stay hungry<span>Show up and do the work, even on the days you don't feel like it.</span></div>
+        <div class="ask">Learn before you lead<span>Soak up how this operation actually runs. The rest follows.</span></div>
+        <div class="ask">Own your work<span>Take responsibility. No excuses, no shortcuts.</span></div>
+        <div class="ask">Do it the right way<span>Treat every client and every teammate the way they deserve.</span></div>
+      </div>
+      <div class="launch-close">This place isn't for everyone. But if you put in the work, this can be where everything starts for you.</div>
+    </div>
+  </section>
+
+  <div class="closer">
+    <div class="wrap">
+      <h2>Let's build it together</h2>
+      <p>This is the start of something. Get in now, put in the work, and grow with a company that is going places. Ready to make it official?</p>
+      <button class="cta-btn" onclick="openStart()">Open your getting started guide</button>
+      <div class="cta-sub">Everything you need to get set up, step by step. Print it and check it off.</div>
+      <button class="cta-btn" onclick="openICA()" style="margin-top:24px">Review &amp; sign your agreement</button>
+      <div class="cta-sub">Opens your Independent Contractor Agreement. Print it, sign it, and bring it back.</div>
+      <div class="sig" style="margin-top:30px">We Work For You. Not The Insurance Company.</div>
+    </div>
+  </div>
+
+  <footer class="wrap">
+    Illustration only, not a guarantee of earnings. Assumes age 21 today, an 88% retention rate, a 13% blended commission rate, the in-college split, and that you earn your applicable split on renewals while engaged. Award thresholds are example targets. Actual results depend on production, retention, and final terms.<br>
+    Safeshield Insurance LLC &nbsp;&bull;&nbsp; Confidential &nbsp;&bull;&nbsp; June 2026
+  </footer>
+
+  <!-- ICA MODAL -->
+  <div class="ica-overlay" id="icaModal" role="dialog" aria-modal="true">
+    <div class="ica-shell">
+      <div class="ica-top">
+        <div class="t">Independent Contractor Agreement</div>
+        <button class="x" onclick="closeICA()" aria-label="Close">&times;</button>
+      </div>
+      <div class="ica-instruct">
+        <span>&#128221;</span>
+        <span><b>To make it official:</b> hit <b>Print to sign</b> at the bottom, sign and date the printed copy, and bring or send the signed agreement back to Austin. Your signature is required before you start.</span>
+      </div>
+      <div class="ica-body" id="icaDoc">
+        <h3>Independent Contractor Agreement</h3>
+        <div class="juris">State of Connecticut</div>
+
+        <p class="intro">This Independent Contractor Agreement (the "Agreement") is entered into as of __________________, 2026, by and between <b>Safeshield Insurance LLC</b>, a Connecticut limited liability company with a principal place of business at 2777 Summer Street, Stamford, CT 06905 ("Safeshield" or the "Company"), and <b>Trent Beggs</b>, residing at ______________________________ ("Contractor"). Safeshield and Contractor may each be referred to as a "Party" and together as the "Parties."</p>
+
+        <h4>1. Scope of Services</h4>
+        <p>Contractor shall provide insurance-related services to Safeshield, which may include lead handling, outbound calling, quoting, client communications, servicing support, sales activity, and other duties assigned by Safeshield from time to time (the "Services"). Safeshield may modify, expand, reduce, or change the Services, expectations, focus areas, performance standards, or workflows at its discretion.</p>
+        <p>Contractor acknowledges that unless properly licensed, Contractor shall not quote, bind, advise on coverage, or hold themselves out as a licensed insurance producer.</p>
+
+        <h4>2. Licensing and Regulatory Compliance</h4>
+        <p>Contractor shall at all times maintain any licenses required to perform the Services and shall comply with all applicable state and federal insurance laws, carrier guidelines, and Company policies. Any lapse, suspension, or revocation of a required license must be reported to Safeshield immediately and may result in suspension of compensation or termination of this Agreement.</p>
+
+        <h4>3. Compensation</h4>
+        <p>Contractor shall be paid a percentage of the commission Safeshield earns on policies written by Contractor, based on the source of the business and Contractor's engagement status, as set forth below. Commission is paid in accordance with the Company's standard commission schedule and is subject to receipt of funds from the applicable carrier.</p>
+        <table class="ica-table">
+          <thead><tr><th>Status</th><th>Safeshield-generated</th><th>Contractor-generated</th><th>Base</th></tr></thead>
+          <tbody>
+            <tr><td>Full-Time</td><td>20%</td><td>35%</td><td>$750 / month</td></tr>
+            <tr><td>Part-Time (enrolled in college / not full-time)</td><td>30%</td><td>40%</td><td>None</td></tr>
+          </tbody>
+        </table>
+        <p>"Safeshield-generated" means accounts sourced through Company leads, the dealer pipeline, inbound, referrals, or other Company channels. "Contractor-generated" means accounts Contractor personally originates. The applicable split applies to both new business and renewals on accounts written by Contractor for so long as this Agreement remains in effect.</p>
+        <p>The compensation terms above are reviewed together by the Parties on an annual basis and may be adjusted by mutual agreement. Compensation is otherwise discretionary and may be changed by the Company on a prospective basis. Any bonuses or production incentives are at the Company's sole discretion.</p>
+
+        <h4>4. Expenses</h4>
+        <p>Contractor is responsible for Contractor's own ordinary business expenses unless Safeshield agrees in writing to reimburse a specific expense in advance.</p>
+
+        <h4>5. Term and Termination</h4>
+        <p>This Agreement begins on the effective date and continues until terminated. Either Party may terminate this Agreement at any time, with or without cause, upon written notice. Upon termination, Contractor is entitled only to compensation earned through the effective date of termination, subject to the other terms of this Agreement.</p>
+
+        <h4>6. Licensing Costs and Repayment</h4>
+        <p>The Company has paid, or will pay, certain costs to obtain and maintain Contractor's insurance license and related onboarding, which may include pre-licensing education, examination fees, application and state licensing fees, fingerprinting, and appointment costs (collectively, the "Licensing Costs"), in the total documented amount of approximately $______________. These costs are advanced for Contractor's benefit.</p>
+        <p>If Contractor terminates this Agreement, or the Company terminates this Agreement for cause, within twenty-four (24) months of the effective date, Contractor shall reimburse the Company for the unforgiven portion of the Licensing Costs. The Licensing Costs are forgiven in equal monthly increments over that twenty-four (24) month period, such that one twenty-fourth (1/24) is forgiven for each full month Contractor remains engaged, and any remaining unforgiven balance becomes due upon departure. No amount is owed if the Company terminates this Agreement without cause, or if Contractor remains engaged beyond the twenty-four (24) month period.</p>
+        <p>Contractor authorizes the Company to offset and deduct any amount owed under this Section from any final compensation, commissions, or other amounts otherwise payable to Contractor, with any remaining balance due within thirty (30) days of the termination date.</p>
+
+        <h4>7. Ownership of Book of Business</h4>
+        <p>All clients, prospects, policies, expirations, records, and the book of business produced or serviced under this Agreement are and remain the sole and exclusive property of Safeshield. Contractor acknowledges that Contractor holds no ownership interest in the book of business and that the compensation provided under this Agreement is full consideration for the Services.</p>
+
+        <h4>8. Confidentiality and Proprietary Information</h4>
+        <p>Contractor shall hold in strict confidence all non-public information of the Company, including client data, pricing, carrier relationships, systems, processes, and business strategy, both during and after the term of this Agreement, and shall not use or disclose such information except in the performance of the Services for the Company's benefit.</p>
+
+        <h4>9. Non-Solicitation and Non-Circumvention</h4>
+        <p>During the term and for a period of twenty-four (24) months following termination, Contractor shall not, directly or indirectly, solicit, divert, write, or service any client or prospect of Safeshield, nor solicit any employee, contractor, or carrier relationship of Safeshield, nor circumvent Safeshield in any business relationship introduced through the Company.</p>
+
+        <h4>10. Intellectual Property and Work Product</h4>
+        <p>All work product, materials, and intellectual property created by Contractor in connection with the Services are works made for hire and the exclusive property of Safeshield. Contractor assigns to Safeshield all right, title, and interest in such work product.</p>
+
+        <h4>11. Independent Contractor Status</h4>
+        <p>Contractor is an independent contractor and not an employee, partner, or agent of Safeshield for any purpose. Contractor is responsible for Contractor's own taxes and is not entitled to employee benefits. Nothing in this Agreement creates an employment or partnership relationship.</p>
+
+        <h4>12. Indemnification</h4>
+        <p>Contractor shall indemnify and hold Safeshield harmless from any claims, damages, or liabilities arising from Contractor's acts, omissions, or breach of this Agreement.</p>
+
+        <h4>13. Governing Law and Dispute Resolution</h4>
+        <p>This Agreement is governed by the laws of the State of Connecticut. Any dispute arising under this Agreement shall be resolved by binding arbitration in Connecticut, and the prevailing Party shall be entitled to recover reasonable attorneys' fees and costs.</p>
+
+        <h4>14. Survival</h4>
+        <p>Sections 6 through 13 survive termination of this Agreement.</p>
+
+        <h4>15. Entire Agreement</h4>
+        <p>This Agreement is the entire agreement between the Parties regarding its subject matter and supersedes all prior understandings. It may be amended only in a writing signed by both Parties. If any provision is held unenforceable, the remaining provisions remain in full force.</p>
+
+        <p style="margin-top:20px">By signing below, the Parties agree to the terms of this Agreement.</p>
+
+        <div class="sign-block">
+          <div class="sign-col">
+            <div class="sl">Trent Beggs, Contractor</div>
+            <div class="sl">Date</div>
+          </div>
+          <div class="sign-col">
+            <div class="sl">Austin Glazer, Safeshield Insurance LLC</div>
+            <div class="sl">Date</div>
+          </div>
+        </div>
+      </div>
+      <div class="ica-actions">
+        <button onclick="closeICA()">Close</button>
+        <button class="print" onclick="window.print()">Print to sign</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GETTING STARTED MODAL -->
+  <div class="ica-overlay" id="startModal" role="dialog" aria-modal="true">
+    <div class="ica-shell">
+      <div class="ica-top">
+        <div class="t">Getting Started</div>
+        <button class="x" onclick="closeStart()" aria-label="Close">&times;</button>
+      </div>
+      <div class="ica-instruct">
+        <span>&#9989;</span>
+        <span><b>Work top to bottom.</b> Step 1 (Dashlane) unlocks almost everything else, so do it first. Print this guide and check things off as you go.</span>
+      </div>
+      <div class="ica-body">
+        <h3>Getting Started at Safeshield</h3>
+        <div class="juris">Trent Beggs &nbsp;&bull;&nbsp; Your Setup Checklist</div>
+
+        <p class="gs-sub">Welcome aboard. This walks you through everything you need to be fully set up and ready to produce. Knock these out in order.</p>
+
+        <div class="gs-details">
+          <div class="row"><span>Your Email</span><b>trent@gosafeshield.com</b></div>
+          <div class="row"><span>Your Direct Line</span><b>(203) 465-6511</b></div>
+          <div class="row"><span>Your Extension</span><b>102</b></div>
+          <div class="row"><span>Main Office</span><b>(203) 204-2555</b></div>
+        </div>
+
+        <div class="gs-step first">
+          <div class="gs-num">1</div>
+          <div class="gs-bd">
+            <h5>Get into Dashlane (do this first)</h5>
+            <p>Justin will send you an invite to the shared Dashlane team vault. Accept it and install the Dashlane extension in your browser. This vault holds the logins for almost everything else, NowCerts, PL Rater, the carrier portals, and RabbitSign, so nothing else works until this is done.</p>
+            <p class="gs-need">Need from Justin: the Dashlane shared-vault invite.</p>
+          </div>
+        </div>
+
+        <div class="gs-step">
+          <div class="gs-num">2</div>
+          <div class="gs-bd">
+            <h5>Set up your computer</h5>
+            <p>Log into your machine (your computer password is in Dashlane, or Justin has it). Install Google Chrome, sign into your trent@gosafeshield.com Google account, and pin the Dashlane extension to your toolbar. If you have a second monitor, plug it in and extend your display.</p>
+          </div>
+        </div>
+
+        <div class="gs-step">
+          <div class="gs-num">3</div>
+          <div class="gs-bd">
+            <h5>Confirm your email</h5>
+            <p>You are trent@gosafeshield.com. Your signature is already set up. Send yourself a quick test email to make sure you can send and receive.</p>
+          </div>
+        </div>
+
+        <div class="gs-step">
+          <div class="gs-num">4</div>
+          <div class="gs-bd">
+            <h5>Set up your phone (Lightspeed Voice)</h5>
+            <p>Your extension is 102 and your direct line is (203) 465-6511. Go to Lightspeed Voice and click Forgot Password to set your password and log in. Record your voicemail greeting. All outbound calls and texts go through Lightspeed.</p>
+            <p class="gs-need">Need from Justin: confirm your extension is active (it showed as down at setup).</p>
+          </div>
+        </div>
+
+        <div class="gs-step">
+          <div class="gs-num">5</div>
+          <div class="gs-bd">
+            <h5>Get on Google Chat</h5>
+            <p>This is how the team talks internally. You are already added. Message Austin and Justin to let them know you are in.</p>
+          </div>
+        </div>
+
+        <div class="gs-step">
+          <div class="gs-num">6</div>
+          <div class="gs-bd">
+            <h5>Log into CASEY</h5>
+            <p>Go to casey.gosafeshield.com, our in-house AI assistant. Sign in with your gosafeshield Google account. Use it for carrier lookups, coverage questions, and drafting. It is a tool, not a replacement for your judgment.</p>
+          </div>
+        </div>
+
+        <div class="gs-step">
+          <div class="gs-num">7</div>
+          <div class="gs-bd">
+            <h5>Log into NowCerts</h5>
+            <p>This is our agency management system and the source of truth for every client and policy. Log in with the shared credentials in Dashlane.</p>
+            <p class="gs-need">Need from Justin: a quick walkthrough of where everything lives.</p>
+          </div>
+        </div>
+
+        <div class="gs-step">
+          <div class="gs-num">8</div>
+          <div class="gs-bd">
+            <h5>Log into PL Rater</h5>
+            <p>The personal lines comparative rater you quote in. The shared login is in Dashlane, and the carrier credentials are already loaded.</p>
+            <p class="gs-need">Need from Justin: a short orientation on running a quote.</p>
+          </div>
+        </div>
+
+        <div class="gs-step">
+          <div class="gs-num">9</div>
+          <div class="gs-bd">
+            <h5>Save your Canopy Connect link</h5>
+            <p>Send this link to clients to pull their current policies automatically: app.usecanopy.com/c/safeshield-insurance-go</p>
+          </div>
+        </div>
+
+        <div class="gs-step">
+          <div class="gs-num">10</div>
+          <div class="gs-bd">
+            <h5>RabbitSign for e-signatures</h5>
+            <p>For sending policy forms to be signed electronically. It runs on Justin's login.</p>
+            <p class="gs-need">Need from Justin: access on his account.</p>
+          </div>
+        </div>
+
+        <div class="gs-step">
+          <div class="gs-num">11</div>
+          <div class="gs-bd">
+            <h5>Log every deal under your name</h5>
+            <p>Every deal you write goes in the deal log under your own name. That is how you get credit, so do it yourself, every single time.</p>
+          </div>
+        </div>
+
+        <div class="gs-justin">
+          <h5>Quick list of what you need from Justin</h5>
+          <ul>
+            <li>Dashlane shared-vault invite (unlocks NowCerts, PL Rater, carriers, RabbitSign)</li>
+            <li>A 15-minute walkthrough of NowCerts and PL Rater</li>
+            <li>Confirmation that your Lightspeed extension is live</li>
+            <li>RabbitSign access on his account</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ica-actions">
+        <button onclick="closeStart()">Close</button>
+        <button class="print" onclick="window.print()">Print this guide</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  var SPLIT=0.35;          // in-college blended rate
+  var COMM=0.13, RET=0.88;
+  var GRIT={thr:30000,pay:500}, CLUTCH={thr:50000,pay:1000}, DONIC={thr:75000,pay:2000};
+  var TIMEPIECE=1200000;
+  var prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function $(id){return document.getElementById(id);}
+  function money(n){
+    if(n>=1e6) return '$'+(n/1e6).toFixed(n>=1e7?1:2)+'M';
+    if(n>=1e3) return '$'+Math.round(n/1e3)+'K';
+    return '$'+Math.round(n);
+  }
+  function comma(n){return '$'+Math.round(n).toLocaleString('en-US');}
+
+  function model(){
+    var monthly=+$('prem').value;
+    var nb=monthly*12, inforce=0, prev=0, cum=0, cumAuto=0, rows=[];
+    var nbInc=nb*COMM*SPLIT;
+    for(var y=1;y<=10;y++){
+      prev=inforce;
+      inforce=nb+RET*inforce;
+      var auto=RET*prev*COMM*SPLIT;
+      var total=inforce*COMM*SPLIT;
+      cum+=total; cumAuto+=auto;
+      rows.push({yr:y, nb:nbInc, auto:auto, total:total});
+    }
+    return {annual:rows[9].total, passive:rows[9].auto, cum:cum, cumAuto:cumAuto, rows:rows, qNB:monthly*3, annualNB:nb};
+  }
+
+  function drawChart(rows){
+    var W=820,H=300,padL=10,padR=10,padB=34,padT=16;
+    var max=rows[rows.length-1].total*1.1, n=rows.length, gap=12;
+    var bw=(W-padL-padR-gap*(n-1))/n, svg='';
+    svg+='<defs><linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFC34D"/><stop offset="100%" stop-color="#FFA300"/></linearGradient></defs>';
+    svg+='<line x1="'+padL+'" y1="'+(H-padB)+'" x2="'+(W-padR)+'" y2="'+(H-padB)+'" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>';
+    for(var i=0;i<n;i++){
+      var hNb=(rows[i].nb/max)*(H-padB-padT);
+      var hAuto=(rows[i].auto/max)*(H-padB-padT);
+      var x=padL+i*(bw+gap), last=(i===n-1);
+      var yNb=H-padB-hNb;
+      var yAuto=yNb-hAuto;
+      // new business (blue, bottom)
+      svg+='<rect x="'+x.toFixed(1)+'" y="'+yNb.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+hNb.toFixed(1)+'" rx="3" fill="rgba(95,164,224,0.55)"/>';
+      // automatic (gold, top)
+      svg+='<rect x="'+x.toFixed(1)+'" y="'+yAuto.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+hAuto.toFixed(1)+'" rx="3" fill="url(#gold)"/>';
+      if(last){svg+='<text x="'+(x+bw/2).toFixed(1)+'" y="'+(yAuto-9).toFixed(1)+'" text-anchor="middle" fill="#FFA300" font-family="Playfair Display, serif" font-weight="900" font-size="16">'+money(rows[i].auto)+'</text>';}
+      svg+='<text x="'+(x+bw/2).toFixed(1)+'" y="'+(H-padB+20).toFixed(1)+'" text-anchor="middle" fill="rgba(255,255,255,'+(last?'0.9':'0.45')+')" font-family="Outfit, sans-serif" font-size="11.5" font-weight="'+(last?'700':'400')+'">Yr '+rows[i].yr+'</text>';
+    }
+    $('chart').innerHTML=svg;
+  }
+
+  function fmtTier(q){
+    if(q>=DONIC.thr) return {name:'Donic',pay:DONIC.pay};
+    if(q>=CLUTCH.thr) return {name:'Clutch',pay:CLUTCH.pay};
+    if(q>=GRIT.thr) return {name:'Grit',pay:GRIT.pay};
+    return {name:'',pay:0};
+  }
+  function tierBar(key,t,q){
+    var pct=Math.min(q/t.thr,1)*100, done=q>=t.thr;
+    $(key+'Bar').style.width=pct.toFixed(0)+'%';
+    $(key+'State').textContent=done?'Won every quarter':(comma(t.thr-q)+' more a quarter');
+    $(key+'Card').classList.toggle('won',done);
+  }
+  function renderRookie(){
+    var qPrem=+$('rqPrem').value, mix=(+$('rqMix').value)/100;
+    var OWN=0.35, SS=0.20, BASE=9000;
+    var annual=qPrem*4, ownP=annual*mix, ssP=annual*(1-mix);
+    var commission=ownP*COMM*OWN+ssP*COMM*SS;
+    var t=fmtTier(qPrem), bonus=t.pay*4, timepiece=annual>=TIMEPIECE;
+    var total=commission+BASE+bonus;
+    $('rqPremV').textContent=money(qPrem);
+    $('rqMixV').textContent=$('rqMix').value+'%';
+    $('ry1Total').textContent=money(total);
+    $('ry1Break').textContent=money(commission)+' commission + $9K base'+(bonus>0?' + '+money(bonus)+' in bonuses':'');
+    var aw=[];
+    if(t.name) aw.push(t.name+' x4');
+    if(timepiece) aw.push('Timepiece');
+    $('ry1Awards').textContent=aw.length?aw.join(' + '):'Push your pace';
+    tierBar('grit',GRIT,qPrem);
+    tierBar('clutch',CLUTCH,qPrem);
+    tierBar('donic',DONIC,qPrem);
+    $('tpReach').textContent=timepiece?'On this pace, the watch is yours':(money(TIMEPIECE-annual)+' more this year to earn it');
+  }
+
+  function animateNum(el,target){
+    if(prefersReduced){el.textContent=money(target);return;}
+    var dur=1000,t0=null;
+    function step(ts){
+      if(!t0)t0=ts;
+      var p=Math.min((ts-t0)/dur,1), e=1-Math.pow(1-p,3);
+      el.textContent=money(target*e);
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function render(animateHero){
+    var m=model();
+    $('premV').textContent=money(+$('prem').value);
+    $('passive').textContent=money(m.passive);
+    $('cumAuto').textContent=money(m.cumAuto);
+    drawChart(m.rows);
+    if(animateHero){animateNum($('passive'),m.passive);}
+  }
+
+  function openICA(){
+    $('icaModal').classList.add('open');
+    document.documentElement.classList.add('modal-open');
+    document.body.style.overflow='hidden';
+    $('icaModal').querySelector('.ica-body').scrollTop=0;
+  }
+  function closeICA(){
+    $('icaModal').classList.remove('open');
+    document.documentElement.classList.remove('modal-open');
+    document.body.style.overflow='';
+  }
+  function openStart(){
+    $('startModal').classList.add('open');
+    document.documentElement.classList.add('modal-open');
+    document.body.style.overflow='hidden';
+    $('startModal').querySelector('.ica-body').scrollTop=0;
+  }
+  function closeStart(){
+    $('startModal').classList.remove('open');
+    document.documentElement.classList.remove('modal-open');
+    document.body.style.overflow='';
+  }
+  document.getElementById('icaModal').addEventListener('click',function(e){if(e.target===this)closeICA();});
+  document.getElementById('startModal').addEventListener('click',function(e){if(e.target===this)closeStart();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeICA();closeStart();}});
+
+  ['prem'].forEach(function(id){$(id).addEventListener('input',function(){render(false);});});
+  ['rqPrem','rqMix'].forEach(function(id){$(id).addEventListener('input',renderRookie);});
+  window.addEventListener('load',function(){render(true);});
+  render(false);
+  renderRookie();
+</script>
+</body>
+</html>
