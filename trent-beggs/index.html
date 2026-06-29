@@ -123,16 +123,6 @@
   .pill{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;font-size:15px;font-weight:600}
   .pill span{display:block;color:var(--muted);font-weight:300;font-size:13px;margin-top:4px}
 
-  /* ROOKIE YEAR SIMULATOR */
-  .rookie-controls{background:var(--ink2);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:26px 28px;margin:38px 0 22px;display:grid;grid-template-columns:1fr 1fr;gap:18px 36px}
-  .rookie-controls .ctrl{margin-bottom:0}
-  .rookie-controls .ctrl-hint{grid-column:1/-1;color:rgba(255,255,255,0.55);font-size:13px;line-height:1.55}
-  .blend2{margin-top:8px;font-size:12px;color:rgba(255,255,255,0.5)}
-  .metric-row.two{grid-template-columns:1fr 1fr}
-  .metric-row.two .hero-metric{grid-column:auto}
-  .rookie-tiers{margin-top:24px}
-  @media(max-width:760px){.rookie-controls{grid-template-columns:1fr}.metric-row.two{grid-template-columns:1fr}}
-
   /* FOUNDER NOTE + LAUNCHPAD */
   .note{background:var(--paper)}
   .note-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:46px 50px;max-width:840px;box-shadow:0 10px 40px rgba(10,22,40,0.05)}
@@ -332,73 +322,6 @@
     </div>
   </section>
 
-  <section class="awards">
-    <div class="wrap">
-      <div class="label">Your Rookie Year</div>
-      <h2>What year one could look like</h2>
-      <p class="lead">These are first-year goals, not a ceiling. Set your pace and your lead mix, then watch the awards stack and the year-one money add up. The targets climb after rookie year, as you do.</p>
-
-      <div class="rookie-controls">
-        <div class="ctrl">
-          <div class="top"><span class="nm">Premium you write each quarter</span><span class="val" id="rqPremV">$80K</span></div>
-          <input type="range" id="rqPrem" min="0" max="400000" step="5000" value="80000">
-        </div>
-        <div class="ctrl">
-          <div class="top"><span class="nm">How much you bring in yourself</span><span class="val" id="rqMixV">50%</span></div>
-          <input type="range" id="rqMix" min="0" max="100" step="5" value="50">
-          <div class="blend2">Your leads pay 35%. Our leads pay 20%. Rookie year, full-time.</div>
-        </div>
-        <div class="ctrl-hint">You win an award every quarter you hit the mark, so hit a tier all year and it counts four times. Your $750 monthly base is included below.</div>
-      </div>
-
-      <div class="metric-row two">
-        <div class="metric hero-metric">
-          <div class="cap">Your year-one income</div>
-          <div class="n" id="ry1Total">$0</div>
-          <div class="foot" id="ry1Break">Commission, base, and bonuses combined.</div>
-        </div>
-        <div class="metric">
-          <div class="cap">Awards you stack this year</div>
-          <div class="n" id="ry1Awards" style="font-size:clamp(22px,3.8vw,36px)">--</div>
-          <div class="foot">Hit a tier every quarter and it counts every quarter.</div>
-        </div>
-      </div>
-
-      <div class="tiergrid rookie-tiers">
-        <div class="tier" id="gritCard">
-          <div class="tn">Grit</div>
-          <div class="tpay">$500 a quarter</div>
-          <div class="tthr">$30K in premium in a quarter</div>
-          <div class="bar"><i id="gritBar"></i></div>
-          <div class="tstate" id="gritState">--</div>
-        </div>
-        <div class="tier" id="clutchCard">
-          <div class="tn">Clutch</div>
-          <div class="tpay">$1,000 a quarter</div>
-          <div class="tthr">$50K in premium in a quarter</div>
-          <div class="bar"><i id="clutchBar"></i></div>
-          <div class="tstate" id="clutchState">--</div>
-        </div>
-        <div class="tier" id="donicCard">
-          <div class="tn">Donic</div>
-          <div class="tpay">$1,500 a quarter</div>
-          <div class="tthr">$75K in premium in a quarter</div>
-          <div class="bar"><i id="donicBar"></i></div>
-          <div class="tstate" id="donicState">--</div>
-        </div>
-      </div>
-
-      <div class="timepiece main">
-        <div class="kicker">Grand Prize</div>
-        <div class="tn">The Safeshield Timepiece</div>
-        <p>Write $1.2M in premium in your rookie year and you earn an engraved Safeshield watch. The mark of a real producer, and proof you built something real.</p>
-        <div class="reach" id="tpReach">Keep going to earn it</div>
-      </div>
-
-      <p class="paynote" style="color:rgba(250,250,248,0.5);margin-top:26px">These are rookie-year targets. They climb every year as you grow into them.</p>
-    </div>
-  </section>
-
   <section>
     <div class="wrap">
       <div class="label">The Truth</div>
@@ -484,7 +407,7 @@
   </div>
 
   <footer class="wrap">
-    Illustration only, not a guarantee of earnings. Assumes age 21 today, an 88% retention rate, a 13% blended commission rate, the in-college split, and that you earn your applicable split on renewals while engaged. Award thresholds are example targets. Actual results depend on production, retention, and final terms.<br>
+    Illustration only, not a guarantee of earnings. Assumes age 21 today, an 88% retention rate, a 13% blended commission rate, the in-college split, and that you earn your applicable split on renewals while engaged. Actual results depend on production, retention, and final terms.<br>
     Safeshield Insurance LLC &nbsp;&bull;&nbsp; Confidential &nbsp;&bull;&nbsp; June 2026
   </footer>
 
@@ -717,8 +640,6 @@
 <script>
   var SPLIT=0.35;          // in-college blended rate
   var COMM=0.13, RET=0.88;
-  var GRIT={thr:30000,pay:500}, CLUTCH={thr:50000,pay:1000}, DONIC={thr:75000,pay:1500};
-  var TIMEPIECE=1200000;
   var prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function $(id){return document.getElementById(id);}
@@ -764,39 +685,6 @@
       svg+='<text x="'+(x+bw/2).toFixed(1)+'" y="'+(H-padB+20).toFixed(1)+'" text-anchor="middle" fill="rgba(255,255,255,'+(last?'0.9':'0.45')+')" font-family="Outfit, sans-serif" font-size="11.5" font-weight="'+(last?'700':'400')+'">Yr '+rows[i].yr+'</text>';
     }
     $('chart').innerHTML=svg;
-  }
-
-  function fmtTier(q){
-    if(q>=DONIC.thr) return {name:'Donic',pay:DONIC.pay};
-    if(q>=CLUTCH.thr) return {name:'Clutch',pay:CLUTCH.pay};
-    if(q>=GRIT.thr) return {name:'Grit',pay:GRIT.pay};
-    return {name:'',pay:0};
-  }
-  function tierBar(key,t,q){
-    var pct=Math.min(q/t.thr,1)*100, done=q>=t.thr;
-    $(key+'Bar').style.width=pct.toFixed(0)+'%';
-    $(key+'State').textContent=done?'Won every quarter':(comma(t.thr-q)+' more a quarter');
-    $(key+'Card').classList.toggle('won',done);
-  }
-  function renderRookie(){
-    var qPrem=+$('rqPrem').value, mix=(+$('rqMix').value)/100;
-    var OWN=0.35, SS=0.20, BASE=9000;
-    var annual=qPrem*4, ownP=annual*mix, ssP=annual*(1-mix);
-    var commission=ownP*COMM*OWN+ssP*COMM*SS;
-    var t=fmtTier(qPrem), bonus=t.pay*4, timepiece=annual>=TIMEPIECE;
-    var total=commission+BASE+bonus;
-    $('rqPremV').textContent=money(qPrem);
-    $('rqMixV').textContent=$('rqMix').value+'%';
-    $('ry1Total').textContent=money(total);
-    $('ry1Break').textContent=money(commission)+' commission + $9K base'+(bonus>0?' + '+money(bonus)+' in bonuses':'');
-    var aw=[];
-    if(t.name) aw.push(t.name+' x4');
-    if(timepiece) aw.push('Timepiece');
-    $('ry1Awards').textContent=aw.length?aw.join(' + '):'Push your pace';
-    tierBar('grit',GRIT,qPrem);
-    tierBar('clutch',CLUTCH,qPrem);
-    tierBar('donic',DONIC,qPrem);
-    $('tpReach').textContent=timepiece?'On this pace, the watch is yours':('This pace writes '+money(annual)+' a year, against the $1.2M mark.');
   }
 
   function animateNum(el,target){
@@ -847,10 +735,8 @@
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeICA();closeStart();}});
 
   ['prem'].forEach(function(id){$(id).addEventListener('input',function(){render(false);});});
-  ['rqPrem','rqMix'].forEach(function(id){$(id).addEventListener('input',renderRookie);});
   window.addEventListener('load',function(){render(true);});
   render(false);
-  renderRookie();
 </script>
 </body>
 </html>
