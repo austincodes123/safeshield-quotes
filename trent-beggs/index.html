@@ -120,8 +120,8 @@
   .paynote{margin-top:18px;font-size:13px;color:var(--muted);font-style:italic}
 
   .platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
-  .pill{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;font-size:15px;font-weight:600}
-  .pill span{display:block;color:var(--muted);font-weight:300;font-size:13px;margin-top:4px}
+  .pill{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 18px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:13px;font-size:15px;font-weight:600;color:var(--ink)}
+  .pill svg{width:30px;height:30px;color:var(--navy)}
 
   /* FOUNDER NOTE + LAUNCHPAD */
   .note{background:var(--paper)}
@@ -202,7 +202,8 @@
 
   @media(max-width:840px){
     .calc-grid{grid-template-columns:1fr}
-    .stat-row,.platform-grid,.paygrid,.tiergrid{grid-template-columns:1fr}
+    .stat-row,.paygrid,.tiergrid{grid-template-columns:1fr}
+    .platform-grid{grid-template-columns:1fr 1fr}
     .extras{grid-template-columns:1fr}
     section{padding:54px 0}
     .ica-body{padding:28px 24px}
@@ -369,12 +370,12 @@
       <h2>You are not starting from scratch</h2>
       <p class="lead">Most new people buy their own leads and wait years for carrier access. You get all of it on day one.</p>
       <div class="platform-grid">
-        <div class="pill">70+ carriers<span>Appointed and ready to quote</span></div>
-        <div class="pill">Leads handed to you<span>House, dealer, and inbound</span></div>
-        <div class="pill">Full tech stack<span>NowCerts, PL Rater, CASEY</span></div>
-        <div class="pill">A built brand<span>Ranking site, real reputation</span></div>
-        <div class="pill">Stamford office<span>A real place to work</span></div>
-        <div class="pill">Mentorship<span>A proven system behind you</span></div>
+        <div class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>70+ carriers</div>
+        <div class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>Leads handed to you</div>
+        <div class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 21 8 12 13 3 8z"/><path d="M3 12 12 17 21 12"/><path d="M3 16 12 21 21 16"/></svg>Full tech stack</div>
+        <div class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.55 5.5 5.95.6-4.45 4.1 1.25 5.9L12 16.9 6.7 19.6l1.25-5.9L3.5 9.6l5.95-.6L12 3.5z"/></svg>A built brand</div>
+        <div class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.4-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 15.6 12 21 12 21z"/><circle cx="12" cy="10.3" r="2.4"/></svg>Stamford office</div>
+        <div class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.4 20a5.6 5.6 0 0 1 11.2 0"/><path d="M16 5.2a3.2 3.2 0 0 1 0 5.9"/><path d="M17.6 14.4a5.6 5.6 0 0 1 3 5.6"/></svg>Mentorship</div>
       </div>
     </div>
   </section>
