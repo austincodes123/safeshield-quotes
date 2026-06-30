@@ -296,7 +296,7 @@
             <div class="top"><span class="nm">Premium written per month</span><span class="val" id="premV">$20K</span></div>
             <input type="range" id="prem" min="2000" max="200000" step="1000" value="20000">
           </div>
-          <div class="ctrl-hint">Figures use your in-college split. Keep this pace and watch the automatic income compound year after year.</div>
+          <div class="ctrl-hint">Figures assume the book you build yourself, 35% on new business and 30% as it renews. Keep this pace and watch the automatic income compound year after year.</div>
         </div>
 
         <div class="results">
@@ -345,22 +345,20 @@
     <div class="wrap">
       <div class="label">The Details</div>
       <h2>How the pay works</h2>
-      <p class="lead">You earn more on the clients you bring in yourself, and the structure flexes when you head to college.</p>
+      <p class="lead">You earn more on the clients you bring in yourself, and you keep earning on every one as it renews. The splits are the same whether you are full-time or in college.</p>
       <div class="paygrid">
         <div class="paycard">
-          <div class="h">Full-Time, Now</div>
-          <div class="payrow now"><span>Leads we hand you</span><b>20%</b></div>
-          <div class="payrow now"><span>Your own leads</span><b>35%</b></div>
-          <div class="paysal">Plus a base of <b>$750 / month</b>.</div>
+          <div class="h">Leads we hand you</div>
+          <div class="payrow now"><span>New business</span><b>20%</b></div>
+          <div class="payrow now"><span>Renewal</span><b>15%</b></div>
         </div>
         <div class="paycard">
-          <div class="h">Part-Time, In College</div>
-          <div class="payrow col"><span>Leads we hand you</span><b>30%</b></div>
-          <div class="payrow col"><span>Your own leads</span><b>40%</b></div>
-          <div class="paysal">Higher cut takes the place of the base.</div>
+          <div class="h">Your own leads</div>
+          <div class="payrow col"><span>New business</span><b>35%</b></div>
+          <div class="payrow col"><span>Renewal</span><b>30%</b></div>
         </div>
       </div>
-      <p class="paynote">Splits are revisited together once a year, so the deal grows as you do.</p>
+      <p class="paynote">The only thing that changes in college is the base. Full-time, you get $750 a month on top of your splits. In college, the base goes away and the splits stay exactly the same. Revisited together once a year.</p>
     </div>
   </section>
 
@@ -408,7 +406,7 @@
   </div>
 
   <footer class="wrap">
-    Illustration only, not a guarantee of earnings. Assumes age 21 today, an 88% retention rate, a 13% blended commission rate, the in-college split, and that you earn your applicable split on renewals while engaged. Actual results depend on production, retention, and final terms.<br>
+    Illustration only, not a guarantee of earnings. Assumes age 21 today, an 88% retention rate, a 13% blended commission rate, your own-book splits of 35% on new business and 30% on renewals, and that you earn your renewal split for so long as you remain engaged. Actual results depend on production, retention, and final terms.<br>
     Safeshield Insurance LLC &nbsp;&bull;&nbsp; Confidential &nbsp;&bull;&nbsp; June 2026
   </footer>
 
@@ -437,15 +435,16 @@
         <p>Contractor shall at all times maintain any licenses required to perform the Services and shall comply with all applicable state and federal insurance laws, carrier guidelines, and Company policies. Any lapse, suspension, or revocation of a required license must be reported to Safeshield immediately and may result in suspension of compensation or termination of this Agreement.</p>
 
         <h4>3. Compensation</h4>
-        <p>Contractor shall be paid a percentage of the commission Safeshield earns on policies written by Contractor, based on the source of the business and Contractor's engagement status, as set forth below. Commission is paid in accordance with the Company's standard commission schedule and is subject to receipt of funds from the applicable carrier.</p>
+        <p>Contractor shall be paid a percentage of the commission Safeshield earns on policies written by Contractor, based on the source of the business, as set forth below. Commission is paid in accordance with the Company's standard commission schedule and is subject to receipt of funds from the applicable carrier.</p>
         <table class="ica-table">
-          <thead><tr><th>Status</th><th>Safeshield-generated</th><th>Contractor-generated</th><th>Base</th></tr></thead>
+          <thead><tr><th>Source of business</th><th>New business</th><th>Renewal</th></tr></thead>
           <tbody>
-            <tr><td>Full-Time</td><td>20%</td><td>35%</td><td>$750 / month</td></tr>
-            <tr><td>Part-Time (enrolled in college / not full-time)</td><td>30%</td><td>40%</td><td>None</td></tr>
+            <tr><td>Safeshield-generated (Company, Austin, or Eric leads)</td><td>20%</td><td>15%</td></tr>
+            <tr><td>Contractor-generated (Contractor's own leads)</td><td>35%</td><td>30%</td></tr>
           </tbody>
         </table>
-        <p>"Safeshield-generated" means accounts sourced through Company leads, the dealer pipeline, inbound, referrals, or other Company channels. "Contractor-generated" means accounts Contractor personally originates. The applicable split applies to both new business and renewals on accounts written by Contractor for so long as this Agreement remains in effect.</p>
+        <p>These splits are universal and do not change with Contractor's engagement status. The only difference between full-time and part-time is the base salary: while engaged on a full-time basis, Contractor is paid a base of <b>$750 per month</b>; while engaged on a part-time basis (including while enrolled in college or otherwise not full-time), no base is paid.</p>
+        <p>"Safeshield-generated" means any account not personally sourced by Contractor, including accounts from Company leads, leads provided by Austin Glazer or Eric Kelly, the dealer pipeline, inbound, referrals, or other Company channels. "Contractor-generated" means accounts Contractor personally originates. The applicable split applies to the business written by Contractor for so long as this Agreement remains in effect.</p>
         <p>The compensation terms above are reviewed together by the Parties on an annual basis and may be adjusted by mutual agreement. Compensation is otherwise discretionary and may be changed by the Company on a prospective basis. Any bonuses or production incentives are at the Company's sole discretion.</p>
 
         <h4>4. Expenses</h4>
@@ -639,7 +638,7 @@
   </div>
 
 <script>
-  var SPLIT=0.35;          // in-college blended rate
+  var NB_SPLIT=0.35, REN_SPLIT=0.30;   // own-sourced book: new business / renewal
   var COMM=0.13, RET=0.88;
   var prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -654,12 +653,12 @@
   function model(){
     var monthly=+$('prem').value;
     var nb=monthly*12, inforce=0, prev=0, cum=0, cumAuto=0, rows=[];
-    var nbInc=nb*COMM*SPLIT;
+    var nbInc=nb*COMM*NB_SPLIT;
     for(var y=1;y<=10;y++){
       prev=inforce;
       inforce=nb+RET*inforce;
-      var auto=RET*prev*COMM*SPLIT;
-      var total=inforce*COMM*SPLIT;
+      var auto=RET*prev*COMM*REN_SPLIT;
+      var total=nbInc+auto;
       cum+=total; cumAuto+=auto;
       rows.push({yr:y, nb:nbInc, auto:auto, total:total});
     }
