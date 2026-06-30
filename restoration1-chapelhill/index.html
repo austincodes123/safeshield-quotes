@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Restoration 1 of Chapel Hill | Safeshield Insurance Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#004b89;
+    --navy-deep:#003566;
+    --amber:#ffa300;
+    --ink:#1a1f26;
+    --slate:#5a6573;
+    --paper:#f6f8fb;
+    --line:#e6ebf2;
+    --white:#ffffff;
+    --good:#1f9d6b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Outfit',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+  /* reveal */
+  .fade{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}}
+
+  /* brandbar */
+  .brandbar{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
+    padding:20px 0 0;flex-wrap:wrap}
+  .brand{display:flex;flex-direction:column;gap:4px}
+  .logo{font-weight:700;font-size:19px;color:var(--navy);letter-spacing:.03em;text-transform:uppercase}
+  .logo span{color:var(--amber)}
+  .slogan{font-size:11px;color:var(--slate);font-weight:500;letter-spacing:.02em;font-style:italic}
+  .prepared{font-size:12.5px;color:var(--slate);text-align:right;line-height:1.4}
+  .prepared b{color:var(--ink)}
+
+  /* hero */
+  .hero{padding:44px 0 38px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);
+    font-weight:600;margin-bottom:18px}
+  h1{font-family:'Playfair Display',serif;font-weight:800;color:var(--navy);
+    font-size:clamp(40px,9vw,68px);line-height:.98;letter-spacing:-.015em}
+  .lede{font-size:17px;color:var(--slate);margin-top:22px;max-width:60ch}
+  .lede b{color:var(--ink);font-weight:600}
+
+  /* speed strip (signature) */
+  .speed{margin:30px 0 0;background:var(--navy);border-radius:18px;color:#fff;
+    padding:26px 26px 24px;position:relative;overflow:hidden}
+  .speed::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;
+    background:radial-gradient(circle,rgba(255,163,0,.22),transparent 70%)}
+  .speed .k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .speed .big{font-family:'Playfair Display',serif;font-size:clamp(26px,6vw,34px);
+    line-height:1.12;margin:10px 0 8px;font-weight:700}
+  .speed p{color:rgba(255,255,255,.82);font-size:15px;max-width:54ch}
+  .timeline{display:flex;gap:0;margin-top:20px;flex-wrap:wrap}
+  .tl{flex:1;min-width:120px;border-left:2px solid rgba(255,255,255,.18);padding:2px 0 2px 14px;margin-bottom:6px}
+  .tl:first-child{border-color:var(--amber)}
+  .tl .d{font-size:12px;color:var(--amber);font-weight:600;letter-spacing:.04em}
+  .tl .t{font-size:14px;color:#fff;font-weight:500;margin-top:2px}
+  .proof{margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);
+    display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;position:relative}
+  .proof span{font-size:14px;color:rgba(255,255,255,.82)}
+  .proof a{display:inline-flex;align-items:center;gap:8px;color:var(--amber);font-weight:600;
+    font-size:14.5px;text-decoration:none;white-space:nowrap;padding:10px 20px;
+    border:1.5px solid rgba(255,163,0,.55);border-radius:99px;background:rgba(255,163,0,.12);
+    transition:background .2s ease,color .2s ease,border-color .2s ease}
+  .proof a:hover{background:var(--amber);color:#3a2600;border-color:var(--amber)}
+  .proof a svg{transition:transform .2s ease}
+  .proof a:hover svg{transform:translateX(3px)}
+
+  /* section heads */
+  .sec{padding:48px 0 0}
+  .sec-eye{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:12px}
+  h2{font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);
+    font-size:clamp(26px,5.5vw,36px);line-height:1.08;letter-spacing:-.01em}
+  .sub{font-size:15.5px;color:var(--slate);margin-top:12px;max-width:62ch}
+
+  /* coverage tiles */
+  .tiles{margin-top:24px;display:flex;flex-direction:column;gap:14px}
+  .tile{border:1px solid var(--line);border-radius:16px;background:var(--white);
+    overflow:hidden;transition:border-color .25s ease,box-shadow .25s ease}
+  .tile.ready{box-shadow:0 1px 0 rgba(0,75,137,.04)}
+  .tile-head{display:flex;align-items:center;gap:16px;padding:20px 22px;cursor:pointer;
+    user-select:none;-webkit-tap-highlight-color:transparent}
+  .tile-head:focus-visible{outline:3px solid var(--amber);outline-offset:-3px;border-radius:16px}
+  .ic{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+    background:var(--paper);color:var(--navy)}
+  .ic svg{width:24px;height:24px}
+  .tile.ready .ic{background:rgba(0,75,137,.08)}
+  .tile-meta{flex:1;min-width:0}
+  .tile-name{font-weight:600;font-size:17px;color:var(--ink);line-height:1.2}
+  .tile-tag{font-size:13px;color:var(--slate);margin-top:3px}
+  .pill{font-size:11px;font-weight:600;letter-spacing:.04em;padding:4px 10px;border-radius:99px;white-space:nowrap}
+  .pill.on{background:rgba(31,157,107,.12);color:var(--good)}
+  .pill.soon{background:rgba(255,163,0,.14);color:#b9760a}
+  .chev{flex:none;color:var(--slate);transition:transform .3s ease}
+  .tile.open .chev{transform:rotate(180deg)}
+  .tile-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .tile.open .tile-body{max-height:760px}
+  .tile-inner{padding:2px 22px 24px;border-top:1px solid var(--line)}
+  .tile-inner p.exp{font-size:15px;color:var(--slate);margin:16px 0 18px}
+  .tile-inner p.exp b{color:var(--ink);font-weight:600}
+  .covs{display:flex;flex-direction:column;gap:12px}
+  .cov{display:flex;gap:12px;align-items:flex-start}
+  .cov .dot{flex:none;width:8px;height:8px;border-radius:99px;background:var(--amber);margin-top:8px}
+  .cov b{font-weight:600;color:var(--ink);font-size:14.5px}
+  .cov span{display:block;font-size:13.5px;color:var(--slate);margin-top:1px}
+
+  /* why cards */
+  .why{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:560px){.why{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--paper)}
+  .card h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);font-weight:700;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--slate)}
+
+  /* lender note */
+  .lender{margin-top:24px;border:1px solid var(--line);border-left:4px solid var(--good);
+    border-radius:14px;padding:20px 22px;background:var(--white);display:flex;gap:14px;align-items:flex-start}
+  .lender .ic2{flex:none;width:38px;height:38px;border-radius:10px;background:rgba(31,157,107,.1);
+    color:var(--good);display:grid;place-items:center}
+  .lender .ic2 svg{width:20px;height:20px}
+  .lender b{color:var(--ink);font-weight:600}
+  .lender p{font-size:14px;color:var(--slate);margin-top:3px}
+
+  /* money */
+  .money{margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--white)}
+  .money-top{padding:22px 22px 0}
+  .toggle{display:inline-flex;background:var(--paper);border-radius:99px;padding:4px;gap:4px;margin-top:4px}
+  .toggle button{border:none;background:transparent;font-family:inherit;font-size:13.5px;font-weight:600;
+    color:var(--slate);padding:8px 18px;border-radius:99px;cursor:pointer;transition:all .2s ease}
+  .toggle button.active{background:var(--navy);color:#fff}
+  .rows{padding:18px 22px 8px}
+  .row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .row .l{font-size:15px;color:var(--ink);font-weight:500}
+  .row .l small{display:block;color:var(--slate);font-weight:400;font-size:12.5px;margin-top:1px}
+  .row .v{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:700;white-space:nowrap}
+  .row.pending .v{font-family:'Outfit';font-size:13px;font-weight:600;color:#b9760a}
+  .total{background:var(--navy);color:#fff;padding:20px 22px;display:flex;justify-content:space-between;align-items:center}
+  .total .l{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .total .v{font-family:'Playfair Display',serif;font-size:28px;font-weight:800}
+  .total .v small{font-size:13px;font-weight:400;color:rgba(255,255,255,.7);letter-spacing:0;text-transform:none}
+  .fineprint{font-size:12px;color:var(--slate);padding:14px 22px 20px;line-height:1.5}
+
+  /* cta */
+  .cta{margin:48px 0 0;background:linear-gradient(160deg,var(--navy),var(--navy-deep));
+    border-radius:22px;padding:40px 30px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;
+    background:radial-gradient(circle,rgba(255,163,0,.2),transparent 70%)}
+  .cta h2{color:#fff;position:relative}
+  .cta p{color:rgba(255,255,255,.82);margin:14px auto 26px;max-width:46ch;position:relative;font-size:15.5px}
+  .btn{display:inline-block;background:var(--amber);color:#3a2600;font-weight:700;font-size:16px;
+    padding:16px 34px;border-radius:99px;text-decoration:none;position:relative;
+    transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 8px 22px rgba(255,163,0,.28)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,163,0,.36)}
+  .btn-ghost{display:inline-block;color:#fff;font-weight:600;font-size:15px;padding:14px 26px;
+    border-radius:99px;text-decoration:none;border:1.5px solid rgba(255,255,255,.45);
+    position:relative;margin-left:10px;transition:background .2s ease,border-color .2s ease}
+  .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+  @media (max-width:540px){.btn-ghost{margin-left:0;margin-top:12px}}
+  .cta .alt{display:block;margin-top:16px;font-size:14px;color:rgba(255,255,255,.7);position:relative}
+  .cta .alt a{color:#fff;text-decoration:underline}
+
+  /* footer */
+  footer{padding:38px 0 56px;text-align:center}
+  .sig{font-weight:700;color:var(--navy);font-size:16px;text-transform:uppercase;letter-spacing:.03em}
+  .sig span{color:var(--amber)}
+  .fslogan{font-size:11px;color:var(--slate);font-style:italic;margin-top:5px}
+  .fcontact{font-size:13.5px;color:var(--slate);margin-top:6px;line-height:1.7}
+  .fcontact a{color:var(--navy);text-decoration:none;font-weight:500}
+  .disc{font-size:11px;color:#9aa6b4;margin-top:20px;max-width:60ch;margin-left:auto;margin-right:auto;line-height:1.5}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brandbar fade">
+    <div class="brand">
+      <div class="logo">Safe<span>shield</span> Insurance</div>
+      <div class="slogan">We work for you, not the insurance company</div>
+    </div>
+    <div class="prepared">Prepared for <b>Najuma Thorpe</b><br>June 30, 2026 &middot; Valid 30 days</div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow fade">Your insurance proposal</div>
+    <h1 class="fade">Restoration 1<br>of Chapel Hill</h1>
+    <p class="lede fade">A pipe bursts at 2am. A kitchen fire leaves smoke and water behind. You are on site fast, and the work you do carries real exposure. <b>This is coverage built for a water, fire, and mold restoration contractor</b>, put together the same way we move on a claim.</p>
+  </header>
+</div>
+
+<div class="wrap">
+  <!-- SPEED SIGNATURE -->
+  <section class="speed fade">
+    <div class="k">Speed is the whole point</div>
+    <div class="big">Speed and responsiveness<br>is our middle name.</div>
+    <p>You are on a flooded site in 45 minutes. We move the same way, on your quote and on your claim. This coverage came together in a single day, and it is built to respond just as fast the moment a loss actually hits.</p>
+    <div class="timeline">
+      <div class="tl"><div class="d">Mon AM</div><div class="t">Intake received</div></div>
+      <div class="tl"><div class="d">Mon PM</div><div class="t">Apps to carriers</div></div>
+      <div class="tl"><div class="d">Mon PM</div><div class="t">Package quoted</div></div>
+      <div class="tl"><div class="d">Tue</div><div class="t">Auto quoted</div></div>
+    </div>
+    <div class="proof">
+      <span>Don't take our word for it. Our customers feel the same.</span>
+      <a href="https://gosafeshield.com/review" target="_blank" rel="noopener">Read our reviews <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section class="sec">
+    <div class="sec-eye fade">Your coverage</div>
+    <h2 class="fade">Built around what you actually do</h2>
+    <p class="sub fade">Tap any coverage to see, in plain language, what it does for a restoration business. Two policies are quoted and ready. Two more are being sourced now and will be added here.</p>
+
+    <div class="tiles">
+
+      <!-- PACKAGE -->
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Restoration Package</div>
+            <div class="tile-tag">General Liability, Pollution &amp; Professional</div>
+          </div>
+          <span class="pill on">Quoted</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">A standard general liability policy was never written for water and fire work. <b>This is one package built for restoration</b>, placed with an A-rated specialty carrier, so the pollution and professional exposures that come with Category 3 water, mold, and remediation are answered on the same policy.</p>
+          <div class="covs">
+            <div class="cov"><div class="dot"></div><div><b>General Liability</b><span>The slip, the trip, the property you damage on a job. The base every contractor needs.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Contractors Pollution</b><span>Mold spores, sewage, contaminants, the cleanup that spreads or goes wrong. This is the piece a basic GL policy excludes.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Professional Liability</b><span>You were hired to dry it out and remediate correctly. If your judgment on a job is challenged, this responds.</span></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- AUTO -->
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 13l2-5a2 2 0 012-1.4h10A2 2 0 0119 8l2 5"/><path d="M3 13h18v4H3z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Commercial Auto</div>
+            <div class="tile-tag">Your 2025 RAM Promaster</div>
+          </div>
+          <span class="pill on">Quoted</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Your van is the business. This covers it on the road and protects the equipment value inside it, placed with a top-rated carrier and written to satisfy your <b>financing requirements</b>.</p>
+          <div class="covs">
+            <div class="cov"><div class="dot"></div><div><b>Liability, $1M</b><span>If you are at fault in an accident, this covers the injury and damage to others.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Uninsured / Underinsured Motorist, $1M</b><span>Protects you when the other driver has little or no coverage.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Physical Damage</b><span>The van itself, covered for fire, theft, and collision at a $47,000 stated value with low deductibles.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Medical Payments</b><span>Covers medical costs for you and passengers after an accident, no fault needed.</span></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- WORKERS COMP (pending) -->
+      <div class="tile fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a3 3 0 100 6 3 3 0 000-6z"/><path d="M5 21v-2a5 5 0 015-5h4a5 5 0 015 5v2"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Workers Compensation</div>
+            <div class="tile-tag">For you and your crew on the job</div>
+          </div>
+          <span class="pill soon">In progress</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">If someone on your crew gets hurt on a job, this covers their medical care and lost wages, and it keeps that injury from landing on you personally. <b>We are sourcing the right market for a new restoration operation now</b> and will add your numbers to this page the moment they land.</p>
+        </div></div>
+      </div>
+
+      <!-- UMBRELLA (pending) -->
+      <div class="tile fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v2"/><path d="M3 12a9 9 0 0118 0z"/><path d="M12 12v6a2.5 2.5 0 005 0"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Commercial Umbrella</div>
+            <div class="tile-tag">Extra limit over everything else</div>
+          </div>
+          <span class="pill soon">In progress</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">One bad claim can blow past a $1M limit. An umbrella sits on top of your liability and auto and adds another layer when a loss runs big. <b>We are pricing this alongside your package</b> and will drop the option in here so you can decide how high you want to sit.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LENDER NOTE -->
+  <div class="lender fade">
+    <div class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+    <div>
+      <b>Your financing requirements are handled.</b>
+      <p>North Mill Credit Trust is added as lender loss payee and additional insured on the van, the deductible sits well under their $2,500 cap, and the ACORD 25 and 28 certificates they require are taken care of on our end.</p>
+    </div>
+  </div>
+
+  <!-- WHY -->
+  <section class="sec">
+    <div class="sec-eye fade">Why it matters</div>
+    <h2 class="fade">The two things a restoration GL policy gets wrong</h2>
+    <div class="why">
+      <div class="card fade"><h3>The pollution gap</h3><p>A standard general liability policy excludes pollution. For a restoration contractor that means mold, sewage, and contaminated water, the exact work you do, would not be covered. Your package closes that gap on purpose.</p></div>
+      <div class="card fade"><h3>The professional gap</h3><p>You are not just laborers, you make calls on how to dry, treat, and remediate. If a client says you got that call wrong, professional liability responds where a plain GL policy stays silent.</p></div>
+    </div>
+  </section>
+
+  <!-- MONEY (light) -->
+  <section class="sec">
+    <div class="sec-eye fade">Your investment</div>
+    <h2 class="fade">What it costs, kept simple</h2>
+    <p class="sub fade">The coverage is the point. Here is the cost on the two policies that are ready, the way most owners just getting started prefer to look at it.</p>
+
+    <div class="money fade">
+      <div class="money-top">
+        <div class="toggle" role="tablist">
+          <button class="active" data-view="year" role="tab">Pay in full</button>
+          <button data-view="month" role="tab">Monthly</button>
+        </div>
+      </div>
+
+      <div id="yearView">
+        <div class="rows">
+          <div class="row">
+            <div class="l">Restoration Package<small>GL, pollution &amp; professional</small></div>
+            <div class="v">$4,977</div>
+          </div>
+          <div class="row">
+            <div class="l">Commercial Auto<small>2025 RAM Promaster</small></div>
+            <div class="v">$4,955</div>
+          </div>
+          <div class="row pending">
+            <div class="l">Workers Comp &amp; Umbrella<small>being sourced now</small></div>
+            <div class="v">Added soon</div>
+          </div>
+        </div>
+        <div class="total">
+          <div class="l">Ready today</div>
+          <div class="v">$9,932 <small>paid in full</small></div>
+        </div>
+      </div>
+
+      <div id="monthView" hidden>
+        <div class="rows">
+          <div class="row">
+            <div class="l">Due at signing<small>about 20% down</small></div>
+            <div class="v">~$1,990</div>
+          </div>
+          <div class="row">
+            <div class="l">Monthly after that<small>roughly 10 payments</small></div>
+            <div class="v">~$840/mo</div>
+          </div>
+          <div class="row pending">
+            <div class="l">Workers Comp &amp; Umbrella<small>added once finalized</small></div>
+            <div class="v">Added soon</div>
+          </div>
+        </div>
+        <div class="total">
+          <div class="l">Your monthly plan</div>
+          <div class="v">~$840 <small>/ month</small></div>
+        </div>
+      </div>
+
+      <p class="fineprint">Annual figures are the quoted carrier premiums. The monthly plan is an estimate based on about 20% down and a standard premium finance term. Your exact down payment and installment are set by the finance company at signing. Workers comp and umbrella are added once finalized. Coverage is designed to respond subject to the terms of each policy.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta fade">
+    <h2>Ready when you are, Najuma.</h2>
+    <p>Reply to our email or call and we will send the paperwork and lock in your start date. No pressure, no waiting on us.</p>
+    <a class="btn" href="mailto:austin@gosafeshield.com?subject=Restoration%201%20of%20Chapel%20Hill%20-%20Ready%20to%20move">Let's get me covered</a>
+    <a class="btn-ghost" href="https://gosafeshield.com/review" target="_blank" rel="noopener">Read our reviews</a>
+    <span class="alt">or call <a href="tel:2035649817">(203) 564-9817</a></span>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="sig">Safe<span>shield</span> Insurance</div>
+    <div class="fslogan">We work for you, not the insurance company</div>
+    <div class="fcontact">
+      Austin Glazer, President<br>
+      <a href="mailto:austin@gosafeshield.com">austin@gosafeshield.com</a> &middot; <a href="tel:2035649817">(203) 564-9817</a>
+    </div>
+    <p class="disc">This is a proposal summary prepared for Restoration 1 of Chapel Hill and is not a binder or a contract. Coverages, limits, terms, and exclusions are governed by the actual policy documents. Premiums are subject to carrier review and may change pending underwriting.</p>
+  </footer>
+</div>
+
+<script>
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.12});
+  document.querySelectorAll('.fade').forEach(function(el,i){
+    el.style.transitionDelay=(Math.min(i,6)*40)+'ms';io.observe(el);
+  });
+
+  // tappable tiles
+  document.querySelectorAll('.tile-head').forEach(function(h){
+    function toggle(){
+      var t=h.closest('.tile');var open=t.classList.toggle('open');
+      h.setAttribute('aria-expanded',open?'true':'false');
+    }
+    h.addEventListener('click',toggle);
+    h.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}
+    });
+  });
+
+  // money toggle
+  var btns=document.querySelectorAll('.toggle button');
+  var yv=document.getElementById('yearView');
+  var mv=document.getElementById('monthView');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('active')});
+      b.classList.add('active');
+      var month=b.dataset.view==='month';
+      mv.hidden=!month; yv.hidden=month;
+    });
+  });
+</script>
+</body>
+</html>
