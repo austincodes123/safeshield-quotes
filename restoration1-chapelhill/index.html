@@ -261,7 +261,7 @@
   <section class="sec">
     <div class="sec-eye fade">Your coverage</div>
     <h2 class="fade">Built around what you actually do</h2>
-    <p class="sub fade">Tap any coverage to see, in plain language, what it does for a restoration business. Two policies are quoted and ready. Two more are being sourced now and will be added here.</p>
+    <p class="sub fade">Tap any coverage to see, in plain language, what it does for a restoration business. Three are quoted and ready today, workers comp is being finalized, and the umbrella is yours to add if you want it.</p>
 
     <div class="tiles">
 
@@ -304,6 +304,27 @@
             <div class="cov"><div class="dot"></div><div><b>Uninsured / Underinsured Motorist, $1M</b><span>Protects you when the other driver has little or no coverage.</span></div></div>
             <div class="cov"><div class="dot"></div><div><b>Physical Damage</b><span>The van itself, covered for fire, theft, and collision at a $47,000 stated value with low deductibles.</span></div></div>
             <div class="cov"><div class="dot"></div><div><b>Medical Payments</b><span>Covers medical costs for you and passengers after an accident, no fault needed.</span></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- EQUIPMENT -->
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M3 8v8l9 4 9-4V8"/><path d="M12 12v8"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Contractors Equipment</div>
+            <div class="tile-tag">Your gear, on site, in the van, or in storage</div>
+          </div>
+          <span class="pill on">Quoted</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Your air movers, dehumidifiers, air scrubbers, extractors, meters, and cameras are the tools that get the job done, and none of your other policies touch them. This is an equipment floater that protects your gear against theft, fire, and damage whether it is on a job, riding in the van, or sitting in your shop.</p>
+          <div class="covs">
+            <div class="cov"><div class="dot"></div><div><b>$50,000 limit</b><span>Covers up to $50,000 of restoration equipment, a limit we set to match what your gear would cost to replace new.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Anywhere you work</b><span>Jobsite, in transit, or in storage. It follows the equipment, not one address.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>As you grow</b><span>Anything above $50,000 falls outside the limit, so as you add equipment just tell us and we raise it to keep pace.</span></div></div>
           </div>
         </div></div>
       </div>
@@ -374,7 +395,7 @@
   <section class="sec">
     <div class="sec-eye fade">Your investment</div>
     <h2 class="fade">What it costs, kept simple</h2>
-    <p class="sub fade">The coverage is the point. Here is the cost on the two policies that are ready, the way most owners just getting started prefer to look at it.</p>
+    <p class="sub fade">The coverage is the point. Here is the cost on what is ready to bind today, the way most owners just getting started prefer to look at it.</p>
 
     <div class="money fade">
       <div class="money-top">
@@ -401,6 +422,10 @@
             <div class="l">Commercial Auto<small>2025 RAM Promaster</small></div>
             <div class="v">$4,955</div>
           </div>
+          <div class="row">
+            <div class="l">Contractors Equipment<small>$50,000 limit on your gear</small></div>
+            <div class="v">$1,206</div>
+          </div>
           <div class="row" id="umbRow" hidden>
             <div class="l">Commercial Umbrella<small>optional add-on</small></div>
             <div class="v">$3,509</div>
@@ -412,7 +437,7 @@
         </div>
         <div class="total">
           <div class="l">Ready today</div>
-          <div class="v" id="yearTotalVal">$9,932 <small>paid in full</small></div>
+          <div class="v" id="yearTotalVal">$11,138 <small>paid in full</small></div>
         </div>
       </div>
 
@@ -420,11 +445,11 @@
         <div class="rows">
           <div class="row">
             <div class="l">Due at signing<small>about 20% down</small></div>
-            <div class="v" id="mDown">~$1,990</div>
+            <div class="v" id="mDown">~$2,230</div>
           </div>
           <div class="row">
             <div class="l">Monthly after that<small>roughly 10 payments</small></div>
-            <div class="v" id="mInstall">~$840/mo</div>
+            <div class="v" id="mInstall">~$942/mo</div>
           </div>
           <div class="row pending">
             <div class="l">Workers Comp<small>quoting now, added days later</small></div>
@@ -433,7 +458,7 @@
         </div>
         <div class="total">
           <div class="l">Your monthly plan</div>
-          <div class="v" id="mTotalVal">~$840 <small>/ month</small></div>
+          <div class="v" id="mTotalVal">~$942 <small>/ month</small></div>
         </div>
       </div>
 
@@ -492,10 +517,10 @@
       var on=umb.checked;
       optin.classList.toggle('on',on);
       umbRow.hidden=!on;
-      document.getElementById('yearTotalVal').innerHTML=(on?'$13,441':'$9,932')+' <small>paid in full</small>';
-      document.getElementById('mDown').textContent=on?'~$2,690':'~$1,990';
-      document.getElementById('mInstall').textContent=on?'~$1,137/mo':'~$840/mo';
-      document.getElementById('mTotalVal').innerHTML=(on?'~$1,137':'~$840')+' <small>/ month</small>';
+      document.getElementById('yearTotalVal').innerHTML=(on?'$14,647':'$11,138')+' <small>paid in full</small>';
+      document.getElementById('mDown').textContent=on?'~$2,930':'~$2,230';
+      document.getElementById('mInstall').textContent=on?'~$1,239/mo':'~$942/mo';
+      document.getElementById('mTotalVal').innerHTML=(on?'~$1,239':'~$942')+' <small>/ month</small>';
     });
   }
 
