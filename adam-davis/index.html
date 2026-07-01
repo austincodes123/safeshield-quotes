@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Adam Davis — Travelers Bundle | Safeshield Insurance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #004B89;
+    --gold: #FFA300;
+    --bg: #0a1628;
+    --surface: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+    --text: #FAFAF8;
+    --muted: rgba(250,250,248,0.6);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; line-height: 1.6; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0a1628 0%, #0d2145 50%, #0a1628 100%);
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(0,75,137,0.35) 0%, transparent 65%),
+                radial-gradient(ellipse at 20% 80%, rgba(255,163,0,0.1) 0%, transparent 55%);
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,163,0,0.12); border: 1px solid rgba(255,163,0,0.3);
+    border-radius: 100px; padding: 6px 18px; font-size: 13px; font-weight: 600;
+    color: var(--gold); letter-spacing: 0.05em; text-transform: uppercase;
+    margin-bottom: 24px; position: relative;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 62px); font-weight: 900;
+    line-height: 1.1; margin-bottom: 12px; position: relative;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: 18px; color: var(--muted); max-width: 540px;
+    margin: 0 auto 40px; position: relative;
+  }
+  .hero-carrier {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 10px 20px; font-size: 14px;
+    color: var(--muted); position: relative; margin-bottom: 40px;
+  }
+  .hero-carrier strong { color: var(--text); }
+
+  /* ── PREMIUM CARD ── */
+  .premium-wrap {
+    display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+    position: relative; margin-top: 8px;
+  }
+  .premium-card {
+    background: linear-gradient(135deg, rgba(0,75,137,0.4), rgba(0,75,137,0.15));
+    border: 1px solid rgba(0,75,137,0.5);
+    border-radius: 20px; padding: 36px 44px; text-align: center; min-width: 220px;
+  }
+  .premium-card .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+  .premium-card .amount { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: var(--gold); line-height: 1; }
+  .premium-card .period { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .premium-card.auto-card {
+    background: linear-gradient(135deg, rgba(255,163,0,0.15), rgba(255,163,0,0.05));
+    border-color: rgba(255,163,0,0.35);
+  }
+  .premium-card.auto-card .amount { color: var(--text); font-size: 28px; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent); margin: 0; }
+
+  /* ── SECTIONS ── */
+  section { padding: 64px 24px; max-width: 960px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--gold); font-weight: 700; margin-bottom: 10px;
+  }
+  .section-title { font-size: clamp(26px, 4vw, 38px); font-weight: 900; margin-bottom: 12px; }
+  .section-desc { color: var(--muted); font-size: 16px; max-width: 620px; margin-bottom: 40px; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 32px;
+  }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+
+  /* ── COVERAGE TABLE ── */
+  .cov-table { width: 100%; border-collapse: collapse; }
+  .cov-table th {
+    text-align: left; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted); font-family: 'Outfit', sans-serif;
+    font-weight: 600; padding: 0 0 14px; border-bottom: 1px solid var(--border);
+  }
+  .cov-table td {
+    padding: 14px 0; border-bottom: 1px solid var(--border);
+    font-size: 15px; vertical-align: top;
+  }
+  .cov-table tr:last-child td { border-bottom: none; }
+  .cov-table td:last-child { text-align: right; color: var(--gold); font-weight: 600; white-space: nowrap; }
+  .cov-name { font-weight: 500; }
+  .cov-desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  /* ── DEDUCTIBLE PILLS ── */
+  .ded-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
+  .ded-pill {
+    background: rgba(255,163,0,0.08); border: 1px solid rgba(255,163,0,0.2);
+    border-radius: 12px; padding: 16px 24px; flex: 1; min-width: 180px;
+  }
+  .ded-pill .ded-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .ded-pill .ded-val { font-size: 22px; font-weight: 700; color: var(--gold); }
+  .ded-pill .ded-note { font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+  /* ── ENDORSEMENTS ── */
+  .endt-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+  .endt-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: rgba(0,75,137,0.1); border: 1px solid rgba(0,75,137,0.2);
+    border-radius: 12px; padding: 16px 20px;
+  }
+  .endt-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .endt-name { font-weight: 600; font-size: 15px; }
+  .endt-detail { font-size: 13px; color: var(--muted); }
+  .endt-badge {
+    margin-left: auto; flex-shrink: 0;
+    background: rgba(0,200,100,0.12); border: 1px solid rgba(0,200,100,0.25);
+    color: #4ade80; border-radius: 100px; padding: 3px 12px; font-size: 12px; font-weight: 600;
+  }
+
+  /* ── DISCOUNTS ── */
+  .disc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-top: 8px; }
+  .disc-item {
+    background: rgba(0,200,100,0.05); border: 1px solid rgba(0,200,100,0.15);
+    border-radius: 12px; padding: 14px 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .disc-check { color: #4ade80; font-size: 16px; }
+  .disc-name { font-size: 14px; font-weight: 500; }
+
+  /* ── BUNDLE CALLOUT ── */
+  .bundle-card {
+    background: linear-gradient(135deg, rgba(255,163,0,0.12), rgba(255,163,0,0.04));
+    border: 1px solid rgba(255,163,0,0.35); border-radius: 20px; padding: 36px 40px;
+  }
+  .bundle-card h3 { font-size: 26px; margin-bottom: 12px; }
+  .bundle-card p { color: var(--muted); font-size: 15px; line-height: 1.7; }
+  .bundle-highlight { color: var(--gold); font-weight: 700; }
+
+  /* ── PROPERTY INFO ── */
+  .prop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .prop-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; }
+  .prop-item .prop-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
+  .prop-item .prop-val { font-size: 16px; font-weight: 600; }
+
+  /* ── WHY SAFESHIELD ── */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .why-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 28px;
+  }
+  .why-icon { font-size: 28px; margin-bottom: 14px; }
+  .why-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .why-body { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ── CTA FOOTER ── */
+  .cta-section {
+    background: linear-gradient(135deg, rgba(0,75,137,0.3), rgba(0,75,137,0.1));
+    border-top: 1px solid var(--border); padding: 64px 24px; text-align: center;
+  }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 42px); margin-bottom: 14px; }
+  .cta-section p { color: var(--muted); font-size: 16px; max-width: 520px; margin: 0 auto 36px; }
+  .btn-primary {
+    display: inline-block; background: var(--gold); color: #0a1628;
+    font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 16px;
+    padding: 16px 40px; border-radius: 100px; text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-secondary {
+    display: inline-block; background: transparent;
+    border: 1px solid rgba(255,255,255,0.25); color: var(--text);
+    font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 16px;
+    padding: 16px 40px; border-radius: 100px; text-decoration: none;
+    margin-left: 14px; transition: background 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.06); }
+  .agent-card {
+    display: inline-flex; align-items: center; gap: 16px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 20px 28px; margin-top: 40px;
+    text-align: left;
+  }
+  .agent-avatar {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 18px; color: #fff; flex-shrink: 0;
+  }
+  .agent-name { font-weight: 700; font-size: 15px; }
+  .agent-title { font-size: 13px; color: var(--muted); }
+  .agent-contact { font-size: 13px; color: var(--gold); margin-top: 2px; }
+
+  /* ── SAVINGS BANNER ── */
+  .savings-banner {
+    background: linear-gradient(90deg, rgba(0,200,100,0.08), rgba(0,200,100,0.04));
+    border: 1px solid rgba(0,200,100,0.2); border-radius: 14px;
+    padding: 20px 28px; display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px; margin-bottom: 32px;
+  }
+  .savings-banner .sav-label { font-size: 15px; color: var(--muted); }
+  .savings-banner .sav-val { font-size: 28px; font-weight: 800; color: #4ade80; }
+  .savings-banner .sav-sub { font-size: 13px; color: rgba(74,222,128,0.7); }
+
+  @media(max-width:600px) {
+    section { padding: 48px 16px; }
+    .hero { padding: 60px 16px 40px; }
+    .premium-card { padding: 28px 24px; }
+    .btn-secondary { margin: 12px 0 0; display: block; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-badge">✦ Travelers Insurance Bundle</div>
+  <h1>Your Home + Auto<br><span>Bundle Quote</span></h1>
+  <p class="hero-sub">Adam Davis · 871 Naugatuck Ave, Milford CT · Effective 08/03/2026</p>
+  <div class="hero-carrier">
+    Underwritten by &nbsp;<strong>Travelers Personal Insurance Company</strong>
+  </div>
+
+  <div class="premium-wrap">
+    <div class="premium-card">
+      <div class="label">Homeowners Premium</div>
+      <div class="amount">$2,146</div>
+      <div class="period">per year &nbsp;·&nbsp; 08/03/26 – 08/03/27</div>
+    </div>
+    <div class="premium-card auto-card">
+      <div class="label">Auto Premium</div>
+      <div class="amount">Bundled with Travelers</div>
+      <div class="period">Multi-policy discount applied &nbsp;·&nbsp; Subaru to be added</div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- ═══ SAVINGS CALLOUT ═══ -->
+<section style="padding-bottom: 0;">
+  <div class="savings-banner">
+    <div>
+      <div class="sav-label">Discounts already saving you</div>
+      <div class="sav-sub">Multi-Policy · Early Quote · Loss Free · Good Payer · Fire Protective Device</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="sav-val">$1,097</div>
+      <div class="sav-sub">reflected in your home premium</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOME COVERAGES ═══ -->
+<section>
+  <div class="section-label">Homeowners Coverage</div>
+  <h2 class="section-title">What's Covered at <span style="color:var(--gold)">871 Naugatuck</span></h2>
+  <p class="section-desc">Travelers Protect® level — built to cover your home, your stuff, and you, all in one clean policy.</p>
+
+  <div class="card">
+    <table class="cov-table">
+      <thead>
+        <tr>
+          <th>Coverage</th>
+          <th style="text-align:right;">Limit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="cov-name">Coverage A — Dwelling</div>
+            <div class="cov-desc">Rebuilds or repairs the physical structure of your home if it's damaged</div>
+          </td>
+          <td>$372,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cov-name">Coverage B — Other Structures</div>
+            <div class="cov-desc">Detached garage, fence, shed — anything not attached to the main home</div>
+          </td>
+          <td>$37,200</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cov-name">Coverage C — Personal Property</div>
+            <div class="cov-desc">Your furniture, electronics, clothing — everything inside the home</div>
+          </td>
+          <td>$186,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cov-name">Coverage D — Loss of Use</div>
+            <div class="cov-desc">Hotel and living expenses while your home is being repaired after a covered loss</div>
+          </td>
+          <td>$74,400</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cov-name">Coverage E — Personal Liability</div>
+            <div class="cov-desc">Protects you if someone is injured on your property and sues</div>
+          </td>
+          <td>$500,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cov-name">Coverage F — Medical Payments</div>
+            <div class="cov-desc">Pays medical bills for guests injured on your property, no lawsuit needed</div>
+          </td>
+          <td>$5,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ded-row">
+      <div class="ded-pill">
+        <div class="ded-label">All Other Perils Deductible</div>
+        <div class="ded-val">$2,500</div>
+        <div class="ded-note">What you pay before coverage kicks in</div>
+      </div>
+      <div class="ded-pill">
+        <div class="ded-label">Hurricane Deductible</div>
+        <div class="ded-val">$7,440</div>
+        <div class="ded-note">2% of Dwelling limit — applies to named storms</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ═══ ENDORSEMENTS ═══ -->
+<section>
+  <div class="section-label">Built-in Extras</div>
+  <h2 class="section-title">Included <span style="color:var(--gold)">Endorsements</span></h2>
+  <p class="section-desc">These coverages are baked into your premium at no extra charge — not everyone gets them standard.</p>
+
+  <div class="endt-list">
+    <div class="endt-item">
+      <div class="endt-icon">🌀</div>
+      <div>
+        <div class="endt-name">Hurricane Percentage Deductible</div>
+        <div class="endt-detail">Structured deductible tied to your dwelling value for named hurricane events</div>
+      </div>
+      <div class="endt-badge">Included</div>
+    </div>
+    <div class="endt-item">
+      <div class="endt-icon">💧</div>
+      <div>
+        <div class="endt-name">Water Back Up &amp; Sump Discharge</div>
+        <div class="endt-detail">Up to $10,000 if water backs up through drains or your sump pump overflows — one of the most common and overlooked claims</div>
+      </div>
+      <div class="endt-badge">Included · $10K</div>
+    </div>
+    <div class="endt-item">
+      <div class="endt-icon">🔄</div>
+      <div>
+        <div class="endt-name">Personal Property Replacement Cost</div>
+        <div class="endt-detail">Your belongings are replaced at today's cost — not depreciated. A 5-year-old TV gets replaced with a new one.</div>
+      </div>
+      <div class="endt-badge">Included</div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ═══ BUNDLE CALLOUT ═══ -->
+<section>
+  <div class="bundle-card">
+    <div style="font-size:36px;margin-bottom:16px;">🚗🏠</div>
+    <h3>Your Auto Is Moving to Travelers Too</h3>
+    <p style="margin-bottom:16px;">
+      By bundling your home and auto with Travelers, you're capturing the 
+      <span class="bundle-highlight">Multi-Policy discount</span> on both policies — 
+      meaning the more you insure together, the more you save. Your existing auto coverage 
+      is being brought over as-is, keeping everything seamless.
+    </p>
+    <p>
+      <span class="bundle-highlight">Coming soon:</span> Your Subaru will be added to the auto 
+      policy once we have the details. We'll get that handled quickly so you're fully covered 
+      from day one.
+    </p>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ═══ PROPERTY DETAILS ═══ -->
+<section>
+  <div class="section-label">Your Property</div>
+  <h2 class="section-title">What Travelers <span style="color:var(--gold)">Rated On</span></h2>
+  <p class="section-desc">These are the home characteristics Travelers used to calculate your premium.</p>
+
+  <div class="prop-grid">
+    <div class="prop-item"><div class="prop-label">Year Built</div><div class="prop-val">1961</div></div>
+    <div class="prop-item"><div class="prop-label">Square Footage</div><div class="prop-val">1,118 sq ft</div></div>
+    <div class="prop-item"><div class="prop-label">Construction</div><div class="prop-val">Frame</div></div>
+    <div class="prop-item"><div class="prop-label">Roof Age</div><div class="prop-val">7 Years</div></div>
+    <div class="prop-item"><div class="prop-label">Roof Material</div><div class="prop-val">Asphalt-Fiberglass</div></div>
+    <div class="prop-item"><div class="prop-label">Stories</div><div class="prop-val">1 Story</div></div>
+    <div class="prop-item"><div class="prop-label">Siding</div><div class="prop-val">Aluminum/Steel</div></div>
+    <div class="prop-item"><div class="prop-label">Foundation</div><div class="prop-val">Basement</div></div>
+    <div class="prop-item"><div class="prop-label">Garage</div><div class="prop-val">2-Car (Basement)</div></div>
+    <div class="prop-item"><div class="prop-label">Pool</div><div class="prop-val">Yes</div></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ═══ WHY SAFESHIELD ═══ -->
+<section>
+  <div class="section-label">Why Safeshield</div>
+  <h2 class="section-title">We Work For <span style="color:var(--gold)">You</span></h2>
+  <p class="section-desc">We're an independent brokerage — that means we shop 69+ carriers to find the right fit, not just push one company.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🛒</div>
+      <div class="why-title">69+ Carrier Partners</div>
+      <div class="why-body">We have relationships across the full market. If Travelers ever stops being the best deal, we'll find you something better at renewal.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">Same-Day Everything</div>
+      <div class="why-body">Quotes, ID cards, policy changes, certificates — done the same day you ask. No waiting on hold with a call center.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <div class="why-title">We're In Your Corner at Claims</div>
+      <div class="why-body">When you have a claim, we're your advocate — not the carrier's. We help you navigate the process and make sure you're treated fairly.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔁</div>
+      <div class="why-title">Annual Re-Shop Guarantee</div>
+      <div class="why-body">Every renewal, we re-run the market. If we can save you money, we will. You'll never overpay just because you didn't ask.</div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ═══ BILLING OPTIONS ═══ -->
+<section>
+  <div class="section-label">Payment Options</div>
+  <h2 class="section-title">How You Can <span style="color:var(--gold)">Pay</span></h2>
+  <p class="section-desc">Travelers offers flexible billing. EFT is the most cost-effective option.</p>
+
+  <div class="card-grid">
+    <div class="card" style="border-color:rgba(0,200,100,0.25);">
+      <div style="font-size:22px;margin-bottom:10px;">🏦</div>
+      <div style="font-weight:700;font-size:16px;margin-bottom:6px;">EFT (Recommended)</div>
+      <div style="font-size:28px;font-weight:800;color:#4ade80;">$180.84<span style="font-size:14px;font-weight:400;color:var(--muted)">/mo</span></div>
+      <div style="font-size:13px;color:var(--muted);margin-top:6px;">$178.84 premium + $2.00 service fee</div>
+    </div>
+    <div class="card">
+      <div style="font-size:22px;margin-bottom:10px;">💳</div>
+      <div style="font-weight:700;font-size:16px;margin-bottom:6px;">Recurring Credit Card</div>
+      <div style="font-size:28px;font-weight:800;color:var(--gold);">$182.84<span style="font-size:14px;font-weight:400;color:var(--muted)">/mo</span></div>
+      <div style="font-size:13px;color:var(--muted);margin-top:6px;">$178.84 premium + $4.00 service fee</div>
+    </div>
+    <div class="card">
+      <div style="font-size:22px;margin-bottom:10px;">📬</div>
+      <div style="font-weight:700;font-size:16px;margin-bottom:6px;">Bill by Mail / Email</div>
+      <div style="font-size:28px;font-weight:800;color:var(--text);">$183.84<span style="font-size:14px;font-weight:400;color:var(--muted)">/mo</span></div>
+      <div style="font-size:13px;color:var(--muted);margin-top:6px;">$178.84 premium + $5.00 service fee</div>
+    </div>
+  </div>
+  <p style="font-size:13px;color:var(--muted);margin-top:20px;">Pay in full options also available. Down payment estimated at $193.76.</p>
+</section>
+<div class="divider"></div>
+
+<!-- ═══ CTA ═══ -->
+<div class="cta-section">
+  <h2>Ready to Lock This In?</h2>
+  <p>One call and we'll get your home and auto both moved to Travelers — plus add the Subaru once you have the details ready.</p>
+  <a href="tel:+12039064357" class="btn-primary">Call Trent</a>
+  <a href="mailto:trent@gosafeshield.com" class="btn-secondary">Send an Email</a>
+
+  <div style="display:flex;justify-content:center;margin-top:40px;">
+    <div class="agent-card">
+      <div class="agent-avatar">TB</div>
+      <div>
+        <div class="agent-name">Trent Beggs</div>
+        <div class="agent-title">Safeshield Insurance</div>
+        <div class="agent-contact">trent@gosafeshield.com</div>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:32px;font-size:12px;color:rgba(250,250,248,0.3);">
+    Quote prepared 07/01/2026 · Underwritten by Travelers Personal Insurance Company, One Tower Square, Hartford CT 06183 · 
+    Premium is a preliminary estimate subject to final underwriting. Safeshield Insurance · 2777 Summer St 6th Fl, Stamford CT 06905 · 1.877.872.8737
+  </p>
+</div>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"adam-davis","agent":"Trent"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
