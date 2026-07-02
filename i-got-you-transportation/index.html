@@ -18,7 +18,6 @@
   }
   body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;line-height:1.6;min-height:100vh}
 
-  /* HERO */
   .hero{background:linear-gradient(135deg,#04111f 0%,#0a1e3a 50%,#061524 100%);padding:80px 20px 60px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
   .hero::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,163,0,0.08) 0%,transparent 70%);pointer-events:none}
   .hero-badge{display:inline-block;background:rgba(255,163,0,0.12);border:1px solid rgba(255,163,0,0.3);color:var(--gold);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:100px;margin-bottom:24px}
@@ -32,12 +31,10 @@
 
   .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,163,0,0.25),transparent);margin:0}
 
-  /* SECTIONS */
   .section{padding:64px 20px;max-width:960px;margin:0 auto}
   .section-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:8px;color:#fff}
   .section-sub{font-size:15px;color:var(--muted);margin-bottom:36px}
 
-  /* COVERAGE CARDS */
   .coverage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:40px}
   .cov-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;position:relative;overflow:hidden}
   .cov-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--gold))}
@@ -50,7 +47,9 @@
   .cov-value{font-size:13px;font-weight:600;color:#fff;text-align:right;max-width:44%}
   .cov-value.highlight{color:var(--gold)}
 
-  /* BILLING SECTION */
+  .subhead{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:16px 0 6px;padding-top:12px;border-top:1px dashed rgba(255,163,0,0.2)}
+  .subhead:first-of-type{padding-top:0;border-top:none;margin-top:0}
+
   .billing-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
   .billing-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
   .billing-card .billing-header{background:rgba(0,75,137,0.3);border-bottom:1px solid var(--border);padding:20px 24px}
@@ -63,22 +62,19 @@
   .billing-line .b-label{font-size:13px;color:var(--muted)}
   .billing-line .b-value{font-size:14px;font-weight:700;color:#fff}
   .billing-line.total-line .b-value{font-size:17px;color:var(--gold)}
-  .billing-line .b-note{font-size:11px;color:var(--muted);margin-top:2px}
 
-  .pif-banner{background:linear-gradient(135deg,rgba(0,75,137,0.25),rgba(255,163,0,0.08));border:1px solid rgba(255,163,0,0.25);border-radius:16px;padding:28px 32px;margin-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:16px}
+  .pif-banner{background:linear-gradient(135deg,rgba(0,75,137,0.25),rgba(255,163,0,0.08));border:1px solid rgba(255,163,0,0.25);border-radius:16px;padding:28px 32px;margin-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
   .pif-banner .pif-label{font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);font-weight:700;margin-bottom:4px}
   .pif-banner .pif-amount{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#fff}
   .pif-banner .pif-note{font-size:13px;color:var(--muted);margin-top:4px}
   .pif-savings{background:rgba(255,163,0,0.12);border:1px solid rgba(255,163,0,0.3);border-radius:100px;padding:8px 20px;font-size:13px;font-weight:700;color:var(--gold);white-space:nowrap}
 
-  /* WHY SAFESHIELD */
   .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
   .why-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px}
   .why-card .why-icon{font-size:26px;margin-bottom:12px}
   .why-card h4{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
   .why-card p{font-size:13px;color:var(--muted);line-height:1.5}
 
-  /* CTA */
   .cta{background:linear-gradient(135deg,#04111f,#0a1e3a);padding:64px 20px;text-align:center;border-top:1px solid var(--border)}
   .cta h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#fff;margin-bottom:12px}
   .cta p{font-size:16px;color:var(--muted);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto}
@@ -88,12 +84,9 @@
   .btn-secondary{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#fff;font-weight:600;font-size:15px;padding:14px 32px;border-radius:100px;text-decoration:none;display:inline-block;transition:background 0.2s}
   .btn-secondary:hover{background:rgba(255,255,255,0.1)}
 
-  /* FOOTER */
   .footer{background:#040d1a;border-top:1px solid var(--border);padding:32px 20px;text-align:center}
   .footer-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--gold);margin-bottom:6px}
   .footer p{font-size:12px;color:var(--muted)}
-
-  .tag{display:inline-block;background:rgba(255,163,0,0.1);border:1px solid rgba(255,163,0,0.2);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:12px}
 
   @media(max-width:600px){
     .pif-banner{flex-direction:column;text-align:center}
@@ -103,7 +96,6 @@
 </head>
 <body>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-badge">Commercial Insurance Proposal</div>
   <h1>I Got You <span>Transportation LLC</span></h1>
@@ -117,31 +109,41 @@
 </section>
 <div class="divider"></div>
 
-<!-- COVERAGES -->
 <div class="section">
   <p class="section-title">Your Coverage Breakdown</p>
   <p class="section-sub">Two policies. Full protection for your transportation operation.</p>
 
   <div class="coverage-grid">
 
-    <!-- AUTO -->
     <div class="cov-card">
       <div class="carrier-badge">Commercial Auto</div>
       <h3>Commercial Auto</h3>
       <div class="carrier-name">National Indemnity Company &nbsp;|&nbsp; via CRC Group</div>
-      <div class="cov-row"><span class="cov-label">Liability (CSL)</span><span class="cov-value highlight">$1,000,000</span></div>
+
+      <div class="subhead">Liability</div>
+      <div class="cov-row"><span class="cov-label">Combined Single Limit</span><span class="cov-value highlight">$1,000,000</span></div>
       <div class="cov-row"><span class="cov-label">Uninsured Motorist</span><span class="cov-value">$1,000,000</span></div>
       <div class="cov-row"><span class="cov-label">Underinsured Motorist</span><span class="cov-value">$1,000,000</span></div>
       <div class="cov-row"><span class="cov-label">Medical Payments</span><span class="cov-value">$5,000</span></div>
+
+      <div class="subhead">Physical Damage</div>
+      <div class="cov-row"><span class="cov-label">Comprehensive (Other Than Collision)</span><span class="cov-value highlight">Included — Stated Value</span></div>
+      <div class="cov-row"><span class="cov-label">Comprehensive Deductible</span><span class="cov-value">$1,000</span></div>
+      <div class="cov-row"><span class="cov-label">Collision</span><span class="cov-value highlight">Included — Stated Value</span></div>
+      <div class="cov-row"><span class="cov-label">Collision Deductible</span><span class="cov-value">$1,000</span></div>
+      <div class="cov-row"><span class="cov-label">Towing &amp; Storage</span><span class="cov-value">Included</span></div>
+
+      <div class="subhead">Additional Coverages</div>
       <div class="cov-row"><span class="cov-label">Non-Emergency Medical Transport</span><span class="cov-value">Included</span></div>
       <div class="cov-row"><span class="cov-label">Hired / Non-Owned Auto</span><span class="cov-value">Included</span></div>
-      <div class="cov-row"><span class="cov-label">Towing &amp; Storage</span><span class="cov-value">Included</span></div>
-      <div class="cov-row"><span class="cov-label">Vehicles Covered</span><span class="cov-value">2 (Passenger Van)</span></div>
-      <div class="cov-row"><span class="cov-label">Drivers</span><span class="cov-value">James Johnson, Jamara Lucia Fanfan</span></div>
-      <div class="cov-row"><span class="cov-label">Annual Premium</span><span class="cov-value highlight">$30,106</span></div>
+
+      <div class="subhead">Vehicles &amp; Drivers</div>
+      <div class="cov-row"><span class="cov-label">Vehicles Covered</span><span class="cov-value">2 &mdash; Passenger Vans</span></div>
+      <div class="cov-row"><span class="cov-label">Drivers</span><span class="cov-value">James Johnson<br/>Jamara Lucia Fanfan</span></div>
+
+      <div class="cov-row" style="margin-top:12px;padding-top:14px;border-top:1px solid rgba(255,163,0,0.3)"><span class="cov-label" style="font-weight:700;color:#fff">Annual Premium</span><span class="cov-value highlight" style="font-size:16px">$30,106</span></div>
     </div>
 
-    <!-- GL -->
     <div class="cov-card">
       <div class="carrier-badge">General Liability</div>
       <h3>General Liability</h3>
@@ -154,21 +156,19 @@
       <div class="cov-row"><span class="cov-label">Damage to Rented Premises</span><span class="cov-value">$100,000</span></div>
       <div class="cov-row"><span class="cov-label">Base Premium</span><span class="cov-value">$2,500</span></div>
       <div class="cov-row"><span class="cov-label">Taxes &amp; Fees</span><span class="cov-value">$350</span></div>
-      <div class="cov-row"><span class="cov-label">Total Premium</span><span class="cov-value highlight">$2,850</span></div>
+      <div class="cov-row" style="margin-top:12px;padding-top:14px;border-top:1px solid rgba(255,163,0,0.3)"><span class="cov-label" style="font-weight:700;color:#fff">Total Premium</span><span class="cov-value highlight" style="font-size:16px">$2,850</span></div>
     </div>
 
   </div>
 </div>
 <div class="divider"></div>
 
-<!-- BILLING -->
 <div class="section">
   <p class="section-title">Payment Options</p>
   <p class="section-sub">Choose what works best for your cash flow. Finance both policies together or pay the GL in full.</p>
 
   <div class="billing-wrap">
 
-    <!-- FINANCE OPTION -->
     <div class="billing-card">
       <div class="billing-header">
         <div class="billing-sub">Option 1 — Finance Both Policies</div>
@@ -193,7 +193,6 @@
       </div>
     </div>
 
-    <!-- PAY IN FULL OPTION -->
     <div class="billing-card">
       <div class="billing-header">
         <div class="billing-sub">Option 2 — Pay in Full</div>
@@ -217,7 +216,6 @@
 
   </div>
 
-  <!-- GL PAY IN FULL ONLY OPTION -->
   <div class="pif-banner" style="margin-top:24px">
     <div>
       <div class="pif-label">GL Only — Pay in Full</div>
@@ -229,7 +227,6 @@
 </div>
 <div class="divider"></div>
 
-<!-- WHY SAFESHIELD -->
 <div class="section">
   <p class="section-title">Why Safeshield</p>
   <p class="section-sub">We work for you, not the carriers.</p>
@@ -243,7 +240,6 @@
 </div>
 <div class="divider"></div>
 
-<!-- CTA -->
 <section class="cta">
   <h2>Ready to Get Covered?</h2>
   <p>Call or text Eric Kelly to move forward. We can have your policies bound same day.</p>
@@ -253,13 +249,11 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-logo">Safeshield Insurance</div>
   <p>2299 Summer St #1061, Stamford, CT 06905 &nbsp;&bull;&nbsp; Licensed in CT, NY, NJ, PA, DE</p>
   <p style="margin-top:6px">This quote is valid as of the effective date shown above and subject to carrier underwriting approval.</p>
 </footer>
-
 
 <script>window.CASEY_PROPOSAL={"slug":"i-got-you-transportation","agent":"Eric"};</script>
 <script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
