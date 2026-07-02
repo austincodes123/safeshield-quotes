@@ -224,6 +224,45 @@
   .fcontact{font-size:13.5px;color:var(--slate);margin-top:6px;line-height:1.7}
   .fcontact a{color:var(--navy);text-decoration:none;font-weight:500}
   .disc{font-size:11px;color:#9aa6b4;margin-top:20px;max-width:60ch;margin-left:auto;margin-right:auto;line-height:1.5}
+
+  /* tabs */
+  .tabs{display:flex;gap:5px;margin-top:22px;background:var(--paper);padding:5px;border-radius:99px;width:fit-content;max-width:100%}
+  .tab{border:none;background:transparent;font-family:inherit;font-size:14px;font-weight:600;color:var(--slate);
+    padding:11px 22px;border-radius:99px;cursor:pointer;transition:all .2s ease;white-space:nowrap}
+  .tab.active{background:var(--navy);color:#fff}
+  @media (max-width:440px){.tab{padding:11px 16px;font-size:13px}}
+
+  /* comparison */
+  .cmp{border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:18px;background:#fff}
+  .cmp-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:700;padding:18px 22px 4px}
+  .cmp-cols{display:grid;grid-template-columns:1fr 1fr}
+  .cmp-col{padding:14px 20px 20px}
+  .cmp-col.ours{background:rgba(0,75,137,.045)}
+  .cmp-col.theirs{border-left:1px solid var(--line)}
+  .who{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+  .cmp-col.ours .who{color:var(--navy)}
+  .cmp-col.theirs .who{color:var(--slate)}
+  .cmp-col .price{font-family:'Playfair Display',serif;font-size:23px;font-weight:800;color:var(--ink);margin-bottom:13px}
+  .cmp-col .price small{font-size:12px;font-weight:400;color:var(--slate)}
+  .cmp-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .cmp-col li{font-size:13px;padding-left:22px;position:relative;color:var(--ink);line-height:1.35}
+  .cmp-col li.yes::before{content:"\2713";position:absolute;left:0;top:0;color:var(--good);font-weight:800}
+  .cmp-col li.no{color:var(--slate)}
+  .cmp-col li.no::before{content:"\2715";position:absolute;left:0;top:0;color:#e03131;font-weight:800}
+  .cmp-diff{background:var(--navy);color:#fff;padding:16px 22px;font-size:13.5px;line-height:1.55}
+  .cmp-diff b{color:var(--amber)}
+  @media (max-width:440px){.cmp-col{padding:13px 14px 18px}.cmp-col .price{font-size:20px}.cmp-col li{font-size:12.5px}}
+
+  .cmp-total{margin-top:22px;border-radius:20px;background:linear-gradient(160deg,var(--navy),var(--navy-deep));
+    color:#fff;padding:30px 24px;text-align:center;position:relative;overflow:hidden}
+  .cmp-total::before{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;
+    background:radial-gradient(circle,rgba(255,163,0,.2),transparent 70%)}
+  .cmp-total .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:600;position:relative}
+  .cmp-total .vs{display:flex;justify-content:center;gap:34px;margin:18px 0 14px;flex-wrap:wrap;position:relative}
+  .cmp-total .vs .n{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;line-height:1}
+  .cmp-total .vs .c{font-size:12px;color:rgba(255,255,255,.72);margin-top:6px}
+  .cmp-total .save{font-size:15px;line-height:1.5;max-width:44ch;margin:0 auto;position:relative;color:rgba(255,255,255,.9)}
+  .cmp-total .save b{color:var(--amber)}
 </style>
 </head>
 <body>
@@ -237,6 +276,15 @@
     <div class="prepared">Prepared for <b>Najuma Thorpe</b><br>June 30, 2026 &middot; Valid 30 days</div>
   </div>
 
+  <!-- TABS -->
+  <div class="tabs fade" role="tablist">
+    <button class="tab active" data-pane="proposal" role="tab">Your Proposal</button>
+    <button class="tab" data-pane="compare" role="tab">How We Compare</button>
+  </div>
+</div>
+
+<div id="proposalView">
+<div class="wrap">
   <!-- HERO -->
   <header class="hero">
     <div class="eyebrow fade">Your insurance proposal</div>
@@ -447,7 +495,109 @@
     <a class="btn-ghost" href="https://gosafeshield.com/review" target="_blank" rel="noopener">Read our reviews</a>
     <span class="alt">or call <a href="tel:2035649817">(203) 564-9817</a></span>
   </section>
+</div>
+</div><!-- /proposalView -->
 
+<div id="compareView" hidden>
+<div class="wrap">
+  <section class="sec" style="padding-top:40px">
+    <div class="sec-eye">Side by side</div>
+    <h2>Yours next to the other quote</h2>
+    <p class="sub">Najuma, here is the honest comparison on the three lines we are placing for you, in plain language. Where the two look the same, I will show you exactly where they are not. Auto is left out on both sides since yours is being written elsewhere.</p>
+  </section>
+
+  <!-- GL -->
+  <div class="cmp">
+    <div class="cmp-title">General Liability</div>
+    <div class="cmp-cols">
+      <div class="cmp-col ours">
+        <div class="who">Safeshield</div>
+        <div class="price">$4,977<small> /yr</small></div>
+        <ul>
+          <li class="yes">General liability, $1M / $2M</li>
+          <li class="yes">Contractors pollution</li>
+          <li class="yes">Professional liability</li>
+        </ul>
+      </div>
+      <div class="cmp-col theirs">
+        <div class="who">Their quote</div>
+        <div class="price">$3,677<small> /yr</small></div>
+        <ul>
+          <li class="yes">General liability, $1M / $2M</li>
+          <li class="no">No contractors pollution</li>
+          <li class="no">No professional liability</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cmp-diff"><b>Looks the same, but it is not.</b> Their liability limits match yours, so on a price sheet theirs looks cheaper. The reason is that theirs is a plain general liability policy. Yours adds contractors pollution and professional liability, the exact coverage a water, fire, and mold company gets sued over. On their policy, a mold or contaminated water claim can fall in the pollution exclusion and may not be covered at all.</div>
+  </div>
+
+  <!-- WORKERS COMP -->
+  <div class="cmp">
+    <div class="cmp-title">Workers Compensation</div>
+    <div class="cmp-cols">
+      <div class="cmp-col ours">
+        <div class="who">Safeshield</div>
+        <div class="price">$5,106<small> /yr</small></div>
+        <ul>
+          <li class="yes">$1,000,000 limits</li>
+          <li class="yes">Owner included</li>
+        </ul>
+      </div>
+      <div class="cmp-col theirs">
+        <div class="who">Their quote</div>
+        <div class="price">$6,820<small> /yr</small></div>
+        <ul>
+          <li class="yes">$1,000,000 limits</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cmp-diff"><b>Same coverage, you just pay less.</b> Both are at $1,000,000 limits. Yours comes in about $1,700 a year cheaper for the same protection.</div>
+  </div>
+
+  <!-- EQUIPMENT -->
+  <div class="cmp">
+    <div class="cmp-title">Contractors Equipment</div>
+    <div class="cmp-cols">
+      <div class="cmp-col ours">
+        <div class="who">Safeshield</div>
+        <div class="price">$1,206<small> /yr</small></div>
+        <ul>
+          <li class="yes">$50,000 of equipment covered</li>
+          <li class="yes">Room to grow as you buy more</li>
+        </ul>
+      </div>
+      <div class="cmp-col theirs">
+        <div class="who">Their quote</div>
+        <div class="price">$1,946<small> /yr</small></div>
+        <ul>
+          <li class="yes">About $28,700 of equipment covered</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cmp-diff"><b>More coverage, less money.</b> Yours costs about $740 less a year and covers a higher amount of equipment, with headroom to add gear without re-rating.</div>
+  </div>
+
+  <!-- BOTTOM LINE -->
+  <div class="cmp-total">
+    <div class="lbl">The three lines we write</div>
+    <div class="vs">
+      <div class="item"><div class="n">$11,289</div><div class="c">Safeshield, per year</div></div>
+      <div class="item"><div class="n">$12,443</div><div class="c">Their quote, same three</div></div>
+    </div>
+    <div class="save">You save about <b>$1,150 a year</b>, and you still get the pollution and professional liability their general liability does not include.</div>
+  </div>
+
+  <section class="cta fade" style="margin-top:34px">
+    <h2>Questions on any of it?</h2>
+    <p>Happy to walk you through any line, or send the full policy details so you can see it in black and white.</p>
+    <a class="btn" href="mailto:austin@gosafeshield.com?subject=Restoration%201%20of%20Chapel%20Hill%20-%20Comparison%20questions">Ask me anything</a>
+    <span class="alt">or call <a href="tel:2035649817">(203) 564-9817</a></span>
+  </section>
+</div>
+</div><!-- /compareView -->
+
+<div class="wrap">
   <!-- FOOTER -->
   <footer>
     <div class="sig">Safe<span>shield</span> Insurance</div>
@@ -456,11 +606,25 @@
       Austin Glazer, President<br>
       <a href="mailto:austin@gosafeshield.com">austin@gosafeshield.com</a> &middot; <a href="tel:2035649817">(203) 564-9817</a>
     </div>
-    <p class="disc">This is a proposal summary prepared for Restoration 1 of Chapel Hill and is not a binder or a contract. Coverages, limits, terms, and exclusions are governed by the actual policy documents. Premiums are subject to carrier review and may change pending underwriting.</p>
+    <p class="disc">This is a proposal summary prepared for Restoration 1 of Chapel Hill and is not a binder or a contract. Comparison figures are based on the competing quote you shared with us. Coverages, limits, terms, and exclusions are governed by the actual policy documents. Premiums are subject to carrier review and may change pending underwriting.</p>
   </footer>
 </div>
 
 <script>
+  // tab switching (proposal / compare)
+  var tabs=document.querySelectorAll('.tab');
+  var pv=document.getElementById('proposalView');
+  var cv=document.getElementById('compareView');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active')});
+      t.classList.add('active');
+      var compare=t.dataset.pane==='compare';
+      cv.hidden=!compare; pv.hidden=compare;
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+
   // reveal on scroll
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
