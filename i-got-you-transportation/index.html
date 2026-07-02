@@ -18,25 +18,42 @@
   }
   body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;line-height:1.6;min-height:100vh}
 
-  .hero{background:linear-gradient(135deg,#04111f 0%,#0a1e3a 50%,#061524 100%);padding:80px 20px 60px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
-  .hero::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,163,0,0.08) 0%,transparent 70%);pointer-events:none}
-  .hero-badge{display:inline-block;background:rgba(255,163,0,0.12);border:1px solid rgba(255,163,0,0.3);color:var(--gold);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:100px;margin-bottom:24px}
-  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:900;line-height:1.15;margin-bottom:12px;color:#fff}
-  .hero h1 span{color:var(--gold)}
-  .hero-sub{font-size:16px;color:var(--muted);margin-bottom:36px;font-weight:400;max-width:560px;margin-left:auto;margin-right:auto}
-  .hero-meta{display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
-  .hero-meta-item{text-align:center}
-  .hero-meta-item .label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:4px}
-  .hero-meta-item .value{font-size:15px;font-weight:600;color:#fff}
+  /* NAV / LOGO BAR */
+  .navbar{background:rgba(4,13,26,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo-mark{width:42px;height:42px;background:linear-gradient(135deg,var(--gold) 0%,#e89000 100%);border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(255,163,0,0.35);position:relative}
+  .logo-mark svg{width:24px;height:24px}
+  .logo-text{display:flex;flex-direction:column;line-height:1.1}
+  .logo-text .brand{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:#fff;letter-spacing:-0.5px}
+  .logo-text .tag{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:600;margin-top:2px}
+  .nav-right{font-size:12px;color:var(--muted);text-align:right}
+  .nav-right .agent-name{color:#fff;font-weight:600;font-size:13px}
+
+  .hero{background:linear-gradient(135deg,#04111f 0%,#0a1e3a 50%,#061524 100%);padding:80px 20px 70px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,163,0,0.10) 0%,transparent 70%);pointer-events:none}
+  .hero::after{content:'';position:absolute;bottom:-160px;left:-160px;width:520px;height:520px;background:radial-gradient(circle,rgba(0,75,137,0.25) 0%,transparent 70%);pointer-events:none}
+  .hero-inner{position:relative;z-index:1}
+  .hero-badge{display:inline-block;background:rgba(255,163,0,0.12);border:1px solid rgba(255,163,0,0.3);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:7px 20px;border-radius:100px;margin-bottom:28px}
+  .hero-prepared{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:14px;font-weight:500}
+  .hero h1{font-family:'Playfair Display',serif;font-weight:900;line-height:1.02;margin-bottom:20px}
+  .hero h1 .client-name{display:block;font-size:clamp(48px,8vw,92px);color:var(--gold);letter-spacing:-2px;text-shadow:0 4px 30px rgba(255,163,0,0.25);margin-bottom:4px}
+  .hero-sub{font-size:15px;color:var(--muted);margin-bottom:44px;font-weight:400;max-width:560px;margin-left:auto;margin-right:auto}
+  .hero-sub .accent{color:var(--gold);font-weight:600}
+  .hero-meta{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;max-width:900px;margin:0 auto}
+  .hero-meta-item{text-align:center;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:16px 24px;min-width:170px}
+  .hero-meta-item .label{font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:var(--muted);margin-bottom:6px;font-weight:600}
+  .hero-meta-item .value{font-size:15px;font-weight:700;color:#fff}
+  .hero-meta-item.premium .value{color:var(--gold);font-size:17px}
 
   .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,163,0,0.25),transparent);margin:0}
 
   .section{padding:64px 20px;max-width:960px;margin:0 auto}
-  .section-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:8px;color:#fff}
+  .section-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;margin-bottom:8px;color:#fff}
   .section-sub{font-size:15px;color:var(--muted);margin-bottom:36px}
 
   .coverage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:40px}
-  .cov-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;position:relative;overflow:hidden}
+  .cov-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;position:relative;overflow:hidden;transition:transform 0.2s,border-color 0.2s}
+  .cov-card:hover{border-color:rgba(255,163,0,0.25);transform:translateY(-2px)}
   .cov-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--gold))}
   .cov-card .carrier-badge{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
   .cov-card h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:4px;color:#fff}
@@ -51,7 +68,8 @@
   .subhead:first-of-type{padding-top:0;border-top:none;margin-top:0}
 
   .billing-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-  .billing-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+  .billing-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform 0.2s,border-color 0.2s}
+  .billing-card:hover{border-color:rgba(255,163,0,0.25);transform:translateY(-2px)}
   .billing-card .billing-header{background:rgba(0,75,137,0.3);border-bottom:1px solid var(--border);padding:20px 24px}
   .billing-card .billing-header h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:2px}
   .billing-card .billing-header .billing-sub{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px}
@@ -70,7 +88,8 @@
   .pif-savings{background:rgba(255,163,0,0.12);border:1px solid rgba(255,163,0,0.3);border-radius:100px;padding:8px 20px;font-size:13px;font-weight:700;color:var(--gold);white-space:nowrap}
 
   .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
-  .why-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px}
+  .why-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;transition:border-color 0.2s,transform 0.2s}
+  .why-card:hover{border-color:rgba(255,163,0,0.25);transform:translateY(-2px)}
   .why-card .why-icon{font-size:26px;margin-bottom:12px}
   .why-card h4{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
   .why-card p{font-size:13px;color:var(--muted);line-height:1.5}
@@ -79,32 +98,64 @@
   .cta h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#fff;margin-bottom:12px}
   .cta p{font-size:16px;color:var(--muted);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto}
   .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-  .btn-primary{background:var(--gold);color:#0a1628;font-weight:800;font-size:15px;padding:14px 32px;border-radius:100px;text-decoration:none;display:inline-block;transition:opacity 0.2s}
-  .btn-primary:hover{opacity:0.88}
+  .btn-primary{background:var(--gold);color:#0a1628;font-weight:800;font-size:15px;padding:14px 32px;border-radius:100px;text-decoration:none;display:inline-block;transition:opacity 0.2s,transform 0.2s}
+  .btn-primary:hover{opacity:0.88;transform:translateY(-1px)}
   .btn-secondary{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#fff;font-weight:600;font-size:15px;padding:14px 32px;border-radius:100px;text-decoration:none;display:inline-block;transition:background 0.2s}
   .btn-secondary:hover{background:rgba(255,255,255,0.1)}
 
-  .footer{background:#040d1a;border-top:1px solid var(--border);padding:32px 20px;text-align:center}
-  .footer-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--gold);margin-bottom:6px}
+  .footer{background:#040d1a;border-top:1px solid var(--border);padding:36px 20px;text-align:center}
+  .footer-logo-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px}
+  .footer-logo-mark{width:28px;height:28px;background:linear-gradient(135deg,var(--gold) 0%,#e89000 100%);border-radius:7px;display:flex;align-items:center;justify-content:center}
+  .footer-logo-mark svg{width:16px;height:16px}
+  .footer-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold)}
   .footer p{font-size:12px;color:var(--muted)}
 
   @media(max-width:600px){
+    .navbar{padding:14px 18px}
+    .logo-text .brand{font-size:17px}
+    .logo-mark{width:36px;height:36px}
     .pif-banner{flex-direction:column;text-align:center}
-    .hero-meta{gap:20px}
+    .hero-meta{gap:12px}
+    .hero-meta-item{min-width:140px;padding:12px 18px}
+    .nav-right{display:none}
   }
 </style>
 </head>
 <body>
 
+<nav class="navbar">
+  <div class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L3 6V12C3 17.5 6.8 22 12 23C17.2 22 21 17.5 21 12V6L12 2Z" fill="#0a1628"/>
+        <path d="M9 12L11 14L15 10" stroke="#FFA300" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span class="brand">Safeshield</span>
+      <span class="tag">Insurance</span>
+    </div>
+  </div>
+  <div class="nav-right">
+    <div class="agent-name">Eric Kelly</div>
+    <div>(203) 806-5889</div>
+  </div>
+</nav>
+
 <section class="hero">
-  <div class="hero-badge">Commercial Insurance Proposal</div>
-  <h1>I Got You <span>Transportation LLC</span></h1>
-  <p class="hero-sub">Effective July 2, 2026 &mdash; July 2, 2027 &nbsp;&bull;&nbsp; Prepared by Eric Kelly, Safeshield Insurance</p>
-  <div class="hero-meta">
-    <div class="hero-meta-item"><div class="label">Commercial Auto</div><div class="value">National Indemnity Co.</div></div>
-    <div class="hero-meta-item"><div class="label">General Liability</div><div class="value">Kinsale Insurance Co.</div></div>
-    <div class="hero-meta-item"><div class="label">Total Premium (Pay in Full)</div><div class="value">$32,956</div></div>
-    <div class="hero-meta-item"><div class="label">Policy Term</div><div class="value">12 Months</div></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Commercial Insurance Proposal</div>
+    <div class="hero-prepared">Prepared For</div>
+    <h1>
+      <span class="client-name">I Got You Transportation</span>
+    </h1>
+    <p class="hero-sub">Policy term <span class="accent">July 2, 2026 — July 2, 2027</span> &nbsp;&bull;&nbsp; Prepared by Eric Kelly, Safeshield Insurance</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><div class="label">Commercial Auto</div><div class="value">National Indemnity</div></div>
+      <div class="hero-meta-item"><div class="label">General Liability</div><div class="value">Kinsale Insurance</div></div>
+      <div class="hero-meta-item premium"><div class="label">Total Pay in Full</div><div class="value">$32,956</div></div>
+      <div class="hero-meta-item"><div class="label">Policy Term</div><div class="value">12 Months</div></div>
+    </div>
   </div>
 </section>
 <div class="divider"></div>
@@ -250,7 +301,15 @@
 </section>
 
 <footer class="footer">
-  <div class="footer-logo">Safeshield Insurance</div>
+  <div class="footer-logo-row">
+    <div class="footer-logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L3 6V12C3 17.5 6.8 22 12 23C17.2 22 21 17.5 21 12V6L12 2Z" fill="#0a1628"/>
+        <path d="M9 12L11 14L15 10" stroke="#FFA300" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="footer-logo">Safeshield Insurance</div>
+  </div>
   <p>2299 Summer St #1061, Stamford, CT 06905 &nbsp;&bull;&nbsp; Licensed in CT, NY, NJ, PA, DE</p>
   <p style="margin-top:6px">This quote is valid as of the effective date shown above and subject to carrier underwriting approval.</p>
 </footer>
