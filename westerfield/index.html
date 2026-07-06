@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leland Westerfield — Boat Insurance Quote | Safeshield</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #004B89;
+    --gold: #FFA300;
+    --dark: #0a1628;
+    --darker: #060e1a;
+    --card-bg: rgba(255,255,255,0.04);
+    --card-border: rgba(255,255,255,0.08);
+    --text: #FAFAF8;
+    --muted: rgba(250,250,248,0.55);
+  }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, #04203d 0%, #0a1628 50%, #071220 100%);
+    border-bottom: 1px solid rgba(255,163,0,0.15);
+    padding: 72px 24px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,75,137,0.35) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,163,0,0.12);
+    border: 1px solid rgba(255,163,0,0.3);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .hero-badge::before { content: '⚓'; font-size: 14px; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.75) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 36px;
+  }
+  .hero-vessel {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 20px 40px;
+    margin-bottom: 40px;
+  }
+  .hero-vessel .label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .hero-vessel .vessel-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .hero-vessel .vessel-detail { font-size: 0.9rem; color: var(--muted); }
+  .total-pill {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    background: linear-gradient(135deg, var(--navy), #00326b);
+    border: 1px solid rgba(255,163,0,0.25);
+    border-radius: 100px;
+    padding: 14px 36px;
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .total-pill strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin: 0 auto;
+    max-width: 800px;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 64px 24px; max-width: 960px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .section-intro {
+    color: var(--muted);
+    max-width: 620px;
+    margin-bottom: 40px;
+    font-size: 1rem;
+  }
+
+  /* ── VESSEL SPECS ── */
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 0;
+  }
+  .spec-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .spec-card .spec-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .spec-card .spec-val { font-size: 1rem; font-weight: 600; color: var(--text); }
+
+  /* ── COVERAGE CARDS ── */
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .cov-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .cov-card.featured {
+    border-color: rgba(255,163,0,0.35);
+    background: rgba(255,163,0,0.05);
+  }
+  .cov-card.featured::before {
+    content: 'PRIMARY';
+    position: absolute;
+    top: -11px;
+    left: 20px;
+    background: var(--gold);
+    color: #000;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    padding: 3px 12px;
+    border-radius: 100px;
+  }
+  .cov-icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .cov-name { font-weight: 700; font-size: 1.05rem; margin-bottom: 6px; }
+  .cov-limit { font-size: 1.5rem; font-family: 'Playfair Display', serif; font-weight: 700; color: var(--gold); }
+  .cov-deductible { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+  .cov-desc { font-size: 0.88rem; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+  .cov-premium { font-size: 0.82rem; color: var(--gold); font-weight: 600; margin-top: 8px; }
+  .included-tag {
+    display: inline-block;
+    background: rgba(0,200,100,0.12);
+    border: 1px solid rgba(0,200,100,0.25);
+    color: #4ddb9a;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 100px;
+    padding: 2px 10px;
+    margin-top: 6px;
+  }
+
+  /* ── NAVIGATION ── */
+  .nav-box {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 28px 32px;
+  }
+  .nav-box h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 8px; }
+  .nav-box p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+  /* ── WHY SAFESHIELD ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .why-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .why-icon { font-size: 1.8rem; margin-bottom: 12px; }
+  .why-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
+  .why-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+  /* ── CARRIER ── */
+  .carrier-section {
+    background: linear-gradient(135deg, rgba(0,75,137,0.15), rgba(0,75,137,0.05));
+    border: 1px solid rgba(0,75,137,0.3);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .carrier-logo-box {
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+  .carrier-info h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 8px; }
+  .carrier-info p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; max-width: 560px; }
+
+  /* ── CTA ── */
+  .cta-section {
+    text-align: center;
+    background: linear-gradient(160deg, #04203d 0%, #0a1628 100%);
+    border-top: 1px solid rgba(255,163,0,0.15);
+    padding: 72px 24px;
+  }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    margin-bottom: 16px;
+  }
+  .cta-section p { color: var(--muted); max-width: 480px; margin: 0 auto 36px; font-size: 1rem; }
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 16px 40px;
+    border-radius: 100px;
+    text-decoration: none;
+    margin: 6px;
+    transition: opacity 0.2s;
+  }
+  .btn-gold:hover { opacity: 0.88; }
+  .btn-glass {
+    display: inline-block;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 16px 40px;
+    border-radius: 100px;
+    text-decoration: none;
+    margin: 6px;
+    transition: background 0.2s;
+  }
+  .btn-glass:hover { background: rgba(255,255,255,0.12); }
+  .agent-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 100px;
+    padding: 12px 24px;
+    margin-top: 36px;
+  }
+  .agent-avatar {
+    width: 40px; height: 40px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.9rem; color: #fff;
+  }
+  .agent-info { text-align: left; }
+  .agent-info .name { font-weight: 700; font-size: 0.9rem; }
+  .agent-info .contact { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--darker);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+    padding: 28px 24px;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 600px) {
+    .carrier-section { flex-direction: column; }
+    section { padding: 48px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Watercraft Insurance Quote</div>
+  <h1>Your Boat.<br>Fully Covered.</h1>
+  <p class="hero-sub">A comprehensive marine insurance package built for Leland Westerfield and the <em>EGBOK</em>.</p>
+
+  <div class="hero-vessel">
+    <span class="label">Vessel</span>
+    <span class="vessel-name">EGBOK</span>
+    <span class="vessel-detail">1994 &middot; 27 ft. &middot; Black Watch &middot; 330 hp Inboard</span>
+  </div>
+
+  <div>
+    <div class="total-pill">Annual Premium &nbsp;<strong>$1,332</strong>&nbsp; /yr</div>
+  </div>
+</div>
+
+<!-- VESSEL SPECS -->
+<section>
+  <p class="section-label">About the Vessel</p>
+  <h2 class="section-title">The EGBOK at a Glance</h2>
+  <p class="section-intro">Here's everything we know about the vessel being insured — this is what the underwriters reviewed to build your quote.</p>
+  <div class="specs-grid">
+    <div class="spec-card">
+      <span class="spec-label">Year</span>
+      <span class="spec-val">1994</span>
+    </div>
+    <div class="spec-card">
+      <span class="spec-label">Length</span>
+      <span class="spec-val">27 ft.</span>
+    </div>
+    <div class="spec-card">
+      <span class="spec-label">Make / Model</span>
+      <span class="spec-val">Black Watch</span>
+    </div>
+    <div class="spec-card">
+      <span class="spec-label">Engine</span>
+      <span class="spec-val">330 hp Inboard</span>
+    </div>
+    <div class="spec-card">
+      <span class="spec-label">Fuel Type</span>
+      <span class="spec-val">Gas (Fume Detector)</span>
+    </div>
+    <div class="spec-card">
+      <span class="spec-label">Lay-Up Period</span>
+      <span class="spec-val">None (Year-Round)</span>
+    </div>
+    <div class="spec-card">
+      <span class="spec-label">Home Port</span>
+      <span class="spec-val">Rhode Island</span>
+    </div>
+    <div class="spec-card">
+      <span class="spec-label">Coverage Type</span>
+      <span class="spec-val">Masterpiece Boat</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COVERAGE BREAKDOWN -->
+<section>
+  <p class="section-label">Coverage Breakdown</p>
+  <h2 class="section-title">What's Included in Your Policy</h2>
+  <p class="section-intro">This isn't just a number — it's a full marine package. Here's exactly what's protecting the EGBOK and everyone on board.</p>
+
+  <div class="coverage-grid">
+
+    <div class="cov-card featured">
+      <div class="cov-icon">🛥️</div>
+      <div class="cov-name">Hull / Property Damage</div>
+      <div class="cov-limit">$35,000</div>
+      <div class="cov-deductible">$700 deductible</div>
+      <div class="cov-desc">Covers physical damage to the vessel itself — collision, weather, sinking, fire, theft, and more. This is the core of your policy.</div>
+      <div class="cov-premium">$1,148 / yr</div>
+    </div>
+
+    <div class="cov-card featured">
+      <div class="cov-icon">⚖️</div>
+      <div class="cov-name">Liability Coverage</div>
+      <div class="cov-limit">$1,000,000</div>
+      <div class="cov-deductible">No deductible</div>
+      <div class="cov-desc">If the EGBOK causes damage to another vessel, dock, or property — or injures someone — this covers your legal and financial exposure up to $1M. Includes pollution liability under the Oil Pollution Act of 1990.</div>
+      <div class="cov-premium">$184 / yr</div>
+    </div>
+
+    <div class="cov-card">
+      <div class="cov-icon">🏥</div>
+      <div class="cov-name">Medical Payments</div>
+      <div class="cov-limit">$5,000</div>
+      <div class="cov-deductible">No deductible</div>
+      <div class="cov-desc">Pays medical bills for you and your passengers if someone gets hurt on the boat — regardless of fault.</div>
+      <span class="included-tag">Included</span>
+    </div>
+
+    <div class="cov-card">
+      <div class="cov-icon">🚤</div>
+      <div class="cov-name">Uninsured Boater</div>
+      <div class="cov-limit">$1,000,000</div>
+      <div class="cov-deductible">No deductible</div>
+      <div class="cov-desc">Protects you if you're hit by another boater who doesn't have insurance. A million-dollar safety net at no extra cost.</div>
+      <span class="included-tag">Included</span>
+    </div>
+
+    <div class="cov-card">
+      <div class="cov-icon">🚛</div>
+      <div class="cov-name">Trailer Coverage</div>
+      <div class="cov-limit">$1,000</div>
+      <div class="cov-deductible">$250 deductible</div>
+      <div class="cov-desc">Covers your boat trailer for physical damage while towing or in storage.</div>
+      <span class="included-tag">Included</span>
+    </div>
+
+    <div class="cov-card">
+      <div class="cov-icon">🎒</div>
+      <div class="cov-name">Personal Property</div>
+      <div class="cov-limit">$2,500</div>
+      <div class="cov-deductible">$250 deductible</div>
+      <div class="cov-desc">Covers fishing gear, electronics, and personal items on board. Great protection for everything that makes a day on the water worthwhile.</div>
+      <span class="included-tag">Included</span>
+    </div>
+
+    <div class="cov-card">
+      <div class="cov-icon">🆘</div>
+      <div class="cov-name">Emergency Towing & Service</div>
+      <div class="cov-limit">$1,500</div>
+      <div class="cov-deductible">No deductible</div>
+      <div class="cov-desc">On-water towing if you break down, run aground, or run out of fuel. Think of it as AAA for the water.</div>
+      <span class="included-tag">Included</span>
+    </div>
+
+    <div class="cov-card">
+      <div class="cov-icon">⛵</div>
+      <div class="cov-name">Tender / Dinghy</div>
+      <div class="cov-limit">Included</div>
+      <div class="cov-deductible">$250 deductible</div>
+      <div class="cov-desc">Your dinghy or tender is covered too — no separate policy needed.</div>
+      <span class="included-tag">Included</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- NAVIGATION LIMITS -->
+<section>
+  <p class="section-label">Navigation Territory</p>
+  <h2 class="section-title">You're Covered Coast to Coast</h2>
+  <p class="section-intro">Your policy includes some of the broadest navigational limits available in a personal watercraft policy.</p>
+  <div class="nav-box">
+    <h3>🗺️ Approved Waters</h3>
+    <p>
+      Atlantic & Gulf coastwise waters from <strong>St. John, NB Canada to Brownsville, TX</strong> &middot; Coastwise waters of the <strong>Bahamas</strong> &middot; Pacific coastwise waters from <strong>Hope Island, BC Canada to Cabo San Quintin, Mexico</strong> &middot; Pacific coastwise waters from Hope Island, BC to <strong>Yakutat, AK</strong> (May 1 – Oct 1) &middot; All <strong>inland waters of the continental US and Canada</strong>, including the Great Lakes.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CARRIER SPOTLIGHT -->
+<section>
+  <p class="section-label">Your Carrier</p>
+  <h2 class="section-title">Backed by Chubb Masterpiece</h2>
+  <p class="section-intro">Not all marine policies are the same. The carrier behind yours matters — especially when you file a claim.</p>
+  <div class="carrier-section">
+    <div class="carrier-logo-box">⚓</div>
+    <div class="carrier-info">
+      <h3>Chubb Masterpiece Boat</h3>
+      <p>Chubb is one of the most respected names in specialty insurance. Their Masterpiece Boat program is a premium product designed for serious boaters — broader coverage, agreed value settlements, and claims handled by people who actually know marine. When something goes wrong on the water, you want Chubb in your corner.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<section>
+  <p class="section-label">Why Safeshield</p>
+  <h2 class="section-title">We Shop the Market So You Don't Have To</h2>
+  <p class="section-intro">Safeshield is an independent brokerage with access to 69+ carriers. We work for you — not the insurance company.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🔍</div>
+      <div class="why-title">69+ Carrier Partners</div>
+      <div class="why-desc">We compare the entire market to find the best coverage at the best price — not just what one company offers.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">Same-Day Everything</div>
+      <div class="why-desc">Quotes, policy changes, ID cards, certificates — we move fast so you don't have to wait.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📞</div>
+      <div class="why-title">Direct Agent Access</div>
+      <div class="why-desc">You'll never sit on hold with a call center. You get Eric's direct line — a real person who knows your account.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <div class="why-title">Claims Advocacy</div>
+      <div class="why-desc">When a claim happens, we're in your corner — navigating the process and pushing for a fair outcome.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔄</div>
+      <div class="why-title">Annual Re-Shop</div>
+      <div class="why-desc">We review your policy every year at renewal and re-shop if we can save you money.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📍</div>
+      <div class="why-title">Licensed in CT, NY, NJ, PA & DE</div>
+      <div class="why-desc">Wherever life takes you, we're licensed to protect you across the Northeast.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to Get on the Water?</h2>
+  <p>This quote is valid through <strong>October 4, 2026</strong>. Let's get the EGBOK covered before the season gets away from you.</p>
+  <div>
+    <a href="tel:2038065889" class="btn-gold">📞 Call Eric Now</a>
+    <a href="mailto:eric@gosafeshield.com" class="btn-glass">✉️ Send a Message</a>
+  </div>
+  <div class="agent-card">
+    <div class="agent-avatar">EK</div>
+    <div class="agent-info">
+      <div class="name">Eric Kelly — Safeshield Insurance</div>
+      <div class="contact">(203) 806-5889 &nbsp;·&nbsp; eric@gosafeshield.com</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Quote #2175043 &nbsp;·&nbsp; Prepared July 6, 2026 &nbsp;·&nbsp; Valid through October 4, 2026</p>
+  <p style="margin-top:8px;">Safeshield Insurance &nbsp;·&nbsp; Greenwich, CT &nbsp;·&nbsp; gosafeshield.com</p>
+  <p style="margin-top:12px; font-size:0.72rem; opacity:0.6;">This quote is not a binder of insurance and does not guarantee coverage. Coverage is subject to underwriting approval and policy terms and conditions.</p>
+</footer>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"westerfield","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
