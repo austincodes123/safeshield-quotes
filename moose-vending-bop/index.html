@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Moose Vending LLC — BOP Quote | Safeshield Insurance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#004B89;
+    --gold:#FFA300;
+    --dark:#0a1628;
+    --darker:#060e1a;
+    --card:rgba(255,255,255,0.04);
+    --border:rgba(255,255,255,0.08);
+    --text:#FAFAF8;
+    --muted:rgba(250,250,248,0.6);
+  }
+  body{background:var(--dark);color:var(--text);font-family:'Outfit',sans-serif;line-height:1.6;}
+  a{color:var(--gold);text-decoration:none;}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,var(--darker) 0%,#0d1f3c 50%,#0a1628 100%);padding:80px 24px 64px;text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(0,75,137,0.18) 0%,transparent 70%);pointer-events:none;}
+  .hero-badge{display:inline-block;background:rgba(255,163,0,0.12);border:1px solid rgba(255,163,0,0.3);color:var(--gold);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.15;margin-bottom:12px;}
+  .hero h1 span{color:var(--gold);}
+  .hero-sub{color:var(--muted);font-size:1.05rem;margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto;}
+  .hero-cards{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:36px;}
+  .hero-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 32px;min-width:160px;text-align:center;}
+  .hero-card .val{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--gold);line-height:1;}
+  .hero-card .lbl{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px;}
+  .hero-card.highlight{border-color:rgba(255,163,0,0.4);background:rgba(255,163,0,0.07);}
+  .hero-meta{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;color:var(--muted);font-size:0.85rem;}
+  .hero-meta span{display:flex;align-items:center;gap:6px;}
+
+  /* DIVIDER */
+  .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,163,0,0.25),transparent);margin:0 auto;max-width:800px;}
+
+  /* SECTIONS */
+  section{padding:64px 24px;max-width:1100px;margin:0 auto;}
+  .section-label{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+  .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;margin-bottom:12px;}
+  .section-desc{color:var(--muted);max-width:680px;margin-bottom:40px;font-size:0.95rem;}
+
+  /* PRICING BANNER */
+  .pricing-banner{background:linear-gradient(135deg,rgba(0,75,137,0.3),rgba(255,163,0,0.08));border:1px solid rgba(255,163,0,0.25);border-radius:20px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:48px;}
+  .pricing-banner .big-num{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--gold);}
+  .pricing-banner .big-lbl{font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;}
+  .pricing-breakdown{display:flex;flex-direction:column;gap:8px;flex:1;min-width:220px;}
+  .pricing-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .pricing-row:last-child{border-bottom:none;font-weight:700;font-size:1rem;}
+  .pricing-row .amt{color:var(--gold);}
+  .pricing-row.fee-row .lbl-note{font-size:0.75rem;color:var(--muted);font-weight:400;margin-left:6px;}
+  .save-badge{background:rgba(255,163,0,0.15);border:1px solid rgba(255,163,0,0.3);color:var(--gold);padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:700;}
+
+  /* COVERAGE GRID */
+  .cov-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:48px;}
+  .cov-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:border-color 0.2s;}
+  .cov-card:hover{border-color:rgba(255,163,0,0.3);}
+  .cov-card .icon{width:40px;height:40px;background:rgba(0,75,137,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:16px;}
+  .cov-card h3{font-size:1rem;font-weight:700;margin-bottom:6px;}
+  .cov-card .amount{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--gold);margin-bottom:8px;}
+  .cov-card p{font-size:0.82rem;color:var(--muted);line-height:1.5;}
+
+  /* PROPERTY HIGHLIGHT */
+  .prop-highlight{background:linear-gradient(135deg,rgba(0,75,137,0.15),rgba(255,163,0,0.05));border:1px solid rgba(0,75,137,0.3);border-radius:20px;padding:36px;margin-bottom:48px;}
+  .prop-highlight h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:8px;color:var(--gold);}
+  .prop-highlight p{color:var(--muted);font-size:0.88rem;margin-bottom:24px;}
+  .prop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+  .prop-item{background:rgba(255,255,255,0.04);border-radius:12px;padding:16px;}
+  .prop-item .pi-label{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+  .prop-item .pi-val{font-weight:700;font-size:0.95rem;}
+
+  /* FULL LIMITS TABLE */
+  .limits-table{width:100%;border-collapse:collapse;margin-bottom:48px;}
+  .limits-table thead tr{background:rgba(0,75,137,0.4);}
+  .limits-table th{text-align:left;padding:14px 18px;font-size:0.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);}
+  .limits-table td{padding:13px 18px;font-size:0.88rem;border-bottom:1px solid var(--border);}
+  .limits-table tr:hover td{background:rgba(255,255,255,0.02);}
+  .limits-table td:last-child{color:var(--gold);font-weight:600;text-align:right;}
+  .limits-table .section-row td{background:rgba(0,75,137,0.15);font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);}
+  .included-badge{background:rgba(0,200,100,0.1);color:#4ade80;padding:2px 8px;border-radius:6px;font-size:0.75rem;font-weight:600;}
+
+  /* CYBER CALLOUT */
+  .cyber-callout{background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(0,75,137,0.15));border:1px solid rgba(139,92,246,0.25);border-radius:20px;padding:36px;margin-bottom:48px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
+  .cyber-callout h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:8px;}
+  .cyber-callout p{color:var(--muted);font-size:0.88rem;line-height:1.6;}
+  .cyber-items{display:flex;flex-direction:column;gap:12px;}
+  .cyber-item{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px;}
+  .cyber-item .ci-icon{font-size:1.2rem;flex-shrink:0;margin-top:2px;}
+  .cyber-item .ci-text{font-size:0.83rem;color:var(--muted);}
+  .cyber-item .ci-text strong{color:var(--text);display:block;margin-bottom:2px;}
+  @media(max-width:680px){.cyber-callout{grid-template-columns:1fr;}}
+
+  /* EPLI CALLOUT */
+  .epli-callout{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:48px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
+  .epli-callout h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:8px;}
+  .epli-callout p{color:var(--muted);font-size:0.88rem;line-height:1.6;}
+  .epli-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .epli-stat{background:rgba(255,163,0,0.06);border:1px solid rgba(255,163,0,0.15);border-radius:12px;padding:16px;text-align:center;}
+  .epli-stat .es-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--gold);}
+  .epli-stat .es-lbl{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+  @media(max-width:680px){.epli-callout{grid-template-columns:1fr;}}
+
+  /* ADD-ONS */
+  .addons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:48px;}
+  .addon-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;position:relative;}
+  .addon-card .addon-price{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--gold);margin-bottom:4px;}
+  .addon-card .addon-period{font-size:0.75rem;color:var(--muted);}
+  .addon-card h4{font-size:0.95rem;font-weight:700;margin:12px 0 8px;}
+  .addon-card p{font-size:0.8rem;color:var(--muted);line-height:1.5;}
+
+  /* PAYMENT */
+  .payment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px;}
+  .pay-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;text-align:center;}
+  .pay-card.best{border-color:rgba(255,163,0,0.4);background:rgba(255,163,0,0.06);}
+  .pay-card .pc-label{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:10px;}
+  .pay-card .pc-main{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--gold);}
+  .pay-card .pc-sub{font-size:0.78rem;color:var(--muted);margin-top:6px;}
+  .pay-card .pc-badge{display:inline-block;background:rgba(255,163,0,0.15);color:var(--gold);padding:3px 10px;border-radius:100px;font-size:0.7rem;font-weight:700;margin-top:8px;}
+  .pay-note{background:rgba(0,75,137,0.15);border:1px solid rgba(0,75,137,0.3);border-radius:12px;padding:16px 20px;font-size:0.83rem;color:var(--muted);line-height:1.5;}
+  .pay-note strong{color:var(--text);}
+
+  /* WHY SAFESHIELD */
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+  .why-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;}
+  .why-card .w-icon{font-size:1.8rem;margin-bottom:14px;}
+  .why-card h4{font-weight:700;margin-bottom:8px;}
+  .why-card p{font-size:0.82rem;color:var(--muted);line-height:1.5;}
+
+  /* CTA */
+  .cta-section{background:linear-gradient(135deg,var(--navy),#002d54);padding:80px 24px;text-align:center;}
+  .cta-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;margin-bottom:16px;}
+  .cta-section p{color:var(--muted);max-width:520px;margin:0 auto 36px;}
+  .cta-btn{display:inline-block;background:var(--gold);color:#000;font-weight:800;font-size:0.95rem;padding:16px 40px;border-radius:100px;text-decoration:none;margin:0 8px 12px;}
+  .cta-btn.outline{background:transparent;color:var(--gold);border:2px solid var(--gold);}
+  .cta-contact{margin-top:28px;color:var(--muted);font-size:0.85rem;}
+  .cta-contact a{color:var(--gold);}
+
+  /* FOOTER */
+  footer{background:var(--darker);padding:32px 24px;text-align:center;}
+  footer p{color:var(--muted);font-size:0.75rem;max-width:700px;margin:0 auto;line-height:1.6;}
+
+  @media(max-width:600px){
+    .pricing-banner{flex-direction:column;text-align:center;}
+    .hero-meta{gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">The Hartford — BOP Quote</div>
+  <h1>Built to Protect<br/><span>Moose Vending LLC</span></h1>
+  <p class="hero-sub">A comprehensive Business Owner's Policy with property, liability, cyber, and employment practices coverage — all in one.</p>
+
+  <div class="hero-cards">
+    <div class="hero-card highlight">
+      <div class="val">$732</div>
+      <div class="lbl">Total Due at Binding</div>
+    </div>
+    <div class="hero-card">
+      <div class="val">$632</div>
+      <div class="lbl">Annual BOP Premium</div>
+    </div>
+    <div class="hero-card">
+      <div class="val">$597</div>
+      <div class="lbl">Pay-in-Full (Save $35)</div>
+    </div>
+    <div class="hero-card">
+      <div class="val">$63/mo</div>
+      <div class="lbl">Monthly w/ AutoPay</div>
+    </div>
+  </div>
+
+  <div class="hero-meta">
+    <span>📅 Policy: Jul 6, 2026 – Jul 6, 2027</span>
+    <span>🏢 Carrier: The Hartford</span>
+    <span>📍 Stamford, CT</span>
+    <span>⏰ Quote Good Through: Oct 3, 2026</span>
+  </div>
+</div>
+
+<div class="divider" style="margin-top:0;"></div>
+
+<!-- PRICING BREAKDOWN -->
+<section>
+  <div class="section-label">What You're Paying</div>
+  <div class="section-title">Simple, Transparent Pricing</div>
+  <p class="section-desc">Everything broken out so you know exactly where every dollar goes.</p>
+
+  <div class="pricing-banner">
+    <div>
+      <div class="big-num">$732</div>
+      <div class="big-lbl">Total Due at Binding</div>
+    </div>
+    <div class="pricing-breakdown">
+      <div class="pricing-row">
+        <span>BOP Annual Premium (The Hartford)</span>
+        <span class="amt">$632</span>
+      </div>
+      <div class="pricing-row fee-row">
+        <span>Agency Processing Fee <span class="lbl-note">(due at binding, non-refundable)</span></span>
+        <span class="amt">$100</span>
+      </div>
+      <div class="pricing-row">
+        <span><strong>Total</strong></span>
+        <span class="amt"><strong>$732</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <p style="color:var(--muted);font-size:0.82rem;">The $100 agency processing fee is paid directly to Safeshield Insurance and is separate from your Hartford premium. Pay-in-full to Hartford is $597 (discounted). Monthly options available through Hartford's direct bill — see payment section below.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- COVERAGE HIGHLIGHTS -->
+<section>
+  <div class="section-label">What's Covered</div>
+  <div class="section-title">Your Core Protections</div>
+  <p class="section-desc">This BOP combines property, liability, and bonus coverages into one policy — more comprehensive than the GL-only option.</p>
+
+  <div class="cov-grid">
+    <div class="cov-card">
+      <div class="icon">🏛️</div>
+      <h3>Each Occurrence Limit</h3>
+      <div class="amount">$1,000,000</div>
+      <p>If one incident causes multiple claims — a spill at a machine, a customer injury — Hartford pays up to $1M total for that single event, regardless of how many people are involved.</p>
+    </div>
+    <div class="cov-card">
+      <div class="icon">📊</div>
+      <h3>General Aggregate</h3>
+      <div class="amount">$2,000,000</div>
+      <p>The total Hartford will pay for all liability claims combined over the full policy year. You get $2M of coverage capacity every 12 months.</p>
+    </div>
+    <div class="cov-card">
+      <div class="icon">🥤</div>
+      <h3>Products & Completed Ops</h3>
+      <div class="amount">$2,000,000</div>
+      <p>Critical for vending operations. Covers claims arising from products you sell or distribute — food, drinks, snacks — after they leave your machine.</p>
+    </div>
+    <div class="cov-card">
+      <div class="icon">🏠</div>
+      <h3>Business Personal Property</h3>
+      <div class="amount">$5,000</div>
+      <p>Covers your business equipment, supplies, and inventory at your location. Plus a $50,000 STRETCH Blanket limit that extends protection across dozens of additional property categories.</p>
+    </div>
+    <div class="cov-card">
+      <div class="icon">🔒</div>
+      <h3>Damage to Rented Premises</h3>
+      <div class="amount">$1,000,000</div>
+      <p>If your operations cause fire or damage to a space you rent or lease for your vending machines, Hartford covers up to $1M.</p>
+    </div>
+    <div class="cov-card">
+      <div class="icon">📣</div>
+      <h3>Personal & Advertising Injury</h3>
+      <div class="amount">$1,000,000</div>
+      <p>Covers claims of defamation, libel, or copyright infringement — like if a competitor claims your marketing materials crossed a line.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROPERTY COVERAGE -->
+<section>
+  <div class="section-label">Property Coverage</div>
+  <div class="section-title">The STRETCH Advantage</div>
+  <p class="section-desc">The Hartford's STRETCH coverage isn't standard — it adds and enhances dozens of property protections automatically. Here are the highlights that matter most for Moose Vending.</p>
+
+  <div class="prop-highlight">
+    <h3>STRETCH Blanket Limit: $50,000</h3>
+    <p>This blanket limit covers a wide range of property items that don't fit neatly into standard categories — computers, personal effects, non-owned trailers, valuable papers, and more. One pool of money, maximum flexibility.</p>
+    <div class="prop-grid">
+      <div class="prop-item">
+        <div class="pi-label">Business Income</div>
+        <div class="pi-val">12 months restoration</div>
+      </div>
+      <div class="prop-item">
+        <div class="pi-label">Off-Premises Utility Services</div>
+        <div class="pi-val">$10,000 / 24hr wait</div>
+      </div>
+      <div class="prop-item">
+        <div class="pi-label">Civil Authority Coverage</div>
+        <div class="pi-val">30 days duration</div>
+      </div>
+      <div class="prop-item">
+        <div class="pi-label">Dependent Properties BI</div>
+        <div class="pi-val">$25,000</div>
+      </div>
+      <div class="prop-item">
+        <div class="pi-label">Employee Dishonesty</div>
+        <div class="pi-val">$10,000</div>
+      </div>
+      <div class="prop-item">
+        <div class="pi-label">Money & Securities (Inside)</div>
+        <div class="pi-val">$10,000</div>
+      </div>
+      <div class="prop-item">
+        <div class="pi-label">Forgery & Fraud Coverage</div>
+        <div class="pi-val">$25,000</div>
+      </div>
+      <div class="prop-item">
+        <div class="pi-label">Identity Recovery</div>
+        <div class="pi-val">$15,000</div>
+      </div>
+      <div class="prop-item">
+        <div class="pi-label">Transit Coverage</div>
+        <div class="pi-val">$10,000</div>
+      </div>
+      <div class="prop-item">
+        <div class="pi-label">Leasehold Improvements</div>
+        <div class="pi-val">$25,000</div>
+      </div>
+      <div class="prop-item">
+        <div class="pi-label">Outdoor Property</div>
+        <div class="pi-val">$25,000</div>
+      </div>
+      <div class="prop-item">
+        <div class="pi-label">Equipment Breakdown</div>
+        <div class="pi-val">Included</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CYBER COVERAGE -->
+<section>
+  <div class="section-label">Cyber Protection</div>
+  <div class="section-title">Digital Threats, Covered</div>
+  <p class="section-desc">This BOP includes cyber virus and malware coverage — something the GL-only option does not have.</p>
+
+  <div class="cyber-callout">
+    <div>
+      <h3>Cyber Virus & Malware Coverage</h3>
+      <p>Even a vending operation with minimal tech exposure can face cyber risk — payment systems, customer data, supplier networks. Hartford includes cyber protection built into this BOP so you're not left exposed.</p>
+    </div>
+    <div class="cyber-items">
+      <div class="cyber-item">
+        <div class="ci-icon">🦠</div>
+        <div class="ci-text"><strong>Virus & Malware Response</strong>Covers costs to respond to a cyber virus or malware attack on your business systems.</div>
+      </div>
+      <div class="cyber-item">
+        <div class="ci-icon">💰</div>
+        <div class="ci-text"><strong>Digital Ransom & Extortion</strong>Sublimit: $10,000 — covers costs if your systems are held hostage by ransomware.</div>
+      </div>
+      <div class="cyber-item">
+        <div class="ci-icon">📅</div>
+        <div class="ci-text"><strong>Policy Year Limit: $25,000</strong>Total cyber coverage available across the full policy year.</div>
+      </div>
+      <div class="cyber-item">
+        <div class="ci-icon">⏱️</div>
+        <div class="ci-text"><strong>Business Income Protection</strong>12-hour waiting period, 12-month period of restoration for cyber-related business interruption.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EPLI -->
+<section>
+  <div class="section-label">Employment Protection</div>
+  <div class="section-title">EPLI — Included at No Extra Cost</div>
+  <p class="section-desc">Employment Practices Liability Insurance is bundled into this policy. It protects you if an employee or job applicant claims discrimination, harassment, or wrongful termination.</p>
+
+  <div class="epli-callout">
+    <div>
+      <h3>Why EPLI Matters</h3>
+      <p>Employment claims are one of the fastest-growing sources of small business lawsuits. Even if you have just one or two employees, a single claim can cost tens of thousands of dollars to defend — before any judgment. This coverage means Hartford handles it, not you.</p>
+      <p style="margin-top:12px;">This is a claims-made policy. Defense costs are included within the limits of liability.</p>
+    </div>
+    <div class="epli-stats">
+      <div class="epli-stat">
+        <div class="es-val">$25K</div>
+        <div class="es-lbl">Per Claim Limit</div>
+      </div>
+      <div class="epli-stat">
+        <div class="es-val">$25K</div>
+        <div class="es-lbl">Annual Aggregate</div>
+      </div>
+      <div class="epli-stat">
+        <div class="es-val">$25K</div>
+        <div class="es-lbl">Wage & Hour Defense</div>
+      </div>
+      <div class="epli-stat">
+        <div class="es-val">7/6/26</div>
+        <div class="es-lbl">Retroactive Date</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FULL LIMITS TABLE -->
+<section>
+  <div class="section-label">Complete Coverage Summary</div>
+  <div class="section-title">Every Limit, Laid Out</div>
+  <p class="section-desc">No fine print surprises. Here's exactly what this policy covers.</p>
+
+  <table class="limits-table">
+    <thead>
+      <tr><th>Coverage</th><th style="text-align:right;">Limit</th></tr>
+    </thead>
+    <tbody>
+      <tr class="section-row"><td colspan="2">Business Liability</td></tr>
+      <tr><td>Each Occurrence</td><td>$1,000,000</td></tr>
+      <tr><td>General Aggregate</td><td>$2,000,000</td></tr>
+      <tr><td>Products & Completed Operations Aggregate</td><td>$2,000,000</td></tr>
+      <tr><td>Personal & Advertising Injury</td><td>$1,000,000</td></tr>
+      <tr><td>Medical Expenses</td><td>$10,000</td></tr>
+      <tr><td>Damage to Premises Rented to You</td><td>$1,000,000</td></tr>
+      <tr><td>Property Damage Deductible</td><td>None</td></tr>
+      <tr><td>Waiver of Subrogation (Blanket)</td><td><span class="included-badge">Included</span></td></tr>
+      <tr><td>Blanket Additional Insured by Contract</td><td><span class="included-badge">Included</span></td></tr>
+
+      <tr class="section-row"><td colspan="2">Property</td></tr>
+      <tr><td>Business Personal Property</td><td>$5,000</td></tr>
+      <tr><td>STRETCH Blanket Limit</td><td>$50,000</td></tr>
+      <tr><td>Property Deductible</td><td>$1,000</td></tr>
+      <tr><td>Equipment Breakdown</td><td><span class="included-badge">Included</span></td></tr>
+      <tr><td>Employee Dishonesty</td><td>$10,000</td></tr>
+      <tr><td>Money & Securities (Inside)</td><td>$10,000</td></tr>
+      <tr><td>Money & Securities (Outside)</td><td>$5,000</td></tr>
+      <tr><td>Forgery & Fraud</td><td>$25,000</td></tr>
+      <tr><td>Transit Coverage</td><td>$10,000</td></tr>
+      <tr><td>Leasehold Improvements</td><td>$25,000</td></tr>
+      <tr><td>Outdoor Property</td><td>$25,000</td></tr>
+      <tr><td>Identity Recovery Limit</td><td>$15,000</td></tr>
+
+      <tr class="section-row"><td colspan="2">Business Income</td></tr>
+      <tr><td>Period of Restoration</td><td>12 months</td></tr>
+      <tr><td>Extended Business Income</td><td>60 days</td></tr>
+      <tr><td>Civil Authority Duration</td><td>30 days</td></tr>
+      <tr><td>Off-Premises Utility Services</td><td>$10,000</td></tr>
+      <tr><td>Dependent Properties</td><td>$25,000</td></tr>
+
+      <tr class="section-row"><td colspan="2">Cyber</td></tr>
+      <tr><td>Cyber Virus & Malware Coverage</td><td><span class="included-badge">Included</span></td></tr>
+      <tr><td>Digital Ransom & Extortion Sublimit</td><td>$10,000</td></tr>
+      <tr><td>Cyber Policy Year Limit</td><td>$25,000</td></tr>
+
+      <tr class="section-row"><td colspan="2">Employment Practices Liability (EPLI)</td></tr>
+      <tr><td>Each Claim</td><td>$25,000</td></tr>
+      <tr><td>Annual Aggregate</td><td>$25,000</td></tr>
+      <tr><td>Wage & Hour Defense Sub-Limit</td><td>$25,000</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="divider"></div>
+
+<!-- ADD-ONS -->
+<section>
+  <div class="section-label">Optional Add-Ons</div>
+  <div class="section-title">Recommended Enhancements</div>
+  <p class="section-desc">These aren't included in the base quote but are worth a conversation. Each one fills a real gap.</p>
+
+  <div class="addons-grid">
+    <div class="addon-card">
+      <div class="addon-price">$448</div>
+      <div class="addon-period">per year</div>
+      <h4>☂️ Commercial Umbrella</h4>
+      <p>An extra layer of liability above your $1M limits. If a major claim exceeds your base policy, the umbrella kicks in. Worth it for any business with public exposure.</p>
+    </div>
+    <div class="addon-card">
+      <div class="addon-price">$134</div>
+      <div class="addon-period">per year</div>
+      <h4>🚗 Hired & Non-Owned Auto</h4>
+      <p>If you or your employees use personal vehicles or rented cars for business errands — running supplies, checking machines — this covers you. Your personal auto policy won't.</p>
+    </div>
+    <div class="addon-card">
+      <div class="addon-price">$68</div>
+      <div class="addon-period">per year</div>
+      <h4>🔐 Data Breach</h4>
+      <p>Covers investigation costs, customer notification, credit monitoring, and legal defense if a breach exposes customer data. Any business collecting payment info should have this.</p>
+    </div>
+    <div class="addon-card">
+      <div class="addon-price">$5</div>
+      <div class="addon-period">per year</div>
+      <h4>💻 Electronic Media Liability</h4>
+      <p>Extends advertising injury protections to your online presence — website, social media, digital ads. For $5/year it's a no-brainer.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PAYMENT OPTIONS -->
+<section>
+  <div class="section-label">Payment Options</div>
+  <div class="section-title">Choose What Works for You</div>
+  <p class="section-desc">The Hartford offers flexible direct-bill options. The $100 agency processing fee is paid to Safeshield at binding — separate from your Hartford payments.</p>
+
+  <div class="payment-grid">
+    <div class="pay-card best">
+      <div class="pc-label">Pay in Full</div>
+      <div class="pc-main">$597</div>
+      <div class="pc-sub">One payment, discounted rate</div>
+      <div class="pc-badge">Best Value — Save $35</div>
+    </div>
+    <div class="pay-card">
+      <div class="pc-label">2 Payments (AutoPay)</div>
+      <div class="pc-main">$316</div>
+      <div class="pc-sub">$316 down, $316 on 1/6/27</div>
+    </div>
+    <div class="pay-card">
+      <div class="pc-label">4 Payments (AutoPay)</div>
+      <div class="pc-main">$158</div>
+      <div class="pc-sub">$158 x 4 quarterly</div>
+    </div>
+    <div class="pay-card">
+      <div class="pc-label">10 Payments (AutoPay)</div>
+      <div class="pc-main">$63.20</div>
+      <div class="pc-sub">$63.20/mo for 10 months</div>
+    </div>
+    <div class="pay-card">
+      <div class="pc-label">12 Payments (AutoPay)</div>
+      <div class="pc-main">~$57</div>
+      <div class="pc-sub">$63.20 down, then $56.88/mo</div>
+    </div>
+  </div>
+
+  <div class="pay-note">
+    <strong>Note on AutoPay:</strong> Sign up for EFT through The Hartford's service center to save $3 per payment vs. manual payments. The $100 Safeshield agency processing fee is due at binding and is not included in Hartford's billing.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<section>
+  <div class="section-label">Why Safeshield</div>
+  <div class="section-title">Your Broker Makes the Difference</div>
+  <p class="section-desc">The Hartford is the carrier. We're your advocate — before, during, and after a claim.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="w-icon">🏪</div>
+      <h4>69+ Carrier Partners</h4>
+      <p>We don't push one carrier. We shop the whole market and bring you the best option for your business, your budget, and your risk profile.</p>
+    </div>
+    <div class="why-card">
+      <div class="w-icon">⚡</div>
+      <h4>Same-Day Everything</h4>
+      <p>Certs, ID cards, policy changes, COIs — same day. No waiting on hold with a call center. You text us, we handle it.</p>
+    </div>
+    <div class="why-card">
+      <div class="w-icon">🤝</div>
+      <h4>Claims Advocacy</h4>
+      <p>When you have a claim, we go to bat for you. We know the adjusters, we know the language, and we make sure you get what you're owed.</p>
+    </div>
+    <div class="why-card">
+      <div class="w-icon">🔄</div>
+      <h4>Annual Re-Shop Guarantee</h4>
+      <p>Every renewal, we re-quote your policy across the market. If we can beat your rate, we will. If not, we'll tell you why you're already in the right place.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to Protect<br/>Moose Vending?</h2>
+  <p>This quote is good through October 3, 2026. One call and you're covered — same day binding available.</p>
+  <a href="tel:2038065889" class="cta-btn">📞 Call Eric Kelly</a>
+  <a href="mailto:eric@gosafeshield.com" class="cta-btn outline">✉️ Send an Email</a>
+  <div class="cta-contact">
+    Eric Kelly &nbsp;|&nbsp; <a href="tel:2038065889">(203) 806-5889</a> &nbsp;|&nbsp; <a href="mailto:eric@gosafeshield.com">eric@gosafeshield.com</a><br/>
+    Safeshield Insurance &nbsp;|&nbsp; 2777 Summer St 6th Floor, Stamford, CT 06905
+  </div>
+</div>
+
+<footer>
+  <p>This quote was prepared by Safeshield Insurance on behalf of Moose Vending LLC. Reference: 31 SBA CD9KMG-001. This document is a proposal only and does not constitute a bound policy or guarantee of coverage. Actual premium and terms are subject to underwriting approval by The Hartford (Property and Casualty Insurance Company of Hartford). Quote valid through October 3, 2026. &copy; 2026 Safeshield Insurance.</p>
+</footer>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"moose-vending-bop","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
