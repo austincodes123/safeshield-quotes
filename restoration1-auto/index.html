@@ -524,6 +524,30 @@
   .opt-card-per { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.1rem; }
   .opt-card-desc { font-size: 0.93rem; line-height: 1.6; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 1.1rem; }
   .opt-card-desc strong { color: var(--ink); }
+
+  /* Option view switcher (Side by Side / Option A / Option B) */
+  .opt-view-toggle { margin: 2.5rem 0 0; }
+  .opt-view-toggle .compare-toggle-btn { font-weight: 500; }
+  #options.view-a .col-b, #options.view-b .col-a { display: none; }
+  @media (min-width: 769px) {
+    #options.view-a .compare-row, #options.view-b .compare-row { grid-template-columns: 1.2fr 2fr; }
+  }
+  #options.view-a .opt-card:not(.featured) { display: none; }
+  #options.view-b .opt-card.featured { display: none; }
+  #options.view-a .opt-cards, #options.view-b .opt-cards { grid-template-columns: 1fr; max-width: 640px; }
+  .opt-detail { display: none; margin-top: 1.5rem; background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--yellow); padding: 1.6rem 1.7rem; }
+  .opt-detail.detail-b { border-left-color: var(--brand); }
+  #options.view-a .opt-detail.detail-a { display: block; }
+  #options.view-b .opt-detail.detail-b { display: block; }
+  .opt-detail-label { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brand); margin-bottom: 0.85rem; }
+  .opt-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media (max-width: 768px) { .opt-detail-grid { grid-template-columns: 1fr; } }
+  .opt-detail-col-title { font-family: 'Fraunces', serif; font-size: 1.02rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
+  .opt-detail p, .opt-detail li { font-size: 0.92rem; line-height: 1.6; color: var(--ink-soft); }
+  .opt-detail ul { list-style: none; }
+  .opt-detail ul li { padding-left: 1.1rem; position: relative; margin-bottom: 0.4rem; }
+  .opt-detail ul li::before { content: '·'; position: absolute; left: 0; color: var(--yellow); font-weight: 700; }
+  #options.view-a .view-both-note, #options.view-b .view-both-note { display: none; }
 </style>
 </head>
 <body>
@@ -728,6 +752,12 @@
       <div class="section-eyebrow reveal">The Decision</div>
       <h2 class="display section-title reveal">Two options, <em>one real question.</em></h2>
       <p class="lead reveal">Both programs protect other people from you - that's the $1,000,000 liability limit, and it's identical. The question is whether anything protects the van. Option A covers the ProMaster itself for theft, fire, vandalism, and collision. Option B does not: if the van is damaged or stolen, replacing it is out of pocket.</p>
+
+      <div class="compare-toggle opt-view-toggle reveal" role="tablist" aria-label="Comparison view">
+        <button class="compare-toggle-btn active" data-optview="both" role="tab" aria-selected="true">Side by Side</button>
+        <button class="compare-toggle-btn" data-optview="a" role="tab" aria-selected="false">Option A · Full Coverage</button>
+        <button class="compare-toggle-btn" data-optview="b" role="tab" aria-selected="false">Option B · Liability Only</button>
+      </div>
     </div>
 
     <div class="opt-cards">
@@ -755,18 +785,66 @@
     <div class="compare-table reveal">
       <div class="compare-row compare-row-head">
         <div class="compare-row-label">Coverage</div>
-        <div class="compare-cell">Option A · Lancer<span class="opt-badge">Recommended</span></div>
-        <div class="compare-cell">Option B · National L&amp;F</div>
+        <div class="compare-cell col-a">Option A · Lancer<span class="opt-badge">Recommended</span></div>
+        <div class="compare-cell col-b">Option B · National L&amp;F</div>
       </div>
-      <div class="compare-row"><div class="compare-row-label">Liability</div><div class="compare-cell cell-lancer">$1,000,000 CSL</div><div class="compare-cell cell-nico">$1,000,000 CSL</div></div>
-      <div class="compare-row"><div class="compare-row-label">Personal Injury Protection</div><div class="compare-cell cell-lancer">$50,000 basic NY PIP</div><div class="compare-cell cell-nico">Basic NY PIP included</div></div>
-      <div class="compare-row"><div class="compare-row-label">Uninsured / Underinsured (SUM)</div><div class="compare-cell cell-lancer">$500,000 CSL</div><div class="compare-cell cell-nico">$1,000,000 CSL</div></div>
-      <div class="compare-row"><div class="compare-row-label">Medical Payments</div><div class="compare-cell cell-lancer cell-miss">Not included</div><div class="compare-cell cell-nico">$1,000</div></div>
-      <div class="compare-row"><div class="compare-row-label">Comprehensive (theft, fire, vandalism)</div><div class="compare-cell cell-lancer">Covered · $1,000 deductible</div><div class="compare-cell cell-nico cell-miss">Not covered</div></div>
-      <div class="compare-row"><div class="compare-row-label">Collision</div><div class="compare-cell cell-lancer">Covered · $1,000 deductible</div><div class="compare-cell cell-nico cell-miss">Not covered</div></div>
-      <div class="compare-row"><div class="compare-row-label">Carrier Standing</div><div class="compare-cell cell-lancer">Admitted NY · commercial auto specialist</div><div class="compare-cell cell-nico">Admitted · AM Best A++ XV</div></div>
-      <div class="compare-row"><div class="compare-row-label">Annual All-In</div><div class="compare-cell cell-lancer">$7,264</div><div class="compare-cell cell-nico">$6,603</div></div>
-      <div class="compare-row"><div class="compare-row-label">Due at Binding</div><div class="compare-cell cell-lancer">$1,813 (25%)</div><div class="compare-cell cell-nico">$999</div></div>
+      <div class="compare-row"><div class="compare-row-label">Liability</div><div class="compare-cell cell-lancer col-a">$1,000,000 CSL</div><div class="compare-cell cell-nico col-b">$1,000,000 CSL</div></div>
+      <div class="compare-row"><div class="compare-row-label">Personal Injury Protection</div><div class="compare-cell cell-lancer col-a">$50,000 basic NY PIP</div><div class="compare-cell cell-nico col-b">Basic NY PIP included</div></div>
+      <div class="compare-row"><div class="compare-row-label">Uninsured / Underinsured (SUM)</div><div class="compare-cell cell-lancer col-a">$500,000 CSL</div><div class="compare-cell cell-nico col-b">$1,000,000 CSL</div></div>
+      <div class="compare-row"><div class="compare-row-label">Medical Payments</div><div class="compare-cell cell-lancer cell-miss col-a">Not included</div><div class="compare-cell cell-nico col-b">$1,000</div></div>
+      <div class="compare-row"><div class="compare-row-label">Comprehensive (theft, fire, vandalism)</div><div class="compare-cell cell-lancer col-a">Covered · $1,000 deductible</div><div class="compare-cell cell-nico cell-miss col-b">Not covered</div></div>
+      <div class="compare-row"><div class="compare-row-label">Collision</div><div class="compare-cell cell-lancer col-a">Covered · $1,000 deductible</div><div class="compare-cell cell-nico cell-miss col-b">Not covered</div></div>
+      <div class="compare-row"><div class="compare-row-label">Carrier Standing</div><div class="compare-cell cell-lancer col-a">Admitted NY · commercial auto specialist</div><div class="compare-cell cell-nico col-b">Admitted · AM Best A++ XV</div></div>
+      <div class="compare-row"><div class="compare-row-label">Annual All-In</div><div class="compare-cell cell-lancer col-a">$7,264</div><div class="compare-cell cell-nico col-b">$6,603</div></div>
+      <div class="compare-row"><div class="compare-row-label">Due at Binding</div><div class="compare-cell cell-lancer col-a">$1,813 (25%)</div><div class="compare-cell cell-nico col-b">$999</div></div>
+    </div>
+
+    <div class="opt-detail detail-a">
+      <div class="opt-detail-label">A Closer Look · Option A · Lancer Insurance Company</div>
+      <div class="opt-detail-grid">
+        <div>
+          <div class="opt-detail-col-title">What you're getting</div>
+          <ul>
+            <li>$1,000,000 CSL liability plus New York PIP and $500,000 SUM protection</li>
+            <li>Comprehensive and Collision on the ProMaster at $1,000 deductibles - theft, fire, vandalism, weather, and crashes regardless of fault</li>
+            <li>Terrorism (TRIA) coverage included</li>
+            <li>The only option where a stolen or totaled van is a $1,000 problem instead of a self-funded replacement</li>
+          </ul>
+        </div>
+        <div>
+          <div class="opt-detail-col-title">How binding works</div>
+          <ul>
+            <li>$1,813 due at binding (25% deposit)</li>
+            <li>Balance over up to 8 monthly installments of about $682, or a 3-pay plan, or pay in full</li>
+            <li>Premium financing accepted if we'd rather run it through a finance company</li>
+            <li>To bind: signed application and MVRs for all drivers - I prepare everything, you sign</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="opt-detail detail-b">
+      <div class="opt-detail-label">A Closer Look · Option B · National Liability &amp; Fire</div>
+      <div class="opt-detail-grid">
+        <div>
+          <div class="opt-detail-col-title">What you're getting</div>
+          <ul>
+            <li>$1,000,000 CSL liability from an AM Best A++ XV carrier in the Berkshire Hathaway family</li>
+            <li>The stronger uninsured motorist position: $1,000,000 SUM plus $1,000 medical payments</li>
+            <li>No physical damage coverage - theft of or damage to the van itself is not covered under this option</li>
+            <li>The lighter lift on opening-month cash flow at $999 down</li>
+          </ul>
+        </div>
+        <div>
+          <div class="opt-detail-col-title">How binding works</div>
+          <ul>
+            <li>$999 due at binding on the 11-pay plan, then 10 monthly installments of about $560</li>
+            <li>Other plans: 6-pay at $1,110 down, 4-pay at $1,659, 2-pay at $3,307, or $6,603 in full</li>
+            <li>To bind: signed application plus the New York UM/UIM selection form</li>
+            <li>Subject to clean MVRs - citations found at binding will increase the premium - and drivers must be 25+ with two years in similar units</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="cov-note reveal" style="margin-top:2rem;">
@@ -1045,6 +1123,21 @@
     card.addEventListener('click', () => {
       const expanded = card.getAttribute('aria-expanded') === 'true';
       card.setAttribute('aria-expanded', !expanded);
+    });
+  });
+
+  // ───── Option view switcher (Side by Side / A / B) ─────
+  const optionsSection = document.getElementById('options');
+  const optViewBtns = document.querySelectorAll('[data-optview]');
+  optViewBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      optViewBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      optionsSection.classList.remove('view-a', 'view-b');
+      const v = btn.dataset.optview;
+      if (v === 'a') optionsSection.classList.add('view-a');
+      if (v === 'b') optionsSection.classList.add('view-b');
     });
   });
 
