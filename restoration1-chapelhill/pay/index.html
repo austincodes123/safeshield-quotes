@@ -92,6 +92,32 @@
   .disc{font-size:11px;color:#9aa6b4;margin-top:18px;max-width:62ch;margin-left:auto;margin-right:auto;line-height:1.5}
   .backlink{display:inline-block;margin-top:14px;font-size:13px;color:var(--navy);text-decoration:none;font-weight:600}
   .backlink:hover{text-decoration:underline}
+
+  /* FAQ */
+  .faq-sec{margin-top:46px}
+  .faq-eye{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:10px}
+  .faq-h{font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:clamp(24px,5vw,32px);line-height:1.1}
+  .faq-sub{font-size:14.5px;color:var(--slate);margin-top:10px}
+  .faqs{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+  .faq{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}
+  .faq-q{display:flex;align-items:center;gap:14px;width:100%;border:none;background:transparent;
+    font-family:inherit;text-align:left;padding:17px 18px;cursor:pointer}
+  .faq-q .qt{flex:1;font-size:15px;font-weight:600;color:var(--ink);line-height:1.3}
+  .faq-q .qc{flex:none;color:var(--slate);transition:transform .3s ease}
+  .faq.open .faq-q .qc{transform:rotate(180deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .faq.open .faq-a{max-height:420px}
+  .faq-a-inner{padding:0 18px 18px;font-size:14px;color:var(--slate);line-height:1.6;border-top:1px solid var(--line);padding-top:14px}
+  .faq-a-inner b{color:var(--ink);font-weight:600}
+  .faq-a-inner a{color:var(--navy);font-weight:600;text-decoration:none}
+  .faq-a-inner a:hover{text-decoration:underline}
+  .person{display:flex;gap:12px;align-items:center;margin-top:12px;background:var(--paper);border-radius:12px;padding:12px 14px}
+  .person .av{flex:none;width:40px;height:40px;border-radius:99px;background:var(--navy);color:#fff;
+    font-weight:700;font-size:15px;display:grid;place-items:center}
+  .person .pn{font-size:14px;font-weight:600;color:var(--ink);line-height:1.25}
+  .person .pr{font-size:12px;color:var(--slate)}
+  .person a{color:var(--navy);font-weight:600;text-decoration:none;font-size:12.5px}
+  .person a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -108,7 +134,7 @@
   <header class="hero">
     <div class="eyebrow">One step left</div>
     <h1>Choose how you<br>want to pay.</h1>
-    <p class="lede">Three ways to get covered, same protection underneath. Pick the one that fits, pay securely, and we handle everything from there.</p>
+    <p class="lede">Two ways to get covered, same protection underneath. Pick the one that fits, pay securely, and we handle everything from there.</p>
   </header>
 
   <div class="opt-tabs" role="tablist">
@@ -117,12 +143,8 @@
       <div class="p">$11,288.87</div>
     </button>
     <button class="opt-tab" data-opt="umb" role="tab">
-      <div class="t">Full + Umbrella</div>
+      <div class="t">Pay in Full + Umbrella</div>
       <div class="p">$14,797.87</div>
-    </button>
-    <button class="opt-tab" data-opt="monthly" role="tab">
-      <div class="t">Monthly Start</div>
-      <div class="p">$5,375.72 today</div>
     </button>
   </div>
 
@@ -187,35 +209,73 @@
     </div>
   </div>
 
-  <!-- ============ OPTION 3: MONTHLY START ============ -->
-  <div class="panel" id="panel-monthly" hidden>
-    <div class="card">
-      <div class="card-head">
-        <div class="k">Core program, monthly start</div>
-        <div class="amt">$5,375.72 <small>due today, then monthly</small></div>
-        <div class="sub">The same core program, started with down payments today and the balance spread over the year. Costs about $253 more over the year than paying in full.</div>
+  <!-- FAQ -->
+  <section class="faq-sec">
+    <div class="faq-eye">Good to know</div>
+    <div class="faq-h">Questions you'll probably have</div>
+    <p class="faq-sub">Tap any question to expand it. And if it's not here, call or email us, a real person answers.</p>
+
+    <div class="faqs">
+
+      <div class="faq">
+        <button class="faq-q" aria-expanded="false"><span class="qt">I need a certificate of insurance. Where do I go?</span><span class="qc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Straight to Alyssa. She runs our certificates desk and turns them around fast, usually same day. Email her the name and address of whoever is requesting it (a property manager, GC, or client) and anything specific they asked for, and she handles the rest. Certificates are always free, request as many as you need.
+          <div class="person">
+            <div class="av">AB</div>
+            <div style="flex:1">
+              <div class="pn">Alyssa Baet</div>
+              <div class="pr">Head of Certificates &amp; Client Service</div>
+            </div>
+            <a href="mailto:alyssa@gosafeshield.com">alyssa@gosafeshield.com</a>
+          </div>
+        </div></div>
       </div>
-      <div class="card-body">
-        <div class="inc">
-          <div><b>Workers Comp deposit</b> &middot; $3,830.00 <small>&middot; required to issue your comp policy</small></div>
-          <div><b>Down payment on Package + Equipment</b> &middot; $1,545.72 <small>&middot; 25% down on $6,182.87 of premium</small></div>
-        </div>
 
-        <div class="how">
-          <h3>How the monthly route works</h3>
-          <div class="step"><div class="n">1</div><p><b>Today you pay the amount above through the secure link.</b> That covers your comp deposit and the down payment on your package and equipment, which is what gets every policy bound.</p></div>
-          <div class="step"><div class="n">2</div><p><b>Your package and equipment balance is financed.</b> The remaining premium is financed through a premium finance company under an agreement you sign with your policy paperwork, at about 13% APR. Expect about <b>$543 a month for 9 months</b>, with the exact figure set on the signed finance agreement. The finance company pays the carriers in full up front, and you repay them monthly.</p></div>
-          <div class="step"><div class="n">3</div><p><b>Your comp balance is billed by the carrier.</b> The remaining roughly $1,276 of comp premium is billed directly by the carrier in installments, about <b>$142 a month</b>. Comp never goes through the finance company, North Carolina comp runs on its own billing.</p></div>
-          <div class="step"><div class="n">4</div><p><b>All in, plan on about $685 a month</b> across both tracks after today, and about $253 more over the year than paying in full.</p></div>
-        </div>
-
-        <a class="paybtn" href="https://link.anddone.com/#/MxqW6G0d" target="_blank" rel="noopener">Pay $5,375.72 to start<small>opens your secure AndDone payment page</small></a>
-        <div class="secure"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#5a6573" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>Encrypted payment, processed by AndDone</div>
-
-        <div class="note"><b>Good to know:</b> the finance figures are close estimates. Your exact down payment and installment are finalized on the premium finance agreement, and any small difference from today's payment is trued up there, we never keep the difference. Workers comp adjusts at your year-end payroll audit.</div>
+      <div class="faq">
+        <button class="faq-q" aria-expanded="false"><span class="qt">What happens right after I pay?</span><span class="qc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          We get to work the same day. You'll receive a short signature packet to e-sign, we submit everything to the carriers and the North Carolina comp plan, your policies bind, and your policy documents and certificates follow as the carriers issue them. If a jobsite needs proof of coverage before the paperwork lands, tell us and we will get you what you need.
+        </div></div>
       </div>
+
+      <div class="faq">
+        <button class="faq-q" aria-expanded="false"><span class="qt">When does my coverage actually start?</span><span class="qc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Coverage binds once the carriers accept, which is typically within a business day of your payment and signed packet. We will confirm your exact effective dates in writing, and all your policies run 12 months from binding.
+        </div></div>
+      </div>
+
+      <div class="faq">
+        <button class="faq-q" aria-expanded="false"><span class="qt">I have a claim or something happened on a job. Who do I call?</span><span class="qc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Call us first, day or night: <b>(203) 564-9817</b>. We will walk you through it, get the claim reported to the right carrier, and stay on it with you. You are never routed to a call center and left to figure it out alone. That is the whole point of having a broker who works for you.
+        </div></div>
+      </div>
+
+      <div class="faq">
+        <button class="faq-q" aria-expanded="false"><span class="qt">What is the payroll audit on my workers comp?</span><span class="qc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Your comp premium is based on an estimated $160,000 of payroll. At the end of the policy year the carrier checks your actual payroll. If you paid your team more than estimated, you owe the difference, and if you paid less, you get money back. Nothing to do now, just keep clean payroll records and the audit is painless. We will help you through it when it comes.
+        </div></div>
+      </div>
+
+      <div class="faq">
+        <button class="faq-q" aria-expanded="false"><span class="qt">I bought new equipment. Is it covered?</span><span class="qc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Your equipment coverage carries a $50,000 limit, which gives you room to grow. When your total gear starts approaching that number, or you add a single big-ticket machine, shoot us a quick email and we will raise the limit to keep pace. A two-minute email now beats finding out you were short after a loss.
+        </div></div>
+      </div>
+
+      <div class="faq">
+        <button class="faq-q" aria-expanded="false"><span class="qt">Can I add the umbrella later if a client requires it?</span><span class="qc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Yes. If a commercial client, GC, or the franchisor ever requires higher limits, we can add the umbrella in about a day. It is already quoted and sitting ready, so it is one email when you need it.
+        </div></div>
+      </div>
+
     </div>
-  </div>
+  </section>
 
   <div style="text-align:center">
     <a class="backlink" href="../">&larr; Back to your full proposal</a>
@@ -234,12 +294,21 @@
 
 <script>
   var tabs=document.querySelectorAll('.opt-tab');
-  var panels={core:document.getElementById('panel-core'),umb:document.getElementById('panel-umb'),monthly:document.getElementById('panel-monthly')};
+  var panels={core:document.getElementById('panel-core'),umb:document.getElementById('panel-umb')};
   tabs.forEach(function(t){
     t.addEventListener('click',function(){
       tabs.forEach(function(x){x.classList.remove('active')});
       t.classList.add('active');
       for(var k in panels){panels[k].hidden=(k!==t.dataset.opt);}
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var f=q.closest('.faq');
+      var open=f.classList.toggle('open');
+      q.setAttribute('aria-expanded',open?'true':'false');
     });
   });
 </script>
