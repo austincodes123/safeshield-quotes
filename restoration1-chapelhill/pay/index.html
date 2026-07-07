@@ -34,6 +34,12 @@
 
   /* option tabs */
   .opt-tabs{display:flex;gap:6px;background:var(--paper);padding:6px;border-radius:16px;margin-top:8px}
+  .assure{display:flex;gap:13px;align-items:flex-start;margin:18px 0 2px;background:rgba(0,75,137,.05);
+    border:1px solid rgba(0,75,137,.14);border-radius:14px;padding:15px 17px}
+  .assure .ai{flex:none;width:36px;height:36px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center}
+  .assure .ai svg{width:19px;height:19px}
+  .assure p{font-size:13.5px;color:var(--slate);line-height:1.55}
+  .assure p b{color:var(--ink);font-weight:600}
   .opt-tab{flex:1;border:none;background:transparent;font-family:inherit;cursor:pointer;
     padding:14px 8px;border-radius:11px;transition:all .2s ease;text-align:center}
   .opt-tab .t{font-size:13.5px;font-weight:700;color:var(--slate);line-height:1.2}
@@ -137,6 +143,11 @@
     <p class="lede">Two ways to get covered, same protection underneath. Pick the one that fits, pay securely, and we handle everything from there.</p>
   </header>
 
+  <div class="assure">
+    <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6"/><path d="M9 15l2 2 4-4"/></svg></div>
+    <p><b>Paying first is normal here, and here's why.</b> The moment your payment lands, your signature packet goes out automatically, everything you need to sign arrives in your inbox within minutes. Payment is simply how we both commit: it tells the carriers this is a done deal, and it lets us fire off your binding paperwork immediately instead of days of back and forth. Nothing is final until you sign, and if anything looks off in the packet, we fix it before anything binds.</p>
+  </div>
+
   <div class="opt-tabs" role="tablist">
     <button class="opt-tab active" data-opt="core" role="tab">
       <div class="t">Pay in Full</div>
@@ -165,9 +176,10 @@
 
         <div class="how">
           <h3>How your payment works</h3>
-          <div class="step"><div class="n">1</div><p><b>You pay once through the secure link below.</b> Bank transfer or card, powered by AndDone, our payment processor.</p></div>
-          <div class="step"><div class="n">2</div><p><b>We put your money where it belongs.</b> As your licensed broker, Safeshield remits your package and equipment premium to the wholesale broker, who forwards it to your carriers. Your workers comp deposit and premium go to the North Carolina comp plan with your application.</p></div>
-          <div class="step"><div class="n">3</div><p><b>Your policies bind and your documents follow.</b> We send your signature packet the same day, then your policy documents and certificates as the carriers issue them.</p></div>
+          <div class="step"><div class="n">1</div><p><b>You pay once through the secure link below.</b> Bank transfer or card, powered by AndDone, our payment processor. Your payment is what kicks everything into motion.</p></div>
+          <div class="step"><div class="n">2</div><p><b>Your signature packet is sent automatically, within minutes.</b> As soon as payment lands, the applications and forms you need to sign go out to your inbox. E-sign from your phone, and nothing is final until you do.</p></div>
+          <div class="step"><div class="n">3</div><p><b>We put your money where it belongs.</b> As your licensed broker, Safeshield remits your package and equipment premium to the wholesale broker, who forwards it to your carriers. Your workers comp deposit and premium go to the North Carolina comp plan with your application.</p></div>
+          <div class="step"><div class="n">4</div><p><b>Your policies bind and your documents follow.</b> Once your signed packet is back, coverage binds with the carriers and your policy documents and certificates arrive as they issue.</p></div>
         </div>
 
         <a class="paybtn" href="https://link.anddone.com/#/adJDNZzx" target="_blank" rel="noopener">Pay $11,288.87 securely<small>opens your secure AndDone payment page</small></a>
@@ -196,9 +208,10 @@
 
         <div class="how">
           <h3>How your payment works</h3>
-          <div class="step"><div class="n">1</div><p><b>You pay once through the secure link below.</b> Bank transfer or card, powered by AndDone, our payment processor.</p></div>
-          <div class="step"><div class="n">2</div><p><b>We put your money where it belongs.</b> As your licensed broker, Safeshield remits your package, equipment, and umbrella premium to the wholesale broker, who forwards it to your carriers. Your workers comp deposit and premium go to the North Carolina comp plan with your application.</p></div>
-          <div class="step"><div class="n">3</div><p><b>Your policies bind and your documents follow.</b> We send your signature packet the same day, then your policy documents and certificates as the carriers issue them.</p></div>
+          <div class="step"><div class="n">1</div><p><b>You pay once through the secure link below.</b> Bank transfer or card, powered by AndDone, our payment processor. Your payment is what kicks everything into motion.</p></div>
+          <div class="step"><div class="n">2</div><p><b>Your signature packet is sent automatically, within minutes.</b> As soon as payment lands, the applications and forms you need to sign go out to your inbox. E-sign from your phone, and nothing is final until you do.</p></div>
+          <div class="step"><div class="n">3</div><p><b>We put your money where it belongs.</b> As your licensed broker, Safeshield remits your package, equipment, and umbrella premium to the wholesale broker, who forwards it to your carriers. Your workers comp deposit and premium go to the North Carolina comp plan with your application.</p></div>
+          <div class="step"><div class="n">4</div><p><b>Your policies bind and your documents follow.</b> Once your signed packet is back, coverage binds with the carriers and your policy documents and certificates arrive as they issue.</p></div>
         </div>
 
         <a class="paybtn" href="https://link.anddone.com/#/0xWqbgRd" target="_blank" rel="noopener">Pay $14,797.87 securely<small>opens your secure AndDone payment page</small></a>
@@ -233,9 +246,16 @@
       </div>
 
       <div class="faq">
+        <button class="faq-q" aria-expanded="false"><span class="qt">Why am I paying before I've signed any documents?</span><span class="qc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Fair question, and it's by design. Binding your coverage means preparing carrier applications, comp plan filings, and signature forms across three policies, and we only spin that up once the deal is real on both sides. Your payment is that commitment, and the second it lands, <b>your signature packet is generated and sent automatically, it hits your inbox within minutes.</b> Nothing binds until you've signed, your money goes to your carriers and the comp plan, not into limbo, and if anything in the packet is not right, we correct it before anything is final. It is the same reason you take a deposit before mobilizing a crew: it lets us move at full speed for you the moment you say go.
+        </div></div>
+      </div>
+
+      <div class="faq">
         <button class="faq-q" aria-expanded="false"><span class="qt">What happens right after I pay?</span><span class="qc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></button>
         <div class="faq-a"><div class="faq-a-inner">
-          We get to work the same day. You'll receive a short signature packet to e-sign, we submit everything to the carriers and the North Carolina comp plan, your policies bind, and your policy documents and certificates follow as the carriers issue them. If a jobsite needs proof of coverage before the paperwork lands, tell us and we will get you what you need.
+          Your signature packet goes out automatically within minutes of payment, e-sign it from your phone. From there we submit everything to the carriers and the North Carolina comp plan, your policies bind, and your policy documents and certificates follow as the carriers issue them. If a jobsite needs proof of coverage before the paperwork lands, tell us and we will get you what you need.
         </div></div>
       </div>
 
