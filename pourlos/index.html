@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexander & Alexis Pourlos | Safeshield Insurance Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#0a1628;
+    color:#FAFAF8;
+    font-family:'Outfit', sans-serif;
+    font-weight:300;
+    line-height:1.6;
+  }
+  h1,h2,h3 { font-family:'Playfair Display', serif; font-weight:900; }
+  .divider {
+    height:1px;
+    width:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin:60px 0;
+  }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 32px; }
+
+  /* HERO */
+  .hero {
+    padding:100px 32px 80px;
+    text-align:center;
+    background:radial-gradient(circle at 50% 0%, rgba(0,75,137,0.35), transparent 60%);
+  }
+  .hero .eyebrow {
+    color:#FFA300;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .address-badge {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,163,0,0.3);
+    border-radius:100px;
+    padding:10px 22px;
+    font-size:14px;
+    color:#FAFAF8;
+    margin-bottom:28px;
+    letter-spacing:0.3px;
+  }
+  .address-badge b { color:#FFA300; }
+  .hero h1 {
+    font-size:52px;
+    line-height:1.15;
+    margin-bottom:20px;
+  }
+  .hero h1 span { color:#FFA300; }
+  .hero p.sub {
+    font-size:18px;
+    color:rgba(250,250,248,0.7);
+    max-width:640px;
+    margin:0 auto 40px;
+  }
+  .hero-stats {
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .hero-stat {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:22px 30px;
+    min-width:180px;
+  }
+  .hero-stat .num { font-family:'Playfair Display',serif; font-size:30px; font-weight:900; color:#FFA300; }
+  .hero-stat .label { font-size:13px; color:rgba(250,250,248,0.6); margin-top:6px; text-transform:uppercase; letter-spacing:1px;}
+
+  /* SECTION HEADERS */
+  .section-title {
+    text-align:center;
+    margin-bottom:12px;
+    font-size:36px;
+  }
+  .section-title span { color:#FFA300; }
+  .section-sub {
+    text-align:center;
+    color:rgba(250,250,248,0.6);
+    max-width:600px;
+    margin:0 auto 50px;
+    font-size:16px;
+  }
+
+  /* CARDS */
+  .card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:36px;
+    margin-bottom:24px;
+  }
+  .card-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:24px;
+    padding-bottom:20px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .card-header h3 { font-size:24px; }
+  .badge {
+    background:rgba(255,163,0,0.12);
+    color:#FFA300;
+    border:1px solid rgba(255,163,0,0.3);
+    padding:6px 16px;
+    border-radius:100px;
+    font-size:12px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+
+  .dwelling-callout {
+    background:linear-gradient(135deg, rgba(0,75,137,0.4), rgba(255,163,0,0.08));
+    border:1px solid rgba(255,163,0,0.25);
+    border-radius:16px;
+    padding:28px;
+    margin-bottom:28px;
+  }
+  .dwelling-callout .amt {
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    font-weight:900;
+    color:#FFA300;
+  }
+  .dwelling-callout .breakdown {
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    margin-top:16px;
+    font-size:14px;
+    color:rgba(250,250,248,0.75);
+  }
+  .dwelling-callout .breakdown b { color:#FAFAF8; }
+
+  table.cov-table {
+    width:100%;
+    border-collapse:collapse;
+    margin-top:8px;
+  }
+  table.cov-table td {
+    padding:12px 6px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    font-size:15px;
+  }
+  table.cov-table td:last-child { text-align:right; font-weight:600; }
+  table.cov-table tr:last-child td { border-bottom:none; }
+
+  .extras-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:8px;
+  }
+  @media (max-width:640px){ .extras-grid{grid-template-columns:1fr;} }
+  .extra-item {
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:12px;
+    padding:16px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+  }
+  .extra-item .name { font-size:14px; }
+  .extra-item .name small { display:block; color:rgba(250,250,248,0.5); font-size:12px; margin-top:2px;}
+  .extra-item .val { font-weight:700; color:#FAFAF8; white-space:nowrap; }
+  .extra-item.highlight {
+    background:rgba(255,163,0,0.1);
+    border:1px solid rgba(255,163,0,0.4);
+  }
+  .extra-item.highlight .val { color:#FFA300; }
+  .star-tag {
+    background:#FFA300;
+    color:#0a1628;
+    font-size:10px;
+    font-weight:800;
+    padding:3px 8px;
+    border-radius:100px;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    margin-left:8px;
+  }
+
+  .umbrella-banner {
+    margin-top:20px;
+    background:rgba(255,163,0,0.08);
+    border:1px solid rgba(255,163,0,0.3);
+    border-radius:14px;
+    padding:20px 24px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .umbrella-banner .icon {
+    font-size:28px;
+  }
+  .umbrella-banner .txt b { color:#FFA300; }
+
+  .total-row {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:24px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,0.1);
+  }
+  .total-row .label { font-size:16px; color:rgba(250,250,248,0.7); }
+  .total-row .amt { font-family:'Playfair Display',serif; font-size:32px; font-weight:900; color:#FFA300; }
+
+  /* AUTO SECTION */
+  .driver-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-bottom:24px;
+  }
+  @media (max-width:640px){ .driver-grid{grid-template-columns:1fr;} }
+  .driver-card {
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:14px;
+    padding:18px 20px;
+  }
+  .driver-card .name { font-weight:600; font-size:16px; margin-bottom:6px;}
+  .driver-card .meta { font-size:13px; color:rgba(250,250,248,0.6); }
+
+  .vehicle-strip {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:14px;
+    padding:20px 24px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .vehicle-strip .v-name { font-size:18px; font-weight:600; }
+  .vehicle-strip .v-vin { font-size:12px; color:rgba(250,250,248,0.5); margin-top:4px; }
+  .vehicle-strip .v-prem { font-family:'Playfair Display',serif; font-size:26px; font-weight:900; color:#FFA300; }
+
+  .discount-chips {
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:16px;
+  }
+  .chip {
+    background:rgba(0,75,137,0.3);
+    border:1px solid rgba(0,75,137,0.6);
+    color:#FAFAF8;
+    font-size:13px;
+    padding:8px 16px;
+    border-radius:100px;
+  }
+  .savings-note {
+    margin-top:18px;
+    font-size:14px;
+    color:rgba(250,250,248,0.7);
+  }
+  .savings-note b { color:#FFA300; }
+
+  /* WHY SAFESHIELD */
+  .why-grid {
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  @media (max-width:768px){ .why-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .why-grid{grid-template-columns:1fr;} }
+  .why-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:26px 22px;
+  }
+  .why-card .n { color:#FFA300; font-size:13px; font-weight:700; letter-spacing:1px; margin-bottom:10px; }
+  .why-card h4 { font-family:'Outfit',sans-serif; font-weight:600; font-size:17px; margin-bottom:8px; }
+  .why-card p { font-size:14px; color:rgba(250,250,248,0.65); }
+
+  /* CTA FOOTER */
+  .cta {
+    text-align:center;
+    padding:80px 32px 100px;
+    background:radial-gradient(circle at 50% 100%, rgba(255,163,0,0.08), transparent 60%);
+  }
+  .cta h2 { font-size:38px; margin-bottom:16px; }
+  .cta p { color:rgba(250,250,248,0.7); max-width:520px; margin:0 auto 32px; }
+  .btn-row { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+  .btn {
+    display:inline-block;
+    padding:16px 36px;
+    border-radius:100px;
+    font-weight:600;
+    text-decoration:none;
+    font-size:15px;
+  }
+  .btn-primary { background:#FFA300; color:#0a1628; }
+  .btn-secondary { background:rgba(255,255,255,0.06); color:#FAFAF8; border:1px solid rgba(255,255,255,0.15); }
+
+  .footer-meta {
+    text-align:center;
+    padding:30px;
+    font-size:12px;
+    color:rgba(250,250,248,0.35);
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Prepared exclusively for</div>
+      <h1>Alexander & Alexis Pourlos<br><span>Home + Auto Protection Plan</span></h1>
+      <div class="address-badge">📍 <b>13 Mortimer Dr, Old Greenwich, CT 06870</b></div>
+      <p class="sub">A full package built around your 1921 residence and your BMW X3, shopped across our carrier network so you get real coverage at a fair price.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">$3,344</div>
+          <div class="label">Home / Year</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">$672</div>
+          <div class="label">Auto / 6 Months</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">$1M</div>
+          <div class="label">Umbrella Included</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">2</div>
+          <div class="label">Trusted Carriers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="divider"></div>
+
+    <!-- HOME SECTION -->
+    <h2 class="section-title">Your <span>Home</span> Policy</h2>
+    <p class="section-sub">Narragansett Bay Insurance (NBIC) — HO-3 Special Form, effective 07/17/2026 to 07/17/2027</p>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>13 Mortimer Dr, Old Greenwich CT</h3>
+        <span class="badge">Frame • Built 1921 • Protection Class 2</span>
+      </div>
+
+      <div class="dwelling-callout">
+        <div style="font-size:13px; color:rgba(250,250,248,0.7); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Total Dwelling Protection</div>
+        <div class="amt">$1,057,500</div>
+        <div class="breakdown">
+          <div><b>$846,000</b> base Coverage A</div>
+          <div>+</div>
+          <div><b>25% ($211,500)</b> Additional Amount of Insurance built in</div>
+        </div>
+        <div style="margin-top:14px; font-size:14px; color:rgba(250,250,248,0.75);">
+          That extra 25% matters on an older 1921 home — if rebuild costs run higher than expected after a total loss, this cushion means you're not stuck covering the gap out of pocket.
+        </div>
+      </div>
+
+      <table class="cov-table">
+        <tr><td>Coverage A — Dwelling</td><td>$846,000</td></tr>
+        <tr><td>Coverage B — Other Structures</td><td>$84,600</td></tr>
+        <tr><td>Coverage C — Personal Property</td><td>$423,000</td></tr>
+        <tr><td>Coverage D — Loss of Use</td><td>$253,800</td></tr>
+        <tr><td>Coverage E — Personal Liability</td><td>$500,000</td></tr>
+        <tr><td>Coverage F — Medical Payments to Others</td><td>$5,000</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Enhanced Coverage Add-Ons</h3>
+        <span class="badge">Beyond the standard policy</span>
+      </div>
+      <p style="color:rgba(250,250,248,0.65); font-size:14px; margin-bottom:20px;">These are the extras built into your quote on top of a basic HO-3 — the stuff that actually pays off when something unexpected happens.</p>
+
+      <div class="extras-grid">
+        <div class="extra-item highlight">
+          <div class="name">Additional Amount of Insurance <span class="star-tag">Highlighted</span><br><small>25% boost to Coverage A — an extra $211,500 of rebuild protection</small></div>
+          <div class="val">$58</div>
+        </div>
+        <div class="extra-item">
+          <div class="name">Equipment Breakdown<br><small>$100,000 limit</small></div>
+          <div class="val">$32</div>
+        </div>
+        <div class="extra-item">
+          <div class="name">Limited Fungi, Wet/Dry Rot & Bacteria<br><small>$10,000 / $50,000</small></div>
+          <div class="val">Included</div>
+        </div>
+        <div class="extra-item">
+          <div class="name">Loss Assessment Coverage<br><small>$1,000 limit</small></div>
+          <div class="val">Included</div>
+        </div>
+        <div class="extra-item">
+          <div class="name">Ordinance or Law Coverage<br><small>10% of Coverage A</small></div>
+          <div class="val">Included</div>
+        </div>
+        <div class="extra-item">
+          <div class="name">Personal Injury Coverage<br><small>Libel, slander, false arrest protection</small></div>
+          <div class="val">$22</div>
+        </div>
+        <div class="extra-item highlight">
+          <div class="name">Personal Property Replacement Cost <span class="star-tag">Highlighted</span><br><small>No depreciation on your belongings if you have to file a claim</small></div>
+          <div class="val">$265</div>
+        </div>
+        <div class="extra-item highlight">
+          <div class="name">Water Back Up & Sump Overflow <span class="star-tag">Highlighted</span><br><small>$10,000 — covers the #1 claim we see on older homes with basements</small></div>
+          <div class="val">$86</div>
+        </div>
+        <div class="extra-item highlight">
+          <div class="name">Umbrella Liability <span class="star-tag">Highlighted</span><br><small>$1,000,000 additional liability layer</small></div>
+          <div class="val">$155</div>
+        </div>
+      </div>
+
+      <div class="umbrella-banner">
+        <div class="icon">☂️</div>
+        <div class="txt">This home policy has a <b>$1,000,000 umbrella</b> built right in — that's an extra million in liability protection sitting on top of your homeowners and auto limits, in case a serious claim or lawsuit ever exceeds your primary coverage.</div>
+      </div>
+
+      <div class="total-row">
+        <div class="label">Estimated Annual Home Premium</div>
+        <div class="amt">$3,344</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- AUTO SECTION -->
+    <h2 class="section-title">Your <span>Auto</span> Policy</h2>
+    <p class="section-sub">Travelers — 2022 BMW X3 xDrive, 6-month term effective 07/17/2026 to 01/17/2027</p>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Drivers on the Policy</h3>
+        <span class="badge">Married • Out of State License</span>
+      </div>
+      <div class="driver-grid">
+        <div class="driver-card">
+          <div class="name">Alexander Pourlos</div>
+          <div class="meta">DOB 04/1994 · Married</div>
+        </div>
+        <div class="driver-card">
+          <div class="name">Alexis Pourlos</div>
+          <div class="meta">DOB 04/1996 · Married</div>
+        </div>
+      </div>
+
+      <div class="vehicle-strip">
+        <div>
+          <div class="v-name">2022 BMW X3 xDrive</div>
+          <div class="v-vin">VIN 5UX53DP01N9M25819 · Pleasure Use</div>
+        </div>
+        <div class="v-prem">$672</div>
+      </div>
+
+      <table class="cov-table">
+        <tr><td>Liability</td><td>$250,000 / $500,000</td></tr>
+        <tr><td>Property Damage</td><td>$100,000</td></tr>
+        <tr><td>Uninsured/Underinsured Motorists</td><td>$250,000 / $500,000</td></tr>
+        <tr><td>Medical Payments</td><td>$5,000</td></tr>
+        <tr><td>Comprehensive Deductible</td><td>$1,000</td></tr>
+        <tr><td>Collision Deductible</td><td>$1,000</td></tr>
+        <tr><td>Rental Reimbursement</td><td>$50 / $1,500</td></tr>
+        <tr><td>Roadside Assistance</td><td>$15</td></tr>
+      </table>
+
+      <div class="discount-chips">
+        <div class="chip">Automatic Braking</div>
+        <div class="chip">Digital Auto</div>
+        <div class="chip">Early Quote</div>
+        <div class="chip">Continuous Insurance</div>
+        <div class="chip">EFT / Good Payer</div>
+        <div class="chip">Home Ownership</div>
+        <div class="chip">Safe Driver</div>
+      </div>
+
+      <div class="savings-note">Your total savings baked into this premium: <b>$415</b> — that's the discount stack already working in your favor.</div>
+
+      <div class="total-row">
+        <div class="label">Estimated 6-Month Auto Premium</div>
+        <div class="amt">$672</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- WHY SAFESHIELD -->
+    <h2 class="section-title">Why <span>Safeshield</span></h2>
+    <p class="section-sub">We're not a call center. We're the people who actually pick up the phone.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="n">01</div>
+        <h4>69+ Carrier Partners</h4>
+        <p>We shopped your home and auto across the full market — this package is the winner, not the only option we tried.</p>
+      </div>
+      <div class="why-card">
+        <div class="n">02</div>
+        <h4>Same-Day Everything</h4>
+        <p>Certs, ID cards, policy changes — handled the same day you ask, no waiting on hold.</p>
+      </div>
+      <div class="why-card">
+        <div class="n">03</div>
+        <h4>Direct Agent Access</h4>
+        <p>You call us, not a 1-800 number. Real people who know your file.</p>
+      </div>
+      <div class="why-card">
+        <div class="n">04</div>
+        <h4>We Advocate at Claims Time</h4>
+        <p>If something happens, we're in your corner pushing the claim forward, not just filing paperwork.</p>
+      </div>
+      <div class="why-card">
+        <div class="n">05</div>
+        <h4>Annual Re-Shop Guarantee</h4>
+        <p>Every renewal, we check the market again to make sure you're still getting the best deal.</p>
+      </div>
+      <div class="why-card">
+        <div class="n">06</div>
+        <h4>Built-In Umbrella</h4>
+        <p>A $1M umbrella is already stacked into this proposal — real protection most homeowners go without.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <h2>Ready to lock this in?</h2>
+      <p>Reply or call and we'll get your home and auto bound with NBIC and Travelers, effective 07/17/2026.</p>
+      <div class="btn-row">
+        <a href="tel:2038065889" class="btn btn-primary">Call Eric Kelly</a>
+        <a href="mailto:eric@gosafeshield.com" class="btn btn-secondary">Email Eric</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-meta">Prepared by Eric Kelly · Safeshield Insurance · 2777 Summer St 6th Fl, Stamford CT 06905 · 877-872-8737</div>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"pourlos","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
