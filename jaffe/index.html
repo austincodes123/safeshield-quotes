@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Much Coverage Do I Need? | Todd and Leah | Safeshield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#00274C;
+    --blue-2:#0B3A63;
+    --maize:#FFCB05;
+    --maize-soft:#FFF4CF;
+    --paper:#F7F7F5;
+    --ink:#12171C;
+    --gray:#5C6773;
+    --line:#DCE0E5;
+    --white:#FFFFFF;
+    --red:#B3261E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  .mono{font-family:'Roboto Mono',monospace;font-variant-numeric:tabular-nums}
+
+  h1,h2,h3,h4{
+    font-family:'Archivo',system-ui,sans-serif;font-weight:800;
+    letter-spacing:-0.022em;line-height:1.1;
+  }
+
+  .eyebrow{
+    font-family:'Roboto Mono',monospace;font-size:11px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--maize);
+  }
+  .eyebrow.dark{color:var(--blue-2)}
+
+  /* rule that reads as the maize-over-blue stripe */
+  .stripe{height:6px;background:var(--blue);position:relative}
+  .stripe:after{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--maize)}
+
+  /* ---------- topbar ---------- */
+  .topbar{background:var(--blue);padding:15px 0;position:sticky;top:0;z-index:60;border-bottom:3px solid var(--maize)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{
+    color:var(--white);font-family:'Archivo';font-weight:800;font-size:16px;letter-spacing:.04em;
+  }
+  .brand span{color:var(--maize)}
+  .topnav{display:flex;gap:24px}
+  .topnav a{
+    color:#B8C9DA;text-decoration:none;font-size:12px;font-weight:500;
+    font-family:'Roboto Mono',monospace;letter-spacing:.06em;text-transform:uppercase;
+  }
+  .topnav a:hover{color:var(--maize)}
+  @media(max-width:820px){.topnav{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--blue);color:var(--white);padding:80px 0 90px}
+  .hero h1{
+    font-size:clamp(38px,5.6vw,66px);margin:20px 0 0;color:var(--white);
+    text-transform:uppercase;letter-spacing:-0.028em;
+  }
+  .hero h1 span{color:var(--maize)}
+  .hero .sub{max-width:660px;margin-top:24px;color:#C3D2E0;font-size:19px}
+  .hero-meta{display:flex;flex-wrap:wrap;margin-top:48px;border-top:1px solid rgba(255,255,255,.18)}
+  .hero-meta div{flex:1;min-width:160px;padding:20px 24px 0 0}
+  .hero-meta .k{
+    font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:#8AA2B9;
+  }
+  .hero-meta .v{font-size:18px;font-weight:600;margin-top:5px;color:var(--white)}
+
+  /* ---------- sections ---------- */
+  section{padding:80px 0;border-bottom:1px solid var(--line)}
+  section.alt{background:var(--white)}
+  .sec-head{max-width:740px;margin-bottom:40px}
+  .sec-head h2{font-size:clamp(28px,3.8vw,42px);margin:12px 0 14px;text-transform:uppercase}
+  .sec-head p{color:var(--gray);font-size:18px}
+
+  .callout{background:var(--maize-soft);border-left:5px solid var(--maize);padding:20px 24px;margin:28px 0;font-size:16px}
+  .callout b{color:var(--blue)}
+
+  /* ---------- panels + calculator ---------- */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  @media(max-width:880px){.grid2{grid-template-columns:1fr}}
+  .panel{background:var(--white);border:1px solid var(--line);padding:28px}
+  .panel h3{font-size:22px;text-transform:uppercase}
+  .panel .who{
+    font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--gray);margin:4px 0 22px;
+  }
+  .field{margin-bottom:20px}
+  .field label{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;font-weight:500;margin-bottom:8px;gap:12px}
+  .field .val{font-family:'Roboto Mono',monospace;font-weight:700;color:var(--blue);white-space:nowrap}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:var(--line);outline:none;border-radius:2px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--maize);border:3px solid var(--blue);cursor:pointer}
+  input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--maize);border:3px solid var(--blue);cursor:pointer}
+  input[type=range]:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+
+  .ledger{margin-top:6px;border-top:1px solid var(--line)}
+  .ledger .row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .ledger .row span:first-child{color:var(--gray)}
+  .ledger .row.minus span:last-child{color:var(--red)}
+  .ledger .row.total{border-bottom:none;padding-top:16px;font-weight:700;color:var(--blue)}
+  .ledger .row.total span:last-child{font-size:24px;font-family:'Roboto Mono',monospace}
+
+  .result{margin-top:20px;background:var(--blue);color:var(--white);padding:20px 24px}
+  .result .k{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8AA2B9}
+  .result .big{font-family:'Roboto Mono',monospace;font-size:38px;font-weight:700;color:var(--maize);margin-top:4px;line-height:1}
+  .result .note{font-size:13px;color:#C3D2E0;margin-top:9px}
+  .result .note b{color:var(--white)}
+
+  /* ---------- inheritance toggle ---------- */
+  .toggle{display:flex;gap:8px;margin-top:10px}
+  .tbtn{
+    flex:1;border:1px solid var(--line);background:var(--white);cursor:pointer;
+    padding:10px 8px;font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;
+    color:var(--blue);text-transform:uppercase;letter-spacing:.06em;transition:.14s;
+  }
+  .tbtn:hover{border-color:var(--blue)}
+  .tbtn[aria-pressed="true"]{background:var(--blue);color:var(--maize);border-color:var(--blue)}
+
+  /* ---------- the bridge (rebuilt: bars that actually move) ---------- */
+  .bridge{background:var(--white);border:1px solid var(--line);padding:30px 28px}
+  .track{margin-top:30px;position:relative;padding-top:26px}
+  .yardline{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+  .yardline b{
+    position:absolute;top:0;left:50%;transform:translateX(-50%);
+    font-family:'Roboto Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.1em;
+    color:var(--gray);white-space:nowrap;background:var(--white);padding:0 5px;
+  }
+  .yardline.key{background:var(--blue);width:2px}
+  .yardline.key b{color:var(--blue)}
+  .barrow{position:relative;height:52px;display:flex;align-items:center}
+  .barrow .lbl{
+    position:absolute;left:0;top:2px;font-size:12px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.06em;color:var(--blue);z-index:3;
+  }
+  .bar{position:absolute;height:14px;background:var(--maize);border:1px solid var(--blue);top:24px}
+  .bar .cap{
+    position:absolute;right:-4px;top:-3px;width:0;height:20px;border-left:4px solid var(--blue);
+  }
+  .bar .endlbl{
+    position:absolute;left:100%;top:-3px;margin-left:12px;white-space:nowrap;
+    font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;color:var(--blue);
+  }
+  .track-foot{
+    display:flex;justify-content:space-between;margin-top:14px;
+    font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--gray);
+  }
+
+  /* ---------- cards ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:880px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--maize);padding:26px}
+  .card h3{font-size:19px;margin-bottom:10px;text-transform:uppercase}
+  .card p{font-size:15px;color:var(--gray)}
+
+  .versus{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:880px){.versus{grid-template-columns:1fr}}
+  .vs-col{background:var(--white);border:1px solid var(--line);padding:28px}
+  .vs-col.win{border:2px solid var(--blue)}
+  .vs-col h3{font-size:21px;text-transform:uppercase}
+  .vs-col .price{font-family:'Roboto Mono',monospace;font-size:28px;font-weight:700;color:var(--blue);margin:8px 0 18px}
+  .vs-col ul{list-style:none}
+  .vs-col li{padding:9px 0 9px 24px;position:relative;font-size:15px;border-bottom:1px solid var(--line)}
+  .vs-col li:last-child{border-bottom:none}
+  .vs-col li:before{content:"";position:absolute;left:0;top:16px;width:10px;height:10px;background:var(--maize);border:1px solid var(--blue)}
+
+  /* ---------- quote picker ---------- */
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .chip{
+    flex:1;min-width:96px;border:1px solid var(--line);background:var(--white);
+    padding:13px 10px;cursor:pointer;text-align:center;font-family:'Roboto Mono',monospace;
+    font-size:15px;font-weight:700;color:var(--blue);transition:.14s;
+  }
+  .chip:hover{border-color:var(--blue)}
+  .chip[aria-pressed="true"]{background:var(--blue);color:var(--maize);border-color:var(--blue)}
+  .chip small{display:block;font-family:'Inter';font-weight:500;font-size:11px;opacity:.75;margin-top:3px;color:inherit}
+  .carrier-toggle{display:flex;gap:8px;margin-bottom:26px}
+
+  .summary{
+    margin-top:32px;background:var(--blue);color:var(--white);padding:32px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  @media(max-width:760px){.summary{grid-template-columns:1fr;gap:20px}}
+  .summary .k{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8AA2B9;margin-bottom:6px}
+  .summary .v{font-family:'Roboto Mono',monospace;font-size:32px;font-weight:700;line-height:1}
+  .summary .v.hl{color:var(--maize)}
+  .summary .s{font-size:13px;color:#C3D2E0;margin-top:8px}
+
+  /* ---------- table ---------- */
+  .scroller{overflow-x:auto}
+  .tbl{width:100%;border-collapse:collapse;margin-top:22px;background:var(--white)}
+  .tbl th{
+    text-align:left;font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--gray);padding:13px 15px;border-bottom:2px solid var(--blue);font-weight:700;
+  }
+  .tbl td{padding:14px 15px;border-bottom:1px solid var(--line);font-size:15px;white-space:nowrap}
+  .tbl td.num{font-family:'Roboto Mono',monospace;font-variant-numeric:tabular-nums}
+  .tbl tr.rec td{background:var(--maize-soft)}
+  .tag{
+    display:inline-block;background:var(--blue);color:var(--maize);font-family:'Roboto Mono',monospace;
+    font-size:9px;letter-spacing:.14em;padding:3px 6px;text-transform:uppercase;margin-left:8px;font-weight:700;
+  }
+
+  /* ---------- steps ---------- */
+  .steps{counter-reset:s}
+  .step{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .step:before{
+    counter-increment:s;content:counter(s,decimal-leading-zero);
+    font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;
+    color:var(--blue);background:var(--maize);padding:5px 9px;height:fit-content;
+  }
+  .step h3{font-size:18px;margin-bottom:3px;text-transform:uppercase}
+  .step p{font-size:15px;color:var(--gray)}
+
+  /* ---------- submit form ---------- */
+  .formwrap{background:var(--blue);color:var(--white);padding:40px;margin-top:8px}
+  .formwrap h3{color:var(--white);font-size:24px;text-transform:uppercase;margin-bottom:6px}
+  .formwrap .lead{color:#C3D2E0;font-size:16px;margin-bottom:28px;max-width:640px}
+  .recap{
+    background:rgba(255,255,255,.07);border-left:4px solid var(--maize);padding:18px 20px;margin-bottom:26px;
+    font-family:'Roboto Mono',monospace;font-size:14px;line-height:1.9;
+  }
+  .recap b{color:var(--maize)}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  @media(max-width:700px){.frow{grid-template-columns:1fr}}
+  .formwrap label.fl{
+    display:block;font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:#8AA2B9;margin-bottom:7px;
+  }
+  .formwrap input[type=text],
+  .formwrap input[type=email],
+  .formwrap textarea{
+    width:100%;background:var(--white);border:1px solid transparent;padding:13px 14px;
+    font-family:'Inter';font-size:16px;color:var(--ink);
+  }
+  .formwrap textarea{min-height:130px;resize:vertical}
+  .formwrap input:focus,.formwrap textarea:focus{outline:3px solid var(--maize);outline-offset:0}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px}
+  .btn{
+    display:inline-block;background:var(--maize);color:var(--blue);text-decoration:none;border:none;cursor:pointer;
+    font-family:'Archivo';font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;padding:16px 30px;
+  }
+  .btn:hover{background:var(--white)}
+  .btn.ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.45)}
+  .btn.ghost:hover{background:rgba(255,255,255,.12);color:var(--white)}
+  .hp{position:absolute;left:-9999px}
+
+  /* ---------- signoff ---------- */
+  .signoff{
+    background:var(--blue);padding:90px 0;text-align:center;
+    border-top:6px solid var(--maize);border-bottom:6px solid var(--maize);
+  }
+  .goblue-big{
+    font-family:'Archivo',sans-serif;font-weight:800;
+    font-size:clamp(56px,13vw,150px);line-height:1;
+    color:var(--maize);text-transform:uppercase;letter-spacing:-0.02em;
+  }
+
+  footer{background:#08131F;color:#7C8A98;padding:44px 0;font-size:13px}
+  footer p{margin-bottom:12px;max-width:860px}
+  footer b{color:#C3D2E0}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">SAFE<span>SHIELD</span></div>
+    <nav class="topnav">
+      <a href="#need">The number</a>
+      <a href="#term">The 20 years</a>
+      <a href="#why">Why term</a>
+      <a href="#quotes">The quotes</a>
+      <a href="#send">Send it back</a>
+    </nav>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Prepared for Todd and Leah</div>
+    <h1>How Much Coverage<br><span>Do I Need?</span></h1>
+    <div class="hero-meta">
+      <div><div class="k">Household</div><div class="v">Todd &amp; Leah, both 36</div></div>
+      <div><div class="k">Location</div><div class="v">Maryland</div></div>
+      <div><div class="k">Health class</div><div class="v">Preferred, non&#8209;tobacco</div></div>
+      <div><div class="k">Structure</div><div class="v">20 year level term</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 01 NEED ================= -->
+<section id="need">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow dark">01 / The number</div>
+      <h2>Start with what would actually have to be replaced</h2>
+      <p>Life insurance buys one thing: the money your family would have earned if you were still here. Everything else is noise. Change any assumption you disagree with and the math follows you.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="panel">
+        <h3>Todd</h3>
+        <div class="who">Physician &middot; Age 36</div>
+        <div class="field"><label>Annual income <span class="val" id="t-inc-v"></span></label><input type="range" id="t-inc" min="150000" max="700000" step="10000" value="400000"></div>
+        <div class="field"><label>Share of income the family lives on <span class="val" id="t-pct-v"></span></label><input type="range" id="t-pct" min="40" max="80" step="5" value="60"></div>
+        <div class="field"><label>Years to replace <span class="val" id="t-yrs-v"></span></label><input type="range" id="t-yrs" min="10" max="30" step="1" value="20"></div>
+        <div class="field"><label>Employer group life in force <span class="val" id="t-grp-v"></span></label><input type="range" id="t-grp" min="0" max="1500000" step="50000" value="400000"></div>
+        <div class="ledger" id="t-ledger"></div>
+        <div class="result">
+          <div class="k">Coverage gap</div>
+          <div class="big" id="t-need"></div>
+          <div class="note">Nearest quoted band: <b id="t-band"></b></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Leah</h3>
+        <div class="who">Age 36</div>
+        <div class="field"><label>Annual income <span class="val" id="l-inc-v"></span></label><input type="range" id="l-inc" min="100000" max="500000" step="10000" value="250000"></div>
+        <div class="field"><label>Share of income the family lives on <span class="val" id="l-pct-v"></span></label><input type="range" id="l-pct" min="40" max="80" step="5" value="60"></div>
+        <div class="field"><label>Years to replace <span class="val" id="l-yrs-v"></span></label><input type="range" id="l-yrs" min="10" max="30" step="1" value="20"></div>
+        <div class="field"><label>Employer group life in force <span class="val" id="l-grp-v"></span></label><input type="range" id="l-grp" min="0" max="1500000" step="50000" value="250000"></div>
+        <div class="ledger" id="l-ledger"></div>
+        <div class="result">
+          <div class="k">Coverage gap</div>
+          <div class="big" id="l-need"></div>
+          <div class="note">Nearest quoted band: <b id="l-band"></b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:30px">
+      <div class="who" style="margin-bottom:22px">Shared household inputs</div>
+      <div class="grid2">
+        <div>
+          <div class="field"><label>Mortgage balance <span class="val" id="h-mtg-v"></span></label><input type="range" id="h-mtg" min="0" max="2000000" step="25000" value="800000"></div>
+          <div class="field"><label>Education fund per boy <span class="val" id="h-col-v"></span></label><input type="range" id="h-col" min="0" max="600000" step="25000" value="350000"></div>
+          <div class="field"><label>Final expenses and settlement costs <span class="val" id="h-fin-v"></span></label><input type="range" id="h-fin" min="0" max="150000" step="10000" value="50000"></div>
+        </div>
+        <div>
+          <div class="field"><label>Liquid savings and investments <span class="val" id="h-sav-v"></span></label><input type="range" id="h-sav" min="0" max="6000000" step="100000" value="1500000"></div>
+          <div class="field" style="margin-bottom:10px"><label>Expected inheritance <span class="val" id="h-inh-v"></span></label><input type="range" id="h-inh" min="0" max="8000000" step="100000" value="2000000"></div>
+          <div class="field">
+            <label style="margin-bottom:6px">How much of it to count against the need</label>
+            <div class="toggle">
+              <button type="button" class="tbtn" id="inh-0"   aria-pressed="true"  onclick="setInh(0)">None</button>
+              <button type="button" class="tbtn" id="inh-50"  aria-pressed="false" onclick="setInh(50)">Half</button>
+              <button type="button" class="tbtn" id="inh-100" aria-pressed="false" onclick="setInh(100)">All of it</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <b>Read that inheritance toggle carefully, because it is the whole argument.</b> Slide it to "All of it" and watch the gap collapse. That is the version of this where everything goes according to plan. An expected inheritance has no date on it, no confirmed number, and no guarantee it lands before it is needed. Counting money that has not arrived is the single most common way families end up underinsured. My default is "None" for exactly that reason. And if it does land, you cancel the term policy and stop paying. That flexibility costs you nothing, which is more than can be said for any permanent policy anyone will ever pitch you.
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 TERM LENGTH ================= -->
+<section id="term" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow dark">02 / The 20 years</div>
+      <h2>Why the term ends the year the youngest is done</h2>
+      <p>Term length is not a preference, it is a measurement. You need coverage for exactly as long as someone depends on your paycheck, and not one year longer. Set the boys' real ages and the bars will show you where each of them lands the day the policy expires.</p>
+    </div>
+
+    <div class="bridge">
+      <div class="grid2" style="gap:24px">
+        <div>
+          <div class="field"><label>Oldest boy, age today <span class="val" id="b1-v"></span></label><input type="range" id="b1" min="0" max="17" step="1" value="7"></div>
+          <div class="field"><label>Middle boy, age today <span class="val" id="b2-v"></span></label><input type="range" id="b2" min="0" max="17" step="1" value="5"></div>
+        </div>
+        <div>
+          <div class="field"><label>Youngest boy, age today <span class="val" id="b3-v"></span></label><input type="range" id="b3" min="0" max="17" step="1" value="2"></div>
+          <div class="field"><label>Term length <span class="val" id="b-term-v"></span></label><input type="range" id="b-term" min="10" max="30" step="5" value="20"></div>
+        </div>
+      </div>
+
+      <div class="track" id="track">
+        <div class="yardline" style="left:0%"><b>Born</b></div>
+        <div class="yardline key" style="left:45%"><b>18 &middot; Out of the house</b></div>
+        <div class="yardline key" style="left:55%"><b>22 &middot; Out of college</b></div>
+        <div class="yardline" style="left:100%"><b>40</b></div>
+
+        <div class="barrow"><div class="lbl">Oldest</div><div class="bar" id="bar1"><div class="cap"></div><div class="endlbl" id="end1"></div></div></div>
+        <div class="barrow"><div class="lbl">Middle</div><div class="bar" id="bar2"><div class="cap"></div><div class="endlbl" id="end2"></div></div></div>
+        <div class="barrow"><div class="lbl">Youngest</div><div class="bar" id="bar3"><div class="cap"></div><div class="endlbl" id="end3"></div></div></div>
+
+        <div class="track-foot">
+          <div>Bar starts at his age today</div>
+          <div id="foot-r">Bar ends the day the policy expires</div>
+        </div>
+      </div>
+
+      <div id="b-verdict" class="callout" style="margin-bottom:0"></div>
+    </div>
+
+    <div class="cards" style="margin-top:32px">
+      <div class="card">
+        <h3>Why not 10 or 15</h3>
+        <p>The coverage runs out while your youngest is still in high school. That is the worst possible year to be uninsured, because the need is at its peak and replacement coverage at that age costs materially more than it does today.</p>
+      </div>
+      <div class="card">
+        <h3>Why not 30</h3>
+        <p>At 66 the boys are in their thirties, the mortgage is long gone, and the portfolio has had three more decades to compound. You would be paying every single month to protect a dependency that no longer exists.</p>
+      </div>
+      <div class="card">
+        <h3>Why 20 lands right</h3>
+        <p>It carries you to 56. The youngest is out of college, the mortgage is retired or nearly so, and the assets that replace your income are already sitting in your accounts. The coverage retires the same year the need does.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 WHY TERM ================= -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow dark">03 / Why term, in your case specifically</div>
+      <h2>Permanent insurance solves a problem you do not have</h2>
+      <p>I want to be careful here, because whole life and indexed universal life are not scams and there are households where they genuinely fit. Yours is not one of them, and the reason is specific to you rather than a slogan.</p>
+    </div>
+
+    <div class="versus">
+      <div class="vs-col">
+        <h3>What permanent is actually for</h3>
+        <div class="price">Not you</div>
+        <ul>
+          <li>A need that never ends, such as a special needs child or an estate tax bill that must be paid in cash on the day of death</li>
+          <li>A household that will not otherwise accumulate assets, where forced saving inside a policy beats no saving at all</li>
+          <li>Business succession, where a buy-sell agreement has to fund on an unknown date</li>
+          <li>Someone who has already maxed every qualified plan and is genuinely out of tax-advantaged room</li>
+        </ul>
+      </div>
+      <div class="vs-col win">
+        <h3>What is actually true about your household</h3>
+        <div class="price">Term</div>
+        <ul>
+          <li>Two strong incomes, a real savings rate, and an inheritance ahead of you. You are going to build the assets. You do not need a life insurance company to make you do it</li>
+          <li>Your need has an end date and you can see it on the bars above. Three boys, twenty years, done</li>
+          <li>The premium gap is not marginal. Permanent coverage at these face amounts typically runs many multiples of term for the same death benefit</li>
+          <li>Every dollar you do not hand to a carrier is a dollar in your own accounts, at your cost basis, under your control</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <b>The honest catch, stated plainly:</b> term expires. If you are 56 and still want coverage, you will be buying it at 56 year old rates, and if your health has changed by then you may not be able to buy it at all. That is a real risk and I am not going to wave it away. It is also why both policies I am showing you are convertible, which means you can exchange them for permanent coverage later without a new medical exam. You are not locked out. You just are not paying for permanent coverage today that you do not need today.
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 QUOTES ================= -->
+<section id="quotes" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow dark">04 / The quotes</div>
+      <h2>Real numbers, both of you, all three bands</h2>
+      <p>Quoted July 14, 2026 through Fortis Brokerage Service at a preferred non-tobacco class, 20 year level term. Pick a carrier and a face amount for each of you. Everything below updates as you go, and your selections travel with you down to the form at the bottom.</p>
+    </div>
+
+    <div class="carrier-toggle">
+      <button type="button" class="chip" id="c-sym" aria-pressed="true" onclick="setCarrier('sym')">Symetra SwiftTerm<small>A rated &middot; convertible &middot; instant issue eligible</small></button>
+      <button type="button" class="chip" id="c-pri" aria-pressed="false" onclick="setCarrier('pri')">Principal National<small>A+ rated &middot; convertible</small></button>
+    </div>
+
+    <div class="grid2">
+      <div class="panel">
+        <h3>Todd</h3>
+        <div class="who">Select face amount</div>
+        <div class="chips" id="t-chips">
+          <button type="button" class="chip" data-f="1500000" aria-pressed="false" onclick="setFace('t',1500000)">$1.5M<small><span class="px" data-p="t" data-f="1500000"></span> / mo</small></button>
+          <button type="button" class="chip" data-f="3000000" aria-pressed="false" onclick="setFace('t',3000000)">$3M<small><span class="px" data-p="t" data-f="3000000"></span> / mo</small></button>
+          <button type="button" class="chip" data-f="5000000" aria-pressed="true"  onclick="setFace('t',5000000)">$5M<small><span class="px" data-p="t" data-f="5000000"></span> / mo</small></button>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Leah</h3>
+        <div class="who">Select face amount</div>
+        <div class="chips" id="l-chips">
+          <button type="button" class="chip" data-f="1500000" aria-pressed="false" onclick="setFace('l',1500000)">$1.5M<small><span class="px" data-p="l" data-f="1500000"></span> / mo</small></button>
+          <button type="button" class="chip" data-f="3000000" aria-pressed="true"  onclick="setFace('l',3000000)">$3M<small><span class="px" data-p="l" data-f="3000000"></span> / mo</small></button>
+          <button type="button" class="chip" data-f="5000000" aria-pressed="false" onclick="setFace('l',5000000)">$5M<small><span class="px" data-p="l" data-f="5000000"></span> / mo</small></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary">
+      <div>
+        <div class="k">Household death benefit</div>
+        <div class="v hl" id="s-face"></div>
+        <div class="s" id="s-split"></div>
+      </div>
+      <div>
+        <div class="k">Combined monthly premium</div>
+        <div class="v" id="s-mo"></div>
+        <div class="s" id="s-yr"></div>
+      </div>
+      <div>
+        <div class="k">Cost per $1,000 of coverage</div>
+        <div class="v" id="s-per"></div>
+        <div class="s">Per year, blended across both policies</div>
+      </div>
+    </div>
+
+    <h3 style="font-size:24px;margin:52px 0 0;text-transform:uppercase">Every quote, side by side</h3>
+    <div class="scroller">
+      <table class="tbl">
+        <thead>
+          <tr><th>Insured</th><th>Face amount</th><th>Carrier</th><th>AM Best</th><th>Convertible</th><th>Monthly</th><th>Annual</th><th>Per $1,000 / yr</th></tr>
+        </thead>
+        <tbody id="tbl-body"></tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <b>The marginal dollar is the cheap dollar.</b> Todd's first $1.5M runs about $43 per month per million of coverage. The step from $3M to $5M runs about $39 per month per million. The underwriting, the exam and the policy fee are already paid for inside that first band, so the coverage on top of it is the best-priced coverage you will ever buy. If there is one place not to round down out of politeness, this is it.
+    </div>
+
+    <h3 style="font-size:24px;margin:52px 0 20px;text-transform:uppercase">Choosing between the two carriers</h3>
+    <div class="versus">
+      <div class="vs-col win">
+        <h3>Symetra SwiftTerm</h3>
+        <div class="price" id="v-sym"></div>
+        <ul>
+          <li>Rated A by AM Best. Strong balance sheet, well established, not a name anyone should be nervous about</li>
+          <li>Convertible, same as Principal. You keep the right to exchange into permanent coverage later with no new medical underwriting</li>
+          <li>Instant issue eligible. For two healthy 36 year olds that can mean no paramed exam and coverage in force in days rather than six to eight weeks</li>
+          <li>Lower premium in every band, for both of you. You are saving <b id="v-save"></b> per year at the selected amounts</li>
+        </ul>
+      </div>
+      <div class="vs-col">
+        <h3>Principal National</h3>
+        <div class="price" id="v-pri"></div>
+        <ul>
+          <li>Rated A+ by AM Best, one notch above Symetra. That is the entire case for it, and it is a legitimate one</li>
+          <li>Convertible, same feature set</li>
+          <li>Full underwriting. Expect a paramed exam and a longer path to in force</li>
+          <li>Costs <b id="v-diff"></b> more per year at the selected amounts, for a rating difference that matters far less on a 20 year term than it would on a policy meant to pay 50 years from now</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <b>Where I land, and you can tell me I am wrong.</b> Symetra. Both carriers are convertible, so Principal's old tiebreaker is gone. What is left is A versus A+ against a lower premium and the ability to get you covered in days instead of weeks. On a 20 year term, the gap between an A and an A+ carrier is a rounding error next to the risk of sitting uninsured for two months while the paperwork grinds. If the A+ matters to you, take Principal and I will write it happily. It is a good policy and I will not argue with you.
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 RECOMMENDATION ================= -->
+<section id="rec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow dark">05 / My recommendation</div>
+      <h2>If you asked me at the kitchen table</h2>
+      <p>You did not come to a call center, so here is a straight answer with the reasoning attached, which means you can disagree with any single piece of it.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Todd at $5M</h3>
+        <p>Twenty years of a $400,000 income is the largest asset this household owns, and right now it is insured only by a group policy that vanishes the day he leaves the hospital. At roughly $202 a month, this is the cheapest thing on the page relative to what it is protecting.</p>
+      </div>
+      <div class="card">
+        <h3>Leah at $3M</h3>
+        <p>The reflex is to insure the bigger earner and stop. With three boys under ten that is a mistake. If Leah is gone, Todd is replacing $250,000 a year plus childcare and the running of a household, on a physician's schedule. $3M is the honest number, not a courtesy.</p>
+      </div>
+      <div class="card">
+        <h3>Both, at the same time</h3>
+        <p>Buy them together, through the same brokerage, on the same day. The failure mode I see constantly is one spouse covered and the other one meaning to get around to it. It is completely avoidable and it is avoidable right now.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06 NEXT ================= -->
+<section id="next" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow dark">06 / What happens next</div>
+      <h2>From here to in force</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div><h3>Send me your selections</h3><p>Two numbers and a carrier. That is the entire decision. Use the form below and it comes straight to me with whatever questions you attach.</p></div></div>
+      <div class="step"><div><h3>Applications</h3><p>Electronic, about twenty minutes each, done from your couch. I will be on the phone with you for the first one if you want me there.</p></div></div>
+      <div class="step"><div><h3>Underwriting</h3><p>If we go the Symetra instant issue route and the data checks out, there may be no exam at all. If a paramed is required, they come to the house at a time you choose.</p></div></div>
+      <div class="step"><div><h3>Offer and review</h3><p>The carrier comes back with the final class. If it matches the preferred pricing shown here, nothing changes. If it comes back different, you hear it from me before you sign anything and we re-shop it.</p></div></div>
+      <div class="step"><div><h3>Beneficiaries, then in force</h3><p>We set primary and contingent beneficiaries, talk through whether a trust should own these given three minor children, and the coverage goes into effect.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 07 SEND IT BACK ================= -->
+<section id="send">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow dark">07 / Send it back</div>
+      <h2>Tell me what you want and ask me anything</h2>
+      <p>Your selections above are already loaded below. Add notes, questions, or a completely different number if none of these are right. It comes straight to me.</p>
+    </div>
+
+    <form class="formwrap" name="jaffe-proposal" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="sendform">
+      <input type="hidden" name="form-name" value="jaffe-proposal">
+      <p class="hp"><label>Skip this: <input name="bot-field"></label></p>
+
+      <h3>Your selections</h3>
+      <p class="lead">Everything you picked on this page, ready to send. Change your mind up top and it updates here.</p>
+
+      <div class="recap" id="recap"></div>
+
+      <input type="hidden" name="todd_face"    id="f-tface">
+      <input type="hidden" name="leah_face"    id="f-lface">
+      <input type="hidden" name="carrier"      id="f-carrier">
+      <input type="hidden" name="monthly_total" id="f-mo">
+      <input type="hidden" name="annual_total"  id="f-yr">
+
+      <div class="frow">
+        <div><label class="fl" for="f-name">Your name</label><input type="text" id="f-name" name="name" required></div>
+        <div><label class="fl" for="f-email">Email</label><input type="email" id="f-email" name="email" required></div>
+      </div>
+      <div class="frow">
+        <div><label class="fl" for="f-phone">Phone</label><input type="text" id="f-phone" name="phone"></div>
+        <div><label class="fl" for="f-best">Best time to talk</label><input type="text" id="f-best" name="best_time" placeholder="Evenings after 8"></div>
+      </div>
+      <div>
+        <label class="fl" for="f-notes">Questions, notes, or a different number entirely</label>
+        <textarea id="f-notes" name="notes" placeholder="Anything at all. If none of the three amounts feel right, tell me what does and why."></textarea>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn">Send to Austin</button>
+        <a class="btn ghost" id="mailto-link" href="#">Or open it in your email instead</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= SIGNOFF ================= -->
+<div class="signoff">
+  <div class="wrap">
+    <div class="goblue-big">Go Blue!</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><b>Important disclosures.</b> This document is an educational summary prepared for Todd and Leah Jaffe. It is not a contract, a binder, or an offer of insurance. Coverage is not in force until an application is submitted, approved by the carrier, the policy is issued and delivered, and the initial premium is paid.</p>
+    <p>Premiums shown were quoted on July 14, 2026 through Fortis Brokerage Service for 20 year level term at a preferred non-tobacco class, based on the ages, gender and state of residence supplied. They are illustrations only, are subject to change, and are not guaranteed. Final premium is determined solely by the issuing carrier following underwriting and may differ from the amounts shown. Instant issue eligibility is determined by the carrier and is not guaranteed. Policies are designed to respond according to their own terms, conditions, exclusions and limitations, and the policy contract governs in all cases. Conversion rights are subject to the terms of the issued policy.</p>
+    <p>The needs analysis on this page is a simplified educational model driven entirely by inputs you control. It does not account for inflation, taxes, investment returns, or the time value of money. It is not a financial plan, a tax opinion, or investment advice. Safeshield Insurance LLC is an insurance brokerage and does not provide legal, tax or investment advice. Please consult your own attorney and tax professional, particularly regarding trust ownership of any policy.</p>
+    <p>AM Best ratings shown are those reported at the time of quoting and are subject to change. <b>Safeshield Insurance LLC</b> &middot; 2777 Summer Street, Stamford, CT &middot; austin@gosafeshield.com</p>
+  </div>
+</footer>
+
+<script>
+/* ---------- quote data: Fortis Brokerage, 07/14/2026, 20yr level, preferred non-tobacco ---------- */
+const RATES = {
+  t:{ // Todd, 36 M, MD
+    sym:{1500000:{m:64.46,a:758.32},3000000:{m:123.39,a:1451.63},5000000:{m:201.61,a:2371.85}},
+    pri:{1500000:{m:68.35,a:794.73},3000000:{m:129.98,a:1511.43},5000000:{m:212.34,a:2469.05}}
+  },
+  l:{ // Leah, 36 F, MD
+    sym:{1500000:{m:52.24,a:614.54},3000000:{m:98.95,a:1164.08},5000000:{m:160.89,a:1892.80}},
+    pri:{1500000:{m:55.73,a:648.02},3000000:{m:104.75,a:1218.00},5000000:{m:170.28,a:1980.00}}
+  }
+};
+const CNAME  = {sym:'Symetra SwiftTerm', pri:'Principal National'};
+const CRATE  = {sym:'A', pri:'A+'};
+const BANDS  = [1500000,3000000,5000000];
+const NAMEOF = {t:'Todd', l:'Leah'};
+
+let carrier = 'sym';
+let face    = {t:5000000, l:3000000};
+let inhPct  = 0;
+
+const $    = id => document.getElementById(id);
+const usd  = n => '$' + Math.round(n).toLocaleString('en-US');
+const usd2 = n => '$' + n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const mil  = n => '$' + (n/1000000).toString().replace(/\.0$/,'') + 'M';
+const band = n => BANDS.reduce((b,x) => Math.abs(x-n) < Math.abs(b-n) ? x : b, BANDS[0]);
+
+/* ---------------- 01: needs calculator ---------------- */
+function setInh(p){
+  inhPct = p;
+  [0,50,100].forEach(v => $('inh-'+v).setAttribute('aria-pressed', v === p));
+  calc();
+}
+
+function calc(){
+  const mtg = +$('h-mtg').value, col = +$('h-col').value, sav = +$('h-sav').value,
+        fin = +$('h-fin').value, inh = +$('h-inh').value;
+
+  $('h-mtg-v').textContent = usd(mtg);
+  $('h-col-v').textContent = usd(col);
+  $('h-sav-v').textContent = usd(sav);
+  $('h-fin-v').textContent = usd(fin);
+  $('h-inh-v').textContent = usd(inh);
+
+  const inhCounted = inh * (inhPct/100);
+
+  ['t','l'].forEach(p => {
+    const inc = +$(p+'-inc').value, pct = +$(p+'-pct').value,
+          yrs = +$(p+'-yrs').value, grp = +$(p+'-grp').value;
+
+    $(p+'-inc-v').textContent = usd(inc);
+    $(p+'-pct-v').textContent = pct + '%';
+    $(p+'-yrs-v').textContent = yrs;
+    $(p+'-grp-v').textContent = usd(grp);
+
+    const replace = inc * (pct/100) * yrs;
+    const mMtg    = mtg/2;
+    const mCol    = (col*3)/2;
+    const assets  = sav/2;
+    const inhShr  = inhCounted/2;
+    const gross   = replace + mMtg + mCol + fin;
+    const need    = Math.max(0, gross - assets - inhShr - grp);
+
+    let rows = `
+      <div class="row"><span>Income replacement</span><span class="mono">${usd(replace)}</span></div>
+      <div class="row"><span>Share of the mortgage</span><span class="mono">${usd(mMtg)}</span></div>
+      <div class="row"><span>Share of education for three boys</span><span class="mono">${usd(mCol)}</span></div>
+      <div class="row"><span>Final expenses</span><span class="mono">${usd(fin)}</span></div>
+      <div class="row minus"><span>Less: share of savings and investments</span><span class="mono">&minus;${usd(assets)}</span></div>`;
+    if (inhShr > 0){
+      rows += `<div class="row minus"><span>Less: share of inheritance counted (${inhPct}%)</span><span class="mono">&minus;${usd(inhShr)}</span></div>`;
+    }
+    rows += `
+      <div class="row minus"><span>Less: employer group life</span><span class="mono">&minus;${usd(grp)}</span></div>
+      <div class="row total"><span>Coverage gap</span><span>${usd(need)}</span></div>`;
+
+    $(p+'-ledger').innerHTML = rows;
+    $(p+'-need').textContent = usd(need);
+    $(p+'-band').textContent = need === 0 ? 'No coverage indicated' : mil(band(need));
+  });
+}
+['t-inc','t-pct','t-yrs','t-grp','l-inc','l-pct','l-yrs','l-grp','h-mtg','h-col','h-sav','h-fin','h-inh']
+  .forEach(id => $(id).addEventListener('input', calc));
+
+/* ---------------- 02: the bars ---------------- */
+const AXIS_MAX = 40;
+const pos = age => Math.min(100, (age / AXIS_MAX) * 100);
+
+function bars(){
+  const term = +$('b-term').value;
+  const ages = [+$('b1').value, +$('b2').value, +$('b3').value];
+
+  $('b1-v').textContent = ages[0];
+  $('b2-v').textContent = ages[1];
+  $('b3-v').textContent = ages[2];
+  $('b-term-v').textContent = term + ' years';
+  $('foot-r').textContent = 'Policy expires when you are ' + (36 + term);
+
+  ages.forEach((a,i) => {
+    const end  = a + term;
+    const bar  = $('bar' + (i+1));
+    const left = pos(a);
+    const right= pos(end);
+    bar.style.left  = left + '%';
+    bar.style.width = Math.max(0.5, right - left) + '%';
+    $('end' + (i+1)).textContent = 'age ' + end;
+  });
+
+  const youngestAtEnd = Math.min(...ages.map(a => a + term));
+  let v;
+  if (youngestAtEnd < 18){
+    v = `<b>The bridge falls short.</b> At the end of a ${term} year term your youngest is only ${youngestAtEnd}. The coverage expires while he is still living at home and still fully dependent on your income. This is the exact outcome the whole exercise exists to prevent.`;
+  } else if (youngestAtEnd < 22){
+    v = `<b>Close, but it lands mid-flight.</b> At the end of a ${term} year term your youngest is ${youngestAtEnd}, likely still in school and still leaning on you. The coverage retires a few years before the dependency does.`;
+  } else if (youngestAtEnd <= 26){
+    v = `<b>This is the fit.</b> At the end of a ${term} year term you are ${36+term} and your youngest is ${youngestAtEnd}, out of college and standing on his own. The mortgage is retired or nearly so and the portfolio has had two decades to compound. The coverage retires the same year the need does.`;
+  } else {
+    v = `<b>You are paying well past the finish line.</b> At the end of a ${term} year term your youngest is ${youngestAtEnd}, an adult with an income of his own. The last several years of premium are protecting a dependency that ended a while ago.`;
+  }
+  $('b-verdict').innerHTML = v;
+}
+['b1','b2','b3','b-term'].forEach(id => $(id).addEventListener('input', bars));
+
+/* ---------------- 04: quote picker ---------------- */
+function setCarrier(c){
+  carrier = c;
+  $('c-sym').setAttribute('aria-pressed', c === 'sym');
+  $('c-pri').setAttribute('aria-pressed', c === 'pri');
+  quotes();
+}
+function setFace(p, f){ face[p] = f; quotes(); }
+
+function quotes(){
+  ['t','l'].forEach(p => {
+    document.querySelectorAll('#' + p + '-chips .chip').forEach(ch =>
+      ch.setAttribute('aria-pressed', face[p] === +ch.dataset.f));
+  });
+  document.querySelectorAll('.px').forEach(s =>
+    s.textContent = '$' + RATES[s.dataset.p][carrier][+s.dataset.f].m.toFixed(0));
+
+  const tq = RATES.t[carrier][face.t], lq = RATES.l[carrier][face.l];
+  const totalFace = face.t + face.l;
+  const mo = tq.m + lq.m, yr = tq.a + lq.a;
+
+  $('s-face').textContent  = usd(totalFace);
+  $('s-split').textContent = `Todd ${mil(face.t)} \u00b7 Leah ${mil(face.l)} \u00b7 ${CNAME[carrier]}`;
+  $('s-mo').textContent    = usd2(mo);
+  $('s-yr').textContent    = usd2(yr) + ' per year';
+  $('s-per').textContent   = '$' + (yr / (totalFace/1000)).toFixed(2);
+
+  const symYr = RATES.t.sym[face.t].a + RATES.l.sym[face.l].a;
+  const priYr = RATES.t.pri[face.t].a + RATES.l.pri[face.l].a;
+  $('v-sym').textContent  = usd2(symYr) + ' / yr';
+  $('v-pri').textContent  = usd2(priYr) + ' / yr';
+  $('v-save').textContent = usd2(priYr - symYr);
+  $('v-diff').textContent = usd2(priYr - symYr);
+
+  let rows = '';
+  ['t','l'].forEach(p => BANDS.forEach(f => ['sym','pri'].forEach(c => {
+    const q = RATES[p][c][f];
+    const sel = (c === carrier && face[p] === f);
+    rows += `<tr class="${sel ? 'rec' : ''}">
+      <td>${NAMEOF[p]}${sel ? '<span class="tag">Selected</span>' : ''}</td>
+      <td class="num">${mil(f)}</td>
+      <td>${CNAME[c]}</td>
+      <td class="num">${CRATE[c]}</td>
+      <td>Yes</td>
+      <td class="num">${usd2(q.m)}</td>
+      <td class="num">${usd2(q.a)}</td>
+      <td class="num">$${(q.a/(f/1000)).toFixed(2)}</td>
+    </tr>`;
+  })));
+  $('tbl-body').innerHTML = rows;
+
+  recap(mo, yr, totalFace);
+}
+
+/* ---------------- 07: recap + submission payload ---------------- */
+function recap(mo, yr, totalFace){
+  $('recap').innerHTML = `
+    Carrier: <b>${CNAME[carrier]}</b> (AM Best ${CRATE[carrier]}, convertible${carrier === 'sym' ? ', instant issue eligible' : ''})<br>
+    Todd: <b>${mil(face.t)}</b> &middot; 20 year term &middot; ${usd2(RATES.t[carrier][face.t].m)} / mo<br>
+    Leah: <b>${mil(face.l)}</b> &middot; 20 year term &middot; ${usd2(RATES.l[carrier][face.l].m)} / mo<br>
+    Household benefit: <b>${usd(totalFace)}</b><br>
+    Combined: <b>${usd2(mo)} / mo</b> &middot; ${usd2(yr)} / yr`;
+
+  $('f-tface').value   = mil(face.t);
+  $('f-lface').value   = mil(face.l);
+  $('f-carrier').value = CNAME[carrier] + ' (AM Best ' + CRATE[carrier] + ')';
+  $('f-mo').value      = usd2(mo);
+  $('f-yr').value      = usd2(yr);
+
+  const body =
+`Austin,
+
+Here is what we picked on the proposal page.
+
+Carrier: ${CNAME[carrier]} (AM Best ${CRATE[carrier]})
+Todd: ${mil(face.t)}, 20 year term, ${usd2(RATES.t[carrier][face.t].m)}/mo
+Leah: ${mil(face.l)}, 20 year term, ${usd2(RATES.l[carrier][face.l].m)}/mo
+Household death benefit: ${usd(totalFace)}
+Combined premium: ${usd2(mo)}/mo, ${usd2(yr)}/yr
+
+Questions and notes:
+
+
+`;
+  $('mailto-link').href =
+    'mailto:austin@gosafeshield.com?subject=' +
+    encodeURIComponent('Life insurance selections - Todd and Leah Jaffe') +
+    '&body=' + encodeURIComponent(body);
+}
+
+setInh(0);
+bars();
+quotes();
+</script>
+</body>
+</html>
