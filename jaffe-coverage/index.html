@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Coverage | Todd and Leah | Safeshield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#00274C; --blue-2:#0B3A63;
+    --maize:#FFCB05; --maize-soft:#FFF4CF;
+    --paper:#F7F7F5; --ink:#12171C; --gray:#5C6773;
+    --line:#DCE0E5; --white:#FFFFFF; --ok:#1B7F5C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+  .mono{font-family:'Roboto Mono',monospace;font-variant-numeric:tabular-nums}
+  h1,h2,h3,h4{font-family:'Archivo',system-ui,sans-serif;font-weight:800;letter-spacing:-0.022em;line-height:1.1}
+
+  .eyebrow{font-family:'Roboto Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--maize)}
+  .eyebrow.dark{color:var(--blue-2)}
+
+  /* topbar */
+  .topbar{background:var(--blue);padding:15px 0;position:sticky;top:0;z-index:60;border-bottom:3px solid var(--maize)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{color:var(--white);font-family:'Archivo';font-weight:800;font-size:16px;letter-spacing:.04em}
+  .brand span{color:var(--maize)}
+  .topnav{display:flex;gap:24px}
+  .topnav a{color:#B8C9DA;text-decoration:none;font-size:12px;font-weight:500;font-family:'Roboto Mono',monospace;letter-spacing:.06em;text-transform:uppercase}
+  .topnav a:hover{color:var(--maize)}
+  @media(max-width:820px){.topnav{display:none}}
+
+  /* hero */
+  .hero{background:var(--blue);color:var(--white);padding:76px 0 84px}
+  .hero h1{font-size:clamp(38px,5.4vw,64px);margin:20px 0 0;color:var(--white);text-transform:uppercase;letter-spacing:-0.028em}
+  .hero h1 span{color:var(--maize)}
+  .hero .sub{max-width:620px;margin-top:22px;color:#C3D2E0;font-size:18px}
+  .hero-meta{display:flex;flex-wrap:wrap;margin-top:46px;border-top:1px solid rgba(255,255,255,.18)}
+  .hero-meta div{flex:1;min-width:150px;padding:20px 24px 0 0}
+  .hero-meta .k{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8AA2B9}
+  .hero-meta .v{font-size:18px;font-weight:600;margin-top:5px;color:var(--white)}
+
+  section{padding:78px 0;border-bottom:1px solid var(--line)}
+  section.alt{background:var(--white)}
+  .sec-head{max-width:720px;margin-bottom:38px}
+  .sec-head h2{font-size:clamp(26px,3.6vw,40px);margin:12px 0 14px;text-transform:uppercase}
+  .sec-head p{color:var(--gray);font-size:18px}
+
+  /* policy cards */
+  .policies{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  @media(max-width:860px){.policies{grid-template-columns:1fr}}
+  .pcard{background:var(--white);border:1px solid var(--line);border-top:5px solid var(--maize);padding:0;overflow:hidden}
+  .pcard .head{padding:26px 28px 22px;border-bottom:1px solid var(--line)}
+  .pcard .who{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
+  .pcard h3{font-size:26px;margin:6px 0 2px;text-transform:uppercase}
+  .pcard .face{font-family:'Roboto Mono',monospace;font-size:44px;font-weight:700;color:var(--blue);line-height:1;margin-top:14px}
+  .pcard .faced{font-size:13px;color:var(--gray);margin-top:4px}
+  .spec{padding:8px 28px 4px}
+  .spec .row{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .spec .row:last-child{border-bottom:none}
+  .spec .row span:first-child{color:var(--gray)}
+  .spec .row span:last-child{font-weight:600;text-align:right}
+  .spec .row .mono{font-weight:700;color:var(--blue)}
+  .premium{background:var(--blue);color:var(--white);padding:22px 28px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+  .premium .k{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8AA2B9}
+  .premium .amt{font-family:'Roboto Mono',monospace;font-size:30px;font-weight:700;color:var(--maize)}
+  .premium .per{font-size:13px;color:#C3D2E0}
+
+  /* payment frequency toggle */
+  .freq{display:flex;gap:8px;margin:30px 0 0;flex-wrap:wrap}
+  .freq button{
+    flex:1;min-width:110px;border:1px solid var(--line);background:var(--white);cursor:pointer;padding:12px 8px;
+    font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;transition:.14s;
+  }
+  .freq button:hover{border-color:var(--blue)}
+  .freq button[aria-pressed="true"]{background:var(--blue);color:var(--maize);border-color:var(--blue)}
+
+  /* household strip */
+  .household{background:var(--blue);color:var(--white);padding:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:26px}
+  @media(max-width:760px){.household{grid-template-columns:1fr;gap:20px}}
+  .household .k{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8AA2B9;margin-bottom:6px}
+  .household .v{font-family:'Roboto Mono',monospace;font-size:34px;font-weight:700;line-height:1}
+  .household .v.hl{color:var(--maize)}
+  .household .s{font-size:13px;color:#C3D2E0;margin-top:8px}
+
+  /* how it works */
+  .how{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:860px){.how{grid-template-columns:1fr}}
+  .hcard{background:var(--white);border:1px solid var(--line);padding:26px}
+  .hcard .n{font-family:'Roboto Mono',monospace;font-size:11px;font-weight:700;color:var(--blue);background:var(--maize);padding:4px 8px;display:inline-block;margin-bottom:14px}
+  .hcard h3{font-size:19px;margin-bottom:9px;text-transform:uppercase}
+  .hcard p{font-size:15px;color:var(--gray)}
+
+  /* plain facts list */
+  .facts{border-top:1px solid var(--line);margin-top:8px}
+  .fact{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+  @media(max-width:700px){.fact{grid-template-columns:1fr;gap:6px}}
+  .fact h4{font-size:16px;text-transform:uppercase;color:var(--blue);letter-spacing:.01em}
+  .fact p{font-size:16px;color:var(--gray)}
+
+  /* steps */
+  .steps{counter-reset:s}
+  .step{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .step:before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;color:var(--blue);background:var(--maize);padding:5px 9px;height:fit-content}
+  .step h3{font-size:18px;margin-bottom:3px;text-transform:uppercase}
+  .step p{font-size:15px;color:var(--gray)}
+
+  .callout{background:var(--maize-soft);border-left:5px solid var(--maize);padding:20px 24px;margin:30px 0 0;font-size:16px}
+  .callout b{color:var(--blue)}
+
+  /* form */
+  .formwrap{background:var(--blue);color:var(--white);padding:40px}
+  .formwrap h3{color:var(--white);font-size:22px;text-transform:uppercase;margin-bottom:6px}
+  .formwrap .lead{color:#C3D2E0;font-size:16px;margin-bottom:26px;max-width:620px}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  @media(max-width:700px){.frow{grid-template-columns:1fr}}
+  .formwrap label.fl{display:block;font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8AA2B9;margin-bottom:7px}
+  .formwrap input[type=text],.formwrap input[type=email],.formwrap textarea{width:100%;background:var(--white);border:1px solid transparent;padding:13px 14px;font-family:'Inter';font-size:16px;color:var(--ink)}
+  .formwrap textarea{min-height:120px;resize:vertical}
+  .formwrap input:focus,.formwrap textarea:focus{outline:3px solid var(--maize);outline-offset:0}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px}
+  .btn{display:inline-block;background:var(--maize);color:var(--blue);text-decoration:none;border:none;cursor:pointer;font-family:'Archivo';font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;padding:16px 30px}
+  .btn:hover{background:var(--white)}
+  .btn.ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.45)}
+  .btn.ghost:hover{background:rgba(255,255,255,.12);color:var(--white)}
+  .hp{position:absolute;left:-9999px}
+
+  /* go blue band */
+  .goblue-band{background:var(--blue);padding:80px 0;text-align:center;border-top:6px solid var(--maize);border-bottom:6px solid var(--maize)}
+  .goblue-big{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(52px,12vw,140px);line-height:1;color:var(--maize);text-transform:uppercase;letter-spacing:-0.02em}
+
+  footer{background:#08131F;color:#7C8A98;padding:44px 0;font-size:13px}
+  footer p{margin-bottom:12px;max-width:860px}
+  footer b{color:#C3D2E0}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">SAFE<span>SHIELD</span></div>
+    <nav class="topnav">
+      <a href="#coverage">Your coverage</a>
+      <a href="#works">How it works</a>
+      <a href="#next">What happens next</a>
+      <a href="#questions">Questions</a>
+    </nav>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Prepared for Todd and Leah</div>
+    <h1>Your Coverage,<br><span>In One Place</span></h1>
+    <p class="sub">Here is exactly what you have chosen, what it costs, and what happens between now and the day the coverage is in force. Everything on this page reflects the numbers you decided on.</p>
+    <div class="hero-meta">
+      <div><div class="k">Household benefit</div><div class="v">$8,000,000</div></div>
+      <div><div class="k">Carrier</div><div class="v">Symetra SwiftTerm</div></div>
+      <div><div class="k">AM Best rating</div><div class="v">A</div></div>
+      <div><div class="k">Health class</div><div class="v">Preferred, non&#8209;tobacco</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ COVERAGE ============ -->
+<section id="coverage">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow dark">Your coverage</div>
+      <h2>Two policies, both of you</h2>
+      <p>Level term means the premium is fixed for the entire term and never increases. Use the toggle to see the premium at whichever payment frequency you prefer. Annual is the least expensive way to pay.</p>
+    </div>
+
+    <div class="freq">
+      <button type="button" data-f="m" aria-pressed="true"  onclick="setFreq('m')">Monthly</button>
+      <button type="button" data-f="q" aria-pressed="false" onclick="setFreq('q')">Quarterly</button>
+      <button type="button" data-f="s" aria-pressed="false" onclick="setFreq('s')">Semi-annual</button>
+      <button type="button" data-f="a" aria-pressed="false" onclick="setFreq('a')">Annual</button>
+    </div>
+
+    <div class="policies" style="margin-top:20px">
+      <!-- TODD -->
+      <div class="pcard">
+        <div class="head">
+          <div class="who">Todd &middot; Age 36 &middot; Male &middot; Maryland</div>
+          <h3>Todd</h3>
+          <div class="face">$5,000,000</div>
+          <div class="faced">Death benefit</div>
+        </div>
+        <div class="spec">
+          <div class="row"><span>Product</span><span>Symetra SwiftTerm</span></div>
+          <div class="row"><span>Term length</span><span class="mono">30 years</span></div>
+          <div class="row"><span>AM Best rating</span><span class="mono">A</span></div>
+          <div class="row"><span>Health class</span><span>Preferred Non-Nicotine</span></div>
+          <div class="row"><span>Convertible</span><span>Yes</span></div>
+          <div class="row"><span>Instant issue eligible</span><span>Yes</span></div>
+        </div>
+        <div class="premium">
+          <div>
+            <div class="k">Premium</div>
+            <div class="per" id="todd-per">Paid monthly</div>
+          </div>
+          <div class="amt" id="todd-amt">$371.11</div>
+        </div>
+      </div>
+
+      <!-- LEAH -->
+      <div class="pcard">
+        <div class="head">
+          <div class="who">Leah &middot; Age 36 &middot; Female &middot; Maryland</div>
+          <h3>Leah</h3>
+          <div class="face">$3,000,000</div>
+          <div class="faced">Death benefit</div>
+        </div>
+        <div class="spec">
+          <div class="row"><span>Product</span><span>Symetra SwiftTerm</span></div>
+          <div class="row"><span>Term length</span><span class="mono">20 years</span></div>
+          <div class="row"><span>AM Best rating</span><span class="mono">A</span></div>
+          <div class="row"><span>Health class</span><span>Preferred Non-Nicotine</span></div>
+          <div class="row"><span>Convertible</span><span>Yes</span></div>
+          <div class="row"><span>Instant issue eligible</span><span>Yes</span></div>
+        </div>
+        <div class="premium">
+          <div>
+            <div class="k">Premium</div>
+            <div class="per" id="leah-per">Paid monthly</div>
+          </div>
+          <div class="amt" id="leah-amt">$98.95</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="household">
+      <div>
+        <div class="k">Combined death benefit</div>
+        <div class="v hl">$8,000,000</div>
+        <div class="s">Todd $5M &middot; Leah $3M</div>
+      </div>
+      <div>
+        <div class="k">Combined premium</div>
+        <div class="v" id="hh-amt">$470.06</div>
+        <div class="s" id="hh-per">Per month</div>
+      </div>
+      <div>
+        <div class="k">Combined annual outlay</div>
+        <div class="v">$5,530.08</div>
+        <div class="s">If both policies are paid annually</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW TERM WORKS ============ -->
+<section id="works" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow dark">How it works</div>
+      <h2>What level term insurance actually is</h2>
+      <p>No jargon. Here is how these policies behave over their lifetime, in plain terms.</p>
+    </div>
+
+    <div class="facts">
+      <div class="fact">
+        <h4>Level premium</h4>
+        <p>The premium shown is locked for the full term. Todd's $371.11 a month holds for 30 years and Leah's $98.95 a month holds for 20 years. It cannot rise during that window regardless of age or health changes.</p>
+      </div>
+      <div class="fact">
+        <h4>The death benefit</h4>
+        <p>If either of you passes away during the term, the carrier pays the full face amount to your named beneficiaries, income tax free under current law. There is no medical repayment, no clawback, and no reduction for the premiums already paid.</p>
+      </div>
+      <div class="fact">
+        <h4>Convertible</h4>
+        <p>Both policies can be converted to a permanent policy later without a new medical exam, subject to the policy's conversion terms. If your health changes and you want lifelong coverage down the road, that door stays open without having to re-qualify.</p>
+      </div>
+      <div class="fact">
+        <h4>Instant issue eligible</h4>
+        <p>SwiftTerm can issue without a paramedical exam when the carrier's data checks clear. For two healthy applicants that often means coverage in force in days rather than the usual six to eight weeks. It is not guaranteed and the carrier makes the final call.</p>
+      </div>
+      <div class="fact">
+        <h4>When the term ends</h4>
+        <p>At the end of the term the coverage simply expires. There is no payout at the end and no cash value to collect. Term insurance is pure protection during the years your family depends on your income, which is what makes it inexpensive relative to the benefit.</p>
+      </div>
+      <div class="fact">
+        <h4>Beneficiaries</h4>
+        <p>You name who receives the benefit, and you can name primary and contingent beneficiaries. With minor children it is worth a short conversation about whether a trust should be the beneficiary rather than the children directly. We will cover that before anything is finalized.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <b>On the different term lengths.</b> Todd's is a 30 year term and Leah's is a 20 year term, which is exactly what you selected. They do not need to match. Each policy stands on its own, is priced on its own, and can be changed or cancelled independently at any time with no penalty.
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT HAPPENS NEXT ============ -->
+<section id="next">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow dark">What happens next</div>
+      <h2>From decided to in force</h2>
+      <p>You have made the decision. Everything from here is process, and I carry most of it.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div><h3>Applications</h3><p>Electronic, roughly twenty minutes each, done from home. One for Todd, one for Leah. I can be on the phone with you for the first one if you want.</p></div></div>
+      <div class="step"><div><h3>Underwriting</h3><p>Because both are SwiftTerm, the carrier runs its instant-issue data checks first. If everything clears there may be no exam at all. If a paramedical visit is needed, the examiner comes to the house at a time you pick.</p></div></div>
+      <div class="step"><div><h3>Carrier offer</h3><p>Symetra returns the final health class. If it matches the preferred non-tobacco pricing shown here, nothing changes. If it comes back different, you hear it from me before anyone signs, and we look at options.</p></div></div>
+      <div class="step"><div><h3>Beneficiaries and payment</h3><p>We set primary and contingent beneficiaries, decide on payment frequency, and set up the first premium. This is also where we settle the trust question if it applies.</p></div></div>
+      <div class="step"><div><h3>Policy delivered, coverage in force</h3><p>The carrier issues the policy, it is delivered to you, and the coverage is active. You get the documents for your records and we are done.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUESTIONS ============ -->
+<section id="questions" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow dark">Questions</div>
+      <h2>Anything unclear, send it here</h2>
+      <p>If something on this page needs explaining or you want to adjust anything before we start the applications, put it below and it comes straight to me.</p>
+    </div>
+
+    <form class="formwrap" name="jaffe-coverage" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="qform">
+      <input type="hidden" name="form-name" value="jaffe-coverage">
+      <p class="hp"><label>Skip this: <input name="bot-field"></label></p>
+      <h3>Send a note to Austin</h3>
+      <p class="lead">Todd and Leah, Symetra SwiftTerm, $5M / 30yr and $3M / 20yr. Ask me anything about it.</p>
+      <div class="frow">
+        <div><label class="fl" for="q-name">Your name</label><input type="text" id="q-name" name="name" required></div>
+        <div><label class="fl" for="q-email">Email</label><input type="email" id="q-email" name="email" required></div>
+      </div>
+      <div class="frow">
+        <div><label class="fl" for="q-phone">Phone</label><input type="text" id="q-phone" name="phone"></div>
+        <div><label class="fl" for="q-best">Best time to talk</label><input type="text" id="q-best" name="best_time" placeholder="Evenings after 8"></div>
+      </div>
+      <div>
+        <label class="fl" for="q-notes">Your question or note</label>
+        <textarea id="q-notes" name="notes"></textarea>
+      </div>
+      <div class="actions">
+        <button type="submit" class="btn">Send to Austin</button>
+        <a class="btn ghost" href="mailto:austin@gosafeshield.com?subject=Question%20on%20our%20coverage%20-%20Todd%20and%20Leah">Or open it in your email</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div class="goblue-band">
+  <div class="wrap"><div class="goblue-big">Go Blue!</div></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><b>Important disclosures.</b> This document is an educational summary prepared for Todd and Leah. It is not a contract, a binder, or an offer of insurance. Coverage is not in force until an application is submitted, approved by the carrier, the policy is issued and delivered, and the initial premium is paid.</p>
+    <p>Premiums shown were quoted on July 15, 2026 through Fortis Brokerage Service for Symetra Life Insurance Company SwiftTerm level term at a preferred non-tobacco class, based on the ages, gender, and state of residence supplied. Todd: $5,000,000, 30 year term. Leah: $3,000,000, 20 year term. Premiums are illustrations, are subject to change, and are not guaranteed. Final premium is determined solely by the issuing carrier following underwriting and may differ from the amounts shown. Instant issue eligibility is determined by the carrier and is not guaranteed. Conversion rights are subject to the terms of the issued policy. The policy contract governs in all cases.</p>
+    <p>The death benefit is generally income tax free to beneficiaries under current federal law; individual circumstances vary. Safeshield Insurance LLC is an insurance brokerage and does not provide legal, tax, or investment advice. Please consult your own attorney and tax professional, particularly regarding trust ownership of any policy.</p>
+    <p>AM Best ratings shown are those reported at the time of quoting and are subject to change. <b>Safeshield Insurance LLC</b> &middot; 2777 Summer Street, Stamford, CT &middot; austin@gosafeshield.com</p>
+  </div>
+</footer>
+
+<script>
+const P = {
+  todd: {m:371.11, q:1113.33, s:2226.66, a:4366.00},
+  leah: {m:98.95,  q:296.84,  s:593.68,  a:1164.08}
+};
+const LABEL = {m:'Paid monthly', q:'Paid quarterly', s:'Paid semi-annually', a:'Paid annually'};
+const HH    = {m:'Per month', q:'Per quarter', s:'Per six months', a:'Per year'};
+const usd2  = n => '$' + n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+
+function setFreq(f){
+  document.querySelectorAll('.freq button').forEach(b => b.setAttribute('aria-pressed', b.dataset.f === f));
+  document.getElementById('todd-amt').textContent = usd2(P.todd[f]);
+  document.getElementById('leah-amt').textContent = usd2(P.leah[f]);
+  document.getElementById('hh-amt').textContent   = usd2(P.todd[f] + P.leah[f]);
+  document.getElementById('todd-per').textContent = LABEL[f];
+  document.getElementById('leah-per').textContent = LABEL[f];
+  document.getElementById('hh-per').textContent   = HH[f];
+}
+setFreq('m');
+</script>
+</body>
+</html>
