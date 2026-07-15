@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>GlassPearl LLC | Safeshield Insurance Proposal</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#004b89;
+    --navy-deep:#003566;
+    --amber:#ffa300;
+    --ink:#1a1f26;
+    --slate:#5a6573;
+    --paper:#f6f8fb;
+    --line:#e6ebf2;
+    --white:#ffffff;
+    --good:#1f9d6b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Outfit',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+  /* reveal */
+  .fade{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}}
+
+  /* brandbar */
+  .brandbar{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
+    padding:20px 0 0;flex-wrap:wrap}
+  .brand{display:flex;flex-direction:column;gap:4px}
+  .logo{font-weight:700;font-size:19px;color:var(--navy);letter-spacing:.03em;text-transform:uppercase}
+  .logo span{color:var(--amber)}
+  .slogan{font-size:11px;color:var(--slate);font-weight:500;letter-spacing:.02em;font-style:italic}
+  .prepared{font-size:12.5px;color:var(--slate);text-align:right;line-height:1.4}
+  .prepared b{color:var(--ink)}
+
+  /* hero */
+  .hero{padding:44px 0 38px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);
+    font-weight:600;margin-bottom:18px}
+  h1{font-family:'Playfair Display',serif;font-weight:800;color:var(--navy);
+    font-size:clamp(40px,9vw,68px);line-height:.98;letter-spacing:-.015em}
+  .lede{font-size:17px;color:var(--slate);margin-top:22px;max-width:60ch}
+  .lede b{color:var(--ink);font-weight:600}
+
+  /* speed strip (signature) */
+  .speed{margin:30px 0 0;background:var(--navy);border-radius:18px;color:#fff;
+    padding:26px 26px 24px;position:relative;overflow:hidden}
+  .speed::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;
+    background:radial-gradient(circle,rgba(255,163,0,.22),transparent 70%)}
+  .speed .k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .speed .big{font-family:'Playfair Display',serif;font-size:clamp(26px,6vw,34px);
+    line-height:1.12;margin:10px 0 8px;font-weight:700}
+  .speed p{color:rgba(255,255,255,.82);font-size:15px;max-width:54ch}
+  .timeline{display:flex;gap:0;margin-top:20px;flex-wrap:wrap}
+  .tl{flex:1;min-width:120px;border-left:2px solid rgba(255,255,255,.18);padding:2px 0 2px 14px;margin-bottom:6px}
+  .tl:first-child{border-color:var(--amber)}
+  .tl .d{font-size:12px;color:var(--amber);font-weight:600;letter-spacing:.04em}
+  .tl .t{font-size:14px;color:#fff;font-weight:500;margin-top:2px}
+  .proof{margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);
+    display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;position:relative}
+  .proof span{font-size:14px;color:rgba(255,255,255,.82)}
+  .proof a{display:inline-flex;align-items:center;gap:8px;color:var(--amber);font-weight:600;
+    font-size:14.5px;text-decoration:none;white-space:nowrap;padding:10px 20px;
+    border:1.5px solid rgba(255,163,0,.55);border-radius:99px;background:rgba(255,163,0,.12);
+    transition:background .2s ease,color .2s ease,border-color .2s ease}
+  .proof a:hover{background:var(--amber);color:#3a2600;border-color:var(--amber)}
+  .proof a svg{transition:transform .2s ease}
+  .proof a:hover svg{transform:translateX(3px)}
+
+  /* section heads */
+  .sec{padding:48px 0 0}
+  .sec-eye{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:12px}
+  h2{font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);
+    font-size:clamp(26px,5.5vw,36px);line-height:1.08;letter-spacing:-.01em}
+  .sub{font-size:15.5px;color:var(--slate);margin-top:12px;max-width:62ch}
+
+  /* coverage tiles */
+  .tiles{margin-top:24px;display:flex;flex-direction:column;gap:14px}
+  .tile{border:1px solid var(--line);border-radius:16px;background:var(--white);
+    transition:border-color .25s ease,box-shadow .25s ease}
+  .tile.ready{box-shadow:0 1px 0 rgba(0,75,137,.04)}
+  .tile-head{display:flex;align-items:center;gap:16px;padding:20px 22px;cursor:pointer;
+    user-select:none;-webkit-tap-highlight-color:transparent}
+  .tile-head:focus-visible{outline:3px solid var(--amber);outline-offset:-3px;border-radius:16px}
+  .ic{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+    background:var(--paper);color:var(--navy)}
+  .ic svg{width:24px;height:24px}
+  .tile.ready .ic{background:rgba(0,75,137,.08)}
+  .tile-meta{flex:1;min-width:0}
+  .tile-name{font-weight:600;font-size:17px;color:var(--ink);line-height:1.2}
+  .tile-tag{font-size:13px;color:var(--slate);margin-top:3px}
+  .pill{font-size:11px;font-weight:600;letter-spacing:.04em;padding:4px 10px;border-radius:99px;white-space:nowrap}
+  .pill.on{background:rgba(31,157,107,.12);color:var(--good)}
+  .pill.soon{background:rgba(255,163,0,.14);color:#b9760a}
+  .pill.opt{background:rgba(90,101,115,.1);color:var(--slate);border:1px solid rgba(90,101,115,.22)}
+  .info-wrap{position:relative;display:inline-flex;flex:none}
+  .info{width:21px;height:21px;border-radius:99px;border:1.5px solid var(--line);background:#fff;
+    color:var(--slate);font-size:12px;font-weight:700;font-style:italic;font-family:Georgia,serif;
+    cursor:pointer;display:grid;place-items:center;line-height:1;padding:0;transition:all .2s ease}
+  .info:hover,.info:focus-visible{border-color:var(--navy);color:var(--navy);background:var(--paper);outline:none}
+  .tip{position:absolute;bottom:calc(100% + 11px);right:-7px;width:250px;background:var(--navy-deep);
+    color:#fff;font-size:13px;line-height:1.5;font-weight:400;padding:14px 16px;border-radius:13px;
+    box-shadow:0 14px 32px rgba(0,40,80,.3);opacity:0;visibility:hidden;transform:translateY(6px);
+    transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:30;text-align:left;
+    letter-spacing:normal;text-transform:none;pointer-events:none}
+  .tip::after{content:"";position:absolute;top:100%;right:13px;border:7px solid transparent;border-top-color:var(--navy-deep)}
+  .tip b{color:var(--amber);font-weight:600}
+  .info-wrap:hover .tip,.info-wrap.open .tip,.info:focus-visible + .tip{opacity:1;visibility:visible;transform:none}
+  .chev{flex:none;color:var(--slate);transition:transform .3s ease}
+  .tile.open .chev{transform:rotate(180deg)}
+  .tile-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .tile.open .tile-body{max-height:760px}
+  .tile-inner{padding:2px 22px 24px;border-top:1px solid var(--line)}
+  .tile-inner p.exp{font-size:15px;color:var(--slate);margin:16px 0 18px}
+  .tile-inner p.exp b{color:var(--ink);font-weight:600}
+  .covs{display:flex;flex-direction:column;gap:12px}
+  .cov{display:flex;gap:12px;align-items:flex-start}
+  .cov .dot{flex:none;width:8px;height:8px;border-radius:99px;background:var(--amber);margin-top:8px}
+  .cov b{font-weight:600;color:var(--ink);font-size:14.5px}
+  .cov span{display:block;font-size:13.5px;color:var(--slate);margin-top:1px}
+
+  /* why cards */
+  .why{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:560px){.why{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--paper)}
+  .card h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);font-weight:700;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--slate)}
+
+  /* money */
+  .money{margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--white)}
+  .money-top{padding:22px 22px 0}
+  .toggle{display:inline-flex;background:var(--paper);border-radius:99px;padding:4px;gap:4px;margin-top:4px}
+  .toggle button{border:none;background:transparent;font-family:inherit;font-size:13.5px;font-weight:600;
+    color:var(--slate);padding:8px 18px;border-radius:99px;cursor:pointer;transition:all .2s ease}
+  .toggle button.active{background:var(--navy);color:#fff}
+  .rows{padding:18px 22px 8px}
+  .row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .row .l{font-size:15px;color:var(--ink);font-weight:500}
+  .row .l small{display:block;color:var(--slate);font-weight:400;font-size:12.5px;margin-top:1px}
+  .row .v{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:700;white-space:nowrap}
+  .total{background:var(--navy);color:#fff;padding:20px 22px;display:flex;justify-content:space-between;align-items:center}
+  .total .l{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .total .v{font-family:'Playfair Display',serif;font-size:28px;font-weight:800}
+  .total .v small{font-size:13px;font-weight:400;color:rgba(255,255,255,.7);letter-spacing:0;text-transform:none}
+  .fineprint{font-size:12px;color:var(--slate);padding:14px 22px 20px;line-height:1.5}
+
+  /* cta */
+  .cta{margin:48px 0 0;background:linear-gradient(160deg,var(--navy),var(--navy-deep));
+    border-radius:22px;padding:40px 30px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;
+    background:radial-gradient(circle,rgba(255,163,0,.2),transparent 70%)}
+  .cta h2{color:#fff;position:relative}
+  .cta p{color:rgba(255,255,255,.82);margin:14px auto 26px;max-width:46ch;position:relative;font-size:15.5px}
+  .btn{display:inline-block;background:var(--amber);color:#3a2600;font-weight:700;font-size:16px;
+    padding:16px 34px;border-radius:99px;text-decoration:none;position:relative;
+    transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 8px 22px rgba(255,163,0,.28)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,163,0,.36)}
+  .btn-ghost{display:inline-block;color:#fff;font-weight:600;font-size:15px;padding:14px 26px;
+    border-radius:99px;text-decoration:none;border:1.5px solid rgba(255,255,255,.45);
+    position:relative;margin-left:10px;transition:background .2s ease,border-color .2s ease}
+  .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+  @media (max-width:540px){.btn-ghost{margin-left:0;margin-top:12px}}
+  .cta .alt{display:block;margin-top:16px;font-size:14px;color:rgba(255,255,255,.7);position:relative}
+  .cta .alt a{color:#fff;text-decoration:underline}
+
+  /* footer */
+  footer{padding:38px 0 56px;text-align:center}
+  .sig{font-weight:700;color:var(--navy);font-size:16px;text-transform:uppercase;letter-spacing:.03em}
+  .sig span{color:var(--amber)}
+  .fslogan{font-size:11px;color:var(--slate);font-style:italic;margin-top:5px}
+  .fcontact{font-size:13.5px;color:var(--slate);margin-top:6px;line-height:1.7}
+  .fcontact a{color:var(--navy);text-decoration:none;font-weight:500}
+  .disc{font-size:11px;color:#9aa6b4;margin-top:20px;max-width:60ch;margin-left:auto;margin-right:auto;line-height:1.5}
+
+  /* tabs */
+  .tabs{display:flex;gap:5px;margin-top:22px;background:var(--paper);padding:5px;border-radius:99px;width:fit-content;max-width:100%}
+  .tab{border:none;background:transparent;font-family:inherit;font-size:14px;font-weight:600;color:var(--slate);
+    padding:11px 22px;border-radius:99px;cursor:pointer;transition:all .2s ease;white-space:nowrap}
+  .tab.active{background:var(--navy);color:#fff}
+  @media (max-width:440px){.tab{padding:11px 16px;font-size:13px}}
+
+  /* roadmap (scale tab) */
+  .phase{border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:18px;background:#fff}
+  .phase-head{display:flex;align-items:center;gap:14px;padding:18px 22px;border-bottom:1px solid var(--line)}
+  .phase-num{flex:none;width:38px;height:38px;border-radius:99px;display:grid;place-items:center;
+    font-family:'Playfair Display',serif;font-weight:800;font-size:17px}
+  .phase.now .phase-num{background:rgba(31,157,107,.12);color:var(--good)}
+  .phase.next .phase-num{background:rgba(255,163,0,.16);color:#b9760a}
+  .phase-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:700}
+  .phase-when{margin-left:auto;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);font-weight:600;white-space:nowrap}
+  .phase-body{padding:18px 22px 22px}
+  .phase-body p{font-size:14.5px;color:var(--slate);margin-bottom:14px}
+  .phase-body p b{color:var(--ink);font-weight:600}
+  .phase-body .covs{margin-top:4px}
+  .trigger{margin-top:16px;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+    padding:13px 16px;font-size:13.5px;color:var(--ink)}
+  .trigger b{color:var(--navy)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brandbar fade">
+    <div class="brand">
+      <div class="logo">Safe<span>shield</span> Insurance</div>
+      <div class="slogan">We work for you, not the insurance company</div>
+    </div>
+    <div class="prepared">Prepared for <b>Martin Lagler, CFO</b><br>GlassPearl LLC &middot; July 15, 2026</div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs fade" role="tablist">
+    <button class="tab active" data-pane="proposal" role="tab">Your Proposal</button>
+    <button class="tab" data-pane="scale" role="tab">As You Scale</button>
+  </div>
+</div>
+
+<div id="proposalView">
+<div class="wrap">
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow fade">Your insurance proposal</div>
+    <h1 class="fade" style="font-size:clamp(34px,7.5vw,58px)">GlassPearl LLC</h1>
+    <p class="lede fade">You provide the bare metal that AI companies build on. Racks of financed servers, PDUs, and switches, deployed into data centers deal by deal, at $20M to $40M a project. <b>This is a program built for that model</b>: the founders and the operation protected today, with the structure already in place to absorb every site you light up.</p>
+  </header>
+</div>
+
+<div class="wrap">
+  <!-- AT A GLANCE -->
+  <section class="speed fade">
+    <div class="k">The program at a glance</div>
+    <div class="big">Three lines. One carrier.<br>Ready to bind today.</div>
+    <p>General Liability at $2M/$4M limits, Directors &amp; Officers, and a $3M Umbrella, all quoted with Chubb, effective the day you sign off. Property and equipment get built the moment your first deal closes.</p>
+    <div class="timeline">
+      <div class="tl"><div class="d">Liability</div><div class="t">$5M total protection</div></div>
+      <div class="tl"><div class="d">D&amp;O</div><div class="t">Full prior acts</div></div>
+      <div class="tl"><div class="d">Carrier</div><div class="t">Chubb, A++ rated</div></div>
+      <div class="tl"><div class="d">Annual</div><div class="t">$11,422 all in</div></div>
+    </div>
+    <div class="proof">
+      <span>Don't take our word for it. Our customers feel the same.</span>
+      <a href="https://gosafeshield.com/review" target="_blank" rel="noopener">Read our reviews <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section class="sec">
+    <div class="sec-eye fade">Your coverage</div>
+    <h2 class="fade">Built around what you actually do</h2>
+    <p class="sub fade">Tap any coverage to see, in plain language, what it does for an infrastructure provider. Three lines are quoted with Chubb and ready to bind today. The rest are staged, on purpose, for the moment your first racks go live.</p>
+
+    <div class="tiles">
+
+      <!-- GL / BOP -->
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">General Liability</div>
+            <div class="tile-tag">Your operating baseline, rated on real numbers</div>
+          </div>
+          <span class="pill on">Quoted</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">The foundation of the program. If someone is injured or property is damaged in connection with your operations, this is the policy that responds. <b>It is classified correctly as data hosting</b>, not shoehorned into a generic tech code, and rated on your actual $9M revenue projection so there are no surprise adjustments at audit.</p>
+          <div class="covs">
+            <div class="cov"><div class="dot"></div><div><b>$2,000,000 per occurrence / $4,000,000 aggregate</b><span>Double the standard limits, so the contracts sophisticated customers put in front of you are already cleared.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Data hosting classification</b><span>Underwritten as what you are: an infrastructure and hosting operation.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Honest rating basis</b><span>Priced on your projected $9M, so the year-end audit holds no surprises.</span></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- D&O -->
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a3 3 0 100 6 3 3 0 000-6z"/><path d="M5 21v-2a5 5 0 015-5h4a5 5 0 015 5v2"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Directors &amp; Officers</div>
+            <div class="tile-tag">Protecting the four of you, starting now</div>
+          </div>
+          <span class="pill on">Quoted</span>
+          <span class="info-wrap">
+            <button class="info" type="button" aria-label="Why D&amp;O first" aria-expanded="false">i</button>
+            <span class="tip" role="tooltip"><b>You called this one yourself.</b> You said the executive risk package is the piece to sign early because you are already operating and could make a mistake. We agree, which is why this is in force the day you bind, with full prior acts.</span>
+          </span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">You are four founders making real decisions on eight-figure deals, and the company is already operating. If a decision is ever challenged, by an investor, a partner, a vendor, a regulator, <b>this protects the people, not just the company</b>. Written on Chubb's ForeFront Portfolio for private companies.</p>
+          <div class="covs">
+            <div class="cov"><div class="dot"></div><div><b>$1,000,000 aggregate limit</b><span>Defends and pays on claims against directors, officers, and the entity itself.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>$1,000,000 extra, dedicated to executives</b><span>A separate limit reserved for the founders personally when the company cannot indemnify.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Full prior acts</b><span>Covers decisions made from day one of the company, not just from the policy date forward.</span></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- UMBRELLA -->
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v2"/><path d="M3 12a9 9 0 0118 0z"/><path d="M12 12v6a2.5 2.5 0 005 0"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Commercial Umbrella</div>
+            <div class="tile-tag">$3M of extra limit over the liability</div>
+          </div>
+          <span class="pill on">Quoted</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">An extra $3,000,000 that sits on top of your general liability. Here is why it matters for you specifically: <b>your customers sign 2 to 3 year contracts, and sophisticated customers ask their vendors for real limits.</b> When the first MSA lands on your desk with an insurance schedule in it, you will already clear most of it. And if a contract ever asks for more, we raise this in a day, the pricing for every step up to $10M is already on the table.</p>
+          <div class="covs">
+            <div class="cov"><div class="dot"></div><div><b>$3,000,000 each occurrence and aggregate</b><span>Stacked above the $2M/$4M primary, for $5M of total liability protection.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Built to raise</b><span>Options through $10M are already priced. One call moves the limit.</span></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- PROPERTY (staged) -->
+      <div class="tile fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v6H4z"/><path d="M4 14h16v6H4z"/><path d="M7 7h.01M7 17h.01"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Property &amp; Equipment</div>
+            <div class="tile-tag">The big one. Built per site, the moment racks go in</div>
+          </div>
+          <span class="pill soon">Staged</span>
+          <span class="info-wrap">
+            <button class="info" type="button" aria-label="Why property is staged" aria-expanded="false">i</button>
+            <span class="tip" role="tooltip"><b>Why not now?</b> There is no equipment deployed yet, so there is nothing to schedule and nothing to pay premium on. The moment your first deal signs, we build this around the actual site and the actual gear. You pay for real exposure, not guesses.</span>
+          </span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">This is the heart of your risk: millions in financed servers, PDUs, and switches sitting in buildings you do not own. <b>We stage it deliberately.</b> When the first project closes, you send us the site and the equipment list, and we build the schedule around it: your gear covered at third-party data centers, your lender named, business income protected if your infrastructure goes down, and transit covered while equipment moves. Every new deal after that is an add to the schedule, not a new policy.</p>
+          <div class="covs">
+            <div class="cov"><div class="dot"></div><div><b>Equipment at third-party sites</b><span>Your servers and hardware, scheduled per data center, wherever the deal takes them.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Lender protection built in</b><span>You finance your own gear. Your lender is named so the financing never stalls.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Business income &amp; transit</b><span>Revenue protected if covered damage takes a site down, and gear covered on the move.</span></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- CYBER (staged) -->
+      <div class="tile fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Cyber / Tech E&amp;O</div>
+            <div class="tile-tag">Quoted when your customer contracts call for it</div>
+          </div>
+          <span class="pill soon">Staged</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">You made the point on our call: your customers run their own software on your bare metal, so their breach is their problem. That is true at the software layer. But <b>the AI companies signing your MSAs will very likely require you to carry tech E&amp;O or cyber as a condition of the contract</b>, and there is still your own corporate network and your uptime obligations. Send us the first customer contract and we will quote exactly what it demands, no more.</p>
+          <div class="covs">
+            <div class="cov"><div class="dot"></div><div><b>Contract-driven</b><span>We quote to what your customer agreements actually require, when they require it.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Days, not weeks</b><span>Your intake is already on file. Adding this line is fast.</span></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- AUTO (optional) -->
+      <div class="tile fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 13l2-5a2 2 0 012-1.4h10A2 2 0 0119 8l2 5"/><path d="M3 13h18v4H3z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Hired &amp; Non-Owned Auto</div>
+            <div class="tile-tag">You have no vehicles, so this is all you need</div>
+          </div>
+          <span class="pill opt">Optional</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">GlassPearl owns no vehicles, so a full commercial auto policy would be paying for exposure you do not have. What fits is <b>hired and non-owned coverage</b>: if an employee drives a rental or their own car on company business and something happens, this responds. Inexpensive, easy to add, and we will fold it in whenever you want it.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="sec">
+    <div class="sec-eye fade">Why it's built this way</div>
+    <h2 class="fade">Two decisions we made on purpose</h2>
+    <div class="why">
+      <div class="card fade"><h3>D&amp;O leads, because you're already exposed</h3><p>You said it yourself on our call: you are operating now and could make a mistake before the first rack is ever powered. So the founders' protection binds first, with full prior acts, instead of waiting for the rest of the program to be ready.</p></div>
+      <div class="card fade"><h3>Property waits, because guessing costs you money</h3><p>Nothing is deployed yet. Scheduling imaginary equipment means paying premium on guesses. The moment your first deal signs, we build the property program around the real site, the real gear, and the real lender, and every deal after is a one-day add.</p></div>
+    </div>
+  </section>
+
+  <!-- MONEY -->
+  <section class="sec">
+    <div class="sec-eye fade">Your investment</div>
+    <h2 class="fade">What it costs, kept simple</h2>
+    <p class="sub fade">Three lines, one carrier, ready to bind today. All placed with Chubb, the largest publicly traded property and casualty insurer in the world.</p>
+
+    <div class="money fade">
+      <div class="money-top">
+        <div class="toggle" role="tablist">
+          <button class="active" data-view="year" role="tab">Pay in full</button>
+          <button data-view="month" role="tab">Monthly</button>
+        </div>
+      </div>
+
+      <div class="rows">
+        <div class="row">
+          <div class="l">General Liability<small>$2M / $4M, rated on $9M projected revenue</small></div>
+          <div class="v">$5,459</div>
+        </div>
+        <div class="row">
+          <div class="l">Directors &amp; Officers<small>$1M limit + $1M dedicated to executives, full prior acts</small></div>
+          <div class="v">$3,741</div>
+        </div>
+        <div class="row">
+          <div class="l">Commercial Umbrella<small>$3M each occurrence and aggregate</small></div>
+          <div class="v">$2,222</div>
+        </div>
+      </div>
+      <div class="total">
+        <div class="l" id="totalLabel">Ready today</div>
+        <div class="v" id="totalVal">$11,422 <small>paid in full</small></div>
+      </div>
+
+      <p class="fineprint">Figures are the quoted annual premiums for each policy, effective 07/15/2026 to 07/15/2027, and each policy bills on its own schedule. The monthly view is an estimate of your total monthly outlay; Chubb offers 2-pay, 4-pay, and 10-pay installment plans. Umbrella limits and premium are subject to completion of carrier underwriting review. Coverage is designed to respond subject to the terms of each policy.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta fade">
+    <h2>Ready when you are, Martin.</h2>
+    <p>Reply to our email or call, and we will send the paperwork and lock in your effective date. When your first deal signs, send us the site and the equipment list, and the property program follows.</p>
+    <a class="btn" href="mailto:austin@gosafeshield.com?subject=GlassPearl%20LLC%20-%20Ready%20to%20move">Let's get us covered</a>
+    <a class="btn-ghost" href="https://gosafeshield.com/review" target="_blank" rel="noopener">Read our reviews</a>
+    <span class="alt">or call <a href="tel:2035649817">(203) 564-9817</a></span>
+  </section>
+</div>
+</div><!-- /proposalView -->
+
+<div id="scaleView" hidden>
+<div class="wrap">
+  <section class="sec" style="padding-top:40px">
+    <div class="sec-eye">The road ahead</div>
+    <h2>Coverage that scales the way you do</h2>
+    <p class="sub">Martin, your business grows in steps: a deal signs, equipment deploys, a new site lights up. The insurance program is built to move in the same steps, so you are never over-insured before a deal and never exposed after one. Here is the whole picture.</p>
+  </section>
+
+  <!-- PHASE 1 -->
+  <div class="phase now">
+    <div class="phase-head">
+      <div class="phase-num">1</div>
+      <div class="phase-title">The foundation</div>
+      <div class="phase-when">Now</div>
+    </div>
+    <div class="phase-body">
+      <p><b>This is today's proposal.</b> The operation and the founders protected while you close your first deal.</p>
+      <div class="covs">
+        <div class="cov"><div class="dot"></div><div><b>General Liability</b><span>$2M / $4M, correctly classified, honestly rated.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Directors &amp; Officers</b><span>The four founders covered from day one, full prior acts.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>$3M Umbrella</b><span>Real limits ready before the first MSA asks for them.</span></div></div>
+      </div>
+      <div class="trigger"><b>Trigger:</b> your go-ahead. Binds same day.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase next">
+    <div class="phase-head">
+      <div class="phase-num">2</div>
+      <div class="phase-title">First deal signs</div>
+      <div class="phase-when">Expected Sep–Oct</div>
+    </div>
+    <div class="phase-body">
+      <p><b>The property program gets built around the real deal.</b> You send three things: the data center lease's insurance requirements, the equipment list with values, and your lender's information. We take it from there.</p>
+      <div class="covs">
+        <div class="cov"><div class="dot"></div><div><b>Equipment schedule</b><span>Your servers, PDUs, and switches, covered at the third-party site.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Business income</b><span>The revenue stream protected if covered damage takes the site down.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Lease &amp; lender compliance</b><span>The DC operator and your equipment lender named exactly as their contracts require.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Cyber / Tech E&amp;O if the MSA demands it</b><span>Quoted to the contract's schedule, nothing speculative.</span></div></div>
+      </div>
+      <div class="trigger"><b>Trigger:</b> signed deal. Send us the lease, the gear list, and the lender, and the schedule is built while the racks ship.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase next">
+    <div class="phase-head">
+      <div class="phase-num">3</div>
+      <div class="phase-title">Every deal after</div>
+      <div class="phase-when">Ongoing</div>
+    </div>
+    <div class="phase-body">
+      <p><b>Scaling becomes routine.</b> Each new project is an addition to the schedule you already have, not a new placement. New site, new values, updated schedule, done. Limits move up whenever a contract calls for it, umbrella options through $10M are already priced.</p>
+      <div class="trigger"><b>Trigger:</b> each new deal. One email with the site and values, and coverage keeps pace.</div>
+    </div>
+  </div>
+
+  <section class="cta fade" style="margin-top:34px">
+    <h2>One broker, every phase.</h2>
+    <p>The point of building it this way is simple: you focus on landing deals, and the coverage is never the thing holding one up.</p>
+    <a class="btn" href="mailto:austin@gosafeshield.com?subject=GlassPearl%20LLC%20-%20Let's%20talk%20scale">Ask me anything</a>
+    <span class="alt">or call <a href="tel:2035649817">(203) 564-9817</a></span>
+  </section>
+</div>
+</div><!-- /scaleView -->
+
+<div class="wrap">
+  <!-- FOOTER -->
+  <footer>
+    <div class="sig">Safe<span>shield</span> Insurance</div>
+    <div class="fslogan">We work for you, not the insurance company</div>
+    <div class="fcontact">
+      Austin Glazer, President<br>
+      <a href="mailto:austin@gosafeshield.com">austin@gosafeshield.com</a> &middot; <a href="tel:2035649817">(203) 564-9817</a>
+    </div>
+    <p class="disc">This is a proposal summary prepared for GlassPearl LLC and is not a binder or a contract. Coverages, limits, terms, and exclusions are governed by the actual policy documents. Premiums are subject to carrier review and may change pending underwriting. Umbrella limits and premium are conditional upon completion of additional underwriting due diligence.</p>
+  </footer>
+</div>
+
+<script>
+  // tab switching (proposal / scale)
+  var tabs=document.querySelectorAll('.tab');
+  var pv=document.getElementById('proposalView');
+  var sv=document.getElementById('scaleView');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active')});
+      t.classList.add('active');
+      var scale=t.dataset.pane==='scale';
+      sv.hidden=!scale; pv.hidden=scale;
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.12});
+  document.querySelectorAll('.fade').forEach(function(el,i){
+    el.style.transitionDelay=(Math.min(i,6)*40)+'ms';io.observe(el);
+  });
+
+  // tappable tiles
+  document.querySelectorAll('.tile-head').forEach(function(h){
+    function toggle(){
+      var t=h.closest('.tile');var open=t.classList.toggle('open');
+      h.setAttribute('aria-expanded',open?'true':'false');
+    }
+    h.addEventListener('click',toggle);
+    h.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}
+    });
+  });
+
+  // investment totals (pay-in-full / monthly)
+  var invBtns=document.querySelectorAll('.toggle button');
+  var invView='year';
+  function renderInv(){
+    var annual=11422;
+    var monthly=Math.round(annual/12/10)*10;
+    var lbl=document.getElementById('totalLabel');
+    var val=document.getElementById('totalVal');
+    if(invView==='month'){
+      lbl.textContent='Estimated monthly';
+      val.innerHTML='~$'+monthly.toLocaleString()+' <small>/ month</small>';
+    }else{
+      lbl.textContent='Ready today';
+      val.innerHTML='$'+annual.toLocaleString()+' <small>paid in full</small>';
+    }
+  }
+  invBtns.forEach(function(b){
+    b.addEventListener('click',function(){
+      invBtns.forEach(function(x){x.classList.remove('active')});
+      b.classList.add('active');
+      invView=b.dataset.view;
+      renderInv();
+    });
+  });
+
+  // info tooltip (hover on desktop, tap on touch)
+  document.querySelectorAll('.info').forEach(function(btn){
+    var wrap=btn.closest('.info-wrap');
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=wrap.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    btn.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.stopPropagation();}
+    });
+  });
+  document.addEventListener('click',function(){
+    document.querySelectorAll('.info-wrap.open').forEach(function(w){
+      w.classList.remove('open');
+      var b=w.querySelector('.info');if(b)b.setAttribute('aria-expanded','false');
+    });
+  });
+</script>
+</body>
+</html>
