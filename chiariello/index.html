@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gino Chiariello & Nicole Fischer | Safeshield Insurance Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#0a1628;
+    color:#FAFAF8;
+    font-family:'Outfit', sans-serif;
+    font-weight:300;
+    line-height:1.6;
+  }
+  h1,h2,h3,h4 { font-family:'Playfair Display', serif; font-weight:900; }
+  .divider {
+    height:1px;
+    width:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin:0 auto;
+  }
+  a { text-decoration:none; }
+  .wrap { max-width:1100px; margin:0 auto; padding:0 32px; }
+
+  /* HERO */
+  .hero {
+    padding:100px 32px 80px;
+    text-align:center;
+    background:radial-gradient(ellipse at top, rgba(0,75,137,0.35), transparent 60%);
+  }
+  .hero .eyebrow {
+    color:#FFA300;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:22px;
+  }
+  .hero h1 {
+    font-size:52px;
+    line-height:1.15;
+    max-width:800px;
+    margin:0 auto 20px;
+  }
+  .hero h1 span { color:#FFA300; }
+  .hero p.sub {
+    font-size:18px;
+    color:rgba(250,250,248,0.7);
+    max-width:600px;
+    margin:0 auto 40px;
+  }
+  .hero-total {
+    display:inline-block;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,163,0,0.35);
+    border-radius:24px;
+    padding:28px 50px;
+  }
+  .hero-total .label {
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:rgba(250,250,248,0.6);
+    margin-bottom:8px;
+  }
+  .hero-total .amount {
+    font-family:'Playfair Display', serif;
+    font-weight:900;
+    font-size:48px;
+    color:#FFA300;
+  }
+  .hero-total .amount-sub {
+    font-size:14px;
+    color:rgba(250,250,248,0.5);
+    margin-top:6px;
+  }
+
+  /* SECTION HEADERS */
+  .section { padding:70px 32px; }
+  .section-head { text-align:center; margin-bottom:50px; }
+  .section-head .tag {
+    color:#FFA300;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  .section-head h2 { font-size:36px; }
+
+  /* POLICY CARDS */
+  .policy-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:40px;
+    margin-bottom:32px;
+  }
+  .policy-card-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:28px;
+    padding-bottom:28px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .policy-card-header h3 {
+    font-size:26px;
+    color:#FAFAF8;
+    margin-bottom:6px;
+  }
+  .policy-card-header .carrier {
+    color:rgba(250,250,248,0.55);
+    font-size:14px;
+  }
+  .policy-price {
+    text-align:right;
+  }
+  .policy-price .amt {
+    font-family:'Playfair Display', serif;
+    font-weight:900;
+    font-size:34px;
+    color:#FFA300;
+  }
+  .policy-price .per {
+    font-size:12px;
+    color:rgba(250,250,248,0.5);
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  .grid2 {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  @media (max-width:700px){ .grid2 { grid-template-columns:1fr; } }
+
+  table.cov {
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+  }
+  table.cov th {
+    text-align:left;
+    color:#FFA300;
+    text-transform:uppercase;
+    font-size:11px;
+    letter-spacing:1px;
+    font-weight:600;
+    padding:8px 0;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  table.cov td {
+    padding:9px 0;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    color:rgba(250,250,248,0.85);
+  }
+  table.cov td:last-child, table.cov th:last-child { text-align:right; }
+  .veh-label {
+    display:inline-block;
+    background:rgba(0,75,137,0.4);
+    border:1px solid rgba(0,75,137,0.7);
+    color:#FAFAF8;
+    padding:5px 14px;
+    border-radius:100px;
+    font-size:12px;
+    font-weight:600;
+    margin-bottom:16px;
+  }
+  .chip-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+  .chip {
+    background:rgba(255,163,0,0.08);
+    border:1px solid rgba(255,163,0,0.25);
+    color:#FFA300;
+    font-size:12px;
+    padding:6px 14px;
+    border-radius:100px;
+  }
+  .note-box {
+    margin-top:22px;
+    background:rgba(255,255,255,0.03);
+    border-left:3px solid #FFA300;
+    padding:16px 20px;
+    border-radius:8px;
+    font-size:14px;
+    color:rgba(250,250,248,0.75);
+  }
+  .payment-strip {
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-top:24px;
+  }
+  .pay-opt {
+    flex:1;
+    min-width:150px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px;
+    padding:16px 18px;
+  }
+  .pay-opt .plan { font-size:12px; text-transform:uppercase; letter-spacing:1px; color:rgba(250,250,248,0.5); margin-bottom:6px; }
+  .pay-opt .val { font-size:20px; font-weight:600; color:#FAFAF8; }
+  .pay-opt .sub { font-size:12px; color:rgba(250,250,248,0.45); margin-top:2px; }
+
+  /* SAVINGS BAR */
+  .savings-bar {
+    background:linear-gradient(135deg, rgba(0,75,137,0.5), rgba(255,163,0,0.12));
+    border:1px solid rgba(255,163,0,0.3);
+    border-radius:20px;
+    padding:36px 40px;
+    text-align:center;
+    margin-top:10px;
+  }
+  .savings-bar h3 { font-size:24px; margin-bottom:10px; }
+  .savings-bar p { color:rgba(250,250,248,0.75); max-width:600px; margin:0 auto; font-size:15px; }
+
+  /* WHY SAFESHIELD */
+  .why-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  @media (max-width:800px){ .why-grid { grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .why-grid { grid-template-columns:1fr; } }
+  .why-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:28px 24px;
+  }
+  .why-card .num {
+    color:#FFA300;
+    font-family:'Playfair Display', serif;
+    font-weight:900;
+    font-size:22px;
+    margin-bottom:12px;
+  }
+  .why-card h4 { font-size:17px; margin-bottom:8px; color:#FAFAF8; }
+  .why-card p { font-size:14px; color:rgba(250,250,248,0.65); }
+
+  /* TOTAL SUMMARY */
+  .total-summary {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,163,0,0.3);
+    border-radius:20px;
+    padding:44px;
+  }
+  .total-row {
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    font-size:16px;
+  }
+  .total-row:last-of-type { border-bottom:none; }
+  .total-row .name { color:rgba(250,250,248,0.8); }
+  .total-row .amt { font-weight:600; color:#FAFAF8; }
+  .grand-total {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:20px;
+    padding-top:24px;
+    border-top:2px solid rgba(255,163,0,0.4);
+  }
+  .grand-total .label { font-size:18px; text-transform:uppercase; letter-spacing:1px; color:rgba(250,250,248,0.7); }
+  .grand-total .value {
+    font-family:'Playfair Display', serif;
+    font-weight:900;
+    font-size:42px;
+    color:#FFA300;
+  }
+
+  /* CTA FOOTER */
+  .cta {
+    text-align:center;
+    padding:90px 32px;
+    background:radial-gradient(ellipse at bottom, rgba(0,75,137,0.35), transparent 60%);
+  }
+  .cta h2 { font-size:34px; margin-bottom:16px; }
+  .cta p { color:rgba(250,250,248,0.7); max-width:500px; margin:0 auto 36px; }
+  .btn-row { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .btn {
+    padding:16px 36px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:15px;
+    display:inline-block;
+  }
+  .btn-primary { background:#FFA300; color:#0a1628; }
+  .btn-secondary { background:rgba(255,255,255,0.06); color:#FAFAF8; border:1px solid rgba(255,255,255,0.2); }
+  footer {
+    text-align:center;
+    padding:36px;
+    color:rgba(250,250,248,0.4);
+    font-size:13px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">Prepared exclusively for</div>
+    <h1>Gino Chiariello & <span>Nicole Fischer</span></h1>
+    <p class="sub">Your complete insurance picture — auto, condo, and umbrella liability — shopped and structured by Safeshield to protect what you've built.</p>
+    <div class="hero-total">
+      <div class="label">Combined Annual Premium</div>
+      <div class="amount">$4,971</div>
+      <div class="amount-sub">Auto $3,086 &nbsp;+&nbsp; Condo $1,438 &nbsp;+&nbsp; Umbrella $447</div>
+    </div>
+  </section>
+
+  <div class="divider wrap"></div>
+
+  <!-- AUTO -->
+  <section class="section wrap">
+    <div class="section-head">
+      <div class="tag">Coverage 01</div>
+      <h2>Personal Auto</h2>
+    </div>
+
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <div>
+          <h3>Two-Vehicle Auto Policy</h3>
+          <div class="carrier">Plymouth Rock Assurance &middot; Palisades Property &amp; Casualty Insurance Company</div>
+        </div>
+        <div class="policy-price">
+          <div class="amt">$3,086</div>
+          <div class="per">Total Annual Premium</div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <span class="veh-label">2023 Dodge Durango GT AWD</span>
+          <table class="cov">
+            <tr><th>Coverage</th><th>Limit</th><th>Premium</th></tr>
+            <tr><td>Bodily Injury</td><td>$250K/$500K</td><td>$478</td></tr>
+            <tr><td>Property Damage</td><td>$100,000</td><td>$214</td></tr>
+            <tr><td>Supplementary UM/UIM</td><td>$250K/$500K</td><td>$106</td></tr>
+            <tr><td>Medical Payments</td><td>$5,000</td><td>$4</td></tr>
+            <tr><td>PIP (Mandatory)</td><td>$50,000</td><td>$117</td></tr>
+            <tr><td>Comprehensive (Full Glass)</td><td>$1,000 ded</td><td>$112</td></tr>
+            <tr><td>Collision</td><td>$1,000 ded</td><td>$548</td></tr>
+            <tr><td>Substitute Transportation</td><td>$40/day, $1,200 max</td><td>$28</td></tr>
+          </table>
+        </div>
+        <div>
+          <span class="veh-label">2020 Jeep Grand Cherokee Laredo</span>
+          <table class="cov">
+            <tr><th>Coverage</th><th>Limit</th><th>Premium</th></tr>
+            <tr><td>Bodily Injury</td><td>$250K/$500K</td><td>$505</td></tr>
+            <tr><td>Property Damage</td><td>$100,000</td><td>$211</td></tr>
+            <tr><td>Supplementary UM/UIM</td><td>$250K/$500K</td><td>$106</td></tr>
+            <tr><td>Medical Payments</td><td>$5,000</td><td>$3</td></tr>
+            <tr><td>PIP (Mandatory)</td><td>$50,000</td><td>$99</td></tr>
+            <tr><td>Comprehensive (Full Glass)</td><td>$1,000 ded</td><td>$117</td></tr>
+            <tr><td>Collision</td><td>$1,000 ded</td><td>$398</td></tr>
+            <tr><td>Substitute Transportation</td><td>$30/day, $900 max</td><td>$20</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="chip-row">
+        <span class="chip">Umbrella Companion Discount</span>
+        <span class="chip">Anti-Theft Discount</span>
+        <span class="chip">ABS Discount</span>
+        <span class="chip">eDocument Discount</span>
+        <span class="chip">Passive Restraint Discount</span>
+        <span class="chip">Daytime Running Lights</span>
+        <span class="chip">Assurance Plus Included</span>
+      </div>
+
+      <div class="note-box">Includes $20 Motor Vehicle Law Enforcement Fee. Both drivers, Gino and Nicole, are listed as insured operators on the policy.</div>
+
+      <div class="payment-strip">
+        <div class="pay-opt">
+          <div class="plan">Pay in Full</div>
+          <div class="val">$2,840</div>
+          <div class="sub">Up to 8% discount applied</div>
+        </div>
+        <div class="pay-opt">
+          <div class="plan">4 Payments</div>
+          <div class="val">$786.50 down</div>
+          <div class="sub">then $766.50 &times; 3</div>
+        </div>
+        <div class="pay-opt">
+          <div class="plan">12 Pay &ndash; EFT</div>
+          <div class="val">$275.70 down</div>
+          <div class="sub">then $255.70 &times; 11</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider wrap"></div>
+
+  <!-- CONDO -->
+  <section class="section wrap">
+    <div class="section-head">
+      <div class="tag">Coverage 02</div>
+      <h2>Condo (HO-6)</h2>
+    </div>
+
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <div>
+          <h3>344 Central Park Ave, Apt B24 &mdash; Scarsdale, NY</h3>
+          <div class="carrier">Plymouth Rock Assurance &middot; Palisades Property &amp; Casualty Insurance Company</div>
+        </div>
+        <div class="policy-price">
+          <div class="amt">$1,438</div>
+          <div class="per">Annual Premium</div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <table class="cov">
+            <tr><th>Coverage</th><th>Limit</th><th>Premium</th></tr>
+            <tr><td>Dwelling (Coverage A)</td><td>$50,000</td><td>$181</td></tr>
+            <tr><td>Personal Property (Coverage C)</td><td>$20,000</td><td>$124</td></tr>
+            <tr><td>Loss of Use (Coverage D)</td><td>$8,000</td><td>$12</td></tr>
+            <tr><td>Personal Liability (Coverage E)</td><td>$500,000</td><td>$31</td></tr>
+            <tr><td>Medical Payments (Coverage F)</td><td>$5,000</td><td>$7</td></tr>
+          </table>
+        </div>
+        <div>
+          <table class="cov">
+            <tr><th>Enhancement</th><th>Limit</th><th>Cost</th></tr>
+            <tr><td>Unit Owner Coverage A &ndash; Special</td><td>&mdash;</td><td>$47</td></tr>
+            <tr><td>Water Backup &amp; Sump Overflow</td><td>$10,000</td><td>$108</td></tr>
+            <tr><td>Blanket Jewelry Coverage</td><td>$50,000</td><td>$925</td></tr>
+            <tr><td>Workers Compensation</td><td>&mdash;</td><td>$3</td></tr>
+            <tr><td>Personal Property Replacement Cost</td><td>&mdash;</td><td>Included</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="chip-row">
+        <span class="chip">Policy Deductible $1,000</span>
+        <span class="chip">Wind Deductible $1,000</span>
+        <span class="chip">Identity Theft Resolution Included</span>
+        <span class="chip">Inflation Guard Included</span>
+        <span class="chip">Limited Fungi/Rot/Bacteria Included</span>
+        <span class="chip">Deductible Discount Applied</span>
+      </div>
+
+      <div class="payment-strip">
+        <div class="pay-opt">
+          <div class="plan">Pay in Full</div>
+          <div class="val">$1,438</div>
+          <div class="sub">No installments</div>
+        </div>
+        <div class="pay-opt">
+          <div class="plan">4 Pay &ndash; EFT</div>
+          <div class="val">$359.50 down</div>
+          <div class="sub">then $359.50 &times; 3</div>
+        </div>
+        <div class="pay-opt">
+          <div class="plan">12 Pay &ndash; EFT</div>
+          <div class="val">$119.84 down</div>
+          <div class="sub">then $119.84 &times; 11</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider wrap"></div>
+
+  <!-- UMBRELLA -->
+  <section class="section wrap">
+    <div class="section-head">
+      <div class="tag">Coverage 03</div>
+      <h2>Personal Umbrella</h2>
+    </div>
+
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <div>
+          <h3>$1,000,000 Umbrella Liability</h3>
+          <div class="carrier">Plymouth Rock Assurance &middot; Palisades Property &amp; Casualty Insurance Company</div>
+        </div>
+        <div class="policy-price">
+          <div class="amt">$447</div>
+          <div class="per">Annual Premium</div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <table class="cov">
+            <tr><th>Coverage</th><th>Limit</th><th>Premium</th></tr>
+            <tr><td>Liability Per Occurrence</td><td>$1,000,000</td><td>$447</td></tr>
+            <tr><td>Aggregate Limit*</td><td>$2,000,000</td><td>&mdash;</td></tr>
+            <tr><td>UM/UIM</td><td>Not Selected</td><td>N/A</td></tr>
+          </table>
+        </div>
+        <div>
+          <table class="cov">
+            <tr><th>Exposure</th><th>Count</th></tr>
+            <tr><td>Licensed Operators</td><td>2</td></tr>
+            <tr><td>Vehicles (PPAs)</td><td>2</td></tr>
+            <tr><td>Owner-Occupied Properties</td><td>1</td></tr>
+            <tr><td>Rental Properties</td><td>0</td></tr>
+            <tr><td>Watercraft</td><td>0</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="note-box">*The aggregate limit equals two times the per-occurrence limit shown. This umbrella sits on top of your auto and condo liability limits to protect your assets beyond the underlying policy limits &mdash; the extra layer that matters if you're ever sued for something serious.</div>
+
+      <div class="payment-strip">
+        <div class="pay-opt">
+          <div class="plan">Pay in Full</div>
+          <div class="val">$447</div>
+          <div class="sub">No installments</div>
+        </div>
+        <div class="pay-opt">
+          <div class="plan">4 Pay</div>
+          <div class="val">$111.75 down</div>
+          <div class="sub">then $111.75 &times; 3</div>
+        </div>
+        <div class="pay-opt">
+          <div class="plan">12 Pay &ndash; EFT</div>
+          <div class="val">$37.25 down</div>
+          <div class="sub">then $37.25 &times; 11</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="savings-bar">
+      <h3>Bundled Under One Roof</h3>
+      <p>Running all three lines through Plymouth Rock means one carrier relationship, coordinated renewal dates, and the Umbrella Companion discount already baked into your auto premium. Simpler claims, simpler service, better price.</p>
+    </div>
+  </section>
+
+  <div class="divider wrap"></div>
+
+  <!-- TOTAL SUMMARY -->
+  <section class="section wrap">
+    <div class="section-head">
+      <div class="tag">The Bottom Line</div>
+      <h2>Total Protection Package</h2>
+    </div>
+    <div class="total-summary">
+      <div class="total-row"><span class="name">Personal Auto (Durango &amp; Grand Cherokee)</span><span class="amt">$3,086</span></div>
+      <div class="total-row"><span class="name">Condo &ndash; 344 Central Park Ave, Apt B24</span><span class="amt">$1,438</span></div>
+      <div class="total-row"><span class="name">$1M Personal Umbrella Liability</span><span class="amt">$447</span></div>
+      <div class="grand-total">
+        <span class="label">Total Annual Premium</span>
+        <span class="value">$4,971</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider wrap"></div>
+
+  <!-- WHY SAFESHIELD -->
+  <section class="section wrap">
+    <div class="section-head">
+      <div class="tag">Why Safeshield</div>
+      <h2>More Than Just a Quote</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="num">69+</div>
+        <h4>Carrier Partners</h4>
+        <p>We shop your risk across the entire market, not just one company's book.</p>
+      </div>
+      <div class="why-card">
+        <div class="num">01</div>
+        <h4>Same-Day Everything</h4>
+        <p>Quotes, ID cards, certs, and policy changes handled the day you ask.</p>
+      </div>
+      <div class="why-card">
+        <div class="num">02</div>
+        <h4>Direct Agent Access</h4>
+        <p>No call centers. You text or call Eric directly, every time.</p>
+      </div>
+      <div class="why-card">
+        <div class="num">03</div>
+        <h4>We Fight for You at Claims Time</h4>
+        <p>When something happens, we advocate on your behalf with the carrier.</p>
+      </div>
+      <div class="why-card">
+        <div class="num">04</div>
+        <h4>Annual Re-Shop Guarantee</h4>
+        <p>Every renewal, we re-check the market to make sure you're still priced right.</p>
+      </div>
+      <div class="why-card">
+        <div class="num">05</div>
+        <h4>Built On Technology</h4>
+        <p>Digital delivery and automated tracking keep your policies organized and on time.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider wrap"></div>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to lock this in?</h2>
+    <p>Reply to this proposal or reach out directly and we'll get your Auto, Condo, and Umbrella policies bound and active.</p>
+    <div class="btn-row">
+      <a href="mailto:eric@gosafeshield.com" class="btn btn-primary">Email Eric Kelly</a>
+      <a href="tel:2038065889" class="btn btn-secondary">Call (203) 806-5889</a>
+    
+<section class="section wrap">
+    <div class="section-head">
+      <div class="tag">Billing &amp; Payment</div>
+      <h2>How You Pay Is Up to You</h2>
+    </div>
+
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <div>
+          <h3>Three Ways to Handle Your Premium</h3>
+          <div class="carrier">Pick one plan per policy &middot; Mix and match if you want</div>
+        </div>
+        <div class="policy-price">
+          <div class="amt">$4,971</div>
+          <div class="per">Combined Annual</div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <span class="veh-label">Pay In Full &mdash; The Cheapest Route</span>
+          <table class="cov">
+            <tr><th>Policy</th><th>Full Pay</th><th>You Save</th></tr>
+            <tr><td>Auto</td><td>$2,840</td><td>~8%</td></tr>
+            <tr><td>Condo</td><td>$1,438</td><td>&mdash;</td></tr>
+            <tr><td>Umbrella</td><td>$447</td><td>&mdash;</td></tr>
+            <tr><td><strong>All Three</strong></td><td><strong>$4,725</strong></td><td><strong>$246</strong></td></tr>
+          </table>
+        </div>
+        <div>
+          <span class="veh-label">12 Pay EFT &mdash; The Easy Route</span>
+          <table class="cov">
+            <tr><th>Policy</th><th>Monthly</th><th>Down</th></tr>
+            <tr><td>Auto</td><td>$255.70</td><td>$275.70</td></tr>
+            <tr><td>Condo</td><td>$119.84</td><td>$119.84</td></tr>
+            <tr><td>Umbrella</td><td>$37.25</td><td>$37.25</td></tr>
+            <tr><td><strong>Blended</strong></td><td><strong>~$413/mo</strong></td><td><strong>$432.79</strong></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="chip-row">
+        <span class="chip">EFT waives the $6 service fee</span>
+        <span class="chip">Auto-pay from checking or credit card</span>
+        <span class="chip">Paperless eDocument delivery</span>
+        <span class="chip">Change plans anytime with one call</span>
+      </div>
+
+      <div class="note-box">Pay-in-full saves you roughly <strong>$246 a year</strong> across the three policies, mostly from the auto discount. If cash flow matters more than the small savings, the 12-pay EFT plan spreads it to about <strong>$413 a month</strong> with no installment fees. Either way, your renewal dates stay coordinated so nothing catches you by surprise.</div>
+
+      <div class="payment-strip">
+        <div class="pay-opt">
+          <div class="plan">Pay in Full</div>
+          <div class="val">$4,725</div>
+          <div class="sub">One payment, best price</div>
+        </div>
+        <div class="pay-opt">
+          <div class="plan">4 Pay Quarterly</div>
+          <div class="val">~$1,258 down</div>
+          <div class="sub">then 3 quarterly installments</div>
+        </div>
+        <div class="pay-opt">
+          <div class="plan">12 Pay EFT</div>
+          <div class="val">~$413/mo</div>
+          <div class="sub">Smallest monthly outlay</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider wrap"></div>
+</div>
+  </section>
+
+  <footer>
+    Prepared by Eric Kelly &middot; Safeshield Insurance &middot; 2777 Summer St, 6th Floor, Stamford, CT 06905<br>
+    This proposal reflects quotes from Plymouth Rock Assurance / Palisades Property and Casualty Insurance Company dated 07/17/2026. Rates subject to change upon final underwriting.
+  </footer>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"chiariello","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
