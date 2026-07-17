@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stherlyne Chery | Homeowners Quote Presentation | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#0a1628;
+    color:#FAFAF8;
+    font-family:'Outfit',sans-serif;
+    font-weight:300;
+    line-height:1.6;
+  }
+  h1,h2,h3,h4 { font-family:'Playfair Display',serif; font-weight:900; }
+  .wrap { max-width:1100px; margin:0 auto; padding:0 24px; }
+  .divider {
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin:64px 0;
+  }
+  /* HERO */
+  .hero {
+    padding:100px 24px 80px;
+    text-align:center;
+    background:radial-gradient(ellipse at top, rgba(0,75,137,0.35), transparent 60%);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .hero .eyebrow {
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:13px;
+    color:#FFA300;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .hero h1 {
+    font-size:52px;
+    margin-bottom:20px;
+    color:#FAFAF8;
+  }
+  .hero h1 span { color:#FFA300; }
+  .hero p.sub {
+    font-size:19px;
+    color:rgba(250,250,248,0.7);
+    max-width:640px;
+    margin:0 auto 36px;
+    font-weight:300;
+  }
+  .hero-meta {
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-top:20px;
+  }
+  .hero-meta div { text-align:center; }
+  .hero-meta .label { font-size:12px; text-transform:uppercase; letter-spacing:2px; color:rgba(250,250,248,0.5); margin-bottom:6px; }
+  .hero-meta .value { font-size:20px; font-weight:600; color:#FAFAF8; }
+
+  /* PREMIUM BANNER */
+  .premium-banner {
+    max-width:520px;
+    margin:48px auto 0;
+    background:rgba(255,163,0,0.08);
+    border:1px solid rgba(255,163,0,0.3);
+    border-radius:20px;
+    padding:32px;
+    text-align:center;
+  }
+  .premium-banner .label { font-size:13px; text-transform:uppercase; letter-spacing:2px; color:#FFA300; margin-bottom:10px; }
+  .premium-banner .amount { font-family:'Playfair Display',serif; font-weight:900; font-size:48px; color:#FAFAF8; }
+  .premium-banner .per { font-size:14px; color:rgba(250,250,248,0.5); margin-top:6px; }
+
+  section { padding:20px 0; }
+  .section-head { text-align:center; margin-bottom:50px; }
+  .section-head .eyebrow { text-transform:uppercase; letter-spacing:3px; font-size:12px; color:#FFA300; font-weight:600; margin-bottom:12px; }
+  .section-head h2 { font-size:36px; }
+
+  /* PROPERTY CARD */
+  .property-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:40px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+  }
+  .property-card .item .label { font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:rgba(250,250,248,0.5); margin-bottom:8px; }
+  .property-card .item .value { font-size:18px; font-weight:600; }
+
+  /* COVERAGE TABLE */
+  .cov-table {
+    width:100%;
+    border-collapse:collapse;
+    background:rgba(255,255,255,0.03);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .cov-table th {
+    text-align:left;
+    background:rgba(0,75,137,0.35);
+    padding:16px 24px;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:#FFA300;
+    font-weight:600;
+  }
+  .cov-table td {
+    padding:16px 24px;
+    border-top:1px solid rgba(255,255,255,0.06);
+    font-size:15px;
+  }
+  .cov-table td.amt { text-align:right; font-weight:600; }
+  .cov-table tr.total td {
+    background:rgba(255,163,0,0.08);
+    font-weight:800;
+    font-size:17px;
+    border-top:2px solid rgba(255,163,0,0.3);
+  }
+  .cov-table td.included { color:#7fd9a8; }
+
+  /* two column grid for discounts / options */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:32px; }
+  .mini-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:28px;
+  }
+  .mini-card h3 { font-size:20px; margin-bottom:20px; color:#FFA300; font-family:'Outfit',sans-serif; font-weight:700; }
+  .mini-card ul { list-style:none; }
+  .mini-card li {
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    font-size:15px;
+  }
+  .mini-card li:last-child { border-bottom:none; }
+  .mini-card li .save { color:#7fd9a8; font-weight:600; }
+  .mini-card li .cost { color:#FAFAF8; font-weight:600; }
+
+  /* PAY PLAN */
+  .pay-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+  }
+  .pay-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:26px 20px;
+    text-align:center;
+    transition:0.2s;
+  }
+  .pay-card.featured {
+    border-color:rgba(255,163,0,0.5);
+    background:rgba(255,163,0,0.06);
+  }
+  .pay-card .plan-name { font-size:13px; text-transform:uppercase; letter-spacing:1.5px; color:#FFA300; margin-bottom:14px; font-weight:600; }
+  .pay-card .down { font-size:24px; font-weight:800; margin-bottom:4px; }
+  .pay-card .down-label { font-size:12px; color:rgba(250,250,248,0.5); margin-bottom:14px; }
+  .pay-card .install { font-size:15px; color:rgba(250,250,248,0.75); }
+
+  /* WHY SAFESHIELD */
+  .why-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .why-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:32px 28px;
+  }
+  .why-card .num { font-family:'Playfair Display',serif; font-size:32px; color:#FFA300; font-weight:900; margin-bottom:14px; }
+  .why-card h4 { font-size:19px; margin-bottom:10px; font-family:'Outfit',sans-serif; font-weight:700; }
+  .why-card p { font-size:14.5px; color:rgba(250,250,248,0.65); }
+
+  /* CTA FOOTER */
+  .cta {
+    text-align:center;
+    padding:90px 24px 100px;
+    background:radial-gradient(ellipse at bottom, rgba(255,163,0,0.12), transparent 65%);
+    border-top:1px solid rgba(255,255,255,0.06);
+  }
+  .cta h2 { font-size:38px; margin-bottom:18px; }
+  .cta p { color:rgba(250,250,248,0.65); font-size:17px; max-width:520px; margin:0 auto 36px; }
+  .btn-row { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .btn {
+    padding:16px 36px;
+    border-radius:100px;
+    font-size:15px;
+    font-weight:600;
+    text-decoration:none;
+    display:inline-block;
+  }
+  .btn-primary { background:#FFA300; color:#0a1628; }
+  .btn-secondary { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.2); color:#FAFAF8; }
+
+  .footer-note { text-align:center; padding:30px 24px; font-size:12.5px; color:rgba(250,250,248,0.35); border-top:1px solid rgba(255,255,255,0.05); }
+
+  .disclaimer { font-size:12.5px; color:rgba(250,250,248,0.4); margin-top:30px; text-align:center; max-width:700px; margin-left:auto; margin-right:auto; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size:34px; }
+    .property-card { grid-template-columns:repeat(2,1fr); }
+    .grid-2 { grid-template-columns:1fr; }
+    .pay-grid { grid-template-columns:repeat(2,1fr); }
+    .why-grid { grid-template-columns:1fr; }
+    .hero-meta { gap:24px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Homeowners Insurance Proposal</div>
+      <h1>Stherlyne Chery, <span>here's your quote.</span></h1>
+      <p class="sub">We shopped your homeowners coverage and put together a plan with Narragansett Bay Insurance that protects your home at 24 Downs Ave the right way — without overpaying for it.</p>
+      <div class="hero-meta">
+        <div><div class="label">Property</div><div class="value">24 Downs Ave, Stamford CT</div></div>
+        <div><div class="label">Policy Type</div><div class="value">Homeowners (HO-3)</div></div>
+        <div><div class="label">Effective</div><div class="value">07/17/2026 – 07/17/2027</div></div>
+      </div>
+      <div class="premium-banner">
+        <div class="label">Estimated Annual Premium</div>
+        <div class="amount">$2,502</div>
+        <div class="per">Narragansett Bay Insurance Company · Quote #CTHQ01733279</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- PROPERTY SNAPSHOT -->
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">The Home We're Insuring</div>
+        <h2>Property Snapshot</h2>
+      </div>
+      <div class="property-card">
+        <div class="item"><div class="label">Year Built</div><div class="value">1975</div></div>
+        <div class="item"><div class="label">Construction</div><div class="value">Frame</div></div>
+        <div class="item"><div class="label">Protection Class</div><div class="value">3</div></div>
+        <div class="item"><div class="label">Territory</div><div class="value">421</div></div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- COVERAGE BREAKDOWN -->
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">What's Covered</div>
+        <h2>Coverage Breakdown</h2>
+      </div>
+      <table class="cov-table">
+        <thead>
+          <tr><th>Coverage</th><th style="text-align:right">Limit</th><th style="text-align:right">Premium</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Coverage A — Dwelling</td><td class="amt">$632,000</td><td class="amt">$2,511.00</td></tr>
+          <tr><td>Coverage B — Other Structures</td><td class="amt">$63,200</td><td class="amt included">Included</td></tr>
+          <tr><td>Coverage C — Personal Property</td><td class="amt">$216,000</td><td class="amt">($50.00)</td></tr>
+          <tr><td>Coverage D — Loss of Use</td><td class="amt">$189,600</td><td class="amt included">Included</td></tr>
+          <tr><td>Coverage E — Personal Liability</td><td class="amt">$500,000</td><td class="amt">$53.00</td></tr>
+          <tr><td>Coverage F — Medical Payments to Others</td><td class="amt">$5,000</td><td class="amt">$12.00</td></tr>
+        </tbody>
+      </table>
+
+      <div class="grid-2">
+        <div class="mini-card">
+          <h3>Discounts & Savings</h3>
+          <ul>
+            <li><span>Age of Home Credit</span><span class="cost">$134.00</span></li>
+            <li><span>Companion Policy Discount</span><span class="save">($113.00)</span></li>
+            <li><span>Protective Devices Discount</span><span class="save">($29.00)</span></li>
+            <li><span>Roof Age & Roof Cover Discount</span><span class="save">($12.00)</span></li>
+            <li><span>AOP Deductible ($2,500)</span><span class="save">($172.00)</span></li>
+            <li><span>Hurricane Deductible (2%)</span><span class="save">($176.00)</span></li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h3>Extra Protection Included</h3>
+          <ul>
+            <li><span>Equipment Breakdown ($100,000)</span><span class="cost">$32.00</span></li>
+            <li><span>Limited Fungi/Wet or Dry Rot Coverage</span><span class="save included">Included</span></li>
+            <li><span>Loss Assessment ($1,000)</span><span class="save included">Included</span></li>
+            <li><span>Ordinance or Law (10%)</span><span class="save included">Included</span></li>
+            <li><span>Personal Property Replacement Cost</span><span class="cost">$214.00</span></li>
+            <li><span>Water Back Up & Sump Overflow ($10,000)</span><span class="cost">$86.00</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <table class="cov-table" style="margin-top:32px;">
+        <tbody>
+          <tr><td>Healthy Homes Fund Surcharge</td><td class="amt" colspan="2">$12.00</td></tr>
+          <tr class="total"><td>Estimated Policy Premium</td><td class="amt" colspan="2">$2,502.00</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PAYMENT OPTIONS -->
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Flexible Payment</div>
+        <h2>Pick Your Pay Plan</h2>
+      </div>
+      <div class="pay-grid">
+        <div class="pay-card featured">
+          <div class="plan-name">Full Pay</div>
+          <div class="down">$2,502.00</div>
+          <div class="down-label">one time</div>
+          <div class="install">No installment fees</div>
+        </div>
+        <div class="pay-card">
+          <div class="plan-name">4-Pay Plan</div>
+          <div class="down">$634.50</div>
+          <div class="down-label">down payment</div>
+          <div class="install">3 payments of $627.50</div>
+        </div>
+        <div class="pay-card">
+          <div class="plan-name">9-Pay Plan</div>
+          <div class="down">$510.00</div>
+          <div class="down-label">down payment</div>
+          <div class="install">8 payments of $254.00</div>
+        </div>
+        <div class="pay-card">
+          <div class="plan-name">11-Pay EFT</div>
+          <div class="down">$427.83</div>
+          <div class="down-label">down payment</div>
+          <div class="install">10 payments of $207.42</div>
+        </div>
+      </div>
+      <p class="disclaimer">$5 service fee applies to each payment on the 4 and 9-pay plans. A $25 fee applies to any returned payment. Rates are not guaranteed and may change. Payment of premium does not automatically bind coverage — coverage is not in effect until confirmed by an authorized Safeshield representative.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- WHY SAFESHIELD -->
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">The Safeshield Difference</div>
+        <h2>Why Homeowners Choose Us</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="num">69+</div>
+          <h4>Carriers, One Advocate</h4>
+          <p>We shopped this across our full carrier panel, not just one company's book, to land on the plan that actually fits your home.</p>
+        </div>
+        <div class="why-card">
+          <div class="num">24hr</div>
+          <h4>Same-Day Everything</h4>
+          <p>Certificates, ID cards, endorsements, policy changes — handled the same day you need them, not "within 3-5 business days."</p>
+        </div>
+        <div class="why-card">
+          <div class="num">1:1</div>
+          <h4>Direct Agent Access</h4>
+          <p>No call centers, no phone trees. You get a direct line to your agent and we're the ones who show up if a claim ever gets complicated.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Ready to lock this in?</h2>
+    <p>Let's get this policy finalized before your effective date. Reach out anytime and we'll walk you through next steps.</p>
+    <div class="btn-row">
+      <a href="tel:2038065889" class="btn btn-primary">Call Eric: (203) 806-5889</a>
+      <a href="mailto:eric@gosafeshield.com" class="btn btn-secondary">Email Eric</a>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Prepared by Eric Kelly · Safeshield Insurance LLC · 2777 Summer Street, 6th Floor, Stamford, CT 06905 · (203) 204-2555<br>
+    This proposal is based on Narragansett Bay Insurance Company Quote #CTHQ01733279, prepared 07/17/2026. Rates subject to change pending final underwriting.
+  </div>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"chery","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
