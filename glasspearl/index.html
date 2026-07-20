@@ -209,6 +209,52 @@
   .trigger{margin-top:16px;background:var(--paper);border:1px solid var(--line);border-radius:12px;
     padding:13px 16px;font-size:13.5px;color:var(--ink)}
   .trigger b{color:var(--navy)}
+
+  /* ===== V2: version switcher ===== */
+  .verbar{display:flex;align-items:center;gap:12px;margin-top:20px;flex-wrap:wrap}
+  .verlabel{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);font-weight:600}
+  .vtabs{display:flex;gap:5px;background:var(--paper);padding:5px;border-radius:99px}
+  .vtab{border:none;background:transparent;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--slate);
+    padding:10px 18px;border-radius:99px;cursor:pointer;transition:all .2s ease;white-space:nowrap;
+    display:flex;align-items:center;gap:8px}
+  .vtab small{font-weight:500;font-size:11px;opacity:.75}
+  .vtab.active{background:var(--navy);color:#fff}
+  .vtab .vdot{width:7px;height:7px;border-radius:99px;background:var(--amber);display:none}
+  .vtab.active .vdot{display:block}
+  @media (max-width:440px){.vtab{padding:9px 13px;font-size:12.5px}}
+
+  /* archive banner (V1) */
+  .archive{margin-top:18px;background:var(--paper);border:1px dashed var(--line);border-radius:14px;
+    padding:14px 18px;font-size:13.5px;color:var(--slate)}
+  .archive b{color:var(--ink)}
+  .archive a{color:var(--navy);font-weight:600;text-decoration:none;cursor:pointer}
+  .archive a:hover{text-decoration:underline}
+
+  /* revision ledger (V2 signature) */
+  .ledger{margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
+  .lrow{display:grid;grid-template-columns:1fr 1.25fr;gap:0;border-bottom:1px solid var(--line)}
+  .lrow:last-child{border-bottom:none}
+  .lask{padding:18px 20px;background:var(--paper);border-right:1px solid var(--line)}
+  .lask .k{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#b9760a;font-weight:700}
+  .lask p{font-size:14px;color:var(--ink);font-weight:500;margin-top:5px;line-height:1.45}
+  .lgot{padding:18px 20px}
+  .lgot .k{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);font-weight:700;
+    display:flex;align-items:center;gap:8px}
+  .lgot p{font-size:14px;color:var(--slate);margin-top:5px;line-height:1.5}
+  .lgot p b{color:var(--ink);font-weight:600}
+  .chip{font-size:10px;font-weight:700;letter-spacing:.05em;padding:3px 9px;border-radius:99px;text-transform:uppercase}
+  .chip.done{background:rgba(31,157,107,.13);color:var(--good)}
+  .chip.motion{background:rgba(255,163,0,.16);color:#b9760a}
+  .chip.call{background:rgba(0,75,137,.1);color:var(--navy)}
+  @media (max-width:560px){.lrow{grid-template-columns:1fr}.lask{border-right:none;border-bottom:1px solid var(--line);padding:14px 18px}.lgot{padding:14px 18px}}
+
+  /* pills for V2 tiles */
+  .pill.new{background:rgba(255,163,0,.16);color:#b9760a}
+  .pill.chg{background:rgba(0,75,137,.1);color:var(--navy)}
+
+  /* umbrella limit toggle inside money (V2) */
+  .u-note{font-size:12.5px;color:var(--slate);margin-top:8px}
+
 </style>
 </head>
 <body>
@@ -219,17 +265,31 @@
       <div class="logo">Safe<span>shield</span> Insurance</div>
       <div class="slogan">We work for you, not the insurance company</div>
     </div>
-    <div class="prepared">Prepared for <b>Martin Lagler, CFO</b><br>GlassPearl LLC &middot; July 15, 2026</div>
+    <div class="prepared">Prepared for <b>Martin Lagler, CFO</b><br>GlassPearl LLC &middot; Updated July 20, 2026</div>
   </div>
 
+  <!-- VERSION SWITCHER -->
+  <div class="verbar fade">
+    <span class="verlabel">Proposal version</span>
+    <div class="vtabs" role="tablist">
+      <button class="vtab" data-ver="1" role="tab">V1 <small>Jul 15</small></button>
+      <button class="vtab active" data-ver="2" role="tab"><span class="vdot"></span>V2 <small>Jul 20</small></button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= VERSION 1 (archived) ================= -->
+<div id="ver1" hidden>
+<div class="wrap">
+  <div class="archive">You are viewing <b>V1, presented July 15</b>. It is kept here exactly as delivered. <a data-goto="2">See what changed in V2 &rarr;</a></div>
   <!-- TABS -->
-  <div class="tabs fade" role="tablist">
+  <div class="tabs fade in" role="tablist">
     <button class="tab active" data-pane="proposal" role="tab">Your Proposal</button>
     <button class="tab" data-pane="scale" role="tab">As You Scale</button>
   </div>
 </div>
 
-<div id="proposalView">
+<div id="proposalView" data-view-pane="proposal">
 <div class="wrap">
   <!-- HERO -->
   <header class="hero">
@@ -453,7 +513,7 @@
 </div>
 </div><!-- /proposalView -->
 
-<div id="scaleView" hidden>
+<div id="scaleView" data-view-pane="scale" hidden>
 <div class="wrap">
   <section class="sec" style="padding-top:40px">
     <div class="sec-eye">The road ahead</div>
@@ -519,6 +579,328 @@
   </section>
 </div>
 </div><!-- /scaleView -->
+</div><!-- /ver1 -->
+
+<!-- ================= VERSION 2 (current) ================= -->
+<div id="ver2">
+<div class="wrap">
+  <!-- V2 SUB TABS -->
+  <div class="tabs fade" role="tablist">
+    <button class="tab active" data-pane="proposal" role="tab">Updated Proposal</button>
+    <button class="tab" data-pane="scale" role="tab">As You Scale</button>
+  </div>
+</div>
+
+<div id="proposalView2" data-view-pane="proposal">
+<div class="wrap">
+  <!-- HERO -->
+  <header class="hero" style="padding-bottom:26px">
+    <div class="eyebrow fade">Round two, built from your review</div>
+    <h1 class="fade" style="font-size:clamp(34px,7.5vw,58px)">GlassPearl LLC</h1>
+    <p class="lede fade">On July 17 you went through round one line by line and asked for a bigger, tighter program. This version is the answer: <b>your MSA endorsements are already written into the policy, the umbrella now reaches $10M, the full executive package is quoted, and cyber is in motion.</b> Every change below traces back to something you asked for.</p>
+  </header>
+</div>
+
+<div class="wrap">
+  <!-- LEDGER -->
+  <section class="sec" style="padding-top:0">
+    <div class="sec-eye fade">Your review, answered</div>
+    <h2 class="fade">What changed and why</h2>
+    <p class="sub fade">Each row pairs what you asked for on the 17th with where it stands today.</p>
+
+    <div class="ledger fade">
+      <div class="lrow">
+        <div class="lask"><div class="k">You asked</div><p>Confirm the MSA requirements: additional insured and primary &amp; non-contributory.</p></div>
+        <div class="lgot"><div class="k"><span class="chip done">Done</span></div><p><b>Both endorsements, plus a waiver of subrogation, are now written into the General Liability.</b> When your first MSA lands, the certificate matches it on day one.</p></div>
+      </div>
+      <div class="lrow">
+        <div class="lask"><div class="k">You asked</div><p>Raise the umbrella to $5M and show a $10M comparison.</p></div>
+        <div class="lgot"><div class="k"><span class="chip done">Done</span></div><p><b>$5M is quoted at $3,086. $10M is confirmed available at $6,112</b> and needs a quick carrier referral at that limit. Use the toggle in the investment section to compare totals.</p></div>
+      </div>
+      <div class="lrow">
+        <div class="lask"><div class="k">You asked</div><p>Cyber at $2M and $5M with breach response, cyber business interruption, ransomware, and funds transfer features.</p></div>
+        <div class="lgot"><div class="k"><span class="chip motion">In motion</span></div><p><b>Cyber moved from declined to a dedicated line, per your reversal.</b> The market quotes it the moment your supplemental questionnaire is in, at both $2M and $5M.</p></div>
+      </div>
+      <div class="lrow">
+        <div class="lask"><div class="k">You asked</div><p>Combined Tech E&amp;O and Cyber, and whether it carries one aggregate or separate limits.</p></div>
+        <div class="lgot"><div class="k"><span class="chip done">Answered</span></div><p><b>The form we are quoting combines Tech E&amp;O and third party cyber under one shared aggregate.</b> We will walk you through that tradeoff against separate towers before you choose.</p></div>
+      </div>
+      <div class="lrow">
+        <div class="lask"><div class="k">You asked</div><p>D&amp;O quoted at $2M and $5M.</p></div>
+        <div class="lgot"><div class="k"><span class="chip call">Your call</span></div><p><b>$2M is quoted with an additional $1M dedicated to the executives.</b> This market caps D&amp;O at $3M, so we can show $3M as the ceiling here, or build excess D&amp;O on top to reach $5M if that limit matters to you.</p></div>
+      </div>
+      <div class="lrow">
+        <div class="lask"><div class="k">You asked</div><p>Crime and fidelity with $1M social engineering and funds transfer fraud.</p></div>
+        <div class="lgot"><div class="k"><span class="chip motion">In motion</span></div><p><b>Funds transfer fraud is at the full $1M now.</b> The $1M social engineering limit requires a short carrier application plus two banking procedure documents. If you do not have them yet, we provide the templates.</p></div>
+      </div>
+      <div class="lrow">
+        <div class="lask"><div class="k">You asked</div><p>EPLI at $1M, hired &amp; non-owned auto at $1M, and specimen policy forms.</p></div>
+        <div class="lgot"><div class="k"><span class="chip done">Done</span></div><p><b>EPLI $1M and kidnap, ransom &amp; extortion are quoted, hired &amp; non-owned auto is included in the liability package, and the specimen forms are compiled</b> and coming with our email.</p></div>
+      </div>
+      <div class="lrow">
+        <div class="lask"><div class="k">You asked</div><p>Confirm the future equipment program: replacement cost at third party data centers, equipment breakdown, transit, business income, lender loss payee.</p></div>
+        <div class="lgot"><div class="k"><span class="chip done">Confirmed</span></div><p><b>Every element you listed is available and staged.</b> The program gets built around the real site and gear the moment your first deal signs, exactly as designed in round one.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section class="sec">
+    <div class="sec-eye fade">Your coverage, version 2</div>
+    <h2 class="fade">The expanded program</h2>
+    <p class="sub fade">Tap any line for the plain language version. Badges show what moved since V1.</p>
+
+    <div class="tiles">
+
+      <!-- GL / BOP -->
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">General Liability</div>
+            <div class="tile-tag">Now carrying your MSA endorsements</div>
+          </div>
+          <span class="pill chg">Upgraded</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Same foundation as V1: $2M / $4M limits, classified correctly as data hosting, rated on your real $9M projection. What changed is the contract machinery. <b>Additional insured, primary &amp; non-contributory, and waiver of subrogation are now part of the policy</b>, which is exactly what your customer MSAs will demand. Hired &amp; non-owned auto rides along inside the same package.</p>
+          <div class="covs">
+            <div class="cov"><div class="dot"></div><div><b>$2,000,000 per occurrence / $4,000,000 aggregate</b><span>Unchanged from V1, already sized for sophisticated counterparties.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>MSA endorsement package</b><span>Additional insured, primary &amp; non-contributory, waiver of subrogation. New in V2.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>$1M hired &amp; non-owned auto included</b><span>The auto exposure you actually have, folded in rather than sold separately.</span></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- UMBRELLA -->
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v2"/><path d="M3 12a9 9 0 0118 0z"/><path d="M12 12v6a2.5 2.5 0 005 0"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Commercial Umbrella</div>
+            <div class="tile-tag">$5M quoted, $10M on the table</div>
+          </div>
+          <span class="pill chg">Raised</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">V1 carried $3M. Per your review, <b>the quoted limit is now $5M, and the $10M comparison you asked for is real: confirmed available at $6,112</b>, subject to a quick carrier referral at that limit. Toggle between the two in the investment section below to see the total either way.</p>
+          <div class="covs">
+            <div class="cov"><div class="dot"></div><div><b>$5,000,000 each occurrence and aggregate</b><span>Stacked above the $2M/$4M primary for $7M of total liability protection.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>$10,000,000 option priced</b><span>One decision away. No re-shopping, no delay.</span></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- EXECUTIVE PACKAGE -->
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a3 3 0 100 6 3 3 0 000-6z"/><path d="M5 21v-2a5 5 0 015-5h4a5 5 0 015 5v2"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Executive Package</div>
+            <div class="tile-tag">D&amp;O, EPLI, Crime, and Kidnap Ransom &amp; Extortion</div>
+          </div>
+          <span class="pill new">Expanded</span>
+          <span class="info-wrap">
+            <button class="info" type="button" aria-label="About the D&amp;O limit" aria-expanded="false">i</button>
+            <span class="tip" role="tooltip"><b>On your $5M D&amp;O ask:</b> this market caps at $3M. We can quote $3M here, or build excess D&amp;O above it to reach $5M. Tell us which and it happens.</span>
+          </span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">V1 quoted D&amp;O alone. V2 is the full private company suite you asked for, in one package: <b>the founders, the employment exposure, the money, and the people, protected together.</b></p>
+          <div class="covs">
+            <div class="cov"><div class="dot"></div><div><b>D&amp;O: $2,000,000 + $1,000,000 dedicated to executives</b><span>Full prior acts, duty to defend, $50,000 retention. $3M and excess options available on your word.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>EPLI: $1,000,000</b><span>Employment practices protection as you hire into the buildout. New in V2.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Crime: $1,000,000 on employee theft, computer fraud, and funds transfer fraud</b><span>The full limit you asked for on funds transfer. New in V2.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Kidnap, Ransom &amp; Extortion: $1,000,000</b><span>Founder travel to data center markets, covered. New in V2.</span></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- TECH E&O / CYBER -->
+      <div class="tile fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Tech E&amp;O + Cyber</div>
+            <div class="tile-tag">One form, one aggregate, quoted at $2M and $5M</div>
+          </div>
+          <span class="pill soon">Pending your input</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">The biggest structural change from V1, and it came from you. <b>The form combines your professional liability and third party cyber under a single shared aggregate</b>, with first party protection, breach response, cyber business interruption, and extortion coverage being added to the quote. One thing releases it: the supplemental questionnaire below. Retention options run $5,000 to $100,000, your choice.</p>
+          <div class="covs">
+            <div class="cov"><div class="dot"></div><div><b>$2M and $5M options</b><span>Both limits quoted so you can decide with numbers in front of you.</span></div></div>
+            <div class="cov"><div class="dot"></div><div><b>Uptime is the real exposure</b><span>Your customers run on your metal. If your obligations are ever challenged, this is the line that responds.</span></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- SOCIAL ENGINEERING UPGRADE -->
+      <div class="tile fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 5 5.5.8-4 3.9.9 5.6L12 14.8 6.6 17.3l.9-5.6-4-3.9L9 7z"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">$1M Social Engineering Upgrade</div>
+            <div class="tile-tag">For a company about to wire millions for hardware</div>
+          </div>
+          <span class="pill soon">Pending your input</span>
+          <span class="info-wrap">
+            <button class="info" type="button" aria-label="Why this needs documents" aria-expanded="false">i</button>
+            <span class="tip" role="tooltip"><b>Why the carrier asks:</b> at a $1M limit they want to see a wire transfer authority matrix and written procedures for vendor bank changes. Most month-old companies have neither. We drafted both as templates you can adopt.</span>
+          </span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">You will soon be wiring seven and eight figure payments to equipment vendors. That is exactly the traffic wire fraud targets. The base quote carries a standard sublimit; <b>you asked for the full $1,000,000, and it is available</b> once the questionnaire and two short banking procedure documents are in. We supply the templates, which also happen to be the controls a company your size should be running anyway.</p>
+        </div></div>
+      </div>
+
+      <!-- PROPERTY (staged, unchanged) -->
+      <div class="tile fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v6H4z"/><path d="M4 14h16v6H4z"/><path d="M7 7h.01M7 17h.01"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Property &amp; Equipment</div>
+            <div class="tile-tag">Staged, and every element you listed is confirmed</div>
+          </div>
+          <span class="pill soon">Staged</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Unchanged from V1 by design, and now confirmed against your checklist: <b>replacement cost on equipment at third party data centers, equipment breakdown, transit and installation, business income and extra expense, utility service interruption, and your lender named as loss payee</b> are all available the day your first deal signs. Send the site, the gear list, and the lender, and the schedule gets built while the racks ship.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MONEY -->
+  <section class="sec">
+    <div class="sec-eye fade">Your investment, version 2</div>
+    <h2 class="fade">The expanded program, priced</h2>
+    <p class="sub fade">Everything below is quoted and ready. Flip the umbrella toggle to compare the $5M and $10M builds. The cyber and social engineering lines price the moment your questionnaire is in.</p>
+
+    <div class="money fade">
+      <div class="money-top">
+        <div class="toggle" role="tablist">
+          <button class="active" data-ulimit="5" role="tab">$5M Umbrella</button>
+          <button data-ulimit="10" role="tab">$10M Umbrella</button>
+        </div>
+        <p class="u-note" id="uNote">$5M each occurrence and aggregate, quoted at $3,086.</p>
+      </div>
+
+      <div class="rows">
+        <div class="row">
+          <div class="l">General Liability package<small>$2M / $4M, MSA endorsements, $1M hired &amp; non-owned auto included</small></div>
+          <div class="v">$5,656</div>
+        </div>
+        <div class="row">
+          <div class="l">Commercial Umbrella<small id="uRowNote">$5M each occurrence and aggregate</small></div>
+          <div class="v" id="uRowVal">$3,086</div>
+        </div>
+        <div class="row">
+          <div class="l">Executive Package<small>D&amp;O $2M + $1M executives, EPLI $1M, Crime $1M, Kidnap Ransom &amp; Extortion $1M</small></div>
+          <div class="v">$9,598</div>
+        </div>
+        <div class="row">
+          <div class="l">Tech E&amp;O + Cyber<small>$2M and $5M options, one shared aggregate</small></div>
+          <div class="v" style="font-size:14px;color:var(--slate)">Prices on your questionnaire</div>
+        </div>
+        <div class="row">
+          <div class="l">$1M Social Engineering upgrade<small>Questionnaire + banking procedure documents</small></div>
+          <div class="v" style="font-size:14px;color:var(--slate)">Prices on your questionnaire</div>
+        </div>
+      </div>
+      <div class="total">
+        <div class="l" id="totalLabel2">Quoted today</div>
+        <div class="v" id="totalVal2">$18,340 <small>annual, as quoted</small></div>
+      </div>
+
+      <p class="fineprint">Figures are the quoted annual premiums, policy period 07/17/2026 to 07/17/2027, and each policy bills on its own schedule. The executive package quote is valid through September 13, 2026. The $10M umbrella is subject to carrier referral and final underwriting review, and endorsement premiums are subject to final carrier worksheets. Coverage is designed to respond subject to the terms of each policy.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta fade">
+    <h2>One questionnaire moves everything.</h2>
+    <p>About ten minutes, online, from your phone. It releases the cyber quote at both limits, unlocks the $1M social engineering upgrade, and finishes the carrier paperwork we have already two thirds completed for you.</p>
+    <a class="btn" href="https://intake.gosafeshield.com/glasspearl-llc-supplemental-underwriting-questionnaire/" target="_blank" rel="noopener">Complete the questionnaire</a>
+    <a class="btn-ghost" href="mailto:austin@gosafeshield.com?subject=GlassPearl%20LLC%20-%20V2%20questions">Questions first? Email Austin</a>
+    <span class="alt">or call <a href="tel:2035649817">(203) 564-9817</a></span>
+  </section>
+</div>
+</div><!-- /proposalView2 -->
+
+<div id="scaleView2" data-view-pane="scale" hidden>
+<div class="wrap">
+  <section class="sec" style="padding-top:40px">
+    <div class="sec-eye">The road ahead</div>
+    <h2>Coverage that scales the way you do</h2>
+    <p class="sub">Martin, your business grows in steps: a deal signs, equipment deploys, a new site lights up. The insurance program moves in the same steps. V2 pulls cyber forward into the foundation, per your review; the rest of the road is unchanged.</p>
+  </section>
+
+  <div class="phase now">
+    <div class="phase-head">
+      <div class="phase-num">1</div>
+      <div class="phase-title">The foundation</div>
+      <div class="phase-when">Now</div>
+    </div>
+    <div class="phase-body">
+      <p><b>This is the V2 proposal.</b> The operation, the founders, and now the digital exposure protected while you close your first deal.</p>
+      <div class="covs">
+        <div class="cov"><div class="dot"></div><div><b>General Liability + MSA endorsements</b><span>$2M / $4M with the contract machinery your customers will require.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Executive Package</b><span>D&amp;O, EPLI, Crime, and KR&amp;E, the founders covered from day one.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>$5M Umbrella, $10M priced</b><span>Real limits before the first MSA asks for them.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Tech E&amp;O + Cyber</b><span>Moved into the foundation per your review. Quotes on your questionnaire.</span></div></div>
+      </div>
+      <div class="trigger"><b>Trigger:</b> your questionnaire, then your go-ahead. Binds same day.</div>
+    </div>
+  </div>
+
+  <div class="phase next">
+    <div class="phase-head">
+      <div class="phase-num">2</div>
+      <div class="phase-title">First deal signs</div>
+      <div class="phase-when">Expected Sep&ndash;Oct</div>
+    </div>
+    <div class="phase-body">
+      <p><b>The property program gets built around the real deal.</b> You send three things: the data center lease's insurance requirements, the equipment list with values, and your lender's information. We take it from there.</p>
+      <div class="covs">
+        <div class="cov"><div class="dot"></div><div><b>Equipment schedule at replacement cost</b><span>Your servers, PDUs, and switches, covered at the third party site.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Equipment breakdown, transit, and installation</b><span>Covered from the loading dock to the live rack.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Business income and utility interruption</b><span>The revenue stream protected if covered damage takes the site down.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Lease and lender compliance</b><span>The DC operator and your equipment lender named exactly as their contracts require.</span></div></div>
+      </div>
+      <div class="trigger"><b>Trigger:</b> signed deal. Send us the lease, the gear list, and the lender, and the schedule is built while the racks ship.</div>
+    </div>
+  </div>
+
+  <div class="phase next">
+    <div class="phase-head">
+      <div class="phase-num">3</div>
+      <div class="phase-title">Every deal after</div>
+      <div class="phase-when">Ongoing</div>
+    </div>
+    <div class="phase-body">
+      <p><b>Scaling becomes routine.</b> Each new project is an addition to the schedule you already have, not a new placement. New site, new values, updated schedule, done. Limits move whenever a contract calls for it, and the umbrella path through $10M is already priced.</p>
+      <div class="trigger"><b>Trigger:</b> each new deal. One email with the site and values, and coverage keeps pace.</div>
+    </div>
+  </div>
+
+  <section class="cta fade" style="margin-top:34px">
+    <h2>One broker, every phase.</h2>
+    <p>The point of building it this way is simple: you focus on landing deals, and the coverage is never the thing holding one up.</p>
+    <a class="btn" href="https://intake.gosafeshield.com/glasspearl-llc-supplemental-underwriting-questionnaire/" target="_blank" rel="noopener">Complete the questionnaire</a>
+    <span class="alt">or call <a href="tel:2035649817">(203) 564-9817</a></span>
+  </section>
+</div>
+</div><!-- /scaleView2 -->
+</div><!-- /ver2 -->
+
 
 <div class="wrap">
   <!-- FOOTER -->
@@ -534,21 +916,37 @@
 </div>
 
 <script>
-  // tab switching (proposal / scale)
-  var tabs=document.querySelectorAll('.tab');
-  var pv=document.getElementById('proposalView');
-  var sv=document.getElementById('scaleView');
-  tabs.forEach(function(t){
-    t.addEventListener('click',function(){
-      tabs.forEach(function(x){x.classList.remove('active')});
-      t.classList.add('active');
-      var scale=t.dataset.pane==='scale';
-      sv.hidden=!scale; pv.hidden=scale;
-      window.scrollTo({top:0,behavior:'smooth'});
+  // ----- version switching -----
+  var vroots={ '1':document.getElementById('ver1'), '2':document.getElementById('ver2') };
+  var vtabs=document.querySelectorAll('.vtab');
+  function showVer(v){
+    vtabs.forEach(function(t){t.classList.toggle('active',t.dataset.ver===v)});
+    Object.keys(vroots).forEach(function(k){vroots[k].hidden=(k!==v)});
+    // reveal fades in the shown version immediately
+    vroots[v].querySelectorAll('.fade').forEach(function(el){el.classList.add('in')});
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  vtabs.forEach(function(t){t.addEventListener('click',function(){showVer(t.dataset.ver)})});
+  document.querySelectorAll('[data-goto]').forEach(function(a){
+    a.addEventListener('click',function(){showVer(a.dataset.goto)});
+  });
+
+  // ----- sub tabs (proposal / scale), scoped per version -----
+  Object.keys(vroots).forEach(function(k){
+    var root=vroots[k];
+    var tabs=root.querySelectorAll('.tab');
+    var panes=root.querySelectorAll('[data-view-pane]');
+    tabs.forEach(function(t){
+      t.addEventListener('click',function(){
+        tabs.forEach(function(x){x.classList.remove('active')});
+        t.classList.add('active');
+        panes.forEach(function(p){p.hidden=(p.dataset.viewPane!==t.dataset.pane)});
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
     });
   });
 
-  // reveal on scroll
+  // ----- reveal on scroll -----
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
   },{threshold:.12});
@@ -556,7 +954,7 @@
     el.style.transitionDelay=(Math.min(i,6)*40)+'ms';io.observe(el);
   });
 
-  // tappable tiles
+  // ----- tappable tiles -----
   document.querySelectorAll('.tile-head').forEach(function(h){
     function toggle(){
       var t=h.closest('.tile');var open=t.classList.toggle('open');
@@ -568,14 +966,15 @@
     });
   });
 
-  // investment totals (pay-in-full / monthly)
-  var invBtns=document.querySelectorAll('.toggle button');
+  // ----- V1 investment totals (pay-in-full / monthly), unchanged -----
+  var invBtns=document.querySelectorAll('#ver1 .toggle button');
   var invView='year';
   function renderInv(){
     var annual=11422;
     var monthly=Math.round(annual/12/10)*10;
     var lbl=document.getElementById('totalLabel');
     var val=document.getElementById('totalVal');
+    if(!lbl||!val)return;
     if(invView==='month'){
       lbl.textContent='Estimated monthly';
       val.innerHTML='~$'+monthly.toLocaleString()+' <small>/ month</small>';
@@ -593,7 +992,37 @@
     });
   });
 
-  // info tooltip (hover on desktop, tap on touch)
+  // ----- V2 umbrella limit toggle -----
+  var uBtns=document.querySelectorAll('#ver2 .toggle button');
+  function renderU(limit){
+    var base=5656+9598;
+    var uVal=(limit==='10')?6112:3086;
+    var note=document.getElementById('uNote');
+    var rowNote=document.getElementById('uRowNote');
+    var rowVal=document.getElementById('uRowVal');
+    var tLbl=document.getElementById('totalLabel2');
+    var tVal=document.getElementById('totalVal2');
+    if(limit==='10'){
+      note.textContent='$10M each occurrence and aggregate, confirmed at $6,112, subject to carrier referral.';
+      rowNote.textContent='$10M each occurrence and aggregate, subject to carrier referral';
+      tLbl.textContent='With $10M umbrella';
+    }else{
+      note.textContent='$5M each occurrence and aggregate, quoted at $3,086.';
+      rowNote.textContent='$5M each occurrence and aggregate';
+      tLbl.textContent='Quoted today';
+    }
+    rowVal.textContent='$'+uVal.toLocaleString();
+    tVal.innerHTML='$'+(base+uVal).toLocaleString()+' <small>annual, as quoted</small>';
+  }
+  uBtns.forEach(function(b){
+    b.addEventListener('click',function(){
+      uBtns.forEach(function(x){x.classList.remove('active')});
+      b.classList.add('active');
+      renderU(b.dataset.ulimit);
+    });
+  });
+
+  // ----- info tooltips -----
   document.querySelectorAll('.info').forEach(function(btn){
     var wrap=btn.closest('.info-wrap');
     btn.addEventListener('click',function(e){
