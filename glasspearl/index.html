@@ -299,6 +299,19 @@
   .rwhy b{display:block;font-size:14px;color:var(--ink);margin-bottom:3px}
   .rwhy p{margin:0;font-size:12.5px;color:var(--slate);line-height:1.55}
 
+  
+  .check{margin-top:18px;background:var(--white);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .crow{display:grid;grid-template-columns:96px 1fr auto;gap:14px;align-items:center;
+    padding:14px 18px;border-bottom:1px solid var(--line)}
+  .crow:last-child{border-bottom:none}
+  .crow .ct{font-size:14px;color:var(--ink)}
+  .crow .ct small{display:block;font-size:12.5px;color:var(--slate);margin-top:2px}
+  .crow .go{font-size:13px;font-weight:700;color:var(--navy);cursor:pointer;white-space:nowrap;text-decoration:none}
+  .crow .go:hover{text-decoration:underline}
+  .cgroup{padding:12px 18px 6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    font-weight:700;color:var(--slate);background:var(--paper);border-bottom:1px solid var(--line)}
+  @media(max-width:640px){.crow{grid-template-columns:84px 1fr;row-gap:6px}.crow .go{grid-column:2}}
+
   </style>
 </head>
 <body>
@@ -953,6 +966,7 @@
   <!-- V3 SUB TABS -->
   <div class="tabs fade" role="tablist">
     <button class="tab active" data-pane="proposal" role="tab">Updated Proposal</button>
+    <button class="tab" data-pane="check" role="tab">The Checklist</button>
     <button class="tab" data-pane="scale" role="tab">As You Scale</button>
   </div>
 </div>
@@ -969,7 +983,7 @@
 
 <div class="wrap">
   <!-- WHATS NEW -->
-  <section class="sec" style="padding-top:0">
+  <section class="sec" style="padding-top:0" id="v3-since">
     <div class="sec-eye fade">Since V2</div>
     <h2 class="fade">Three things moved</h2>
 
@@ -984,13 +998,13 @@
       </div>
       <div class="lrow">
         <div class="lask"><div class="k">You asked</div><p>The $1M social engineering limit on the crime policy.</p></div>
-        <div class="lgot"><div class="k"><span class="chip done">Sized</span></div><p><b>Day one: $250,000 on social engineering, and the full $1,000,000 on funds transfer fraud.</b> Carriers scale the social engineering limit to company financials, so we sized it to where GlassPearl is today and mapped the step-up: as your balance sheet matures over the first 6&ndash;12 months, we move it to $1M, and sharing financials with the carrier can accelerate that review.</p></div>
+        <div class="lgot"><div class="k"><span class="chip done">Done</span></div><p><b>Day one: $250,000 on social engineering, and the full $1,000,000 on funds transfer fraud.</b> Carriers scale the social engineering limit to company financials, so we sized it to where GlassPearl is today and mapped the step-up: as your balance sheet matures over the first 6&ndash;12 months, we move it to $1M, and sharing financials with the carrier can accelerate that review.</p></div>
       </div>
     </div>
   </section>
 
   <!-- PROPERTY: PRICED -->
-  <section class="sec">
+  <section class="sec" id="v3-property">
     <div class="sec-eye fade">Your equipment, priced</div>
     <h2 class="fade">The property program, first numbers</h2>
     <p class="sub fade">This is an early indication from initial carrier review, shared before full underwriting completes so you can budget with real figures instead of waiting. Final pricing follows large-account review closer to deployment.</p>
@@ -1037,7 +1051,7 @@
   </section>
 
   <!-- AS DEPLOYMENT APPROACHES -->
-  <section class="sec" style="padding-top:6px">
+  <section class="sec" style="padding-top:6px" id="v3-deploy">
     <div class="sec-eye fade">As deployment approaches</div>
     <h2 class="fade">Built when the deal signs</h2>
     <p class="sub fade">Three pieces of the property program are deliberately not priced yet, because each one is shaped by facts that only exist once your deal signs. Here is what they are and when they happen.</p>
@@ -1140,7 +1154,7 @@
   </section>
 
   <!-- MONEY -->
-  <section class="sec">
+  <section class="sec" id="v3-money">
     <div class="sec-eye fade">Your investment, version 3</div>
     <h2 class="fade">The full picture</h2>
     <p class="sub fade">The liability and executive program is quoted and ready to bind. Property carries its early indication. Cyber prices are in final carrier review, released by your questionnaire.</p>
@@ -1198,6 +1212,45 @@
   </section>
 </div>
 </div><!-- /proposalView3 -->
+
+<div id="checkView3" data-view-pane="check" hidden>
+<div class="wrap">
+  <section class="sec" style="padding-top:40px">
+    <div class="sec-eye">Every ask, accounted for</div>
+    <h2>The checklist</h2>
+    <p class="sub">Everything raised since our first call, where it stands, and where it lives on this page. Tap any item to jump to it.</p>
+
+    <div class="check">
+      <div class="cgroup">From your July 17 review</div>
+      <div class="crow"><span class="chip done">Done</span><div class="ct">MSA endorsements on the General Liability<small>Additional insured, primary &amp; non-contributory, plus waiver of subrogation, written into the policy</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
+      <div class="crow"><span class="chip done">Done</span><div class="ct">Umbrella raised to $5M, $10M comparison priced<small>$5M quoted at $3,086; $10M confirmed at $6,112, toggle in the investment section</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
+      <div class="crow"><span class="chip call">Your call</span><div class="ct">D&amp;O at $2M and $5M<small>$2M + $1M dedicated executive limit quoted; this market ceilings at $3M, excess path to $5M on your word</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
+      <div class="crow"><span class="chip done">Done</span><div class="ct">EPLI at $1M<small>Quoted inside the executive package</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
+      <div class="crow"><span class="chip done">Done</span><div class="ct">Crime with $1M funds transfer fraud<small>Full $1,000,000 on funds transfer, quoted inside the executive package</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
+      <div class="crow"><span class="chip done">Done</span><div class="ct">Social engineering coverage<small>$250K day one, sized to current financials, step-up to $1M mapped over 6&ndash;12 months</small></div><a class="go" data-jump="v3-since" data-jumppane="proposal">See it &rarr;</a></div>
+      <div class="crow"><span class="chip done">Done</span><div class="ct">Hired &amp; non-owned auto at $1M<small>Included inside the liability package rather than sold separately</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
+      <div class="crow"><span class="chip done">Done</span><div class="ct">Kidnap, Ransom &amp; Extortion<small>$1M quoted inside the executive package</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
+      <div class="crow"><span class="chip done">Done</span><div class="ct">Specimen policy forms<small>Compiled and delivered with our email</small></div><span class="go" style="color:var(--slate);cursor:default;font-weight:600">In your inbox</span></div>
+      <div class="crow"><span class="chip motion">In motion</span><div class="ct">Tech E&amp;O + Cyber at $2M and $5M, one shared aggregate<small>Combined form confirmed; released into final carrier review by your questionnaire</small></div><a class="go" data-jump="v3-since" data-jumppane="proposal">See it &rarr;</a></div>
+      <div class="crow"><span class="chip done">Done</span><div class="ct">Future equipment program confirmed<small>Replacement cost at third-party sites, equipment breakdown, transit, business income, utility interruption, lender loss payee, all confirmed available</small></div><a class="go" data-jump="v3-deploy" data-jumppane="proposal">See it &rarr;</a></div>
+
+      <div class="cgroup">Since then</div>
+      <div class="crow"><span class="chip done">Done</span><div class="ct">Supplemental underwriting questionnaire<small>Completed by you July 20, releasing the cyber quote and finishing both carrier applications</small></div><a class="go" data-jump="v3-since" data-jumppane="proposal">See it &rarr;</a></div>
+      <div class="crow"><span class="chip done">Priced</span><div class="ct">Property program, first numbers<small>Your $39.4M schedule at Fulcrum, early indication $38K&ndash;$48K at a $25K deductible, large-account review under way</small></div><a class="go" data-jump="v3-property" data-jumppane="proposal">See it &rarr;</a></div>
+      <div class="crow"><span class="chip motion">At deal signing</span><div class="ct">Transit &amp; installation structure<small>Priced per shipment against your real logistics plan; explore which structure fits you</small></div><a class="go" data-jump="v3-deploy" data-jumppane="proposal">See it &rarr;</a></div>
+      <div class="crow"><span class="chip motion">At financing</span><div class="ct">Lender loss payee<small>Named the day your financing is placed, to the lender's exact requirements</small></div><a class="go" data-jump="v3-deploy" data-jumppane="proposal">See it &rarr;</a></div>
+    </div>
+  </section>
+
+  <section class="cta fade" style="margin-top:34px">
+    <h2>Nothing raised, nothing dropped.</h2>
+    <p>Every item lands here with a status and a home. If anything is missing from this list, that is a bug: tell me and it gets a row.</p>
+    <a class="btn" href="mailto:austin@gosafeshield.com?subject=GlassPearl%20LLC%20-%20checklist">Email Austin</a>
+    <span class="alt">or call <a href="tel:2035649817">(203) 564-9817</a></span>
+  </section>
+</div>
+</div><!-- /checkView3 -->
+
 
 <div id="scaleView3" data-view-pane="scale" hidden>
 <div class="wrap">
@@ -1471,6 +1524,20 @@
     root.addEventListener('click',function(e){e.stopPropagation();});
     root.addEventListener('keydown',function(e){e.stopPropagation();});
   })();
+
+
+  // ----- V3 checklist jumps -----
+  document.querySelectorAll('#ver3 [data-jump]').forEach(function(a){
+    a.addEventListener('click',function(){
+      var root=vroots['3'];
+      var pane=a.dataset.jumppane, target=a.dataset.jump;
+      root.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('active',t.dataset.pane===pane)});
+      root.querySelectorAll('[data-view-pane]').forEach(function(p){p.hidden=(p.dataset.viewPane!==pane)});
+      var el=document.getElementById(target);
+      if(el){el.querySelectorAll('.fade').forEach(function(f){f.classList.add('in')});
+        setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},60);}
+    });
+  });
 
 </script>
 </body>
