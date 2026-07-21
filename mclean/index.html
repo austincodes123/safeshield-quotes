@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Homeowner's Proposal | 14 Glen Lane | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0b2e5c;
+    --navy-deep:#071f3f;
+    --navy-ink:#12233c;
+    --paper:#f7f5f0;
+    --card:#ffffff;
+    --orange:#f7941d;
+    --orange-deep:#e07c00;
+    --green:#1d7a4f;
+    --green-soft:#e7f4ec;
+    --line:#dcd7cc;
+    --muted:#5b6b80;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(7,31,63,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Public Sans',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--navy-ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Bricolage Grotesque',sans-serif}
+
+  /* ============ HERO ============ */
+  .hero{
+    background:linear-gradient(160deg,var(--navy-deep) 0%,var(--navy) 62%,#144a8f 100%);
+    color:#fff;
+    padding:52px 24px 150px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 60% 45% at 85% 10%, rgba(247,148,29,.16), transparent 65%),
+      radial-gradient(ellipse 45% 40% at 8% 90%, rgba(255,255,255,.05), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
+  .brandline{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:44px}
+  .brand{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.35rem;letter-spacing:.01em}
+  .brand span{color:var(--orange)}
+  .prep-tag{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 16px;text-align:center;max-width:100%;line-height:1.5}
+  .eyebrow{color:var(--orange);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.8rem;margin-bottom:14px}
+  .hero h1{font-size:clamp(2rem,5.4vw,3.4rem);font-weight:800;line-height:1.08;letter-spacing:-.015em;max-width:760px}
+  .hero .sub{margin-top:18px;font-size:1.05rem;color:rgba(255,255,255,.82);max-width:640px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:34px}
+  .hero-meta div{font-size:.86rem}
+  .hero-meta .k{color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;display:block;margin-bottom:3px}
+  .hero-meta .v{font-weight:600}
+
+  /* ============ TOGGLE + PRICE PANEL ============ */
+  .panel-wrap{max-width:960px;margin:-108px auto 0;padding:0 24px;position:relative;z-index:2}
+  .panel{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden}
+  .tabs{display:flex;background:#eef0f4;padding:8px;gap:8px}
+  .tab{
+    flex:1;border:0;cursor:pointer;border-radius:10px;
+    padding:15px 12px;font-family:'Public Sans';font-weight:700;font-size:.95rem;
+    background:transparent;color:var(--muted);
+    transition:all .2s ease;position:relative;
+  }
+  .tab small{display:block;font-weight:500;font-size:.74rem;margin-top:2px;color:inherit;opacity:.75}
+  .tab.active{background:var(--navy);color:#fff;box-shadow:0 4px 14px rgba(11,46,92,.28)}
+  .tab .pill{
+    display:inline-block;vertical-align:middle;margin-left:8px;
+    background:var(--orange);color:#fff;font-size:.62rem;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 9px;border-radius:999px;box-shadow:0 2px 6px rgba(224,124,0,.3);
+  }
+  .price-stage{padding:38px 30px 30px;text-align:center}
+  .price-label{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .price{
+    font-family:'Bricolage Grotesque';font-weight:800;
+    font-size:clamp(3.2rem,9vw,5rem);line-height:1;color:var(--navy);
+    margin:10px 0 2px;letter-spacing:-.02em;
+    transition:opacity .18s ease, transform .18s ease;
+  }
+  .price.flip{opacity:0;transform:translateY(8px)}
+  .per{font-size:1rem;color:var(--muted);font-weight:500}
+  .monthly{margin-top:6px;font-size:.92rem;color:var(--muted)}
+  .save-ribbon{
+    display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+    background:var(--green-soft);color:var(--green);
+    font-weight:700;font-size:.92rem;padding:10px 20px;border-radius:999px;
+    border:1px solid #bfe3cf;
+  }
+  .save-ribbon svg{flex:none}
+  .stage-note{margin-top:16px;font-size:.86rem;color:var(--muted);max-width:520px;margin-left:auto;margin-right:auto}
+
+  /* Canopy CTA (auto tab only) */
+  .canopy{
+    margin:26px 26px 0;padding:26px;border-radius:12px;text-align:left;
+    background:linear-gradient(135deg,var(--navy-deep),var(--navy));color:#fff;
+    display:none;
+  }
+  .canopy.show{display:block;animation:rise .35s ease}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .canopy h3{font-size:1.25rem;font-weight:700;margin-bottom:8px}
+  .canopy h3 span{color:var(--orange)}
+  .canopy p{font-size:.92rem;color:rgba(255,255,255,.85);max-width:560px}
+  .canopy-steps{display:flex;flex-wrap:wrap;gap:18px;margin:18px 0 22px}
+  .canopy-steps div{flex:1;min-width:150px;font-size:.84rem;color:rgba(255,255,255,.9)}
+  .canopy-steps b{display:block;color:var(--orange);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+  .canopy-cta{
+    display:inline-block;background:var(--orange);color:#fff;text-decoration:none;
+    font-weight:700;font-size:1rem;padding:14px 28px;border-radius:10px;
+    transition:transform .15s ease, box-shadow .15s ease;box-shadow:0 6px 18px rgba(224,124,0,.4);
+  }
+  .canopy-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(224,124,0,.5)}
+  .canopy-fine{margin-top:12px;font-size:.76rem;color:rgba(255,255,255,.6)}
+
+  .discount-strip{
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+    padding:22px 26px 30px;
+  }
+  .chip{
+    font-size:.8rem;font-weight:600;color:var(--navy);
+    background:#eef2f8;border:1px solid #d7dfeb;border-radius:999px;padding:8px 16px;
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  .chip.on{background:var(--green-soft);border-color:#bfe3cf;color:var(--green)}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+
+  /* ============ SECTIONS ============ */
+  .wrap{max-width:960px;margin:0 auto;padding:64px 24px 0}
+  .sec-eyebrow{color:var(--orange-deep);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.76rem;margin-bottom:10px}
+  .wrap h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.01em;margin-bottom:8px;color:var(--navy)}
+  .wrap .lede{color:var(--muted);max-width:640px;margin-bottom:30px}
+
+  /* Coverage table */
+  .cov-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .cov-row{
+    display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;
+    padding:16px 22px;border-bottom:1px solid #eee9df;cursor:pointer;
+    transition:background .15s ease;
+  }
+  .cov-row:hover{background:#fbfaf7}
+  .cov-row:last-child{border-bottom:0}
+  .cov-name{font-weight:600;font-size:.96rem;display:flex;align-items:center;gap:14px}
+  .cov-ic{
+    width:42px;height:42px;flex:none;border-radius:11px;
+    background:#eef2f8;color:var(--navy);
+    display:inline-flex;align-items:center;justify-content:center;
+    transition:background .2s ease,color .2s ease;
+  }
+  .cov-row.open .cov-ic{background:var(--navy);color:#fff}
+  .cov-ic svg{width:22px;height:22px}
+  .cov-title small{display:block;font-weight:500;font-size:.74rem;color:var(--muted);margin-top:2px}
+  .cov-plus{
+    color:var(--muted);font-size:1.2rem;font-weight:400;line-height:1;
+    margin-left:12px;transition:transform .25s ease;display:inline-block;
+  }
+  .cov-row.open .cov-plus{transform:rotate(45deg);color:var(--orange-deep)}
+  .cov-limit{font-family:'Bricolage Grotesque';font-weight:700;font-size:1.02rem;color:var(--navy);white-space:nowrap;display:flex;align-items:center}
+  .cov-detail{
+    grid-column:1/-1;max-height:0;overflow:hidden;
+    transition:max-height .3s ease;
+    font-size:.87rem;color:var(--muted);
+  }
+  .cov-row.open .cov-detail{max-height:520px;padding-top:4px}
+  .cov-detail .example{
+    margin-top:10px;padding:11px 14px;border-radius:9px;
+    background:#fdf6ec;border:1px solid #f3e2c6;color:#7a5a1e;font-size:.83rem;
+  }
+  .cov-detail .example b{color:var(--orange-deep);text-transform:uppercase;font-size:.68rem;letter-spacing:.1em;display:block;margin-bottom:3px}
+  .tap-hint{text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px}
+
+  /* Extended replacement cost spotlight */
+  .erc{
+    margin-top:22px;border-radius:var(--radius);overflow:hidden;
+    background:linear-gradient(135deg,#0b2e5c,#144a8f);
+    color:#fff;box-shadow:var(--shadow);
+    display:grid;grid-template-columns:6px 1fr;
+  }
+  .erc::before{content:"";background:var(--orange)}
+  .erc-body{padding:28px 30px}
+  .erc-body .badge{
+    display:inline-block;background:rgba(247,148,29,.18);color:var(--orange);
+    font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;margin-bottom:12px;border:1px solid rgba(247,148,29,.4);
+  }
+  .erc-body h3{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+  .erc-body p{font-size:.92rem;color:rgba(255,255,255,.85);max-width:660px}
+  .erc-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+  .erc-col{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:16px}
+  .erc-col b{display:block;color:var(--orange);font-size:.86rem;margin-bottom:5px}
+  .erc-col span{font-size:.83rem;color:rgba(255,255,255,.82)}
+
+  /* Reviews */
+  .reviews-stats{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:24px}
+  .rstat{
+    flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px;text-align:center;box-shadow:0 4px 14px rgba(7,31,63,.05);
+  }
+  .rstat .big{font-family:'Bricolage Grotesque';font-weight:800;font-size:2rem;color:var(--navy);line-height:1.1}
+  .rstat .stars{color:var(--orange);letter-spacing:2px;font-size:1.05rem;margin:4px 0}
+  .rstat .lbl{font-size:.8rem;color:var(--muted);font-weight:600}
+  .review-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+  .rcard{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;box-shadow:0 4px 14px rgba(7,31,63,.05);position:relative;
+  }
+  .rcard .stars{color:var(--orange);letter-spacing:2px;margin-bottom:10px}
+  .rcard p{font-size:.9rem;color:var(--navy-ink)}
+  .rcard .src{margin-top:12px;font-size:.76rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+  .gbtn{
+    display:inline-flex;align-items:center;gap:9px;margin-top:22px;
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:12px 24px;text-decoration:none;color:var(--navy);font-weight:700;font-size:.92rem;
+    box-shadow:0 4px 14px rgba(7,31,63,.07);transition:transform .15s ease;
+  }
+  .gbtn:hover{transform:translateY(-2px)}
+
+  /* Feature grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 4px 14px rgba(7,31,63,.05)}
+  .feat h3{font-size:1.02rem;font-weight:700;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+  .feat .ic{width:34px;height:34px;border-radius:9px;background:#eef2f8;display:inline-flex;align-items:center;justify-content:center;flex:none;color:var(--navy)}
+  .feat p{font-size:.88rem;color:var(--muted)}
+
+  /* Lender */
+  .lender{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+  .lender-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+  .lender-item{background:#fbfaf7;border:1px solid #eee9df;border-radius:10px;padding:16px}
+  .lender-item b{display:flex;align-items:center;gap:8px;color:var(--navy);font-size:.92rem;margin-bottom:4px}
+  .lender-item span{font-size:.84rem;color:var(--muted)}
+  .check{color:var(--green);font-weight:800}
+
+  /* Footer / next steps */
+  .next{
+    margin-top:64px;background:linear-gradient(160deg,var(--navy-deep),var(--navy));
+    color:#fff;padding:56px 24px 48px;
+  }
+  .next-inner{max-width:960px;margin:0 auto}
+  .next h2{color:#fff;font-size:clamp(1.5rem,3.4vw,2rem);font-weight:800;margin-bottom:6px}
+  .next .lede{color:rgba(255,255,255,.75);margin-bottom:28px;max-width:620px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-bottom:36px}
+  .step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:20px}
+  .step b{display:block;color:var(--orange);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+  .step p{font-size:.88rem;color:rgba(255,255,255,.85)}
+  .sig{border-top:1px solid rgba(255,255,255,.16);padding-top:26px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .sig .who b{font-family:'Bricolage Grotesque';font-size:1.1rem}
+  .sig .who b span{color:var(--orange)}
+  .sig .who p{font-size:.84rem;color:rgba(255,255,255,.7)}
+  .sig .reach{display:flex;gap:12px;flex-wrap:wrap}
+  .sig .reach a{
+    color:#fff;text-decoration:none;font-size:.88rem;font-weight:600;
+    border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:9px 18px;
+    transition:background .15s ease;
+  }
+  .sig .reach a:hover{background:rgba(255,255,255,.12)}
+  .fine{max-width:960px;margin:0 auto;padding:22px 0 0;font-size:.72rem;color:rgba(255,255,255,.45)}
+
+  @media (max-width:600px){
+    .hero{padding-top:36px}
+    .price-stage{padding:30px 18px 24px}
+    .canopy{margin:22px 14px 0;padding:20px}
+    .cov-row{padding:15px 18px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="brandline">
+      <div class="brand">Safeshield <span>Insurance</span></div>
+      <div class="prep-tag">Prepared for Ryan McLean, Shaneka Gooden &amp; Pauline Depass</div>
+    </div>
+    <div class="eyebrow">Homeowner's Insurance Proposal</div>
+    <h1>Welcome home to<br>14 Glen Lane.</h1>
+    <p class="sub">Congratulations on the purchase. We shopped this for you and placed it with The Hartford, a 200-year-old carrier rated 4.7/5 by its own claims customers, at a rate we're confident stands up against anything else you're seeing.</p>
+    <div class="hero-meta">
+      <div><span class="k">Property</span><span class="v">14 Glen Lane, Newburgh, NY 12550</span></div>
+      <div><span class="k">Policy Form</span><span class="v">HO-3 · Hartford Advantage</span></div>
+      <div><span class="k">Effective</span><span class="v">TBD, aligned to your closing date</span></div>
+      <div><span class="k">Term</span><span class="v">12 months</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- PRICE PANEL -->
+<div class="panel-wrap">
+  <div class="panel">
+    <div class="tabs" role="tablist">
+      <button class="tab active" id="tab-home" role="tab" aria-selected="true" onclick="setMode('home')">
+        Home Only
+        <small>Standalone homeowner's</small>
+      </button>
+      <button class="tab" id="tab-bundle" role="tab" aria-selected="false" onclick="setMode('bundle')">
+        Home + Auto <span class="pill">Best Value</span>
+        <small>Add your auto for the best rate</small>
+      </button>
+    </div>
+
+    <div class="price-stage">
+      <div class="price-label" id="price-label">Total Annual Premium</div>
+      <div class="price" id="price">$2,071</div>
+      <div class="per">per year</div>
+      <div class="monthly" id="monthly">About $173/month</div>
+      <div class="save-ribbon" id="ribbon" style="display:none">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 12.8l.7-4.3-3.1-3 4.3-.6L8 1z" fill="currentColor"/></svg>
+        You save $367 every year with the auto account credit
+      </div>
+      <p class="stage-note" id="stage-note">Same coverage, same carrier, same deductible on both options. The only difference is the price: bundling your auto unlocks The Hartford's account credit.</p>
+    </div>
+
+    <!-- CANOPY CTA (bundle tab only) -->
+    <div class="canopy" id="canopy">
+      <h3>Unlock the $1,704 rate in about <span>2 minutes</span></h3>
+      <p>To apply the account credit, we just need your current auto policy details. Instead of digging through paperwork, use our secure Canopy link. Sign in to your current insurance carrier once and your policy info transfers to us automatically. No forms, no phone tag.</p>
+      <div class="canopy-steps">
+        <div><b>Step 1</b>Tap the button and pick your current auto insurer</div>
+        <div><b>Step 2</b>Sign in. Canopy is bank-level secure and read-only</div>
+        <div><b>Step 3</b>We build your auto quote and lock in the bundle credit</div>
+      </div>
+      <a class="canopy-cta" href="https://app.usecanopy.com/c/safeshield-insurance-go" target="_blank" rel="noopener">Connect My Auto Policy →</a>
+      <div class="canopy-fine">Powered by Canopy Connect. Your login is never shared with Safeshield. We only receive your policy details.</div>
+    </div>
+
+    <div class="discount-strip" id="chips">
+      <span class="chip on"><span class="dot"></span>Protective Devices Credit</span>
+      <span class="chip on"><span class="dot"></span>Home Purchase / Inspection Discount</span>
+      <span class="chip on"><span class="dot"></span>Central Alarm Credit</span>
+      <span class="chip" id="chip-account"><span class="dot"></span>Auto Account Credit</span>
+    </div>
+  </div>
+</div>
+
+<!-- COVERAGE -->
+<section class="wrap">
+  <div class="sec-eyebrow">Coverage Breakdown</div>
+  <h2>What your policy protects</h2>
+  <p class="lede">These limits apply to both options. Tap any line to see what it means in plain English.</p>
+
+  <div class="cov-card" id="cov">
+    <div class="cov-row" onclick="toggleRow(this)">
+      <div class="cov-name">
+        <span class="cov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
+        <span class="cov-title">Dwelling (Coverage A)<small>The house itself</small></span>
+      </div>
+      <div class="cov-limit">$825,000<span class="cov-plus">+</span></div>
+      <div class="cov-detail">Rebuilds your home from the ground up after a covered loss: structure, roof, attached fixtures, all at today's construction costs.
+        <div class="example"><b>Real-life example</b>A kitchen fire spreads and damages the framing and second floor. This coverage pays contractors to rebuild and restore the home.</div>
+      </div>
+    </div>
+    <div class="cov-row" onclick="toggleRow(this)">
+      <div class="cov-name">
+        <span class="cov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l4-3 4 3v12"/><path d="M12 21V9l4-3 4 3v12"/><path d="M2 21h20"/></svg></span>
+        <span class="cov-title">Other Structures (Coverage B)<small>Fences, sheds, detached garage</small></span>
+      </div>
+      <div class="cov-limit">$82,500<span class="cov-plus">+</span></div>
+      <div class="cov-detail">Covers structures on the property that aren't attached to the house.
+        <div class="example"><b>Real-life example</b>A windstorm drops a tree limb through the shed roof and flattens a section of fence. Both are repaired under this coverage.</div>
+      </div>
+    </div>
+    <div class="cov-row" onclick="toggleRow(this)">
+      <div class="cov-name">
+        <span class="cov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 10h16"/><circle cx="12" cy="14.5" r="2"/><path d="M12 13.2v1.3l.9.9"/></svg></span>
+        <span class="cov-title">Personal Property (Coverage C)<small>Everything you own inside</small></span>
+      </div>
+      <div class="cov-limit">$618,750<span class="cov-plus">+</span></div>
+      <div class="cov-detail">Furniture, electronics, clothing, jewelry, tools, everything inside the home. With Replacement Cost Contents, items are replaced with brand-new equivalents at today's prices, regardless of age.
+        <div class="example"><b>Real-life example</b>A break-in and your safe, laptop, and TV are gone. Instead of a depreciated check for your 5-year-old electronics, you're paid what it costs to buy them new today.</div>
+      </div>
+    </div>
+    <div class="cov-row" onclick="toggleRow(this)">
+      <div class="cov-name">
+        <span class="cov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a2 2 0 012-2h14a2 2 0 012 2v6"/><path d="M3 18h18"/><path d="M5 10V7a2 2 0 012-2h10a2 2 0 012 2v3"/><path d="M3 18v2M21 18v2"/></svg></span>
+        <span class="cov-title">Loss of Use (Coverage D)<small>Somewhere to live during repairs</small></span>
+      </div>
+      <div class="cov-limit">$206,250<span class="cov-plus">+</span></div>
+      <div class="cov-detail">If a covered loss makes the home unlivable, this pays for hotel, rental, and the extra cost of living away from home while repairs happen.
+        <div class="example"><b>Real-life example</b>A burst pipe floods the first floor and repairs take three months. Your rental house, moving costs, and extra meals-out are covered.</div>
+      </div>
+    </div>
+    <div class="cov-row" onclick="toggleRow(this)">
+      <div class="cov-name">
+        <span class="cov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v5c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <span class="cov-title">Personal Liability (Coverage E)<small>Protects your savings and future earnings</small></span>
+      </div>
+      <div class="cov-limit">$800,000<span class="cov-plus">+</span></div>
+      <div class="cov-detail">Protects you if someone is injured on your property or you're found legally responsible for damage to others, including your legal defense. Includes an extra $300,000 boost through the Advantage package.
+        <div class="example"><b>Real-life example</b>A delivery driver slips on your icy front steps, breaks a wrist, and sues. Your legal defense and any settlement up to $800,000 are covered.</div>
+      </div>
+    </div>
+    <div class="cov-row" onclick="toggleRow(this)">
+      <div class="cov-name">
+        <span class="cov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M12 10v6M9 13h6"/><path d="M9 6V4h6v2"/></svg></span>
+        <span class="cov-title">Medical Payments (Coverage F)<small>No lawsuit needed</small></span>
+      </div>
+      <div class="cov-limit">$5,000<span class="cov-plus">+</span></div>
+      <div class="cov-detail">Pays medical bills for guests injured at your home regardless of fault, a goodwill layer that often prevents small incidents from becoming lawsuits. Includes an extra $4,000 through the Advantage package.
+        <div class="example"><b>Real-life example</b>A friend's kid falls off the deck stairs and needs stitches and an X-ray. The bill is paid directly. No fault, no claim against you.</div>
+      </div>
+    </div>
+    <div class="cov-row" onclick="toggleRow(this)">
+      <div class="cov-name">
+        <span class="cov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 15L16 7"/><circle cx="9" cy="9" r="1.4"/><circle cx="15" cy="15" r="1.4"/></svg></span>
+        <span class="cov-title">All-Peril Deductible<small>Your share of a claim</small></span>
+      </div>
+      <div class="cov-limit">$5,000<span class="cov-plus">+</span></div>
+      <div class="cov-detail">Your out-of-pocket per claim, and in today's insurance market, choosing $5,000 is a strategy, not a compromise. Carriers are raising rates fastest on policies with low deductibles and frequent small claims. A higher deductible earns you a meaningfully lower premium, and it keeps small claims off your record, which protects your rate at every future renewal. Insurance is for the big stuff; this structure prices it that way.
+        <div class="example"><b>Why it's low-risk here</b>With ProtectorPLUS, on qualifying claims The Hartford waives this deductible entirely, down to $0. You get the premium savings of a $5,000 deductible without fully carrying the exposure.</div>
+        <div class="example"><b>Real-life example</b>Hail damages your siding, a $22,000 qualifying claim. ProtectorPLUS waives the entire $5,000 deductible. You pay nothing.</div>
+      </div>
+    </div>
+  </div>
+  <div class="tap-hint">Tap any row to expand</div>
+
+  <!-- EXTENDED REPLACEMENT COST SPOTLIGHT -->
+  <div class="erc">
+    <div class="erc-body">
+      <span class="badge">The Detail Cheap Quotes Leave Out</span>
+      <h3>Extended replacement cost protection</h3>
+      <p>Most bargain quotes cap payouts at the policy limit, period. This policy is built with a safety margin above it, because after a storm, labor and materials in the Hudson Valley get expensive fast, and $825,000 on paper isn't the same as $825,000 in a post-disaster construction market.</p>
+      <div class="erc-cols">
+        <div class="erc-col"><b>Additional Limit: Total Loss to Dwelling</b><span>If a total rebuild runs past your dwelling limit, extra coverage kicks in above the $825,000 so a construction-cost spike doesn't come out of your pocket.</span></div>
+        <div class="erc-col"><b>Replacement Cost Contents</b><span>Belongings are replaced new-for-old at today's prices. No depreciation deducted for age or condition. A 6-year-old couch is replaced with a new couch.</span></div>
+        <div class="erc-col"><b>Roof Value Schedule</b><span>Your roof's settlement terms are spelled out in a clear schedule up front, no ambiguity and no surprises at claim time.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STANDOUT FEATURES -->
+<section class="wrap">
+  <div class="sec-eyebrow">Built-In Advantages</div>
+  <h2>Why this policy punches above its price</h2>
+  <p class="lede">These aren't add-ons we're charging you for. They're included in the premium shown above.</p>
+  <div class="grid">
+    <div class="feat">
+      <h3><span class="ic">◎</span>ProtectorPLUS Zero Deductible</h3>
+      <p>On a qualifying claim, The Hartford completely eliminates your deductible, up to $5,000. Your $5,000 deductible can effectively become $0 exactly when it matters most.</p>
+    </div>
+    <div class="feat">
+      <h3><span class="ic">⌂</span>Replacement Cost Contents</h3>
+      <p>Belongings are replaced with new items of like quality at today's prices, with no depreciation haircut for age or condition.</p>
+    </div>
+    <div class="feat">
+      <h3><span class="ic">≋</span>Water Backup Coverage</h3>
+      <p>Covers damage from backed-up sewers, drains, and sump overflow, one of the most common (and most commonly excluded) losses for homeowners in the Hudson Valley.</p>
+    </div>
+    <div class="feat">
+      <h3><span class="ic">✦</span>ID Fraud Expense Coverage</h3>
+      <p>Up to $25,000 to recover from identity theft: lost income, legal fees, and credit agency work.</p>
+    </div>
+    <div class="feat">
+      <h3><span class="ic">▲</span>Additional Limit for Total Loss</h3>
+      <p>If a total loss costs more to rebuild than expected, extra dwelling limit kicks in so you're not left covering a construction-cost gap.</p>
+    </div>
+    <div class="feat">
+      <h3><span class="ic">✓</span>Quoted With Full Property History</h3>
+      <p>This rate was quoted with the home's prior loss record and roof details already on file. No surprises, no rate revisions after closing. What you see is what you get.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LENDER -->
+<section class="wrap">
+  <div class="sec-eyebrow">Closing Logistics</div>
+  <h2>Your lender paperwork is handled</h2>
+  <div class="lender">
+    <p style="color:var(--muted);font-size:.94rem;max-width:640px">Whichever direction you go with financing, Pennymac or Jet Direct, we coordinate directly with your lender so nothing holds up your closing. As soon as you give us the green light, we deliver:</p>
+    <div class="lender-grid">
+      <div class="lender-item"><b><span class="check">✓</span>Evidence of Insurance / Binder</b><span>Sent directly to your lender the same day you bind</span></div>
+      <div class="lender-item"><b><span class="check">✓</span>Paid Invoice</b><span>Provided for closing, whether paid through escrow or directly</span></div>
+      <div class="lender-item"><b><span class="check">✓</span>Replacement Cost Estimator</b><span>The full RCE backing the $825,000 dwelling limit</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="wrap">
+  <div class="sec-eyebrow">Don't Take Our Word For It</div>
+  <h2>Why 300+ families rate us five stars</h2>
+  <p class="lede">Safeshield is an independent broker. We work for you, not the insurance company. We shop 73+ carriers to find the right fit, and our clients notice the difference.</p>
+
+  <div class="reviews-stats">
+    <div class="rstat"><div class="big">300+</div><div class="stars">★★★★★</div><div class="lbl">Five-Star Google Reviews</div></div>
+    <div class="rstat"><div class="big">73+</div><div class="stars">★★★★★</div><div class="lbl">Carriers We Shop For You</div></div>
+    <div class="rstat"><div class="big">7</div><div class="stars">★★★★★</div><div class="lbl">States Served: CT, NY &amp; Beyond</div></div>
+  </div>
+
+  <div class="review-cards">
+    <div class="rcard">
+      <div class="stars">★★★★★</div>
+      <p>Clients consistently call out how fast we respond: quick follow-ups, no phone tag, and real people who pick up the phone.</p>
+      <div class="src">What our reviews say · Responsiveness</div>
+    </div>
+    <div class="rcard">
+      <div class="stars">★★★★★</div>
+      <p>Reviewers highlight clear communication and detailed explanations. You understand exactly what you're buying and why, without the jargon.</p>
+      <div class="src">What our reviews say · Transparency</div>
+    </div>
+    <div class="rcard">
+      <div class="stars">★★★★★</div>
+      <p>First-time homebuyers especially praise the guidance. We walk you through every option so a big purchase doesn't come with big confusion.</p>
+      <div class="src">What our reviews say · First-Time Buyers</div>
+    </div>
+  </div>
+
+  <div style="text-align:center">
+    <a class="gbtn" href="https://goo.gl/maps/ic3PQTPKB6sKbeY46" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.06H2.18A10.96 10.96 0 001 12c0 1.77.43 3.45 1.18 4.94l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+      Read our reviews on Google
+    </a>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<footer class="next">
+  <div class="next-inner">
+    <div class="sec-eyebrow" style="color:var(--orange)">Ready When You Are</div>
+    <h2>Three ways to move forward today</h2>
+    <p class="lede">You're shopping, and that's smart. We're confident this wins. Here's how to lock it in, and once you have a closing date we'll set the effective date to match it exactly.</p>
+    <div class="steps">
+      <div class="step"><b>Best Rate</b><p>Connect your auto policy through our secure Canopy link (on the Home + Auto tab above) and we'll finalize the bundle at $1,704/yr.</p></div>
+      <div class="step"><b>Bind Home Now</b><p>Reply "let's do it" to our email or call us. We can bind the home policy today and add the auto credit later if you'd rather not wait.</p></div>
+      <div class="step"><b>Questions First</b><p>Want to walk through anything line by line? Call or text Austin directly. You'll get him, not a call center.</p></div>
+    </div>
+    <div class="sig">
+      <div class="who">
+        <b>Austin <span>"The Insurance Guy"</span> Glazer</b>
+        <p>President, Safeshield Insurance · Stamford, CT</p>
+      </div>
+      <div class="reach">
+        <a href="tel:2035649817">📞 203-564-9817</a>
+        <a href="mailto:austin@gosafeshield.com">✉ austin@gosafeshield.com</a>
+      </div>
+    </div>
+    <div class="fine">Quote reference AAMSX439072126249833 · The Hartford Advantage · Quoted July 21, 2026 · Rates subject to currently filed rates and carrier validation of credits at issuance. This proposal is a summary for discussion; the policy contract governs all terms and conditions.</div>
+  </div>
+</footer>
+
+<script>
+  const PRICES = {
+    home:   { annual:"$2,071", monthly:"About $173/month" },
+    bundle: { annual:"$1,704", monthly:"About $142/month" }
+  };
+  function setMode(mode){
+    const price = document.getElementById('price');
+    const monthly = document.getElementById('monthly');
+    const ribbon = document.getElementById('ribbon');
+    const canopy = document.getElementById('canopy');
+    const note = document.getElementById('stage-note');
+    const chipAcct = document.getElementById('chip-account');
+    document.getElementById('tab-home').classList.toggle('active', mode==='home');
+    document.getElementById('tab-bundle').classList.toggle('active', mode==='bundle');
+    document.getElementById('tab-home').setAttribute('aria-selected', mode==='home');
+    document.getElementById('tab-bundle').setAttribute('aria-selected', mode==='bundle');
+
+    price.classList.add('flip');
+    setTimeout(()=>{
+      price.textContent = PRICES[mode].annual;
+      monthly.textContent = PRICES[mode].monthly;
+      price.classList.remove('flip');
+    },180);
+
+    ribbon.style.display = mode==='bundle' ? 'inline-flex' : 'none';
+    canopy.classList.toggle('show', mode==='bundle');
+    chipAcct.classList.toggle('on', mode==='bundle');
+    note.textContent = mode==='bundle'
+      ? "Identical coverage to the standalone option. The auto account credit alone drops your premium by $367 a year, and your auto policy gets Hartford's bundle discount too."
+      : "Same coverage, same carrier, same deductible on both options. The only difference is the price: bundling your auto unlocks The Hartford's account credit.";
+  }
+  function toggleRow(row){ row.classList.toggle('open'); }
+</script>
+</body>
+</html>
