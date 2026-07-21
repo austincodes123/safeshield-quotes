@@ -312,6 +312,35 @@
     font-weight:700;color:var(--slate);background:var(--paper);border-bottom:1px solid var(--line)}
   @media(max-width:640px){.crow{grid-template-columns:84px 1fr;row-gap:6px}.crow .go{grid-column:2}}
 
+  
+  /* ---- V3 floating checklist ---- */
+  .fab{position:fixed;left:16px;bottom:16px;z-index:70;display:flex;align-items:center;gap:9px;
+    background:var(--navy);color:#fff;border:none;border-radius:999px;padding:12px 18px;
+    font:inherit;font-size:13.5px;font-weight:700;cursor:pointer;box-shadow:0 10px 30px rgba(0,53,102,.35)}
+  .fab .fdot{width:8px;height:8px;border-radius:50%;background:var(--amber)}
+  .fab small{font-weight:600;color:rgba(255,255,255,.75)}
+  .cpanel{position:fixed;left:16px;bottom:68px;z-index:70;width:min(370px,calc(100vw - 32px));
+    max-height:58vh;display:none;flex-direction:column;background:var(--white);
+    border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 50px rgba(10,25,45,.22);overflow:hidden}
+  .cpanel.open{display:flex}
+  .cphead{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:13px 16px;border-bottom:1px solid var(--line);background:var(--paper)}
+  .cphead b{font-size:13.5px}
+  .cphead .x{border:none;background:none;font-size:18px;line-height:1;color:var(--slate);cursor:pointer;padding:4px}
+  .cpbody{overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .cgroup{padding:10px 16px 5px;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+    font-weight:700;color:var(--slate)}
+  .citem{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;width:100%;
+    text-align:left;background:none;border:none;border-bottom:1px solid var(--line);
+    padding:10px 16px;font:inherit;font-size:13px;color:var(--ink);cursor:pointer}
+  .citem:hover{background:var(--paper)}
+  .citem:last-child{border-bottom:none}
+  .citem .chip{font-size:10px}
+  .citem .arr{color:var(--navy);font-weight:700}
+  .citem.noact{cursor:default}
+  .citem.noact:hover{background:none}
+  .citem.noact .arr{color:var(--slate);font-weight:600;font-size:11.5px}
+
   </style>
 </head>
 <body>
@@ -966,7 +995,6 @@
   <!-- V3 SUB TABS -->
   <div class="tabs fade" role="tablist">
     <button class="tab active" data-pane="proposal" role="tab">Updated Proposal</button>
-    <button class="tab" data-pane="check" role="tab">The Checklist</button>
     <button class="tab" data-pane="scale" role="tab">As You Scale</button>
   </div>
 </div>
@@ -1213,43 +1241,7 @@
 </div>
 </div><!-- /proposalView3 -->
 
-<div id="checkView3" data-view-pane="check" hidden>
-<div class="wrap">
-  <section class="sec" style="padding-top:40px">
-    <div class="sec-eye">Every ask, accounted for</div>
-    <h2>The checklist</h2>
-    <p class="sub">Everything raised since our first call, where it stands, and where it lives on this page. Tap any item to jump to it.</p>
 
-    <div class="check">
-      <div class="cgroup">From your July 17 review</div>
-      <div class="crow"><span class="chip done">Done</span><div class="ct">MSA endorsements on the General Liability<small>Additional insured, primary &amp; non-contributory, plus waiver of subrogation, written into the policy</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
-      <div class="crow"><span class="chip done">Done</span><div class="ct">Umbrella raised to $5M, $10M comparison priced<small>$5M quoted at $3,086; $10M confirmed at $6,112, toggle in the investment section</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
-      <div class="crow"><span class="chip call">Your call</span><div class="ct">D&amp;O at $2M and $5M<small>$2M + $1M dedicated executive limit quoted; this market ceilings at $3M, excess path to $5M on your word</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
-      <div class="crow"><span class="chip done">Done</span><div class="ct">EPLI at $1M<small>Quoted inside the executive package</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
-      <div class="crow"><span class="chip done">Done</span><div class="ct">Crime with $1M funds transfer fraud<small>Full $1,000,000 on funds transfer, quoted inside the executive package</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
-      <div class="crow"><span class="chip done">Done</span><div class="ct">Social engineering coverage<small>$250K day one, sized to current financials, step-up to $1M mapped over 6&ndash;12 months</small></div><a class="go" data-jump="v3-since" data-jumppane="proposal">See it &rarr;</a></div>
-      <div class="crow"><span class="chip done">Done</span><div class="ct">Hired &amp; non-owned auto at $1M<small>Included inside the liability package rather than sold separately</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
-      <div class="crow"><span class="chip done">Done</span><div class="ct">Kidnap, Ransom &amp; Extortion<small>$1M quoted inside the executive package</small></div><a class="go" data-jump="v3-money" data-jumppane="proposal">See it &rarr;</a></div>
-      <div class="crow"><span class="chip done">Done</span><div class="ct">Specimen policy forms<small>Compiled and delivered with our email</small></div><span class="go" style="color:var(--slate);cursor:default;font-weight:600">In your inbox</span></div>
-      <div class="crow"><span class="chip motion">In motion</span><div class="ct">Tech E&amp;O + Cyber at $2M and $5M, one shared aggregate<small>Combined form confirmed; released into final carrier review by your questionnaire</small></div><a class="go" data-jump="v3-since" data-jumppane="proposal">See it &rarr;</a></div>
-      <div class="crow"><span class="chip done">Done</span><div class="ct">Future equipment program confirmed<small>Replacement cost at third-party sites, equipment breakdown, transit, business income, utility interruption, lender loss payee, all confirmed available</small></div><a class="go" data-jump="v3-deploy" data-jumppane="proposal">See it &rarr;</a></div>
-
-      <div class="cgroup">Since then</div>
-      <div class="crow"><span class="chip done">Done</span><div class="ct">Supplemental underwriting questionnaire<small>Completed by you July 20, releasing the cyber quote and finishing both carrier applications</small></div><a class="go" data-jump="v3-since" data-jumppane="proposal">See it &rarr;</a></div>
-      <div class="crow"><span class="chip done">Priced</span><div class="ct">Property program, first numbers<small>Your $39.4M schedule at Fulcrum, early indication $38K&ndash;$48K at a $25K deductible, large-account review under way</small></div><a class="go" data-jump="v3-property" data-jumppane="proposal">See it &rarr;</a></div>
-      <div class="crow"><span class="chip motion">At deal signing</span><div class="ct">Transit &amp; installation structure<small>Priced per shipment against your real logistics plan; explore which structure fits you</small></div><a class="go" data-jump="v3-deploy" data-jumppane="proposal">See it &rarr;</a></div>
-      <div class="crow"><span class="chip motion">At financing</span><div class="ct">Lender loss payee<small>Named the day your financing is placed, to the lender's exact requirements</small></div><a class="go" data-jump="v3-deploy" data-jumppane="proposal">See it &rarr;</a></div>
-    </div>
-  </section>
-
-  <section class="cta fade" style="margin-top:34px">
-    <h2>Nothing raised, nothing dropped.</h2>
-    <p>Every item lands here with a status and a home. If anything is missing from this list, that is a bug: tell me and it gets a row.</p>
-    <a class="btn" href="mailto:austin@gosafeshield.com?subject=GlassPearl%20LLC%20-%20checklist">Email Austin</a>
-    <span class="alt">or call <a href="tel:2035649817">(203) 564-9817</a></span>
-  </section>
-</div>
-</div><!-- /checkView3 -->
 
 
 <div id="scaleView3" data-view-pane="scale" hidden>
@@ -1316,6 +1308,31 @@
   </section>
 </div>
 </div><!-- /scaleView3 -->
+
+<button class="fab" id="cfab" aria-expanded="false" aria-controls="cpanel"><span class="fdot"></span>Your checklist <small>11 of 15 done</small></button>
+<div class="cpanel" id="cpanel" role="dialog" aria-label="Your checklist">
+  <div class="cphead"><b>Every ask, accounted for</b><button class="x" aria-label="Close">&times;</button></div>
+  <div class="cpbody">
+    <div class="cgroup">From your July 17 review</div>
+    <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip done">Done</span><span>MSA endorsements on the GL</span><span class="arr">&rarr;</span></button>
+    <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip done">Done</span><span>Umbrella $5M, $10M priced</span><span class="arr">&rarr;</span></button>
+    <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip motion">Option</span><span>D&amp;O: $2M+$1M quoted, path to $5M</span><span class="arr">&rarr;</span></button>
+    <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip done">Done</span><span>EPLI $1M</span><span class="arr">&rarr;</span></button>
+    <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip done">Done</span><span>Crime with $1M funds transfer fraud</span><span class="arr">&rarr;</span></button>
+    <button class="citem" data-jump="v3-since" data-jumppane="proposal"><span class="chip done">Done</span><span>Social engineering: $250K now, $1M mapped</span><span class="arr">&rarr;</span></button>
+    <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip done">Done</span><span>Hired &amp; non-owned auto $1M</span><span class="arr">&rarr;</span></button>
+    <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip done">Done</span><span>Kidnap, Ransom &amp; Extortion $1M</span><span class="arr">&rarr;</span></button>
+    <button class="citem noact"><span class="chip done">Done</span><span>Specimen policy forms</span><span class="arr">In your inbox</span></button>
+    <button class="citem" data-jump="v3-since" data-jumppane="proposal"><span class="chip motion">In motion</span><span>Tech E&amp;O + Cyber, one aggregate</span><span class="arr">&rarr;</span></button>
+    <button class="citem" data-jump="v3-deploy" data-jumppane="proposal"><span class="chip done">Done</span><span>Future equipment program confirmed</span><span class="arr">&rarr;</span></button>
+    <div class="cgroup">Since then</div>
+    <button class="citem" data-jump="v3-since" data-jumppane="proposal"><span class="chip done">Done</span><span>Supplemental questionnaire, completed</span><span class="arr">&rarr;</span></button>
+    <button class="citem" data-jump="v3-property" data-jumppane="proposal"><span class="chip done">Priced</span><span>Property first numbers, $39.4M schedule</span><span class="arr">&rarr;</span></button>
+    <button class="citem" data-jump="v3-deploy" data-jumppane="proposal"><span class="chip motion">At deal signing</span><span>Transit &amp; installation structure</span><span class="arr">&rarr;</span></button>
+    <button class="citem" data-jump="v3-deploy" data-jumppane="proposal"><span class="chip motion">At financing</span><span>Lender loss payee</span><span class="arr">&rarr;</span></button>
+  </div>
+</div>
+
 </div><!-- /ver3 -->
 
 
@@ -1526,16 +1543,24 @@
   })();
 
 
-  // ----- V3 checklist jumps -----
+  // ----- V3 floating checklist -----
+  var cfab=document.getElementById('cfab'), cpanel=document.getElementById('cpanel');
+  function cclose(){cpanel.classList.remove('open');cfab.setAttribute('aria-expanded','false');}
+  if(cfab){cfab.addEventListener('click',function(){
+    var open=cpanel.classList.toggle('open');
+    cfab.setAttribute('aria-expanded',open?'true':'false');
+  });}
+  if(cpanel){cpanel.querySelector('.x').addEventListener('click',cclose);}
   document.querySelectorAll('#ver3 [data-jump]').forEach(function(a){
     a.addEventListener('click',function(){
       var root=vroots['3'];
       var pane=a.dataset.jumppane, target=a.dataset.jump;
       root.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('active',t.dataset.pane===pane)});
       root.querySelectorAll('[data-view-pane]').forEach(function(p){p.hidden=(p.dataset.viewPane!==pane)});
+      cclose();
       var el=document.getElementById(target);
       if(el){el.querySelectorAll('.fade').forEach(function(f){f.classList.add('in')});
-        setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},60);}
+        setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},80);}
     });
   });
 
