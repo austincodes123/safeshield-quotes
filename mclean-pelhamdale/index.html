@@ -156,11 +156,11 @@
       <a class="cta" href="https://app.usecanopy.com/c/safeshield-insurance-go" target="_blank" rel="noopener">Connect my auto policy</a>
     </div>
 
-    <div class="pay">
-      <div><b>$2,721</b><span>Full pay, one payment</span></div>
-      <div><b>$680.25</b><span>4-pay, then $685.25</span></div>
-      <div><b>$544.20</b><span>9-pay, then $277.10</span></div>
-      <div><b>$454.41</b><span>11-pay EFT, then $226.66</span></div>
+    <div class="pay" id="payGrid">
+      <div><b data-base="$2,721" data-bundle="$2,594">$2,721</b><span data-base="Full pay, one payment" data-bundle="Full pay, est. bundled">Full pay, one payment</span></div>
+      <div><b data-base="$680.25" data-bundle="$648.50">$680.25</b><span data-base="4-pay, then $685.25" data-bundle="4-pay est., then $653.27">4-pay, then $685.25</span></div>
+      <div><b data-base="$544.20" data-bundle="$518.80">$544.20</b><span data-base="9-pay, then $277.10" data-bundle="9-pay est., then $264.17">9-pay, then $277.10</span></div>
+      <div><b data-base="$454.41" data-bundle="$433.19">$454.41</b><span data-base="11-pay EFT, then $226.66" data-bundle="11-pay EFT est., then $216.08">11-pay EFT, then $226.66</span></div>
     </div>
   </div>
 
@@ -289,6 +289,11 @@ if(anim)cancelAnimationFrame(anim);
 price.textContent='$'+Math.round(s+(t-s)*e).toLocaleString();
 if(p<1)anim=requestAnimationFrame(step);})(t0);}
 tgl.addEventListener('change',function(){
+var mode=tgl.checked?'bundle':'base';
+document.querySelectorAll('#payGrid b, #payGrid span').forEach(function(el){
+el.textContent=el.getAttribute('data-'+mode);});
+document.querySelectorAll('#payGrid b').forEach(function(el){
+el.style.color=tgl.checked?'var(--green)':'var(--navy)';});
 if(tgl.checked){price.style.color='var(--green)';badge.style.display='inline-block';animateTo(2594);}
 else{price.style.color='var(--navy)';badge.style.display='none';animateTo(2721);}});
 </script>
