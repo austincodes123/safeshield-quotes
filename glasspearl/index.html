@@ -255,7 +255,42 @@
   /* umbrella limit toggle inside money (V2) */
   .u-note{font-size:12.5px;color:var(--slate);margin-top:8px}
 
-</style>
+
+  /* ---- V3: property indication + deployment path ---- */
+  .indic{background:var(--navy);border-radius:18px;color:#fff;padding:28px 26px 24px;position:relative;overflow:hidden}
+  .indic::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;
+    background:radial-gradient(closest-side,rgba(255,163,0,.28),transparent)}
+  .indic .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);font-weight:700}
+  .indic .big{font-size:clamp(30px,6vw,44px);font-weight:800;margin:6px 0 2px;letter-spacing:-.01em}
+  .indic .big small{font-size:15px;font-weight:600;color:rgba(255,255,255,.8);letter-spacing:0}
+  .indic .terms{font-size:14px;color:rgba(255,255,255,.88);margin-top:2px}
+  .indic .terms b{color:var(--amber)}
+  .indic p.note{font-size:13px;color:rgba(255,255,255,.72);margin-top:14px;line-height:1.55;position:relative}
+  .sched{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:18px}
+  .sched .s{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+  .sched .s b{display:block;font-size:16px;color:var(--ink)}
+  .sched .s span{font-size:12.5px;color:var(--slate)}
+  .path{margin-top:10px;border-top:1px dashed var(--line);padding-top:16px}
+  .path .q{font-weight:700;font-size:14.5px;margin-bottom:10px}
+  .path .opts{display:flex;gap:10px;flex-wrap:wrap}
+  .path .opts button{flex:1 1 180px;text-align:left;background:var(--paper);border:1.5px solid var(--line);
+    border-radius:12px;padding:12px 14px;font:inherit;font-size:13.5px;font-weight:600;color:var(--ink);cursor:pointer;
+    transition:border-color .15s, background .15s}
+  .path .opts button:hover{border-color:var(--navy)}
+  .path .opts button.sel{border-color:var(--navy);background:rgba(0,75,137,.06)}
+  .path .out{display:none;margin-top:12px;background:var(--white);border:1px solid var(--line);border-left:3px solid var(--amber);
+    border-radius:0 12px 12px 0;padding:14px 16px}
+  .path .out.show{display:block}
+  .path .out h4{font-size:14px;margin:0 0 6px}
+  .path .pc{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+  @media(max-width:560px){.path .pc{grid-template-columns:1fr}}
+  .path .pc ul{margin:4px 0 0;padding-left:16px;font-size:12.5px;color:var(--slate);line-height:1.55}
+  .path .pc .h{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--slate)}
+  .path .close{margin-top:10px;font-size:12.5px;color:var(--slate);font-style:italic}
+  .path .more{margin-top:12px;font-size:13px}
+  .path .more a{color:var(--navy);font-weight:600;cursor:pointer;text-decoration:underline}
+
+  </style>
 </head>
 <body>
 
@@ -265,7 +300,7 @@
       <div class="logo">Safe<span>shield</span> Insurance</div>
       <div class="slogan">We work for you, not the insurance company</div>
     </div>
-    <div class="prepared">Prepared for <b>Martin Lagler, CFO</b><br>GlassPearl LLC &middot; Updated July 20, 2026</div>
+    <div class="prepared">Prepared for <b>Martin Lagler, CFO</b><br>GlassPearl LLC &middot; Updated July 22, 2026</div>
   </div>
 
   <!-- VERSION SWITCHER -->
@@ -273,7 +308,8 @@
     <span class="verlabel">Proposal version</span>
     <div class="vtabs" role="tablist">
       <button class="vtab" data-ver="1" role="tab">V1 <small>Jul 15</small></button>
-      <button class="vtab active" data-ver="2" role="tab"><span class="vdot"></span>V2 <small>Jul 20</small></button>
+      <button class="vtab" data-ver="2" role="tab">V2 <small>Jul 20</small></button>
+      <button class="vtab active" data-ver="3" role="tab"><span class="vdot"></span>V3 <small>Jul 22</small></button>
     </div>
   </div>
 </div>
@@ -582,8 +618,9 @@
 </div><!-- /ver1 -->
 
 <!-- ================= VERSION 2 (current) ================= -->
-<div id="ver2">
+<div id="ver2" hidden>
 <div class="wrap">
+  <div class="archive">You are viewing <b>V2, presented July 20</b>. It is kept here exactly as delivered. <a data-goto="3">See what changed in V3 &rarr;</a></div>
   <!-- V2 SUB TABS -->
   <div class="tabs fade" role="tablist">
     <button class="tab active" data-pane="proposal" role="tab">Updated Proposal</button>
@@ -901,6 +938,295 @@
 </div><!-- /scaleView2 -->
 </div><!-- /ver2 -->
 
+<!-- ================= VERSION 3 (current) ================= -->
+<div id="ver3">
+<div class="wrap">
+  <!-- V3 SUB TABS -->
+  <div class="tabs fade" role="tablist">
+    <button class="tab active" data-pane="proposal" role="tab">Updated Proposal</button>
+    <button class="tab" data-pane="scale" role="tab">As You Scale</button>
+  </div>
+</div>
+
+<div id="proposalView3" data-view-pane="proposal">
+<div class="wrap">
+  <!-- HERO -->
+  <header class="hero" style="padding-bottom:26px">
+    <div class="eyebrow fade">Round three: your equipment, priced</div>
+    <h1 class="fade" style="font-size:clamp(34px,7.5vw,58px)">GlassPearl LLC</h1>
+    <p class="lede fade">On July 21 you sent the real numbers: <b>$39.4M of equipment bound for Fulcrum Colo in Newark, Delaware.</b> The property program moved the same day, from staged to a first carrier indication, and because your values exceed small-business thresholds, the account now sits with the carrier's large-account desk, the team built for schedules this size. Your questionnaire is in, and the remaining quotes are being finalized around it.</p>
+  </header>
+</div>
+
+<div class="wrap">
+  <!-- WHATS NEW -->
+  <section class="sec" style="padding-top:0">
+    <div class="sec-eye fade">Since V2</div>
+    <h2 class="fade">Three things moved</h2>
+
+    <div class="ledger fade">
+      <div class="lrow">
+        <div class="lask"><div class="k">You sent</div><p>The full equipment schedule and the site: Fulcrum Colo, Newark DE, Tier III.</p></div>
+        <div class="lgot"><div class="k"><span class="chip done">Priced</span></div><p><b>A first property indication is in hand, shown below.</b> Your schedule was submitted at full replacement cost, and large-account underwriting is refining it now.</p></div>
+      </div>
+      <div class="lrow">
+        <div class="lask"><div class="k">You completed</div><p>The supplemental underwriting questionnaire, same day it went live.</p></div>
+        <div class="lgot"><div class="k"><span class="chip motion">In motion</span></div><p><b>It released the Tech E&amp;O + Cyber quote into final carrier review.</b> Numbers land here the moment they are issued.</p></div>
+      </div>
+      <div class="lrow">
+        <div class="lask"><div class="k">You asked</div><p>The $1M social engineering limit on the crime policy.</p></div>
+        <div class="lgot"><div class="k"><span class="chip motion">In review</span></div><p><b>The carrier is reviewing the higher limit against company financials.</b> The structure that gets you protected on day one, and the path to $1M, is a conversation we will walk you through with the final numbers.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTY: PRICED -->
+  <section class="sec">
+    <div class="sec-eye fade">Your equipment, priced</div>
+    <h2 class="fade">The property program, first numbers</h2>
+    <p class="sub fade">This is an early indication from initial carrier review, shared before full underwriting completes so you can budget with real figures instead of waiting. Final pricing follows large-account review closer to deployment.</p>
+
+    <div class="indic fade">
+      <div class="k">Early indication &middot; annual</div>
+      <div class="big">$38,000 &ndash; $48,000</div>
+      <div class="terms">at a <b>$25,000 deductible</b> &middot; roughly <b>$0.12 per $100</b> of insured values</div>
+      <p class="note">Your schedule was submitted at full replacement cost. Because the values exceed the carrier's small-business definition, the account was referred to their Middle &amp; Large Business team, the desk that underwrites portfolios at this scale. Their review sets the final number; the rate is the figure to watch, since it holds even as your schedule grows.</p>
+    </div>
+
+    <div class="sched fade">
+      <div class="s"><b>$39,401,340</b><span>Total equipment, replacement cost</span></div>
+      <div class="s"><b>65 GPU servers</b><span>Plus 33 switches, 76 PDUs, optics</span></div>
+      <div class="s"><b>Fulcrum Colo</b><span>350 Pencader Dr, Newark DE</span></div>
+      <div class="s"><b>Tier III</b><span>Facility rating</span></div>
+    </div>
+  </section>
+
+  <!-- AS DEPLOYMENT APPROACHES -->
+  <section class="sec" style="padding-top:6px">
+    <div class="sec-eye fade">As deployment approaches</div>
+    <h2 class="fade">Built when the deal signs</h2>
+    <p class="sub fade">Three pieces of the property program are deliberately not priced yet, because each one is shaped by facts that only exist once your deal signs. Here is what they are and when they happen.</p>
+
+    <div class="tiles">
+      <!-- TRANSIT / INTERACTIVE -->
+      <div class="tile fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 8h14v9H1z"/><path d="M15 11h4l4 3v3h-8z"/><circle cx="6" cy="19" r="1.6"/><circle cx="18" cy="19" r="1.6"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Transit &amp; Installation</div>
+            <div class="tile-tag">Priced per shipment. Explore which structure fits you.</div>
+          </div>
+          <span class="pill soon">At deal signing</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Between the vendor's dock and a live rack, your equipment is a different risk than it is sitting in the building, and it gets its own coverage: a <b>transit and installation policy sized to what is actually on each truck.</b> Every shipment differs, values per conveyance, route, timing, so this is priced against your real logistics plan before the first unit ships, not guessed at today.</p>
+
+          <div class="path" data-path>
+            <div class="q">How will your equipment arrive?</div>
+            <div class="opts">
+              <button data-opt="single">One delivery window per deal</button>
+              <button data-opt="rolling">Rolling shipments, or multiple sites</button>
+            </div>
+
+            <div class="out" data-out="single">
+              <h4>Your pattern points toward a one-off policy per project</h4>
+              <p style="font-size:13.5px">Coverage that switches on for the deployment and off at commissioning, the same way your capital deploys per deal.</p>
+              <div class="pc">
+                <div><div class="h">Works for you</div><ul><li>You only carry coverage while you are actually exposed</li><li>Sized precisely to that deployment's values</li><li>No premium riding during quiet months</li></ul></div>
+                <div><div class="h">Trade-offs</div><ul><li>Each new deal needs its own short placement, so lead time matters</li><li>Per-project pricing carries a little friction versus one annual program</li></ul></div>
+              </div>
+              <div class="close">Either way: a short conversation once your delivery schedule exists, settled before the first unit ships.</div>
+            </div>
+
+            <div class="out" data-out="rolling">
+              <h4>Your pattern points toward an annual program</h4>
+              <p style="font-size:13.5px">One inland marine policy that stays on; each shipment simply gets reported into it as it moves.</p>
+              <div class="pc">
+                <div><div class="h">Works for you</div><ul><li>Always on, nothing to place per deal</li><li>Cleaner once deployments start stacking</li><li>One renewal, one set of terms</li></ul></div>
+                <div><div class="h">Trade-offs</div><ul><li>You pay for standby capacity before the cadence justifies it</li><li>Limits are set to projections rather than actuals</li></ul></div>
+              </div>
+              <div class="close">Either way: a short conversation once your delivery schedule exists, settled before the first unit ships.</div>
+            </div>
+
+            <div class="more" data-more hidden><a data-morelink>One more factor: who owns the gear in transit? &rarr;</a></div>
+
+            <div class="path" data-path2 hidden style="border-top:none;padding-top:4px">
+              <div class="q" style="margin-top:8px">Under your purchase terms, when does risk pass to you?</div>
+              <div class="opts">
+                <button data-opt2="dest">Vendor holds risk until delivery</button>
+                <button data-opt2="origin">Risk transfers at the vendor's dock</button>
+              </div>
+              <div class="out" data-out2="dest">
+                <p style="font-size:13.5px"><b>The ride is largely the vendor's problem.</b> Your need concentrates on installation coverage, from the loading dock to the live, accepted rack, plus whatever your lender requires.</p>
+              </div>
+              <div class="out" data-out2="origin">
+                <p style="font-size:13.5px"><b>The full ride is yours.</b> Transit limits get sized to the maximum value on any one conveyance, and the policy attaches the moment equipment leaves the vendor.</p>
+              </div>
+              <div class="close" style="margin-top:10px">The answer is one line in your purchase order. We check it with you before anything ships.</div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- LENDER -->
+      <div class="tile fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Lender Loss Payee</div>
+            <div class="tile-tag">Named the day your financing is placed</div>
+          </div>
+          <span class="pill soon">At financing</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Your equipment lender will require exact policy language, <b>loss payee status, notice provisions, sometimes specific limits,</b> as a condition of funding. Send us the lender's name and their insurance requirements when financing terms land, and the endorsements are issued to match, so insurance is never the item holding up a draw.</p>
+        </div></div>
+      </div>
+
+      <!-- UTILITY / SITE -->
+      <div class="tile fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h8l-1 8 11-13h-8l0-7z"/></svg></div>
+          <div class="tile-meta">
+            <div class="tile-name">Utility &amp; Site Interruption</div>
+            <div class="tile-tag">Sized to the lease and the revenue behind it</div>
+          </div>
+          <span class="pill soon">At lease terms</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Your revenue runs on the facility's power and cooling. Once the Fulcrum lease terms and your first contract's revenue schedule are set, <b>business income and utility service interruption limits get sized to the actual numbers,</b> what an hour, a day, a week of downtime really costs you, rather than a generic figure.</p>
+        </div></div>
+      </div>
+    </div>
+    <p class="fineprint fade" style="margin-top:14px">As with every line here, the full property program is finalized at deployment around your actual shipping plan, site terms, and lender requirements.</p>
+  </section>
+
+  <!-- MONEY -->
+  <section class="sec">
+    <div class="sec-eye fade">Your investment, version 3</div>
+    <h2 class="fade">The full picture</h2>
+    <p class="sub fade">The liability and executive program is quoted and ready to bind. Property carries its early indication. Cyber prices are in final carrier review, released by your questionnaire.</p>
+
+    <div class="money fade">
+      <div class="money-top">
+        <div class="toggle" role="tablist">
+          <button class="active" data-ulimit3="5" role="tab">$5M Umbrella</button>
+          <button data-ulimit3="10" role="tab">$10M Umbrella</button>
+        </div>
+        <p class="u-note" id="uNote3">$5M each occurrence and aggregate, quoted at $3,086.</p>
+      </div>
+
+      <div class="rows">
+        <div class="row">
+          <div class="l">General Liability package<small>$2M / $4M, MSA endorsements, $1M hired &amp; non-owned auto included</small></div>
+          <div class="v">$5,656</div>
+        </div>
+        <div class="row">
+          <div class="l">Commercial Umbrella<small id="uRowNote3">$5M each occurrence and aggregate</small></div>
+          <div class="v" id="uRowVal3">$3,086</div>
+        </div>
+        <div class="row">
+          <div class="l">Executive Package<small>D&amp;O $2M + $1M executives, EPLI $1M, Crime $1M, Kidnap Ransom &amp; Extortion $1M</small></div>
+          <div class="v">$9,598</div>
+        </div>
+        <div class="row">
+          <div class="l">Tech E&amp;O + Cyber<small>$2M and $5M options, one shared aggregate</small></div>
+          <div class="v" style="font-size:14px;color:var(--slate)">In final carrier review</div>
+        </div>
+        <div class="row">
+          <div class="l">Property &amp; Equipment<small>$39.4M schedule at Fulcrum, $25K deductible, large-account review in progress</small></div>
+          <div class="v" style="font-size:14px;color:var(--slate)">$38K&ndash;$48K indication</div>
+        </div>
+      </div>
+      <div class="total">
+        <div class="l" id="totalLabel3">Quoted today</div>
+        <div class="v" id="totalVal3">$18,340 <small>annual, as quoted</small></div>
+      </div>
+
+      <p class="fineprint">The total reflects the quoted liability and executive program, policy period 07/17/2026 to 07/17/2027; each policy bills on its own schedule. The property figure is an early indication, not yet a quote: final pricing follows the carrier's Middle &amp; Large Business review and full underwriting closer to deployment. The executive package quote is valid through September 13, 2026. The $10M umbrella is subject to carrier referral. Coverage responds subject to the terms of each policy.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta fade">
+    <h2>Your questionnaire did its job.</h2>
+    <p>Everything the carriers asked for is in. The remaining numbers, cyber at both limits and the final property figure, land here as they are issued. Questions on the indication, the deployment items, or anything above: reach out any time.</p>
+    <a class="btn" href="mailto:austin@gosafeshield.com?subject=GlassPearl%20LLC%20-%20V3%20questions">Email Austin</a>
+    <span class="alt">or call <a href="tel:2035649817">(203) 564-9817</a></span>
+  </section>
+</div>
+</div><!-- /proposalView3 -->
+
+<div id="scaleView3" data-view-pane="scale" hidden>
+<div class="wrap">
+  <section class="sec" style="padding-top:40px">
+    <div class="sec-eye">The road ahead</div>
+    <h2>Coverage that scales the way you do</h2>
+    <p class="sub">Martin, the road is the same one we drew in round one, and you are moving down it faster than expected: the site is named, the schedule is real, and the first numbers exist. Here is where each phase stands.</p>
+  </section>
+
+  <div class="phase now">
+    <div class="phase-head">
+      <div class="phase-num">1</div>
+      <div class="phase-title">The foundation</div>
+      <div class="phase-when">Ready to bind</div>
+    </div>
+    <div class="phase-body">
+      <p><b>The operating program is quoted and waiting on your word.</b> The founders, the operation, and the contract machinery your MSAs will demand.</p>
+      <div class="covs">
+        <div class="cov"><div class="dot"></div><div><b>General Liability + MSA endorsements</b><span>$2M / $4M with additional insured, primary &amp; non-contributory, waiver of subrogation.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Executive Package</b><span>D&amp;O, EPLI, Crime, and KR&amp;E, the founders covered from day one.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>$5M Umbrella, $10M priced</b><span>Real limits before the first MSA asks for them.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Tech E&amp;O + Cyber</b><span>In final carrier review, released by your questionnaire.</span></div></div>
+      </div>
+      <div class="trigger"><b>Trigger:</b> your go-ahead. Binds same day.</div>
+    </div>
+  </div>
+
+  <div class="phase next">
+    <div class="phase-head">
+      <div class="phase-num">2</div>
+      <div class="phase-title">First deal signs</div>
+      <div class="phase-when">Expected Sep&ndash;Oct</div>
+    </div>
+    <div class="phase-body">
+      <p><b>Already half built.</b> The site is named, the schedule is priced at an early indication, and large-account underwriting is under way. Three inputs remain, and each one arrives naturally as your deal closes.</p>
+      <div class="covs">
+        <div class="cov"><div class="dot"></div><div><b>Equipment schedule at replacement cost</b><span>$39.4M submitted, indication in hand, final number at full underwriting.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Transit &amp; installation</b><span>Priced per shipment against your real logistics plan, before the first unit ships.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Lease and lender compliance</b><span>Fulcrum's insurance requirements and your lender, named exactly as their contracts require.</span></div></div>
+        <div class="cov"><div class="dot"></div><div><b>Business income and utility interruption</b><span>Sized to the lease terms and your first contract's revenue.</span></div></div>
+      </div>
+      <div class="trigger"><b>Trigger:</b> signed deal. Send the lease's insurance requirements, the lender, and the delivery schedule, and the program closes around them.</div>
+    </div>
+  </div>
+
+  <div class="phase next">
+    <div class="phase-head">
+      <div class="phase-num">3</div>
+      <div class="phase-title">Every deal after</div>
+      <div class="phase-when">Ongoing</div>
+    </div>
+    <div class="phase-body">
+      <p><b>Scaling becomes routine.</b> Each new project is an addition to the schedule you already have, not a new placement. New site, new values, updated schedule, done. Limits move whenever a contract calls for it, and the umbrella path through $10M is already priced.</p>
+      <div class="trigger"><b>Trigger:</b> each new deal. One email with the site and values, and coverage keeps pace.</div>
+    </div>
+  </div>
+
+  <section class="cta fade" style="margin-top:34px">
+    <h2>One broker, every phase.</h2>
+    <p>The point of building it this way is simple: you focus on landing deals, and the coverage is never the thing holding one up.</p>
+    <a class="btn" href="mailto:austin@gosafeshield.com?subject=GlassPearl%20LLC%20-%20V3">Email Austin</a>
+    <span class="alt">or call <a href="tel:2035649817">(203) 564-9817</a></span>
+  </section>
+</div>
+</div><!-- /scaleView3 -->
+</div><!-- /ver3 -->
+
+
 
 <div class="wrap">
   <!-- FOOTER -->
@@ -917,7 +1243,7 @@
 
 <script>
   // ----- version switching -----
-  var vroots={ '1':document.getElementById('ver1'), '2':document.getElementById('ver2') };
+  var vroots={ '1':document.getElementById('ver1'), '2':document.getElementById('ver2'), '3':document.getElementById('ver3') };
   var vtabs=document.querySelectorAll('.vtab');
   function showVer(v){
     vtabs.forEach(function(t){t.classList.toggle('active',t.dataset.ver===v)});
@@ -1040,6 +1366,73 @@
       var b=w.querySelector('.info');if(b)b.setAttribute('aria-expanded','false');
     });
   });
+
+  // ----- V3 umbrella limit toggle -----
+  var uBtns3=document.querySelectorAll('#ver3 .money .toggle button');
+  function renderU3(limit){
+    var base=5656+9598;
+    var uVal=(limit==='10')?6112:3086;
+    var note=document.getElementById('uNote3');
+    var rowNote=document.getElementById('uRowNote3');
+    var rowVal=document.getElementById('uRowVal3');
+    var tLbl=document.getElementById('totalLabel3');
+    var tVal=document.getElementById('totalVal3');
+    if(limit==='10'){
+      note.textContent='$10M each occurrence and aggregate, confirmed at $6,112, subject to carrier referral.';
+      rowNote.textContent='$10M each occurrence and aggregate, subject to carrier referral';
+      tLbl.textContent='With $10M umbrella';
+    }else{
+      note.textContent='$5M each occurrence and aggregate, quoted at $3,086.';
+      rowNote.textContent='$5M each occurrence and aggregate';
+      tLbl.textContent='Quoted today';
+    }
+    rowVal.textContent='$'+uVal.toLocaleString();
+    tVal.innerHTML='$'+(base+uVal).toLocaleString()+' <small>annual, as quoted</small>';
+  }
+  uBtns3.forEach(function(b){
+    b.addEventListener('click',function(){
+      uBtns3.forEach(function(x){x.classList.remove('active')});
+      b.classList.add('active');
+      renderU3(b.dataset.ulimit3);
+    });
+  });
+
+  // ----- V3 transit path chooser -----
+  (function(){
+    var root=document.querySelector('#ver3 [data-path]');
+    if(!root)return;
+    var step1=root.querySelectorAll('[data-opt]');
+    var outs1=root.querySelectorAll('[data-out]');
+    var more=root.querySelector('[data-more]');
+    var moreLink=root.querySelector('[data-morelink]');
+    var p2=root.querySelector('[data-path2]');
+    step1.forEach(function(b){
+      b.addEventListener('click',function(e){
+        e.stopPropagation();
+        step1.forEach(function(x){x.classList.toggle('sel',x===b)});
+        outs1.forEach(function(o){o.classList.toggle('show',o.dataset.out===b.dataset.opt)});
+        more.hidden=!p2.hidden;
+      });
+    });
+    if(moreLink){moreLink.addEventListener('click',function(e){
+      e.stopPropagation(); p2.hidden=false; more.hidden=true;
+    });}
+    if(p2){
+      var step2=p2.querySelectorAll('[data-opt2]');
+      var outs2=p2.querySelectorAll('[data-out2]');
+      step2.forEach(function(b){
+        b.addEventListener('click',function(e){
+          e.stopPropagation();
+          step2.forEach(function(x){x.classList.toggle('sel',x===b)});
+          outs2.forEach(function(o){o.classList.toggle('show',o.dataset.out2===b.dataset.opt2)});
+        });
+      });
+    }
+    // keep tile from collapsing when interacting inside the card
+    root.addEventListener('click',function(e){e.stopPropagation();});
+    root.addEventListener('keydown',function(e){e.stopPropagation();});
+  })();
+
 </script>
 </body>
 </html>
