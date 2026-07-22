@@ -155,6 +155,20 @@
   .cov-row.open .cov-detail{max-height:260px}
   .cov-detail p{padding:0 24px 22px;font-size:.9rem;color:var(--muted);max-width:760px}
 
+  /* LEXUS COVERAGE TOGGLE */
+  .cov-toggle{display:flex;align-items:center;justify-content:space-between;gap:14px;background:#f0f4fa;border-top:1px solid var(--line);padding:14px 24px}
+  .cov-toggle .txt{font-size:.85rem;font-weight:600;color:var(--navy)}
+  .cov-toggle .txt small{display:block;font-weight:400;color:var(--muted);font-size:.76rem}
+  .switch{position:relative;width:52px;height:28px;flex:none}
+  .switch input{opacity:0;width:100%;height:100%;position:absolute;margin:0;cursor:pointer;z-index:2}
+  .slider{position:absolute;inset:0;background:#c9cfd9;border-radius:999px;transition:background .2s ease}
+  .slider::before{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;background:#fff;border-radius:50%;transition:transform .2s ease;box-shadow:0 2px 5px rgba(7,31,63,.25)}
+  .switch input:checked + .slider{background:var(--green)}
+  .switch input:checked + .slider::before{transform:translateX(24px)}
+  .switch input:focus-visible + .slider{outline:3px solid var(--orange);outline-offset:2px}
+  .fadeval{transition:opacity .18s ease}
+  .fadeval.flip{opacity:0}
+
   /* STATUS TABS (current option vs declined) */
   .stabs{display:flex;gap:8px;margin-top:26px;flex-wrap:wrap}
   .stab{
@@ -271,7 +285,7 @@
 
   <div class="spane show" id="paneNow" role="tabpanel">
     <div class="move-box">
-      <p><b>You are placed with Plymouth Rock Assurance.</b> Same effective date of August 6, same liability limits we quoted you originally, same coverage on each car, at <b>$4,283 paid in full</b> for the year. Plymouth Rock is a well established personal auto carrier in New York, and their program includes some things worth knowing about: door to door valet claim service, a mobile adjuster who can issue a check on the spot, and a Get Home Safe benefit that reimburses a ride home if you ever should not be driving.</p>
+      <p><b>You are placed with Plymouth Rock Assurance.</b> Same effective date of August 6, same liability limits we quoted you originally, same coverage on each car, at <b>$4,283 paid in full</b> for the year.</p>
       <p>Your mother's policy on the Volvo is unaffected and stands as quoted. So does the Glen Lane homeowners policy, which is already bound, and the Pelhamdale landlord quote.</p>
     </div>
   </div>
@@ -285,10 +299,13 @@
       <div class="dead" style="font-family:'Bricolage Grotesque';font-weight:800;font-size:1.9rem">$2,222 / yr</div>
       <p style="font-size:.9rem;color:var(--muted);margin-top:8px;max-width:720px">This is the quote we sent you earlier today. On July 22 the carrier completed its underwriting review and declined to offer the policy. A declined quote is not a policy that was cancelled and it does not appear anywhere on your record, it simply means that carrier chose not to write it.</p>
 
+      <p style="font-size:.88rem;color:var(--navy-ink);margin-top:18px;font-weight:700">Here is exactly what came back on the reports, so nothing about this is a mystery to you.</p>
       <ul class="reasons">
-        <li><b>Motor vehicle record</b><span>One violation on file from April 2025, failure to use a restraint system.</span></li>
-        <li><b>Prior loss history</b><span>Two claims reported in 2023 within the carrier's lookback period, one liability loss and one comprehensive claim.</span></li>
+        <li><b>Motor vehicle record &middot; one violation</b><span>April 30, 2025, failure to use a restraint system, convicted May 27, 2025. Your license itself is valid and in good standing through 2031.</span></li>
+        <li><b>Loss history &middot; September 5, 2023, 2023 Jeep Grand Wagoneer</b><span>You were the operator. Bodily injury paid $35,000, property damage paid $10,920, other paid $1,106, collision closed with nothing paid. Roughly $47,000 in total payouts on one loss, and that severity is the item carriers weigh most heavily.</span></li>
+        <li><b>Loss history &middot; October 23, 2023, Nissan Sentra</b><span>Comprehensive claim, $1,030 paid, closed. A comprehensive loss carries far less weight than an at fault liability loss, but it does count as a second claim inside the same lookback window.</span></li>
       </ul>
+      <p style="font-size:.88rem;color:var(--muted);margin-top:14px;max-width:720px">Two claims plus a violation inside the same period is what tripped the carrier's rule. Individually none of these would have. It was the combination.</p>
 
       <p style="font-size:.9rem;color:var(--muted);margin-top:16px;max-width:720px"><b style="color:var(--navy)">A word on those reports.</b> Every auto carrier automatically pulls a state motor vehicle record and a national loss history report the moment we submit a quote. Those reports come from outside agencies, not from us, and we cannot edit, remove, or influence what they contain. If you believe anything on them is inaccurate, you have the right under federal law to request a free copy of the report and dispute it directly with the agency that issued it, and we are glad to walk you through how to do that. Otherwise the items age off on their own over time, which is why we will shop this again at renewal.</p>
     </div>
@@ -318,13 +335,20 @@
           <div class="amt">$2,902</div>
         </div>
         <div class="veh">
-          <div class="name">2023 Lexus GX 460 Sport<span class="note">Ryan, principal driver. Liability only, per your request. See our note below.</span></div>
-          <div class="amt">$1,361</div>
+          <div class="name">2023 Lexus GX 460 Sport<span class="note fadeval" id="lexNote">Ryan, principal driver. Liability only, per your request. See our note below.</span></div>
+          <div class="amt fadeval" id="lexAmt">$1,361</div>
         </div>
+      </div>
+      <div class="cov-toggle">
+        <div class="txt">Add full coverage to the Lexus<small>comprehensive and collision, $1,000 deductibles, full glass</small></div>
+        <label class="switch">
+          <input type="checkbox" id="lexTgl" aria-label="Add full coverage to the Lexus">
+          <span class="slider"></span>
+        </label>
       </div>
       <div class="pol-foot">
         <span class="lbl">Annual Premium</span>
-        <span class="tot">$4,283<span style="color:var(--orange)">*</span> <small>/yr</small></span>
+        <span class="tot fadeval" id="ryanTot">$4,283<span style="color:var(--orange)">*</span> <small>/yr</small></span>
       </div>
     </div>
     <div class="pol">
@@ -346,7 +370,7 @@
   </div>
   <p class="two-note" style="margin-top:14px"><span style="color:var(--orange);font-weight:700">*</span> Paid in full, including the $20 state motor vehicle fee. Payment plans are available and run $4,615 for the year. Nothing is bound yet, this policy is ready to issue the moment you give us the go ahead.</p>
   <div class="move-box" style="margin-top:24px">
-    <p><b>One thing we want on the record about the Lexus.</b> You asked us to quote it liability only, and we did. But we do not usually recommend holding liability only on a newer vehicle. If the Lexus is damaged in an accident you cause, or stolen, or hit by a falling limb, a liability only policy pays nothing toward the car itself. On a 2023 GX 460 that is a lot of value riding uninsured. Say the word and we will price comprehensive and collision on it at the same $1,000 deductibles the Sentra carries, so you can see the real cost side by side. No pressure either way. It is your call, we just want it to be an informed one.</p>
+    <p><b>One thing we want on the record about the Lexus.</b> You asked us to quote it liability only, and we did. But we do not usually recommend holding liability only on a newer vehicle. If the Lexus is damaged in an accident you cause, or stolen, or hit by a falling limb, a liability only policy pays nothing toward the car itself. On a 2023 GX 460 that is a lot of value riding uninsured. So we priced it both ways. Flip the toggle on the Lexus line above and every number on this page updates to show full coverage, same $1,000 deductibles the Sentra carries, full glass included. The difference is real money, about $3,450 a year, and that is the honest tradeoff: the truck is worth far more than that if you ever lose it. No pressure either way. It is your call, we just want it to be an informed one.</p>
   </div>
   <p class="two-note">Both quotes carry the same effective date of August 6, 2026, timed so coverage transitions cleanly around your closing with no gap and no overlap you are paying twice for.</p>
 </section>
@@ -404,9 +428,9 @@
     <div class="stk">
       <div class="l">
         <div class="n">Ryan &amp; Shaneka's Auto &middot; Sentra + Lexus</div>
-        <div class="d">Plymouth Rock &middot; effective 08/06/2026 &middot; Lexus liability only &middot; ready on your go ahead</div>
+        <div class="d fadeval" id="stkRyanDesc">Plymouth Rock &middot; effective 08/06/2026 &middot; Lexus liability only &middot; ready on your go ahead</div>
       </div>
-      <div class="amt">$4,283<span style="color:var(--orange)">*</span></div>
+      <div class="amt fadeval" id="stkRyanAmt">$4,283<span style="color:var(--orange)">*</span></div>
     </div>
     <div class="stk">
       <div class="l">
@@ -420,7 +444,7 @@
         <div class="n">Everything, per year</div>
         <div class="d">2 homes &middot; 3 cars &middot; 3 drivers &middot; 1 agency</div>
       </div>
-      <div class="amt">$11,110</div>
+      <div class="amt fadeval" id="stkTotal">$11,110</div>
     </div>
   </div>
   <p class="two-note" style="margin-top:14px"><span style="color:var(--orange);font-weight:700">**</span> Hartford's multi-policy discount only applies when the auto is also written with Hartford, and yours is not, so the Glen Lane premium stays at $2,071 either way. The auto account credit you do earn is on the Narragansett Bay landlord policy, and it is already reflected in the $2,594 rate shown above.</p>
@@ -439,37 +463,58 @@
 
 <footer>
   Safeshield Insurance LLC &middot; 2777 Summer Street, 6th Floor, Stamford, CT 06905 &middot; 203-204-2555<br>
-  Quotes are estimates and subject to underwriting approval and final carrier review. Rates are not guaranteed and coverage is not in effect until confirmed in writing by an authorized representative. Plymouth Rock Assurance quote NYAQ0007129095 ($4,283 paid in full including the $20 motor vehicle law enforcement fee; Lexus written without physical damage coverage at the applicant's request), replacing NYCM quote Q33076569, which the carrier declined on 07/22/2026 following its review of motor vehicle and loss history reports and A. Central quote Q33077023 ($2,162), both effective 08/06/2026, 12 month terms, priced with paid in full and multi-car discounts as shown on the carrier quotes. The Pelhamdale rate of $2,594 is an estimate pending auto placement; NBIC quote NYDQ01750778. Hartford policy 31RBD181049 is bound effective 08/08/2026.
+  Quotes are estimates and subject to underwriting approval and final carrier review. Rates are not guaranteed and coverage is not in effect until confirmed in writing by an authorized representative. Plymouth Rock Assurance quote NYAQ0007129095, quoted two ways at the applicant's request: $4,283 paid in full with the Lexus written without physical damage coverage, or $7,735 paid in full with comprehensive and collision on the Lexus at $1,000 deductibles, both figures including the $20 motor vehicle law enforcement fee, replacing NYCM quote Q33076569, which the carrier declined on 07/22/2026 following its review of motor vehicle and loss history reports and A. Central quote Q33077023 ($2,162), both effective 08/06/2026, 12 month terms, priced with paid in full and multi-car discounts as shown on the carrier quotes. The Pelhamdale rate of $2,594 is an estimate pending auto placement; NBIC quote NYDQ01750778. Hartford policy 31RBD181049 is bound effective 08/08/2026.
 </footer>
 
 <script>
 var tabAuto=document.getElementById('tabAuto'),tabAll=document.getElementById('tabAll'),
     price=document.getElementById('price'),label=document.getElementById('priceLabel'),
     monthly=document.getElementById('monthly'),ribbon=document.getElementById('ribbon'),
-    note=document.getElementById('stageNote');
-function setMode(all){
-  tabAuto.classList.toggle('active',!all);tabAll.classList.toggle('active',all);
-  tabAuto.setAttribute('aria-selected',!all);tabAll.setAttribute('aria-selected',all);
-  price.classList.add('flip');
+    note=document.getElementById('stageNote'),
+    lexTgl=document.getElementById('lexTgl'),lexAmt=document.getElementById('lexAmt'),
+    lexNote=document.getElementById('lexNote'),ryanTot=document.getElementById('ryanTot'),
+    stkRyanAmt=document.getElementById('stkRyanAmt'),stkRyanDesc=document.getElementById('stkRyanDesc'),
+    stkTotal=document.getElementById('stkTotal');
+var showAll=false,fullCov=false;
+var N={
+  lo:{lex:'$1,361',lexNote:'Ryan, principal driver. Liability only, per your request. See our note below.',
+      ryan:'$4,283',autos:'$6,445',prog:'$11,110',
+      desc:'Plymouth Rock &middot; effective 08/06/2026 &middot; Lexus liability only &middot; ready on your go ahead'},
+  hi:{lex:'$4,813',lexNote:'Ryan, principal driver. Full coverage, $1,000 comprehensive and collision, full glass.',
+      ryan:'$7,735',autos:'$9,897',prog:'$14,562',
+      desc:'Plymouth Rock &middot; effective 08/06/2026 &middot; Lexus full coverage &middot; ready on your go ahead'}
+};
+var star='<span style="color:var(--orange)">*</span>';
+function paint(){
+  var v=fullCov?N.hi:N.lo;
+  var els=[price,lexAmt,lexNote,ryanTot,stkRyanAmt,stkRyanDesc,stkTotal];
+  els.forEach(function(e){e.classList.add('flip')});
   setTimeout(function(){
-    if(all){
+    lexAmt.textContent=v.lex;
+    lexNote.textContent=v.lexNote;
+    ryanTot.innerHTML=v.ryan+star+' <small>/yr</small>';
+    stkRyanAmt.innerHTML=v.ryan+star;
+    stkRyanDesc.innerHTML=v.desc;
+    stkTotal.textContent=v.prog;
+    if(showAll){
       label.textContent='Complete Household Program';
-      price.textContent='$11,110';
+      price.textContent=v.prog;
       monthly.textContent='2 homes, 3 cars, 3 drivers, everything on one account';
       note.textContent='Includes the bound Glen Lane policy, the Pelhamdale landlord quote at its bundled rate, and both auto policies.';
       ribbon.classList.add('show');
     }else{
       label.textContent='Household Auto Total';
-      price.textContent='$6,445';
+      price.textContent=v.autos;
       monthly.textContent='quoted with the paid in full discount, matching how you pay today';
       note.textContent='Both auto policies are full 12 month terms. Your rate is locked for a year, not repriced every 6 months.';
       ribbon.classList.remove('show');
     }
-    price.classList.remove('flip');
+    els.forEach(function(e){e.classList.remove('flip')});
   },180);
 }
-tabAuto.addEventListener('click',function(){setMode(false)});
-tabAll.addEventListener('click',function(){setMode(true)});
+tabAuto.addEventListener('click',function(){showAll=false;tabAuto.classList.add('active');tabAll.classList.remove('active');tabAuto.setAttribute('aria-selected',true);tabAll.setAttribute('aria-selected',false);paint()});
+tabAll.addEventListener('click',function(){showAll=true;tabAll.classList.add('active');tabAuto.classList.remove('active');tabAll.setAttribute('aria-selected',true);tabAuto.setAttribute('aria-selected',false);paint()});
+lexTgl.addEventListener('change',function(){fullCov=lexTgl.checked;paint()});
 
 var sNow=document.getElementById('sNow'),sOld=document.getElementById('sOld'),
     paneNow=document.getElementById('paneNow'),paneOld=document.getElementById('paneOld');
