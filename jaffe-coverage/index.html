@@ -141,6 +141,46 @@
   .btn.ghost:hover{background:rgba(255,255,255,.12);color:var(--white)}
   .hp{position:absolute;left:-9999px}
 
+  /* today's options: the ladder */
+  .rungs{display:flex;gap:8px;flex-wrap:wrap}
+  .rung{flex:1;min-width:170px;border:1px solid var(--line);background:var(--white);padding:14px 12px;cursor:pointer;text-align:left;transition:.14s}
+  .rung:hover{border-color:var(--blue)}
+  .rung[aria-pressed="true"]{background:var(--blue);border-color:var(--blue)}
+  .rung .r-face{font-family:'Roboto Mono',monospace;font-size:17px;font-weight:700;color:var(--blue)}
+  .rung .r-term{font-size:12px;font-weight:600;color:var(--gray);margin-top:2px;text-transform:uppercase;letter-spacing:.05em}
+  .rung .r-px{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--gray);margin-top:6px}
+  .rung[aria-pressed="true"] .r-face{color:var(--maize)}
+  .rung[aria-pressed="true"] .r-term,.rung[aria-pressed="true"] .r-px{color:#B8C9DA}
+  .ladder-track{margin-top:34px;position:relative;padding-top:26px}
+  .ladder-plot{position:relative;height:240px;border-bottom:2px solid var(--blue)}
+  .yardline{position:absolute;top:0;bottom:0;width:2px;background:var(--blue)}
+  .yardline b{position:absolute;top:0;left:50%;transform:translateX(-50%);font-family:'Roboto Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);white-space:nowrap;background:var(--white);padding:0 5px}
+  .lblock{position:absolute;left:0;border:1px solid var(--blue);display:flex;align-items:center;padding:0 14px;overflow:hidden;transition:.25s}
+  .lblock .bl{font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;white-space:nowrap}
+  .lblock.c10{background:var(--maize)}.lblock.c10 .bl{color:var(--blue)}
+  .lblock.c20{background:var(--blue-2)}.lblock.c20 .bl{color:var(--maize)}
+  .lblock.c30{background:var(--blue)}.lblock.c30 .bl{color:var(--maize)}
+  .lempty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:15px;text-align:center;padding:20px}
+  .track-foot{display:flex;justify-content:space-between;margin-top:14px;font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+  .ladderbox{background:var(--white);border:1px solid var(--line);padding:30px 28px}
+  section.alt .ladderbox{background:var(--paper)}
+
+  /* tabs */
+  .tabbar{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:58px;z-index:55}
+  .tabrow{display:flex}
+  .tabbtn{flex:1;background:none;border:none;border-bottom:4px solid transparent;padding:16px 10px;cursor:pointer;font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);transition:.14s}
+  .tabbtn:hover{color:var(--blue)}
+  .tabbtn[aria-pressed="true"]{color:var(--blue);border-bottom-color:var(--maize);background:var(--maize-soft)}
+  .tabpane{display:none}
+  .tabpane.on{display:block}
+  .bmenu{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  @media(max-width:520px){.bmenu{grid-template-columns:1fr}}
+  .rung.sm{min-width:0;padding:11px 12px}
+  .rung.sm .r-face{font-size:15px}
+  .menucard{background:var(--white);border:1px solid var(--line);padding:24px}
+  .menucard h3{font-size:19px;text-transform:uppercase;margin-bottom:4px}
+  .menucard .mc-sub{font-size:13px;color:var(--gray);margin-bottom:16px}
+
   /* go blue band */
   .goblue-band{background:var(--blue);padding:80px 0;text-align:center;border-top:6px solid var(--maize);border-bottom:6px solid var(--maize)}
   .goblue-big{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(52px,12vw,140px);line-height:1;color:var(--maize);text-transform:uppercase;letter-spacing:-0.02em}
@@ -157,13 +197,23 @@
   <div class="wrap">
     <div class="brand">SAFE<span>SHIELD</span></div>
     <nav class="topnav">
-      <a href="#coverage">Your coverage</a>
-      <a href="#works">How it works</a>
+      <a href="#coverage" onclick="showTab('current')">Last week's selection</a>
+      <a href="#works" onclick="showTab('current')">How it works</a>
+      <a href="#today" onclick="showTab('today')">Today's options</a>
       <a href="#next">What happens next</a>
       <a href="#questions">Questions</a>
     </nav>
   </div>
 </div>
+
+<div class="tabbar">
+  <div class="wrap tabrow">
+    <button type="button" class="tabbtn" id="tb-today" aria-pressed="true" onclick="showTab('today', true)">Today's options &middot; July 22</button>
+    <button type="button" class="tabbtn" id="tb-current" aria-pressed="false" onclick="showTab('current', true)">Last week's selection</button>
+  </div>
+</div>
+
+<div id="pane-current" class="tabpane">
 
 <div class="hero">
   <div class="wrap">
@@ -308,6 +358,167 @@
     </div>
   </div>
 </section>
+</div><!-- /pane-current -->
+
+<div id="pane-today" class="tabpane on">
+<!-- ============ TODAY'S OPTIONS ============ -->
+<section id="today">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow dark">Added July 22 / Today's options</div>
+      <h2>The ladder Todd asked about</h2>
+      <p>Todd, you asked how laddering works, so here it is with real numbers instead of a theory: three fresh Symetra quotes pulled this morning through Fortis, same preferred non&#8209;tobacco class. One note so the pricing reads right: carriers price on nearest birthday and yours flipped since the original quotes, so today's numbers are at insurance age 37.</p>
+    </div>
+
+    <div class="callout" style="margin:0 0 30px">
+      <b>Laddering in one paragraph.</b> Instead of one big policy for one long term, you stack smaller policies with different term lengths. They all pay out together in the early years when the boys are little and the need is at its peak. Then, as each obligation retires, a policy retires with it and its premium disappears. Coverage steps down on the same staircase the need does, so you are never paying peak-coverage prices in years when the need has already shrunk.
+    </div>
+
+    <div class="ladderbox">
+      <h3 style="font-size:22px;text-transform:uppercase;margin-bottom:4px">Todd's three rungs</h3>
+      <p style="font-size:14px;color:var(--gray);margin-bottom:18px">Tap a rung on or off and watch the staircase rebuild.</p>
+
+      <div class="rungs">
+        <button type="button" class="rung" id="r10" aria-pressed="true" onclick="toggleRung('r10')">
+          <div class="r-face">$2,000,000</div>
+          <div class="r-term">10 year term</div>
+          <div class="r-px">$51.38 / mo &middot; $604.42 / yr</div>
+        </button>
+        <button type="button" class="rung" id="r20" aria-pressed="true" onclick="toggleRung('r20')">
+          <div class="r-face">$2,000,000</div>
+          <div class="r-term">20 year term</div>
+          <div class="r-px">$91.25 / mo &middot; $1,073.50 / yr</div>
+        </button>
+        <button type="button" class="rung" id="r30" aria-pressed="true" onclick="toggleRung('r30')">
+          <div class="r-face">$1,000,000</div>
+          <div class="r-term">30 year term</div>
+          <div class="r-px">$85.70 / mo &middot; $1,008.19 / yr</div>
+        </button>
+      </div>
+
+      <div class="ladder-track">
+        <div class="ladder-plot" id="ladder-plot">
+          <div class="yardline" style="left:33.333%"><b>Year 10 &middot; Todd 47</b></div>
+          <div class="yardline" style="left:66.666%"><b>Year 20 &middot; youngest out of college</b></div>
+        </div>
+        <div class="track-foot">
+          <div>Today</div>
+          <div>Year 30 &middot; Todd 67</div>
+        </div>
+      </div>
+
+      <div class="how" style="margin-top:30px">
+        <div class="hcard">
+          <div class="n">Years 1&ndash;10</div>
+          <h3 id="d1-cov"></h3>
+          <p><span class="mono" style="font-weight:700;color:var(--blue)" id="d1-mo"></span><br>Every rung in force at once. Three boys at home, peak mortgage, peak need.</p>
+        </div>
+        <div class="hcard">
+          <div class="n">Years 11&ndash;20</div>
+          <h3 id="d2-cov"></h3>
+          <p><span class="mono" style="font-weight:700;color:var(--blue)" id="d2-mo"></span><br>The 10 year rung expires and takes its premium with it. No call, no form, no decision.</p>
+        </div>
+        <div class="hcard">
+          <div class="n">Years 21&ndash;30</div>
+          <h3 id="d3-cov"></h3>
+          <p><span class="mono" style="font-weight:700;color:var(--blue)" id="d3-mo"></span><br>Only the 30 year rung remains, carrying coverage all the way to 67.</p>
+        </div>
+      </div>
+
+      <div class="household" style="margin-top:30px">
+        <div>
+          <div class="k">Year-one coverage on Todd</div>
+          <div class="v hl" id="ld-face"></div>
+          <div class="s" id="ld-mix"></div>
+        </div>
+        <div>
+          <div class="k">Monthly premium today</div>
+          <div class="v" id="ld-mo"></div>
+          <div class="s" id="ld-yr"></div>
+        </div>
+        <div>
+          <div class="k">Premium staircase</div>
+          <div class="v" id="ld-steps" style="font-size:21px;line-height:1.4"></div>
+          <div class="s">Per month in each decade. It only ever goes down.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <b>Against last week's pick, honestly.</b> The $5M for 30 years you landed on last week costs $371.11 a month, every month, until 2056. The full ladder starts at $228.33, a savings of $142.78 a month from day one, then steps down to $176.95 and finally $85.70. Paid annually over the full 30 years that is roughly $58,000 versus $131,000, less than half. The tradeoff is real and you should see it plainly: in years 11&ndash;20 you would hold $3M instead of $5M, and in years 21&ndash;30, $1M instead of $5M. The bet the ladder makes is that by then the mortgage is shrinking, the boys are launching, and the portfolio has compounded, so the need has stepped down with the coverage. Each rung is its own convertible policy that can be kept, converted, or cancelled independently. If that logic holds for you, this is the better structure. If you want $5M standing at 66 no matter what, what you already picked is the right call and I will not talk you out of it.
+    </div>
+
+    <h3 style="font-size:24px;margin:52px 0 20px;text-transform:uppercase">Leah's updated number</h3>
+    <div class="policies">
+      <div class="hcard">
+        <h3 style="font-size:19px;text-transform:uppercase;margin-bottom:6px">Leah at $2M, quoted today</h3>
+        <div class="spec" style="padding:0">
+          <div class="row"><span>Product</span><span>Symetra SwiftTerm &middot; 20 year term</span></div>
+          <div class="row"><span>Health class / age</span><span>Preferred Non-Nicotine &middot; 36</span></div>
+          <div class="row"><span>Monthly</span><span class="mono">$67.81</span></div>
+          <div class="row"><span>Annual</span><span class="mono">$797.72</span></div>
+        </div>
+      </div>
+      <div class="hcard">
+        <h3 style="font-size:19px;text-transform:uppercase;margin-bottom:9px">Against last week's $3M</h3>
+        <p style="font-size:15px;color:var(--gray)">You asked for the updated quote, so here it is next to last week's pick: $3M runs $98.95 a month, $2M runs $67.81, a difference of $31.14. Same carrier, same term, same class, so this is purely a face-amount decision. If $3M still reflects the need, keep it. If $2M is where you have landed, say the word and we write it at this number.</p>
+      </div>
+    </div>
+    <h3 style="font-size:24px;margin:52px 0 8px;text-transform:uppercase">Build your own structure</h3>
+    <p style="color:var(--gray);font-size:16px;max-width:720px;margin-bottom:24px">Between the original quotes and today's, you now have real pricing on seven different blocks for Todd and four for Leah. So build whatever you want. Tap blocks in and out, watch the staircase rebuild, and the household total follows along. Blocks were quoted on different dates at different insurance ages, so whatever you land on, I re-pull final pricing before anyone signs anything.</p>
+
+    <div class="policies">
+      <div class="menucard">
+        <h3>Todd's blocks</h3>
+        <div class="mc-sub">Stack as many as you want. All Symetra SwiftTerm, preferred non-tobacco.</div>
+        <div class="bmenu" id="t-menu"></div>
+      </div>
+      <div class="menucard">
+        <h3>Leah's block</h3>
+        <div class="mc-sub">Pick one. Your quotes are all 20 year so far. If you want rungs of your own, I will pull 10 and 30 year pricing, one text away.</div>
+        <div class="bmenu" id="l-menu"></div>
+      </div>
+    </div>
+
+    <div class="ladderbox" style="margin-top:26px">
+      <h3 style="font-size:20px;text-transform:uppercase;margin-bottom:4px">Todd's structure, as built</h3>
+      <p style="font-size:14px;color:var(--gray)">Coverage in force on Todd, year by year.</p>
+      <div class="ladder-track">
+        <div class="ladder-plot" id="build-plot">
+          <div class="yardline" style="left:33.333%"><b>Year 10</b></div>
+          <div class="yardline" style="left:66.666%"><b>Year 20</b></div>
+        </div>
+        <div class="track-foot">
+          <div>Today</div>
+          <div>Year 30</div>
+        </div>
+      </div>
+
+      <div class="household" style="margin-top:30px">
+        <div>
+          <div class="k">Household year-one coverage</div>
+          <div class="v hl" id="bd-face"></div>
+          <div class="s" id="bd-mix"></div>
+        </div>
+        <div>
+          <div class="k">Household monthly today</div>
+          <div class="v" id="bd-mo"></div>
+          <div class="s" id="bd-yr"></div>
+        </div>
+        <div>
+          <div class="k">Todd's staircase</div>
+          <div class="v" id="bd-steps" style="font-size:19px;line-height:1.4"></div>
+          <div class="s" id="bd-covsteps"></div>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-top:24px">
+        <button type="button" class="btn" onclick="sendBuild()">Send this structure to Austin</button>
+      </div>
+    </div>
+  </div>
+</section>
+</div><!-- /pane-today -->
 
 <!-- ============ WHAT HAPPENS NEXT ============ -->
 <section id="next">
@@ -364,7 +575,7 @@
 <footer>
   <div class="wrap">
     <p><b>Important disclosures.</b> This document is an educational summary prepared for Todd and Leah. It is not a contract, a binder, or an offer of insurance. Coverage is not in force until an application is submitted, approved by the carrier, the policy is issued and delivered, and the initial premium is paid.</p>
-    <p>Premiums shown were quoted on July 15, 2026 through Fortis Brokerage Service for Symetra Life Insurance Company SwiftTerm level term at a preferred non-tobacco class, based on the ages, gender, and state of residence supplied. Todd: $5,000,000, 30 year term. Leah: $3,000,000, 20 year term. Premiums are illustrations, are subject to change, and are not guaranteed. Final premium is determined solely by the issuing carrier following underwriting and may differ from the amounts shown. Instant issue eligibility is determined by the carrier and is not guaranteed. Conversion rights are subject to the terms of the issued policy. The policy contract governs in all cases.</p>
+    <p>Premiums shown were quoted on July 15, 2026 through Fortis Brokerage Service for Symetra Life Insurance Company SwiftTerm level term at a preferred non-tobacco class, based on the ages, gender, and state of residence supplied. Todd: $5,000,000, 30 year term. Leah: $3,000,000, 20 year term. Premiums are illustrations, are subject to change, and are not guaranteed. Quotes shown under Today's Options were obtained on July 22, 2026 through Fortis Brokerage Service at the same class and reflect a calculated insurance age of 37 for Todd based on nearest birthday. Final premium is determined solely by the issuing carrier following underwriting and may differ from the amounts shown. Instant issue eligibility is determined by the carrier and is not guaranteed. Conversion rights are subject to the terms of the issued policy. The policy contract governs in all cases.</p>
     <p>The death benefit is generally income tax free to beneficiaries under current federal law; individual circumstances vary. Safeshield Insurance LLC is an insurance brokerage and does not provide legal, tax, or investment advice. Please consult your own attorney and tax professional, particularly regarding trust ownership of any policy.</p>
     <p>AM Best ratings shown are those reported at the time of quoting and are subject to change. <b>Safeshield Insurance LLC</b> &middot; 2777 Summer Street, Stamford, CT &middot; austin@gosafeshield.com</p>
   </div>
@@ -389,6 +600,170 @@ function setFreq(f){
   document.getElementById('hh-per').textContent   = HH[f];
 }
 setFreq('m');
+
+/* Today's options ladder: quoted 07/22/2026, Todd insurance age 37 */
+const RUNGS = {
+  r10:{face:2000000, term:10, m:51.38, a:604.42,  cls:'c10', on:true},
+  r20:{face:2000000, term:20, m:91.25, a:1073.50, cls:'c20', on:true},
+  r30:{face:1000000, term:30, m:85.70, a:1008.19, cls:'c30', on:true}
+};
+const LADDER_MAX = 5000000;
+const $id = i => document.getElementById(i);
+const usd = n => '$' + Math.round(n).toLocaleString('en-US');
+const mil = n => '$' + (n/1000000).toString().replace(/\.0$/,'') + 'M';
+
+function toggleRung(id){ RUNGS[id].on = !RUNGS[id].on; ladder(); }
+function coverAt(d){ return Object.values(RUNGS).filter(r => r.on && r.term >= d*10).reduce((s,r) => s + r.face, 0); }
+function premAt(d){ return Object.values(RUNGS).filter(r => r.on && r.term >= d*10).reduce((s,r) => s + r.m, 0); }
+
+function ladder(){
+  const plot = $id('ladder-plot');
+  plot.querySelectorAll('.lblock,.lempty').forEach(n => n.remove());
+
+  const active = Object.entries(RUNGS).filter(([,r]) => r.on).sort((a,b) => b[1].term - a[1].term);
+  Object.entries(RUNGS).forEach(([id,r]) => $id(id).setAttribute('aria-pressed', r.on));
+
+  if (!active.length){
+    const e = document.createElement('div');
+    e.className = 'lempty';
+    e.textContent = 'Every rung is off. This is what uninsured looks like: quiet, cheap, and a terrible plan.';
+    plot.appendChild(e);
+  }
+
+  let acc = 0;
+  active.forEach(([id,r]) => {
+    const b = document.createElement('div');
+    b.className = 'lblock ' + r.cls;
+    b.style.width  = (r.term/30*100) + '%';
+    b.style.bottom = (acc/LADDER_MAX*100) + '%';
+    b.style.height = (r.face/LADDER_MAX*100) + '%';
+    b.innerHTML = '<span class="bl">' + mil(r.face) + ' &middot; ' + r.term + ' yr &middot; ' + usd2(r.m) + '/mo</span>';
+    plot.appendChild(b);
+    acc += r.face;
+  });
+
+  [1,2,3].forEach(d => {
+    $id('d'+d+'-cov').textContent = coverAt(d) ? mil(coverAt(d)) : '$0';
+    $id('d'+d+'-mo').textContent  = usd2(premAt(d)) + ' / mo';
+  });
+
+  const yr1 = Object.values(RUNGS).filter(r => r.on).reduce((s,r) => s + r.a, 0);
+  $id('ld-face').textContent  = coverAt(1) ? usd(coverAt(1)) : '$0';
+  $id('ld-mix').textContent   = active.length ? active.length + (active.length === 1 ? ' rung' : ' rungs') + ' \u00b7 Symetra SwiftTerm' : 'No rungs selected';
+  $id('ld-mo').textContent    = usd2(premAt(1));
+  $id('ld-yr').textContent    = usd2(yr1) + ' per year in year one';
+  $id('ld-steps').textContent = usd2(premAt(1)) + ' \u2192 ' + usd2(premAt(2)) + ' \u2192 ' + usd2(premAt(3));
+}
+ladder();
+
+function showTab(t, fromBar){
+  ['today','current'].forEach(x => {
+    document.getElementById('pane-' + x).classList.toggle('on', x === t);
+    document.getElementById('tb-' + x).setAttribute('aria-pressed', x === t);
+  });
+  if (fromBar) window.scrollTo(0, 0);
+}
+
+/* Build your own: every real quote on file */
+const TBLOCKS = [
+  {id:'tb10a', face:2000000, term:10, m:51.38,  a:604.42,  d:'Jul 22 \u00b7 age 37'},
+  {id:'tb20a', face:1500000, term:20, m:64.46,  a:758.32,  d:'Jul 14 \u00b7 age 36'},
+  {id:'tb20b', face:2000000, term:20, m:91.25,  a:1073.50, d:'Jul 22 \u00b7 age 37'},
+  {id:'tb20c', face:3000000, term:20, m:123.39, a:1451.63, d:'Jul 14 \u00b7 age 36'},
+  {id:'tb20d', face:5000000, term:20, m:201.61, a:2371.85, d:'Jul 14 \u00b7 age 36'},
+  {id:'tb30a', face:1000000, term:30, m:85.70,  a:1008.19, d:'Jul 22 \u00b7 age 37'},
+  {id:'tb30b', face:5000000, term:30, m:371.11, a:4366.00, d:'Jul 15 \u00b7 last week\u2019s pick'}
+];
+const LBLOCKS = [
+  {id:'lb1', face:1500000, term:20, m:52.24,  a:614.54,  d:'Jul 14'},
+  {id:'lb2', face:2000000, term:20, m:67.81,  a:797.72,  d:'Jul 22'},
+  {id:'lb3', face:3000000, term:20, m:98.95,  a:1164.08, d:'Jul 14 \u00b7 last week\u2019s pick'},
+  {id:'lb4', face:5000000, term:20, m:160.89, a:1892.80, d:'Jul 14'}
+];
+const tOn = new Set(['tb10a','tb20b','tb30a']);
+let lPick = 'lb3';
+
+function menus(){
+  $id('t-menu').innerHTML = TBLOCKS.map(b =>
+    `<button type="button" class="rung sm" id="${b.id}" aria-pressed="${tOn.has(b.id)}" onclick="toggleBlock('${b.id}')">
+      <div class="r-face">${mil(b.face)} &middot; ${b.term} yr</div>
+      <div class="r-px">${usd2(b.m)}/mo &middot; ${b.d}</div>
+    </button>`).join('');
+  $id('l-menu').innerHTML = LBLOCKS.map(b =>
+    `<button type="button" class="rung sm" id="${b.id}" aria-pressed="${lPick === b.id}" onclick="pickLeah('${b.id}')">
+      <div class="r-face">${mil(b.face)} &middot; ${b.term} yr</div>
+      <div class="r-px">${usd2(b.m)}/mo &middot; ${b.d}</div>
+    </button>`).join('');
+}
+function toggleBlock(id){ tOn.has(id) ? tOn.delete(id) : tOn.add(id); build(); }
+function pickLeah(id){ lPick = (lPick === id ? null : id); build(); }
+
+const tActive = () => TBLOCKS.filter(b => tOn.has(b.id));
+const bCover  = d => tActive().filter(b => b.term >= d*10).reduce((s,b) => s + b.face, 0);
+const bPrem   = d => tActive().filter(b => b.term >= d*10).reduce((s,b) => s + b.m, 0);
+
+function build(){
+  TBLOCKS.forEach(b => $id(b.id).setAttribute('aria-pressed', tOn.has(b.id)));
+  LBLOCKS.forEach(b => $id(b.id).setAttribute('aria-pressed', lPick === b.id));
+
+  const plot = $id('build-plot');
+  plot.querySelectorAll('.lblock,.lempty').forEach(n => n.remove());
+
+  const act = tActive().sort((a,b) => b.term - a.term || b.face - a.face);
+  const scale = Math.max(bCover(1), 1000000);
+  if (!act.length){
+    const e = document.createElement('div');
+    e.className = 'lempty';
+    e.textContent = 'No blocks selected for Todd. Tap some in and the staircase appears.';
+    plot.appendChild(e);
+  }
+  let acc = 0;
+  act.forEach(b => {
+    const el = document.createElement('div');
+    el.className = 'lblock ' + (b.term === 10 ? 'c10' : b.term === 20 ? 'c20' : 'c30');
+    el.style.width  = (b.term/30*100) + '%';
+    el.style.bottom = (acc/scale*100) + '%';
+    const hpct = b.face/scale*100;
+    el.style.height = hpct + '%';
+    el.title = mil(b.face) + ' \u00b7 ' + b.term + ' yr \u00b7 ' + usd2(b.m) + '/mo';
+    if (hpct/100*240 >= 22) el.innerHTML = '<span class="bl">' + mil(b.face) + ' \u00b7 ' + b.term + ' yr \u00b7 ' + usd2(b.m) + '/mo</span>';
+    plot.appendChild(el);
+    acc += b.face;
+  });
+
+  const lb = LBLOCKS.find(b => b.id === lPick);
+  const hhFace = bCover(1) + (lb ? lb.face : 0);
+  const hhMo   = bPrem(1) + (lb ? lb.m : 0);
+  const hhYr   = tActive().reduce((s,b) => s + b.a, 0) + (lb ? lb.a : 0);
+
+  $id('bd-face').textContent = hhFace ? usd(hhFace) : '$0';
+  $id('bd-mix').textContent  = 'Todd ' + (bCover(1) ? mil(bCover(1)) : '$0') + ' \u00b7 Leah ' + (lb ? mil(lb.face) : 'none');
+  $id('bd-mo').textContent   = usd2(hhMo);
+  $id('bd-yr').textContent   = usd2(hhYr) + ' per year in year one';
+  $id('bd-steps').textContent = usd2(bPrem(1)) + ' \u2192 ' + usd2(bPrem(2)) + ' \u2192 ' + usd2(bPrem(3));
+  $id('bd-covsteps').textContent = 'Coverage: ' + [1,2,3].map(d => bCover(d) ? mil(bCover(d)) : '$0').join(' \u2192 ') + ' per decade, plus Leah';
+}
+
+function sendBuild(){
+  const lines = tActive().sort((a,b) => b.term - a.term)
+    .map(b => '  \u2022 ' + mil(b.face) + ' \u00b7 ' + b.term + ' year term \u00b7 ' + usd2(b.m) + '/mo (' + b.d + ')').join('\n');
+  const lb = LBLOCKS.find(b => b.id === lPick);
+  $id('q-notes').value =
+`We built our own structure on Today's Options:
+
+Todd:
+${lines || '  (none selected)'}
+
+Leah: ${lb ? mil(lb.face) + ' \u00b7 20 year term \u00b7 ' + usd2(lb.m) + '/mo (' + lb.d + ')' : '(none selected)'}
+
+Please re-pull final pricing on this.
+
+Questions:
+`;
+  document.getElementById('questions').scrollIntoView({behavior:'smooth'});
+}
+menus();
+build();
 </script>
 </body>
 </html>
