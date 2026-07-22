@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mario & Cassandra Salcedo — Safeshield Insurance Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#0a1628;
+    color:#FAFAF8;
+    font-family:'Outfit', sans-serif;
+    font-weight:300;
+    line-height:1.7;
+  }
+  h1,h2,h3,h4 { font-family:'Playfair Display', serif; font-weight:900; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 32px; }
+  .divider {
+    height:1px;
+    width:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin:64px 0;
+  }
+  /* HERO */
+  .hero {
+    padding:110px 0 80px;
+    text-align:center;
+    background:radial-gradient(ellipse at top, rgba(0,75,137,0.35), transparent 60%);
+  }
+  .hero .eyebrow {
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:13px;
+    color:#FFA300;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .hero h1 {
+    font-size:52px;
+    line-height:1.15;
+    margin-bottom:22px;
+    color:#FAFAF8;
+  }
+  .hero h1 em { color:#FFA300; font-style:normal; }
+  .hero p.sub {
+    font-size:18px;
+    color:rgba(250,250,248,0.7);
+    max-width:660px;
+    margin:0 auto 8px;
+    font-weight:300;
+  }
+  .hero .addr {
+    margin-top:32px;
+    display:inline-block;
+    padding:16px 40px;
+    border:1px solid rgba(255,163,0,0.4);
+    border-radius:100px;
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:1.5px;
+    color:#FFA300;
+  }
+  /* PRICE DIFFERENCE HERO BLOCK */
+  .price-hero {
+    margin-top:56px;
+    background:linear-gradient(135deg, rgba(0,75,137,0.5), rgba(255,163,0,0.12));
+    border:1px solid rgba(255,163,0,0.3);
+    border-radius:20px;
+    padding:44px 40px;
+  }
+  .price-hero .ph-top {
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:rgba(250,250,248,0.75);
+    margin-bottom:26px;
+  }
+  .price-diff-grid {
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:24px;
+    align-items:center;
+  }
+  .pd-col { text-align:center; }
+  .pd-col .pd-label { font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:#FFA300; margin-bottom:8px; }
+  .pd-col .pd-amount { font-family:'Playfair Display',serif; font-size:30px; font-weight:900; color:#FAFAF8; line-height:1.15; }
+  .pd-col .pd-sub { font-size:13px; color:rgba(250,250,248,0.6); margin-top:6px; }
+  .pd-arrow { font-size:30px; color:#FFA300; font-weight:700; }
+  .price-punchline {
+    margin-top:34px;
+    padding-top:30px;
+    border-top:1px solid rgba(255,163,0,0.25);
+    text-align:center;
+  }
+  .price-punchline .pp-diff { font-size:14px; text-transform:uppercase; letter-spacing:2px; color:rgba(250,250,248,0.7); margin-bottom:10px; }
+  .price-punchline .pp-big { font-family:'Playfair Display',serif; font-size:56px; font-weight:900; color:#FFA300; line-height:1; }
+  .price-punchline .pp-mo { font-size:19px; color:#FAFAF8; margin-top:12px; }
+  .price-punchline .pp-mo strong { color:#FFA300; }
+  .price-punchline .pp-note { font-size:14px; color:rgba(250,250,248,0.6); margin-top:16px; max-width:620px; margin-left:auto; margin-right:auto; }
+
+  /* SNAPSHOT CARDS */
+  .snapshot { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:24px; }
+  .card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:24px 22px;
+    text-align:center;
+  }
+  .card .label { font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#FFA300; margin-bottom:8px; }
+  .card .amount { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; margin-bottom:4px; }
+  .card .desc { font-size:13px; color:rgba(250,250,248,0.6); }
+
+  /* SECTION HEADERS */
+  .section { padding:70px 0; }
+  .section h2 {
+    font-size:36px;
+    margin-bottom:14px;
+  }
+  .section .kicker {
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12px;
+    color:#FFA300;
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  .section > p.lead {
+    font-size:17px;
+    color:rgba(250,250,248,0.75);
+    max-width:760px;
+    margin-bottom:36px;
+  }
+
+  /* COMPARISON TABLE */
+  table.compare {
+    width:100%;
+    border-collapse:collapse;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  table.compare th, table.compare td {
+    padding:16px 20px;
+    text-align:left;
+    font-size:15px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  table.compare th {
+    background:rgba(0,75,137,0.4);
+    text-transform:uppercase;
+    font-size:12px;
+    letter-spacing:1.5px;
+    color:#FFA300;
+    font-weight:600;
+  }
+  table.compare tr:last-child td { border-bottom:none; }
+  table.compare td.old { color:#ff8a8a; font-weight:500; }
+  table.compare td.new { color:#8fffb0; font-weight:600; }
+  .arrow { color:#FFA300; font-weight:700; margin:0 8px; }
+
+  /* GAP CALLOUT */
+  .gap-callout {
+    background:rgba(255,163,0,0.07);
+    border:1px solid rgba(255,163,0,0.3);
+    border-radius:16px;
+    padding:32px;
+    margin-top:32px;
+  }
+  .gap-callout h3 { font-size:22px; color:#FFA300; margin-bottom:14px; }
+  .gap-callout p { font-size:15.5px; color:rgba(250,250,248,0.85); margin-bottom:12px; }
+  .gap-callout p:last-child { margin-bottom:0; }
+
+  /* COVERAGE GRID */
+  .cov-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:8px; }
+  .cov-item {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px;
+    padding:22px 24px;
+  }
+  .cov-item .name { font-size:17px; font-weight:700; color:#FAFAF8; margin-bottom:4px; }
+  .cov-item .limit { font-size:20px; font-weight:900; color:#FFA300; font-family:'Playfair Display',serif; margin-bottom:10px; }
+  .cov-item .why { font-size:14px; color:rgba(250,250,248,0.65); }
+
+  .full-width-item { grid-column:1 / -1; }
+
+  /* HIGHLIGHTED COVERAGE ITEM */
+  .cov-item.highlight {
+    background:linear-gradient(135deg, rgba(255,163,0,0.14), rgba(0,75,137,0.25));
+    border:1px solid rgba(255,163,0,0.45);
+  }
+  .cov-item.highlight .name::after {
+    content:"★ Highlight";
+    float:right;
+    font-family:'Outfit',sans-serif;
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#FFA300;
+    border:1px solid rgba(255,163,0,0.4);
+    border-radius:100px;
+    padding:2px 10px;
+    font-weight:600;
+  }
+
+  /* REBUILD HIGHLIGHT */
+  .rebuild-band {
+    grid-column:1 / -1;
+    background:linear-gradient(135deg, rgba(0,75,137,0.45), rgba(255,163,0,0.12));
+    border:1px solid rgba(255,163,0,0.3);
+    border-radius:16px;
+    padding:26px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:4px;
+  }
+  .rebuild-band .rb-text { max-width:640px; }
+  .rebuild-band .rb-text h4 { font-size:19px; color:#FAFAF8; margin-bottom:6px; }
+  .rebuild-band .rb-text p { font-size:14px; color:rgba(250,250,248,0.75); }
+  .rebuild-band .rb-math { text-align:right; min-width:180px; }
+  .rebuild-band .rb-math .eq { font-size:13px; color:rgba(250,250,248,0.6); }
+  .rebuild-band .rb-math .big { font-family:'Playfair Display',serif; font-size:34px; font-weight:900; color:#FFA300; line-height:1.1; }
+
+  /* WHY LIST */
+  .why-list { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:20px; }
+  .why-list .item { display:flex; gap:14px; align-items:flex-start; }
+  .why-list .bullet {
+    min-width:32px; height:32px; border-radius:50%;
+    background:rgba(255,163,0,0.15); border:1px solid rgba(255,163,0,0.4);
+    display:flex; align-items:center; justify-content:center;
+    color:#FFA300; font-weight:700; font-size:14px;
+  }
+  .why-list .txt h4 { font-size:16px; margin-bottom:4px; color:#FAFAF8; }
+  .why-list .txt p { font-size:14px; color:rgba(250,250,248,0.65); }
+
+  /* CTA FOOTER */
+  .cta {
+    text-align:center;
+    padding:90px 0 100px;
+    background:linear-gradient(180deg, transparent, rgba(0,75,137,0.25));
+  }
+  .cta h2 { font-size:38px; margin-bottom:16px; }
+  .cta p { color:rgba(250,250,248,0.7); font-size:16px; margin-bottom:36px; }
+  .btn-row { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .btn {
+    padding:16px 34px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    display:inline-block;
+  }
+  .btn-gold { background:#FFA300; color:#0a1628; }
+  .btn-glass { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); color:#FAFAF8; }
+  .footer-note { margin-top:50px; font-size:13px; color:rgba(250,250,248,0.4); }
+
+  @media (max-width:760px) {
+    .hero h1 { font-size:32px; }
+    .hero .addr { font-size:16px; padding:12px 26px; }
+    .snapshot { grid-template-columns:1fr; }
+    .cov-grid, .why-list { grid-template-columns:1fr; }
+    table.compare { font-size:13px; }
+    .rebuild-band { flex-direction:column; align-items:flex-start; }
+    .rebuild-band .rb-math { text-align:left; }
+    .price-diff-grid { grid-template-columns:1fr; }
+    .pd-arrow { transform:rotate(90deg); }
+    .price-punchline .pp-big { font-size:42px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Prepared for Mario Salcedo & Cassandra Lagana Salcedo</div>
+      <h1>A Complete Shield For <em>Your New Home</em></h1>
+      <p class="sub">You're closing on a new home, so we rebuilt your entire insurance picture around it. Here's what it actually costs to go from bare-minimum auto to a full home, auto, and umbrella package.</p>
+      <div class="addr">94 Hess Rd, Valley Cottage, NY 10989</div>
+
+      <div class="price-hero">
+        <div class="ph-top">What You Pay Now vs. The Full Package</div>
+        <div class="price-diff-grid">
+          <div class="pd-col">
+            <div class="pd-label">Today — GEICO Auto Only</div>
+            <div class="pd-amount">$4,722 / yr</div>
+            <div class="pd-sub">$2,361.30 every 6 months · liability only, 25/50 limits, no home, no umbrella</div>
+          </div>
+          <div class="pd-arrow">→</div>
+          <div class="pd-col">
+            <div class="pd-label">New — Full Travelers Package</div>
+            <div class="pd-amount">$5,192 / yr</div>
+            <div class="pd-sub">Home + Auto (10x liability) + $1M Umbrella</div>
+          </div>
+        </div>
+        <div class="price-punchline">
+          <div class="pp-diff">The difference for all of it</div>
+          <div class="pp-big">+$469 / yr</div>
+          <div class="pp-mo">That's just <strong>$39.12 more a month</strong></div>
+          <div class="pp-note">For $39 a month more than you're paying GEICO for auto alone, you add a full homeowners policy, take your auto liability up 10x, and stack a $1,000,000 umbrella on top of everything.</div>
+        </div>
+      </div>
+
+      <div class="snapshot">
+        <div class="card">
+          <div class="label">Homeowners</div>
+          <div class="amount">$2,220</div>
+          <div class="desc">Travelers Protect® · 12 mo</div>
+        </div>
+        <div class="card">
+          <div class="label">Auto</div>
+          <div class="amount">$2,705</div>
+          <div class="desc">2024 Acura MDX Type S · 12 mo</div>
+        </div>
+        <div class="card">
+          <div class="label">Umbrella</div>
+          <div class="amount">$267</div>
+          <div class="desc">$1,000,000 · 12 mo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="divider"></div>
+  </div>
+
+  <!-- HOME COVERAGE BREAKDOWN (FIRST) -->
+  <section class="section">
+    <div class="wrap">
+      <div class="kicker">Homeowners — 94 Hess Rd, Valley Cottage</div>
+      <h2>Your Travelers Protect® Policy, Explained</h2>
+      <p class="lead">$2,220/year, $2,120 down, $2,500 all-perils deductible. Built around a 1984-built, 2,000 sq ft frame home with a 10-year-old roof and an in-ground pool.</p>
+
+      <div class="cov-grid">
+        <div class="cov-item highlight full-width-item">
+          <div class="name">Coverage A — Dwelling</div>
+          <div class="limit">$632,000 base &nbsp;+&nbsp; $316,000 Additional Replacement Cost (50%) &nbsp;=&nbsp; $948,000</div>
+          <div class="why">This is the number that rebuilds your home from the ground up after a total loss — not the price you paid, the cost to rebuild. We wrote it at $632,000 and then added the +50% Additional Replacement Cost rider, so your real rebuild protection is nearly a million dollars. If a fire or storm wipes the house out and construction costs have spiked, that extra 50% cushion absorbs it instead of you.</div>
+        </div>
+        <div class="cov-item">
+          <div class="name">Coverage B — Other Structures</div>
+          <div class="limit">$63,200</div>
+          <div class="why">Detached garage, sheds, fences, and the pool structure itself — 10% of your dwelling limit automatically.</div>
+        </div>
+        <div class="cov-item">
+          <div class="name">Coverage C — Personal Property</div>
+          <div class="limit">$316,000</div>
+          <div class="why">Furniture, electronics, clothes — everything inside the house. Set at 50% of Cov A.</div>
+        </div>
+        <div class="cov-item">
+          <div class="name">Coverage D — Loss of Use</div>
+          <div class="limit">$126,400</div>
+          <div class="why">If the house is unlivable after a covered loss, this pays for a hotel and extra living expenses while it's rebuilt.</div>
+        </div>
+        <div class="cov-item">
+          <div class="name">Coverage E — Personal Liability</div>
+          <div class="limit">$500,000</div>
+          <div class="why">If a guest is hurt on your property (or you accidentally cause damage elsewhere), this covers the claim and legal defense. This is the number your umbrella builds on top of.</div>
+        </div>
+        <div class="cov-item">
+          <div class="name">Coverage F — Medical Payments to Others</div>
+          <div class="limit">$5,000</div>
+          <div class="why">Small no-fault medical coverage for a visitor injured at your home — pays quickly, no lawsuit needed.</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:24px;margin:44px 0 6px;color:#FAFAF8;">Optional Coverages We Built In</h3>
+      <p style="font-size:15px;color:rgba(250,250,248,0.7);margin-bottom:20px;max-width:760px;">These are the endorsements that separate a real policy from a bare one — and they're all already included in your $2,220 premium.</p>
+
+      <div class="cov-grid">
+        <div class="cov-item highlight">
+          <div class="name">Additional Replacement Cost (+50%)</div>
+          <div class="limit">+$316,000 — Included</div>
+          <div class="why">The rider that takes your rebuild protection from $632,000 up to $948,000. With construction and labor costs where they are today, this is the single most important endorsement on the policy — it means a total loss won't leave you writing a check to finish rebuilding.</div>
+        </div>
+        <div class="cov-item highlight">
+          <div class="name">Water Back Up & Sump Overflow</div>
+          <div class="limit">$10,000 — Included</div>
+          <div class="why">Sump pump failures and backed-up drains are NOT covered by a standard policy. With a basement and a pool on the property, this is one you do not want to skip.</div>
+        </div>
+        <div class="cov-item highlight">
+          <div class="name">Personal Property Replacement Cost</div>
+          <div class="limit">Included</div>
+          <div class="why">Pays to replace your belongings brand new, instead of their depreciated "actual cash value." A 5-year-old couch gets replaced at today's price, not what it's worth used.</div>
+        </div>
+        <div class="cov-item">
+          <div class="name">Personal Injury Protection</div>
+          <div class="limit">Included</div>
+          <div class="why">Covers you against claims like libel, slander, and wrongful eviction — modern liability exposures a base homeowners policy leaves out.</div>
+        </div>
+
+        <div class="rebuild-band">
+          <div class="rb-text">
+            <h4>Your true rebuild protection</h4>
+            <p>Because the +50% Additional Replacement Cost stacks on top of your dwelling limit, you're protected up to nearly a million dollars to rebuild — well above the $632,000 base — so a spike in labor and material costs after a total loss doesn't come out of your pocket.</p>
+          </div>
+          <div class="rb-math">
+            <div class="eq">$632,000 + $316,000</div>
+            <div class="big">$948,000</div>
+            <div class="eq">total rebuild coverage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- WHY WE RESTRUCTURED THE AUTO -->
+  <section class="section">
+    <div class="wrap">
+      <div class="kicker">The Most Important Change To Your Auto</div>
+      <h2>Why Your Auto Liability Just Went Up 10x</h2>
+      <p class="lead">Your current GEICO policy was written before you owned a home. It was never built to protect what you're about to own. Here's the side-by-side.</p>
+
+      <table class="compare">
+        <tr>
+          <th>Coverage</th>
+          <th>Current — GEICO</th>
+          <th></th>
+          <th>New — Travelers</th>
+        </tr>
+        <tr>
+          <td>Bodily Injury Liability</td>
+          <td class="old">$25,000 / $50,000</td>
+          <td class="arrow">→</td>
+          <td class="new">$250,000 / $500,000</td>
+        </tr>
+        <tr>
+          <td>Uninsured/Underinsured Motorists</td>
+          <td class="old">$25,000 / $50,000</td>
+          <td class="arrow">→</td>
+          <td class="new">$250,000 / $500,000</td>
+        </tr>
+        <tr>
+          <td>Property Damage Liability</td>
+          <td class="old">$50,000</td>
+          <td class="arrow">→</td>
+          <td class="new">$100,000</td>
+        </tr>
+        <tr>
+          <td>Personal Umbrella Sitting On Top</td>
+          <td class="old">None</td>
+          <td class="arrow">→</td>
+          <td class="new">$1,000,000</td>
+        </tr>
+      </table>
+
+      <div class="gap-callout">
+        <h3>The gap this closes</h3>
+        <p><strong>$25,000 per person / $50,000 per accident</strong> is the legal minimum in New York. It sounds like coverage, but it's really just enough to get you sued. If Mario or Cassandra were ever in a serious accident and someone was seriously hurt, medical bills and lost wages blow past $50,000 almost immediately — hospital stays alone can run six figures.</p>
+        <p>When that happens, the injured party's attorney doesn't stop at your policy limit. They come after <strong>you personally</strong> — your bank accounts, your investments, and yes, your new home at 94 Hess Rd. That's the exposure a home creates that didn't exist when you were renting.</p>
+        <p>We took your liability to <strong>250/500</strong> — exactly 10x your old limits — and then stacked a <strong>$1,000,000 umbrella</strong> on top of both your auto and home policies. The umbrella doesn't kick in until your underlying auto/home liability is exhausted, which is exactly why we needed those underlying limits raised first. Together, they mean a bad day on the road can never turn into losing the house you just bought.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- AUTO COVERAGE BREAKDOWN -->
+  <section class="section">
+    <div class="wrap">
+      <div class="kicker">Auto — 2024 Acura MDX Type S</div>
+      <h2>What You're Actually Buying</h2>
+      <p class="lead">Plain-English breakdown of every line on the Travelers quote — $2,705/year, $225.33 estimated down payment, $1,037 in built-in savings from bundling and driver discounts.</p>
+
+      <div class="cov-grid">
+        <div class="cov-item highlight">
+          <div class="name">Bodily Injury Liability</div>
+          <div class="limit">$250,000 / $500,000</div>
+          <div class="why">Up 10x from GEICO's 25/50. Pays for the other person's medical bills and legal defense if you're at fault. This is the number that protects everything else you own.</div>
+        </div>
+        <div class="cov-item highlight">
+          <div class="name">Uninsured/Underinsured Motorists</div>
+          <div class="limit">$250,000 / $500,000</div>
+          <div class="why">Up 10x from GEICO's 25/50. If the other driver has no insurance (or not enough), this pays as if THEY carried your limits. Always matches your BI limit for a reason.</div>
+        </div>
+        <div class="cov-item highlight">
+          <div class="name">Property Damage Liability</div>
+          <div class="limit">$100,000</div>
+          <div class="why">Doubled from GEICO's $50,000. Covers damage you cause to someone else's car or property — a hit to a $90k SUV doesn't max out at $50k anymore.</div>
+        </div>
+        <div class="cov-item">
+          <div class="name">Personal Injury Protection (No-Fault)</div>
+          <div class="limit">$50,000</div>
+          <div class="why">Pays your own medical bills and lost wages after an accident, regardless of fault — New York requires this on every policy.</div>
+        </div>
+        <div class="cov-item">
+          <div class="name">Medical Payments</div>
+          <div class="limit">$1,000</div>
+          <div class="why">Small first-dollar medical coverage for you and passengers, no deductible.</div>
+        </div>
+        <div class="cov-item">
+          <div class="name">Comprehensive</div>
+          <div class="limit">$1,000 deductible</div>
+          <div class="why">Theft, vandalism, fire, deer strikes, glass — anything that isn't a collision with another car.</div>
+        </div>
+        <div class="cov-item">
+          <div class="name">Collision</div>
+          <div class="limit">$1,000 deductible</div>
+          <div class="why">Repairs your Acura after an accident, no matter who's at fault.</div>
+        </div>
+        <div class="cov-item">
+          <div class="name">Rental Reimbursement</div>
+          <div class="limit">$50/day, $1,500 max</div>
+          <div class="why">Keeps you mobile while the MDX is in the shop after a covered claim.</div>
+        </div>
+        <div class="cov-item full-width-item">
+          <div class="name">Roadside Assistance</div>
+          <div class="limit">Included</div>
+          <div class="why">Tows, jump starts, lockouts, flat tires — one call, no separate membership needed.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- UMBRELLA -->
+  <section class="section">
+    <div class="wrap">
+      <div class="kicker">Personal Umbrella — $1,000,000</div>
+      <h2>The Coverage Most People Skip (And Regret)</h2>
+      <p class="lead">$267/year. That's the entire annual cost for an extra million dollars of protection over both your home and auto policies.</p>
+
+      <div class="why-list">
+        <div class="item">
+          <div class="bullet">1</div>
+          <div class="txt">
+            <h4>It picks up where your auto and home leave off</h4>
+            <p>Once your $250,000/$500,000 auto liability or $500,000 home liability is used up in a bad claim, the umbrella pays the next $1,000,000 — no gap in between.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="bullet">2</div>
+          <div class="txt">
+            <h4>It protects your equity, not just your premium</h4>
+            <p>You're putting real money into 94 Hess Rd. A lawsuit that outpaces your base policies is the single fastest way to lose that equity. $267/year is cheap insurance against that.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="bullet">3</div>
+          <div class="txt">
+            <h4>The pool raises your exposure</h4>
+            <p>Pools are one of the top drivers of liability claims for homeowners. An umbrella is close to non-negotiable when there's a pool on the property, and yours qualifies with no youthful drivers on the policy.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="bullet">4</div>
+          <div class="txt">
+            <h4>It's discounted because you bundled</h4>
+            <p>Because your auto and home are both Travelers, you're getting the Auto Companion and Homeowner Companion discounts baked into that $267 — writing it anywhere else standalone would cost more.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- WHY SAFESHIELD -->
+  <section class="section">
+    <div class="wrap">
+      <div class="kicker">Why Safeshield</div>
+      <h2>We Shop It So You Don't Have To</h2>
+      <div class="why-list">
+        <div class="item">
+          <div class="bullet">★</div>
+          <div class="txt">
+            <h4>69+ carrier partners</h4>
+            <p>We compared your risk across the market — this Travelers package won on price and coverage.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="bullet">★</div>
+          <div class="txt">
+            <h4>Same-day everything</h4>
+            <p>Quotes, ID cards, certificates, and policy changes — handled the same day you ask.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="bullet">★</div>
+          <div class="txt">
+            <h4>Direct agent access</h4>
+            <p>No call centers. You text or call Justin directly.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="bullet">★</div>
+          <div class="txt">
+            <h4>Annual re-shop guarantee</h4>
+            <p>Every year at renewal, we re-check the market to make sure you're still in the right spot.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <h2>Ready to Move Forward?</h2>
+      <p>Let's get this bound before your 08/24/26 effective date so there's no gap in coverage at closing.</p>
+      <div class="btn-row">
+        <a href="mailto:justin@gosafeshield.com" class="btn btn-gold">Email Justin Cronk</a>
+        <a href="https://gosafeshield.com/review" class="btn btn-glass">Safeshield Insurance</a>
+      </div>
+      <div class="footer-note">Safeshield Insurance · 2777 Summer St, 6th Fl, Stamford, CT 06905 · Prepared by Justin Cronk<br>Premiums shown are preliminary Travelers estimates as of 07/22/2026 and are subject to change based on final underwriting.</div>
+    </div>
+  </section>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"salcedo","agent":"Justin"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
