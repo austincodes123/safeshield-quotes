@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Review — Rodriguez & Perez</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a1628; color:#FAFAF8; font-family:'Outfit',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 24px; }
+  h1,h2,h3 { font-family:'Playfair Display',serif; }
+  .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(255,163,0,0.25),transparent); margin:64px 0; }
+  /* HERO */
+  .hero { text-align:center; padding:90px 24px 60px; }
+  .badge { display:inline-block; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:#FFA300; border:1px solid rgba(255,163,0,0.4); border-radius:100px; padding:8px 20px; margin-bottom:28px; font-weight:600; }
+  .hero h1 { font-size:56px; font-weight:900; line-height:1.1; margin-bottom:20px; }
+  .hero h1 span { color:#FFA300; }
+  .hero p { font-size:19px; color:rgba(250,250,248,0.7); max-width:620px; margin:0 auto; font-weight:300; }
+  .meta { margin-top:36px; font-size:14px; color:rgba(250,250,248,0.55); letter-spacing:1px; }
+  /* SNAPSHOT CARDS */
+  .snapshot { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:50px; max-width:760px; margin-left:auto; margin-right:auto; }
+  .scard { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:34px 28px; text-align:center; }
+  .scard.rec { border-color:rgba(255,163,0,0.5); background:rgba(255,163,0,0.06); position:relative; }
+  .scard .tag { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(250,250,248,0.55); margin-bottom:10px; }
+  .scard.rec .tag { color:#FFA300; }
+  .scard .carrier { font-family:'Playfair Display',serif; font-size:24px; margin-bottom:14px; }
+  .scard .amt { font-size:44px; font-weight:800; color:#FAFAF8; }
+  .scard.rec .amt { color:#FFA300; }
+  .scard .sub { font-size:13px; color:rgba(250,250,248,0.5); margin-top:6px; }
+  .pill { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:#FFA300; color:#0a1628; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; padding:5px 14px; border-radius:100px; }
+  .savebar { text-align:center; margin-top:30px; font-size:17px; color:rgba(250,250,248,0.8); }
+  .savebar strong { color:#FFA300; font-weight:800; font-size:20px; }
+  /* SECTION */
+  section { padding:10px 0; }
+  .sec-head { text-align:center; margin-bottom:44px; }
+  .sec-head .eyebrow { font-size:12px; letter-spacing:3px; text-transform:uppercase; color:#FFA300; font-weight:600; margin-bottom:14px; }
+  .sec-head h2 { font-size:40px; font-weight:700; }
+  .sec-head p { color:rgba(250,250,248,0.65); font-weight:300; margin-top:14px; max-width:640px; margin-left:auto; margin-right:auto; }
+  /* TABLE */
+  .tbl { width:100%; border-collapse:collapse; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:18px; overflow:hidden; }
+  .tbl th, .tbl td { padding:16px 20px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.06); font-size:15px; }
+  .tbl th { font-family:'Outfit',sans-serif; font-weight:600; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(250,250,248,0.6); background:rgba(255,255,255,0.02); }
+  .tbl th.rec, .tbl td.rec { background:rgba(255,163,0,0.07); color:#FFA300; font-weight:600; }
+  .tbl td:first-child { color:rgba(250,250,248,0.75); font-weight:500; }
+  .tbl tr:last-child td { border-bottom:none; }
+  .tbl .total td { font-size:19px; font-weight:800; background:rgba(255,255,255,0.05); }
+  .tbl .total td.rec { color:#FFA300; }
+  .note { font-size:13px; color:rgba(250,250,248,0.5); margin-top:16px; text-align:center; font-style:italic; }
+  /* WHY */
+  .why-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:20px; }
+  .why { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:28px; }
+  .why h3 { font-size:20px; color:#FFA300; margin-bottom:10px; }
+  .why p { font-size:15px; color:rgba(250,250,248,0.7); font-weight:300; }
+  /* ENHANCEMENTS */
+  .enh { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:10px; }
+  .enh span { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:100px; padding:8px 16px; font-size:13px; color:rgba(250,250,248,0.8); }
+  /* CTA */
+  .cta { text-align:center; padding:80px 24px; background:rgba(255,163,0,0.05); border-radius:24px; margin:40px 0; }
+  .cta h2 { font-size:36px; margin-bottom:16px; }
+  .cta p { color:rgba(250,250,248,0.7); font-weight:300; margin-bottom:30px; }
+  .btn { display:inline-block; background:#FFA300; color:#0a1628; font-weight:700; font-size:16px; padding:16px 40px; border-radius:100px; text-decoration:none; }
+  footer { text-align:center; padding:40px 24px 70px; color:rgba(250,250,248,0.45); font-size:14px; }
+  footer strong { color:rgba(250,250,248,0.75); }
+  @media(max-width:760px){ .hero h1{font-size:38px;} .snapshot{grid-template-columns:1fr;} .why-grid{grid-template-columns:1fr;} .tbl th,.tbl td{padding:12px 12px; font-size:13px;} }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="wrap">
+    <div class="badge">Prepared for Scarlett &amp; Steven</div>
+    <h1>Your Insurance Review<br><span>Auto &amp; Home</span></h1>
+    <p>Right now your auto and home sit with two different carriers. Here is what it looks like to move both to Plymouth Rock, with the same protection under one roof.</p>
+    <div class="meta">Prepared by Eric Kelly &middot; Safeshield Insurance &middot; 100 N Lawn Ave, Elmsford NY</div>
+    <div class="snapshot">
+      <div class="scard rec">
+        <div class="pill">Proposed</div>
+        <div class="tag">Plymouth Rock &mdash; Bundle</div>
+        <div class="carrier">Auto + Home</div>
+        <div class="amt">$4,661</div>
+        <div class="sub">per year, one carrier</div>
+      </div>
+      <div class="scard">
+        <div class="tag">Your Current</div>
+        <div class="carrier">GEICO + NYCM</div>
+        <div class="amt">$5,358</div>
+        <div class="sub">per year, two carriers</div>
+      </div>
+    </div>
+    <div class="savebar">Moving both lines to Plymouth Rock saves you <strong>about $697 a year</strong></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Auto — 2024 Audi Q5</div>
+      <h2>Auto Comparison</h2>
+      <p>Identical coverage on both: 100/300 bodily injury, $50K property damage, PIP, SUM 100/300, and full comp &amp; collision at a $750 deductible. Only the carrier and price change.</p>
+    </div>
+    <table class="tbl">
+      <tr>
+        <th>Coverage</th>
+        <th class="rec">Plymouth Rock (proposed)</th>
+        <th>GEICO (current)</th>
+      </tr>
+      <tr><td>Bodily Injury Liability</td><td class="rec">100/300</td><td>100/300</td></tr>
+      <tr><td>Property Damage</td><td class="rec">$50,000</td><td>$50,000</td></tr>
+      <tr><td>Personal Injury Protection</td><td class="rec">$50,000</td><td>$50,000</td></tr>
+      <tr><td>Uninsured / Underinsured (SUM)</td><td class="rec">100/300</td><td>100/300</td></tr>
+      <tr><td>Comprehensive Deductible</td><td class="rec">$750</td><td>$750</td></tr>
+      <tr><td>Collision Deductible</td><td class="rec">$750</td><td>$750</td></tr>
+      <tr><td>Term</td><td class="rec">12 months</td><td>6 months &times;2</td></tr>
+      <tr class="total"><td>Annual Premium</td><td class="rec">$2,891</td><td>$3,379.80</td></tr>
+    </table>
+    <p class="note">Plymouth Rock comes in about $489/yr under your current GEICO auto for the exact same coverage on the Q5.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Home — 100 N Lawn Ave</div>
+      <h2>Home Comparison</h2>
+      <p>Both are HO-3 Special Form policies with matching dwelling and liability limits. Plymouth Rock (underwritten by Palisades) bakes in extra enhancements at no separate charge.</p>
+    </div>
+    <table class="tbl">
+      <tr>
+        <th>Coverage</th>
+        <th class="rec">Plymouth Rock (proposed)</th>
+        <th>NYCM (current)</th>
+      </tr>
+      <tr><td>Coverage A — Dwelling</td><td class="rec">$687,000</td><td>$687,000</td></tr>
+      <tr><td>Coverage B — Other Structures</td><td class="rec">$68,700</td><td>$68,700</td></tr>
+      <tr><td>Coverage C — Personal Property</td><td class="rec">$480,900</td><td>$480,900</td></tr>
+      <tr><td>Coverage D — Loss of Use</td><td class="rec">$137,400</td><td>$206,100</td></tr>
+      <tr><td>Coverage E — Personal Liability</td><td class="rec">$500,000</td><td>$500,000</td></tr>
+      <tr><td>Coverage F — Medical Payments</td><td class="rec">$5,000</td><td>$5,000</td></tr>
+      <tr><td>Deductible</td><td class="rec">$2,500 (2% wind)</td><td>$2,500</td></tr>
+      <tr class="total"><td>Annual Premium</td><td class="rec">$1,770</td><td>$1,978</td></tr>
+    </table>
+    <p class="note">Two honest differences: Plymouth Rock's Loss of Use is $137,400 versus NYCM's $206,100, and Plymouth Rock is about $208/yr cheaper on the home. Everything else matches.</p>
+    <div style="text-align:center; margin-top:34px;">
+      <p style="font-size:14px; letter-spacing:1px; text-transform:uppercase; color:rgba(250,250,248,0.55); margin-bottom:16px;">Included on the Plymouth Rock home at no extra premium</p>
+      <div class="enh">
+        <span>Replacement Cost on Contents</span>
+        <span>Water Backup &amp; Sump Overflow $10K</span>
+        <span>Personal Injury Liability</span>
+        <span>Identity Theft Resolution</span>
+        <span>Inflation Guard</span>
+        <span>Limited Mold Coverage</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The Bottom Line</div>
+      <h2>Why Plymouth Rock</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why">
+        <h3>One Carrier, One Bundle</h3>
+        <p>Auto and home under the same roof means one renewal to track, one place to call, and a built-in Auto Policy Discount already reflected in these numbers.</p>
+      </div>
+      <div class="why">
+        <h3>Cheaper on Both Lines</h3>
+        <p>Plymouth Rock beats your GEICO auto by about $489 and your NYCM home by about $208, for the same limits you carry today.</p>
+      </div>
+      <div class="why">
+        <h3>$697 Back in Your Pocket</h3>
+        <p>Your current GEICO + NYCM setup runs $5,358 a year. The Plymouth Rock bundle is $4,661. That is roughly $697 a year saved.</p>
+      </div>
+      <div class="why">
+        <h3>Richer Home Coverage Built In</h3>
+        <p>The Plymouth Rock home includes replacement cost on contents, water backup, identity theft resolution, and personal injury liability at no extra premium.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="cta">
+    <h2>Ready to lock it in?</h2>
+    <p>Say the word and I'll get both policies bound the same day.</p>
+    <a class="btn" href="mailto:eric@gosafeshield.com">Talk to Eric</a>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Eric Kelly</strong> &middot; Safeshield Insurance</p>
+  <p>Licensed in NY, CT, NJ, PA &amp; DE &middot; 69+ carrier partners</p>
+</footer>
+
+<script>window.CASEY_PROPOSAL={"slug":"rodriguez-perez","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
