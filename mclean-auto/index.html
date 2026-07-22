@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Auto Proposal | The Glen Lane Household | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0b2e5c;
+    --navy-deep:#071f3f;
+    --navy-ink:#12233c;
+    --paper:#f7f5f0;
+    --card:#ffffff;
+    --orange:#f7941d;
+    --orange-deep:#e07c00;
+    --green:#1d7a4f;
+    --green-soft:#e7f4ec;
+    --line:#dcd7cc;
+    --muted:#5b6b80;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(7,31,63,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Public Sans',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--navy-ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Bricolage Grotesque',sans-serif}
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+  }
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(160deg,var(--navy-deep) 0%,var(--navy) 62%,#144a8f 100%);
+    color:#fff;
+    padding:52px 24px 150px;
+    position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 60% 45% at 85% 10%, rgba(247,148,29,.16), transparent 65%),
+      radial-gradient(ellipse 45% 40% at 8% 90%, rgba(255,255,255,.05), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
+  .brandline{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:44px}
+  .brand{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.35rem;letter-spacing:.01em}
+  .brand span{color:var(--orange)}
+  .prep-tag{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 16px;text-align:center;max-width:100%;line-height:1.5}
+  .eyebrow{color:var(--orange);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.8rem;margin-bottom:14px}
+  .hero h1{font-size:clamp(2rem,5.4vw,3.4rem);font-weight:800;line-height:1.08;letter-spacing:-.015em;max-width:760px}
+  .hero .sub{margin-top:18px;font-size:1.05rem;color:rgba(255,255,255,.82);max-width:660px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:34px}
+  .hero-meta div{font-size:.86rem}
+  .hero-meta .k{color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;display:block;margin-bottom:3px}
+  .hero-meta .v{font-weight:600}
+
+  /* PRICE PANEL */
+  .panel-wrap{max-width:960px;margin:-108px auto 0;padding:0 24px;position:relative;z-index:2}
+  .panel{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden}
+  .tabs{display:flex;background:#eef0f4;padding:8px;gap:8px}
+  .tab{
+    flex:1;border:0;cursor:pointer;border-radius:10px;
+    padding:15px 12px;font-family:'Public Sans';font-weight:700;font-size:.95rem;
+    background:transparent;color:var(--muted);transition:all .2s ease;
+  }
+  .tab small{display:block;font-weight:500;font-size:.74rem;margin-top:2px;color:inherit;opacity:.75}
+  .tab.active{background:var(--navy);color:#fff;box-shadow:0 4px 14px rgba(11,46,92,.28)}
+  .tab:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+  .price-stage{padding:38px 30px 34px;text-align:center}
+  .price-label{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .price{
+    font-family:'Bricolage Grotesque';font-weight:800;
+    font-size:clamp(3.2rem,9vw,5rem);line-height:1;color:var(--navy);
+    margin:10px 0 2px;letter-spacing:-.02em;
+    transition:opacity .18s ease, transform .18s ease;
+  }
+  .price.flip{opacity:0;transform:translateY(8px)}
+  .per{font-size:1rem;color:var(--muted);font-weight:500}
+  .monthly{margin-top:6px;font-size:.92rem;color:var(--muted)}
+  .save-ribbon{
+    display:none;align-items:center;gap:8px;margin-top:18px;
+    background:var(--green-soft);color:var(--green);
+    font-weight:700;font-size:.92rem;padding:10px 20px;border-radius:999px;
+    border:1px solid #bfe3cf;
+  }
+  .save-ribbon.show{display:inline-flex;animation:rise .35s ease}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .stage-note{margin-top:16px;font-size:.86rem;color:var(--muted);max-width:560px;margin-left:auto;margin-right:auto}
+
+  /* SECTIONS */
+  .section{max-width:960px;margin:0 auto;padding:64px 24px 8px}
+  .section h2{font-size:clamp(1.5rem,3.6vw,2.1rem);font-weight:800;letter-spacing:-.01em;line-height:1.15}
+  .section h2 span{color:var(--orange)}
+  .section .lede{margin-top:12px;color:var(--muted);max-width:680px;font-size:1rem}
+
+  /* MOVE CALLOUT */
+  .move-box{
+    margin-top:28px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--orange);
+    border-radius:var(--radius);padding:26px 26px;box-shadow:var(--shadow);
+  }
+  .move-box p{font-size:.96rem;max-width:760px}
+  .move-box p + p{margin-top:12px}
+  .move-box b{color:var(--navy)}
+
+  /* POLICY CARDS */
+  .pol-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+  @media(max-width:760px){.pol-grid{grid-template-columns:1fr}}
+  .pol{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;
+  }
+  .pol-head{background:var(--navy);color:#fff;padding:20px 24px}
+  .pol-head .who{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.15rem}
+  .pol-head .co{font-size:.8rem;color:rgba(255,255,255,.7);margin-top:2px}
+  .pol-body{padding:8px 24px 4px;flex:1}
+  .veh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:15px 0;border-bottom:1px dashed var(--line)}
+  .veh:last-child{border-bottom:0}
+  .veh .name{font-weight:600;font-size:.95rem}
+  .veh .note{display:block;font-size:.78rem;color:var(--muted);font-weight:400;margin-top:2px}
+  .veh .amt{font-weight:700;color:var(--navy);white-space:nowrap}
+  .pol-foot{border-top:1px solid var(--line);background:#fbfaf7;padding:16px 24px;display:flex;justify-content:space-between;align-items:baseline}
+  .pol-foot .lbl{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .pol-foot .tot{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.5rem;color:var(--navy)}
+  .pol-foot .tot small{font-size:.85rem;color:var(--muted);font-weight:500}
+  .two-note{margin-top:18px;font-size:.88rem;color:var(--muted);max-width:720px}
+
+  /* COVERAGE ROWS */
+  .cov{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .cov-row{border-bottom:1px solid var(--line)}
+  .cov-row:last-child{border-bottom:0}
+  .cov-btn{
+    width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;
+    background:none;border:0;cursor:pointer;padding:20px 24px;text-align:left;
+    font-family:'Public Sans';
+  }
+  .cov-btn:focus-visible{outline:3px solid var(--orange);outline-offset:-3px}
+  .cov-btn .t{font-weight:700;font-size:.98rem;color:var(--navy-ink)}
+  .cov-btn .r{display:flex;align-items:center;gap:14px}
+  .cov-btn .lim{font-weight:800;color:var(--navy);font-family:'Bricolage Grotesque';font-size:1.02rem;white-space:nowrap}
+  .chev{flex:none;transition:transform .25s ease;color:var(--muted)}
+  .cov-row.open .chev{transform:rotate(180deg)}
+  .cov-detail{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .cov-row.open .cov-detail{max-height:260px}
+  .cov-detail p{padding:0 24px 22px;font-size:.9rem;color:var(--muted);max-width:760px}
+
+  /* PROGRAM STACK */
+  .stack{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .stk{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:19px 24px;border-bottom:1px solid var(--line)}
+  .stk .l .n{font-weight:700;font-size:.96rem}
+  .stk .l .d{font-size:.8rem;color:var(--muted);margin-top:2px}
+  .stk .amt{font-weight:800;font-family:'Bricolage Grotesque';font-size:1.1rem;color:var(--navy);white-space:nowrap}
+  .badge{
+    display:inline-block;vertical-align:middle;margin-left:8px;
+    font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 9px;border-radius:999px;
+  }
+  .badge.bound{background:var(--green-soft);color:var(--green);border:1px solid #bfe3cf}
+  .badge.unlock{background:#fef3e2;color:var(--orange-deep);border:1px solid #f6dcb4}
+  .stk.total{background:var(--navy);border-bottom:0}
+  .stk.total .l .n{color:#fff;font-family:'Bricolage Grotesque';font-size:1.05rem}
+  .stk.total .l .d{color:rgba(255,255,255,.65)}
+  .stk.total .amt{color:var(--orange);font-size:1.5rem}
+
+  /* CTA */
+  .cta-band{
+    max-width:960px;margin:64px auto 0;padding:0 24px;
+  }
+  .cta-inner{
+    background:linear-gradient(135deg,var(--navy-deep),var(--navy));
+    border-radius:var(--radius);color:#fff;padding:44px 34px;text-align:center;box-shadow:var(--shadow);
+  }
+  .cta-inner h2{font-size:clamp(1.5rem,3.6vw,2rem);font-weight:800}
+  .cta-inner h2 span{color:var(--orange)}
+  .cta-inner p{margin:12px auto 26px;color:rgba(255,255,255,.82);max-width:560px;font-size:.98rem}
+  .cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:700;font-size:1rem;
+    padding:14px 28px;border-radius:10px;transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn.solid{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(224,124,0,.35)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+
+  footer{
+    max-width:960px;margin:44px auto 0;padding:26px 24px 44px;
+    font-size:.76rem;color:var(--muted);border-top:1px solid var(--line);line-height:1.7;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="brandline">
+      <div class="brand">Safeshield <span>Insurance</span></div>
+      <div class="prep-tag">Prepared for Ryan, Shaneka &amp; Pauline</div>
+    </div>
+    <div class="eyebrow">Auto Proposal &middot; One Household, Three Cars</div>
+    <h1>Everyone under one roof. Every car on one account.</h1>
+    <p class="sub">You asked us to quote the whole picture: the new house, the rental, and all three vehicles moving to Glen Lane. The home is bound, the rental quote is in your hands, and here is the last piece.</p>
+    <div class="hero-meta">
+      <div><span class="k">Effective</span><span class="v">August 6, 2026</span></div>
+      <div><span class="k">Drivers</span><span class="v">Ryan, Shaneka, Pauline</span></div>
+      <div><span class="k">Vehicles</span><span class="v">Lexus GX 460 &middot; Sentra &middot; Volvo S60</span></div>
+      <div><span class="k">Garaging</span><span class="v">Newburgh, NY</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="panel-wrap">
+  <div class="panel">
+    <div class="tabs" role="tablist">
+      <button class="tab active" id="tabAuto" role="tab" aria-selected="true">The Autos<small>3 cars, both policies</small></button>
+      <button class="tab" id="tabAll" role="tab" aria-selected="false">The Whole Program<small>homes + autos, everything</small></button>
+    </div>
+    <div class="price-stage">
+      <div class="price-label" id="priceLabel">Household Auto Total</div>
+      <div class="price" id="price">$6,885</div>
+      <div class="per">per year</div>
+      <div class="monthly" id="monthly">about $574 per month across both policies</div>
+      <div class="save-ribbon" id="ribbon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Placing the autos drops the Pelhamdale rental from $2,721 to $2,594
+      </div>
+      <p class="stage-note" id="stageNote">Both auto policies are full 12 month terms. Your rate is locked for a year, not repriced every 6 months.</p>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <h2>Why quote it now? Because on closing day, <span>everything reprices anyway.</span></h2>
+  <div class="move-box">
+    <p>Your current State Farm policies were rated for the cars living in Mount Vernon. The moment everyone is at 14 Glen Lane, those policies have to be re-rated for Newburgh, new territory, new numbers. <b>The rates on your renewal notices today are not the rates you will be keeping either way.</b></p>
+    <p>So the real question is not "does this beat my old bill." It is "who prices my new life best." This quote is built for exactly that: three drivers, three cars, one address, matched to the same effective window as your closing, with every property policy in the family tied to the same account.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Two policies, <span>one household.</span></h2>
+  <p class="lede">Ryan's two vehicles rate together on one NYCM policy. Pauline's Volvo rates best written on its own policy through A. Central, quoted side by side through the same relationship. Same effective date, same account, one agency handling all of it.</p>
+  <div class="pol-grid">
+    <div class="pol">
+      <div class="pol-head">
+        <div class="who">Ryan's Policy</div>
+        <div class="co">NYCM Insurance &middot; Quote Q33076569 &middot; 12 month term</div>
+      </div>
+      <div class="pol-body">
+        <div class="veh">
+          <div class="name">2023 Lexus GX 460 Sport<span class="note">Shaneka listed as principal operator</span></div>
+          <div class="amt">$3,314</div>
+        </div>
+        <div class="veh">
+          <div class="name">2020 Nissan Sentra</div>
+          <div class="amt">$1,389</div>
+        </div>
+      </div>
+      <div class="pol-foot">
+        <span class="lbl">Annual Premium</span>
+        <span class="tot">$4,723 <small>/yr</small></span>
+      </div>
+    </div>
+    <div class="pol">
+      <div class="pol-head">
+        <div class="who">Pauline's Policy</div>
+        <div class="co">A. Central Insurance &middot; Quote Q33077023 &middot; 12 month term</div>
+      </div>
+      <div class="pol-body">
+        <div class="veh">
+          <div class="name">2020 Volvo S60<span class="note">Written on its own policy, priced for her driving record</span></div>
+          <div class="amt">$2,162</div>
+        </div>
+      </div>
+      <div class="pol-foot">
+        <span class="lbl">Annual Premium</span>
+        <span class="tot">$2,162 <small>/yr</small></span>
+      </div>
+    </div>
+  </div>
+  <p class="two-note">Both quotes carry the same effective date of August 6, 2026, timed so coverage transitions cleanly around your closing with no gap and no overlap you are paying twice for.</p>
+</section>
+
+<section class="section">
+  <h2>The limits we quoted, <span>in plain English.</span></h2>
+  <p class="lede">We did not quote state minimums. Every car in the household carries the same protection. Tap any line to see what it actually does for you.</p>
+  <div class="cov">
+    <div class="cov-row">
+      <button class="cov-btn" aria-expanded="false">
+        <span class="t">Bodily Injury Liability</span>
+        <span class="r"><span class="lim">$100K / $300K</span>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="cov-detail"><p>If someone in the family causes an accident and another person is hurt, this pays their medical bills and legal costs, up to $100,000 per person and $300,000 per accident. This is the coverage that stands between an accident and your own assets, which matters a lot more now that those assets include two houses.</p></div>
+    </div>
+    <div class="cov-row">
+      <button class="cov-btn" aria-expanded="false">
+        <span class="t">Property Damage Liability</span>
+        <span class="r"><span class="lim">$50K</span>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="cov-detail"><p>Pays for damage you cause to other people's property, their car, their fence, their storefront. $50,000 covers the overwhelming majority of real world accidents, including totaling most vehicles on the road.</p></div>
+    </div>
+    <div class="cov-row">
+      <button class="cov-btn" aria-expanded="false">
+        <span class="t">Supplemental Uninsured / Underinsured Motorist (SUM)</span>
+        <span class="r"><span class="lim">$100K / $300K</span>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="cov-detail"><p>This one protects your family, not the other driver. If someone with no insurance, or not enough, hits you, SUM steps in and pays for your injuries as if they had proper coverage. A lot of carriers quote this low by default. We matched it to your liability limits on every car, because the coverage that pays your own household should never be the weakest line on the policy.</p></div>
+    </div>
+  </div>
+  <p class="two-note">Full coverage detail, including physical damage and deductibles on each vehicle, comes with your quote packet. Happy to walk through any line by phone.</p>
+</section>
+
+<section class="section">
+  <h2>The whole program, <span>on one page.</span></h2>
+  <p class="lede">This is what the complete household looks like at Safeshield. One agency, one point of contact, every policy aware of the others.</p>
+  <div class="stack">
+    <div class="stk">
+      <div class="l">
+        <div class="n">14 Glen Lane &middot; Homeowners <span class="badge bound">Bound</span></div>
+        <div class="d">The Hartford &middot; effective 08/08/2026</div>
+      </div>
+      <div class="amt">$2,071</div>
+    </div>
+    <div class="stk">
+      <div class="l">
+        <div class="n">116 Pelhamdale Ave &middot; Landlord <span class="badge unlock">Bundle rate</span></div>
+        <div class="d">NBIC DP-3 &middot; $2,721 alone, $2,594 with the autos here</div>
+      </div>
+      <div class="amt">$2,594</div>
+    </div>
+    <div class="stk">
+      <div class="l">
+        <div class="n">Ryan's Auto &middot; Lexus + Sentra</div>
+        <div class="d">NYCM &middot; effective 08/06/2026</div>
+      </div>
+      <div class="amt">$4,723</div>
+    </div>
+    <div class="stk">
+      <div class="l">
+        <div class="n">Pauline's Auto &middot; Volvo S60</div>
+        <div class="d">A. Central &middot; effective 08/06/2026</div>
+      </div>
+      <div class="amt">$2,162</div>
+    </div>
+    <div class="stk total">
+      <div class="l">
+        <div class="n">Everything, per year</div>
+        <div class="d">2 homes &middot; 3 cars &middot; 3 drivers &middot; 1 agency</div>
+      </div>
+      <div class="amt">$11,550</div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <h2>Ready when you are, <span>Ryan.</span></h2>
+    <p>Say the word and we line both auto policies up with your closing. One call, and the whole household is handled by the same team that just bound Glen Lane.</p>
+    <div class="cta-btns">
+      <a class="btn solid" href="tel:12032042555">Call Austin &middot; 203-204-2555</a>
+      <a class="btn ghost" href="mailto:austin@gosafeshield.com?subject=Auto%20Proposal%20-%20Glen%20Lane%20Household">Email Austin</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Safeshield Insurance LLC &middot; 2777 Summer Street, 6th Floor, Stamford, CT 06905 &middot; 203-204-2555<br>
+  Quotes are estimates and subject to underwriting approval and final carrier review. Rates are not guaranteed and coverage is not in effect until confirmed in writing by an authorized representative. NYCM quote Q33076569 and A. Central quote Q33077023, both effective 08/06/2026, 12 month terms. The Pelhamdale rate of $2,594 is an estimate pending auto placement; NBIC quote NYDQ01750778. Hartford policy 31RBD181049 is bound effective 08/08/2026.
+</footer>
+
+<script>
+var tabAuto=document.getElementById('tabAuto'),tabAll=document.getElementById('tabAll'),
+    price=document.getElementById('price'),label=document.getElementById('priceLabel'),
+    monthly=document.getElementById('monthly'),ribbon=document.getElementById('ribbon'),
+    note=document.getElementById('stageNote');
+function setMode(all){
+  tabAuto.classList.toggle('active',!all);tabAll.classList.toggle('active',all);
+  tabAuto.setAttribute('aria-selected',!all);tabAll.setAttribute('aria-selected',all);
+  price.classList.add('flip');
+  setTimeout(function(){
+    if(all){
+      label.textContent='Complete Household Program';
+      price.textContent='$11,550';
+      monthly.textContent='2 homes, 3 cars, 3 drivers, about $963 per month all in';
+      note.textContent='Includes the bound Glen Lane policy, the Pelhamdale landlord quote at its bundled rate, and both auto policies.';
+      ribbon.classList.add('show');
+    }else{
+      label.textContent='Household Auto Total';
+      price.textContent='$6,885';
+      monthly.textContent='about $574 per month across both policies';
+      note.textContent='Both auto policies are full 12 month terms. Your rate is locked for a year, not repriced every 6 months.';
+      ribbon.classList.remove('show');
+    }
+    price.classList.remove('flip');
+  },180);
+}
+tabAuto.addEventListener('click',function(){setMode(false)});
+tabAll.addEventListener('click',function(){setMode(true)});
+
+document.querySelectorAll('.cov-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var row=btn.closest('.cov-row'),open=row.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+</script>
+
+</body>
+</html>
