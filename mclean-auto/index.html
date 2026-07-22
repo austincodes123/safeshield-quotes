@@ -135,26 +135,6 @@
   .pol-foot .tot small{font-size:.85rem;color:var(--muted);font-weight:500}
   .two-note{margin-top:18px;font-size:.88rem;color:var(--muted);max-width:720px}
 
-  /* INFO POPUP */
-  .info-wrap{position:relative;display:inline-flex}
-  .info-btn{
-    width:22px;height:22px;border-radius:50%;border:0;cursor:pointer;flex:none;
-    background:var(--orange);color:#fff;font-weight:800;font-size:.78rem;font-family:'Public Sans';
-    display:inline-flex;align-items:center;justify-content:center;
-  }
-  .info-btn:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
-  .info-pop{
-    position:absolute;top:30px;right:-8px;z-index:5;width:min(320px,82vw);
-    background:var(--navy-deep);color:#fff;border-radius:12px;padding:16px 18px;
-    font-size:.82rem;line-height:1.55;box-shadow:0 14px 34px rgba(7,31,63,.35);
-    opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .2s ease;
-  }
-  .info-pop::before{content:"";position:absolute;top:-6px;right:14px;width:12px;height:12px;background:var(--navy-deep);transform:rotate(45deg)}
-  .info-pop b{color:var(--orange)}
-  .info-wrap:hover .info-pop,.info-wrap.open .info-pop{opacity:1;visibility:visible;transform:none}
-  .info-pop.left{left:-8px;right:auto}
-  .info-pop.left::before{left:14px;right:auto}
-
   /* COVERAGE ROWS */
   .cov{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
   .cov-row{border-bottom:1px solid var(--line)}
@@ -267,8 +247,8 @@
 </section>
 
 <section class="section">
-  <h2>Two policies, one household, <span>on purpose.</span></h2>
-  <p class="lede">The Lexus and Sentra go together on one NYCM policy, so the two cars rate as a true multi-car household with one bill and one renewal date. Pauline's Volvo is written on its own policy because it prices best rated on her record alone. Same effective date on both, same account, one agency handling all of it.</p>
+  <h2>Three cars, three drivers, <span>one number.</span></h2>
+  <p class="lede">Every vehicle in the family, quoted for the new address on the same account. Here are the numbers.</p>
   <div class="pol-grid">
     <div class="pol">
       <div class="pol-head">
@@ -292,19 +272,12 @@
     </div>
     <div class="pol">
       <div class="pol-head">
-        <div class="who" style="display:flex;align-items:center;gap:10px">Pauline's Policy
-          <span class="info-wrap" id="infoWrap">
-            <button class="info-btn" id="infoBtn" aria-label="Why is the Volvo on its own policy?" aria-expanded="false">?</button>
-            <span class="info-pop left" role="tooltip">
-              <b>Why is the Volvo separate?</b> When cars share a policy, they share a rate profile. The Lexus and Sentra pair up because together they earn true multi-car pricing. Pauline's Volvo prices best rated on her own driving record, so it gets its own policy. Separate where it saves money, together where it saves money. It all still lives on one account with one agency.
-            </span>
-          </span>
-        </div>
+        <div class="who">Pauline's Policy</div>
         <div class="co">A. Central Insurance &middot; Quote Q33077023 &middot; 12 month term</div>
       </div>
       <div class="pol-body">
         <div class="veh">
-          <div class="name">2020 Volvo S60<span class="note">Written on its own policy, priced for her driving record</span></div>
+          <div class="name">2020 Volvo S60</div>
           <div class="amt">$2,162</div>
         </div>
       </div>
@@ -443,14 +416,6 @@ document.querySelectorAll('.cov-btn').forEach(function(btn){
   });
 });
 
-var iw=document.getElementById('infoWrap'),ib=document.getElementById('infoBtn');
-ib.addEventListener('click',function(e){
-  e.stopPropagation();
-  var open=iw.classList.toggle('open');
-  ib.setAttribute('aria-expanded',open);
-});
-document.addEventListener('click',function(){iw.classList.remove('open');ib.setAttribute('aria-expanded',false)});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){iw.classList.remove('open');ib.setAttribute('aria-expanded',false)}});
 </script>
 
 </body>
