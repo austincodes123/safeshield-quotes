@@ -154,6 +154,20 @@
   .cov-row.open .cov-detail{max-height:260px}
   .cov-detail p{padding:0 24px 22px;font-size:.9rem;color:var(--muted);max-width:760px}
 
+  /* LEXUS COVERAGE TOGGLE */
+  .cov-toggle{display:flex;align-items:center;justify-content:space-between;gap:14px;background:#f0f4fa;border-top:1px solid var(--line);padding:14px 24px}
+  .cov-toggle .txt{font-size:.85rem;font-weight:600;color:var(--navy)}
+  .cov-toggle .txt small{display:block;font-weight:400;color:var(--muted);font-size:.76rem}
+  .switch{position:relative;width:52px;height:28px;flex:none}
+  .switch input{opacity:0;width:100%;height:100%;position:absolute;margin:0;cursor:pointer;z-index:2}
+  .slider{position:absolute;inset:0;background:#c9cfd9;border-radius:999px;transition:background .2s ease}
+  .slider::before{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;background:#fff;border-radius:50%;transition:transform .2s ease;box-shadow:0 2px 5px rgba(7,31,63,.25)}
+  .switch input:checked + .slider{background:var(--green)}
+  .switch input:checked + .slider::before{transform:translateX(24px)}
+  .switch input:focus-visible + .slider{outline:3px solid var(--orange);outline-offset:2px}
+  .fadeval{transition:opacity .18s ease}
+  .fadeval.flip{opacity:0}
+
   /* PROGRAM STACK */
   .stack{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
   .stk{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:19px 24px;border-bottom:1px solid var(--line)}
@@ -258,16 +272,23 @@
       <div class="pol-body">
         <div class="veh">
           <div class="name">2020 Nissan Sentra<span class="note">Shaneka, principal driver. Full coverage, $1,000 deductibles, full glass, roadside, rental</span></div>
-          <div class="amt">$1,389</div>
+          <div class="amt fadeval" id="senAmt">$1,389</div>
         </div>
         <div class="veh">
-          <div class="name">2023 Lexus GX 460 Sport<span class="note">Ryan, principal driver. Liability only, per your request. See our note below.</span></div>
-          <div class="amt">$813</div>
+          <div class="name">2023 Lexus GX 460 Sport<span class="note fadeval" id="lexNote">Ryan, principal driver. Liability only, per your request. See our note below.</span></div>
+          <div class="amt fadeval" id="lexAmt">$813</div>
         </div>
+      </div>
+      <div class="cov-toggle">
+        <div class="txt">Add full coverage to the Lexus<small>comprehensive and collision, $1,000 deductibles, full glass</small></div>
+        <label class="switch">
+          <input type="checkbox" id="lexTgl" aria-label="Add full coverage to the Lexus">
+          <span class="slider"></span>
+        </label>
       </div>
       <div class="pol-foot">
         <span class="lbl">Annual Premium</span>
-        <span class="tot">$2,222<span style="color:var(--orange)">*</span> <small>/yr</small></span>
+        <span class="tot fadeval" id="ryanTot">$2,222<span style="color:var(--orange)">*</span> <small>/yr</small></span>
       </div>
     </div>
     <div class="pol">
@@ -289,7 +310,7 @@
   </div>
   <p class="two-note" style="margin-top:14px"><span style="color:var(--orange);font-weight:700">*</span> Nothing is bound yet. This policy is quoted and ready to issue the moment you give us the go ahead.</p>
   <div class="move-box" style="margin-top:24px">
-    <p><b>One thing we want on the record about the Lexus.</b> You asked us to quote it liability only, and we did. But we do not usually recommend holding liability only on a newer vehicle. If the Lexus is damaged in an accident you cause, or stolen, or hit by a falling limb, a liability only policy pays nothing toward the car itself. On a 2023 GX 460 that is a lot of value riding uninsured. Adding comprehensive and collision is a quick change and we are happy to price it, no pressure either way. It is your call, we just want it to be an informed one.</p>
+    <p><b>One thing we want on the record about the Lexus.</b> You asked us to quote it liability only, and we did. But we do not usually recommend holding liability only on a newer vehicle. If the Lexus is damaged in an accident you cause, or stolen, or hit by a falling limb, a liability only policy pays nothing toward the car itself. On a 2023 GX 460 that is a lot of value riding uninsured. So we priced both. Flip the toggle on the Lexus line above and every number on this page updates to show the full coverage version, same $1,000 deductibles as the Sentra, full glass included. No pressure either way. It is your call, we just want it to be an informed one.</p>
   </div>
   <p class="two-note">Both quotes carry the same effective date of August 6, 2026, timed so coverage transitions cleanly around your closing with no gap and no overlap you are paying twice for.</p>
 </section>
@@ -347,9 +368,9 @@
     <div class="stk">
       <div class="l">
         <div class="n">Ryan's Auto &middot; Sentra + Lexus</div>
-        <div class="d">NYCM &middot; effective 08/06/2026 &middot; Lexus liability only &middot; ready on your go ahead</div>
+        <div class="d fadeval" id="stkRyanDesc">NYCM &middot; effective 08/06/2026 &middot; Lexus liability only &middot; ready on your go ahead</div>
       </div>
-      <div class="amt">$2,222<span style="color:var(--orange)">*</span></div>
+      <div class="amt fadeval" id="stkRyanAmt">$2,222<span style="color:var(--orange)">*</span></div>
     </div>
     <div class="stk">
       <div class="l">
@@ -363,7 +384,7 @@
         <div class="n">Everything, per year</div>
         <div class="d">2 homes &middot; 3 cars &middot; 3 drivers &middot; 1 agency</div>
       </div>
-      <div class="amt">$9,049</div>
+      <div class="amt fadeval" id="stkTotal">$9,049</div>
     </div>
   </div>
   <p class="two-note" style="margin-top:14px"><span style="color:var(--orange);font-weight:700">**</span> Hartford's multi-policy discount only applies when the auto is also written with Hartford, and yours is not, so the Glen Lane premium stays at $2,071 either way. The auto account credit you do earn is on the Narragansett Bay landlord policy, and it is already reflected in the $2,594 rate shown above.</p>
@@ -382,37 +403,59 @@
 
 <footer>
   Safeshield Insurance LLC &middot; 2777 Summer Street, 6th Floor, Stamford, CT 06905 &middot; 203-204-2555<br>
-  Quotes are estimates and subject to underwriting approval and final carrier review. Rates are not guaranteed and coverage is not in effect until confirmed in writing by an authorized representative. NYCM quote Q33076569 ($2,222, ready to issue upon applicant approval; Lexus written without physical damage coverage at the applicant's request) and A. Central quote Q33077023 ($2,162), both effective 08/06/2026, 12 month terms, priced with paid in full and multi-car discounts as shown on the carrier quotes. The Pelhamdale rate of $2,594 is an estimate pending auto placement; NBIC quote NYDQ01750778. Hartford policy 31RBD181049 is bound effective 08/08/2026.
+  Quotes are estimates and subject to underwriting approval and final carrier review. Rates are not guaranteed and coverage is not in effect until confirmed in writing by an authorized representative. NYCM quote Q33076569 (quoted two ways at the applicant's request: $2,222 with the Lexus written without physical damage coverage, or $4,372 with comprehensive and collision on the Lexus at $1,000 deductibles; ready to issue upon applicant approval) and A. Central quote Q33077023 ($2,162), both effective 08/06/2026, 12 month terms, priced with paid in full and multi-car discounts as shown on the carrier quotes. The Pelhamdale rate of $2,594 is an estimate pending auto placement; NBIC quote NYDQ01750778. Hartford policy 31RBD181049 is bound effective 08/08/2026.
 </footer>
 
 <script>
 var tabAuto=document.getElementById('tabAuto'),tabAll=document.getElementById('tabAll'),
     price=document.getElementById('price'),label=document.getElementById('priceLabel'),
     monthly=document.getElementById('monthly'),ribbon=document.getElementById('ribbon'),
-    note=document.getElementById('stageNote');
-function setMode(all){
-  tabAuto.classList.toggle('active',!all);tabAll.classList.toggle('active',all);
-  tabAuto.setAttribute('aria-selected',!all);tabAll.setAttribute('aria-selected',all);
+    note=document.getElementById('stageNote'),
+    lexTgl=document.getElementById('lexTgl'),
+    senAmt=document.getElementById('senAmt'),lexAmt=document.getElementById('lexAmt'),
+    lexNote=document.getElementById('lexNote'),ryanTot=document.getElementById('ryanTot'),
+    stkRyanAmt=document.getElementById('stkRyanAmt'),stkRyanDesc=document.getElementById('stkRyanDesc'),
+    stkTotal=document.getElementById('stkTotal');
+var showAll=false,fullCov=false;
+var N={
+  lo:{sen:'$1,389',lex:'$813',lexNote:'Ryan, principal driver. Liability only, per your request. See our note below.',
+      ryan:'$2,222',autos:'$4,384',prog:'$9,049',desc:'NYCM &middot; effective 08/06/2026 &middot; Lexus liability only &middot; ready on your go ahead'},
+  hi:{sen:'$1,395',lex:'$2,957',lexNote:'Ryan, principal driver. Full coverage, $1,000 deductibles, full glass.',
+      ryan:'$4,372',autos:'$6,534',prog:'$11,199',desc:'NYCM &middot; effective 08/06/2026 &middot; Lexus full coverage &middot; ready on your go ahead'}
+};
+var star='<span style="color:var(--orange)">*</span>';
+function paint(){
+  var v=fullCov?N.hi:N.lo;
+  var els=[price,senAmt,lexAmt,lexNote,ryanTot,stkRyanAmt,stkRyanDesc,stkTotal];
+  els.forEach(function(e){e.classList.add('flip')});
   price.classList.add('flip');
   setTimeout(function(){
-    if(all){
+    senAmt.textContent=v.sen;
+    lexAmt.textContent=v.lex;
+    lexNote.textContent=v.lexNote;
+    ryanTot.innerHTML=v.ryan+star+' <small>/yr</small>';
+    stkRyanAmt.innerHTML=v.ryan+star;
+    stkRyanDesc.innerHTML=v.desc;
+    stkTotal.textContent=v.prog;
+    if(showAll){
       label.textContent='Complete Household Program';
-      price.textContent='$9,049';
+      price.textContent=v.prog;
       monthly.textContent='2 homes, 3 cars, 3 drivers, everything on one account';
       note.textContent='Includes the bound Glen Lane policy, the Pelhamdale landlord quote at its bundled rate, and both auto policies.';
       ribbon.classList.add('show');
     }else{
       label.textContent='Household Auto Total';
-      price.textContent='$4,384';
+      price.textContent=v.autos;
       monthly.textContent='quoted with the paid in full discount, matching how you pay today';
       note.textContent='Both auto policies are full 12 month terms. Your rate is locked for a year, not repriced every 6 months.';
       ribbon.classList.remove('show');
     }
-    price.classList.remove('flip');
+    els.forEach(function(e){e.classList.remove('flip')});
   },180);
 }
-tabAuto.addEventListener('click',function(){setMode(false)});
-tabAll.addEventListener('click',function(){setMode(true)});
+tabAuto.addEventListener('click',function(){showAll=false;tabAuto.classList.add('active');tabAll.classList.remove('active');tabAuto.setAttribute('aria-selected',true);tabAll.setAttribute('aria-selected',false);paint()});
+tabAll.addEventListener('click',function(){showAll=true;tabAll.classList.add('active');tabAuto.classList.remove('active');tabAll.setAttribute('aria-selected',true);tabAuto.setAttribute('aria-selected',false);paint()});
+lexTgl.addEventListener('change',function(){fullCov=lexTgl.checked;paint()});
 
 document.querySelectorAll('.cov-btn').forEach(function(btn){
   btn.addEventListener('click',function(){
