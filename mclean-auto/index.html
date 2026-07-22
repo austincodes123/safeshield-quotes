@@ -332,7 +332,7 @@
       <div class="pol-body">
         <div class="veh">
           <div class="name">2020 Nissan Sentra<span class="note">Shaneka, principal driver. Full coverage, $1,000 deductibles, full glass, substitute transportation</span></div>
-          <div class="amt">$2,902</div>
+          <div class="amt fadeval" id="senAmt">$2,902</div>
         </div>
         <div class="veh">
           <div class="name">2023 Lexus GX 460 Sport<span class="note fadeval" id="lexNote">Ryan, principal driver. Liability only, per your request. See our note below.</span></div>
@@ -370,7 +370,7 @@
   </div>
   <p class="two-note" style="margin-top:14px"><span style="color:var(--orange);font-weight:700">*</span> Paid in full, including the $20 state motor vehicle fee. Payment plans are available and run $4,615 for the year. Nothing is bound yet, this policy is ready to issue the moment you give us the go ahead.</p>
   <div class="move-box" style="margin-top:24px">
-    <p><b>One thing we want on the record about the Lexus.</b> You asked us to quote it liability only, and we did. But we do not usually recommend holding liability only on a newer vehicle. If the Lexus is damaged in an accident you cause, or stolen, or hit by a falling limb, a liability only policy pays nothing toward the car itself. On a 2023 GX 460 that is a lot of value riding uninsured. So we priced it both ways. Flip the toggle on the Lexus line above and every number on this page updates to show full coverage, same $1,000 deductibles the Sentra carries, full glass included. The difference is real money, about $3,450 a year, and that is the honest tradeoff: the truck is worth far more than that if you ever lose it. No pressure either way. It is your call, we just want it to be an informed one.</p>
+    <p><b>One thing we want on the record about the Lexus.</b> You asked us to quote it liability only, and we did. But we do not usually recommend holding liability only on a newer vehicle. If the Lexus is damaged in an accident you cause, or stolen, or hit by a falling limb, a liability only policy pays nothing toward the car itself. On a 2023 GX 460 that is a lot of value riding uninsured. So we priced it both ways. Flip the toggle on the Lexus line above and every number on this page updates to show full coverage, same $1,000 deductibles the Sentra carries, full glass included. The difference is about $3,470 a year, and part of that is offset: when both cars carry physical damage the Sentra's own comprehensive and collision drop by $121, so the true added cost of covering the Lexus is a little less than the headline suggests. That is the honest tradeoff, and the truck is worth far more than that if you ever lose it. No pressure either way. It is your call, we just want it to be an informed one.</p>
   </div>
   <p class="two-note">Both quotes carry the same effective date of August 6, 2026, timed so coverage transitions cleanly around your closing with no gap and no overlap you are paying twice for.</p>
 </section>
@@ -463,7 +463,7 @@
 
 <footer>
   Safeshield Insurance LLC &middot; 2777 Summer Street, 6th Floor, Stamford, CT 06905 &middot; 203-204-2555<br>
-  Quotes are estimates and subject to underwriting approval and final carrier review. Rates are not guaranteed and coverage is not in effect until confirmed in writing by an authorized representative. Plymouth Rock Assurance quote NYAQ0007129095, quoted two ways at the applicant's request: $4,283 paid in full with the Lexus written without physical damage coverage, or $7,735 paid in full with comprehensive and collision on the Lexus at $1,000 deductibles, both figures including the $20 motor vehicle law enforcement fee, replacing NYCM quote Q33076569, which the carrier declined on 07/22/2026 following its review of motor vehicle and loss history reports and A. Central quote Q33077023 ($2,162), both effective 08/06/2026, 12 month terms, priced with paid in full and multi-car discounts as shown on the carrier quotes. The Pelhamdale rate of $2,594 is an estimate pending auto placement; NBIC quote NYDQ01750778. Hartford policy 31RBD181049 is bound effective 08/08/2026.
+  Quotes are estimates and subject to underwriting approval and final carrier review. Rates are not guaranteed and coverage is not in effect until confirmed in writing by an authorized representative. Plymouth Rock Assurance quote NYAQ0007129095, quoted two ways at the applicant's request: $4,283 paid in full with the Lexus written without physical damage coverage, or $7,755 paid in full with comprehensive and collision on the Lexus at $1,000 deductibles, both figures including the $20 motor vehicle law enforcement fee, replacing NYCM quote Q33076569, which the carrier declined on 07/22/2026 following its review of motor vehicle and loss history reports and A. Central quote Q33077023 ($2,162), both effective 08/06/2026, 12 month terms, priced with paid in full and multi-car discounts as shown on the carrier quotes. The Pelhamdale rate of $2,594 is an estimate pending auto placement; NBIC quote NYDQ01750778. Hartford policy 31RBD181049 is bound effective 08/08/2026.
 </footer>
 
 <script>
@@ -472,24 +472,26 @@ var tabAuto=document.getElementById('tabAuto'),tabAll=document.getElementById('t
     monthly=document.getElementById('monthly'),ribbon=document.getElementById('ribbon'),
     note=document.getElementById('stageNote'),
     lexTgl=document.getElementById('lexTgl'),lexAmt=document.getElementById('lexAmt'),
+    senAmt=document.getElementById('senAmt'),
     lexNote=document.getElementById('lexNote'),ryanTot=document.getElementById('ryanTot'),
     stkRyanAmt=document.getElementById('stkRyanAmt'),stkRyanDesc=document.getElementById('stkRyanDesc'),
     stkTotal=document.getElementById('stkTotal');
 var showAll=false,fullCov=false;
 var N={
-  lo:{lex:'$1,361',lexNote:'Ryan, principal driver. Liability only, per your request. See our note below.',
+  lo:{sen:'$2,902',lex:'$1,361',lexNote:'Ryan, principal driver. Liability only, per your request. See our note below.',
       ryan:'$4,283',autos:'$6,445',prog:'$11,110',
       desc:'Plymouth Rock &middot; effective 08/06/2026 &middot; Lexus liability only &middot; ready on your go ahead'},
-  hi:{lex:'$4,813',lexNote:'Ryan, principal driver. Full coverage, $1,000 comprehensive and collision, full glass.',
-      ryan:'$7,735',autos:'$9,897',prog:'$14,562',
+  hi:{sen:'$2,781',lex:'$4,954',lexNote:'Ryan, principal driver. Full coverage, $1,000 comprehensive and collision, full glass at no deductible, substitute transportation.',
+      ryan:'$7,755',autos:'$9,917',prog:'$14,582',
       desc:'Plymouth Rock &middot; effective 08/06/2026 &middot; Lexus full coverage &middot; ready on your go ahead'}
 };
 var star='<span style="color:var(--orange)">*</span>';
 function paint(){
   var v=fullCov?N.hi:N.lo;
-  var els=[price,lexAmt,lexNote,ryanTot,stkRyanAmt,stkRyanDesc,stkTotal];
+  var els=[price,senAmt,lexAmt,lexNote,ryanTot,stkRyanAmt,stkRyanDesc,stkTotal];
   els.forEach(function(e){e.classList.add('flip')});
   setTimeout(function(){
+    senAmt.textContent=v.sen;
     lexAmt.textContent=v.lex;
     lexNote.textContent=v.lexNote;
     ryanTot.innerHTML=v.ryan+star+' <small>/yr</small>';
