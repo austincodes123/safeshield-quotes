@@ -226,9 +226,9 @@
     </div>
     <div class="price-stage">
       <div class="price-label" id="priceLabel">Household Auto Total</div>
-      <div class="price" id="price">$6,885</div>
+      <div class="price" id="price">$4,384</div>
       <div class="per">per year</div>
-      <div class="monthly" id="monthly">about $574 per month across both policies</div>
+      <div class="monthly" id="monthly">quoted with the paid in full discount, matching how you pay today</div>
       <div class="save-ribbon" id="ribbon">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Placing the autos drops the Pelhamdale rental from $2,721 to $2,594
@@ -257,17 +257,17 @@
       </div>
       <div class="pol-body">
         <div class="veh">
-          <div class="name">2023 Lexus GX 460 Sport<span class="note">Shaneka listed as principal operator</span></div>
-          <div class="amt">$3,314</div>
+          <div class="name">2020 Nissan Sentra<span class="note">Full coverage, $1,000 deductibles, full glass, roadside, rental</span></div>
+          <div class="amt">$1,389</div>
         </div>
         <div class="veh">
-          <div class="name">2020 Nissan Sentra</div>
-          <div class="amt">$1,389</div>
+          <div class="name">2023 Lexus GX 460 Sport<span class="note">Liability only, per your request. See our note below.</span></div>
+          <div class="amt">$813</div>
         </div>
       </div>
       <div class="pol-foot">
         <span class="lbl">Annual Premium</span>
-        <span class="tot">$4,723 <small>/yr</small></span>
+        <span class="tot">$2,222 <small>/yr</small></span>
       </div>
     </div>
     <div class="pol">
@@ -287,12 +287,15 @@
       </div>
     </div>
   </div>
+  <div class="move-box" style="margin-top:24px">
+    <p><b>One thing we want on the record about the Lexus.</b> You asked us to quote it liability only, and we did. But we do not usually recommend holding liability only on a newer vehicle. If the Lexus is damaged in an accident you cause, or stolen, or hit by a falling limb, a liability only policy pays nothing toward the car itself. On a 2023 GX 460 that is a lot of value riding uninsured. Adding comprehensive and collision is a quick change and we are happy to price it, no pressure either way. It is your call, we just want it to be an informed one.</p>
+  </div>
   <p class="two-note">Both quotes carry the same effective date of August 6, 2026, timed so coverage transitions cleanly around your closing with no gap and no overlap you are paying twice for.</p>
 </section>
 
 <section class="section">
   <h2>The limits we quoted, <span>in plain English.</span></h2>
-  <p class="lede">We did not quote state minimums. Every car in the household carries the same protection. Tap any line to see what it actually does for you.</p>
+  <p class="lede">We did not quote state minimums. Every car in the household carries the same liability protection. Tap any line to see what it actually does for you.</p>
   <div class="cov">
     <div class="cov-row">
       <button class="cov-btn" aria-expanded="false">
@@ -342,10 +345,10 @@
     </div>
     <div class="stk">
       <div class="l">
-        <div class="n">Ryan's Auto &middot; Lexus + Sentra</div>
-        <div class="d">NYCM &middot; effective 08/06/2026</div>
+        <div class="n">Ryan's Auto &middot; Sentra + Lexus</div>
+        <div class="d">NYCM &middot; effective 08/06/2026 &middot; Lexus liability only</div>
       </div>
-      <div class="amt">$4,723</div>
+      <div class="amt">$2,222</div>
     </div>
     <div class="stk">
       <div class="l">
@@ -359,7 +362,7 @@
         <div class="n">Everything, per year</div>
         <div class="d">2 homes &middot; 3 cars &middot; 3 drivers &middot; 1 agency</div>
       </div>
-      <div class="amt">$11,550</div>
+      <div class="amt">$9,049</div>
     </div>
   </div>
 </section>
@@ -377,7 +380,7 @@
 
 <footer>
   Safeshield Insurance LLC &middot; 2777 Summer Street, 6th Floor, Stamford, CT 06905 &middot; 203-204-2555<br>
-  Quotes are estimates and subject to underwriting approval and final carrier review. Rates are not guaranteed and coverage is not in effect until confirmed in writing by an authorized representative. NYCM quote Q33076569 and A. Central quote Q33077023, both effective 08/06/2026, 12 month terms. The Pelhamdale rate of $2,594 is an estimate pending auto placement; NBIC quote NYDQ01750778. Hartford policy 31RBD181049 is bound effective 08/08/2026.
+  Quotes are estimates and subject to underwriting approval and final carrier review. Rates are not guaranteed and coverage is not in effect until confirmed in writing by an authorized representative. NYCM quote Q33076569 ($2,222, Lexus written without physical damage coverage at the applicant's request) and A. Central quote Q33077023 ($2,162), both effective 08/06/2026, 12 month terms, priced with paid in full and multi-car discounts as shown on the carrier quotes. The Pelhamdale rate of $2,594 is an estimate pending auto placement; NBIC quote NYDQ01750778. Hartford policy 31RBD181049 is bound effective 08/08/2026.
 </footer>
 
 <script>
@@ -392,14 +395,14 @@ function setMode(all){
   setTimeout(function(){
     if(all){
       label.textContent='Complete Household Program';
-      price.textContent='$11,550';
-      monthly.textContent='2 homes, 3 cars, 3 drivers, about $963 per month all in';
+      price.textContent='$9,049';
+      monthly.textContent='2 homes, 3 cars, 3 drivers, everything on one account';
       note.textContent='Includes the bound Glen Lane policy, the Pelhamdale landlord quote at its bundled rate, and both auto policies.';
       ribbon.classList.add('show');
     }else{
       label.textContent='Household Auto Total';
-      price.textContent='$6,885';
-      monthly.textContent='about $574 per month across both policies';
+      price.textContent='$4,384';
+      monthly.textContent='quoted with the paid in full discount, matching how you pay today';
       note.textContent='Both auto policies are full 12 month terms. Your rate is locked for a year, not repriced every 6 months.';
       ribbon.classList.remove('show');
     }
