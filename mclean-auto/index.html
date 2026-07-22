@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
 <title>Your Auto Proposal | The Glen Lane Household | Safeshield Insurance</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,19 +155,26 @@
   .cov-row.open .cov-detail{max-height:260px}
   .cov-detail p{padding:0 24px 22px;font-size:.9rem;color:var(--muted);max-width:760px}
 
-  /* LEXUS COVERAGE TOGGLE */
-  .cov-toggle{display:flex;align-items:center;justify-content:space-between;gap:14px;background:#f0f4fa;border-top:1px solid var(--line);padding:14px 24px}
-  .cov-toggle .txt{font-size:.85rem;font-weight:600;color:var(--navy)}
-  .cov-toggle .txt small{display:block;font-weight:400;color:var(--muted);font-size:.76rem}
-  .switch{position:relative;width:52px;height:28px;flex:none}
-  .switch input{opacity:0;width:100%;height:100%;position:absolute;margin:0;cursor:pointer;z-index:2}
-  .slider{position:absolute;inset:0;background:#c9cfd9;border-radius:999px;transition:background .2s ease}
-  .slider::before{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;background:#fff;border-radius:50%;transition:transform .2s ease;box-shadow:0 2px 5px rgba(7,31,63,.25)}
-  .switch input:checked + .slider{background:var(--green)}
-  .switch input:checked + .slider::before{transform:translateX(24px)}
-  .switch input:focus-visible + .slider{outline:3px solid var(--orange);outline-offset:2px}
-  .fadeval{transition:opacity .18s ease}
-  .fadeval.flip{opacity:0}
+  /* STATUS TABS (current option vs declined) */
+  .stabs{display:flex;gap:8px;margin-top:26px;flex-wrap:wrap}
+  .stab{
+    border:1px solid var(--line);background:var(--card);cursor:pointer;
+    border-radius:10px;padding:12px 18px;font-family:'Public Sans';font-weight:700;font-size:.9rem;
+    color:var(--muted);transition:all .2s ease;
+  }
+  .stab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .stab:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+  .spane{display:none;margin-top:20px}
+  .spane.show{display:block;animation:rise .3s ease}
+  .struck{position:relative;background:#f2f0ea;border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+  .struck .hd{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .struck .hd b{font-family:'Bricolage Grotesque';font-size:1.05rem;color:var(--muted)}
+  .dead{text-decoration:line-through;text-decoration-thickness:2px;color:#8b96a5}
+  .tagred{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:#fbe9e7;color:#b3392c;border:1px solid #f0c4bd}
+  ul.reasons{margin-top:16px;border-top:1px solid var(--line);padding-top:16px}
+  ul.reasons li{list-style:none;font-size:.88rem;color:var(--navy-ink);padding:9px 0 9px 20px;position:relative}
+  ul.reasons li::before{content:"";position:absolute;left:2px;top:16px;width:7px;height:7px;border-radius:50%;background:#b3392c}
+  ul.reasons li span{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}
 
   /* PROGRAM STACK */
   .stack{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
@@ -240,7 +248,7 @@
     </div>
     <div class="price-stage">
       <div class="price-label" id="priceLabel">Household Auto Total</div>
-      <div class="price" id="price">$4,384</div>
+      <div class="price" id="price">$6,445</div>
       <div class="per">per year</div>
       <div class="monthly" id="monthly">quoted with the paid in full discount, matching how you pay today</div>
       <div class="save-ribbon" id="ribbon">
@@ -251,6 +259,41 @@
     </div>
   </div>
 </div>
+
+<section class="section">
+  <h2>An update on your auto, and <span>where things stand now.</span></h2>
+  <p class="lede">We owe you a straight explanation. The first carrier we quoted you with came back with a decline after their underwriting review. We already have you placed with another A rated carrier at a comparable rate, and nothing about your homes changes.</p>
+
+  <div class="stabs" role="tablist">
+    <button class="stab active" id="sNow" role="tab" aria-selected="true" aria-controls="paneNow">Where you stand now</button>
+    <button class="stab" id="sOld" role="tab" aria-selected="false" aria-controls="paneOld">What happened with the first quote</button>
+  </div>
+
+  <div class="spane show" id="paneNow" role="tabpanel">
+    <div class="move-box">
+      <p><b>You are placed with Plymouth Rock Assurance.</b> Same effective date of August 6, same liability limits we quoted you originally, same coverage on each car, at <b>$4,283 paid in full</b> for the year. Plymouth Rock is a well established personal auto carrier in New York, and their program includes some things worth knowing about: door to door valet claim service, a mobile adjuster who can issue a check on the spot, and a Get Home Safe benefit that reimburses a ride home if you ever should not be driving.</p>
+      <p>Your mother's policy on the Volvo is unaffected and stands as quoted. So does the Glen Lane homeowners policy, which is already bound, and the Pelhamdale landlord quote.</p>
+    </div>
+  </div>
+
+  <div class="spane" id="paneOld" role="tabpanel">
+    <div class="struck">
+      <div class="hd">
+        <b>NYCM Insurance &middot; Quote Q33076569</b>
+        <span class="tagred">Declined by carrier</span>
+      </div>
+      <div class="dead" style="font-family:'Bricolage Grotesque';font-weight:800;font-size:1.9rem">$2,222 / yr</div>
+      <p style="font-size:.9rem;color:var(--muted);margin-top:8px;max-width:720px">This is the quote we sent you earlier today. On July 22 the carrier completed its underwriting review and declined to offer the policy. A declined quote is not a policy that was cancelled and it does not appear anywhere on your record, it simply means that carrier chose not to write it.</p>
+
+      <ul class="reasons">
+        <li><b>Motor vehicle record</b><span>One violation on file from April 2025, failure to use a restraint system.</span></li>
+        <li><b>Prior loss history</b><span>Two claims reported in 2023 within the carrier's lookback period, one liability loss and one comprehensive claim.</span></li>
+      </ul>
+
+      <p style="font-size:.9rem;color:var(--muted);margin-top:16px;max-width:720px"><b style="color:var(--navy)">A word on those reports.</b> Every auto carrier automatically pulls a state motor vehicle record and a national loss history report the moment we submit a quote. Those reports come from outside agencies, not from us, and we cannot edit, remove, or influence what they contain. If you believe anything on them is inaccurate, you have the right under federal law to request a free copy of the report and dispute it directly with the agency that issued it, and we are glad to walk you through how to do that. Otherwise the items age off on their own over time, which is why we will shop this again at renewal.</p>
+    </div>
+  </div>
+</section>
 
 <section class="section">
   <h2>Why quote it now? Because on closing day, <span>everything reprices anyway.</span></h2>
@@ -266,29 +309,22 @@
   <div class="pol-grid">
     <div class="pol">
       <div class="pol-head">
-        <div class="who">Ryan's Policy</div>
-        <div class="co">NYCM Insurance &middot; Quote Q33076569 &middot; 12 month term</div>
+        <div class="who">Ryan &amp; Shaneka's Policy</div>
+        <div class="co">Plymouth Rock Assurance &middot; Quote NYAQ0007129095 &middot; 12 month term</div>
       </div>
       <div class="pol-body">
         <div class="veh">
-          <div class="name">2020 Nissan Sentra<span class="note">Shaneka, principal driver. Full coverage, $1,000 deductibles, full glass, roadside, rental</span></div>
-          <div class="amt fadeval" id="senAmt">$1,389</div>
+          <div class="name">2020 Nissan Sentra<span class="note">Shaneka, principal driver. Full coverage, $1,000 deductibles, full glass, substitute transportation</span></div>
+          <div class="amt">$2,902</div>
         </div>
         <div class="veh">
-          <div class="name">2023 Lexus GX 460 Sport<span class="note fadeval" id="lexNote">Ryan, principal driver. Liability only, per your request. See our note below.</span></div>
-          <div class="amt fadeval" id="lexAmt">$813</div>
+          <div class="name">2023 Lexus GX 460 Sport<span class="note">Ryan, principal driver. Liability only, per your request. See our note below.</span></div>
+          <div class="amt">$1,361</div>
         </div>
-      </div>
-      <div class="cov-toggle">
-        <div class="txt">Add full coverage to the Lexus<small>comprehensive and collision, $1,000 deductibles, full glass</small></div>
-        <label class="switch">
-          <input type="checkbox" id="lexTgl" aria-label="Add full coverage to the Lexus">
-          <span class="slider"></span>
-        </label>
       </div>
       <div class="pol-foot">
         <span class="lbl">Annual Premium</span>
-        <span class="tot fadeval" id="ryanTot">$2,222<span style="color:var(--orange)">*</span> <small>/yr</small></span>
+        <span class="tot">$4,283<span style="color:var(--orange)">*</span> <small>/yr</small></span>
       </div>
     </div>
     <div class="pol">
@@ -308,9 +344,9 @@
       </div>
     </div>
   </div>
-  <p class="two-note" style="margin-top:14px"><span style="color:var(--orange);font-weight:700">*</span> Nothing is bound yet. This policy is quoted and ready to issue the moment you give us the go ahead.</p>
+  <p class="two-note" style="margin-top:14px"><span style="color:var(--orange);font-weight:700">*</span> Paid in full, including the $20 state motor vehicle fee. Payment plans are available and run $4,615 for the year. Nothing is bound yet, this policy is ready to issue the moment you give us the go ahead.</p>
   <div class="move-box" style="margin-top:24px">
-    <p><b>One thing we want on the record about the Lexus.</b> You asked us to quote it liability only, and we did. But we do not usually recommend holding liability only on a newer vehicle. If the Lexus is damaged in an accident you cause, or stolen, or hit by a falling limb, a liability only policy pays nothing toward the car itself. On a 2023 GX 460 that is a lot of value riding uninsured. So we priced both. Flip the toggle on the Lexus line above and every number on this page updates to show the full coverage version, same $1,000 deductibles as the Sentra, full glass included. No pressure either way. It is your call, we just want it to be an informed one.</p>
+    <p><b>One thing we want on the record about the Lexus.</b> You asked us to quote it liability only, and we did. But we do not usually recommend holding liability only on a newer vehicle. If the Lexus is damaged in an accident you cause, or stolen, or hit by a falling limb, a liability only policy pays nothing toward the car itself. On a 2023 GX 460 that is a lot of value riding uninsured. Say the word and we will price comprehensive and collision on it at the same $1,000 deductibles the Sentra carries, so you can see the real cost side by side. No pressure either way. It is your call, we just want it to be an informed one.</p>
   </div>
   <p class="two-note">Both quotes carry the same effective date of August 6, 2026, timed so coverage transitions cleanly around your closing with no gap and no overlap you are paying twice for.</p>
 </section>
@@ -367,10 +403,10 @@
     </div>
     <div class="stk">
       <div class="l">
-        <div class="n">Ryan's Auto &middot; Sentra + Lexus</div>
-        <div class="d fadeval" id="stkRyanDesc">NYCM &middot; effective 08/06/2026 &middot; Lexus liability only &middot; ready on your go ahead</div>
+        <div class="n">Ryan &amp; Shaneka's Auto &middot; Sentra + Lexus</div>
+        <div class="d">Plymouth Rock &middot; effective 08/06/2026 &middot; Lexus liability only &middot; ready on your go ahead</div>
       </div>
-      <div class="amt fadeval" id="stkRyanAmt">$2,222<span style="color:var(--orange)">*</span></div>
+      <div class="amt">$4,283<span style="color:var(--orange)">*</span></div>
     </div>
     <div class="stk">
       <div class="l">
@@ -384,7 +420,7 @@
         <div class="n">Everything, per year</div>
         <div class="d">2 homes &middot; 3 cars &middot; 3 drivers &middot; 1 agency</div>
       </div>
-      <div class="amt fadeval" id="stkTotal">$9,049</div>
+      <div class="amt">$11,110</div>
     </div>
   </div>
   <p class="two-note" style="margin-top:14px"><span style="color:var(--orange);font-weight:700">**</span> Hartford's multi-policy discount only applies when the auto is also written with Hartford, and yours is not, so the Glen Lane premium stays at $2,071 either way. The auto account credit you do earn is on the Narragansett Bay landlord policy, and it is already reflected in the $2,594 rate shown above.</p>
@@ -403,59 +439,47 @@
 
 <footer>
   Safeshield Insurance LLC &middot; 2777 Summer Street, 6th Floor, Stamford, CT 06905 &middot; 203-204-2555<br>
-  Quotes are estimates and subject to underwriting approval and final carrier review. Rates are not guaranteed and coverage is not in effect until confirmed in writing by an authorized representative. NYCM quote Q33076569 (quoted two ways at the applicant's request: $2,222 with the Lexus written without physical damage coverage, or $4,372 with comprehensive and collision on the Lexus at $1,000 deductibles; ready to issue upon applicant approval) and A. Central quote Q33077023 ($2,162), both effective 08/06/2026, 12 month terms, priced with paid in full and multi-car discounts as shown on the carrier quotes. The Pelhamdale rate of $2,594 is an estimate pending auto placement; NBIC quote NYDQ01750778. Hartford policy 31RBD181049 is bound effective 08/08/2026.
+  Quotes are estimates and subject to underwriting approval and final carrier review. Rates are not guaranteed and coverage is not in effect until confirmed in writing by an authorized representative. Plymouth Rock Assurance quote NYAQ0007129095 ($4,283 paid in full including the $20 motor vehicle law enforcement fee; Lexus written without physical damage coverage at the applicant's request), replacing NYCM quote Q33076569, which the carrier declined on 07/22/2026 following its review of motor vehicle and loss history reports and A. Central quote Q33077023 ($2,162), both effective 08/06/2026, 12 month terms, priced with paid in full and multi-car discounts as shown on the carrier quotes. The Pelhamdale rate of $2,594 is an estimate pending auto placement; NBIC quote NYDQ01750778. Hartford policy 31RBD181049 is bound effective 08/08/2026.
 </footer>
 
 <script>
 var tabAuto=document.getElementById('tabAuto'),tabAll=document.getElementById('tabAll'),
     price=document.getElementById('price'),label=document.getElementById('priceLabel'),
     monthly=document.getElementById('monthly'),ribbon=document.getElementById('ribbon'),
-    note=document.getElementById('stageNote'),
-    lexTgl=document.getElementById('lexTgl'),
-    senAmt=document.getElementById('senAmt'),lexAmt=document.getElementById('lexAmt'),
-    lexNote=document.getElementById('lexNote'),ryanTot=document.getElementById('ryanTot'),
-    stkRyanAmt=document.getElementById('stkRyanAmt'),stkRyanDesc=document.getElementById('stkRyanDesc'),
-    stkTotal=document.getElementById('stkTotal');
-var showAll=false,fullCov=false;
-var N={
-  lo:{sen:'$1,389',lex:'$813',lexNote:'Ryan, principal driver. Liability only, per your request. See our note below.',
-      ryan:'$2,222',autos:'$4,384',prog:'$9,049',desc:'NYCM &middot; effective 08/06/2026 &middot; Lexus liability only &middot; ready on your go ahead'},
-  hi:{sen:'$1,395',lex:'$2,957',lexNote:'Ryan, principal driver. Full coverage, $1,000 deductibles, full glass.',
-      ryan:'$4,372',autos:'$6,534',prog:'$11,199',desc:'NYCM &middot; effective 08/06/2026 &middot; Lexus full coverage &middot; ready on your go ahead'}
-};
-var star='<span style="color:var(--orange)">*</span>';
-function paint(){
-  var v=fullCov?N.hi:N.lo;
-  var els=[price,senAmt,lexAmt,lexNote,ryanTot,stkRyanAmt,stkRyanDesc,stkTotal];
-  els.forEach(function(e){e.classList.add('flip')});
+    note=document.getElementById('stageNote');
+function setMode(all){
+  tabAuto.classList.toggle('active',!all);tabAll.classList.toggle('active',all);
+  tabAuto.setAttribute('aria-selected',!all);tabAll.setAttribute('aria-selected',all);
   price.classList.add('flip');
   setTimeout(function(){
-    senAmt.textContent=v.sen;
-    lexAmt.textContent=v.lex;
-    lexNote.textContent=v.lexNote;
-    ryanTot.innerHTML=v.ryan+star+' <small>/yr</small>';
-    stkRyanAmt.innerHTML=v.ryan+star;
-    stkRyanDesc.innerHTML=v.desc;
-    stkTotal.textContent=v.prog;
-    if(showAll){
+    if(all){
       label.textContent='Complete Household Program';
-      price.textContent=v.prog;
+      price.textContent='$11,110';
       monthly.textContent='2 homes, 3 cars, 3 drivers, everything on one account';
       note.textContent='Includes the bound Glen Lane policy, the Pelhamdale landlord quote at its bundled rate, and both auto policies.';
       ribbon.classList.add('show');
     }else{
       label.textContent='Household Auto Total';
-      price.textContent=v.autos;
+      price.textContent='$6,445';
       monthly.textContent='quoted with the paid in full discount, matching how you pay today';
       note.textContent='Both auto policies are full 12 month terms. Your rate is locked for a year, not repriced every 6 months.';
       ribbon.classList.remove('show');
     }
-    els.forEach(function(e){e.classList.remove('flip')});
+    price.classList.remove('flip');
   },180);
 }
-tabAuto.addEventListener('click',function(){showAll=false;tabAuto.classList.add('active');tabAll.classList.remove('active');tabAuto.setAttribute('aria-selected',true);tabAll.setAttribute('aria-selected',false);paint()});
-tabAll.addEventListener('click',function(){showAll=true;tabAll.classList.add('active');tabAuto.classList.remove('active');tabAll.setAttribute('aria-selected',true);tabAuto.setAttribute('aria-selected',false);paint()});
-lexTgl.addEventListener('change',function(){fullCov=lexTgl.checked;paint()});
+tabAuto.addEventListener('click',function(){setMode(false)});
+tabAll.addEventListener('click',function(){setMode(true)});
+
+var sNow=document.getElementById('sNow'),sOld=document.getElementById('sOld'),
+    paneNow=document.getElementById('paneNow'),paneOld=document.getElementById('paneOld');
+function setStatus(old){
+  sOld.classList.toggle('active',old);sNow.classList.toggle('active',!old);
+  sOld.setAttribute('aria-selected',old);sNow.setAttribute('aria-selected',!old);
+  paneOld.classList.toggle('show',old);paneNow.classList.toggle('show',!old);
+}
+sNow.addEventListener('click',function(){setStatus(false)});
+sOld.addEventListener('click',function(){setStatus(true)});
 
 document.querySelectorAll('.cov-btn').forEach(function(btn){
   btn.addEventListener('click',function(){
