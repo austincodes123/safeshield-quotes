@@ -135,24 +135,7 @@
   .pol-foot .tot small{font-size:.85rem;color:var(--muted);font-weight:500}
   .two-note{margin-top:18px;font-size:.88rem;color:var(--muted);max-width:720px}
 
-  /* STRUCTURE STRIP: SF vs us */
-  .struct{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch;margin-top:28px}
-  @media(max-width:760px){.struct{grid-template-columns:1fr;gap:10px}.struct-arrow{transform:rotate(90deg);justify-self:center}}
-  .struct-col{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-  .struct-col.old{background:#f2f0ea}
-  .struct-col .hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}
-  .struct-col .hd b{font-family:'Bricolage Grotesque';font-size:.98rem}
-  .struct-col.old .hd b{color:var(--muted)}
-  .struct-col.new .hd b{color:var(--navy)}
-  .struct-count{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
-  .struct-col.old .struct-count{background:#e4e0d6;color:var(--muted)}
-  .struct-col.new .struct-count{background:var(--green-soft);color:var(--green);border:1px solid #bfe3cf}
-  .chip{border:1px dashed #c9c3b5;border-radius:10px;padding:11px 14px;font-size:.84rem;margin-top:8px;background:#fbfaf7}
-  .chip b{display:block;font-size:.86rem;color:var(--navy-ink)}
-  .chip span{color:var(--muted);font-size:.76rem}
-  .struct-col.new .chip{border:1px solid #bfe3cf;background:var(--green-soft)}
-  .struct-col.new .chip b{color:var(--green)}
-  .struct-arrow{align-self:center;color:var(--orange);flex:none}
+  /* INFO POPUP */
   .info-wrap{position:relative;display:inline-flex}
   .info-btn{
     width:22px;height:22px;border-radius:50%;border:0;cursor:pointer;flex:none;
@@ -169,6 +152,8 @@
   .info-pop::before{content:"";position:absolute;top:-6px;right:14px;width:12px;height:12px;background:var(--navy-deep);transform:rotate(45deg)}
   .info-pop b{color:var(--orange)}
   .info-wrap:hover .info-pop,.info-wrap.open .info-pop{opacity:1;visibility:visible;transform:none}
+  .info-pop.left{left:-8px;right:auto}
+  .info-pop.left::before{left:14px;right:auto}
 
   /* COVERAGE ROWS */
   .cov{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
@@ -282,35 +267,8 @@
 </section>
 
 <section class="section">
-  <h2>Right now you have three cars on <span>three separate policies.</span> We fixed that.</h2>
-  <p class="lede">The way your State Farm account is set up today, every single car is its own standalone policy. Three policy numbers, three bills, three renewal dates, and none of them rating off each other. Here is the same household, restructured.</p>
-  <div class="struct">
-    <div class="struct-col old">
-      <div class="hd">
-        <b>Today at State Farm</b>
-        <span class="struct-count">3 policies</span>
-      </div>
-      <div class="chip"><b>Policy 1 &middot; Lexus GX 460</b><span>own policy &middot; own bill &middot; own renewal</span></div>
-      <div class="chip"><b>Policy 2 &middot; Nissan Sentra</b><span>own policy &middot; own bill &middot; own renewal</span></div>
-      <div class="chip"><b>Policy 3 &middot; Volvo S60</b><span>own policy &middot; own bill &middot; own renewal</span></div>
-    </div>
-    <svg class="struct-arrow" width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <div class="struct-col new">
-      <div class="hd">
-        <b>With Safeshield</b>
-        <span class="struct-count">2 policies</span>
-        <span class="info-wrap" id="infoWrap">
-          <button class="info-btn" id="infoBtn" aria-label="Why does this structure matter?" aria-expanded="false">?</button>
-          <span class="info-pop" role="tooltip">
-            <b>Why does this matter?</b> When each car sits on its own policy, they are priced as strangers. Putting the Lexus and Sentra on one policy lets them rate as a true multi-car household, one bill, one renewal date, one policy to update when life changes. Pauline's Volvo stays on its own policy on purpose, because it prices best rated on her record alone. Separate where it saves money, together where it saves money.
-          </span>
-        </span>
-      </div>
-      <div class="chip"><b>Policy 1 &middot; Lexus + Sentra together</b><span>one multi-car policy &middot; one bill &middot; one renewal &middot; NYCM</span></div>
-      <div class="chip"><b>Policy 2 &middot; Volvo on its own</b><span>priced on Pauline's record alone &middot; A. Central</span></div>
-    </div>
-  </div>
-  <p class="lede" style="margin-top:26px">Same effective date on both, same account, one agency handling all of it. The premiums:</p>
+  <h2>Two policies, one household, <span>on purpose.</span></h2>
+  <p class="lede">The Lexus and Sentra go together on one NYCM policy, so the two cars rate as a true multi-car household with one bill and one renewal date. Pauline's Volvo is written on its own policy because it prices best rated on her record alone. Same effective date on both, same account, one agency handling all of it.</p>
   <div class="pol-grid">
     <div class="pol">
       <div class="pol-head">
@@ -334,7 +292,14 @@
     </div>
     <div class="pol">
       <div class="pol-head">
-        <div class="who">Pauline's Policy</div>
+        <div class="who" style="display:flex;align-items:center;gap:10px">Pauline's Policy
+          <span class="info-wrap" id="infoWrap">
+            <button class="info-btn" id="infoBtn" aria-label="Why is the Volvo on its own policy?" aria-expanded="false">?</button>
+            <span class="info-pop left" role="tooltip">
+              <b>Why is the Volvo separate?</b> When cars share a policy, they share a rate profile. The Lexus and Sentra pair up because together they earn true multi-car pricing. Pauline's Volvo prices best rated on her own driving record, so it gets its own policy. Separate where it saves money, together where it saves money. It all still lives on one account with one agency.
+            </span>
+          </span>
+        </div>
         <div class="co">A. Central Insurance &middot; Quote Q33077023 &middot; 12 month term</div>
       </div>
       <div class="pol-body">
