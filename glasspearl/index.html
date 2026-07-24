@@ -2205,11 +2205,16 @@
       body:JSON.stringify(payload)
     }).then(function(r){
       if(r.ok) return showSent();
-      return stored.then(function(sr){
-        if(sr && sr.ok) return showSent();
-        throw new Error('no delivery path');
+      return r.text().then(function(t){
+        // surface the real reason instead of hiding it behind the fallback
+        console.error('[safeshield] notify function failed', r.status, t);
+        return stored.then(function(sr){
+          if(sr && sr.ok) return showSent();
+          throw new Error('no delivery path');
+        });
       });
-    }).catch(function(){
+    }).catch(function(err){
+      console.error('[safeshield] delivery error', err);
       var lines = [];
       data.forEach(function(v,k){
         if(k === 'form-name' || k === 'bot-field' || !v) return;
