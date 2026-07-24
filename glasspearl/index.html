@@ -1201,21 +1201,21 @@
           <button class="active" data-ulimit3="5" role="tab">$5M Umbrella</button>
           <button data-ulimit3="10" role="tab">$10M Umbrella</button>
         </div>
-        <p class="u-note" id="uNote3">$5M each occurrence and aggregate, quoted at $3,086.</p>
+        <p class="u-note" id="uNote3">$5M each occurrence and aggregate, quoted at $3,092.</p>
       </div>
 
       <div class="rows">
         <div class="row">
           <div class="l">General Liability package<small>$2M / $4M, MSA endorsements, $1M hired &amp; non-owned auto included</small></div>
-          <div class="v">$5,656</div>
+          <div class="v">$5,732</div>
         </div>
         <div class="row">
           <div class="l">Commercial Umbrella<small id="uRowNote3">$5M each occurrence and aggregate</small></div>
-          <div class="v" id="uRowVal3">$3,086</div>
+          <div class="v" id="uRowVal3">$3,092</div>
         </div>
         <div class="row">
-          <div class="l">Executive Package<small>D&amp;O $2M + $1M executives, EPLI $1M, Crime $1M, Kidnap Ransom &amp; Extortion $1M</small></div>
-          <div class="v">$9,598</div>
+          <div class="l">Executive Package<small>D&amp;O $3M + $1M dedicated to executives, EPLI $1M, Crime $1M, Kidnap Ransom &amp; Extortion $1M</small></div>
+          <div class="v">$11,623</div>
         </div>
         <div class="row">
           <div class="l">Tech E&amp;O + Cyber<small>$2M shared aggregate, $10K retention, full first-party cyber suite, $5M option on request</small></div>
@@ -1232,7 +1232,7 @@
       </div>
       <div class="total">
         <div class="l" id="totalLabel3">Quoted today</div>
-        <div class="v" id="totalVal3">$64,819 <small>annual, as quoted</small></div>
+        <div class="v" id="totalVal3">$66,926 <small>annual, as quoted</small></div>
       </div>
 
       <p class="fineprint">The total reflects the full quoted program, policy period 07/17/2026 to 07/17/2027; each policy bills on its own schedule and payment plans are available per policy. The executive package quote is valid through September 13, 2026; the Tech E&amp;O + Cyber quote is valid 90 days from July 22, 2026. The $10M umbrella is subject to carrier referral. Binding is subject to signed applications and each carrier's standard conditions. Coverage responds subject to the terms of each policy.</p>
@@ -1324,7 +1324,7 @@
     <div class="cgroup">From your July 17 review</div>
     <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip done">Done</span><span>MSA endorsements on the GL</span><span class="arr">&rarr;</span></button>
     <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip done">Done</span><span>Umbrella $5M, $10M priced</span><span class="arr">&rarr;</span></button>
-    <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip done">Answered</span><span>D&amp;O: $2M+$1M quoted, $5M path priced</span><span class="arr">&rarr;</span></button>
+    <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip done">Answered</span><span>D&amp;O: $3M + $1M dedicated to executives</span><span class="arr">&rarr;</span></button>
     <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip done">Done</span><span>EPLI $1M</span><span class="arr">&rarr;</span></button>
     <button class="citem" data-jump="v3-money" data-jumppane="proposal"><span class="chip done">Done</span><span>Crime with $1M funds transfer fraud</span><span class="arr">&rarr;</span></button>
     <button class="citem" data-jump="v3-since" data-jumppane="proposal"><span class="chip done">Done</span><span>Social engineering: $250K now, $1M mapped</span><span class="arr">&rarr;</span></button>
@@ -1487,8 +1487,8 @@
   // ----- V3 umbrella limit toggle -----
   var uBtns3=document.querySelectorAll('#ver3 .money .toggle button');
   function renderU3(limit){
-    var base=5656+9598+10479+36000;
-    var uVal=(limit==='10')?6112:3086;
+    var base=5732+11623+10479+36000;
+    var uVal=(limit==='10')?6112:3092;
     var note=document.getElementById('uNote3');
     var rowNote=document.getElementById('uRowNote3');
     var rowVal=document.getElementById('uRowVal3');
@@ -1499,7 +1499,7 @@
       rowNote.textContent='$10M each occurrence and aggregate, subject to carrier referral';
       tLbl.textContent='With $10M umbrella';
     }else{
-      note.textContent='$5M each occurrence and aggregate, quoted at $3,086.';
+      note.textContent='$5M each occurrence and aggregate, quoted at $3,092.';
       rowNote.textContent='$5M each occurrence and aggregate';
       tLbl.textContent='Quoted today';
     }
