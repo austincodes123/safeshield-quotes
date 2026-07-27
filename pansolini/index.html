@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a1628">
+<title>Your auto quote, Stephen. Safeshield Insurance.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#004B89;
+  --navy-deep:#003666;
+  --navy-tint:#E2EBF4;
+  --yellow:#FFA300;
+  --yellow-soft:#FFF3DE;
+  --dark:#0a1628;
+  --dark-2:#152740;
+  --off:#FAFAF8;
+  --paper:#E7EBF0;
+  --ink:#0a1628;
+  --muted:#5A6B80;
+  --faint:#8E9DB0;
+  --line:#C8D2DE;
+  --alert:#B03A2B;
+  --display:'Playfair Display',Georgia,serif;
+  --sans:'Outfit','Helvetica Neue',Arial,sans-serif;
+  --pad:clamp(18px,4.5vw,40px);
+  --gut:clamp(12px,3.5vw,28px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;font-weight:400;line-height:1.55;overflow-x:hidden}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--gut) 72px}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+
+/* ================= 1. REVEAL ================= */
+.hero{
+  position:relative;margin:0 calc(var(--gut) * -1);color:var(--off);
+  background:radial-gradient(120% 90% at 50% 0%, #16294a 0%, var(--dark) 62%);
+  overflow:hidden;min-height:88vh;min-height:88svh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:calc(var(--pad) + env(safe-area-inset-top)) var(--pad) var(--pad);
+}
+@media(min-width:861px){.hero{min-height:0;padding-top:56px;padding-bottom:56px}}
+
+.hero .mark{position:absolute;top:calc(20px + env(safe-area-inset-top));left:var(--pad);z-index:4;white-space:nowrap;
+  font-family:var(--display);font-weight:900;font-size:16px;letter-spacing:-.01em;line-height:1}
+.hero .mark span{color:var(--yellow)}
+.hero .mark small{display:block;font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-top:7px}
+
+.money{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.bill{position:absolute;top:-80px;width:46px;height:26px;will-change:transform,opacity;
+  filter:drop-shadow(0 4px 7px rgba(0,0,0,.4))}
+.bill svg{display:block;width:100%;height:100%}
+@keyframes drop{
+  0%{transform:translate3d(0,-80px,0) rotate(var(--r0)) scale(var(--sc));opacity:0}
+  8%{opacity:1} 88%{opacity:1}
+  100%{transform:translate3d(var(--sway),var(--dist),0) rotate(var(--r1)) scale(var(--sc));opacity:0}
+}
+
+.curtain{position:relative;z-index:3;width:100%;background:none;border:0;color:var(--off);font-family:var(--sans);cursor:pointer;text-align:center;padding:0}
+.curtain:focus-visible{outline:3px solid var(--yellow);outline-offset:8px}
+.curtain .kick{display:block;font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--yellow);margin-bottom:20px}
+.curtain .big{display:block;font-family:var(--display);font-size:clamp(30px,8.4vw,58px);font-weight:900;letter-spacing:-.02em;line-height:1.03;max-width:15ch;margin:0 auto;text-wrap:balance}
+.curtain .sub{display:block;font-size:15px;font-weight:300;color:#A8B6C6;margin:20px auto 0;max-width:32ch;line-height:1.5}
+.curtain .hint{display:inline-block;margin-top:36px;font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;background:var(--yellow);color:var(--dark);padding:19px 36px;border-radius:2px}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.curtain .hint{animation:breathe 2.2s ease-in-out infinite}
+.curtain:active .hint{transform:scale(.96)}
+
+.payload{position:relative;z-index:3;display:none;text-align:center;width:100%}
+.hero.open .curtain{display:none}
+.hero.open .payload{display:block;animation:rise .5s cubic-bezier(.2,.7,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.payload .kick{font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
+.counter{font-family:var(--sans);font-weight:800;font-size:clamp(44px,15vw,112px);letter-spacing:-.045em;line-height:.95;color:var(--yellow)}
+.payload .cap{font-family:var(--display);font-weight:700;font-size:clamp(16px,4.2vw,22px);margin:20px auto 0;max-width:22ch;line-height:1.3}
+.splits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:30px auto 0;max-width:520px;padding-top:24px;border-top:1px solid #24395c}
+.splits dt{font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+.splits dd{margin:0;font-weight:700;font-size:clamp(16px,4.6vw,23px);letter-spacing:-.02em}
+.payload .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.ghost{background:none;border:1px solid #2C4266;color:#A8B6C6;font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:15px 21px;cursor:pointer;border-radius:2px}
+.ghost:hover{border-color:var(--yellow);color:var(--yellow)}
+.ghost:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+.ghost.go{border-color:var(--yellow);color:var(--yellow)}
+
+/* ================= frames ================= */
+.sect{background:var(--off);padding:var(--pad);margin-top:14px;border:1px solid var(--line)}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin:0 0 12px}
+h2{font-family:var(--display);font-size:clamp(24px,6vw,38px);font-weight:900;letter-spacing:-.02em;line-height:1.08;margin:0 0 14px;text-wrap:balance}
+.lede{font-size:clamp(14.5px,3.6vw,17.5px);font-weight:300;color:var(--muted);max-width:64ch;margin:0}
+
+/* ================= 2. SIDE BY SIDE ================= */
+.rail{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:24px}
+@media(max-width:860px){.rail{grid-template-columns:1fr}}
+.col{position:relative;border:1.5px solid var(--line);background:#fff;padding:28px 18px 18px;display:flex;flex-direction:column;text-align:left;font-family:var(--sans);color:var(--ink);width:100%}
+.col .tag{position:absolute;top:-1.5px;left:-1.5px;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 11px;color:#fff;background:var(--faint)}
+.col h3{font-family:var(--display);font-size:19px;font-weight:800;letter-spacing:-.01em;margin:14px 0 3px}
+.col .sub{font-size:12.5px;font-weight:400;color:var(--muted);margin:0 0 14px}
+.col .fig{font-weight:800;font-size:clamp(32px,8vw,42px);letter-spacing:-.035em;line-height:1;color:var(--navy)}
+.col .per{font-size:10px;font-weight:600;color:var(--faint);letter-spacing:.12em;text-transform:uppercase;margin-top:9px}
+.col .body{font-size:13.5px;font-weight:300;color:var(--muted);margin:16px 0 0;line-height:1.55;flex:1}
+.col .delta{font-weight:700;font-size:13.5px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);color:var(--navy)}
+.col.now{background:#EDF0F4;border-style:dashed}
+.col.now .fig{color:var(--alert)}
+.col.now .delta{color:var(--muted)}
+button.col{cursor:pointer;transition:border-color .18s ease,box-shadow .18s ease;min-height:44px}
+button.col:hover{border-color:var(--faint)}
+button.col:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+button.col[aria-checked="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy),0 12px 28px -18px rgba(10,22,40,.7)}
+button.col[aria-checked="true"] .tag{background:var(--navy)}
+.pick{margin-top:15px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:13px;text-align:center}
+button.col[aria-checked="true"] .pick{color:var(--dark);background:var(--yellow);border-color:var(--yellow)}
+button.col[aria-checked="true"] .pick::before{content:"\2713\00a0\00a0"}
+
+/* ================= 3. THE DIFFERENCE ================= */
+.diff{margin-top:24px;border:1.5px solid var(--navy)}
+.diff-head{background:var(--navy);color:#fff;padding:16px var(--pad);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.diff-body{padding:var(--pad);background:#fff}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.dgrid{grid-template-columns:1fr}}
+.dbox{border:1px solid var(--line);padding:17px}
+.dbox.same{background:#F1F4F8}
+.dbox h4{margin:0 0 11px;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+.dbox ul{margin:0;padding-left:17px;font-size:13.5px;font-weight:300;line-height:1.6}
+.dbox li{margin-bottom:6px}
+.dbox li:last-child{margin:0}
+.dbox b{font-weight:700}
+.dprice{margin-top:20px;padding-top:20px;border-top:1.5px solid var(--navy);display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline}
+.dprice .amt{font-weight:800;font-size:clamp(26px,7vw,36px);letter-spacing:-.035em;color:var(--navy)}
+.dprice span{font-size:13.5px;font-weight:300;color:var(--muted);max-width:46ch}
+.dprice span b{font-weight:700;color:var(--ink)}
+
+/* ================= 4. THRESHOLD ================= */
+.bar{position:relative;height:3px;background:var(--yellow);margin:28px 0;transition:background .35s ease,opacity .35s ease}
+.bar::before{content:attr(data-label);position:absolute;left:0;top:-11px;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;background:var(--off);padding-right:10px;color:#B57200;transition:color .35s ease}
+body.free .bar{background:transparent;border-top:2px dashed var(--navy);height:0;opacity:.6}
+body.free .bar::before{color:var(--navy)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(max-width:680px){.tiles{grid-template-columns:1fr 1fr}}
+@media(max-width:400px){.tiles{grid-template-columns:1fr}}
+.tile{border:1px solid var(--line);padding:13px 14px;background:#fff;transition:border-color .3s ease,background .3s ease,opacity .3s ease}
+.tile b{display:block;font-size:13.5px;font-weight:700;letter-spacing:-.01em}
+.tile span{display:block;font-size:11.5px;font-weight:300;color:var(--muted);margin-top:3px;line-height:1.45}
+.above .tile{border-color:var(--yellow);background:var(--yellow-soft)}
+body.free .above .tile{border-color:var(--line);background:#fff}
+.below .tile{opacity:.4;border-style:dashed}
+.below .tile b{text-decoration:line-through;text-decoration-thickness:1.5px}
+body.free .below .tile{opacity:1;border-style:solid;border-color:var(--navy);background:var(--navy-tint)}
+body.free .below .tile b{text-decoration:none}
+.grp-label{font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
+.verdict{margin-top:24px;border-left:3px solid var(--yellow);padding:14px 0 14px 17px;font-size:14.5px;font-weight:300;max-width:70ch;transition:border-color .3s ease}
+body.free .verdict{border-left-color:var(--navy)}
+.verdict strong{font-weight:700}
+
+/* ================= 5. TABLE ================= */
+.tablewrap{overflow-x:auto;margin-top:22px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;background:#fff}
+@media(min-width:701px){table{min-width:640px}}
+caption{text-align:left;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);padding-bottom:11px}
+th,td{padding:10px;text-align:left;border-bottom:1px solid var(--line);font-size:13.5px;font-weight:400;vertical-align:top}
+thead th{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:1.5px solid var(--navy)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.cov{font-weight:600}
+tr.total td{border-bottom:none;border-top:1.5px solid var(--navy);font-weight:800;padding-top:15px}
+tr.total td.n{font-size:16.5px;color:var(--navy)}
+tr.save td{border-bottom:none;padding-top:4px;font-weight:700;font-size:12px;color:var(--navy)}
+body.limited th.c-lim,body.limited td.c-lim{background:var(--navy-tint)}
+body.free th.c-free,body.free td.c-free{background:var(--navy-tint)}
+body.limited th.c-lim,body.free th.c-free{color:var(--navy)}
+td.mute{color:var(--faint)}
+@media(max-width:700px){
+  th.lim2,td.lim2{display:none}
+  body.limited th.c-free,body.limited td.c-free{display:none}
+  body.free th.c-lim,body.free td.c-lim{display:none}
+  th,td{padding:9px 6px;font-size:13px}
+}
+.flag{display:flex;margin-top:20px;padding:14px 16px;background:#F9E7E4;border-left:3px solid var(--alert);font-size:13px;font-weight:300;line-height:1.55}
+.flag b{font-weight:800;color:var(--alert)}
+
+/* ================= gains, steps, fine ================= */
+.gains{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+@media(max-width:720px){.gains{grid-template-columns:1fr}}
+.gain{border-top:2px solid var(--yellow);padding-top:15px}
+.gain b{display:block;font-family:var(--display);font-size:16px;font-weight:800;margin-bottom:6px}
+.gain span{font-size:13px;font-weight:300;color:var(--muted);line-height:1.55}
+.close{margin-top:26px;display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;border-top:1.5px solid var(--navy);padding-top:26px}
+@media(max-width:720px){.close{grid-template-columns:1fr;gap:22px}}
+.close p{margin:0 0 10px;font-size:14.5px;font-weight:300;padding-left:23px;position:relative}
+.close p:last-child{margin:0}
+.close p::before{content:"";position:absolute;left:0;top:.6em;width:9px;height:9px;background:var(--yellow)}
+.cta{display:block;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;padding:21px 32px;text-align:center;border-radius:2px;white-space:nowrap}
+.cta:hover{background:var(--navy-deep)}
+.cta:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.fine{margin-top:14px;padding:var(--pad);background:#DCE2E9;border:1px solid var(--line);font-size:11.5px;font-weight:300;color:var(--muted);line-height:1.65}
+.fine p{margin:0 0 9px}
+.fine p:last-child{margin:0}
+.fine strong{color:var(--ink);font-weight:700}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  body{background:#fff}
+  .money,.ghost,.curtain{display:none!important}
+  .hero{background:#fff;color:var(--ink);min-height:0;padding:24px 0}
+  .hero .mark{position:static;margin-bottom:24px}
+  .hero .payload{display:block!important}
+  .counter{color:var(--navy)}
+  .payload .cap,.splits dd{color:var(--ink)}
+  .splits{border-top-color:var(--line)}
+  .sect,.fine,.diff{break-inside:avoid}
+}
+</style>
+</head>
+<body class="limited">
+<div class="wrap">
+
+  <!-- ============ 1. REVEAL ============ -->
+  <section class="hero" id="hero">
+    <div class="mark">Safe<span>shield</span> Insurance<small>Prepared for Stephen Pansolini</small></div>
+    <div class="money" id="money" aria-hidden="true"></div>
+
+    <button class="curtain" id="curtain" type="button">
+      <span class="kick">Your auto quote is ready</span>
+      <span class="big">Tap to uncover your savings</span>
+      <span class="sub">Same cars, same coverage, different carrier. I ran the numbers against your GEICO renewal.</span>
+      <span class="hint">Uncover savings</span>
+    </button>
+
+    <div class="payload" id="payload" aria-live="polite">
+      <p class="kick" id="p-kick">Leaving GEICO for Travelers</p>
+      <div class="counter num" id="counter">$0.00</div>
+      <p class="cap">Back in your pocket every six months</p>
+      <dl class="splits">
+        <div><dt>Per month</dt><dd class="num" id="s-mo">$213.65</dd></div>
+        <div><dt>Per year</dt><dd class="num" id="s-yr">$2,563.78</dd></div>
+        <div><dt>Off your bill</dt><dd class="num" id="s-pct">47.7%</dd></div>
+      </dl>
+      <div class="row">
+        <button class="ghost" id="replay" type="button">Run it again</button>
+        <button class="ghost go" id="scroller" type="button">See the two options</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. SIDE BY SIDE ============ -->
+  <section class="sect" id="options">
+    <p class="eyebrow">All three, side by side</p>
+    <h2>What you pay now, and the two ways out.</h2>
+    <p class="lede">Tap either Travelers column to switch. The savings number above and the rest of this page follow whichever one you pick.</p>
+
+    <div class="rail" role="radiogroup" aria-label="Choose a Travelers option">
+
+      <div class="col now">
+        <span class="tag">Your policy today</span>
+        <h3>GEICO Secure</h3>
+        <p class="sub">Renewed 07/14/26, six month term</p>
+        <div class="fig num">$2,688.89</div>
+        <div class="per">Six months</div>
+        <p class="body">Limitation on Lawsuit. No rental reimbursement, no roadside, and a $1,000 PIP deductible. Your telematics discount came off at this renewal, and that is what drove the increase.</p>
+        <div class="delta">Baseline</div>
+      </div>
+
+      <button class="col" role="radio" aria-checked="true" data-opt="limited" type="button">
+        <span class="tag">Same rights, less money</span>
+        <h3>Travelers, Limitation</h3>
+        <p class="sub">Matches what you already have</p>
+        <div class="fig num">$1,407.00</div>
+        <div class="per">Six months, paid in full</div>
+        <p class="body">Identical protection to your GEICO policy, plus rental and roadside, plus half the PIP deductible. Nothing about your coverage gets thinner.</p>
+        <div class="delta num">You keep $1,281.89</div>
+        <div class="pick">Select this</div>
+      </button>
+
+      <button class="col" role="radio" aria-checked="false" data-opt="free" type="button">
+        <span class="tag">Full legal rights</span>
+        <h3>Travelers, No Limitation</h3>
+        <p class="sub">Restores your right to sue</p>
+        <div class="fig num">$2,289.00</div>
+        <div class="per">Six months, paid in full</div>
+        <p class="body">Everything in the middle column, and the legal threshold comes off. If another driver hurts you, you can sue for pain and suffering no matter how the injury is categorized.</p>
+        <div class="delta num">You keep $399.89</div>
+        <div class="pick">Select this</div>
+      </button>
+
+    </div>
+
+    <div class="diff">
+      <div class="diff-head">The only difference between the two Travelers columns</div>
+      <div class="diff-body">
+        <div class="dgrid">
+          <div class="dbox same">
+            <h4>Identical in both</h4>
+            <ul>
+              <li>Bodily injury liability, 100/300</li>
+              <li>Property damage, $50,000</li>
+              <li>PIP, $250,000 with a $500 deductible</li>
+              <li>Uninsured motorist limits, 100/300</li>
+              <li>Comprehensive and collision, $500 on the Explorer</li>
+              <li>Ram stays liability only, same as today</li>
+              <li>Rental reimbursement and roadside added</li>
+            </ul>
+          </div>
+          <div class="dbox">
+            <h4>The one thing that changes</h4>
+            <ul>
+              <li><b>Limitation on Lawsuit.</b> You can only sue for pain and suffering if your injury clears a legal threshold. This is what you have with GEICO today.</li>
+              <li><b>No Limitation.</b> You can sue for pain and suffering after any injury. The threshold does not apply to you.</li>
+              <li>Your medical bills and lost wages are paid the same way under both. This affects pain and suffering only.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="dprice">
+          <span class="amt num">$882.00</span>
+          <span>is what the upgrade costs per six month term, about <b>$147.00</b> a month. Full detail on what that buys you is directly below.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. THRESHOLD ============ -->
+  <section class="sect">
+    <p class="eyebrow">What the cheaper option costs you</p>
+    <h2 id="t-head">The bar you have to clear</h2>
+    <p class="lede" id="t-lede">Under Limitation on Lawsuit, your medical bills and lost wages are paid either way. But you can only sue the other driver for pain and suffering if your injury clears a legal threshold. Six categories clear it. Everything else does not.</p>
+
+    <p class="grp-label" style="margin-top:26px">Injuries that let you sue for pain and suffering</p>
+    <div class="tiles above">
+      <div class="tile"><b>Death</b></div>
+      <div class="tile"><b>Dismemberment</b></div>
+      <div class="tile"><b>Significant scarring</b><span>Or significant disfigurement</span></div>
+      <div class="tile"><b>Displaced fracture</b><span>A broken bone out of position</span></div>
+      <div class="tile"><b>Loss of a fetus</b></div>
+      <div class="tile"><b>Permanent injury</b><span>A body part that will not heal to normal function</span></div>
+    </div>
+
+    <div class="bar" id="bar" data-label="The threshold"></div>
+
+    <p class="grp-label">Injuries that do not clear it</p>
+    <div class="tiles below">
+      <div class="tile"><b>Whiplash</b><span>Neck and shoulder strain</span></div>
+      <div class="tile"><b>Herniated disc that heals</b><span>Months of pain, full recovery</span></div>
+      <div class="tile"><b>Concussion that resolves</b></div>
+      <div class="tile"><b>Torn ligament, repaired</b><span>Knee or shoulder surgery you recover from</span></div>
+      <div class="tile"><b>Clean fracture</b><span>Broken but not displaced</span></div>
+      <div class="tile"><b>Chronic back pain</b><span>Real, but hard to prove permanent</span></div>
+    </div>
+
+    <p class="verdict" id="verdict"><strong>Where this lands:</strong> you could be out of work for four months with a herniated disc, recover, and collect nothing for the pain. Your bills and wages get paid. The suffering does not. That is the trade you make for the lower premium, and you cannot buy the right back after the crash.</p>
+  </section>
+
+  <!-- ============ 4. TABLE ============ -->
+  <section class="sect">
+    <p class="eyebrow">Line by line</p>
+    <h2>Nothing gets worse. Three things get better.</h2>
+    <p class="lede">Both cars carry exactly what they carry today. On a phone this shows GEICO against whichever option you selected.</p>
+
+    <div class="tablewrap">
+      <table>
+        <caption>Six month premium, both vehicles combined</caption>
+        <thead>
+          <tr>
+            <th>Coverage</th><th class="lim2">Limit or deductible</th>
+            <th class="n">GEICO</th>
+            <th class="n c-lim">Travelers, Limitation</th>
+            <th class="n c-free">Travelers, No Limitation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="cov">Bodily injury liability</td><td class="lim2">100/300</td><td class="n">$802.97</td><td class="n c-lim">$372.00</td><td class="n c-free">$997.00</td></tr>
+          <tr><td class="cov">Property damage</td><td class="lim2">$50,000</td><td class="n">$525.62</td><td class="n c-lim">$243.00</td><td class="n c-free">$243.00</td></tr>
+          <tr><td class="cov">Personal injury protection</td><td class="lim2">$250,000</td><td class="n">$343.92</td><td class="n c-lim">$253.00</td><td class="n c-free">$253.00</td></tr>
+          <tr><td class="cov">PIP deductible</td><td class="lim2">Lower is better</td><td class="n">$1,000</td><td class="n c-lim">$500</td><td class="n c-free">$500</td></tr>
+          <tr><td class="cov">Uninsured motorist</td><td class="lim2">100/300</td><td class="n">$221.98</td><td class="n c-lim">$126.00</td><td class="n c-free">$380.00</td></tr>
+          <tr><td class="cov">UM property damage</td><td class="lim2">$50,000</td><td class="n">$5.22</td><td class="n c-lim">$20.00</td><td class="n c-free">$20.00</td></tr>
+          <tr><td class="cov">Comprehensive, Explorer</td><td class="lim2">$500 deductible</td><td class="n">$118.88</td><td class="n c-lim">$98.00</td><td class="n c-free">$98.00</td></tr>
+          <tr><td class="cov">Collision, Explorer</td><td class="lim2">$500 deductible</td><td class="n">$670.30</td><td class="n c-lim">$263.00</td><td class="n c-free">$263.00</td></tr>
+          <tr><td class="cov">Rental reimbursement</td><td class="lim2">$75 a day, $2,250 max</td><td class="n mute">None</td><td class="n c-lim">$18.00</td><td class="n c-free mute">Confirm</td></tr>
+          <tr><td class="cov">Roadside assistance</td><td class="lim2">Both vehicles</td><td class="n mute">None</td><td class="n c-lim">$10.00</td><td class="n c-free">$10.00</td></tr>
+          <tr><td class="cov">NJ Guaranty Fund</td><td class="lim2">Statutory</td><td class="n mute">Included</td><td class="n c-lim">$4.00</td><td class="n c-free">$4.00</td></tr>
+          <tr class="total"><td class="cov">Six month total</td><td class="lim2"></td><td class="n">$2,688.89</td><td class="n c-lim">$1,407.00</td><td class="n c-free">$2,289.00</td></tr>
+          <tr class="save"><td></td><td class="lim2"></td><td></td><td class="n c-lim">Save $1,281.89</td><td class="n c-free">Save $399.89</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    </section>
+
+  <!-- ============ 5. GAINS ============ -->
+  <section class="sect">
+    <p class="eyebrow">True at either price</p>
+    <h2>Three upgrades that come standard</h2>
+    <div class="gains">
+      <div class="gain"><b>PIP deductible halved</b><span>GEICO has you at a $1,000 deductible on personal injury protection. Travelers writes it at $500. That is $500 you do not spend out of pocket after an accident.</span></div>
+      <div class="gain"><b>Rental reimbursement added</b><span>$75 a day up to $2,250 on the Explorer. You carry none today, so a week in the body shop currently comes out of your own pocket.</span></div>
+      <div class="gain"><b>Roadside on both vehicles</b><span>Tow, jump, lockout, flat. It covers the Ram too, which matters more on a 2006 truck than it does on the Explorer.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 6. CLOSE ============ -->
+  <section class="sect">
+    <p class="eyebrow">Ready when you are</p>
+    <h2>Want to move forward?</h2>
+    <p class="lede">Text me yes and tell me which option you want. Send your payment info over and I take it from there.</p>
+    <div class="close">
+      <div>
+        <p>I send you a cancellation form for GEICO to sign.</p>
+        <p>I put the Travelers policy in force for 08/03/2026.</p>
+        <p>GEICO refunds you the unused part of your current term.</p>
+      </div>
+      <a class="cta" href="sms:+19543283064">Text me to move forward</a>
+    </div>
+  </section>
+
+  <div class="fine">
+    <p><strong>This is a quote, not a policy.</strong> Premiums shown are preliminary estimates generated 07/27/2026 using rates and rules in effect on that date, inclusive of applicable state and municipal taxes and fees. They are subject to change based on motor vehicle record, claims history, and other underwriting information received later in the quoting process, and on the payment option selected. Coverage, discounts, and eligibility are subject to state availability and individual qualification.</p>
+    <p>GEICO figures are taken from the declarations page for policy 6239-93-76-98, issued 06/05/2026, term 07/14/26 to 01/14/27. GEICO bodily injury, property damage, PIP, UM and UMPD amounts are the sum of both vehicles. Canceling the GEICO policy mid term should generate a pro rata return of unearned premium, which is not included in the savings figures shown.</p>
+    <p>Insurance is underwritten by The Travelers Indemnity Company or one of its property casualty affiliates, One Tower Square, Hartford CT 06183. Presented by Safeshield Insurance LLC, 2777 Summer Street, 6th Floor, Stamford CT 06905. (203) 204-2555.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var body = document.body,
+      opts = [].slice.call(document.querySelectorAll('button.col')),
+      hero = document.getElementById('hero'),
+      moneyBox = document.getElementById('money'),
+      counter = document.getElementById('counter'),
+      GEICO = 2688.89,
+      PRICE = { limited:1407.00, free:2289.00 },
+      current = 'limited',
+      raf = null,
+      reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Safeshield banknote */
+  var BILL =
+    '<svg viewBox="0 0 46 26" xmlns="http://www.w3.org/2000/svg">' +
+    '<rect x=".8" y=".8" width="44.4" height="24.4" rx="2.2" fill="#FAFAF8" stroke="#004B89" stroke-width="1.2"/>' +
+    '<rect x="3.2" y="3.2" width="39.6" height="19.6" rx="1.2" fill="none" stroke="#004B89" stroke-width=".55" opacity=".5"/>' +
+    '<path d="M5.6 8.6h8M5.6 13h9.4M5.6 17.4h8M32.4 8.6h8M31 13h9.4M32.4 17.4h8" stroke="#004B89" stroke-width=".55" opacity=".32" stroke-linecap="round"/>' +
+    '<circle cx="23" cy="13" r="6.6" fill="#FFA300"/>' +
+    '<circle cx="23" cy="13" r="6.6" fill="none" stroke="#004B89" stroke-width=".8"/>' +
+    '<circle cx="23" cy="13" r="5.1" fill="none" stroke="#004B89" stroke-width=".4" opacity=".55"/>' +
+    '<text x="23" y="16.6" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="700" fill="#004B89">$</text>' +
+    '<text x="8.4" y="7.4" text-anchor="middle" font-family="Georgia,serif" font-size="4.6" font-weight="700" fill="#004B89" opacity=".8">$</text>' +
+    '<text x="37.6" y="21.6" text-anchor="middle" font-family="Georgia,serif" font-size="4.6" font-weight="700" fill="#004B89" opacity=".8">$</text>' +
+    '</svg>';
+
+  function money(n){
+    return '$' + n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  }
+
+  var COPY = {
+    limited:{
+      kick:'Leaving GEICO for Travelers, Limitation on Lawsuit',
+      head:'The bar you have to clear',
+      lede:'Under Limitation on Lawsuit, your medical bills and lost wages are paid either way. But you can only sue the other driver for pain and suffering if your injury clears a legal threshold. Six categories clear it. Everything else does not.',
+      bar:'The threshold',
+      verdict:'<strong>Where this lands:</strong> you could be out of work for four months with a herniated disc, recover, and collect nothing for the pain. Your bills and wages get paid. The suffering does not. That is the trade you make for the lower premium, and you cannot buy the right back after the crash.'
+    },
+    free:{
+      kick:'Leaving GEICO for Travelers, No Limitation',
+      head:'No bar at all',
+      lede:'Under No Limitation, the threshold disappears. If another driver hurts you, you keep the full right to sue for pain and suffering no matter how the injury gets categorized. Your medical bills and lost wages are covered exactly the same as before.',
+      bar:'Threshold removed',
+      verdict:'<strong>Where this lands:</strong> that same four months out of work with a herniated disc becomes a claim you can actually bring. It is also why the uninsured motorist premium rises, because that coverage steps into the other driver\u2019s shoes and inherits the same right to sue.'
+    }
+  };
+
+  function rain(){
+    if(reduced) return;
+    moneyBox.innerHTML = '';
+    var w = hero.offsetWidth,
+        dist = hero.offsetHeight + 190,
+        n = w < 480 ? 24 : (w < 860 ? 34 : 48);
+    for(var i=0;i<n;i++){
+      var b = document.createElement('span'),
+          dur = 2.1 + Math.random()*1.9,
+          delay = Math.random()*1.2;
+      b.className = 'bill';
+      b.innerHTML = BILL;
+      b.style.left = (Math.random()*100) + '%';
+      b.style.setProperty('--dist', dist + 'px');
+      b.style.setProperty('--sway', (Math.random()*120 - 60).toFixed(0) + 'px');
+      b.style.setProperty('--r0', (Math.random()*360).toFixed(0) + 'deg');
+      b.style.setProperty('--r1', (Math.random()*860 - 430).toFixed(0) + 'deg');
+      b.style.setProperty('--sc', (0.6 + Math.random()*0.8).toFixed(2));
+      b.style.animation = 'drop ' + dur.toFixed(2) + 's linear ' + delay.toFixed(2) + 's forwards';
+      b.addEventListener('animationend', function(){ if(this.parentNode) this.parentNode.removeChild(this); });
+      moneyBox.appendChild(b);
+    }
+  }
+
+  function countTo(target){
+    if(raf) cancelAnimationFrame(raf);
+    if(reduced){ counter.textContent = money(target); return; }
+    var start = performance.now(), dur = 1600;
+    function step(now){
+      var p = Math.min((now - start)/dur, 1),
+          e = 1 - Math.pow(1 - p, 3);
+      counter.textContent = money(target * e);
+      if(p < 1){ raf = requestAnimationFrame(step); }
+      else { counter.textContent = money(target); raf = null; }
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  function play(){
+    var save = GEICO - PRICE[current];
+    hero.classList.add('open');
+    document.getElementById('p-kick').textContent = COPY[current].kick;
+    document.getElementById('s-mo').textContent   = money(save/6);
+    document.getElementById('s-yr').textContent   = money(save*2);
+    document.getElementById('s-pct').textContent  = (save/GEICO*100).toFixed(1) + '%';
+    if(navigator.vibrate && !reduced){ try{ navigator.vibrate(18); }catch(e){} }
+    rain();
+    countTo(save);
+  }
+
+  function select(key){
+    current = key;
+    body.className = key;
+    opts.forEach(function(b){ b.setAttribute('aria-checked', String(b.dataset.opt === key)); });
+    var c = COPY[key];
+    document.getElementById('t-head').textContent = c.head;
+    document.getElementById('t-lede').textContent = c.lede;
+    document.getElementById('bar').dataset.label  = c.bar;
+    document.getElementById('verdict').innerHTML  = c.verdict;
+    if(hero.classList.contains('open')) play();
+  }
+
+  opts.forEach(function(b,i){
+    b.addEventListener('click', function(){ select(b.dataset.opt); });
+    b.addEventListener('keydown', function(e){
+      if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].indexOf(e.key) > -1){
+        e.preventDefault();
+        var nxt = opts[(i+1) % opts.length];
+        nxt.focus(); select(nxt.dataset.opt);
+      }
+    });
+  });
+
+  document.getElementById('curtain').addEventListener('click', play);
+  document.getElementById('replay').addEventListener('click', play);
+  document.getElementById('scroller').addEventListener('click', function(){
+    document.getElementById('options').scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'start'});
+  });
+
+  select('limited');
+})();
+</script>
+</body>
+</html>
