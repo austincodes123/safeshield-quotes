@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Insurance Proposal | Matthew Ellsworth | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#004b89;
+    --navy-deep:#003566;
+    --amber:#ffa300;
+    --ink:#1a1f26;
+    --slate:#5a6573;
+    --paper:#f6f8fb;
+    --line:#e6ebf2;
+    --white:#ffffff;
+    --good:#1f9d6b;
+    --red:#e03131;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:820px;margin:0 auto;padding:0 22px}
+  .fade{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}}
+
+  .brandbar{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:22px 0 0;flex-wrap:wrap}
+  .brand{display:flex;flex-direction:column;gap:4px}
+  .logo{font-weight:700;font-size:19px;color:var(--navy);letter-spacing:.03em;text-transform:uppercase}
+  .logo span{color:var(--amber)}
+  .slogan{font-size:11px;color:var(--slate);font-weight:500;letter-spacing:.02em;font-style:italic}
+  .prepared{font-size:12.5px;color:var(--slate);text-align:right;line-height:1.4}
+  .prepared b{color:var(--ink)}
+
+  .hero{padding:44px 0 34px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:18px}
+  h1{font-family:'Playfair Display',serif;font-weight:800;color:var(--navy);font-size:clamp(38px,8vw,62px);line-height:1;letter-spacing:-.015em}
+  .lede{font-size:17px;color:var(--slate);margin-top:22px;max-width:62ch}
+  .lede b{color:var(--ink);font-weight:600}
+
+  /* headline savings band */
+  .band{margin:30px 0 0;background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:20px;color:#fff;padding:34px 30px;position:relative;overflow:hidden}
+  .band::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(255,163,0,.22),transparent 70%)}
+  .band .k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .band .big{font-family:'Playfair Display',serif;font-size:clamp(40px,10vw,60px);line-height:1;margin:10px 0 6px;font-weight:800}
+  .band .big small{font-size:18px;font-weight:400;color:rgba(255,255,255,.72)}
+  .band p{color:rgba(255,255,255,.85);font-size:15px;max-width:56ch;position:relative}
+  .band-grid{display:flex;gap:0;margin-top:24px;flex-wrap:wrap;position:relative}
+  .bg{flex:1;min-width:150px;border-left:2px solid rgba(255,255,255,.18);padding:2px 0 2px 16px;margin-bottom:8px}
+  .bg:first-child{border-color:var(--amber)}
+  .bg .n{font-family:'Playfair Display',serif;font-size:24px;font-weight:700}
+  .bg .l{font-size:12.5px;color:rgba(255,255,255,.72);margin-top:2px}
+
+  .sec{padding:48px 0 0}
+  .sec-eye{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:12px}
+  h2{font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:clamp(26px,5.5vw,36px);line-height:1.08;letter-spacing:-.01em}
+  .sub{font-size:15.5px;color:var(--slate);margin-top:12px;max-width:64ch}
+
+  /* comparison table */
+  .cmp{border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:24px;background:#fff}
+  .cmp-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:700;padding:18px 22px 4px}
+  .cmp-title small{display:block;font-size:13px;color:var(--slate);font-weight:400;font-family:'Outfit';margin-top:2px}
+  .cmp-cols{display:grid;grid-template-columns:1fr 1fr}
+  .cmp-col{padding:16px 20px 22px}
+  .cmp-col.ours{background:rgba(0,75,137,.05)}
+  .cmp-col.theirs{border-left:1px solid var(--line)}
+  .who{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+  .cmp-col.ours .who{color:var(--navy)}
+  .cmp-col.theirs .who{color:var(--slate)}
+  .cmp-col .price{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--ink);margin-bottom:13px}
+  .cmp-col .price small{font-size:12px;font-weight:400;color:var(--slate)}
+  .cmp-col.theirs .price{color:var(--slate)}
+  .cmp-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .cmp-col li{font-size:13px;padding-left:22px;position:relative;color:var(--ink);line-height:1.35}
+  .cmp-col li.yes::before{content:"\2713";position:absolute;left:0;top:0;color:var(--good);font-weight:800}
+  .cmp-col li.same{padding-left:22px}
+  .cmp-col li.same::before{content:"\2713";position:absolute;left:0;top:0;color:var(--slate);font-weight:800}
+  .cmp-diff{background:var(--navy);color:#fff;padding:16px 22px;font-size:13.5px;line-height:1.55}
+  .cmp-diff b{color:var(--amber)}
+  @media (max-width:480px){.cmp-col{padding:14px 14px 18px}.cmp-col .price{font-size:22px}}
+
+  /* umbrella conversion block */
+  .umb{margin-top:24px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
+  .umb-head{padding:24px 24px 6px}
+  .umb-head h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);font-weight:700}
+  .umb-head p{font-size:14.5px;color:var(--slate);margin-top:8px;max-width:60ch}
+  .umb-cols{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px}
+  @media (max-width:520px){.umb-cols{grid-template-columns:1fr}}
+  .umb-c{padding:22px 24px}
+  .umb-c.rec{background:linear-gradient(160deg,rgba(0,75,137,.06),rgba(255,163,0,.05));position:relative}
+  .umb-c.rec::before{content:"RECOMMENDED";position:absolute;top:16px;right:18px;font-size:10px;letter-spacing:.12em;font-weight:700;color:#fff;background:var(--amber);padding:4px 10px;border-radius:99px}
+  .umb-c.other{border-left:1px solid var(--line)}
+  .umb-lim{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--slate)}
+  .umb-big{font-family:'Playfair Display',serif;font-size:40px;font-weight:800;color:var(--navy);line-height:1;margin:6px 0 2px}
+  .umb-cost{font-size:14px;color:var(--ink);font-weight:600}
+  .umb-cost span{color:var(--slate);font-weight:400}
+  .umb-perm{margin-top:14px;padding:12px 14px;border-radius:12px;background:#fff;border:1px solid var(--line)}
+  .umb-perm .pl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);font-weight:600}
+  .umb-perm .pv{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);margin-top:2px}
+  .umb-perm .pv b{color:var(--good)}
+  .umb-punch{background:var(--navy);color:#fff;padding:22px 24px;font-size:15px;line-height:1.6}
+  .umb-punch b{color:var(--amber)}
+  .umb-punch .mathline{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px;font-family:'Playfair Display',serif;font-size:17px}
+  .umb-punch .chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:8px 14px;font-family:'Outfit';font-size:13.5px;font-weight:600}
+  .umb-punch .eq{color:var(--amber);font-weight:800;font-size:20px}
+
+  /* flood section */
+  .flood{margin-top:24px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
+  .flood-head{padding:24px 24px 4px}
+  .flood-head h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);font-weight:700}
+  .flood-head p{font-size:14.5px;color:var(--slate);margin-top:10px;max-width:64ch}
+  .flood-head p b{color:var(--ink);font-weight:600}
+  .flood-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:0;margin-top:14px}
+  @media (max-width:560px){.flood-grid{grid-template-columns:1fr}}
+  .flood-cov{padding:20px 24px}
+  .flood-cov .cl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--slate);margin-bottom:10px}
+  .flood-cov ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .flood-cov li{font-size:13.5px;display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px}
+  .flood-cov li:last-child{border-bottom:none}
+  .flood-cov li span{color:var(--slate)}
+  .flood-cov li b{color:var(--ink);font-weight:600;white-space:nowrap}
+  .flood-price{padding:20px 24px;background:linear-gradient(160deg,rgba(0,75,137,.06),rgba(255,163,0,.05));border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+  .flood-price .zone{display:inline-block;align-self:flex-start;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--good);background:rgba(31,157,107,.12);padding:4px 10px;border-radius:99px;margin-bottom:10px}
+  .flood-price .fp{font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--navy);line-height:1}
+  .flood-price .fpl{font-size:13px;color:var(--slate);margin-top:4px}
+  .flood-why{background:var(--navy);color:#fff;padding:20px 24px;font-size:14px;line-height:1.6}
+  .flood-why b{color:var(--amber)}
+
+  /* highlight cards */
+  .hi{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:560px){.hi{grid-template-columns:1fr}}
+  .hicard{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--paper);position:relative}
+  .hicard .tag{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--navy);background:rgba(0,75,137,.09);padding:4px 10px;border-radius:99px;margin-bottom:12px}
+  .hicard h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:700;margin-bottom:8px}
+  .hicard p{font-size:14px;color:var(--slate)}
+  .hicard p b{color:var(--ink);font-weight:600}
+  .hicard .num{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:6px}
+
+  /* money summary */
+  .money{margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--white)}
+  .rows{padding:14px 22px 6px}
+  .row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .row .l{font-size:15px;color:var(--ink);font-weight:500}
+  .row .l small{display:block;color:var(--slate);font-weight:400;font-size:12.5px;margin-top:1px}
+  .row .v{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:700;white-space:nowrap}
+  .total{background:var(--navy);color:#fff;padding:20px 22px;display:flex;justify-content:space-between;align-items:center}
+  .total .l{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .total .v{font-family:'Playfair Display',serif;font-size:28px;font-weight:800}
+  .total .v small{font-size:13px;font-weight:400;color:rgba(255,255,255,.7)}
+  .fineprint{font-size:12px;color:var(--slate);padding:14px 22px 20px;line-height:1.5}
+
+  .cta{margin:48px 0 0;background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:22px;padding:40px 30px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,163,0,.2),transparent 70%)}
+  .cta h2{color:#fff;position:relative}
+  .cta p{color:rgba(255,255,255,.82);margin:14px auto 26px;max-width:48ch;position:relative;font-size:15.5px}
+  .btn{display:inline-block;background:var(--amber);color:#3a2600;font-weight:700;font-size:16px;padding:16px 34px;border-radius:99px;text-decoration:none;position:relative;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 8px 22px rgba(255,163,0,.28)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,163,0,.36)}
+  .btn-ghost{display:inline-block;color:#fff;font-weight:600;font-size:15px;padding:14px 26px;border-radius:99px;text-decoration:none;border:1.5px solid rgba(255,255,255,.45);position:relative;margin-left:10px;transition:background .2s ease}
+  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+  @media (max-width:540px){.btn-ghost{margin-left:0;margin-top:12px}}
+  .cta .alt{display:block;margin-top:16px;font-size:14px;color:rgba(255,255,255,.7);position:relative}
+  .cta .alt a{color:#fff;text-decoration:underline}
+
+  footer{padding:38px 0 56px;text-align:center}
+  .sig{font-weight:700;color:var(--navy);font-size:16px;text-transform:uppercase;letter-spacing:.03em}
+  .sig span{color:var(--amber)}
+  .fslogan{font-size:11px;color:var(--slate);font-style:italic;margin-top:5px}
+  .fcontact{font-size:13.5px;color:var(--slate);margin-top:6px;line-height:1.7}
+  .fcontact a{color:var(--navy);text-decoration:none;font-weight:500}
+  .disc{font-size:11px;color:#9aa6b4;margin-top:20px;max-width:64ch;margin-left:auto;margin-right:auto;line-height:1.5}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brandbar fade">
+    <div class="brand">
+      <div class="logo">Safe<span>shield</span> Insurance</div>
+      <div class="slogan">We work for you, not the insurance company</div>
+    </div>
+    <div class="prepared">Prepared for <b>Matthew Ellsworth</b><br>By Trent Beggs &middot; July 27, 2026<br>67 Valley Cir, Fairfield CT</div>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow fade">Your home &amp; auto proposal</div>
+    <h1 class="fade">More coverage.<br>Thousands less.</h1>
+    <p class="lede fade">Matt, you're carrying your home and your cars with USAA today. We shopped it and placed your auto with <b>Progressive</b> and your home with <b>NBIC</b>, and the result isn't a small trim. It's a serious drop in what you pay, with more protection stacked on top. Here's the whole picture, side by side.</p>
+  </header>
+</div>
+
+<div class="wrap">
+  <section class="band fade">
+    <div class="k">Your total annual savings</div>
+    <div class="big">$6,721<small> / year</small></div>
+    <p>Same household, same drivers, same home. Bundling Progressive auto with your NBIC home (at the recommended $5M umbrella) drops your all-in cost from roughly $19,975 to $13,254 a year, before adding a modest flood policy for peace of mind.</p>
+    <div class="band-grid">
+      <div class="bg"><div class="n">$19,975</div><div class="l">USAA today (auto + home)</div></div>
+      <div class="bg"><div class="n">$13,254</div><div class="l">Safeshield (Progressive + NBIC)</div></div>
+      <div class="bg"><div class="n">$6,721</div><div class="l">You keep every year</div></div>
+    </div>
+  </section>
+
+  <!-- AUTO -->
+  <section class="sec">
+    <div class="sec-eye fade">The auto side</div>
+    <h2 class="fade">Your fleet, for $3,577 less a year</h2>
+    <p class="sub fade">This is where the biggest single win lives. Your USAA auto runs about $10,775 a year. The same vehicles through Progressive come in at $7,198, and it's not a stripped-down policy to get there. Your liability limits actually go up.</p>
+
+    <div class="cmp fade">
+      <div class="cmp-title">Auto &mdash; your household fleet<small>2026 Grand Highlander, 2025 Volvo XC40, 2023 Audi Q5, 2018 Jeep Wrangler</small></div>
+      <div class="cmp-cols">
+        <div class="cmp-col ours">
+          <div class="who">Progressive &mdash; Safeshield</div>
+          <div class="price">$7,198<small> /yr</small></div>
+          <ul>
+            <li class="yes">Bodily injury 250/500/100</li>
+            <li class="yes">Uninsured/Underinsured 250/500</li>
+            <li class="yes">$1,000 comp &amp; collision, $0 glass</li>
+            <li class="yes">Homeowner, multi-car, teen-driver, Platinum &amp; safe-driving discounts</li>
+          </ul>
+        </div>
+        <div class="cmp-col theirs">
+          <div class="who">USAA &mdash; current</div>
+          <div class="price">$10,775<small> /yr</small></div>
+          <ul>
+            <li class="same">Comparable auto program on the same vehicles</li>
+            <li class="same">Standard liability &amp; UM/UIM</li>
+            <li class="same">Full coverage on the fleet</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cmp-diff"><b>You pay $3,577 less and get stronger limits.</b> Progressive comes in at 250/500/100 bodily injury with matching 250/500 UM/UIM, the limits that actually protect your assets in a serious accident, and it's discounted for owning your home, running multiple cars, the teen driver, and a clean three-year record. Cheaper premium, better liability floor.</div>
+    </div>
+  </section>
+
+  <!-- HOME -->
+  <section class="sec">
+    <div class="sec-eye fade">The home side</div>
+    <h2 class="fade">A stronger home policy, and it costs less too</h2>
+    <p class="sub fade">USAA quoted your home at $9,200. The NBIC HO-3 we built comes in lower even with the umbrella, the enhanced Mariner Plus package, extended replacement cost, and a scheduled jewelry floater all included. Here's the coverage doing the heavy lifting.</p>
+
+    <div class="cmp fade">
+      <div class="cmp-title">Homeowners &mdash; 67 Valley Cir<small>NBIC HO-3 with $10,000 all-peril deductible, 2% hurricane</small></div>
+      <div class="cmp-cols">
+        <div class="cmp-col ours">
+          <div class="who">NBIC &mdash; Safeshield</div>
+          <div class="price">$6,056<small> /yr</small></div>
+          <ul>
+            <li class="yes">Dwelling $1,695,000</li>
+            <li class="yes">+50% extended replacement cost on the dwelling</li>
+            <li class="yes">Personal property $1,186,500 at replacement cost</li>
+            <li class="yes">Mariner Plus enhanced package included</li>
+            <li class="yes">Scheduled jewelry (blanket coverage)</li>
+            <li class="yes">$5M umbrella built in</li>
+            <li class="yes">Water backup $50K, equipment breakdown, ID fraud</li>
+          </ul>
+        </div>
+        <div class="cmp-col theirs">
+          <div class="who">USAA &mdash; quoted</div>
+          <div class="price">$9,200<small> /yr</small></div>
+          <ul>
+            <li class="same">Homeowners dwelling coverage</li>
+            <li class="same">Standard personal property</li>
+            <li class="same">Base liability, no umbrella included</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cmp-diff"><b>Roughly $3,100 less, and it's a richer policy.</b> The NBIC number already includes a $5,000,000 umbrella, the Mariner Plus enhancement, extended replacement cost, and blanket jewelry coverage. To match that on the USAA side you'd be adding a standalone umbrella and endorsements on top of the $9,200, widening the gap even further.</div>
+    </div>
+  </section>
+
+  <!-- UMBRELLA CONVERSION -->
+  <section class="sec">
+    <div class="sec-eye fade">The smart move</div>
+    <h2 class="fade">Why $5M is the obvious call, not $2M</h2>
+    <p class="sub fade">You've got a $1.7M home, a fleet of cars, and young drivers in the household. An umbrella sits on top of your home and auto liability and catches the catastrophic claim, the one that outruns your base limits. Here's the pricing that makes the decision easy.</p>
+
+    <div class="umb fade">
+      <div class="umb-head">
+        <h3>$2M vs $5M umbrella</h3>
+        <p>Both options are quoted on your NBIC policy. The jump from $2M to $5M isn't a small upgrade for a big price. It's 2.5x the protection for a rounding error.</p>
+      </div>
+      <div class="umb-cols">
+        <div class="umb-c other">
+          <div class="umb-lim">Option A</div>
+          <div class="umb-big">$2M</div>
+          <div class="umb-cost">$495 <span>/ yr</span></div>
+          <div class="umb-perm">
+            <div class="pl">Cost per $1M of protection</div>
+            <div class="pv">$248 <span style="font-size:13px;color:var(--slate);font-weight:400">per million</span></div>
+          </div>
+        </div>
+        <div class="umb-c rec">
+          <div class="umb-lim">Option B</div>
+          <div class="umb-big">$5M</div>
+          <div class="umb-cost">$990 <span>/ yr</span></div>
+          <div class="umb-perm">
+            <div class="pl">Cost per $1M of protection</div>
+            <div class="pv"><b>$198</b> <span style="font-size:13px;color:var(--slate);font-weight:400">per million</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="umb-punch">
+        <b>Here's the math that matters.</b> Going from $2M to $5M is an extra $3,000,000 of liability protection for just <b>$495 more a year</b>. That's about <b>$1.36 a day</b> to more than double your safety net. And your cost per million actually drops from $248 down to $198, so the more coverage you buy, the cheaper each million gets.
+        <div class="mathline">
+          <span class="chip">+$3,000,000 coverage</span>
+          <span class="eq">for</span>
+          <span class="chip">+$495 / yr</span>
+          <span class="eq">=</span>
+          <span class="chip">$0.000165 per $1 protected</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOOD -->
+  <section class="sec">
+    <div class="sec-eye fade">One peril your home policy won't touch</div>
+    <h2 class="fade">Flood coverage, for about $50 a month</h2>
+    <div class="flood fade">
+      <div class="flood-head">
+        <h3>Private primary flood &mdash; 67 Valley Cir</h3>
+        <p>Here's the part most homeowners miss: <b>no home policy, however rich, covers flood.</b> It's specifically excluded, and it takes a separate policy. The good news for you is that 67 Valley Cir sits in <b>Flood Zone X</b>, the low-to-moderate risk zone, so you're <b>not in a high-risk area and no lender is requiring this.</b> That's exactly why it's such a smart, cheap add.</p>
+      </div>
+      <div class="flood-grid">
+        <div class="flood-cov">
+          <div class="cl">What it covers</div>
+          <ul>
+            <li><span>Dwelling</span><b>$250,000</b></li>
+            <li><span>Personal property</span><b>$100,000</b></li>
+            <li><span>Other structures</span><b>$25,000</b></li>
+            <li><span>Loss of use</span><b>$12,500</b></li>
+            <li><span>Deductible</span><b>$1,000</b></li>
+          </ul>
+        </div>
+        <div class="flood-price">
+          <span class="zone">Zone X &middot; not required</span>
+          <div class="fp">$602</div>
+          <div class="fpl">per year, all in &middot; about $50/month</div>
+        </div>
+      </div>
+      <div class="flood-why"><b>Why buy it if it isn't required?</b> Because being in Zone X doesn't mean no risk, it means lower risk, and it's exactly why the premium is only $602 a year. Over 40% of all flood claims come from outside high-risk zones. One backed-up storm drain, a heavy Nor'easter, or a burst from a nearby waterway, and a finished basement in a $1.7M home is a six-figure loss your homeowners policy flatly excludes. For roughly $1.65 a day, you close the single biggest coverage gap most homeowners never see coming. Since you're not in a high-risk zone, there's a standard 7-day waiting period, so locking it in now beats waiting for a storm in the forecast.</div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="sec">
+    <div class="sec-eye fade">Two things worth pointing out</div>
+    <h2 class="fade">The coverage most quotes leave off</h2>
+    <div class="hi">
+      <div class="hicard fade">
+        <span class="tag">Extended Replacement Cost</span>
+        <div class="num">+50%</div>
+        <h3>An extra $847,500 to rebuild</h3>
+        <p>Your dwelling is insured at <b>$1,695,000</b>, and this endorsement adds <b>50% more</b> on top of that if a total rebuild runs over the limit. After a major loss, construction costs in Fairfield County spike fast. This is the buffer that means a labor and materials surge doesn't come out of your pocket. It's $173 a year and it's the difference between "covered" and "covered no matter what it actually costs to rebuild."</p>
+      </div>
+      <div class="hicard fade">
+        <span class="tag">Blanket Jewelry Coverage</span>
+        <div class="num">$0 ded</div>
+        <h3>Your jewelry, covered as a whole</h3>
+        <p>Standard home policies cap jewelry payouts at a low sub-limit and still apply your deductible. <b>Blanket jewelry coverage</b> raises the limit across all your pieces without having to itemize each one, covers them worldwide, adds perils like accidental loss (the ring slips off the dock), and pays with <b>no deductible</b>. On a $10,000 all-peril deductible policy, that matters, your jewelry is protected from dollar one.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MONEY -->
+  <section class="sec">
+    <div class="sec-eye fade">The bottom line</div>
+    <h2 class="fade">Your new program, all in</h2>
+    <div class="money fade">
+      <div class="rows">
+        <div class="row">
+          <div class="l">Progressive Auto<small>household fleet, 250/500/100</small></div>
+          <div class="v">$7,198</div>
+        </div>
+        <div class="row">
+          <div class="l">NBIC Homeowners<small>$1.695M dwelling, Mariner Plus, +50% RCV, blanket jewelry, $5M umbrella</small></div>
+          <div class="v">$6,056</div>
+        </div>
+        <div class="row">
+          <div class="l">Private Flood<small>separate policy, $250K dwelling, Zone X, not required</small></div>
+          <div class="v">$602</div>
+        </div>
+      </div>
+      <div class="total">
+        <div class="l">Your Safeshield total</div>
+        <div class="v">$13,856 <small>/ yr</small></div>
+      </div>
+      <p class="fineprint">USAA comparison based on your current $10,775 annualized auto premium and the $9,200 home quote you were provided, totaling ~$19,975/yr. Progressive auto shown is $3,599 per 6-month term, annualized to $7,198. NBIC home total of $6,056 includes the $5,000,000 umbrella; the $2,000,000 umbrella option brings the home to $5,561 (program total $13,361 with flood). Flood is a separate private primary flood policy (J&amp;J / Certain Underwriters at Lloyd's) at $602.32/yr including fees and taxes, quoted at Zone X, with a standard 7-day waiting period and 25% minimum earned premium; it is surplus lines and not protected by the CT Insurance Guaranty Association. Figures are quoted premiums subject to carrier underwriting and verification. This is a proposal summary, not a binder or contract; the policy documents govern all terms, limits, and exclusions.</p>
+    </div>
+  </section>
+
+  <section class="cta fade">
+    <h2>Ready when you are, Matt.</h2>
+    <p>Reply to my email or give me a call and I'll get the paperwork over and set your effective date. Same coverage day one, thousands back in your pocket.</p>
+    <a class="btn" href="mailto:trent@gosafeshield.com?subject=Ellsworth%20-%20Ready%20to%20move%20forward">Let's lock it in</a>
+    <a class="btn-ghost" href="https://gosafeshield.com/review" target="_blank" rel="noopener">Read our reviews</a>
+    <span class="alt">or call Trent at <a href="tel:2035649817">(203) 564-9817</a></span>
+  </section>
+</div>
+
+<div class="wrap">
+  <footer>
+    <div class="sig">Safe<span>shield</span> Insurance</div>
+    <div class="fslogan">We work for you, not the insurance company</div>
+    <div class="fcontact">
+      Trent Beggs<br>
+      <a href="mailto:trent@gosafeshield.com">trent@gosafeshield.com</a>
+    </div>
+    <p class="disc">This proposal was prepared for Matthew Ellsworth and is not a binder or a contract. Comparison figures are based on the USAA premiums and quote you provided. Coverages, limits, terms, and exclusions are governed by the actual policy documents. Premiums are subject to carrier review and may change pending underwriting.</p>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.12});
+  document.querySelectorAll('.fade').forEach(function(el,i){
+    el.style.transitionDelay=(Math.min(i,6)*40)+'ms';io.observe(el);
+  });
+</script>
+
+<script>window.CASEY_PROPOSAL={"slug":"ellsworth","agent":"Trent"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
