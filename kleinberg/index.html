@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Proposal — Jeffrey Kleinberg | Safeshield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a1628; color:#FAFAF8; font-family:'Outfit',sans-serif; font-weight:300; line-height:1.6; }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 24px; }
+  h1,h2,h3 { font-family:'Playfair Display',serif; }
+  .hero { padding:90px 0 70px; text-align:center; }
+  .eyebrow { color:#FFA300; letter-spacing:3px; text-transform:uppercase; font-size:13px; font-weight:600; margin-bottom:20px; }
+  .hero h1 { font-size:56px; font-weight:900; line-height:1.05; margin-bottom:20px; }
+  .hero p { font-size:20px; color:rgba(250,250,248,0.7); max-width:640px; margin:0 auto; }
+  .divider { height:1px; background:linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent); margin:40px 0; }
+  section { padding:50px 0; }
+  .section-head { text-align:center; margin-bottom:40px; }
+  .section-head h2 { font-size:38px; font-weight:700; margin-bottom:12px; }
+  .section-head p { color:rgba(250,250,248,0.6); font-size:17px; }
+  .bignum { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin:40px 0; }
+  .numcard { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:36px 44px; text-align:center; min-width:240px; }
+  .numcard .label { color:rgba(250,250,248,0.6); font-size:14px; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:14px; }
+  .numcard .val { font-family:'Playfair Display',serif; font-size:44px; font-weight:900; }
+  .numcard.current .val { color:rgba(250,250,248,0.85); }
+  .numcard.proposed { border-color:rgba(255,163,0,0.4); }
+  .numcard.proposed .val { color:#FFA300; }
+  .numcard .sub { color:rgba(250,250,248,0.5); font-size:13px; margin-top:8px; }
+  .savings-banner { background:linear-gradient(135deg, rgba(255,163,0,0.12), rgba(0,75,137,0.15)); border:1px solid rgba(255,163,0,0.3); border-radius:20px; padding:36px; text-align:center; margin:30px 0; }
+  .savings-banner .big { font-family:'Playfair Display',serif; font-size:52px; font-weight:900; color:#FFA300; }
+  .savings-banner .cap { color:rgba(250,250,248,0.7); font-size:16px; margin-top:6px; }
+  table { width:100%; border-collapse:collapse; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; overflow:hidden; }
+  th,td { padding:15px 18px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.06); font-size:15px; }
+  th { background:rgba(0,75,137,0.35); font-family:'Outfit',sans-serif; font-weight:600; letter-spacing:0.5px; font-size:13px; text-transform:uppercase; }
+  td:first-child { color:rgba(250,250,248,0.75); }
+  .col-prop { color:#FFA300; font-weight:500; }
+  tr:last-child td { border-bottom:none; }
+  .match { color:#5fd08a; font-size:12px; }
+  .card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px 28px; margin-bottom:18px; }
+  .card h3 { font-size:20px; color:#FFA300; margin-bottom:10px; font-family:'Outfit',sans-serif; font-weight:600; }
+  .card p { color:rgba(250,250,248,0.75); font-size:15px; }
+  .why-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+  .footer-cta { text-align:center; padding:70px 0 90px; }
+  .footer-cta h2 { font-size:40px; margin-bottom:16px; }
+  .footer-cta p { color:rgba(250,250,248,0.7); font-size:18px; margin-bottom:30px; }
+  .btn { display:inline-block; background:#FFA300; color:#0a1628; padding:16px 40px; border-radius:100px; font-weight:700; text-decoration:none; font-size:17px; }
+  .prep { text-align:center; color:rgba(250,250,248,0.5); font-size:14px; margin-top:26px; }
+  .note { color:rgba(250,250,248,0.55); font-size:13px; font-style:italic; text-align:center; margin-top:16px; }
+  @media(max-width:640px){ .hero h1{font-size:38px;} .why-grid{grid-template-columns:1fr;} th,td{font-size:13px; padding:11px 10px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Prepared for Jeffrey & Kari Kleinberg</div>
+    <h1>A Better Home for<br>Your Coverage</h1>
+    <p>A side-by-side look at what you're paying GEICO today versus a Travelers package built through Safeshield — same protection, real savings.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="section-head">
+      <h2>The Bottom Line</h2>
+      <p>Your full annual cost, apples to apples — auto plus renters.</p>
+    </div>
+    <div class="bignum">
+      <div class="numcard current">
+        <div class="label">Currently Paying</div>
+        <div class="val">$4,199</div>
+        <div class="sub">GEICO auto ~$4,019/yr + renters $180/yr</div>
+      </div>
+      <div class="numcard proposed">
+        <div class="label">Proposed With Travelers</div>
+        <div class="val">$3,513</div>
+        <div class="sub">Auto $3,305/yr + renters $208/yr</div>
+      </div>
+    </div>
+    <div class="savings-banner">
+      <div class="big">$686</div>
+      <div class="cap">Estimated savings per year across the package</div>
+    </div>
+    <p class="note">GEICO auto figure annualized from your current 6-month term. Travelers premiums are 12-month.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="section-head">
+      <h2>Auto — Line by Line</h2>
+      <p>Two vehicles: 2022 VW Tiguan SEL and 2024 Chevrolet Corvette.</p>
+    </div>
+    <table>
+      <tr><th>Coverage</th><th>GEICO (Current)</th><th>Travelers (Proposed)</th></tr>
+      <tr><td>Bodily Injury Liability</td><td>300/500</td><td class="col-prop">250/500</td></tr>
+      <tr><td>Property Damage</td><td>$100,000</td><td class="col-prop">$100,000 <span class="match">✓ match</span></td></tr>
+      <tr><td>Uninsured / Underinsured (SUM)</td><td>250/500</td><td class="col-prop">250/500 <span class="match">✓ match</span></td></tr>
+      <tr><td>Basic PIP</td><td>$50,000</td><td class="col-prop">$50,000 <span class="match">✓ match</span></td></tr>
+      <tr><td>Additional PIP</td><td>$100,000</td><td class="col-prop">$100,000 <span class="match">✓ match</span></td></tr>
+      <tr><td>OBEL</td><td>$25,000</td><td class="col-prop">$25,000 <span class="match">✓ match</span></td></tr>
+      <tr><td>Medical Payments</td><td>$10,000</td><td class="col-prop">$10,000 <span class="match">✓ match</span></td></tr>
+      <tr><td>Comprehensive Deductible</td><td>$500</td><td class="col-prop">$500 <span class="match">✓ match</span></td></tr>
+      <tr><td>Collision Deductible</td><td>$1,000</td><td class="col-prop">$1,000 <span class="match">✓ match</span></td></tr>
+    </table>
+    <p class="note">Straight talk: GEICO's bodily injury sits slightly higher at 300/500 vs. Travelers' 250/500. Everything else matches. If you'd rather hold 300/500, I can rerun Travelers at that limit — the savings shrink a little but you keep the exact same BI protection.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="section-head">
+      <h2>Renters — What You're Actually Getting</h2>
+      <p>Your current renters runs $180/yr, but the coverage level isn't spelled out. Here's exactly what the Travelers Tenant policy includes.</p>
+    </div>
+    <table>
+      <tr><th>Coverage</th><th>Travelers Tenant (Proposed) — $208/yr</th></tr>
+      <tr><td>Coverage C — Personal Property</td><td class="col-prop">$35,000</td></tr>
+      <tr><td>Coverage D — Loss of Use</td><td class="col-prop">$10,500</td></tr>
+      <tr><td>Coverage E — Personal Liability</td><td class="col-prop">$500,000 each occurrence</td></tr>
+      <tr><td>Coverage F — Medical Payments</td><td class="col-prop">$5,000 each person</td></tr>
+      <tr><td>Property Deductible (All Perils)</td><td class="col-prop">$1,000</td></tr>
+      <tr><td>Personal Property Replacement Cost</td><td class="col-prop">Included</td></tr>
+      <tr><td>Water Backup / Sump Overflow</td><td class="col-prop">$10,000 Included</td></tr>
+      <tr><td>Personal Injury Coverage</td><td class="col-prop">Included</td></tr>
+      <tr><td>Coverage Level</td><td class="col-prop">Travelers Protect®</td></tr>
+    </table>
+    <p class="note">The Travelers renters is $28/yr more than your current $180. The difference buys you a fully documented Travelers Protect policy with $500K liability, replacement cost on your stuff, and water backup built in. Worth knowing what you're paying for.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="section-head">
+      <h2>Why Safeshield</h2>
+    </div>
+    <div class="why-grid">
+      <div class="card"><h3>We shop 69+ carriers</h3><p>You're not stuck with one company's rate. We put your risk in front of the whole market and bring back the best fit.</p></div>
+      <div class="card"><h3>We re-shop every year</h3><p>When your renewal moves, we move with it. No loyalty tax, no set-it-and-forget-it.</p></div>
+      <div class="card"><h3>A real person, every time</h3><p>Direct access to your agent. No call centers, no menus. Quotes, ID cards, and changes handled same-day.</p></div>
+      <div class="card"><h3>We fight at claim time</h3><p>When something goes wrong, we're on your side of the table, not the carrier's.</p></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="footer-cta">
+    <h2>Ready to lock it in?</h2>
+    <p>Let's get your Travelers package bound before your 07/31 effective date.</p>
+    <a class="btn" href="tel:2038065889">Call Eric — (203) 806-5889</a>
+    <div class="prep">Prepared by Eric Kelly · Safeshield Insurance · eric@gosafeshield.com</div>
+  </div>
+
+</div>
+
+<script>window.CASEY_PROPOSAL={"slug":"kleinberg","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
