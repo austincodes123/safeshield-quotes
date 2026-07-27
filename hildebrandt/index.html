@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hildebrandt Auto Insurance Comparison | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#0a1628;
+    color:#FAFAF8;
+    font-family:'Outfit', sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3 { font-family:'Playfair Display', serif; }
+  .wrap { max-width:1100px; margin:0 auto; padding:0 24px; }
+  .divider {
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin:60px 0;
+  }
+  /* HERO */
+  .hero {
+    padding:90px 24px 70px;
+    text-align:center;
+    background: radial-gradient(circle at 50% 0%, rgba(0,75,137,0.35), transparent 60%);
+  }
+  .hero .tag {
+    display:inline-block;
+    color:#FFA300;
+    letter-spacing:3px;
+    font-size:12px;
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .hero h1 {
+    font-size:52px;
+    font-weight:900;
+    max-width:800px;
+    margin:0 auto 20px;
+    line-height:1.15;
+  }
+  .hero h1 span { color:#FFA300; }
+  .hero p.sub {
+    color:rgba(250,250,248,0.7);
+    font-size:18px;
+    max-width:600px;
+    margin:0 auto;
+  }
+  /* SUMMARY CARDS */
+  .summary-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:24px;
+    margin-top:50px;
+  }
+  @media(max-width:760px){ .summary-grid{grid-template-columns:1fr;} }
+  .sum-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:32px 28px;
+    text-align:center;
+  }
+  .sum-card.highlight {
+    border:1px solid rgba(255,163,0,0.4);
+    background:rgba(255,163,0,0.06);
+  }
+  .sum-card .label {
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:rgba(250,250,248,0.55);
+    margin-bottom:12px;
+  }
+  .sum-card .amount {
+    font-family:'Playfair Display', serif;
+    font-size:38px;
+    font-weight:700;
+    color:#FAFAF8;
+  }
+  .sum-card.highlight .amount { color:#FFA300; }
+  .sum-card .note { font-size:13px; color:rgba(250,250,248,0.5); margin-top:8px; }
+
+  /* SECTION HEADERS */
+  .section-title {
+    text-align:center;
+    margin-bottom:40px;
+  }
+  .section-title .kicker {
+    color:#FFA300;
+    letter-spacing:3px;
+    font-size:12px;
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:14px;
+    display:block;
+  }
+  .section-title h2 {
+    font-size:34px;
+    font-weight:700;
+  }
+
+  /* TABLES */
+  table.compare {
+    width:100%;
+    border-collapse:collapse;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:12px;
+    overflow:hidden;
+    font-size:15px;
+  }
+  table.compare th, table.compare td {
+    padding:14px 18px;
+    text-align:left;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  table.compare thead th {
+    background:rgba(0,75,137,0.35);
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    color:#FFA300;
+  }
+  table.compare tbody tr:last-child td { border-bottom:none; }
+  table.compare tbody tr:hover { background:rgba(255,255,255,0.02); }
+  td.pos { color:#7CD992; font-weight:600; }
+  td.neg { color:#FF8A8A; font-weight:600; }
+  td.center { text-align:center; }
+  .vehicle-total-row td { font-weight:700; background:rgba(255,163,0,0.05); }
+
+  /* WHY SAFESHIELD */
+  .why-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  @media(max-width:760px){ .why-grid{grid-template-columns:1fr;} }
+  .why-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px;
+    padding:26px 22px;
+  }
+  .why-card .icon { font-size:24px; margin-bottom:12px; }
+  .why-card h3 { font-size:18px; margin-bottom:8px; }
+  .why-card p { font-size:14px; color:rgba(250,250,248,0.65); }
+
+  /* CALLOUT */
+  .callout {
+    background:rgba(255,163,0,0.07);
+    border:1px solid rgba(255,163,0,0.25);
+    border-radius:16px;
+    padding:28px 32px;
+    margin:30px 0;
+  }
+  .callout h3 { color:#FFA300; font-size:19px; margin-bottom:10px; }
+  .callout p { font-size:15px; color:rgba(250,250,248,0.8); }
+
+  /* CTA FOOTER */
+  .cta {
+    text-align:center;
+    padding:90px 24px 100px;
+  }
+  .cta h2 { font-size:36px; margin-bottom:16px; }
+  .cta p { color:rgba(250,250,248,0.65); max-width:520px; margin:0 auto 34px; font-size:16px; }
+  .btn-row { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .btn {
+    display:inline-block;
+    padding:16px 36px;
+    border-radius:100px;
+    font-weight:600;
+    text-decoration:none;
+    font-size:15px;
+  }
+  .btn-primary { background:#FFA300; color:#0a1628; }
+  .btn-secondary {
+    background:rgba(255,255,255,0.06);
+    color:#FAFAF8;
+    border:1px solid rgba(255,255,255,0.15);
+  }
+  footer {
+    text-align:center;
+    padding:30px 24px 50px;
+    color:rgba(250,250,248,0.4);
+    font-size:13px;
+  }
+  .badge {
+    display:inline-block;
+    background:rgba(124,217,146,0.12);
+    color:#7CD992;
+    border:1px solid rgba(124,217,146,0.3);
+    border-radius:100px;
+    padding:6px 16px;
+    font-size:13px;
+    font-weight:600;
+    margin-top:16px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="tag">Prepared for Sigfried &amp; Megan Hildebrandt</span>
+  <h1>Your NYCM renewal, <span>side by side</span> with a fresh Plymouth Rock quote.</h1>
+  <p class="sub">Same drivers, same four cars, same coverage backbone. Here's exactly where the numbers land and what's different underneath.</p>
+
+  <div class="wrap summary-grid">
+    <div class="sum-card">
+      <div class="label">NYCM Renewal</div>
+      <div class="amount">$15,073</div>
+      <div class="note">08/18/2026 – 08/18/2027 · 4 vehicles</div>
+    </div>
+    <div class="sum-card highlight">
+      <div class="label">Plymouth Rock New Business</div>
+      <div class="amount">$13,573</div>
+      <div class="note">Same effective date · includes MVLEF fee</div>
+      <div class="badge">Saves $1,500/yr</div>
+    </div>
+    <div class="sum-card">
+      <div class="label">Plymouth Rock Paid-in-Full</div>
+      <div class="amount">$12,472</div>
+      <div class="note">8% pay-in-full discount applied</div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <div class="divider"></div>
+
+  <!-- PER VEHICLE -->
+  <div class="section-title">
+    <span class="kicker">The Breakdown</span>
+    <h2>Premium by Vehicle</h2>
+  </div>
+
+  <table class="compare">
+    <thead>
+      <tr>
+        <th>Vehicle</th>
+        <th class="center">NYCM Renewal</th>
+        <th class="center">Plymouth Rock</th>
+        <th class="center">Difference</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2022 Honda Passport EX-L AWD</td>
+        <td class="center">$3,585</td>
+        <td class="center">$3,934</td>
+        <td class="center neg">+$349</td>
+      </tr>
+      <tr>
+        <td>2011 Volkswagen Tiguan S/SE/SEL AWD</td>
+        <td class="center">$4,481</td>
+        <td class="center">$2,675</td>
+        <td class="center pos">−$1,806</td>
+      </tr>
+      <tr>
+        <td>2016 Mitsubishi Outlander Sport ES/SE AWD</td>
+        <td class="center">$2,733</td>
+        <td class="center">$3,126</td>
+        <td class="center neg">+$393</td>
+      </tr>
+      <tr>
+        <td>2019 Toyota Corolla L/LE/XLE/SE/XSE</td>
+        <td class="center">$4,274</td>
+        <td class="center">$3,798</td>
+        <td class="center pos">−$476</td>
+      </tr>
+      <tr class="vehicle-total-row">
+        <td>Total Annual Premium</td>
+        <td class="center">$15,073</td>
+        <td class="center">$13,573</td>
+        <td class="center pos">−$1,500</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <h3>Why the Tiguan and Corolla swing so much</h3>
+    <p>The 2011 Tiguan is carrying a $597 surcharge and the Corolla a smaller one on the NYCM side — those experience-related surcharges don't carry over 1:1 to Plymouth Rock's rating plan, which is a big chunk of the swing on those two cars. The Passport and Outlander price slightly higher with Plymouth Rock, so it's a net win across the household, not a win on every car.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- COVERAGE COMPARISON -->
+  <div class="section-title">
+    <span class="kicker">Apples to Apples</span>
+    <h2>Coverage Comparison</h2>
+  </div>
+
+  <table class="compare">
+    <thead>
+      <tr>
+        <th>Coverage</th>
+        <th class="center">NYCM (Current)</th>
+        <th class="center">Plymouth Rock (New)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Bodily Injury Liability</td>
+        <td class="center">$100,000 / $300,000</td>
+        <td class="center">$100,000 / $300,000</td>
+      </tr>
+      <tr>
+        <td>Property Damage Liability</td>
+        <td class="center">$25,000</td>
+        <td class="center">$25,000</td>
+      </tr>
+      <tr>
+        <td>Supplemental Spousal Liability</td>
+        <td class="center">Included</td>
+        <td class="center">Included</td>
+      </tr>
+      <tr>
+        <td>Supplementary UM/UIM (SUM)</td>
+        <td class="center">$100,000 / $300,000</td>
+        <td class="center">$100,000 / $300,000</td>
+      </tr>
+      <tr>
+        <td>Medical Payments</td>
+        <td class="center">$5,000</td>
+        <td class="center">$5,000</td>
+      </tr>
+      <tr>
+        <td>Personal Injury Protection (PIP)</td>
+        <td class="center">$50,000, $200 ded</td>
+        <td class="center">$50,000, $200 ded</td>
+      </tr>
+      <tr>
+        <td>Optional Basic Economic Loss</td>
+        <td class="center pos">$25,000</td>
+        <td class="center neg">No Coverage</td>
+      </tr>
+      <tr>
+        <td>Additional PIP / Aggregate No-Fault Benefits</td>
+        <td class="center pos">$75,000 aggregate</td>
+        <td class="center neg">No Coverage</td>
+      </tr>
+      <tr>
+        <td>Collision Deductible</td>
+        <td class="center">$1,000</td>
+        <td class="center">$1,000</td>
+      </tr>
+      <tr>
+        <td>Comprehensive Deductible</td>
+        <td class="center">$1,000</td>
+        <td class="center">$1,000</td>
+      </tr>
+      <tr>
+        <td>Rental / Substitute Transportation</td>
+        <td class="center">$50/day, $1,500 max</td>
+        <td class="center">$40/day, $1,200 max</td>
+      </tr>
+      <tr>
+        <td>Towing &amp; Labor / Roadside</td>
+        <td class="center pos">Included ($100 choice)</td>
+        <td class="center neg">Not Selected</td>
+      </tr>
+      <tr>
+        <td>Full Coverage Window Glass</td>
+        <td class="center pos">Included</td>
+        <td class="center neg">Not on quote</td>
+      </tr>
+      <tr>
+        <td>Trip Interruption / Pet Injury / Personal Articles</td>
+        <td class="center pos">Included</td>
+        <td class="center neg">Not on quote</td>
+      </tr>
+      <tr>
+        <td>New Car Replacement / Loan-Lease Gap</td>
+        <td class="center">Not applicable</td>
+        <td class="center neg">Unavailable on these vehicles</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <h3>The honest read</h3>
+    <p>Plymouth Rock beats the NYCM renewal by $1,500 a year on the core liability, PIP, SUM and physical damage coverages — the stuff that actually pays claims. But NYCM's renewal quietly includes some extras Plymouth Rock's quote doesn't: Optional Basic Economic Loss, the $75K aggregate no-fault benefit, towing/roadside, full glass, trip interruption, and pet injury. None of those are deal-breakers, and most can be added to the Plymouth Rock policy for a small add-on premium if you want them matched — just say the word and we'll get it quoted that way too.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DISCOUNTS -->
+  <div class="section-title">
+    <span class="kicker">Stacking the Savings</span>
+    <h2>Discounts Applied on the Plymouth Rock Quote</h2>
+  </div>
+
+  <table class="compare">
+    <thead>
+      <tr><th>Discount</th><th>Discount</th><th>Discount</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>eDocument</td><td>Driver Training</td><td>Passive Restraint</td></tr>
+      <tr><td>Good Student</td><td>Anti-Theft</td><td>ABS Discount</td></tr>
+      <tr><td>Assurance Plus (included)</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <h3>Still on the table</h3>
+    <p>Plymouth Rock flags a few more discounts worth checking with the household: Paid in Full, 5-Year Claims Free, Away at School, Umbrella Companion, Group Affinity, and New Driver Family. If any of these apply, the $13,573 number gets even better.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WHY SAFESHIELD -->
+  <div class="section-title">
+    <span class="kicker">Why Safeshield</span>
+    <h2>We shop it so you don't have to</h2>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="icon">🔍</div>
+      <h3>69+ Carriers</h3>
+      <p>We're not married to one company. NYCM and Plymouth Rock are two of dozens we can run for your household.</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">⚡</div>
+      <h3>Same-Day Everything</h3>
+      <p>Quotes, ID cards, endorsements, certificates — handled same day, direct with your agent, no call centers.</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">🛡️</div>
+      <h3>We Fight for You at Claims Time</h3>
+      <p>If something happens, we're the ones on the phone with the carrier advocating for you — not just the ones who sold the policy.</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">🔁</div>
+      <h3>Annual Re-Shop Guarantee</h3>
+      <p>Every renewal, we check the market again automatically. If something better shows up, you'll hear about it — like this.</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">💬</div>
+      <h3>A Real Person</h3>
+      <p>Direct access to your agent, not a script. Questions get answered the same day, by someone who knows your account.</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">📱</div>
+      <h3>Tech-Powered, Human-Backed</h3>
+      <p>Digital delivery and automated tracking on the back end, real people on the front end when it matters.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to move forward?</h2>
+  <p>We can bind Plymouth Rock as-is at $13,573, add back the extras NYCM includes for a small adjustment, or keep shopping. Your call.</p>
+  <div class="btn-row">
+    <a href="tel:2038065889" class="btn btn-primary">Call Eric: (203) 806-5889</a>
+    <a href="mailto:eric@gosafeshield.com" class="btn btn-secondary">Email Eric</a>
+  </div>
+</section>
+
+<footer>
+  Prepared by Eric Kelly · Safeshield Insurance · 2777 Summer St, 6th Floor, Stamford, CT 06905<br>
+  This comparison is for illustration only. Final premium, terms and coverage are subject to underwriting approval by the carrier.
+</footer>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"hildebrandt","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
