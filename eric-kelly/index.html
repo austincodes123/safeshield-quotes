@@ -104,6 +104,12 @@
   .sources li{font-size:12px;color:var(--gray);line-height:1.55;margin-bottom:9px;}
   .sources li b{color:var(--ink);font-weight:700;}
   .sources a{color:var(--navy);text-decoration:none;border-bottom:1px solid var(--line);word-break:break-all;}
+
+  .wins{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:14px 0 18px;}
+  .win{background:var(--wash);padding:14px 15px;}
+  .wn{display:block;font-family:Helvetica,Arial,sans-serif;font-size:23px;font-weight:700;color:var(--navy);}
+  .wl{display:block;font-family:Helvetica,Arial,sans-serif;font-size:11.5px;color:var(--gray);margin-top:2px;}
+  .wd{display:block;font-size:12.5px;color:var(--ink);margin-top:8px;line-height:1.45;}
   @media print{ .sheet{padding:26px 10px;} body{font-size:13px;} }
 </style>
 </head>
@@ -155,10 +161,15 @@
 
   <div class="sec">THE DEAL</div>
   <p class="lead big">Four separate ways you get paid, and three of them grow on their own. Here is the whole thing on one page.</p>
+  <div class="wins">
+    <div class="win"><span class="wn">$46,500</span><span class="wl">guaranteed, up from $9,000</span><span class="wd">You stop wondering what a slow month does to you.</span></div>
+    <div class="win"><span class="wn">~$236,000</span><span class="wl">saved on your 9% at a sale</span><span class="wd">The agency pays for the work that does it. You pay nothing.</span></div>
+    <div class="win"><span class="wn">$69,678</span><span class="wl">on your W-2, up from $45,169</span><span class="wd">The number a lender reads when you buy the house.</span></div>
+  </div>
   <div class="deal">
     <div class="di">
       <svg viewBox="0 0 24 24" class="ico"><path d="M3 7h18v12H3z"/><path d="M3 11h18"/></svg>
-      <div><b>Salary, $37,500</b><span>Plus $750 a month in expenses. $46,500 total. A bridge while the book gets up to speed, settling at $25,000 permanently.</span></div>
+      <div><b>Salary, $37,500</b><span>Plus $750 a month in expenses. <b>$46,500 guaranteed, up from $9,000.</b> A bridge while the book gets up to speed, settling at $25,000 permanently.</span></div>
     </div>
     <div class="di">
       <svg viewBox="0 0 24 24" class="ico"><path d="M4 19V9"/><path d="M10 19V5"/><path d="M16 19v-8"/><path d="M22 19H2"/></svg>
@@ -166,11 +177,11 @@
     </div>
     <div class="di">
       <svg viewBox="0 0 24 24" class="ico"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M17 9h4"/><path d="M19 7v4"/></svg>
-      <div><b>Producer override, 10%</b><span>On everything written by every producer you recruit, train and manage. Justin, Trent, and everyone who comes after. New business and renewals both.</span></div>
+      <div><b>Producer override, 10%</b><span><b>Grows every time we hire.</b> On everything written by every producer you recruit, train and manage. Justin, Trent, and everyone who comes after. New business and renewals both.</span></div>
     </div>
     <div class="di">
       <svg viewBox="0 0 24 24" class="ico"><path d="M12 3l8 5v8l-8 5-8-5V8z"/><path d="M12 11v9"/><path d="M12 11l8-3"/><path d="M12 11L4 8"/></svg>
-      <div><b>Ownership, 9%</b><span>Already yours and already signed. We are restructuring it as a profits interest so it carries zero tax now and capital gains at a sale. Safeshield pays every cost of doing it.</span></div>
+      <div><b>Ownership, 9%</b><span>Already yours and already signed. We are restructuring it as a profits interest so it carries <b>zero tax now and capital gains at a sale, worth about $236,000 to you at our target</b>. Safeshield pays every cost of doing it.</span></div>
     </div>
   </div>
 
@@ -183,7 +194,7 @@
     <tr><td>Your book, renewals</td><td class="num was">60%</td><td class="num">40%</td></tr>
     <tr><td>Safeshield leads</td><td class="num was">60 / 60</td><td class="num">30 / 20</td></tr>
     <tr><td>Austin leads</td><td class="num was">40%</td><td class="num">20 / 15</td></tr>
-    <tr><td>Dealer channel</td><td class="num was">yours</td><td class="num">unchanged, yours</td></tr>
+    <tr class="us"><td>Dealer channel, the one you built</td><td class="num">40% perpetual override</td><td class="num up">untouched, still 40%, still yours</td></tr>
     <tr><td>Override on your producers</td><td class="num was">10%</td><td class="num">10%, all future hires too</td></tr>
     <tr><td>Retirement</td><td class="num was">none</td><td class="num up">401(k), 4% match &mdash; $2,787 a year</td></tr>
     <tr><td>Your 9%, when it pays out</td><td class="num was">taxed as income, ~44%</td><td class="num up">capital gains, ~30%</td></tr>
