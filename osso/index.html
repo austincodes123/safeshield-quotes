@@ -283,6 +283,28 @@ td.mute{color:var(--faint)}
 .leg .val{font-weight:800;font-size:16.5px;letter-spacing:-.02em;color:var(--navy);white-space:nowrap;font-variant-numeric:tabular-nums}
 @media print{.seg{transition:none}}
 
+/* ================= 8. WHERE YOU STAND ================= */
+.stand{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px;align-items:start}
+@media(max-width:900px){.stand{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.stand{grid-template-columns:1fr}}
+.card{background:#fff;border:1.5px solid var(--line);padding:20px 17px;text-align:left;font-family:var(--sans);color:var(--ink);cursor:pointer;width:100%;display:block;transition:border-color .18s ease,box-shadow .18s ease}
+.card:hover{border-color:var(--faint)}
+.card:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.card[aria-expanded="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
+.card .ic{width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:var(--navy-tint);margin-bottom:14px;transition:background .2s ease}
+.card[aria-expanded="true"] .ic{background:var(--yellow)}
+.card .ic svg{width:23px;height:23px;stroke:var(--navy);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card h4{font-family:var(--display);font-size:17.5px;font-weight:800;margin:0 0 9px;letter-spacing:-.01em;line-height:1.15}
+.card .have{font-size:13px;font-weight:300;color:var(--muted);line-height:1.55;margin:0}
+.card .more{display:block;max-height:0;overflow:hidden;transition:max-height .35s ease}
+.card[aria-expanded="true"] .more{max-height:400px}
+.card .more-in{display:block;padding-top:14px;margin-top:15px;border-top:1px solid var(--line)}
+.card .more-in b{display:block;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--alert);margin-bottom:7px}
+.card .more-in p{margin:0;font-size:13px;font-weight:300;color:var(--ink);line-height:1.55}
+.tapme{display:block;margin-top:15px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
+.card[aria-expanded="true"] .tapme{color:var(--faint)}
+@media print{.card .more{max-height:none!important}.tapme{display:none}}
+
 </style>
 </head>
 <body>
@@ -311,13 +333,58 @@ td.mute{color:var(--faint)}
       </dl>
       <div class="row">
         <button class="ghost" id="replay" type="button">Run it again</button>
-        <button class="ghost go" id="scroller" type="button">See what changes</button>
+        <button class="ghost go" id="scroller" type="button">Start here</button>
       </div>
     </div>
   </section>
 
-  <!-- ============ 2. WHAT CHANGES ============ -->
+  <!-- ============ 2. WHERE YOU STAND ============ -->
   <section class="sect" id="options">
+    <p class="eyebrow">Where you stand today</p>
+    <h2>Nick, here is exactly what you have right now.</h2>
+    <p class="lede">Your homeowners renewed on 9 July and the auto renews in November. Before I show you anything new, let us walk through what you are actually carrying, and where each piece runs out. Tap any of the four.</p>
+
+    <div class="stand">
+
+      <button class="card" type="button" aria-expanded="true">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.2v9.3h13v-9.3"/><path d="M10 19.5v-5h4v5"/></svg></span>
+        <h4>Your home</h4>
+        <p class="have">$1,564,000 on the dwelling, $782,000 of contents and a $5,000 deductible, all with Travelers.</p>
+        <span class="more"><span class="more-in"><b>Where it runs out</b><p>Living expenses stop at $312,800 if you cannot live in the house. Other structures, which is where the pool sits, is capped at $156,400. And the most the policy can ever pay on the building itself is $1,955,000, whatever it actually costs to rebuild.</p></span></span>
+        <span class="tapme">Hide</span>
+      </button>
+
+      <button class="card" type="button" aria-expanded="false">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 15.5v-3l2-4.6h13l2 4.6v3"/><path d="M3.5 15.5h17"/><path d="M5.5 12.5h13"/><circle cx="7.6" cy="16.4" r="1.7"/><circle cx="16.4" cy="16.4" r="1.7"/></svg></span>
+        <h4>Your two cars</h4>
+        <p class="have">A 2022 Tesla Model 3 and a 2023 Infiniti QX55, both leased, on $250,000 / $500,000 liability.</p>
+        <span class="more"><span class="more-in"><b>Where it runs out</b><p>A total loss is settled at whatever an adjuster decides the car is worth that morning, which on a lease can land under what you still owe. Your liability tops out at $500,000 per accident.</p></span></span>
+        <span class="tapme">Where it runs out &plus;</span>
+      </button>
+
+      <button class="card" type="button" aria-expanded="false">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4h11l3.2 5.2L12 20.2 3.3 9.2z"/><path d="M3.3 9.2h17.4"/><path d="M9.6 4 6.9 9.2 12 20.2"/><path d="M14.4 4l2.7 5.2L12 20.2"/></svg></span>
+        <h4>Rosemary&rsquo;s jewelry</h4>
+        <p class="have">Covered inside the $782,000 contents limit. Nothing is scheduled on its own.</p>
+        <span class="more"><span class="more-in"><b>Where it runs out</b><p>Theft of jewelry is capped at $1,500. That is the entire limit, no matter what the piece is worth, and it is printed on page D&#8209;2 of the policy you just received.</p></span></span>
+        <span class="tapme">Where it runs out &plus;</span>
+      </button>
+
+      <button class="card" type="button" aria-expanded="false">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a8.8 8.8 0 0 1 8.8 8.8H3.2A8.8 8.8 0 0 1 12 3.2z"/><path d="M12 3.2V12"/><path d="M12 12v6.3a2.4 2.4 0 0 0 4.8 0"/></svg></span>
+        <h4>Everything above that</h4>
+        <p class="have">Nothing at all. There is no umbrella or excess liability policy sitting above the house or the cars.</p>
+        <span class="more"><span class="more-in"><b>Where it runs out</b><p>Immediately. Past $500,000 on the house or the cars, a judgment comes out of your own assets. You bought this house for cash, so there is no lender standing in front of it.</p></span></span>
+        <span class="tapme">Where it runs out &plus;</span>
+      </button>
+
+    </div>
+
+    <p class="verdict"><strong>None of that is a criticism of the policy you have.</strong> It is a perfectly normal Travelers homeowners and auto package, and it has done its job. It just was not built for a house you own outright with a pool, two leased cars and a business in your name. That is the gap I want to close.</p>
+  </section>
+
+  <!-- ============ 3. WHAT CHANGES ============ -->
+  <section class="sect">
     <p class="eyebrow">What actually changes</p>
     <h2>Six gaps close. Nothing gets thinner.</h2>
     <p class="lede">This is the whole move in one frame. The left column is everything that stays exactly where it is, so you can see I am not quietly trading one thing for another. The right column is what closes.</p>
@@ -856,6 +923,15 @@ td.mute{color:var(--faint)}
     });
   });
   auA.addEventListener('input', calcAuto);
+
+  /* ---------- where you stand cards ---------- */
+  [].slice.call(document.querySelectorAll('.card')).forEach(function(c){
+    c.addEventListener('click', function(){
+      var open = c.getAttribute('aria-expanded') === 'true';
+      c.setAttribute('aria-expanded', String(!open));
+      c.querySelector('.tapme').innerHTML = open ? 'Where it runs out &plus;' : 'Hide';
+    });
+  });
 
   /* ---------- money flow bar ---------- */
   var segs = [].slice.call(document.querySelectorAll('.seg'));
