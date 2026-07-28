@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a1628">
+<title>Your renewal review, Nicholas. Safeshield Insurance.</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#004B89;
+  --navy-deep:#003666;
+  --navy-tint:#E2EBF4;
+  --yellow:#FFA300;
+  --yellow-soft:#FFF3DE;
+  --dark:#0a1628;
+  --dark-2:#152740;
+  --off:#FAFAF8;
+  --paper:#E7EBF0;
+  --ink:#0a1628;
+  --muted:#5A6B80;
+  --faint:#8E9DB0;
+  --line:#C8D2DE;
+  --alert:#B03A2B;
+  --display:'Playfair Display',Georgia,serif;
+  --sans:'Outfit','Helvetica Neue',Arial,sans-serif;
+  --pad:clamp(18px,4.5vw,40px);
+  --gut:clamp(12px,3.5vw,28px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;font-weight:400;line-height:1.55;overflow-x:hidden}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--gut) 72px}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+
+/* ================= 1. REVEAL ================= */
+.hero{
+  position:relative;margin:0 calc(var(--gut) * -1);color:var(--off);
+  background:radial-gradient(120% 90% at 50% 0%, #16294a 0%, var(--dark) 62%);
+  overflow:hidden;min-height:88vh;min-height:88svh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:calc(var(--pad) + env(safe-area-inset-top)) var(--pad) var(--pad);
+}
+@media(min-width:861px){.hero{min-height:0;padding-top:56px;padding-bottom:56px}}
+
+.hero .mark{position:absolute;top:calc(20px + env(safe-area-inset-top));left:var(--pad);z-index:4;white-space:nowrap;
+  font-family:var(--display);font-weight:900;font-size:16px;letter-spacing:-.01em;line-height:1}
+.hero .mark span{color:var(--yellow)}
+.hero .mark small{display:block;font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-top:7px}
+
+.money{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.bill{position:absolute;top:-80px;width:46px;height:26px;will-change:transform,opacity;
+  filter:drop-shadow(0 4px 7px rgba(0,0,0,.4))}
+.bill svg{display:block;width:100%;height:100%}
+@keyframes drop{
+  0%{transform:translate3d(0,-80px,0) rotate(var(--r0)) scale(var(--sc));opacity:0}
+  8%{opacity:1} 88%{opacity:1}
+  100%{transform:translate3d(var(--sway),var(--dist),0) rotate(var(--r1)) scale(var(--sc));opacity:0}
+}
+
+.curtain{position:relative;z-index:3;width:100%;background:none;border:0;color:var(--off);font-family:var(--sans);cursor:pointer;text-align:center;padding:0}
+.curtain:focus-visible{outline:3px solid var(--yellow);outline-offset:8px}
+.curtain .kick{display:block;font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--yellow);margin-bottom:20px}
+.curtain .big{display:block;font-family:var(--display);font-size:clamp(30px,8.4vw,58px);font-weight:900;letter-spacing:-.02em;line-height:1.03;max-width:15ch;margin:0 auto;text-wrap:balance}
+.curtain .sub{display:block;font-size:15px;font-weight:300;color:#A8B6C6;margin:20px auto 0;max-width:32ch;line-height:1.5}
+.curtain .hint{display:inline-block;margin-top:36px;font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;background:var(--yellow);color:var(--dark);padding:19px 36px;border-radius:2px}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.curtain .hint{animation:breathe 2.2s ease-in-out infinite}
+.curtain:active .hint{transform:scale(.96)}
+
+.payload{position:relative;z-index:3;display:none;text-align:center;width:100%}
+.hero.open .curtain{display:none}
+.hero.open .payload{display:block;animation:rise .5s cubic-bezier(.2,.7,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.payload .kick{font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
+.counter{font-family:var(--sans);font-weight:800;font-size:clamp(44px,15vw,112px);letter-spacing:-.045em;line-height:.95;color:var(--yellow)}
+.payload .cap{font-family:var(--display);font-weight:700;font-size:clamp(16px,4.2vw,22px);margin:20px auto 0;max-width:22ch;line-height:1.3}
+.splits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:30px auto 0;max-width:520px;padding-top:24px;border-top:1px solid #24395c}
+.splits dt{font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+.splits dd{margin:0;font-weight:700;font-size:clamp(16px,4.6vw,23px);letter-spacing:-.02em}
+.payload .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.ghost{background:none;border:1px solid #2C4266;color:#A8B6C6;font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:15px 21px;cursor:pointer;border-radius:2px}
+.ghost:hover{border-color:var(--yellow);color:var(--yellow)}
+.ghost:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+.ghost.go{border-color:var(--yellow);color:var(--yellow)}
+
+/* ================= frames ================= */
+.sect{background:var(--off);padding:var(--pad);margin-top:14px;border:1px solid var(--line)}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin:0 0 12px}
+h2{font-family:var(--display);font-size:clamp(24px,6vw,38px);font-weight:900;letter-spacing:-.02em;line-height:1.08;margin:0 0 14px;text-wrap:balance}
+.lede{font-size:clamp(14.5px,3.6vw,17.5px);font-weight:300;color:var(--muted);max-width:64ch;margin:0}
+
+/* ================= 2. SIDE BY SIDE ================= */
+.rail{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:24px}
+@media(max-width:860px){.rail{grid-template-columns:1fr}}
+.col{position:relative;border:1.5px solid var(--line);background:#fff;padding:28px 18px 18px;display:flex;flex-direction:column;text-align:left;font-family:var(--sans);color:var(--ink);width:100%}
+.col .tag{position:absolute;top:-1.5px;left:-1.5px;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 11px;color:#fff;background:var(--faint)}
+.col h3{font-family:var(--display);font-size:19px;font-weight:800;letter-spacing:-.01em;margin:14px 0 3px}
+.col .sub{font-size:12.5px;font-weight:400;color:var(--muted);margin:0 0 14px}
+.col .fig{font-weight:800;font-size:clamp(32px,8vw,42px);letter-spacing:-.035em;line-height:1;color:var(--navy)}
+.col .per{font-size:10px;font-weight:600;color:var(--faint);letter-spacing:.12em;text-transform:uppercase;margin-top:9px}
+.col .body{font-size:13.5px;font-weight:300;color:var(--muted);margin:16px 0 0;line-height:1.55;flex:1}
+.col .delta{font-weight:700;font-size:13.5px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);color:var(--navy)}
+.col.now{background:#EDF0F4;border-style:dashed}
+.col.now .fig{color:var(--alert)}
+.col.now .delta{color:var(--muted)}
+button.col{cursor:pointer;transition:border-color .18s ease,box-shadow .18s ease;min-height:44px}
+button.col:hover{border-color:var(--faint)}
+button.col:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+button.col[aria-checked="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy),0 12px 28px -18px rgba(10,22,40,.7)}
+button.col[aria-checked="true"] .tag{background:var(--navy)}
+.pick{margin-top:15px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:13px;text-align:center}
+button.col[aria-checked="true"] .pick{color:var(--dark);background:var(--yellow);border-color:var(--yellow)}
+button.col[aria-checked="true"] .pick::before{content:"\2713\00a0\00a0"}
+
+/* ================= 3. THE DIFFERENCE ================= */
+.diff{margin-top:24px;border:1.5px solid var(--navy)}
+.diff-head{background:var(--navy);color:#fff;padding:16px var(--pad);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.diff-body{padding:var(--pad);background:#fff}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.dgrid{grid-template-columns:1fr}}
+.dbox{border:1px solid var(--line);padding:17px}
+.dbox.same{background:#F1F4F8}
+.dbox h4{margin:0 0 11px;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+.dbox ul{margin:0;padding-left:17px;font-size:13.5px;font-weight:300;line-height:1.6}
+.dbox li{margin-bottom:6px}
+.dbox li:last-child{margin:0}
+.dbox b{font-weight:700}
+.dprice{margin-top:20px;padding-top:20px;border-top:1.5px solid var(--navy);display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline}
+.dprice .amt{font-weight:800;font-size:clamp(26px,7vw,36px);letter-spacing:-.035em;color:var(--navy)}
+.dprice span{font-size:13.5px;font-weight:300;color:var(--muted);max-width:46ch}
+.dprice span b{font-weight:700;color:var(--ink)}
+
+/* ================= 4. THRESHOLD ================= */
+.bar{position:relative;height:3px;background:var(--yellow);margin:28px 0;transition:background .35s ease,opacity .35s ease}
+.bar::before{content:attr(data-label);position:absolute;left:0;top:-11px;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;background:var(--off);padding-right:10px;color:#B57200;transition:color .35s ease}
+body.free .bar{background:transparent;border-top:2px dashed var(--navy);height:0;opacity:.6}
+body.free .bar::before{color:var(--navy)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(max-width:680px){.tiles{grid-template-columns:1fr 1fr}}
+@media(max-width:400px){.tiles{grid-template-columns:1fr}}
+.tile{border:1px solid var(--line);padding:13px 14px;background:#fff;transition:border-color .3s ease,background .3s ease,opacity .3s ease}
+.tile b{display:block;font-size:13.5px;font-weight:700;letter-spacing:-.01em}
+.tile span{display:block;font-size:11.5px;font-weight:300;color:var(--muted);margin-top:3px;line-height:1.45}
+.above .tile{border-color:var(--yellow);background:var(--yellow-soft)}
+body.free .above .tile{border-color:var(--line);background:#fff}
+.below .tile{opacity:.4;border-style:dashed}
+.below .tile b{text-decoration:line-through;text-decoration-thickness:1.5px}
+body.free .below .tile{opacity:1;border-style:solid;border-color:var(--navy);background:var(--navy-tint)}
+body.free .below .tile b{text-decoration:none}
+.grp-label{font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
+.verdict{margin-top:24px;border-left:3px solid var(--yellow);padding:14px 0 14px 17px;font-size:14.5px;font-weight:300;max-width:70ch;transition:border-color .3s ease}
+body.free .verdict{border-left-color:var(--navy)}
+.verdict strong{font-weight:700}
+
+/* ================= 5. TABLE ================= */
+.tablewrap{overflow-x:auto;margin-top:22px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;background:#fff}
+@media(min-width:701px){table{min-width:640px}}
+caption{text-align:left;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);padding-bottom:11px}
+th,td{padding:10px;text-align:left;border-bottom:1px solid var(--line);font-size:13.5px;font-weight:400;vertical-align:top}
+thead th{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:1.5px solid var(--navy)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.cov{font-weight:600}
+tr.total td{border-bottom:none;border-top:1.5px solid var(--navy);font-weight:800;padding-top:15px}
+tr.total td.n{font-size:16.5px;color:var(--navy)}
+tr.save td{border-bottom:none;padding-top:4px;font-weight:700;font-size:12px;color:var(--navy)}
+body.limited th.c-lim,body.limited td.c-lim{background:var(--navy-tint)}
+body.free th.c-free,body.free td.c-free{background:var(--navy-tint)}
+body.limited th.c-lim,body.free th.c-free{color:var(--navy)}
+td.mute{color:var(--faint)}
+@media(max-width:700px){
+  th.lim2,td.lim2{display:none}
+  body.limited th.c-free,body.limited td.c-free{display:none}
+  body.free th.c-lim,body.free td.c-lim{display:none}
+  th,td{padding:9px 6px;font-size:13px}
+}
+.flag{display:flex;margin-top:20px;padding:14px 16px;background:#F9E7E4;border-left:3px solid var(--alert);font-size:13px;font-weight:300;line-height:1.55}
+.flag b{font-weight:800;color:var(--alert)}
+
+/* ================= gains, steps, fine ================= */
+.gains{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+@media(max-width:720px){.gains{grid-template-columns:1fr}}
+.gain{border-top:2px solid var(--yellow);padding-top:15px}
+.gain b{display:block;font-family:var(--display);font-size:16px;font-weight:800;margin-bottom:6px}
+.gain span{font-size:13px;font-weight:300;color:var(--muted);line-height:1.55}
+.close{margin-top:26px;display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;border-top:1.5px solid var(--navy);padding-top:26px}
+@media(max-width:720px){.close{grid-template-columns:1fr;gap:22px}}
+.close p{margin:0 0 10px;font-size:14.5px;font-weight:300;padding-left:23px;position:relative}
+.close p:last-child{margin:0}
+.close p::before{content:"";position:absolute;left:0;top:.6em;width:9px;height:9px;background:var(--yellow)}
+.cta{display:block;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;padding:21px 32px;text-align:center;border-radius:2px;white-space:nowrap}
+.cta:hover{background:var(--navy-deep)}
+.cta:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.fine{margin-top:14px;padding:var(--pad);background:#DCE2E9;border:1px solid var(--line);font-size:11.5px;font-weight:300;color:var(--muted);line-height:1.65}
+.fine p{margin:0 0 9px}
+.fine p:last-child{margin:0}
+.fine strong{color:var(--ink);font-weight:700}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  body{background:#fff}
+  .money,.ghost,.curtain{display:none!important}
+  .hero{background:#fff;color:var(--ink);min-height:0;padding:24px 0}
+  .hero .mark{position:static;margin-bottom:24px}
+  .hero .payload{display:block!important}
+  .counter{color:var(--navy)}
+  .payload .cap,.splits dd{color:var(--ink)}
+  .splits{border-top-color:var(--line)}
+  .sect,.fine,.diff{break-inside:avoid}
+}
+
+/* ================= 6. CLAIM ENGINE ================= */
+.rail.two{grid-template-columns:1fr 1fr}
+@media(max-width:860px){.rail.two{grid-template-columns:1fr}}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:24px}
+@media(max-width:760px){.tabs{grid-template-columns:1fr 1fr}}
+.tab{background:#fff;border:1.5px solid var(--line);color:var(--muted);font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:15px 9px;cursor:pointer;border-radius:2px;line-height:1.3;min-height:44px}
+.tab:hover{border-color:var(--faint)}
+.tab:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.panel{display:none;margin-top:14px;border:1.5px solid var(--navy)}
+.panel.on{display:block}
+.panel-head{background:var(--navy);color:#fff;padding:15px var(--pad);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.panel-body{padding:var(--pad);background:#fff}
+.ask{font-size:14.5px;font-weight:300;color:var(--muted);margin:0 0 10px;max-width:62ch}
+.ask b{font-weight:700;color:var(--ink)}
+.dialval{font-weight:800;font-size:clamp(27px,7.4vw,38px);letter-spacing:-.035em;color:var(--navy);line-height:1;margin-bottom:2px}
+.dial{width:100%;-webkit-appearance:none;appearance:none;height:36px;background:none;cursor:pointer;margin:0}
+.dial:focus-visible{outline:3px solid var(--yellow);outline-offset:4px}
+.dial::-webkit-slider-runnable-track{height:6px;background:var(--line);border-radius:3px}
+.dial::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;margin-top:-12px;border-radius:50%;background:var(--yellow);border:3px solid var(--navy);box-shadow:0 3px 9px rgba(10,22,40,.35)}
+.dial::-moz-range-track{height:6px;background:var(--line);border-radius:3px}
+.dial::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--yellow);border:3px solid var(--navy)}
+.scale{display:flex;justify-content:space-between;font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.picks{display:flex;gap:6px;margin:0 0 18px;flex-wrap:wrap}
+.pillbtn{background:#fff;border:1.5px solid var(--line);color:var(--muted);font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:12px 16px;cursor:pointer;border-radius:2px;min-height:44px}
+.pillbtn[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.pillbtn:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.outcome{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+@media(max-width:640px){.outcome{grid-template-columns:1fr}}
+.oc{border:1.5px solid var(--line);padding:18px}
+.oc h5{margin:0 0 13px;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.oc.trav{background:#EDF0F4;border-style:dashed}
+.oc.chubb{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
+.oc.chubb h5{color:var(--navy)}
+.oc .big-n{font-weight:800;font-size:clamp(27px,7.2vw,37px);letter-spacing:-.035em;line-height:1;color:var(--navy)}
+.oc.trav .big-n{color:var(--ink)}
+.oc .lbl{font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin-top:9px}
+.oc .gap{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;font-weight:700;line-height:1.35}
+.oc.trav .gap{color:var(--alert)}
+.oc.chubb .gap{color:var(--navy)}
+.oc .gap small{display:block;font-weight:300;font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.5}
+.readout{margin-top:22px;border-left:3px solid var(--yellow);padding:14px 0 14px 17px;font-size:14.5px;font-weight:300;max-width:72ch}
+.readout strong{font-weight:700}
+.col.pickme{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy),0 12px 28px -18px rgba(10,22,40,.7)}
+.col.pickme .tag{background:var(--navy)}
+.col.pickme .delta{color:var(--navy)}
+@media print{.tabs,.dial,.picks,.scale{display:none!important}.panel{display:block!important;break-inside:avoid;margin-top:10px}}
+
+/* ================= 7. MONEY FLOW ================= */
+.flow{margin-top:26px;border:1.5px solid var(--navy);background:#fff}
+.flow-head{background:var(--navy);color:#fff;padding:15px var(--pad);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.flow-body{padding:var(--pad)}
+.flowtop{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;margin-bottom:18px}
+.flowtop .amt{font-weight:800;font-size:clamp(30px,8vw,44px);letter-spacing:-.04em;color:var(--navy);line-height:1}
+.flowtop span{font-size:13.5px;font-weight:300;color:var(--muted);max-width:48ch}
+.flowbar{display:flex;height:38px;border:1px solid var(--line);overflow:hidden;background:#F1F4F8}
+.seg{width:0;transition:width 1.25s cubic-bezier(.2,.7,.3,1)}
+.seg.s1{background:var(--navy)}
+.seg.s2{background:#3D7BB5}
+.seg.s3{background:var(--yellow)}
+.flowlegend{margin-top:16px;display:grid;gap:0}
+.leg{display:flex;align-items:baseline;gap:11px;padding:11px 0;border-bottom:1px solid var(--line)}
+.leg:last-child{border-bottom:none}
+.sw{flex:0 0 auto;width:12px;height:12px;margin-top:2px;align-self:flex-start}
+.sw.s1{background:var(--navy)}.sw.s2{background:#3D7BB5}.sw.s3{background:var(--yellow)}
+.leg .txt{flex:1;font-size:14px;font-weight:300;color:var(--muted);line-height:1.5}
+.leg .txt b{font-weight:700;color:var(--ink);display:block;font-size:14.5px;margin-bottom:1px}
+.leg .val{font-weight:800;font-size:16.5px;letter-spacing:-.02em;color:var(--navy);white-space:nowrap;font-variant-numeric:tabular-nums}
+@media print{.seg{transition:none}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ 1. REVEAL ============ -->
+  <section class="hero" id="hero">
+    <div class="mark">Safe<span>shield</span> Insurance<small>Prepared for Nicholas &amp; Rosemary Osso</small></div>
+    <div class="money" id="money" aria-hidden="true"></div>
+
+    <button class="curtain" id="curtain" type="button">
+      <span class="kick">Renewal review edition</span>
+      <span class="big">What your policy does on the worst day of the year.</span>
+      <span class="sub">Same house. Same two cars. Same deductible. Everything that separates these two policies shows up on that one day. Let me walk you through the coverage first, and we will talk about money at the end.</span>
+      <span class="hint">Show me</span>
+    </button>
+
+    <div class="payload" id="payload" aria-live="polite">
+      <p class="kick">Starting with the piece you have never had</p>
+      <div class="counter num" id="counter">$0</div>
+      <p class="cap">Of liability protection sitting above your house and both of your cars</p>
+      <dl class="splits">
+        <div><dt>Living expenses</dt><dd>No cap</dd></div>
+        <div><dt>Jewelry</dt><dd class="num">$35,000</dd></div>
+        <div><dt>Auto liability</dt><dd class="num">$500,000</dd></div>
+      </dl>
+      <div class="row">
+        <button class="ghost" id="replay" type="button">Run it again</button>
+        <button class="ghost go" id="scroller" type="button">See what changes</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. WHAT CHANGES ============ -->
+  <section class="sect" id="options">
+    <p class="eyebrow">What actually changes</p>
+    <h2>Six gaps close. Nothing gets thinner.</h2>
+    <p class="lede">This is the whole move in one frame. The left column is everything that stays exactly where it is, so you can see I am not quietly trading one thing for another. The right column is what closes.</p>
+
+    <div class="diff">
+      <div class="diff-head">Your house and cars, before and after</div>
+      <div class="diff-body">
+        <div class="dgrid">
+          <div class="dbox same">
+            <h4>Stays exactly the same</h4>
+            <ul>
+              <li>Dwelling limit, <b>$1,564,000</b></li>
+              <li>Contents, <b>$782,000</b></li>
+              <li>Personal liability on the home, <b>$500,000</b></li>
+              <li>Home deductible, <b>$5,000</b></li>
+              <li>Water backup, <b>$10,000</b></li>
+              <li>Comprehensive and collision deductibles, <b>$1,000</b></li>
+            </ul>
+          </div>
+          <div class="dbox">
+            <h4>What closes</h4>
+            <ul>
+              <li><b>$3,000,000 of excess liability.</b> You carry none today. It sits above both the house and the cars.</li>
+              <li><b>Living expenses stop being capped.</b> Travelers gives you $312,800 and then stops.</li>
+              <li><b>Other structures double</b>, $156,400 to $312,800. That is what covers the pool.</li>
+              <li><b>Your deductible is waived</b> on a large loss instead of coming out of your pocket.</li>
+              <li><b>Jewelry goes from $1,500 to $35,000.</b></li>
+              <li><b>Both cars get an agreed value</b> instead of whatever an adjuster decides they are worth on the day.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. CLAIM ENGINE ============ -->
+  <section class="sect">
+    <p class="eyebrow">Move the sliders</p>
+    <h2>Limits are boring until the day you need them.</h2>
+    <p class="lede">So let us make them real. Four things that could happen to you. Drag each one and watch what the two policies actually pay. Every figure here comes straight off your declarations page and the Chubb quote.</p>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-tab="ale" aria-selected="true" type="button">You cannot live in the house</button>
+      <button class="tab" role="tab" data-tab="liab" aria-selected="false" type="button">Someone sues you</button>
+      <button class="tab" role="tab" data-tab="theft" aria-selected="false" type="button">Jewelry is stolen</button>
+      <button class="tab" role="tab" data-tab="auto" aria-selected="false" type="button">A car is totaled</button>
+    </div>
+
+    <!-- ALE -->
+    <div class="panel on" data-panel="ale" role="tabpanel">
+      <div class="panel-head">A fire puts you out of the house</div>
+      <div class="panel-body">
+        <p class="ask">A 1938 house of 4,319 square feet with six bathrooms does not get rebuilt quickly. Permits, historic construction and a Fairfield County contractor calendar all add months. <b>How long are you out?</b></p>
+        <div class="dialval num" id="ale-mval">20 months</div>
+        <input class="dial" id="ale-m" type="range" min="3" max="30" step="1" value="20" aria-label="Months displaced from the house">
+        <div class="scale"><span>3 months</span><span>30 months</span></div>
+        <p class="ask" style="margin-top:14px">At <b>$13,500 a month</b> for a comparable North Stamford rental, that is <b id="ale-need">$270,000</b> of living expenses.</p>
+
+        <div class="outcome">
+          <div class="oc trav">
+            <h5>Travelers pays</h5>
+            <div class="big-n num" id="ale-t">$270,000</div>
+            <div class="lbl">Coverage D, capped at $312,800</div>
+            <div class="gap" id="ale-tgap"></div>
+          </div>
+          <div class="oc chubb">
+            <h5>Chubb pays</h5>
+            <div class="big-n num" id="ale-c">$270,000</div>
+            <div class="lbl">Living expenses, full coverage</div>
+            <div class="gap" id="ale-cgap"></div>
+          </div>
+        </div>
+
+        <p class="readout"><strong>Why it works:</strong> your Travelers living expense money runs dry at month 23. Every month past that is rent you pay yourself while you are also paying to rebuild. Chubb has no number in that box, so month 23 and month 30 look exactly the same to them.</p>
+      </div>
+    </div>
+
+    <!-- LIABILITY -->
+    <div class="panel" data-panel="liab" role="tabpanel">
+      <div class="panel-head">Someone is hurt and a jury puts a number on it</div>
+      <div class="panel-body">
+        <p class="ask">A guest is injured at the pool, or one of you is at fault in a serious accident. Both are ordinary events with extraordinary numbers attached. <b>What is the judgment?</b></p>
+        <div class="dialval num" id="li-jval">$1,500,000</div>
+        <input class="dial" id="li-j" type="range" min="250000" max="4000000" step="50000" value="1500000" aria-label="Judgment amount">
+        <div class="scale"><span>$250,000</span><span>$4,000,000</span></div>
+
+        <div class="outcome">
+          <div class="oc trav">
+            <h5>Travelers covers</h5>
+            <div class="big-n num" id="li-t">$500,000</div>
+            <div class="lbl">Personal liability limit, $500,000</div>
+            <div class="gap" id="li-tgap"></div>
+          </div>
+          <div class="oc chubb">
+            <h5>Chubb covers</h5>
+            <div class="big-n num" id="li-c">$1,500,000</div>
+            <div class="lbl">$500,000 policy plus $3,000,000 excess</div>
+            <div class="gap" id="li-cgap"></div>
+          </div>
+        </div>
+
+        <p class="readout"><strong>Why it works:</strong> this is the one that keeps me up about your file. You bought this house for cash, so there is no lender sitting between a judgment and the property. Anything past $500,000 today comes from you. We tried twice to place an umbrella for you in 2024 and were declined both times. Chubb wrote <strong>$3,000,000.</strong></p>
+      </div>
+    </div>
+
+    <!-- THEFT -->
+    <div class="panel" data-panel="theft" role="tabpanel">
+      <div class="panel-head">Jewelry is taken from the house</div>
+      <div class="panel-body">
+        <p class="ask">Your contents limit is $782,000, but jewelry has its own cap buried on page D&#8209;2 of your policy, and it is much smaller than people expect. <b>What was taken?</b></p>
+        <div class="dialval num" id="th-vval">$25,000</div>
+        <input class="dial" id="th-v" type="range" min="2000" max="60000" step="1000" value="25000" aria-label="Value of jewelry stolen">
+        <div class="scale"><span>$2,000</span><span>$60,000</span></div>
+
+        <div class="outcome">
+          <div class="oc trav">
+            <h5>Travelers pays</h5>
+            <div class="big-n num" id="th-t">$1,500</div>
+            <div class="lbl">Theft of jewelry sublimit, $1,500</div>
+            <div class="gap" id="th-tgap"></div>
+          </div>
+          <div class="oc chubb">
+            <h5>Chubb pays</h5>
+            <div class="big-n num" id="th-c">$25,000</div>
+            <div class="lbl">Blanket jewelry, $35,000</div>
+            <div class="gap" id="th-cgap"></div>
+          </div>
+        </div>
+
+        <p class="readout"><strong>Why it works:</strong> the Travelers number does not move. Whether the ring is worth $6,000 or $60,000, theft of jewelry pays $1,500 and stops. The Chubb schedule covers everything you own up to $35,000, with no itemizing and no appraisal until a single piece passes $100,000.</p>
+      </div>
+    </div>
+
+    <!-- AUTO -->
+    <div class="panel" data-panel="auto" role="tabpanel">
+      <div class="panel-head">A car is written off</div>
+      <div class="panel-body">
+        <p class="ask">Both cars are leased. Travelers settles a total loss at actual cash value, whatever the adjuster decides the car is worth that morning, and on a lease that number only falls as the term runs on. Chubb agrees the figure up front and it does not move. <b>Pick a car, then move the adjuster's number.</b></p>
+        <div class="picks" role="group" aria-label="Choose a vehicle">
+          <button class="pillbtn" data-car="tesla" aria-pressed="true" type="button">2022 Tesla Model 3</button>
+          <button class="pillbtn" data-car="qx" aria-pressed="false" type="button">2023 Infiniti QX55</button>
+        </div>
+        <p class="ask">What the adjuster says it is worth</p>
+        <div class="dialval num" id="au-aval">$17,000</div>
+        <input class="dial" id="au-a" type="range" min="12000" max="23550" step="50" value="17000" aria-label="Actual cash value assigned by the adjuster">
+        <div class="scale"><span id="au-min">$12,000</span><span id="au-max">$23,550 today</span></div>
+
+        <div class="outcome">
+          <div class="oc trav">
+            <h5>Travelers pays</h5>
+            <div class="big-n num" id="au-t">$18,000</div>
+            <div class="lbl">Actual cash value, their number</div>
+            <div class="gap" id="au-tgap"></div>
+          </div>
+          <div class="oc chubb">
+            <h5>Chubb pays</h5>
+            <div class="big-n num" id="au-c">$23,550</div>
+            <div class="lbl" id="au-clbl">Agreed value on the Tesla, set up front</div>
+            <div class="gap" id="au-cgap"></div>
+          </div>
+        </div>
+
+        <p class="readout"><strong>Why it works:</strong> the agreed value is set at what the car is worth now, so today is the best the adjuster's number will ever look. From here it only falls, and Tesla resale in particular has fallen hard. On a leased car this is not a debate about fairness, it is a debate you are having while the lease company waits to be paid. If the adjuster's figure lands under your payoff, the shortfall comes out of your pocket for a car you no longer have. Chubb settles the number before anything happens so there is nothing to argue about. Both policies carry the same $1,000 deductible, so that part is a wash.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. HOME, LINE BY LINE ============ -->
+  <section class="sect">
+    <p class="eyebrow">Your house, limit by limit</p>
+    <h2>Same dwelling amount. Not the same policy.</h2>
+    <p class="lede">Both carriers insure the house for $1,564,000. Everything that happens after that number is where they separate.</p>
+
+    <div class="tablewrap">
+      <table>
+        <caption>Homeowners coverage</caption>
+        <thead>
+          <tr><th>Coverage</th><th class="n">Travelers today</th><th class="n">Chubb</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="cov">Dwelling</td><td class="n">$1,564,000</td><td class="n">$1,564,000</td></tr>
+          <tr><td class="cov">Dwelling form</td><td class="n">Travelers Protect</td><td class="n">Masterpiece Deluxe</td></tr>
+          <tr><td class="cov">Most the dwelling can ever pay</td><td class="n">$1,955,000</td><td class="n">Deluxe</td></tr>
+          <tr><td class="cov">Other structures, incl. the pool</td><td class="n">$156,400</td><td class="n">$312,800</td></tr>
+          <tr><td class="cov">Contents</td><td class="n">$782,000</td><td class="n">$782,000</td></tr>
+          <tr><td class="cov">Contents form</td><td class="n">Travelers Protect</td><td class="n">Deluxe</td></tr>
+          <tr><td class="cov">Living expenses while you rebuild</td><td class="n">$312,800</td><td class="n">No cap</td></tr>
+          <tr><td class="cov">Personal liability</td><td class="n">$500,000</td><td class="n">$500,000</td></tr>
+          <tr><td class="cov">Deductible</td><td class="n">$5,000</td><td class="n">$5,000</td></tr>
+          <tr><td class="cov">Deductible on a large loss</td><td class="n">You pay it</td><td class="n">Waived</td></tr>
+          <tr><td class="cov">Water backup</td><td class="n">$10,000</td><td class="n">$10,000</td></tr>
+          <tr><td class="cov">Theft of jewelry</td><td class="n">$1,500</td><td class="n">$35,000</td></tr>
+          <tr><td class="cov">Liability above the home policy</td><td class="n mute">None</td><td class="n">$3,000,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flag"><span><b>This is printed on your own renewal.</b> Page D&#8209;1 of the Travelers policy summary you just received reads: &ldquo;Please note the Coverage limit for Coverage D &ndash; Loss of Use is less than the commonly provided limit. Please review your limits and contact your agent.&rdquo; That is your current carrier telling you the living expense limit is thin. I agree with them.</span></div>
+  </section>
+
+  <!-- ============ 5. SPECIAL LIMITS ============ -->
+  <section class="sect">
+    <p class="eyebrow">Buried on page D&#8209;2</p>
+    <h2>The small numbers inside the $782,000.</h2>
+    <p class="lede">Your contents limit is $782,000, but specific categories are capped far below it. These are the special limits on your current policy. Nobody reads them until the day they matter.</p>
+
+    <div class="tiles" style="margin-top:24px">
+      <div class="tile"><b>$250</b><span>Cash and coins in the house</span></div>
+      <div class="tile"><b>$1,500</b><span>Theft of jewelry, watches, precious stones</span></div>
+      <div class="tile"><b>$1,500</b><span>Theft of furs</span></div>
+      <div class="tile"><b>$2,500</b><span>Theft of silverware</span></div>
+      <div class="tile"><b>$2,500</b><span>Theft of firearms</span></div>
+      <div class="tile"><b>$1,500</b><span>Securities, passports, tickets, stamps</span></div>
+      <div class="tile"><b>$1,000</b><span>Loss assessment</span></div>
+      <div class="tile"><b>$500</b><span>Fire department service charge</span></div>
+      <div class="tile"><b>$1,000</b><span>Damage to property of others</span></div>
+    </div>
+
+    <p class="verdict"><strong>These are the numbers people are shocked by.</strong> Not the $782,000 on the front page, which almost never gets tested. These, which get tested all the time.</p>
+  </section>
+
+  <!-- ============ 6. AUTO, LINE BY LINE ============ -->
+  <section class="sect">
+    <p class="eyebrow">Your cars, limit by limit</p>
+    <h2>Every limit on the cars goes up.</h2>
+    <p class="lede">Your liability doubles, your uninsured motorist doubles, and both cars stop being valued by an adjuster after the fact.</p>
+
+    <div class="tablewrap">
+      <table>
+        <caption>Personal auto coverage, both vehicles</caption>
+        <thead>
+          <tr><th>Coverage</th><th class="n">Travelers today</th><th class="n">Chubb</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="cov">Bodily injury liability</td><td class="n">$250,000 / $500,000</td><td class="n">$500,000</td></tr>
+          <tr><td class="cov">Property damage liability</td><td class="n">$250,000</td><td class="n">$500,000</td></tr>
+          <tr><td class="cov">Uninsured and underinsured motorist</td><td class="n">$250,000 / $500,000</td><td class="n">$500,000</td></tr>
+          <tr><td class="cov">Comprehensive deductible</td><td class="n">$1,000</td><td class="n">$1,000</td></tr>
+          <tr><td class="cov">Collision deductible</td><td class="n">$1,000</td><td class="n">$1,000</td></tr>
+          <tr><td class="cov">If the 2022 Tesla is totaled</td><td class="n">Actual cash value</td><td class="n">$23,550 agreed</td></tr>
+          <tr><td class="cov">If the 2023 QX55 is totaled</td><td class="n">Actual cash value</td><td class="n">$28,100 agreed</td></tr>
+          <tr><td class="cov">Liability above the auto policy</td><td class="n mute">None</td><td class="n">$3,000,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 7. THE TWO YOU DO NOT HAVE ============ -->
+  <section class="sect">
+    <p class="eyebrow">Not a comparison, an addition</p>
+    <h2>Two things you cannot buy on your current policy.</h2>
+    <p class="lede">These are not Chubb doing the same job better. They are coverages you simply do not own today.</p>
+    <div class="gains">
+      <div class="gain"><b>$3,000,000 of excess liability</b><span>We have looked at an umbrella for you before. In 2024 one carrier declined it on the fire protection class at your address and another would not go above $1.2 million. Chubb wrote $3,000,000 over both the house and the cars. This is the single thing I most wanted to solve on your account, and it is the reason I brought you this quote at all.</span></div>
+      <div class="gain"><b>$35,000 of blanket jewelry</b><span>Replaces a $1,500 theft cap with $35,000 across everything you own, no itemizing and no appraisals until a single piece passes $100,000. If Rosemary would rather have her ring listed on its own, we can do that instead.</span></div>
+      <div class="gain"><b>Agreed value on both cars</b><span>$23,550 on the Tesla and $28,100 on the QX55, set in writing up front rather than argued after a total loss. On two leased vehicles that is the difference between walking away clean and writing a cheque.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 8. NOW THE MONEY ============ -->
+  <section class="sect">
+    <p class="eyebrow">Now the money</p>
+    <h2>All of that, for $158 a month.</h2>
+    <p class="lede">I left this to the end deliberately. The coverage is the reason to move, not the price. But you should see the price in full, so here it is with nothing hidden and nothing rounded in my favour.</p>
+
+    <div class="rail two">
+
+      <div class="col now">
+        <span class="tag">What you pay now</span>
+        <h3>Travelers</h3>
+        <p class="sub">Homeowners and personal auto</p>
+        <div class="fig num">$11,039</div>
+        <div class="per">Per year</div>
+        <p class="body">Homeowners $7,428 and auto $3,611. No umbrella, no scheduled jewelry, living expenses that stop at $312,800 and a $1,500 cap on jewelry theft.</p>
+        <div class="delta">Your renewal went up $974 this year</div>
+      </div>
+
+      <div class="col pickme">
+        <span class="tag">What I recommend</span>
+        <h3>Chubb Masterpiece</h3>
+        <p class="sub">Home, auto, jewelry and excess liability</p>
+        <div class="fig num">$12,941</div>
+        <div class="per">Per year</div>
+        <p class="body">Homeowners $5,025, auto $6,466, $35,000 of blanket jewelry and $3,000,000 of excess liability. Every gap on this page closed.</p>
+        <div class="delta num">$158 a month more</div>
+      </div>
+
+    </div>
+
+    <div class="flow" id="flow">
+      <div class="flow-head">And you do not pay all of it. Here is why.</div>
+      <div class="flow-body">
+        <div class="flowtop">
+          <span class="amt num">$2,403</span>
+          <span>is what Chubb is cheaper on the house, on the exact same $1,564,000 dwelling limit. That is money you were going to hand Travelers this year regardless. Watch what it covers.</span>
+        </div>
+
+        <div class="flowbar" aria-hidden="true">
+          <div class="seg s1" data-w="38.5"></div>
+          <div class="seg s2" data-w="21.3"></div>
+          <div class="seg s3" data-w="40.2"></div>
+        </div>
+
+        <div class="flowlegend">
+          <div class="leg">
+            <span class="sw s1"></span>
+            <span class="txt"><b>$3,000,000 of excess liability</b>The coverage we could not place for you in 2024. Paid for out of the home savings, not out of your pocket.</span>
+            <span class="val num">$926</span>
+          </div>
+          <div class="leg">
+            <span class="sw s2"></span>
+            <span class="txt"><b>$35,000 of blanket jewelry</b>Replaces the $1,500 theft cap. Also paid for out of the home savings.</span>
+            <span class="val num">$512</span>
+          </div>
+          <div class="leg">
+            <span class="sw s3"></span>
+            <span class="txt"><b>Still in your pocket</b>After buying both coverages, this is what is left of the home savings.</span>
+            <span class="val num">$965</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="verdict"><strong>So the honest version is this.</strong> The umbrella and the jewelry pay for themselves out of what you stop sending Travelers on the house. The only line that genuinely costs more is the auto, at $2,855, and the $965 left over covers a third of that. Worth knowing on the auto: your Travelers policy shows $3,524 of discounts against a $3,611 premium, so the rate underneath it is a little over $7,100. Chubb at $6,466 is competing with that number, not the discounted one, and doubling your limits while it does. If you are writing a cheque of roughly this size either way, you may as well be writing it for the policy that does not leave you exposed.</p>
+  </section>
+
+  <!-- ============ 9. CLOSE ============ -->
+  <section class="sect">
+    <p class="eyebrow">Ready when you are</p>
+    <h2>Want me to put this in place?</h2>
+    <p class="lede">Email or call me and say go. We will pick a start date that suits you, I handle the rest, and your lending entities carry over to the new policy exactly as they sit today.</p>
+    <div class="close">
+      <div>
+        <p>We agree a start date that works for you.</p>
+        <p>I send you a Travelers cancellation form to sign.</p>
+        <p>Travelers returns the unused part of your home term.</p>
+        <p>Article Second Trust and O &amp; B Realty Corp move over as they are.</p>
+      </div>
+      <a class="cta" href="mailto:austin@gosafeshield.com?subject=Osso%20%E2%80%94%20let%27s%20move%20forward%20with%20Chubb">Email me to move forward</a>
+    </div>
+  </section>
+
+  <div class="fine">
+    <p><strong>This is a quote, not a policy.</strong> Prepared 07/28/2026. Coverage is effective only when a policy is issued by the carrier. The Chubb terms shown are as quoted and are subject to acceptable reports and inspection. Chubb&rsquo;s quotations are non&#8209;binding and may be revised if any of the information submitted changes or is altered.</p>
+    <p>Travelers figures are taken from the policy summaries issued 07/28/2026: homeowners policy 616044529 633 1, term 07/09/2026 to 07/09/2027, form PL&#8209;50355 CT, and automobile policy 614795365 203 1, term 11/01/2025 to 11/01/2026, form PL&#8209;50014. The $1,955,000 figure is the $1,564,000 dwelling limit plus the 25% Additional Replacement Cost Protection endorsement, HQ&#8209;420 CW, shown at $391,000. Special limits are as listed on page D&#8209;2.</p>
+    <p>Chubb figures are taken from Masterpiece proposals 1615965401 and 1615965402, prepared 07/28/2026, written by Executive Risk Indemnity Inc. Chubb&rsquo;s printed total of $12,015 for home, vehicle and valuable articles includes state&#8209;mandated surcharges, taxes and fees, which is why it differs slightly from the sum of the individual lines shown here. Final coverage terms, sublimits and endorsements are governed by the policy as issued.</p>
+    <p>The sliders on this page are illustrations, not coverage promises. The $13,500 monthly rental figure is an estimate used to show how the Coverage D limit behaves, and is not a quoted or guaranteed amount. Actual claim payments depend on the facts of the loss and the terms of the policy in force.</p>
+    <p>Cancelling the Travelers homeowners policy mid&#8209;term should generate a pro rata return of unearned premium. The Travelers automobile policy runs to 11/01/2026 and moving it earlier will end that term early. Premium comparisons above are annual and do not reflect any return of unearned premium.</p>
+    <p>Presented by Safeshield Insurance LLC, 2777 Summer Street, 6th Floor, Stamford CT 06905. (203) 204&#8209;2555.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var hero = document.getElementById('hero'),
+      moneyBox = document.getElementById('money'),
+      counter = document.getElementById('counter'),
+      TARGET = 3000000,
+      raf = null,
+      reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function F(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+
+  /* Safeshield banknote */
+  var BILL =
+    '<svg viewBox="0 0 46 26" xmlns="http://www.w3.org/2000/svg">' +
+    '<rect x=".8" y=".8" width="44.4" height="24.4" rx="2.2" fill="#FAFAF8" stroke="#004B89" stroke-width="1.2"/>' +
+    '<rect x="3.2" y="3.2" width="39.6" height="19.6" rx="1.2" fill="none" stroke="#004B89" stroke-width=".55" opacity=".5"/>' +
+    '<path d="M5.6 8.6h8M5.6 13h9.4M5.6 17.4h8M32.4 8.6h8M31 13h9.4M32.4 17.4h8" stroke="#004B89" stroke-width=".55" opacity=".32" stroke-linecap="round"/>' +
+    '<circle cx="23" cy="13" r="6.6" fill="#FFA300"/>' +
+    '<circle cx="23" cy="13" r="6.6" fill="none" stroke="#004B89" stroke-width=".8"/>' +
+    '<circle cx="23" cy="13" r="5.1" fill="none" stroke="#004B89" stroke-width=".4" opacity=".55"/>' +
+    '<text x="23" y="16.6" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="700" fill="#004B89">$</text>' +
+    '<text x="8.4" y="7.4" text-anchor="middle" font-family="Georgia,serif" font-size="4.6" font-weight="700" fill="#004B89" opacity=".8">$</text>' +
+    '<text x="37.6" y="21.6" text-anchor="middle" font-family="Georgia,serif" font-size="4.6" font-weight="700" fill="#004B89" opacity=".8">$</text>' +
+    '</svg>';
+
+  function rain(){
+    if(reduced) return;
+    moneyBox.innerHTML = '';
+    var w = hero.offsetWidth,
+        dist = hero.offsetHeight + 190,
+        n = w < 480 ? 24 : (w < 860 ? 34 : 48);
+    for(var i=0;i<n;i++){
+      var b = document.createElement('span'),
+          dur = 2.1 + Math.random()*1.9,
+          delay = Math.random()*1.2;
+      b.className = 'bill';
+      b.innerHTML = BILL;
+      b.style.left = (Math.random()*100) + '%';
+      b.style.setProperty('--dist', dist + 'px');
+      b.style.setProperty('--sway', (Math.random()*120 - 60).toFixed(0) + 'px');
+      b.style.setProperty('--r0', (Math.random()*360).toFixed(0) + 'deg');
+      b.style.setProperty('--r1', (Math.random()*860 - 430).toFixed(0) + 'deg');
+      b.style.setProperty('--sc', (0.6 + Math.random()*0.8).toFixed(2));
+      b.style.animation = 'drop ' + dur.toFixed(2) + 's linear ' + delay.toFixed(2) + 's forwards';
+      b.addEventListener('animationend', function(){ if(this.parentNode) this.parentNode.removeChild(this); });
+      moneyBox.appendChild(b);
+    }
+  }
+
+  function countTo(target){
+    if(raf) cancelAnimationFrame(raf);
+    if(reduced){ counter.textContent = F(target); return; }
+    var start = performance.now(), dur = 1900;
+    function step(now){
+      var p = Math.min((now - start)/dur, 1),
+          e = 1 - Math.pow(1 - p, 3);
+      counter.textContent = F(target * e);
+      if(p < 1){ raf = requestAnimationFrame(step); }
+      else { counter.textContent = F(target); raf = null; }
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  function play(){
+    hero.classList.add('open');
+    if(navigator.vibrate && !reduced){ try{ navigator.vibrate(18); }catch(e){} }
+    rain();
+    countTo(TARGET);
+  }
+
+  document.getElementById('curtain').addEventListener('click', play);
+  document.getElementById('replay').addEventListener('click', play);
+  document.getElementById('scroller').addEventListener('click', function(){
+    document.getElementById('options').scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'start'});
+  });
+
+  /* ---------- tabs ---------- */
+  var tabs   = [].slice.call(document.querySelectorAll('.tab')),
+      panels = [].slice.call(document.querySelectorAll('.panel'));
+
+  function showTab(key){
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab === key)); });
+    panels.forEach(function(p){ p.classList.toggle('on', p.dataset.panel === key); });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click', function(){ showTab(t.dataset.tab); });
+    t.addEventListener('keydown', function(e){
+      if(['ArrowLeft','ArrowRight'].indexOf(e.key) > -1){
+        e.preventDefault();
+        var nxt = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+        nxt.focus(); showTab(nxt.dataset.tab);
+      }
+    });
+  });
+
+  /* ---------- 1. living expenses ---------- */
+  var RENT = 13500, D_CAP = 312800, RUNOUT = Math.floor(D_CAP / RENT);
+  var aleM = document.getElementById('ale-m');
+  function calcAle(){
+    var m = +aleM.value, need = m * RENT,
+        tPay = Math.min(need, D_CAP), tGap = Math.max(0, need - D_CAP);
+    document.getElementById('ale-mval').textContent = m + (m === 1 ? ' month' : ' months');
+    document.getElementById('ale-need').textContent = F(need);
+    document.getElementById('ale-t').textContent = F(tPay);
+    document.getElementById('ale-c').textContent = F(need);
+    document.getElementById('ale-tgap').innerHTML = tGap > 0
+      ? F(tGap) + ' out of your pocket<small>Your Coverage D limit is spent at month ' + RUNOUT + '. Everything after that is yours.</small>'
+      : '$0 out of your pocket<small>Still inside the $312,800 limit, with ' + (RUNOUT - m) + ' months of room left.</small>';
+    document.getElementById('ale-cgap').innerHTML = '$0 out of your pocket<small>Chubb writes living expenses with no cap, so the month count does not matter.</small>';
+  }
+  aleM.addEventListener('input', calcAle);
+
+  /* ---------- 2. liability ---------- */
+  var HOME_L = 500000, EXCESS = 3000000, CHUBB_L = HOME_L + EXCESS;
+  var liJ = document.getElementById('li-j');
+  function calcLiab(){
+    var j = +liJ.value,
+        tPay = Math.min(j, HOME_L), tGap = Math.max(0, j - HOME_L),
+        cPay = Math.min(j, CHUBB_L), cGap = Math.max(0, j - CHUBB_L);
+    document.getElementById('li-jval').textContent = F(j);
+    document.getElementById('li-t').textContent = F(tPay);
+    document.getElementById('li-c').textContent = F(cPay);
+    document.getElementById('li-tgap').innerHTML = tGap > 0
+      ? F(tGap) + ' comes from you<small>Savings, investments, the house. There is no lender in front of it.</small>'
+      : '$0 comes from you<small>Still inside the $500,000 limit.</small>';
+    document.getElementById('li-cgap').innerHTML = cGap > 0
+      ? F(cGap) + ' comes from you<small>Past $3,500,000 even Chubb runs out. Higher excess limits are available if you want them.</small>'
+      : '$0 comes from you<small>Covered by the $500,000 policy and the $3,000,000 excess above it.</small>';
+  }
+  liJ.addEventListener('input', calcLiab);
+
+  /* ---------- 3. jewelry ---------- */
+  var JEW_SUB = 1500, BLANKET = 35000;
+  var thV = document.getElementById('th-v');
+  function calcTheft(){
+    var v = +thV.value,
+        tPay = Math.min(v, JEW_SUB), tGap = Math.max(0, v - JEW_SUB),
+        cPay = Math.min(v, BLANKET), cGap = Math.max(0, v - BLANKET);
+    document.getElementById('th-vval').textContent = F(v);
+    document.getElementById('th-t').textContent = F(tPay);
+    document.getElementById('th-c').textContent = F(cPay);
+    document.getElementById('th-tgap').innerHTML = tGap > 0
+      ? F(tGap) + ' you do not get back<small>The sublimit does not move, no matter what the piece is worth.</small>'
+      : '$0 you do not get back<small>Under $1,500 the two policies behave the same.</small>';
+    document.getElementById('th-cgap').innerHTML = cGap > 0
+      ? F(cGap) + ' you do not get back<small>Past $35,000 we would raise the schedule or list the piece on its own.</small>'
+      : '$0 you do not get back<small>Covered in full by the $35,000 blanket schedule.</small>';
+  }
+  thV.addEventListener('input', calcTheft);
+
+  /* ---------- 4. total loss ---------- */
+  var CARS = {
+    tesla:{ label:'Tesla', agreed:23550, min:12000, def:17000 },
+    qx:{    label:'QX55',  agreed:28100, min:14000, def:20000 }
+  };
+  var car = 'tesla',
+      auA = document.getElementById('au-a'),
+      pills = [].slice.call(document.querySelectorAll('.pillbtn'));
+
+  function loadCar(){
+    var c = CARS[car];
+    auA.min = c.min; auA.max = c.agreed; auA.value = c.def;
+    document.getElementById('au-min').textContent = F(c.min);
+    document.getElementById('au-max').textContent = F(c.agreed) + ' today';
+  }
+  function calcAuto(){
+    var c = CARS[car], acv = +auA.value, agreed = c.agreed, gap = Math.max(0, agreed - acv);
+    document.getElementById('au-aval').textContent = F(acv);
+    document.getElementById('au-t').textContent = F(acv);
+    document.getElementById('au-c').textContent = F(agreed);
+    document.getElementById('au-clbl').textContent = 'Agreed value on the ' + c.label + ', set up front';
+    document.getElementById('au-tgap').innerHTML = gap > 0
+      ? F(gap) + ' short of the agreed value<small>If that is also short of your lease payoff, you write the cheque.</small>'
+      : 'Only at today&rsquo;s value<small>And that is the ceiling. From here the adjuster&rsquo;s number only falls.</small>';
+    document.getElementById('au-cgap').innerHTML = gap > 0
+      ? F(gap) + ' more than Travelers<small>The figure was settled before the loss, so there is nothing to argue about.</small>'
+      : 'Guaranteed in writing<small>Chubb pays this figure whatever the market has done by then.</small>';
+  }
+  pills.forEach(function(p){
+    p.addEventListener('click', function(){
+      car = p.dataset.car;
+      pills.forEach(function(q){ q.setAttribute('aria-pressed', String(q.dataset.car === car)); });
+      loadCar(); calcAuto();
+    });
+  });
+  auA.addEventListener('input', calcAuto);
+
+  /* ---------- money flow bar ---------- */
+  var segs = [].slice.call(document.querySelectorAll('.seg'));
+  function fillSegs(){ segs.forEach(function(s){ s.style.width = s.dataset.w + '%'; }); }
+  if(reduced || !('IntersectionObserver' in window)){
+    fillSegs();
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ fillSegs(); io.disconnect(); }
+      });
+    }, { threshold: 0.35 });
+    io.observe(document.getElementById('flow'));
+  }
+
+  calcAle(); calcLiab(); calcTheft(); loadCar(); calcAuto();
+})();
+</script>
+</body>
+</html>
