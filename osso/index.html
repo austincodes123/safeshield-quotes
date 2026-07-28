@@ -305,6 +305,12 @@ td.mute{color:var(--faint)}
 .card[aria-expanded="true"] .tapme{color:var(--faint)}
 @media print{.card .more{max-height:none!important}.tapme{display:none}}
 
+/* ================= 9. CARRIER STATS ================= */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px;border-top:2px solid var(--navy);padding-top:24px}
+@media(max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+.stat b{display:block;font-weight:800;font-size:clamp(28px,7vw,40px);letter-spacing:-.04em;color:var(--navy);line-height:1}
+.stat span{display:block;font-size:12.5px;font-weight:300;color:var(--muted);line-height:1.5;margin-top:9px;max-width:28ch}
+
 </style>
 </head>
 <body>
@@ -566,11 +572,9 @@ td.mute{color:var(--faint)}
         </thead>
         <tbody>
           <tr><td class="cov">Dwelling</td><td class="n">$1,564,000</td><td class="n">$1,564,000</td></tr>
-          <tr><td class="cov">Dwelling form</td><td class="n">Travelers Protect</td><td class="n">Masterpiece Deluxe</td></tr>
-          <tr><td class="cov">Most the dwelling can ever pay</td><td class="n">$1,955,000</td><td class="n">Deluxe</td></tr>
+          <tr><td class="cov">Policy form</td><td class="n">Travelers Protect</td><td class="n">Masterpiece Deluxe</td></tr>
           <tr><td class="cov">Other structures, incl. the pool</td><td class="n">$156,400</td><td class="n">$312,800</td></tr>
           <tr><td class="cov">Contents</td><td class="n">$782,000</td><td class="n">$782,000</td></tr>
-          <tr><td class="cov">Contents form</td><td class="n">Travelers Protect</td><td class="n">Deluxe</td></tr>
           <tr><td class="cov">Living expenses while you rebuild</td><td class="n">$312,800</td><td class="n">No cap</td></tr>
           <tr><td class="cov">Personal liability</td><td class="n">$500,000</td><td class="n">$500,000</td></tr>
           <tr><td class="cov">Deductible</td><td class="n">$5,000</td><td class="n">$5,000</td></tr>
@@ -583,6 +587,8 @@ td.mute{color:var(--faint)}
     </div>
 
     <div class="flag"><span><b>This is printed on your own renewal.</b> Page D&#8209;1 of the Travelers policy summary you just received reads: &ldquo;Please note the Coverage limit for Coverage D &ndash; Loss of Use is less than the commonly provided limit. Please review your limits and contact your agent.&rdquo; That is your current carrier telling you the living expense limit is thin. I agree with them.</span></div>
+
+    <p class="verdict"><strong>One more on the Travelers side.</strong> The most that policy can ever pay out on the building itself is <strong>$1,955,000</strong>, being your $1,564,000 limit plus the 25 percent additional replacement cost endorsement. That is a hard ceiling, whatever a 1938 house of this size actually costs to put back after you gutted and rebuilt the inside of it.</p>
   </section>
 
   <!-- ============ 5. SPECIAL LIMITS ============ -->
@@ -644,7 +650,32 @@ td.mute{color:var(--faint)}
     </div>
   </section>
 
-  <!-- ============ 8. NOW THE MONEY ============ -->
+  <!-- ============ 9. WHY CHUBB ============ -->
+  <section class="sect">
+    <p class="eyebrow">The carrier itself</p>
+    <h2>The difference shows up after the loss, not before it.</h2>
+    <p class="lede">Anyone can print a limit on a page. What you are actually buying is what happens the week after something goes wrong, and that is where Chubb separates from the rest of the market. It is why they are the carrier I put my highest&#8209;value households with, and it is the part of this I feel strongest about.</p>
+
+    <div class="stats">
+      <div class="stat"><b>97%</b><span>Of Chubb clients who had a claim paid rated the experience highly</span></div>
+      <div class="stat"><b>24 hrs</b><span>For an adjuster to come back to you after you report a loss</span></div>
+      <div class="stat"><b>48 hrs</b><span>To issue payment once the claim has been approved</span></div>
+      <div class="stat"><b>54</b><span>Countries, as the world&rsquo;s largest publicly traded property and casualty insurer</span></div>
+    </div>
+
+    <div class="gains" style="margin-top:30px">
+      <div class="gain"><b>They find you a house, not a hotel room</b><span>While your home is being rebuilt Chubb arranges somewhere comparable to live, and where they can, somewhere inside your own school district. Compare that to being handed a capped cheque and left to find a rental yourself in a market where nothing sits empty.</span></div>
+      <div class="gain"><b>You can take the money instead</b><span>After a covered total loss, if you decide you would rather not rebuild a 1938 house, Chubb settles in cash up to your policy limit and you walk. For someone who buys and sells property for a living, that choice is worth more than the coverage around it.</span></div>
+      <div class="gain"><b>Factory parts, and someone watching the shop</b><span>Repairs use original manufacturer parts rather than aftermarket, and Chubb assigns collision repair specialists to oversee the work so the car goes back together the way it left the factory.</span></div>
+      <div class="gain"><b>Nothing needs appraising until it is serious</b><span>No appraisal on jewelry until a single piece passes $100,000, or on fine art until $250,000. Newly bought items are picked up automatically, and your things stay covered on loan, in storage and in transit, not just sitting at home.</span></div>
+      <div class="gain"><b>There is a lot of room above $3,000,000</b><span>Chubb writes excess liability worldwide to $100 million, and carries protection up to $10 million for an accident caused by a driver with no insurance or not enough of it. If your exposure grows, the ceiling moves with you rather than forcing another carrier search.</span></div>
+      <div class="gain"><b>The balance sheet behind the promise</b><span>Over a century of operating history and consistently among the highest financial strength ratings in the industry. On a small claim that is trivia. On a large one it stops being trivia very quickly.</span></div>
+    </div>
+
+    <p class="verdict"><strong>You already know what a claim feels like.</strong> You had one in January of last year, somebody hit you in a parking lot and you had the dash cam footage to prove it. Think about how that went, and then read the four numbers above again. That is the part of this I would still be recommending even if the two premiums were identical.</p>
+  </section>
+
+  <!-- ============ 10. NOW THE MONEY ============ -->
   <section class="sect">
     <p class="eyebrow">Now the money</p>
     <h2>All of that, for $158 a month.</h2>
@@ -731,6 +762,7 @@ td.mute{color:var(--faint)}
     <p><strong>This is a quote, not a policy.</strong> Prepared 07/28/2026. Coverage is effective only when a policy is issued by the carrier. The Chubb terms shown are as quoted and are subject to acceptable reports and inspection. Chubb&rsquo;s quotations are non&#8209;binding and may be revised if any of the information submitted changes or is altered.</p>
     <p>Travelers figures are taken from the policy summaries issued 07/28/2026: homeowners policy 616044529 633 1, term 07/09/2026 to 07/09/2027, form PL&#8209;50355 CT, and automobile policy 614795365 203 1, term 11/01/2025 to 11/01/2026, form PL&#8209;50014. The $1,955,000 figure is the $1,564,000 dwelling limit plus the 25% Additional Replacement Cost Protection endorsement, HQ&#8209;420 CW, shown at $391,000. Special limits are as listed on page D&#8209;2.</p>
     <p>Chubb figures are taken from Masterpiece proposals 1615965401 and 1615965402, prepared 07/28/2026, written by Executive Risk Indemnity Inc. Chubb&rsquo;s printed total of $12,015 for home, vehicle and valuable articles includes state&#8209;mandated surcharges, taxes and fees, which is why it differs slightly from the sum of the individual lines shown here. Final coverage terms, sublimits and endorsements are governed by the policy as issued.</p>
+    <p>Carrier service figures, claims statistics, financial strength references and coverage feature descriptions attributed to Chubb are Chubb&rsquo;s own published statements, taken from the Masterpiece proposal prepared for you and from Chubb&rsquo;s client materials. They describe the carrier&rsquo;s general practice and are not a term of your policy or a guarantee of how any individual claim will be handled.</p>
     <p>The sliders on this page are illustrations, not coverage promises. The $13,500 monthly rental figure is an estimate used to show how the Coverage D limit behaves, and is not a quoted or guaranteed amount. Actual claim payments depend on the facts of the loss and the terms of the policy in force.</p>
     <p>Cancelling the Travelers homeowners policy mid&#8209;term should generate a pro rata return of unearned premium. The Travelers automobile policy runs to 11/01/2026 and moving it earlier will end that term early. Premium comparisons above are annual and do not reflect any return of unearned premium.</p>
     <p>Presented by Safeshield Insurance LLC, 2777 Summer Street, 6th Floor, Stamford CT 06905. (203) 204&#8209;2555.</p>
