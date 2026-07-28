@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safeshield — For Eric</title>
+<style>
+  :root{ --ink:#1A1A18; --navy:#12395B; --navy-soft:#4A6C8C; --gray:#63625D; --line:#DEDDD7; --wash:#F5F5F1; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:#fff;font-size:15.5px;line-height:1.68;}
+  .sheet{max-width:720px;margin:0 auto;padding:58px 36px 54px;}
+
+  .letterhead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1.5px solid var(--navy);padding-bottom:11px;margin-bottom:40px;}
+  .letterhead .nm{font-family:Helvetica,Arial,sans-serif;font-size:12.5px;letter-spacing:.24em;color:var(--navy);font-weight:700;}
+  .letterhead .dt{font-size:13px;color:var(--gray);font-style:italic;}
+
+  .letter p{margin-bottom:17px;max-width:65ch;}
+  .letter .salut{margin-bottom:20px;}
+  .letter .em{font-style:italic;}
+  .sig{margin-top:32px;}
+  .sig .aus{font-size:23px;font-style:italic;}
+
+  .appendix{page-break-before:always;border-top:1.5px solid var(--navy);margin-top:54px;padding-top:34px;}
+  .apx-title{font-family:Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:.2em;color:var(--navy);font-weight:700;margin-bottom:8px;}
+  .apx-sub{font-size:13.5px;color:var(--gray);font-style:italic;margin-bottom:6px;}
+
+  .sec{font-family:Helvetica,Arial,sans-serif;font-size:10.5px;letter-spacing:.2em;color:var(--navy);font-weight:700;border-bottom:1px solid var(--navy);padding-bottom:5px;margin:36px 0 15px;}
+  h3{font-size:16.5px;font-weight:700;margin:26px 0 7px;}
+  h3.first{margin-top:0;}
+  p.lead{margin-bottom:11px;max-width:66ch;}
+  p.note{font-size:12.5px;color:var(--gray);margin-top:9px;max-width:73ch;line-height:1.55;}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;font-family:Helvetica,Arial,sans-serif;}
+  th{text-align:left;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);font-weight:400;padding:7px 9px;border-bottom:1.5px solid var(--ink);}
+  th.num,td.num{text-align:right;}
+  td{padding:8px 9px;border-bottom:1px solid var(--line);}
+  tr.us td{background:var(--wash);font-weight:700;}
+  td.was{color:var(--gray);}
+  .up{color:var(--navy);font-weight:700;}
+
+  .deal{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:4px;}
+  .di{background:#fff;padding:13px 15px;display:flex;gap:13px;align-items:flex-start;}
+  .ico{width:20px;height:20px;flex:0 0 20px;margin-top:3px;fill:none;stroke:var(--navy);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+  .di b{display:block;font-family:Helvetica,Arial,sans-serif;font-size:13.5px;margin-bottom:2px;}
+  .di span{display:block;font-size:13.5px;color:var(--gray);line-height:1.5;}
+
+  table.mech td{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.58;vertical-align:top;font-family:Georgia,serif;}
+  table.mech td.q{font-family:Helvetica,Arial,sans-serif;font-size:12.5px;font-weight:700;width:30%;padding-right:20px;color:var(--navy);}
+
+  .legend{display:flex;gap:18px;font-size:12.5px;color:var(--gray);margin:10px 0 14px;font-family:Helvetica,Arial,sans-serif;}
+  .legend i{display:inline-block;width:11px;height:11px;margin-right:6px;border:1px solid var(--line);}
+  .b-row{margin-bottom:13px;}
+  .b-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;font-family:Helvetica,Arial,sans-serif;}
+  .b-head b{font-size:13px;}
+  .b-head span{font-size:12px;color:var(--gray);}
+  .b-wrap{display:flex;align-items:center;gap:12px;}
+  .b-bar{flex:1;height:21px;background:var(--wash);display:flex;overflow:hidden;}
+  .s-sal{background:#12395B;}
+  .s-exp{background:#8FA2B3;}
+  .s-com{background:#DADEE2;}
+  .b-total{font-family:Helvetica,Arial,sans-serif;font-size:13.5px;font-weight:700;min-width:74px;text-align:right;}
+
+  .fine{font-size:12px;color:var(--gray);line-height:1.6;border-top:1px solid var(--line);margin-top:36px;padding-top:14px;}
+  .signblock{display:flex;gap:40px;margin-top:32px;}
+  .signblock div{flex:1;}
+  .sl{display:block;border-bottom:1px solid var(--ink);height:34px;}
+  .sc{display:block;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:var(--gray);margin-top:5px;}
+  footer{margin-top:24px;font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:.07em;color:var(--gray);display:flex;justify-content:space-between;border-top:1.5px solid var(--navy);padding-top:9px;}
+
+  p.lead.big{font-size:16.5px;line-height:1.6;}
+  .t-row{margin-bottom:15px;}
+  .t-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;font-family:Helvetica,Arial,sans-serif;}
+  .t-head b{font-size:13.5px;}
+  .t-head span{font-size:12px;color:var(--gray);}
+  .t-wrap{display:flex;align-items:center;gap:12px;}
+  .t-bar{flex:1;height:26px;background:var(--wash);display:flex;overflow:hidden;}
+  .t-total{font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;min-width:80px;text-align:right;color:var(--navy);}
+  .s-ovr{background:#5B7F9E;}
+  .payday{display:flex;gap:20px;align-items:flex-start;border-top:1.5px solid var(--navy);border-bottom:1.5px solid var(--navy);padding:16px 0;margin-top:26px;}
+  .pd-l{font-family:Georgia,serif;font-style:italic;font-size:16px;color:var(--navy);flex:0 0 34%;line-height:1.4;}
+  .pd-r{font-size:14px;line-height:1.6;}
+
+
+  .ptr{margin-top:7px;font-family:Helvetica,Arial,sans-serif;font-size:11.5px;}
+  .ptr a{color:var(--navy);text-decoration:none;border-bottom:1px solid var(--navy);}
+  @media print{ .sheet{padding:26px 10px;} body{font-size:13px;} }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="letterhead">
+  <span class="nm">SAFESHIELD</span>
+  <span class="dt">Stamford, July 2026</span>
+</div>
+
+<div class="letter">
+  <p class="salut">Eric,</p>
+
+  <p>You were a busboy at a restaurant who told me he was an insurance major. You were not an insurance major. You lied straight to my face because you wanted in.</p>
+
+  <p>Then I got to watch you walk across a stage with an MBA. Who would have thought?</p>
+
+  <p>Best hire I ever made.</p>
+
+  <p>What a freaking ride this has been. A folding table in my living room, no office, no team, no revenue, and you sat there with me for endless hours anyway. You believed in Safeshield and you believed in me before either one of us had earned it. You have been in every office we have ever had, from that living room to 2777 Summer Street. Nobody else on this earth can say that.</p>
+
+  <p>And look at what you did with it. Licensed. Producer. Partner. You built the dealer channel from nothing into something no agency around here has. You took Trent and Justin from zero to writing real business in months. Clients trust you because you are from Stamford and you actually show up for them. You attack this the way you attacked D1 ball and it shows in every number in this agency.</p>
+
+  <p>I am proud of you. The golf game we are still working on, but I am proud of you.</p>
+
+  <p>So it is my honor to put you on this plan. Your salary goes up more than four times. Your splits pay you twenty five percent above the industry standard on new business and better than thirty percent above it on renewals, and I printed the sources so you can check me. You get a 401(k) with a company match. Your ten percent on every producer you build keeps growing every time we hire. The dealer channel stays yours, because you built it.</p>
+
+  <p>And your nine percent is getting restructured properly, on the agency's dime, so the IRS barely touches it and so that when we sell this thing you keep seven figures instead of handing a fortune to the government.</p>
+
+  <p>This is a raise. A big one. It is built to protect you, to give you a floor you can count on while your book does what your book is going to do, and to make sure the day this company gets bought is a day that changes your life and not just mine.</p>
+
+  <p>The Dead never played the same show twice and they never stopped rolling. Neither do we. The people who got on early, back when it was a table and a phone and a kid who lied about his major, are the ones who get to see where the whole thing goes.</p>
+
+  <p>You got on early. You bet on yourself and you bet on me. This is me betting back.</p>
+
+  <p class="em">This is what building looks like.</p>
+
+  <p class="sig">Your partner,<br><span class="aus">Austin</span></p>
+</div>
+
+<div class="appendix">
+  <div class="apx-title">THE DEAL &nbsp;&middot;&nbsp; ERIC KELLY, VICE PRESIDENT</div>
+  <div class="apx-sub">Effective August 1, 2026</div>
+
+  <div class="sec">THE DEAL</div>
+  <p class="lead big">Four separate ways you get paid, and three of them grow on their own. Here is the whole thing on one page.</p>
+  <div class="deal">
+    <div class="di">
+      <svg viewBox="0 0 24 24" class="ico"><path d="M3 7h18v12H3z"/><path d="M3 11h18"/></svg>
+      <div><b>Salary, $37,500</b><span>Plus $750 a month in expenses. $46,500 total. A bridge while the book gets up to speed, settling at $25,000 permanently.</span></div>
+    </div>
+    <div class="di">
+      <svg viewBox="0 0 24 24" class="ico"><path d="M4 19V9"/><path d="M10 19V5"/><path d="M16 19v-8"/><path d="M22 19H2"/></svg>
+      <div><b>Your book, 50% new and 40% renewal</b><span>Uncapped. This is the engine. Every account you write pays you again every year it renews.</span><span class="ptr"><a href="#whysplits">Down from 55/60 &mdash; see why this is good for you</a></span></div>
+    </div>
+    <div class="di">
+      <svg viewBox="0 0 24 24" class="ico"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M17 9h4"/><path d="M19 7v4"/></svg>
+      <div><b>Producer override, 10%</b><span>On everything written by every producer you recruit, train and manage. Justin, Trent, and everyone who comes after. New business and renewals both.</span></div>
+    </div>
+    <div class="di">
+      <svg viewBox="0 0 24 24" class="ico"><path d="M12 3l8 5v8l-8 5-8-5V8z"/><path d="M12 11v9"/><path d="M12 11l8-3"/><path d="M12 11L4 8"/></svg>
+      <div><b>Ownership, 9%</b><span>Already yours and already signed. We are restructuring it as a profits interest so it carries zero tax now and capital gains at a sale. Safeshield pays every cost of doing it.</span></div>
+    </div>
+  </div>
+
+  <div class="sec">WHAT CHANGES ON DAY ONE</div>
+  <table>
+    <tr><th></th><th class="num">Today</th><th class="num">This proposal</th></tr>
+    <tr><td>Salary</td><td class="num was">$9,000</td><td class="num up">$37,500</td></tr>
+    <tr><td>Expenses</td><td class="num was">$750 / mo</td><td class="num">$750 / mo</td></tr>
+    <tr><td>Your book, new business</td><td class="num was">55%</td><td class="num">50%</td></tr>
+    <tr><td>Your book, renewals</td><td class="num was">60%</td><td class="num">40%</td></tr>
+    <tr><td>Safeshield leads</td><td class="num was">60 / 60</td><td class="num">30 / 20</td></tr>
+    <tr><td>Austin leads</td><td class="num was">40%</td><td class="num">20 / 15</td></tr>
+    <tr><td>Dealer channel</td><td class="num was">yours</td><td class="num">unchanged, yours</td></tr>
+    <tr><td>Override on your producers</td><td class="num was">10%</td><td class="num">10%, all future hires too</td></tr>
+    <tr><td>Retirement</td><td class="num was">none</td><td class="num up">401(k), 4% match &mdash; $2,787 a year</td></tr>
+    <tr><td>Your 9%, when it pays out</td><td class="num was">taxed as income, ~44%</td><td class="num up">capital gains, ~30%</td></tr>
+    <tr class="us"><td>Year one, all in</td><td class="num">~$54,200</td><td class="num">~$81,500</td></tr>
+  </table>
+  <p class="note">About twenty seven thousand dollars more, a fifty percent raise, starting the first check. Both columns count new business only, so your renewals stack on top of both and the gap only widens from here. The splits come down. Everything else goes up.</p>
+
+  <div class="sec">YOUR INCOME ON THIS PLAN</div>
+  <p class="lead">Built from what you have actually written this year, rolled forward twelve months. Commission figured at ten percent, which is below what we really average, so the real numbers should come in higher.</p>
+  <table>
+    <tr><th>Your rolling twelve months</th><th class="num">Premium written</th><th class="num">Agency commission at 10%</th><th class="num">Your split</th><th class="num">You earn</th></tr>
+    <tr><td>Your own leads</td><td class="num">$409,530</td><td class="num">$40,953</td><td class="num">50%</td><td class="num">$20,477</td></tr>
+    <tr><td>Dealer channel</td><td class="num">$139,406</td><td class="num">$13,941</td><td class="num">30% + 40% override</td><td class="num">$9,758</td></tr>
+    <tr><td>Austin leads</td><td class="num">$47,261</td><td class="num">$4,726</td><td class="num">20%</td><td class="num">$945</td></tr>
+    <tr><td>Safeshield leads</td><td class="num">$33,269</td><td class="num">$3,327</td><td class="num">30%</td><td class="num">$998</td></tr>
+    <tr class="us"><td>Total</td><td class="num">$632,701</td><td class="num">$63,270</td><td class="num"></td><td class="num">$32,178</td></tr>
+  </table>
+  <p class="note">New business only. It does not count a dollar of your renewals stacking on top next year, and it does not count the 10% override on Justin, Trent, or anyone we hire after them. Both of those are pure additions to the number below.</p>
+
+  <table style="margin-top:22px;">
+    <tr><th>Where that leaves you</th><th class="num">Today</th><th class="num">On this plan</th></tr>
+    <tr><td>Salary</td><td class="num was">$9,000</td><td class="num up">$37,500</td></tr>
+    <tr><td>Commissions and dealer override</td><td class="num was">$36,169</td><td class="num">$32,178</td></tr>
+    <tr><td>Reported on your W-2</td><td class="num was">$45,169</td><td class="num up">$69,678</td></tr>
+    <tr><td>Expenses</td><td class="num was">$9,000</td><td class="num">$9,000</td></tr>
+    <tr><td>401(k), what Safeshield puts in for you</td><td class="num was">nothing</td><td class="num up">$2,787</td></tr>
+    <tr class="us"><td>Total value to you</td><td class="num">$54,169</td><td class="num">$81,465</td></tr>
+  </table>
+  <p class="note">Roughly $27,000 more a year, a fifty percent raise, before your renewals compound and before the bench grows. Your W-2 goes up more than $24,000, which is the number a mortgage lender reads. And the $2,790 in the 401(k) is money Safeshield puts in on top, every year, that was never there before.</p>
+
+  <div class="sec">WHERE THIS GOES</div>
+  <p class="lead big">Here is the part that matters. Insurance pays you twice. You get paid when you write a policy, and you get paid again every single year it renews, forever, without writing it again.</p>
+  <p class="lead">So the book you build this year does not disappear next January. It stacks under the new business you write on top of it. Five years of that stacking, plus the producers you are building, is what turns a good year into a great living. Your salary steps down along the way and you will barely notice, because by then it is the smallest thing you get paid.</p>
+  <div class="legend">
+    <span><i class="s-sal"></i>Salary and expenses</span>
+    <span><i class="s-com"></i>Your commissions, new and renewal</span>
+    <span><i class="s-ovr"></i>Override on your producers</span>
+  </div>
+  <div class="t-row">
+    <div class="t-head"><b>Year one</b><span>2 producers under you, no renewals yet</span></div>
+    <div class="t-wrap"><div class="t-bar"><div class="s-sal" style="width:21.1%"></div><div class="s-com" style="width:14.6%"></div><div class="s-ovr" style="width:1.5%"></div></div><div class="t-total">$84,800</div></div>
+  </div>
+  <div class="t-row">
+    <div class="t-head"><b>Year two</b><span>4 producers, year one starts renewing</span></div>
+    <div class="t-wrap"><div class="t-bar"><div class="s-sal" style="width:18.3%"></div><div class="s-com" style="width:26.9%"></div><div class="s-ovr" style="width:3.2%"></div></div><div class="t-total">$110,400</div></div>
+  </div>
+  <div class="t-row">
+    <div class="t-head"><b>Year three</b><span>5 producers, two years stacked</span></div>
+    <div class="t-wrap"><div class="t-bar"><div class="s-sal" style="width:15.5%"></div><div class="s-com" style="width:39.6%"></div><div class="s-ovr" style="width:5.5%"></div></div><div class="t-total">$138,100</div></div>
+  </div>
+  <div class="t-row">
+    <div class="t-head"><b>Year four</b><span>6 producers, three years stacked</span></div>
+    <div class="t-wrap"><div class="t-bar"><div class="s-sal" style="width:15.5%"></div><div class="s-com" style="width:52.7%"></div><div class="s-ovr" style="width:8.2%"></div></div><div class="t-total">$174,300</div></div>
+  </div>
+  <div class="t-row">
+    <div class="t-head"><b>Year five</b><span>six years of your book paying you at once</span></div>
+    <div class="t-wrap"><div class="t-bar"><div class="s-sal" style="width:15.5%"></div><div class="s-com" style="width:66.5%"></div><div class="s-ovr" style="width:10.9%"></div></div><div class="t-total">$212,100</div></div>
+  </div>
+  <p class="note">Your book grows twelve percent a year, commission figured at a conservative ten percent, eighty nine percent retention which is what this agency actually runs, and the hiring plan we are already executing. Look at what happens to the light bar. In year one your commissions are $32,000. In year five they are $146,000, and most of that is renewal money on business you already wrote. That is the whole game.</p>
+
+  <div class="payday">
+    <div class="pd-l">And then there is the day we sell.</div>
+    <div class="pd-r">We are building this to sell for twenty million at a minimum. At that number your nine percent is <b>$1,687,500</b>, and the way we are papering it lets you keep roughly <b>$1,181,250</b> of it instead of $945,000. That is on top of every year above.</div>
+  </div>
+
+  <div class="sec">HOW IT WORKS</div>
+  <table class="mech">
+    <tr><td class="q">The salary bridge</td><td>Every month the commission close produces your trailing twelve month total, commissions plus overrides, the same figures on your paystubs. Cross $60,000 and hold it three closes in a row, salary moves to $31,250 the following quarter. Cross $80,000 and hold it three closes in a row, salary settles at $25,000 and never moves again. One big month cannot touch it. A number you cross but do not hold does not count and the clock restarts.</td></tr>
+    <tr><td class="q">The override</td><td>Ten percent of the agency's commission on every deal your producers write, calculated in the same monthly close, paid through payroll with everything else. It covers their renewals too, so it compounds as their books age. Two producers today. Six is the plan.</td></tr>
+    <tr><td class="q">The expense election</td><td>$46,500 either way. Version one is $37,500 salary with $750 a month in expenses. Version two is $32,100 salary with $1,200 a month. Expenses are tax free, which is exactly why a lender cannot count them. Take version one while you are buying, switch later at any annual review.</td></tr>
+    <tr><td class="q">The equity</td><td>Your nine percent applies to everything Safeshield grows above what it is worth today, roughly $1.25 million. Sell for $5 million and your share is nine percent of the $3.75 million we created, not nine percent of the sale price. That is the mechanism that makes zero tax at signing legal, and it is exactly why the building is the job.</td></tr>
+  </table>
+
+  <div class="sec">WHY IT IS BUILT THIS WAY</div>
+  <table class="mech">
+    <tr><td class="q" id="whysplits">Why the splits came down</td><td>Your renewal rate of 60% was above anything published in this industry, and higher than your own new business rate, which is backwards from how every agency in the country pays. 50/40 still pays you twenty five percent above the industry standard on new business and sits above the top of the published range on renewals, and the sources are printed below so you can check me. Here is what those points actually do. Everything that stays in the agency becomes earnings. Earnings are the only thing a buyer pays a multiple on. You own nine percent of that multiple. You are not giving up money, you are moving it from your paycheck to your payday.</td></tr>
+    <tr><td class="q">Why a bridge, not a flat salary</td><td>The salary exists to carry you while the book gets up to speed. That is the standard structure in this business, where producer salaries phase out completely once commissions validate them. Yours does not go to zero. It settles at $25,000 and stays there for good.</td></tr>
+    <tr><td class="q">Why no annual percentage raise</td><td>Because your raise is already built in and it is bigger than any percentage I would hand you. Your book grows, your renewals stack, your override grows every time we add a producer. A fixed bump every January would be the smallest number on this page.</td></tr>
+    <tr><td class="q">Why the equity work is happening now</td><td>Because the restructuring only works if it happens before the value grows. Every year we wait, the threshold is higher and your share of the upside is smaller. The valuation and the 83(b) are in motion right now for that reason.</td></tr>
+    <tr><td class="q">Why the dealer channel does not change</td><td>You built it. It is yours.</td></tr>
+  </table>
+
+  <div class="sec">THE NUMBERS</div>
+  <h3 class="first">How the salary hands off</h3>
+  <p class="lead">The salary bar never shrinks until the commission bar has already grown past it. You cannot go backwards. Every step down happens inside a bigger year.</p>
+  <div class="legend">
+    <span><i class="s-sal"></i>Salary</span>
+    <span><i class="s-exp"></i>Expenses</span>
+    <span><i class="s-com"></i>Commissions and overrides</span>
+  </div>
+  <div class="b-row">
+    <div class="b-head"><b>Day one</b><span>salary $37,500</span></div>
+    <div class="b-wrap"><div class="b-bar"><div class="s-sal" style="width:28%"></div><div class="s-exp" style="width:6.7%"></div><div class="s-com" style="width:25.4%"></div></div><div class="b-total">$80,500</div></div>
+  </div>
+  <div class="b-row">
+    <div class="b-head"><b>Your book reaches $60K of commissions</b><span>salary steps to $31,250</span></div>
+    <div class="b-wrap"><div class="b-bar"><div class="s-sal" style="width:23.3%"></div><div class="s-exp" style="width:6.7%"></div><div class="s-com" style="width:44.8%"></div></div><div class="b-total">$100,250</div></div>
+  </div>
+  <div class="b-row">
+    <div class="b-head"><b>Your book reaches $80K of commissions</b><span>salary settles at $25,000, permanent</span></div>
+    <div class="b-wrap"><div class="b-bar"><div class="s-sal" style="width:18.7%"></div><div class="s-exp" style="width:6.7%"></div><div class="s-com" style="width:59.7%"></div></div><div class="b-total">$114,000</div></div>
+  </div>
+  <div class="b-row">
+    <div class="b-head"><b>Your book keeps growing, say $100K</b><span>salary stays $25,000</span></div>
+    <div class="b-wrap"><div class="b-bar"><div class="s-sal" style="width:18.7%"></div><div class="s-exp" style="width:6.7%"></div><div class="s-com" style="width:74.6%"></div></div><div class="b-total">$134,000</div></div>
+  </div>
+  <p class="note">Under the higher expense version, salary runs $32,100, steps at $28,550, and settles at the same $25,000.</p>
+
+  <h3>Your splits against the market</h3>
+  <table>
+    <tr><th>Where the market sits</th><th class="num">New business</th><th class="num">Renewal</th></tr>
+    <tr><td>Industry standard</td><td class="num was">40%</td><td class="num was">30%</td></tr>
+    <tr><td>Agency level, top of the range</td><td class="num was">50%</td><td class="num was">35 - 40%</td></tr>
+    <tr class="us"><td>You, this proposal</td><td class="num">50%</td><td class="num">40%</td></tr>
+  </table>
+  <p class="note">Sources: MarshBerry 2024 Insurance Agency and Brokerage Compensation Study, which found firms average an 11 to 12 point gap between new and renewal splits and identifies renewal overpayment as a drag on agency growth. Insurance Journal producer compensation forum, industry standard 40/30 and agency level 50/35 to 40. Sonant 2026 commission structure guide. Your renewal rate sits at the ceiling of the published range because you service your own accounts.</p>
+
+  <h3>What your 9% is worth at a sale</h3>
+  <table>
+    <tr><th>If Safeshield sells for</th><th class="num">Your 9% share</th><th class="num">Structured, you keep</th><th class="num">Unstructured, you keep</th><th class="num">The structure saves you</th></tr>
+    <tr><td>The day you sign</td><td class="num">&mdash;</td><td class="num">tax owed: $0</td><td class="num was">tax owed: ~$34,000</td><td class="num up">$34,000 now</td></tr>
+    <tr class="us"><td>$20,000,000 &nbsp;<span style="font-weight:400;font-size:11.5px;color:#63625D;">our floor</span></td><td class="num">$1,687,500</td><td class="num">~$1,181,000</td><td class="num">~$945,000</td><td class="num">~$236,000</td></tr>
+    <tr><td>$30,000,000</td><td class="num">$2,587,500</td><td class="num">~$1,811,000</td><td class="num was">~$1,449,000</td><td class="num up">~$362,000</td></tr>
+    <tr><td>$50,000,000</td><td class="num">$4,387,500</td><td class="num">~$3,071,000</td><td class="num was">~$2,457,000</td><td class="num up">~$614,000</td></tr>
+  </table>
+  <p class="note">Structured means a profits interest with a valuation setting the threshold and the 83(b) filed within 30 days, taxed as long term capital gains at a sale, roughly 30% all in for a Connecticut resident. Unstructured means the same money taxed as ordinary compensation income, roughly 44%. Safeshield pays all valuation, legal and filing costs. Estimates at current rates, final figures per our CPA.</p>
+
+  <div class="fine">
+    Bridge measurement: trailing twelve month commission and override earnings, summed across the twelve most recent completed monthly commission closes as calculated by the agency's commission system, the same figures reflected on payroll. A threshold crossed but not sustained across three consecutive closes does not trigger a step and the count restarts. Steps take effect the first day of the calendar quarter following confirmation. Salary does not readjust after settling at $25,000. &nbsp;&middot;&nbsp; Override: 10% of total agency commission on all business written by producers recruited, trained and managed by the Vice President, payable while serving in that capacity. &nbsp;&middot;&nbsp; Expenses: substantiated under the agency's accountable plan, continuing current practice, at the level elected. Election may be revisited at annual review. &nbsp;&middot;&nbsp; Commission schedule applies to all business from the effective date. &nbsp;&middot;&nbsp; Benefits effective January 1, 2027. &nbsp;&middot;&nbsp; Equity papering, valuation, legal and 83(b) costs borne by Safeshield.
+  </div>
+
+  <div class="signblock">
+    <div><span class="sl"></span><span class="sc">Eric Kelly</span></div>
+    <div><span class="sl"></span><span class="sc">Austin Glazer, Safeshield Insurance LLC</span></div>
+  </div>
+
+  <footer>
+    <span>SAFESHIELD INSURANCE LLC &nbsp;&middot;&nbsp; 2777 SUMMER STREET, STAMFORD CT</span>
+    <span>JULY 2026</span>
+  </footer>
+</div>
+
+</div>
+</body>
+</html>
