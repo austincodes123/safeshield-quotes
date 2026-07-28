@@ -205,7 +205,7 @@
     </div>
     <div class="di">
       <svg viewBox="0 0 24 24" class="ico"><path d="M4 19V9"/><path d="M10 19V5"/><path d="M16 19v-8"/><path d="M22 19H2"/></svg>
-      <div><b>Your book, 50% new and 40% renewal</b><span>Uncapped. This is the engine. Every account you write pays you again every year it renews.</span><span class="ptr"><a href="#whysplits">Down from 55/60 &mdash; see why this is good for you</a></span></div>
+      <div><b>Your book, 50% new and 40% renewal</b><span>Uncapped. This is the engine. Every account you write pays you again every year it renews.</span><span class="ptr"><a href="#" onclick="jumpWhy();return false;">Down from 55/60 &mdash; see why this is good for you</a></span></div>
     </div>
     <div class="di">
       <svg viewBox="0 0 24 24" class="ico"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M17 9h4"/><path d="M19 7v4"/></svg>
@@ -400,5 +400,12 @@
 </div>
 
 </div>
+<script>
+if('scrollRestoration' in history){history.scrollRestoration='manual';}
+if(location.hash){history.replaceState(null,'',location.pathname);}
+window.scrollTo(0,0);
+window.addEventListener('load',function(){window.scrollTo(0,0);});
+function jumpWhy(){var e=document.getElementById('whysplits');if(e){e.scrollIntoView({behavior:'smooth',block:'center'});}}
+</script>
 </body>
 </html>
