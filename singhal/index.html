@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Homeowner's Proposal | 47 Shrub Hollow Rd | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#004b89;--navy-deep:#003566;--amber:#ffa300;
+    --ink:#1a1f26;--slate:#5a6573;--paper:#f6f8fb;--line:#e6ebf2;
+    --white:#ffffff;--good:#1f9d6b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  .fade{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}}
+
+  .brandbar{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:20px 0 0;flex-wrap:wrap}
+  .brand{display:flex;flex-direction:column;gap:4px}
+  .logo{font-weight:700;font-size:19px;color:var(--navy);letter-spacing:.03em;text-transform:uppercase}
+  .logo span{color:var(--amber)}
+  .slogan{font-size:11px;color:var(--slate);font-weight:500;font-style:italic}
+  .prepared{font-size:12.5px;color:var(--slate);text-align:right;line-height:1.4}
+  .prepared b{color:var(--ink)}
+
+  .hero{padding:44px 0 38px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:18px}
+  h1{font-family:'Playfair Display',serif;font-weight:800;color:var(--navy);font-size:clamp(38px,8vw,62px);line-height:.98;letter-spacing:-.015em}
+  .lede{font-size:17px;color:var(--slate);margin-top:22px;max-width:60ch}
+  .lede b{color:var(--ink);font-weight:600}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:30px}
+  .hero-meta div{font-size:13.5px}
+  .hero-meta .k{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);font-weight:600;margin-bottom:3px}
+  .hero-meta .v{font-weight:600;color:var(--ink)}
+
+  .price-card{margin:30px 0 0;background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:20px;color:#fff;padding:34px 30px;position:relative;overflow:hidden;text-align:center}
+  .price-card::after{content:"";position:absolute;right:-40px;top:-40px;width:170px;height:170px;background:radial-gradient(circle,rgba(255,163,0,.22),transparent 70%)}
+  .price-card .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);font-weight:600;position:relative}
+  .price-card .amt{font-family:'Playfair Display',serif;font-size:clamp(48px,12vw,66px);font-weight:800;line-height:1;margin:10px 0 4px;position:relative}
+  .price-card .per{font-size:14px;color:rgba(255,255,255,.72);position:relative}
+  .price-card .mo{margin-top:12px;font-size:14px;color:rgba(255,255,255,.85);position:relative}
+
+  .sec{padding:48px 0 0}
+  .sec-eye{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:12px}
+  h2{font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:clamp(26px,5.5vw,36px);line-height:1.08;letter-spacing:-.01em}
+  .sub{font-size:15.5px;color:var(--slate);margin-top:12px;max-width:62ch}
+
+  .tiles{margin-top:24px;display:flex;flex-direction:column;gap:14px}
+  .tile{border:1px solid var(--line);border-radius:16px;background:var(--white);transition:border-color .25s ease,box-shadow .25s ease}
+  .tile.ready{box-shadow:0 1px 0 rgba(0,75,137,.04)}
+  .tile-head{display:flex;align-items:center;gap:16px;padding:20px 22px;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+  .tile-head:focus-visible{outline:3px solid var(--amber);outline-offset:-3px;border-radius:16px}
+  .ic{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(0,75,137,.08);color:var(--navy)}
+  .ic svg{width:24px;height:24px}
+  .tile-meta{flex:1;min-width:0}
+  .tile-name{font-weight:600;font-size:17px;color:var(--ink);line-height:1.2}
+  .tile-tag{font-size:13px;color:var(--slate);margin-top:3px}
+  .lim{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);font-weight:700;white-space:nowrap}
+  .chev{flex:none;color:var(--slate);transition:transform .3s ease;margin-left:6px}
+  .tile.open .chev{transform:rotate(180deg)}
+  .tile-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .tile.open .tile-body{max-height:640px}
+  .tile-inner{padding:2px 22px 24px;border-top:1px solid var(--line)}
+  .tile-inner p.exp{font-size:15px;color:var(--slate);margin:16px 0 0}
+  .tile-inner p.exp b{color:var(--ink);font-weight:600}
+  .example{margin-top:14px;padding:12px 15px;border-radius:10px;background:var(--paper);border:1px solid var(--line);font-size:13.5px;color:var(--slate)}
+  .example b{display:block;color:var(--navy);text-transform:uppercase;font-size:10.5px;letter-spacing:.1em;margin-bottom:4px}
+
+  .rider{margin-top:22px;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#004b89,#003566);color:#fff;box-shadow:0 8px 22px rgba(0,53,102,.18);display:grid;grid-template-columns:6px 1fr}
+  .rider::before{content:"";background:var(--amber)}
+  .rider-body{padding:26px 28px}
+  .rider-body .badge{display:inline-block;background:rgba(255,163,0,.18);color:var(--amber);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:99px;margin-bottom:12px;border:1px solid rgba(255,163,0,.4)}
+  .rider-body h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:8px}
+  .rider-body p{font-size:14.5px;color:rgba(255,255,255,.85);max-width:60ch}
+
+  .why{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:560px){.why{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--paper)}
+  .card h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);font-weight:700;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--slate)}
+
+  .cta{margin:48px 0 0;background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:22px;padding:40px 30px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,163,0,.2),transparent 70%)}
+  .cta h2{color:#fff;position:relative}
+  .cta p{color:rgba(255,255,255,.82);margin:14px auto 26px;max-width:48ch;position:relative;font-size:15.5px}
+  .btn{display:inline-block;background:var(--amber);color:#3a2600;font-weight:700;font-size:16px;padding:16px 34px;border-radius:99px;text-decoration:none;position:relative;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 8px 22px rgba(255,163,0,.28)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,163,0,.36)}
+  .cta .alt{display:block;margin-top:16px;font-size:14px;color:rgba(255,255,255,.7);position:relative}
+  .cta .alt a{color:#fff;text-decoration:underline}
+
+  footer{padding:38px 0 56px;text-align:center}
+  .sig{font-weight:700;color:var(--navy);font-size:16px;text-transform:uppercase;letter-spacing:.03em}
+  .sig span{color:var(--amber)}
+  .fslogan{font-size:11px;color:var(--slate);font-style:italic;margin-top:5px}
+  .fcontact{font-size:13.5px;color:var(--slate);margin-top:6px;line-height:1.7}
+  .fcontact a{color:var(--navy);text-decoration:none;font-weight:500}
+  .disc{font-size:11px;color:#9aa6b4;margin-top:20px;max-width:60ch;margin-left:auto;margin-right:auto;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brandbar fade">
+    <div class="brand">
+      <div class="logo">Safe<span>shield</span> Insurance</div>
+      <div class="slogan">We work for you, not the insurance company</div>
+    </div>
+    <div class="prepared">Prepared for <b>Vivek Singhal</b><br>July 29, 2026 &middot; Valid 30 days</div>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow fade">Your homeowner's proposal</div>
+    <h1 class="fade">Welcome home to<br>47 Shrub Hollow Rd.</h1>
+    <p class="lede fade">We shopped this and placed it with NYCM, a top-rated New York carrier known for fast, no-nonsense claims service. <b>This is a full HO-3 with the coverage built up to protect a full rebuild in today's market</b>, not just the number on paper.</p>
+    <div class="hero-meta fade">
+      <div><span class="k">Property</span><span class="v">47 Shrub Hollow Rd, Roslyn, NY 11576</span></div>
+      <div><span class="k">Policy Form</span><span class="v">HO-3 &middot; NYCM</span></div>
+      <div><span class="k">Effective</span><span class="v">August 10, 2026</span></div>
+      <div><span class="k">Term</span><span class="v">12 months</span></div>
+    </div>
+  </header>
+
+  <div class="price-card fade">
+    <div class="k">Total Annual Premium</div>
+    <div class="amt">$3,937</div>
+    <div class="per">per year</div>
+    <div class="mo">About $328/month &middot; $591 minimum down</div>
+  </div>
+
+  <section class="sec">
+    <div class="sec-eye fade">Coverage breakdown</div>
+    <h2 class="fade">What your policy protects</h2>
+    <p class="sub fade">Tap any line to see, in plain English, what it does for you. These limits are built to fully rebuild your home at today's construction costs.</p>
+
+    <div class="tiles">
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+          <div class="tile-meta"><div class="tile-name">Dwelling (Coverage A)</div><div class="tile-tag">The house itself</div></div>
+          <div class="lim">$1,127,500</div>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Rebuilds your home from the ground up after a covered loss: structure, roof, attached fixtures, all at today's construction costs.</p>
+          <div class="example"><b>Real-life example</b>A kitchen fire spreads and damages the framing and second floor. This coverage pays contractors to rebuild and restore the home.</div>
+        </div></div>
+      </div>
+
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l4-3 4 3v12"/><path d="M12 21V9l4-3 4 3v12"/><path d="M2 21h20"/></svg></div>
+          <div class="tile-meta"><div class="tile-name">Other Structures (Coverage B)</div><div class="tile-tag">Detached garage, fences, sheds</div></div>
+          <div class="lim">$112,750</div>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Covers structures on the property that aren't attached to the house.</p>
+          <div class="example"><b>Real-life example</b>A windstorm drops a limb through the fence and shed roof. Both are repaired under this coverage.</div>
+        </div></div>
+      </div>
+
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 10h16"/><circle cx="12" cy="14.5" r="2"/></svg></div>
+          <div class="tile-meta"><div class="tile-name">Personal Property (Coverage C)</div><div class="tile-tag">Everything you own inside</div></div>
+          <div class="lim">$789,250</div>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Furniture, electronics, clothing, everything inside the home. <b>Written on replacement cost</b>, so items are replaced with brand-new equivalents at today's prices, no depreciation for age.</p>
+          <div class="example"><b>Real-life example</b>A break-in takes your laptop and TV. Instead of a depreciated check for 5-year-old electronics, you're paid what it costs to buy them new today.</div>
+        </div></div>
+      </div>
+
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18v-6a2 2 0 012-2h14a2 2 0 012 2v6"/><path d="M3 18h18"/><path d="M5 10V7a2 2 0 012-2h10a2 2 0 012 2v3"/></svg></div>
+          <div class="tile-meta"><div class="tile-name">Loss of Use (Coverage D)</div><div class="tile-tag">Somewhere to live during repairs</div></div>
+          <div class="lim">$338,250</div>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">If a covered loss makes the home unlivable, this pays for hotel, rental, and the extra cost of living away from home while repairs happen.</p>
+          <div class="example"><b>Real-life example</b>A burst pipe floods the first floor and repairs take three months. Your rental, moving costs, and extra meals are covered.</div>
+        </div></div>
+      </div>
+
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v5c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="tile-meta"><div class="tile-name">Personal Liability (Coverage E)</div><div class="tile-tag">Protects your savings and future earnings</div></div>
+          <div class="lim">$500,000</div>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Protects you if someone is injured on your property or you're found legally responsible for damage to others, including your legal defense.</p>
+          <div class="example"><b>Real-life example</b>A delivery driver slips on your icy steps, breaks a wrist, and sues. Your legal defense and any settlement up to $500,000 are covered.</div>
+        </div></div>
+      </div>
+
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M12 10v6M9 13h6"/></svg></div>
+          <div class="tile-meta"><div class="tile-name">Medical Payments (Coverage F)</div><div class="tile-tag">No lawsuit needed</div></div>
+          <div class="lim">$5,000</div>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Pays medical bills for guests injured at your home regardless of fault, a goodwill layer that often stops small incidents from becoming lawsuits.</p>
+          <div class="example"><b>Real-life example</b>A friend's kid falls off the deck stairs and needs stitches. The bill is paid directly. No fault, no claim against you.</div>
+        </div></div>
+      </div>
+
+      <div class="tile ready fade">
+        <div class="tile-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 15L16 7"/></svg></div>
+          <div class="tile-meta"><div class="tile-name">All-Peril Deductible</div><div class="tile-tag">Your share of a claim</div></div>
+          <div class="lim">$5,000</div>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+        <div class="tile-body"><div class="tile-inner">
+          <p class="exp">Your out-of-pocket per claim. A higher deductible keeps your premium down and keeps small claims off your record, which protects your rate at every renewal. <b>Want to see it at $2,500 or $1,000? Just say the word and I'll re-run it.</b></p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="rider fade">
+      <div class="rider-body">
+        <span class="badge">The detail cheap quotes leave out</span>
+        <h3>Extended replacement cost, built in</h3>
+        <p>Your coverage limits above carry an additional layer of rebuild protection on top of the base valuation. After a storm, labor and materials in the New York market get expensive fast, and a number on paper isn't the same as a number in a post-disaster construction market. This policy is built with that safety margin already in, so a construction-cost spike doesn't come out of your pocket.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-eye fade">Included in your premium</div>
+    <h2 class="fade">The extras already built in</h2>
+    <div class="why">
+      <div class="card fade"><h3>Water backup coverage</h3><p>Covers damage from backed-up sewers, drains, and sump overflow, one of the most common and most commonly excluded losses for homeowners.</p></div>
+      <div class="card fade"><h3>Replacement cost contents</h3><p>Belongings are replaced new-for-old at today's prices, with no depreciation haircut for age or condition.</p></div>
+      <div class="card fade"><h3>Protective device credits</h3><p>Your alarm system, updated heating, and newer roof all earned credits that are already baked into the rate you see.</p></div>
+      <div class="card fade"><h3>Additional limits of liability</h3><p>Extra dwelling and coverage limits kick in if a total loss costs more to rebuild than expected, so you're never left covering a gap.</p></div>
+    </div>
+  </section>
+
+  <section class="cta fade">
+    <h2>Ready when you are, Vivek.</h2>
+    <p>This link outlines your full coverage. If you'd like to see different coverage levels or deductible options, just let me know and I'll re-run it. Reply to my email or call and we'll lock in your August 10 start date.</p>
+    <a class="btn" href="mailto:eric@gosafeshield.com?subject=47%20Shrub%20Hollow%20-%20Ready%20to%20move">Let's get me covered</a>
+    <span class="alt">or call <a href="tel:2038065889">(203) 806-5889</a></span>
+  </section>
+
+  <footer>
+    <div class="sig">Safe<span>shield</span> Insurance</div>
+    <div class="fslogan">We work for you, not the insurance company</div>
+    <div class="fcontact">
+      Eric Kelly<br>
+      <a href="mailto:eric@gosafeshield.com">eric@gosafeshield.com</a> &middot; <a href="tel:2038065889">(203) 806-5889</a>
+    </div>
+    <p class="disc">This is a proposal summary prepared for Vivek Singhal and is not a binder or a contract. Coverages, limits, terms, and exclusions are governed by the actual policy documents. Premium is subject to carrier review and may change pending underwriting. Coverage is not bound until an application is received and approved.</p>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.fade').forEach(function(el,i){el.style.transitionDelay=(Math.min(i,6)*40)+'ms';io.observe(el)});
+  document.querySelectorAll('.tile-head').forEach(function(h){
+    function toggle(){var t=h.closest('.tile');var open=t.classList.toggle('open');h.setAttribute('aria-expanded',open?'true':'false')}
+    h.addEventListener('click',toggle);
+    h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
+  });
+</script>
+
+<script>window.CASEY_PROPOSAL={"slug":"singhal","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
