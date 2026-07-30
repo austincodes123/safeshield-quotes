@@ -393,12 +393,12 @@ details.row:hover{background:#FBFCFC}
   <!-- DEDUCTIBLES -->
   <section class="sec">
     <div class="sec-head"><h2>Choose your deductible</h2></div>
-    <p class="sec-note">This is the one number on the page that's genuinely yours to set. A higher deductible means a lower premium every year, and more that you cover yourself when something happens. Slide it and watch the premium move.</p>
+    <p class="sec-note">This is the one number on the page that's genuinely yours to set. One deductible covers everything — fire, wind, theft, water damage, and hurricane alike. A higher deductible means a lower premium every year, and more that you cover yourself when something happens. Slide it and watch the premium move.</p>
 
     <div class="ded-pick">
       <div class="ded-live">
         <div>
-          <div class="ladder-lab">Deductible</div>
+          <div class="ladder-lab">Deductible · all perils</div>
           <div class="ded-amt" id="dAmt">$5,000</div>
         </div>
         <div>
@@ -427,8 +427,8 @@ details.row:hover{background:#FBFCFC}
     </div>
 
     <div class="ded-card ded-side">
-      <div class="amt">$2,500</div>
-      <p><b>Hurricane deductible</b> — set separately and unaffected by the slider above. It's a flat dollar amount rather than a percentage of the dwelling limit. On a $585,000 home, a 2% percentage deductible would have been $11,700.</p>
+      <div class="amt" id="hurAmt">$5,000</div>
+      <p><b>Hurricane deductible</b> — matches whatever you set above and moves with it. What matters here is that it's a flat dollar amount rather than a percentage of the dwelling limit: on a $585,000 home, a 2% percentage deductible would run $11,700 regardless of which option you pick.</p>
     </div>
   </section>
 
@@ -502,6 +502,7 @@ function setOpt(i){
   $('dPrem').textContent = o.prem;
   $('dSave').textContent = o.save;
   $('dOOP').textContent  = o.ded;
+  $('hurAmt').textContent = o.ded;
   $('dFive').textContent = o.five;
   $('dNote').textContent = o.note;
   $('heroPrem').textContent = o.prem;
