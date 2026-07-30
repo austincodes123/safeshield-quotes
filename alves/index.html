@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homeowners Proposal — 176 Minerva St, Derby CT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#101A22;
+  --ink-2:#43555F;
+  --ink-3:#7C8B94;
+  --paper:#ECEFF1;
+  --card:#FFFFFF;
+  --line:#D5DDE2;
+  --line-soft:#E7ECEF;
+  --sea:#1B4A5E;
+  --brass:#A8741A;
+  --brass-soft:#F4E9D2;
+  --good:#2F6B4F;
+  --radius:4px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Public Sans",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.55;
+}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px 80px}
+
+/* ---------- masthead ---------- */
+.masthead{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  gap:16px;flex-wrap:wrap;
+  padding:26px 0 18px;
+  border-bottom:2px solid var(--ink);
+}
+.brand{
+  font-family:"Bricolage Grotesque",sans-serif;
+  font-weight:800;font-size:19px;letter-spacing:.14em;text-transform:uppercase;
+}
+.brand span{color:var(--brass)}
+.meta{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;line-height:1.7;color:var(--ink-2);text-align:right;
+}
+.meta b{color:var(--ink);font-weight:600}
+
+/* ---------- hero ---------- */
+.hero{padding:44px 0 36px;border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);
+  margin:0 0 14px;
+}
+.addr{
+  font-family:"Bricolage Grotesque",sans-serif;
+  font-weight:800;font-size:clamp(34px,6.2vw,58px);line-height:1.02;
+  letter-spacing:-.02em;margin:0;
+}
+.addr small{display:block;font-size:.42em;font-weight:500;color:var(--ink-2);letter-spacing:0;margin-top:12px}
+.facts{
+  display:flex;flex-wrap:wrap;gap:0;margin-top:30px;
+  border-top:1px solid var(--line);
+}
+.fact{
+  flex:1 1 150px;padding:14px 18px 14px 0;border-right:1px solid var(--line-soft);
+}
+.fact:last-child{border-right:0}
+.fact dt{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 4px;
+}
+.fact dd{margin:0;font-weight:600;font-size:15px}
+
+/* ---------- section ---------- */
+.sec{padding:46px 0 0}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sec h2{
+  font-family:"Bricolage Grotesque",sans-serif;
+  font-weight:700;font-size:26px;letter-spacing:-.01em;margin:0;
+}
+.sec-note{color:var(--ink-2);font-size:15px;margin:0 0 22px;max-width:62ch}
+
+/* ---------- dwelling ladder ---------- */
+.ladder{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.ladder-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px}
+.ladder-num{
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:800;
+  font-size:clamp(28px,5vw,42px);letter-spacing:-.02em;line-height:1;
+}
+.ladder-num.max{color:var(--brass)}
+.ladder-lab{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.bar{display:flex;height:16px;margin:22px 0 10px;border-radius:2px;overflow:hidden;background:var(--line-soft)}
+.bar-base{background:var(--sea);flex:0 0 66.7%}
+.bar-ext{background:repeating-linear-gradient(45deg,var(--brass),var(--brass) 5px,#c08f34 5px,#c08f34 10px);flex:1}
+.bar-key{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:7px;vertical-align:baseline}
+.dot.sea{background:var(--sea)}
+.dot.brass{background:var(--brass)}
+
+/* ---------- coverage list ---------- */
+.cov{border-top:1px solid var(--line);margin-top:26px}
+details.row{border-bottom:1px solid var(--line-soft);background:var(--card)}
+details.row summary{
+  list-style:none;cursor:pointer;padding:15px 18px;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+}
+details.row summary::-webkit-details-marker{display:none}
+details.row summary:focus-visible{outline:2px solid var(--brass);outline-offset:-2px}
+.cov-name{font-weight:600;display:flex;align-items:center;gap:11px}
+.chev{color:var(--ink-3);font-size:12px;transition:transform .18s ease;display:inline-block}
+details[open] .chev{transform:rotate(90deg)}
+.cov-limit{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:15px;white-space:nowrap}
+.cov-body{padding:0 18px 18px 42px;color:var(--ink-2);font-size:14.5px;max-width:70ch}
+details.row:hover{background:#FBFCFC}
+
+/* ---------- included chips ---------- */
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px;margin-top:4px}
+.chip{
+  background:var(--card);border:1px solid var(--line);border-left:3px solid var(--sea);
+  border-radius:var(--radius);padding:13px 15px;
+}
+.chip b{display:block;font-size:14.5px}
+.chip span{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3)}
+
+/* ---------- deductibles ---------- */
+.ded{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.ded-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.ded-card .amt{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:30px;letter-spacing:-.02em}
+.ded-card p{margin:6px 0 0;font-size:14px;color:var(--ink-2)}
+
+/* ---------- pay plan (signature) ---------- */
+.plan{background:var(--ink);color:#fff;border-radius:var(--radius);overflow:hidden;margin-top:8px}
+.plan-head{padding:24px 24px 0}
+.plan-head h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:24px;margin:0 0 6px}
+.plan-head p{margin:0;color:#A6B6C0;font-size:14.5px;max-width:56ch}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;padding:20px 24px 0}
+.tab{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;
+  background:transparent;color:#C3D0D8;border:1px solid #33454F;border-radius:var(--radius);
+  padding:9px 15px;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease;
+}
+.tab:hover{border-color:var(--brass);color:#fff}
+.tab:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.tab[aria-selected="true"]{background:var(--brass);border-color:var(--brass);color:#fff;font-weight:600}
+.plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:#2A3B45;margin-top:22px}
+.pcell{background:var(--ink);padding:22px 24px}
+.pcell dt{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8FA3AE;margin:0 0 7px}
+.pcell dd{margin:0;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:27px;letter-spacing:-.02em}
+.pcell dd.sm{font-size:19px;font-weight:700}
+.plan-foot{padding:18px 24px 24px;font-size:14px;color:#A6B6C0;border-top:1px solid #2A3B45}
+.plan-foot strong{color:#fff}
+.flag{color:#E9C87A;font-weight:600}
+.flag.free{color:#8FD3AE}
+
+/* ---------- next ---------- */
+.next{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--brass);border-radius:var(--radius);padding:26px;margin-top:10px}
+.next ol{margin:14px 0 0;padding-left:20px}
+.next li{margin-bottom:9px}
+.next li::marker{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--brass)}
+.contact{margin-top:22px;padding-top:18px;border-top:1px solid var(--line-soft);font-size:14.5px}
+.contact a{color:var(--sea)}
+
+/* ---------- fine print ---------- */
+.fine{
+  margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
+  font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.85;color:var(--ink-3);
+}
+
+@media (max-width:640px){
+  .fact{flex:1 1 100%;border-right:0;border-bottom:1px solid var(--line-soft);padding-right:0}
+  .fact:last-child{border-bottom:0}
+  .meta{text-align:left}
+  .cov-body{padding-left:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+@media print{
+  body{background:#fff}
+  .plan{background:#fff;color:#000;border:1px solid #000}
+  .pcell{background:#fff}
+  details.row{border:1px solid #ccc}
+  details.row[open]{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="brand">Safe<span>shield</span> Insurance</div>
+    <div class="meta">
+      Prepared for <b>Hannah Alves</b><br>
+      Quote <b>CTHQ01808552</b> &nbsp;·&nbsp; Narragansett Bay Insurance<br>
+      Prepared <b>07/30/2026</b> &nbsp;·&nbsp; Effective <b>08/12/2026</b>
+    </div>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">Homeowners proposal · HO-3</p>
+    <h1 class="addr">176 Minerva St
+      <small>Derby, Connecticut 06418</small>
+    </h1>
+    <dl class="facts">
+      <div class="fact"><dt>Annual premium</dt><dd>$2,643</dd></div>
+      <div class="fact"><dt>Dwelling coverage</dt><dd>$585,000</dd></div>
+      <div class="fact"><dt>Built</dt><dd>1877 · Frame</dd></div>
+      <div class="fact"><dt>Protection class</dt><dd>4</dd></div>
+      <div class="fact"><dt>Policy term</dt><dd>08/12/26 – 08/12/27</dd></div>
+    </dl>
+  </section>
+
+  <!-- DWELLING LADDER -->
+  <section class="sec">
+    <div class="sec-head"><h2>How far the dwelling coverage actually goes</h2></div>
+    <p class="sec-note">The policy is written at $585,000 to rebuild the house. If construction costs come in higher than that after a total loss, this policy will pay up to 50% beyond the limit rather than stopping at it. On a home built in 1877, that cushion matters more than it would on new construction.</p>
+    <div class="ladder">
+      <div class="ladder-top">
+        <div>
+          <div class="ladder-lab">Coverage A limit</div>
+          <div class="ladder-num">$585,000</div>
+        </div>
+        <div style="text-align:right">
+          <div class="ladder-lab">Maximum available to rebuild</div>
+          <div class="ladder-num max">$877,500</div>
+        </div>
+      </div>
+      <div class="bar" role="img" aria-label="Coverage A of $585,000 plus an additional 50 percent, for $877,500 total available.">
+        <div class="bar-base"></div><div class="bar-ext"></div>
+      </div>
+      <div class="bar-key">
+        <span><i class="dot sea"></i>Stated limit — $585,000</span>
+        <span><i class="dot brass"></i>Additional amount of insurance — $292,500</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section class="sec">
+    <div class="sec-head"><h2>What's covered</h2></div>
+    <p class="sec-note">Tap any line to see what it pays for. Every limit below is part of the $2,643 premium.</p>
+    <div class="cov">
+
+      <details class="row">
+        <summary>
+          <span class="cov-name"><i class="chev">▸</i>Dwelling</span>
+          <span class="cov-limit">$585,000</span>
+        </summary>
+        <div class="cov-body">The house itself — structure, attached fixtures, built-ins. This is the number the rebuild is measured against, and it grows 4% a year automatically to keep pace with construction costs.</div>
+      </details>
+
+      <details class="row">
+        <summary>
+          <span class="cov-name"><i class="chev">▸</i>Other structures</span>
+          <span class="cov-limit">$58,500</span>
+        </summary>
+        <div class="cov-body">Anything on the lot not attached to the house — detached garage, shed, fencing, driveway gates, retaining walls.</div>
+      </details>
+
+      <details class="row">
+        <summary>
+          <span class="cov-name"><i class="chev">▸</i>Personal property</span>
+          <span class="cov-limit">$409,500</span>
+        </summary>
+        <div class="cov-body">Everything you'd take with you if you moved: furniture, clothing, electronics, tools, appliances. Written at replacement cost, so a claim pays what it costs to buy the item new today rather than what the used item was worth.</div>
+      </details>
+
+      <details class="row">
+        <summary>
+          <span class="cov-name"><i class="chev">▸</i>Loss of use</span>
+          <span class="cov-limit">$175,500</span>
+        </summary>
+        <div class="cov-body">If a covered loss makes the house unlivable, this pays rent, hotel, and the extra living costs while it's being repaired. Rebuilding a 19th-century frame house takes time, and this is what funds the gap.</div>
+      </details>
+
+      <details class="row">
+        <summary>
+          <span class="cov-name"><i class="chev">▸</i>Personal liability</span>
+          <span class="cov-limit">$500,000</span>
+        </summary>
+        <div class="cov-body">Covers you if someone is injured on the property or you're held responsible for damage elsewhere. Pays the defense costs and the judgment, up to the limit.</div>
+      </details>
+
+      <details class="row">
+        <summary>
+          <span class="cov-name"><i class="chev">▸</i>Medical payments to others</span>
+          <span class="cov-limit">$5,000</span>
+        </summary>
+        <div class="cov-body">Pays a guest's medical bills after an injury on the property, no fault or lawsuit required. Usually the fastest way to keep a small incident from becoming a liability claim.</div>
+      </details>
+
+      <details class="row">
+        <summary>
+          <span class="cov-name"><i class="chev">▸</i>Equipment breakdown</span>
+          <span class="cov-limit">$100,000</span>
+        </summary>
+        <div class="cov-body">Mechanical and electrical failure of home systems — furnace, boiler, water heater, panel, HVAC, well pump. A standard homeowners policy covers a fire or a burst pipe; it does not cover the equipment simply failing. This does.</div>
+      </details>
+
+      <details class="row">
+        <summary>
+          <span class="cov-name"><i class="chev">▸</i>Water backup &amp; sump overflow</span>
+          <span class="cov-limit">$10,000</span>
+        </summary>
+        <div class="cov-body">Water coming back up through drains, sewers, or a failed sump pump. Excluded on a base policy, added here on purpose — it's one of the most common basement losses on older housing stock.</div>
+      </details>
+
+      <details class="row">
+        <summary>
+          <span class="cov-name"><i class="chev">▸</i>Ordinance or law</span>
+          <span class="cov-limit">10% · $58,500</span>
+        </summary>
+        <div class="cov-body">The one that earns its keep on an 1877 house. If you repair after a loss, current code applies — wiring, egress, insulation, structural. Insurance normally pays only to restore what was there. This pays the extra cost of bringing the repaired portion up to code.</div>
+      </details>
+
+      <details class="row">
+        <summary>
+          <span class="cov-name"><i class="chev">▸</i>Identity fraud expense</span>
+          <span class="cov-limit">$15,000</span>
+        </summary>
+        <div class="cov-body">Costs of recovering from identity theft — filing fees, notarizing, lost wages for time spent restoring your credit, attorney costs.</div>
+      </details>
+
+      <details class="row">
+        <summary>
+          <span class="cov-name"><i class="chev">▸</i>Fungi, wet or dry rot, bacteria</span>
+          <span class="cov-limit">$10,000 / $50,000</span>
+        </summary>
+        <div class="cov-body">$10,000 toward mold remediation following a covered water loss, and $50,000 of related liability protection.</div>
+      </details>
+
+      <details class="row">
+        <summary>
+          <span class="cov-name"><i class="chev">▸</i>Loss assessment</span>
+          <span class="cov-limit">$1,000</span>
+        </summary>
+        <div class="cov-body">Covers your share if an association levies an assessment after a covered loss to shared property.</div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- INCLUDED -->
+  <section class="sec">
+    <div class="sec-head"><h2>Built into the rate</h2></div>
+    <p class="sec-note">These are already priced in — nothing here is an add-on decision you still need to make.</p>
+    <div class="chips">
+      <div class="chip"><b>Inflation guard</b><span>4% per year, automatic</span></div>
+      <div class="chip"><b>Personal property replacement cost</b><span>No depreciation on contents</span></div>
+      <div class="chip"><b>Personal injury liability</b><span>Libel, slander, false arrest</span></div>
+      <div class="chip"><b>Mariner Plus package</b><span>Enhanced coverage endorsement</span></div>
+      <div class="chip"><b>Age of home credit</b><span>Applied to this rate</span></div>
+      <div class="chip"><b>Companion policy discount</b><span>−$112 for bundling</span></div>
+      <div class="chip"><b>Protective devices discount</b><span>−$34</span></div>
+      <div class="chip"><b>Roof age &amp; cover discount</b><span>−$89</span></div>
+    </div>
+  </section>
+
+  <!-- DEDUCTIBLES -->
+  <section class="sec">
+    <div class="sec-head"><h2>Your deductibles</h2></div>
+    <p class="sec-note">What you pay out of pocket before the policy responds.</p>
+    <div class="ded">
+      <div class="ded-card">
+        <div class="amt">$2,500</div>
+        <p><b>All other perils</b> — applies to fire, wind, theft, water damage, and everything that isn't a named hurricane.</p>
+      </div>
+      <div class="ded-card">
+        <div class="amt">$2,500</div>
+        <p><b>Hurricane</b> — a flat dollar amount, not a percentage of the dwelling limit. On a $585,000 home, a 2% percentage deductible would have been $11,700.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIUM -->
+  <section class="sec">
+    <div class="sec-head"><h2>The premium</h2></div>
+    <p class="sec-note">Paid in full for the first policy year. On a purchase, the lender collects the first year at closing, so this is a single line on your settlement statement rather than something you carry month to month.</p>
+
+    <div class="plan">
+      <div class="plan-head">
+        <h2>Paid in full</h2>
+        <p>One payment, collected at closing. No installments, no service fees, nothing to track for twelve months.</p>
+      </div>
+
+      <dl class="plan-grid">
+        <div class="pcell"><dt>Annual premium</dt><dd>$2,643.00</dd></div>
+        <div class="pcell"><dt>Service fees</dt><dd>$0</dd></div>
+        <div class="pcell"><dt>Covers you through</dt><dd class="sm">Aug 12, 2027</dd></div>
+      </dl>
+
+      <div class="plan-foot">
+        <strong>Includes everything on this page.</strong> The $12.00 Healthy Homes Fund Surcharge is already in the $2,643 — there is nothing else added at binding.
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section class="sec">
+    <div class="sec-head"><h2>To put this in force</h2></div>
+    <div class="next">
+      <p style="margin:0;color:var(--ink-2)">Coverage starts <b style="color:var(--ink)">August 12, 2026</b>. To hold that date:</p>
+      <ol>
+        <li>Send us the closing date and lender information so the mortgagee clause is correct on day one.</li>
+        <li>Confirm roof age, heating/electrical updates, and any recent renovations — the carrier inspects after binding and accurate details keep the rate where it is.</li>
+        <li>We issue the binder and send evidence of insurance directly to your closing attorney and lender.</li>
+      </ol>
+      <div class="contact">
+        <b>Safeshield Insurance LLC</b><br>
+        2777 Summer Street, 6th Floor, Stamford, CT 06905<br>
+        <a href="tel:+12032042555">203.204.2555</a> · <a href="mailto:austin@gosafeshield.com">austin@gosafeshield.com</a>
+      </div>
+    </div>
+  </section>
+
+  <p class="fine">
+    Quote CTHQ01808552 · Narragansett Bay Insurance Company, PO Box 9950, Providence, RI 02940-4150 · NBIC CT HO QTE 04 23<br>
+    Premium includes a $12.00 Healthy Homes Fund Surcharge. Rates are not guaranteed and may change at any time. Payment of premium does not automatically bind coverage; coverage is not in effect until confirmed by an authorized representative. The terms of this proposal do not alter the terms and conditions of any policy delivered. Please review the policy closely when received. A $25 fee applies to any returned payment.
+  </p>
+
+</div>
+
+</body>
+</html>
