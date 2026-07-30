@@ -174,6 +174,32 @@ details.row:hover{background:#FBFCFC}
   font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.85;color:var(--ink-3);
 }
 
+/* ---------- deductible picker ---------- */
+.ded-pick{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--brass);border-radius:var(--radius);padding:28px 26px 26px}
+.ded-live{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.ded-amt{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(38px,7vw,56px);letter-spacing:-.03em;line-height:1}
+.ded-prem{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(30px,5.5vw,44px);letter-spacing:-.03em;line-height:1;color:var(--brass);text-align:right}
+.dslider{width:100%;-webkit-appearance:none;appearance:none;background:transparent;margin:0;height:32px;cursor:pointer;display:block}
+.dslider::-webkit-slider-runnable-track{height:6px;background:var(--line);border-radius:3px}
+.dslider::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--brass);border:3px solid #fff;box-shadow:0 1px 5px rgba(16,26,34,.35);margin-top:-10px}
+.dslider::-moz-range-track{height:6px;background:var(--line);border-radius:3px}
+.dslider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--brass);border:3px solid #fff;box-shadow:0 1px 5px rgba(16,26,34,.35)}
+.dslider:focus-visible::-webkit-slider-thumb{outline:2px solid var(--sea);outline-offset:3px}
+.dslider:focus-visible::-moz-range-thumb{outline:2px solid var(--sea);outline-offset:3px}
+.ticks{display:flex;margin-top:2px}
+.tick{flex:1;font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-3);background:none;border:0;padding:8px 0;cursor:pointer}
+.tick:nth-child(1){text-align:left}
+.tick:nth-child(2){text-align:center}
+.tick:nth-child(3){text-align:right}
+.tick[aria-current="true"]{color:var(--ink);font-weight:600}
+.tick:hover{color:var(--brass)}
+.tick:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.ded-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:22px;padding-top:22px;border-top:1px solid var(--line-soft)}
+.dstat dt{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px}
+.dstat dd{margin:0;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:23px;letter-spacing:-.02em}
+.ded-note{margin-top:20px;background:var(--brass-soft);border-radius:var(--radius);padding:15px 17px;font-size:14.5px;color:#5C4413}
+.ded-side{margin-top:14px}
+
 @media (max-width:640px){
   .fact{flex:1 1 100%;border-right:0;border-bottom:1px solid var(--line-soft);padding-right:0}
   .fact:last-child{border-bottom:0}
@@ -210,7 +236,7 @@ details.row:hover{background:#FBFCFC}
       <small>Derby, Connecticut 06418</small>
     </h1>
     <dl class="facts">
-      <div class="fact"><dt>Annual premium</dt><dd>$2,643</dd></div>
+      <div class="fact"><dt>Annual premium</dt><dd id="heroPrem">$2,369</dd></div>
       <div class="fact"><dt>Dwelling coverage</dt><dd>$585,000</dd></div>
       <div class="fact"><dt>Built</dt><dd>1877 · Frame</dd></div>
       <div class="fact"><dt>Protection class</dt><dd>4</dd></div>
@@ -246,7 +272,7 @@ details.row:hover{background:#FBFCFC}
   <!-- COVERAGE -->
   <section class="sec">
     <div class="sec-head"><h2>What's covered</h2></div>
-    <p class="sec-note">Tap any line to see what it pays for. Every limit below is part of the $2,643 premium.</p>
+    <p class="sec-note">Tap any line to see what it pays for. Every limit below is included in your premium — none of it is an upsell.</p>
     <div class="cov">
 
       <details class="row">
@@ -366,17 +392,43 @@ details.row:hover{background:#FBFCFC}
 
   <!-- DEDUCTIBLES -->
   <section class="sec">
-    <div class="sec-head"><h2>Your deductibles</h2></div>
-    <p class="sec-note">What you pay out of pocket before the policy responds.</p>
-    <div class="ded">
-      <div class="ded-card">
-        <div class="amt">$2,500</div>
-        <p><b>All other perils</b> — applies to fire, wind, theft, water damage, and everything that isn't a named hurricane.</p>
+    <div class="sec-head"><h2>Choose your deductible</h2></div>
+    <p class="sec-note">This is the one number on the page that's genuinely yours to set. A higher deductible means a lower premium every year, and more that you cover yourself when something happens. Slide it and watch the premium move.</p>
+
+    <div class="ded-pick">
+      <div class="ded-live">
+        <div>
+          <div class="ladder-lab">Deductible</div>
+          <div class="ded-amt" id="dAmt">$5,000</div>
+        </div>
+        <div>
+          <div class="ladder-lab" style="text-align:right">Annual premium</div>
+          <div class="ded-prem" id="dPrem">$2,369</div>
+        </div>
       </div>
-      <div class="ded-card">
-        <div class="amt">$2,500</div>
-        <p><b>Hurricane</b> — a flat dollar amount, not a percentage of the dwelling limit. On a $585,000 home, a 2% percentage deductible would have been $11,700.</p>
+
+      <input type="range" class="dslider" id="dSlider" min="0" max="2" step="1" value="1"
+             aria-label="Deductible amount"
+             aria-valuetext="$5,000 deductible, $2,369 annual premium">
+
+      <div class="ticks">
+        <button class="tick" data-i="0" aria-current="false">$2,500</button>
+        <button class="tick" data-i="1" aria-current="true">$5,000</button>
+        <button class="tick" data-i="2" aria-current="false">$10,000</button>
       </div>
+
+      <dl class="ded-stats">
+        <div class="dstat"><dt>Saved per year</dt><dd id="dSave">$274</dd></div>
+        <div class="dstat"><dt>You cover the first</dt><dd id="dOOP">$5,000</dd></div>
+        <div class="dstat"><dt>Over five years</dt><dd id="dFive">$1,370</dd></div>
+      </dl>
+
+      <p class="ded-note" id="dNote">The middle ground, and where most buyers land. You give up $274 a year against the $2,500 option and take on $2,500 more risk per claim.</p>
+    </div>
+
+    <div class="ded-card ded-side">
+      <div class="amt">$2,500</div>
+      <p><b>Hurricane deductible</b> — set separately and unaffected by the slider above. It's a flat dollar amount rather than a percentage of the dwelling limit. On a $585,000 home, a 2% percentage deductible would have been $11,700.</p>
     </div>
   </section>
 
@@ -392,13 +444,14 @@ details.row:hover{background:#FBFCFC}
       </div>
 
       <dl class="plan-grid">
-        <div class="pcell"><dt>Annual premium</dt><dd>$2,643.00</dd></div>
+        <div class="pcell"><dt>Annual premium</dt><dd id="pPrem">$2,369.00</dd></div>
+        <div class="pcell"><dt>Your deductible</dt><dd id="pDed">$5,000</dd></div>
         <div class="pcell"><dt>Service fees</dt><dd>$0</dd></div>
         <div class="pcell"><dt>Covers you through</dt><dd class="sm">Aug 12, 2027</dd></div>
       </dl>
 
       <div class="plan-foot">
-        <strong>Includes everything on this page.</strong> The $12.00 Healthy Homes Fund Surcharge is already in the $2,643 — there is nothing else added at binding.
+        <strong>Includes everything on this page.</strong> The $12.00 Healthy Homes Fund Surcharge is already inside the premium above — there is nothing else added at binding.
       </div>
     </div>
   </section>
@@ -428,5 +481,38 @@ details.row:hover{background:#FBFCFC}
 
 </div>
 
+<script>
+const OPTS = [
+  { ded:"$2,500",  prem:"$2,643",  premFull:"$2,643.00", save:"$0",   five:"$0",
+    note:"The lowest out-of-pocket if something happens, and the highest annual cost. Worth it if you'd rather not have to find $5,000 on short notice." },
+  { ded:"$5,000",  prem:"$2,369",  premFull:"$2,369.00", save:"$274", five:"$1,370",
+    note:"The middle ground, and where most buyers land. You save $274 a year against the $2,500 option and take on $2,500 more risk per claim." },
+  { ded:"$10,000", prem:"$2,141",  premFull:"$2,141.00", save:"$502", five:"$2,510",
+    note:"The lowest premium on the page — $502 a year less than the $2,500 option. Only worth it if you could comfortably write a $10,000 check the week something happens." }
+];
+const $ = id => document.getElementById(id);
+const slider = $('dSlider');
+const ticks = [...document.querySelectorAll('.tick')];
+
+function setOpt(i){
+  const o = OPTS[i];
+  slider.value = i;
+  slider.setAttribute('aria-valuetext', o.ded + ' deductible, ' + o.prem + ' annual premium');
+  $('dAmt').textContent  = o.ded;
+  $('dPrem').textContent = o.prem;
+  $('dSave').textContent = o.save;
+  $('dOOP').textContent  = o.ded;
+  $('dFive').textContent = o.five;
+  $('dNote').textContent = o.note;
+  $('heroPrem').textContent = o.prem;
+  $('pPrem').textContent = o.premFull;
+  $('pDed').textContent  = o.ded;
+  ticks.forEach((t,n)=>t.setAttribute('aria-current', n===i ? 'true' : 'false'));
+}
+
+slider.addEventListener('input', e => setOpt(+e.target.value));
+ticks.forEach(t => t.addEventListener('click', () => setOpt(+t.dataset.i)));
+setOpt(1);
+</script>
 </body>
 </html>
