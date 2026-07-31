@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Insurance Comparison | Goldstein & Movsas</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0d2340;--navy2:#183a63;--gray:#f4f6f9;--line:#e2e8f1;--ink:#1a2231;--slate:#5c6b80;--red:#c0392b;--gold:#b8860b;--blue:#1f5fa8;--good:#1f9d6b;--warn:#c98a00}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+h1,h2,h3{font-family:'Playfair Display',serif;color:var(--navy)}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+.sec{padding:40px 0;border-bottom:1px solid var(--line)}
+.eye{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
+h2{font-size:clamp(22px,4vw,30px);margin-bottom:16px}
+.hero{background:linear-gradient(160deg,var(--navy),var(--navy2));color:#fff;padding:52px 0 44px}
+.hero h1{color:#fff;font-size:clamp(28px,6vw,42px);line-height:1.1}
+.hero p{color:rgba(255,255,255,.82);margin-top:14px;max-width:56ch;font-size:15px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px}
+.hero .meta div span{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.hero .meta div b{font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line)}
+thead th{background:var(--navy);color:#fff;font-weight:600;font-size:12px;letter-spacing:.04em}
+th.amica,td.amica{background:var(--gray)}
+thead th.amica{background:#33465f;color:#fff}
+tbody tr:nth-child(even) td{background:#fafbfd}
+tbody tr:nth-child(even) td.amica{background:#eef1f6}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+.rowtot td{background:var(--navy)!important;color:#fff;font-weight:700}
+.rowsave td{background:#f1faf5!important;color:var(--good);font-weight:700}
+.chk{color:var(--good);font-weight:700}
+.cau{color:var(--warn);font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:12px;padding:18px;background:#fff}
+.card .ic{font-size:22px}
+.card h3{font-size:17px;margin:6px 0 4px}
+.card p{font-size:14px;color:var(--slate)}
+.tag{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.tag.cur{color:var(--slate)}.tag.pro{color:var(--blue)}
+.note{border-left:4px solid var(--warn);background:#fffaf0;border-radius:8px;padding:14px 16px;margin:12px 0;font-size:14px}
+.note b{color:var(--warn)}
+.plus{border-left:4px solid var(--good);background:#f1faf5;border-radius:8px;padding:14px 16px;margin:12px 0;font-size:14px}
+.plus b{color:var(--good)}
+.neu{border-left:4px solid var(--blue);background:#f2f7fd;border-radius:8px;padding:14px 16px;margin:12px 0;font-size:14px}
+.save{background:linear-gradient(160deg,#0d2340,#1f5fa8);color:#fff;border-radius:14px;padding:22px 24px;margin:16px 0;display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px}
+.save .big{font-family:'Playfair Display',serif;font-size:38px;color:#fff;line-height:1}
+.save .lbl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);display:block;margin-bottom:4px}
+.save small{color:rgba(255,255,255,.75);font-size:13px;flex-basis:100%}
+ul.clean{list-style:none;display:flex;flex-direction:column;gap:8px}
+ul.clean li{font-size:14.5px;padding-left:24px;position:relative}
+ul.clean li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:99px;background:var(--gold)}
+li.g::before{background:var(--good)}li.y::before{background:var(--warn)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--slate);margin-bottom:14px}
+.scroll{overflow-x:auto}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.disc{font-size:12px;color:var(--slate);background:var(--gray);border-radius:10px;padding:16px 18px;margin-top:18px}
+footer{background:var(--navy);color:#fff;padding:36px 0;text-align:center}
+footer .sig{font-family:'Playfair Display',serif;font-size:20px}
+footer .sig span{color:var(--gold)}
+footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
+footer a{color:#fff}
+@media(max-width:600px){th,td{padding:9px 10px;font-size:12.5px}}
+</style></head><body>
+
+<header class="hero"><div class="wrap">
+<div class="eye">Coverage & Premium Comparison</div>
+<h1>Amica vs. Travelers &amp; NBIC</h1>
+<p>A side-by-side look at your current Amica coverage and the proposed Travelers auto + NBIC home &amp; umbrella package. Objective, so you can weigh coverage and price together.</p>
+<div class="meta">
+<div><span>Insureds</span><b>Bradley Goldstein &amp; Avielle Movsas</b></div>
+<div><span>Property</span><b>46 Clifford Ave, Stamford, CT</b></div>
+<div><span>Prepared By</span><b>Eric Kelly, Safeshield</b></div>
+</div></div></header>
+
+<section class="sec"><div class="wrap">
+<div class="eye">Overview</div><h2>What we're covering</h2>
+<div class="cards">
+<div class="card"><div class="ic">🏠</div><h3>The Home</h3><p>46 Clifford Ave. Built 1910, frame, protection class 3.</p></div>
+<div class="card"><div class="ic">🚗</div><h3>Two Vehicles</h3><p>2022 Subaru Ascent AWD<br>2020 Mazda CX-30 AWD</p></div>
+<div class="card"><div class="ic">👪</div><h3>Drivers</h3><p>Bradley Goldstein<br>Avielle Movsas<br>Julya Mendes Bittner</p></div>
+</div></div></section>
+
+<section class="sec"><div class="wrap">
+<div class="eye">Pricing</div><h2>Pricing at a glance</h2>
+<div class="scroll"><table>
+<thead><tr><th>Policy</th><th class="amica">Current Amica</th><th>Proposed</th></tr></thead>
+<tbody>
+<tr><td>Home</td><td class="amica">$3,452</td><td>in package</td></tr>
+<tr><td>Umbrella ($2M)</td><td class="amica">$608</td><td>$257 (in package)</td></tr>
+<tr><td>Home + Umbrella</td><td class="amica">$4,060</td><td>$4,217 (NBIC)</td></tr>
+<tr><td>Auto (annual)</td><td class="amica">$4,183</td><td>≈ $3,282 (Travelers PIF)</td></tr>
+<tr class="rowtot"><td>Total annual package</td><td class="amica">$8,243</td><td>≈ $7,499</td></tr>
+<tr class="rowsave"><td>Estimated annual saving</td><td class="amica"></td><td>≈ $744</td></tr>
+</tbody></table></div>
+<div class="save">
+<div><span class="lbl">Estimated annual saving</span><span class="big">≈ $744</span></div>
+<div><span class="lbl">Auto alone</span><span class="big">$901</span></div>
+<small>Amica package $8,243 vs proposed $7,499. Auto drops from $4,183 to ≈$3,282 (Travelers paid in full). Home + umbrella runs ≈$157 more but adds a $2M umbrella and $100K equipment breakdown.</small>
+</div>
+<div class="note"><b>⚠ Note on the estimate:</b> Travelers is a 6-month term ($1,641 PIF) annualized to ≈$3,282 across two identical terms — renewals may change. Amica auto is $4,183. Savings are estimates based on the documents provided.</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<div class="eye">Home</div><h2>Homeowners comparison</h2>
+<div class="legend"><span><b class="chk">✓</b> included</span><span><b class="cau">⚠</b> not shown / confirm</span></div>
+<div class="scroll"><table>
+<thead><tr><th>Coverage</th><th class="amica">Amica</th><th>NBIC</th></tr></thead>
+<tbody>
+<tr><td>Dwelling</td><td class="amica">$1,687,000</td><td>$1,687,000</td></tr>
+<tr><td>Extra dwelling repl. cost (+50%)</td><td class="amica">+$843,500</td><td>+$843,500</td></tr>
+<tr><td>Max dwelling protection</td><td class="amica">≈ $2,530,500</td><td>≈ $2,530,500</td></tr>
+<tr><td>Other structures</td><td class="amica">$168,700</td><td>$168,700</td></tr>
+<tr><td>Personal property</td><td class="amica">$1,265,250</td><td>$843,500</td></tr>
+<tr><td>Loss of use</td><td class="amica">$506,100</td><td>$506,100</td></tr>
+<tr><td>Personal liability</td><td class="amica">$1,000,000</td><td>$1,000,000</td></tr>
+<tr><td>Medical payments</td><td class="amica">$5,000</td><td>$5,000</td></tr>
+<tr><td>Deductible</td><td class="amica">$5,000</td><td>$5,000</td></tr>
+<tr><td>Hurricane deductible</td><td class="amica"><span class="cau">⚠</span> not shown</td><td>1%</td></tr>
+<tr><td>Water backup</td><td class="amica">$25,000</td><td>$25,000</td></tr>
+<tr><td>Equipment breakdown</td><td class="amica"><span class="cau">⚠</span> not shown</td><td><span class="chk">✓</span> $100,000</td></tr>
+<tr><td>Ordinance or law</td><td class="amica"><span class="cau">⚠</span> not shown</td><td>10%</td></tr>
+<tr><td>Service line</td><td class="amica">$10,000</td><td>$10,000</td></tr>
+<tr><td>Annual home premium</td><td class="amica">$3,452</td><td>in $4,217 package</td></tr>
+</tbody></table></div>
+<div class="plus"><b>Additional 50% on the dwelling:</b> Both policies include an extra 50% of Coverage A. On a $1,687,000 dwelling that's up to <b>$843,500 more</b>, bringing total potential dwelling protection to about <b>$2,530,500</b> when the endorsement conditions are met.</div>
+<div class="grid2">
+<div class="plus"><b>Same on both:</b> dwelling + 50% extra, other structures, loss of use, liability, med pay, water backup.</div>
+<div class="neu"><b>NBIC adds:</b> $100K equipment breakdown, 10% ordinance or law, loss assessment, personal injury, service line.</div>
+</div>
+<div class="note"><b>Where Amica may be broader:</b> <b>$421,750 more</b> personal property ($1,265,250 vs $843,500). Amica also carries large-loss deductible waiver, claim forgiveness and fire valued policy protection, which weren't shown on the NBIC quote.</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<div class="eye">Auto</div><h2>Auto comparison</h2>
+<div class="scroll"><table>
+<thead><tr><th>Coverage</th><th class="amica">Amica</th><th>Travelers</th></tr></thead>
+<tbody>
+<tr><td>Bodily injury</td><td class="amica">$250K / $500K</td><td>$250K / $500K</td></tr>
+<tr><td>Property damage</td><td class="amica">$250,000</td><td>$250,000</td></tr>
+<tr><td>UM / UIM</td><td class="amica">$250K / $500K</td><td>$250K / $500K</td></tr>
+<tr><td>Medical payments</td><td class="amica">$10,000</td><td>$10,000</td></tr>
+<tr><td>Comprehensive ded.</td><td class="amica">$500</td><td>$500</td></tr>
+<tr><td>Glass</td><td class="amica">$0</td><td>$0</td></tr>
+<tr><td>Collision ded.</td><td class="amica">$1,000</td><td>$1,000</td></tr>
+<tr><td>Roadside</td><td class="amica"><span class="cau">⚠</span> not shown</td><td><span class="chk">✓</span> included</td></tr>
+<tr><td>Annual premium</td><td class="amica">$4,183</td><td>≈ $3,282 (PIF)</td></tr>
+<tr class="rowsave"><td>Estimated auto saving</td><td class="amica"></td><td>≈ $901 / yr</td></tr>
+</tbody></table></div>
+<div class="plus"><b>Core limits match:</b> BI, PD, UM/UIM, med pay, comp, glass and collision are all the same — and Travelers comes in about <b>$901/yr lower</b> paid in full.</div>
+<div class="note"><b>Confirm on Travelers:</b> Amica lists accidental death, original-parts &amp; parts-quality guarantee and new-vehicle replacement. Those weren't shown on the Travelers quote — don't assume they're included until confirmed.</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<div class="eye">Travelers Detail</div><h2>Travelers by vehicle</h2>
+<p style="color:var(--slate);margin-bottom:14px;font-size:14px">6-month term, Aug 5, 2026 – Feb 5, 2027. Both rated Pleasure use.</p>
+<div class="scroll"><table>
+<thead><tr><th>Coverage</th><th>Mazda CX-30</th><th>Subaru Ascent</th></tr></thead>
+<tbody>
+<tr><td>Bodily injury</td><td>$313</td><td>$273</td></tr>
+<tr><td>Property damage</td><td>$164</td><td>$85</td></tr>
+<tr><td>UM / UIM</td><td>$86</td><td>$86</td></tr>
+<tr><td>Medical payments</td><td>$27</td><td>$30</td></tr>
+<tr><td>Comprehensive</td><td>$61</td><td>$112</td></tr>
+<tr><td>Collision</td><td>$185</td><td>$209</td></tr>
+<tr><td>Roadside</td><td>$5</td><td>$5</td></tr>
+<tr class="rowtot"><td>6-month total</td><td>$841</td><td>$800</td></tr>
+</tbody></table></div>
+<div class="neu"><b>Totals:</b> $1,641 paid in full (≈$3,282/yr), or $1,717 on the installment plan (≈$3,434/yr, ~$286 down). Annual figures are estimates from two 6-month terms; renewals may change. Total discounts: $1,315.</div>
+<div class="note"><b>⚠ On the quote:</b> Two accidents for Avielle — 05/31/2025 ($7,969) and 09/14/2022 ($6,591). Julya has an out-of-state license and isn't marked away at school.</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<div class="eye">Umbrella</div><h2>Umbrella comparison</h2>
+<div class="scroll"><table>
+<thead><tr><th>Coverage</th><th class="amica">Amica</th><th>NBIC</th></tr></thead>
+<tbody>
+<tr><td>Limit</td><td class="amica">$2,000,000</td><td>$2,000,000</td></tr>
+<tr><td>Annual premium</td><td class="amica">$608</td><td>$257 (in package)</td></tr>
+</tbody></table></div>
+<div class="note"><b>⚠ Confirm before binding:</b> NBIC confirms the $2M limit and $257 premium but not the form, deductible, exclusions or underlying requirements.</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<div class="eye">Bottom Line</div><h2>Key takeaways</h2>
+<ul class="clean">
+<li class="g">Same $1,687,000 dwelling plus an additional 50% (up to ≈$843,500 more, ≈$2,530,500 total), and same liability, med pay and water backup.</li>
+<li class="g">NBIC adds $100K equipment breakdown and folds the $2M umbrella into the $4,217 package.</li>
+<li class="y">Amica carries $421,750 more personal property.</li>
+<li class="g">Auto core limits match closely; Travelers runs about $901/yr less paid in full.</li>
+<li class="g">Full package: Amica $8,243 vs proposed ≈$7,499 — an estimated ≈$744/yr saving.</li>
+<li>Home + umbrella runs ≈$157 more, offset by the auto savings and added coverage.</li>
+<li class="y">Confirm exact forms, deductibles and endorsements before any change.</li>
+</ul>
+<div class="disc">This comparison is based solely on the quotes and policy documents provided. Coverage is subject to the complete policy forms, endorsements, exclusions, underwriting approval and carrier confirmation. Annualized premiums are estimates, and renewal premiums may change. This presentation does not amend, extend or replace the terms of any insurance policy.</div>
+</div></section>
+
+<footer><div class="wrap">
+<div class="sig">Safe<span>shield</span> Insurance</div>
+<p>Prepared by Eric Kelly · <a href="mailto:eric@gosafeshield.com">eric@gosafeshield.com</a> · (203) 806-5889</p>
+</div></footer>
+
+<script>window.CASEY_PROPOSAL={"slug":"goldstein-movsas","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body></html>
