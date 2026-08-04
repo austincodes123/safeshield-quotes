@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYCM Insurance — Prepared for Miriam Edelstein</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a1628;
+    color: #FAFAF8;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 900; line-height: 1.15; }
+  .gold { color: #FFA300; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent); margin: 64px 0; }
+
+  /* HERO */
+  .hero { text-align: center; padding: 80px 0 48px; }
+  .eyebrow { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #FFA300; font-weight: 600; margin-bottom: 20px; }
+  .hero h1 { font-size: 52px; margin-bottom: 20px; }
+  .hero .sub { font-size: 20px; font-weight: 300; color: rgba(250,250,248,0.8); max-width: 620px; margin: 0 auto; }
+  .prepared { margin-top: 32px; font-size: 15px; color: rgba(250,250,248,0.6); }
+  .prepared strong { color: #FAFAF8; font-weight: 600; }
+
+  /* STAT TILES */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
+  .stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 32px 20px;
+    text-align: center;
+  }
+  .stat .num { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 42px; color: #FFA300; line-height: 1; }
+  .stat .lbl { font-size: 14px; color: rgba(250,250,248,0.75); margin-top: 12px; }
+
+  /* SECTION */
+  .section h2 { font-size: 34px; margin-bottom: 18px; }
+  .section p { font-size: 17px; color: rgba(250,250,248,0.82); margin-bottom: 16px; }
+  .lead { font-size: 19px !important; color: rgba(250,250,248,0.9) !important; }
+
+  /* TRUST TILES */
+  .trust { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 28px; }
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 28px;
+  }
+  .card h3 { font-size: 20px; margin-bottom: 10px; color: #FAFAF8; }
+  .card p { font-size: 15px; color: rgba(250,250,248,0.75); margin: 0; }
+  .card .icon { font-size: 22px; margin-bottom: 14px; display: block; }
+
+  /* RATING BADGE */
+  .rating {
+    background: linear-gradient(135deg, rgba(255,163,0,0.12), rgba(0,75,137,0.15));
+    border: 1px solid rgba(255,163,0,0.3);
+    border-radius: 22px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 12px;
+  }
+  .rating .grade { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 68px; color: #FFA300; line-height: 1; }
+  .rating .src { font-size: 15px; color: rgba(250,250,248,0.8); margin-top: 10px; }
+
+  /* CALLOUT */
+  .callout {
+    background: rgba(0,75,137,0.18);
+    border-left: 3px solid #FFA300;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-top: 24px;
+  }
+  .callout p { font-size: 17px; color: rgba(250,250,248,0.9); margin: 0; }
+
+  /* FOOTER CTA */
+  .cta { text-align: center; padding: 64px 0 80px; }
+  .cta h2 { font-size: 32px; margin-bottom: 16px; }
+  .cta p { font-size: 17px; color: rgba(250,250,248,0.8); max-width: 540px; margin: 0 auto 28px; }
+  .btn {
+    display: inline-block;
+    background: #FFA300;
+    color: #0a1628;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 40px;
+    border-radius: 100px;
+    text-decoration: none;
+  }
+  .signoff { margin-top: 40px; font-size: 15px; color: rgba(250,250,248,0.6); }
+  .signoff strong { color: #FAFAF8; font-weight: 600; }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 38px; }
+    .stats, .trust { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">A Carrier You Can Count On</div>
+    <h1>Meet <span class="gold">NYCM Insurance</span></h1>
+    <p class="sub">You may not have heard the name before, and that's completely fair. Here's the story of one of New York's most trusted insurance companies, and why your new rate is a win, not a worry.</p>
+    <div class="prepared">Prepared for <strong>Miriam Edelstein</strong> &nbsp;·&nbsp; by <strong>Trent Beggs</strong>, Safeshield Insurance</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num">125+</div><div class="lbl">Years in business, founded in 1899</div></div>
+    <div class="stat"><div class="num">670K+</div><div class="lbl">Policies protecting families like yours</div></div>
+    <div class="stat"><div class="num">900+</div><div class="lbl">Employees, real people behind the name</div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>The <span class="gold">short version</span></h2>
+    <p class="lead">NYCM is a 125-year-old, A-rated, member-owned insurance company based in New York. That's not a small startup undercutting the market. It's an established, financially strong carrier that has quietly protected New Yorkers since 1899.</p>
+    <p>The reason you haven't heard of them is simple: they don't spend hundreds of millions on national TV ads the way the big names do. They put that money into lower rates and taking care of their policyholders instead. That is exactly why they came in under your current price.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>Why you can <span class="gold">trust them</span></h2>
+    <div class="trust">
+      <div class="card">
+        <span class="icon">🏛️</span>
+        <h3>Since 1899</h3>
+        <p>More than 125 years in business. They have paid claims through the Great Depression, world wars, and every major storm New York has seen. Longevity like that is the truest test of a strong insurer.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🤝</span>
+        <h3>Member-Owned</h3>
+        <p>NYCM answers to its policyholders, not Wall Street shareholders. That means decisions are made in the interest of the people they insure, like you, rather than outside investors.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🚂</span>
+        <h3>Built on Reliability</h3>
+        <p>They chose a train as their symbol on purpose. It stands for strength, stability, and always arriving on time, which is exactly what you want when you file a claim.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🗽</span>
+        <h3>A New York Leader</h3>
+        <p>NYCM is one of the leading personal insurance carriers in New York State. This is their home turf, and they know how to protect homes and drivers here better than most.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>The rating that <span class="gold">matters most</span></h2>
+    <p>When you want to know if an insurance company is financially sound, you look at their AM Best rating. AM Best is the independent agency that grades insurers on their ability to actually pay claims. Here is NYCM's grade:</p>
+    <div class="rating">
+      <div class="grade">A</div>
+      <div class="src">Excellent — rated by AM Best, the industry's leading independent financial strength rating agency</div>
+    </div>
+    <div class="callout">
+      <p>An "A" rating means NYCM has an excellent ability to meet its obligations to policyholders. In plain English: when you need them, the money will be there.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>So why is it <span class="gold">cheaper?</span></h2>
+    <p class="lead">This is the part that makes people nervous, so let's be honest about it. A lower price does not mean weaker coverage or a weaker company.</p>
+    <p>NYCM came in lower because they are efficient, they don't burn money on celebrity ad campaigns, and as a member-owned carrier they price to serve policyholders instead of maximizing profit for investors. Your coverage is built to match or beat what you have now, you are just no longer overpaying for a name.</p>
+    <div class="callout">
+      <p>My job is to put you with the strongest carrier at the best price. NYCM checks both boxes, and I'd have no problem putting my own family with them.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Any question, any time</h2>
+    <p>If anything here still feels uncertain, that's what I'm here for. Reach out and I'll walk you through every line of the coverage until you feel completely comfortable.</p>
+    <a class="btn" href="#">Let's Talk It Through</a>
+    <div class="signoff">Prepared by <strong>Trent Beggs</strong> · Safeshield Insurance<br>Your independent advocate across 69+ carriers</div>
+  </div>
+
+</div>
+
+<script>window.CASEY_PROPOSAL={"slug":"edelstein","agent":"Trent"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
