@@ -69,6 +69,15 @@
   table.cov td.proposed{color:var(--text); font-weight:600;}
   table.cov td.note{color:var(--gold); font-size:13px;}
 
+  /* LIABILITY HIGHLIGHT */
+  table.cov tr.liab-row td{background:rgba(255,163,0,0.09);}
+  table.cov tr.liab-row td:first-child{color:var(--gold); font-weight:700;}
+  table.cov tr.liab-row td.proposed{color:var(--gold); font-weight:800;}
+
+  /* CHANGED-ROW HIGHLIGHT */
+  table.cov tr.changed-row td{background:rgba(80,200,120,0.08);}
+  table.cov tr.changed-row td.proposed{color:#6fd68e; font-weight:800;}
+
   .premium-strip{
     display:flex; justify-content:space-between; align-items:center; margin-top:20px;
     padding-top:18px; border-top:1px solid var(--border); flex-wrap:wrap; gap:10px;
@@ -84,6 +93,15 @@
     padding:14px 18px; margin-top:16px; font-size:14px; color:var(--muted);
   }
   .flag-box strong{color:var(--gold);}
+
+  .why-box{
+    background:rgba(255,163,0,0.06); border:1px solid rgba(255,163,0,0.25); border-radius:12px;
+    padding:18px 20px; margin-top:16px;
+  }
+  .why-box strong{color:var(--gold); font-size:14px; display:block; margin-bottom:10px;}
+  .why-box ul{margin:0; padding-left:20px;}
+  .why-box li{color:var(--muted); font-size:14px; margin-bottom:8px; line-height:1.6;}
+  .why-box li:last-child{margin-bottom:0;}
 
   /* KEEP-AS-IS SECTION */
   .keep-card{
@@ -134,24 +152,24 @@
     <span class="tag">Coverage Comparison &middot; Prepared for Larry Settembrini</span>
     <h1>The <span>Settembrini Account</span><br>Where Every Policy Stands Today</h1>
     <p class="sub">A side-by-side look at what's currently in force versus what Travelers has proposed
-    across your properties, plus a straight answer on the two policies we're leaving right where they are.</p>
+    across your properties, plus a straight answer on the three policies we're leaving right where they are.</p>
 
     <div class="hero-stats">
       <div class="stat-card">
-        <div class="num">5</div>
+        <div class="num">4</div>
         <div class="label">Lines Quoted by Travelers</div>
       </div>
       <div class="stat-card">
-        <div class="num">2</div>
+        <div class="num">3</div>
         <div class="label">Staying With Current Carrier</div>
       </div>
       <div class="stat-card">
-        <div class="num">$11,381</div>
-        <div class="label">Current Premium (5 Lines)</div>
+        <div class="num">$11,220</div>
+        <div class="label">Current Premium (4 Lines)</div>
       </div>
       <div class="stat-card">
-        <div class="num">$12,016</div>
-        <div class="label">Travelers Proposed (5 Lines)</div>
+        <div class="num">$11,716</div>
+        <div class="label">Travelers Proposed (4 Lines)</div>
       </div>
     </div>
   </section>
@@ -163,8 +181,8 @@
     <div class="section-head">
       <div class="kicker">Line By Line</div>
       <h2>What Travelers Is Proposing</h2>
-      <p>These five lines came back with real numbers. Here's exactly how the current coverage stacks up
-      against what's on the table.</p>
+      <p>These four lines came back with real numbers. Here's exactly how the current coverage stacks up
+      against what's on the table. Liability lines are highlighted in gold — those are the numbers that feed the umbrella.</p>
     </div>
 
     <!-- HOME -->
@@ -182,7 +200,7 @@
         <tr><td>Other Structures</td><td class="current">—</td><td class="proposed">$125,000</td><td class="note">New</td></tr>
         <tr><td>Personal Property</td><td class="current">—</td><td class="proposed">$625,000</td><td class="note">New</td></tr>
         <tr><td>Loss of Use</td><td class="current">—</td><td class="proposed">$250,000</td><td class="note">—</td></tr>
-        <tr><td>Personal Liability (Cov E)</td><td class="current">$300,000</td><td class="proposed">$500,000</td><td class="note">Feeds umbrella</td></tr>
+        <tr class="liab-row"><td>Personal Liability (Cov E)</td><td class="current">$300,000</td><td class="proposed">$500,000</td><td class="note">Feeds umbrella</td></tr>
         <tr><td>Named Insureds</td><td class="current">Lawrence only</td><td class="proposed">Lawrence + Devon</td><td class="note">Gap closed</td></tr>
         <tr><td>Wind/Hurricane Ded.</td><td class="current">2% named storm</td><td class="proposed">2% ($25,000)</td><td class="note">—</td></tr>
       </table>
@@ -205,8 +223,8 @@
       </div>
       <table class="cov">
         <tr><th>Coverage</th><th>Current (Farmers)</th><th>Travelers Proposed</th><th>Note</th></tr>
-        <tr><td>Bodily Injury / UM-UIM</td><td class="current">250/500</td><td class="proposed">250/500</td><td class="note">—</td></tr>
-        <tr><td>Property Damage</td><td class="current">$100,000</td><td class="proposed">$100,000</td><td class="note">Unchanged</td></tr>
+        <tr class="liab-row"><td>Bodily Injury / UM-UIM</td><td class="current">250/500</td><td class="proposed">250/500</td><td class="note">—</td></tr>
+        <tr class="liab-row"><td>Property Damage</td><td class="current">$100,000</td><td class="proposed">$100,000</td><td class="note">Unchanged</td></tr>
         <tr><td>Medical Payments</td><td class="current">—</td><td class="proposed">$5,000</td><td class="note">New</td></tr>
         <tr><td>Comprehensive / Collision</td><td class="current">—</td><td class="proposed">$1,000 / $1,000 all vehicles</td><td class="note">Full coverage quoted</td></tr>
         <tr><td>Rental / Roadside</td><td class="current">—</td><td class="proposed">Included, all vehicles</td><td class="note">New</td></tr>
@@ -230,36 +248,23 @@
       <table class="cov">
         <tr><th>Coverage</th><th>Current (State Farm)</th><th>Travelers Proposed</th><th>Note</th></tr>
         <tr><td>Dwelling (Cov A)</td><td class="current">$520,200 (+$52,020 ext.)</td><td class="proposed">$546,000</td><td class="note">Roughly in line</td></tr>
-        <tr><td>Liability</td><td class="current">$300,000 / $600,000</td><td class="proposed">$500,000</td><td class="note">—</td></tr>
+        <tr class="liab-row"><td>Liability</td><td class="current">$300,000 / $600,000</td><td class="proposed">$500,000</td><td class="note">—</td></tr>
         <tr><td>Loss of Rents / Use</td><td class="current">Actual loss sustained</td><td class="proposed">$54,600</td><td class="note">—</td></tr>
-        <tr><td>Personal Property</td><td class="current">$26,010</td><td class="proposed">$2,000 (household furnishings)</td><td class="note">Landlord form, expected</td></tr>
+        <tr class="changed-row"><td>Household Furnishings</td><td class="current">$26,010</td><td class="proposed">Updated per revised dec page</td><td class="note">Changed by agent — confirm final number</td></tr>
       </table>
       <div class="premium-strip">
         <div class="side"><div class="amt">$1,641</div><div class="lbl">Current — State Farm</div></div>
         <div class="arrow">&#8594;</div>
         <div class="side"><div class="amt gold">$2,266</div><div class="lbl">Proposed — Travelers</div></div>
       </div>
-    </div>
-
-    <!-- 525 CROWN ST -->
-    <div class="compare-card">
-      <div class="addr-row">
-        <div>
-          <h3>525 Crown St, Unit 161, Meriden — Condo Rental</h3>
-          <div class="meta">All Sett Realty LLC &middot; Crown Village Condominium Association &middot; Currently State Farm 97-BU-G570-5</div>
-        </div>
-        <span class="badge up">Premium Up</span>
-      </div>
-      <table class="cov">
-        <tr><th>Coverage</th><th>Current (State Farm)</th><th>Travelers Proposed</th><th>Note</th></tr>
-        <tr><td>Dwelling (Cov A)</td><td class="current">Not itemized</td><td class="proposed">$34,000</td><td class="note">First real number on file</td></tr>
-        <tr><td>Household Furnishings</td><td class="current">Not itemized</td><td class="proposed">$15,000</td><td class="note">—</td></tr>
-        <tr><td>Liability</td><td class="current">$300,000 / $600,000</td><td class="proposed">$500,000</td><td class="note">—</td></tr>
-      </table>
-      <div class="premium-strip">
-        <div class="side"><div class="amt">$161</div><div class="lbl">Current — State Farm</div></div>
-        <div class="arrow">&#8594;</div>
-        <div class="side"><div class="amt gold">$300</div><div class="lbl">Proposed — Travelers</div></div>
+      <div class="why-box">
+        <strong>Why bumping liability matters here:</strong>
+        <ul>
+          <li>This is a rental with tenants — if someone gets hurt on the property, Larry (through the LLC) is the first call the attorney makes, regardless of what the lease says.</li>
+          <li>Rental turnover means more foot traffic than an owner-occupied home, so the odds of a slip-and-fall or similar claim run higher over time.</li>
+          <li>An LLC helps, but it's not a liability limit — if a judgment exceeds what the policy pays, the shortfall doesn't just disappear.</li>
+          <li>This limit is one of the ones feeding the umbrella tower. Raising it here is part of what actually unlocks the $5M umbrella target across the account.</li>
+        </ul>
       </div>
     </div>
 
@@ -276,7 +281,7 @@
         <tr><th>Coverage</th><th>Current (State Farm)</th><th>Travelers Proposed</th><th>Note</th></tr>
         <tr><td>Dwelling (Cov A)</td><td class="current">$12,120</td><td class="proposed">$20,000</td><td class="note">—</td></tr>
         <tr><td>Personal Property</td><td class="current">$40,400</td><td class="proposed">$5,000 (household furnishings)</td><td class="note">Landlord form — expected drop</td></tr>
-        <tr><td>Liability</td><td class="current">$300,000 / $600,000</td><td class="proposed">$500,000</td><td class="note">—</td></tr>
+        <tr class="liab-row"><td>Liability</td><td class="current">$300,000 / $600,000</td><td class="proposed">$500,000</td><td class="note">—</td></tr>
       </table>
       <div class="premium-strip">
         <div class="side"><div class="amt">$171</div><div class="lbl">Current — State Farm</div></div>
@@ -293,7 +298,7 @@
     <div class="section-head">
       <div class="kicker">No Action Needed Here</div>
       <h2>Leave These Right Where They Are</h2>
-      <p>Travelers didn't quote these two, and there's no reason to force it. Both are staying with their
+      <p>Travelers didn't quote these three, and there's no reason to force it. All three are staying with their
       current carrier for now.</p>
     </div>
 
@@ -308,6 +313,17 @@
       <p class="why">This is the anchor property and the largest premium on the whole account. It's already
       at $1M/$2M liability — exactly where the umbrella tower needs it. No gap, no reason to move it before
       the 3/23/27 renewal unless Larry wants to consolidate everything onto one package intentionally.</p>
+    </div>
+
+    <div class="keep-card">
+      <div class="addr-row">
+        <div>
+          <h3>525 Crown St, Unit 161, Meriden — Condo Rental</h3>
+          <div class="meta">All Sett Realty LLC &middot; Crown Village Condominium Association &middot; State Farm 97-BU-G570-5 &middot; $161/yr</div>
+        </div>
+        <span class="keep-badge">Keep With State Farm</span>
+      </div>
+      <p class="why">Not part of the Travelers comparison — staying with State Farm as-is for now.</p>
     </div>
 
     <div class="keep-card">
