@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All State Roofing and Construction — General Liability Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#004B89;
+    --gold:#FFA300;
+    --bg:#0a1628;
+    --text:#FAFAF8;
+    --card-bg:rgba(255,255,255,0.04);
+    --card-border:rgba(255,255,255,0.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Outfit',sans-serif;
+    font-weight:300;
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Playfair Display',serif;font-weight:900;}
+  .divider{
+    height:1px;
+    width:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin:60px 0;
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  /* HERO */
+  .hero{
+    padding:90px 24px 70px;
+    text-align:center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(0,75,137,0.35), transparent 60%),
+      var(--bg);
+    border-bottom:1px solid var(--card-border);
+  }
+  .hero .kicker{
+    display:inline-block;
+    color:var(--gold);
+    font-family:'Outfit',sans-serif;
+    font-weight:600;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:13px;
+    margin-bottom:22px;
+    border:1px solid rgba(255,163,0,0.4);
+    padding:8px 20px;
+    border-radius:100px;
+  }
+  .hero h1{
+    font-size:clamp(38px,6vw,72px);
+    line-height:1.08;
+    margin-bottom:10px;
+    color:var(--text);
+  }
+  .hero h1 .accent{color:var(--gold);}
+  .hero .sub{
+    font-size:19px;
+    color:rgba(250,250,248,0.75);
+    max-width:640px;
+    margin:20px auto 0;
+    font-weight:300;
+  }
+  .hero .contact-line{
+    margin-top:28px;
+    font-size:15px;
+    color:rgba(250,250,248,0.55);
+  }
+  .hero-stats{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    margin-top:46px;
+    flex-wrap:wrap;
+  }
+  .hero-stats .stat{text-align:center;}
+  .hero-stats .stat .num{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:34px;
+    color:var(--gold);
+  }
+  .hero-stats .stat .lbl{
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:rgba(250,250,248,0.5);
+    margin-top:4px;
+  }
+
+  section{padding:70px 24px;}
+  .section-head{text-align:center;max-width:680px;margin:0 auto 50px;}
+  .section-head .tag{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:14px;
+    display:block;
+  }
+  .section-head h2{font-size:clamp(28px,4vw,42px);}
+  .section-head p{color:rgba(250,250,248,0.65);margin-top:14px;font-size:16px;}
+
+  /* CARDS */
+  .grid{display:grid;gap:24px;}
+  .grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+  .grid-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+  .card{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:18px;
+    padding:32px;
+  }
+  .card h3{font-size:20px;margin-bottom:12px;color:var(--text);font-family:'Outfit',sans-serif;font-weight:700;}
+  .card .amt{font-family:'Playfair Display',serif;font-weight:900;font-size:30px;color:var(--gold);margin-bottom:8px;}
+  .card p{color:rgba(250,250,248,0.6);font-size:15px;}
+
+  /* COVERAGE TABLE */
+  .cov-table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:18px;
+    overflow:hidden;
+  }
+  .cov-table th, .cov-table td{
+    padding:18px 26px;
+    text-align:left;
+    font-size:15px;
+  }
+  .cov-table thead th{
+    background:rgba(255,163,0,0.08);
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-size:12px;
+    font-weight:600;
+  }
+  .cov-table tbody tr{border-top:1px solid var(--card-border);}
+  .cov-table td.val{font-weight:600;color:var(--text);text-align:right;}
+  .cov-table td{color:rgba(250,250,248,0.75);}
+
+  /* CLASS CODE GRID */
+  .class-card{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:14px;
+    padding:22px 26px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .class-card .name{font-size:15px;color:var(--text);}
+  .class-card .receipts{font-family:'Playfair Display',serif;font-weight:900;color:var(--gold);font-size:18px;}
+
+  /* PREMIUM BREAKDOWN */
+  .breakdown{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:18px;
+    padding:40px;
+  }
+  .breakdown .row{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid var(--card-border);
+    font-size:15px;
+    color:rgba(250,250,248,0.75);
+  }
+  .breakdown .row.total{
+    border-bottom:none;
+    border-top:2px solid var(--gold);
+    margin-top:8px;
+    padding-top:20px;
+    font-size:19px;
+    font-weight:700;
+    color:var(--text);
+  }
+  .breakdown .row .v{font-weight:600;color:var(--text);}
+  .breakdown .row.total .v{color:var(--gold);font-family:'Playfair Display',serif;font-size:26px;}
+
+  /* FINANCING */
+  .finance-banner{
+    background:linear-gradient(135deg, rgba(0,75,137,0.4), rgba(255,163,0,0.08));
+    border:1px solid rgba(255,163,0,0.25);
+    border-radius:18px;
+    padding:36px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:24px;
+  }
+  .finance-banner .fin-item{text-align:center;}
+  .finance-banner .fin-item .n{font-family:'Playfair Display',serif;font-weight:900;font-size:28px;color:var(--gold);}
+  .finance-banner .fin-item .l{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:rgba(250,250,248,0.55);margin-top:4px;}
+
+  /* WHY SAFESHIELD */
+  .why-list{list-style:none;}
+  .why-list li{
+    padding:18px 0 18px 38px;
+    position:relative;
+    border-bottom:1px solid var(--card-border);
+    color:rgba(250,250,248,0.75);
+    font-size:16px;
+  }
+  .why-list li:last-child{border-bottom:none;}
+  .why-list li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    top:16px;
+    color:var(--gold);
+    font-weight:700;
+    font-size:18px;
+  }
+  .why-list li strong{color:var(--text);}
+
+  /* CTA FOOTER */
+  .cta{
+    text-align:center;
+    padding:90px 24px;
+    background:radial-gradient(ellipse at 50% 100%, rgba(255,163,0,0.12), transparent 60%);
+    border-top:1px solid var(--card-border);
+  }
+  .cta h2{font-size:clamp(28px,4vw,44px);margin-bottom:16px;}
+  .cta p{color:rgba(250,250,248,0.65);max-width:520px;margin:0 auto 34px;font-size:16px;}
+  .btn-row{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:16px 38px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    transition:transform 0.2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-gold{background:var(--gold);color:#0a1628;}
+  .btn-glass{background:rgba(255,255,255,0.06);color:var(--text);border:1px solid var(--card-border);}
+  .footer-note{
+    text-align:center;
+    padding:30px 24px;
+    font-size:13px;
+    color:rgba(250,250,248,0.4);
+  }
+  .disclaimer{
+    max-width:820px;
+    margin:0 auto;
+    font-size:12px;
+    color:rgba(250,250,248,0.35);
+    text-align:center;
+    line-height:1.7;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <span class="kicker">General Liability Proposal</span>
+    <h1>All State Roofing<br>and <span class="accent">Construction</span></h1>
+    <p class="sub">A dedicated General Liability program built around your roofing and remodeling operations — placed with Sutton Specialty Insurance Company.</p>
+    <p class="contact-line">Prepared for Dionicio Velasquez · 45 Central Street, Springfield, MA 01105</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="num">$1M/$2M</div>
+        <div class="lbl">Occurrence / Aggregate</div>
+      </div>
+      <div class="stat">
+        <div class="num">$2,500</div>
+        <div class="lbl">Self-Insured Retention</div>
+      </div>
+      <div class="stat">
+        <div class="num">07/30</div>
+        <div class="lbl">Effective Date</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COVERAGE OVERVIEW -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Coverage Breakdown</span>
+      <h2>Here's what's protecting you</h2>
+      <p>Manuscript Occurrence form through Sutton Specialty Insurance Company, effective 07/30/2026 through 07/30/2027.</p>
+    </div>
+    <table class="cov-table">
+      <thead>
+        <tr><th>Coverage</th><th style="text-align:right;">Limit</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>General Aggregate</td><td class="val">$2,000,000</td></tr>
+        <tr><td>Each Occurrence</td><td class="val">$1,000,000</td></tr>
+        <tr><td>Products / Completed Operations</td><td class="val">$1,000,000</td></tr>
+        <tr><td>Personal & Advertising Injury</td><td class="val">$1,000,000</td></tr>
+        <tr><td>Fire Legal Liability</td><td class="val">$50,000</td></tr>
+        <tr><td>Medical Payments</td><td class="val">$5,000</td></tr>
+        <tr><td>Self-Insured Retention</td><td class="val">$2,500</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CLASS CODES / OPERATIONS -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Your Operations</span>
+      <h2>Classes covered under this policy</h2>
+      <p>Rated on $80,000 in estimated total gross receipts across residential and commercial repair/remodel work.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="class-card"><span class="name">General Contractor — Remodel Residential</span><span class="receipts">$20,000</span></div>
+      <div class="class-card"><span class="name">General Contractor — Remodel Commercial</span><span class="receipts">$20,000</span></div>
+      <div class="class-card"><span class="name">Roofing — Repair Residential</span><span class="receipts">$20,000</span></div>
+      <div class="class-card"><span class="name">Roofing — Repair Commercial</span><span class="receipts">$20,000</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PREMIUM BREAKDOWN -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Total Cost of Policy</span>
+      <h2>Premium, taxes & fees</h2>
+      <p>Full annual cost of the program, itemized.</p>
+    </div>
+    <div class="breakdown">
+      <div class="row"><span>Premium</span><span class="v">$2,315.01</span></div>
+      <div class="row"><span>State Tax</span><span class="v">$92.60</span></div>
+      <div class="row"><span>Association Dues</span><span class="v">$517.47</span></div>
+      <div class="row"><span>Policy Fee</span><span class="v">$88.24</span></div>
+      <div class="row"><span>Inspection Fee</span><span class="v">$88.24</span></div>
+      <div class="row"><span>AI Processing Fee</span><span class="v">$411.76</span></div>
+      <div class="row total"><span>Total Cost of Policy</span><span class="v">$3,513.32</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FINANCING -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Payment Option</span>
+      <h2>Flexible financing through Imperial PFS</h2>
+      <p>No need to pay the full premium up front — spread it out with a low down payment.</p>
+    </div>
+    <div class="finance-banner">
+      <div class="fin-item"><div class="n">$527.00</div><div class="l">Down Payment</div></div>
+      <div class="fin-item"><div class="n">10</div><div class="l">Monthly Payments</div></div>
+      <div class="fin-item"><div class="n">$325.42</div><div class="l">Per Payment</div></div>
+      <div class="fin-item"><div class="n">19.121%</div><div class="l">APR</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY SAFESHIELD -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Why Safeshield</span>
+      <h2>You're covered, and you're backed</h2>
+    </div>
+    <div class="card">
+      <ul class="why-list">
+        <li><strong>69+ carrier partners</strong> — we shopped this risk across the surplus and specialty markets to land the right fit for roofing & remodel.</li>
+        <li><strong>Same-day service</strong> — certificates, policy changes, and endorsements turned around fast, not "next week."</li>
+        <li><strong>Direct agent access</strong> — no call centers. You talk to a real person who knows your account.</li>
+        <li><strong>We advocate at claims time</strong> — if something happens, we're in your corner pushing the claim forward.</li>
+        <li><strong>Annual re-shop guarantee</strong> — every renewal, we check the market again to make sure you're still getting the best deal.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="wrap">
+    <h2>Ready to move forward?</h2>
+    <p>Reach out and we'll get your General Liability policy bound and your certificate issued.</p>
+    <div class="btn-row">
+      <a href="tel:2038065889" class="btn btn-gold">Call Eric: (203) 806-5889</a>
+      <a href="mailto:eric@gosafeshield.com" class="btn btn-glass">Email Eric</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">
+  <div class="disclaimer">
+    This proposal is a summary of quoted coverage and is not a binder of insurance. Coverage is subject to underwriting approval, the terms of the issued policy, and all applicable exclusions. Premium shown is a deposit premium and subject to audit. Sutton Specialty Insurance Company policies are surplus lines placements — please review your Surplus Lines Affidavit and policy exclusions carefully. Safeshield Insurance Agency LLC · 2777 Summer St, 6th Floor, Stamford, CT 06905 · (203) 564-9817
+  </div>
+</div>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"all-state-roofing","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
