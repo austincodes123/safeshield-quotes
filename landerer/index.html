@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landerer Insurance Proposal | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#004B89;
+    --navy-deep:#0a1628;
+    --gold:#FFA300;
+    --ink:#FAFAF8;
+    --card:rgba(255,255,255,0.04);
+    --card-border:rgba(255,255,255,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--navy-deep);
+    color:var(--ink);
+    font-family:'Outfit',sans-serif;
+    font-weight:300;
+    line-height:1.6;
+  }
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:900;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,163,0,0.25),transparent);margin:60px 0;}
+
+  /* HERO */
+  .hero{
+    padding:100px 0 70px;
+    text-align:center;
+    background:radial-gradient(circle at 50% 0%, rgba(0,75,137,0.35), transparent 60%);
+  }
+  .hero .eyebrow{
+    color:var(--gold);
+    font-size:13px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:52px;
+    line-height:1.15;
+    margin-bottom:18px;
+  }
+  .hero h1 span{color:var(--gold);}
+  .hero p.sub{
+    font-size:18px;
+    color:rgba(250,250,248,0.72);
+    max-width:640px;
+    margin:0 auto;
+    font-weight:300;
+  }
+  .hero .addr{
+    margin-top:28px;
+    display:inline-block;
+    padding:10px 22px;
+    border:1px solid var(--card-border);
+    border-radius:100px;
+    background:var(--card);
+    font-size:14px;
+    letter-spacing:0.5px;
+    color:rgba(250,250,248,0.85);
+  }
+
+  /* SAVINGS BANNER */
+  .savings-banner{
+    max-width:820px;
+    margin:0 auto;
+    background:linear-gradient(135deg, rgba(255,163,0,0.14), rgba(0,75,137,0.25));
+    border:1px solid rgba(255,163,0,0.35);
+    border-radius:24px;
+    padding:36px 40px;
+    text-align:center;
+  }
+  .savings-banner .amt{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:44px;
+    color:var(--gold);
+  }
+  .savings-banner p{color:rgba(250,250,248,0.75);font-size:15px;margin-top:8px;}
+
+  /* SECTION TITLES */
+  .section-title{text-align:center;margin-bottom:50px;}
+  .section-title .eyebrow{
+    color:var(--gold);font-size:13px;letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:14px;
+  }
+  .section-title h2{font-size:38px;}
+  .section-title p{color:rgba(250,250,248,0.65);max-width:600px;margin:16px auto 0;font-size:16px;}
+
+  /* PACKAGE CARDS SIDE BY SIDE */
+  .package-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+    margin-bottom:20px;
+  }
+  @media (max-width:860px){.package-grid{grid-template-columns:1fr;}}
+  .package-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:24px;
+    padding:38px 34px;
+    position:relative;
+    overflow:hidden;
+  }
+  .package-card.featured{
+    border:1px solid rgba(255,163,0,0.45);
+    background:linear-gradient(180deg, rgba(255,163,0,0.06), rgba(255,255,255,0.03));
+  }
+  .package-card .tag{
+    display:inline-block;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:700;
+    padding:6px 14px;
+    border-radius:100px;
+    margin-bottom:18px;
+  }
+  .tag.gold{background:rgba(255,163,0,0.18);color:var(--gold);border:1px solid rgba(255,163,0,0.4);}
+  .tag.navy{background:rgba(0,75,137,0.35);color:#8fc4ff;border:1px solid rgba(0,75,137,0.6);}
+  .package-card h3{font-size:26px;margin-bottom:6px;}
+  .package-card .carrier-line{color:rgba(250,250,248,0.6);font-size:14px;margin-bottom:26px;}
+  .package-card .total{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:42px;
+    margin-bottom:4px;
+  }
+  .package-card .total-label{font-size:13px;color:rgba(250,250,248,0.55);margin-bottom:26px;}
+  .line-item{
+    display:flex;
+    justify-content:space-between;
+    padding:12px 0;
+    border-bottom:1px solid var(--card-border);
+    font-size:14.5px;
+  }
+  .line-item:last-child{border-bottom:none;}
+  .line-item .desc{color:rgba(250,250,248,0.82);}
+  .line-item .amt{color:var(--ink);font-weight:600;}
+  .line-item.total-row{
+    border-top:1px solid rgba(255,163,0,0.4);
+    margin-top:8px;padding-top:16px;
+    font-weight:700;font-size:16px;
+  }
+  .line-item.total-row .amt{color:var(--gold);}
+
+  /* COVERAGE DETAIL TABLES */
+  .detail-block{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:20px;
+    padding:30px 32px;
+    margin-bottom:24px;
+  }
+  .detail-block h4{
+    font-size:20px;
+    margin-bottom:18px;
+    color:var(--gold);
+    font-family:'Outfit',sans-serif;
+    font-weight:700;
+    letter-spacing:0.3px;
+  }
+  table.cov{width:100%;border-collapse:collapse;font-size:14px;}
+  table.cov td{padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+  table.cov td:first-child{color:rgba(250,250,248,0.65);width:60%;}
+  table.cov td:last-child{color:var(--ink);text-align:right;font-weight:600;}
+  table.cov tr:last-child td{border-bottom:none;}
+
+  /* WHY CHUBB CALLOUT */
+  .callout{
+    background:linear-gradient(135deg, rgba(0,75,137,0.35), rgba(0,75,137,0.08));
+    border:1px solid rgba(0,75,137,0.5);
+    border-radius:24px;
+    padding:44px;
+    margin-bottom:24px;
+  }
+  .callout h3{font-size:26px;margin-bottom:16px;color:#fff;}
+  .callout p{color:rgba(250,250,248,0.82);font-size:15.5px;margin-bottom:14px;}
+  .callout ul{list-style:none;margin-top:20px;}
+  .callout li{
+    padding:12px 0 12px 30px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    position:relative;
+    font-size:15px;
+    color:rgba(250,250,248,0.85);
+  }
+  .callout li:last-child{border-bottom:none;}
+  .callout li:before{
+    content:"◆";
+    position:absolute;left:0;top:12px;
+    color:var(--gold);font-size:12px;
+  }
+
+  .callout.kingstone{
+    background:linear-gradient(135deg, rgba(255,163,0,0.12), rgba(255,255,255,0.02));
+    border:1px solid rgba(255,163,0,0.35);
+  }
+
+  /* WHY SAFESHIELD */
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  @media (max-width:760px){.why-grid{grid-template-columns:1fr;}}
+  .why-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:18px;
+    padding:28px 24px;
+  }
+  .why-card .num{color:var(--gold);font-family:'Playfair Display',serif;font-weight:900;font-size:22px;margin-bottom:10px;}
+  .why-card h4{font-size:17px;margin-bottom:8px;color:#fff;font-family:'Outfit',sans-serif;font-weight:600;}
+  .why-card p{font-size:14px;color:rgba(250,250,248,0.65);}
+
+  /* CTA FOOTER */
+  .cta{
+    text-align:center;
+    padding:80px 0 100px;
+  }
+  .cta h2{font-size:34px;margin-bottom:14px;}
+  .cta p{color:rgba(250,250,248,0.65);margin-bottom:32px;font-size:16px;}
+  .btn-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:16px 36px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    transition:transform 0.15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn.primary{background:var(--gold);color:#1a1200;}
+  .btn.secondary{background:rgba(255,255,255,0.06);border:1px solid var(--card-border);color:var(--ink);}
+  .footer-note{margin-top:50px;font-size:12.5px;color:rgba(250,250,248,0.35);text-align:center;padding-bottom:40px;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Prepared for Michael &amp; Allison Landerer</div>
+    <h1>Two ways to protect<br><span>287 State Street</span></h1>
+    <p class="sub">We shopped your full package — home, auto, and umbrella liability — across the market. Here's a side-by-side look at your Chubb Masterpiece option against a Kingstone + Travelers alternative, so you can see exactly what each dollar buys.</p>
+    <div class="addr">287 State St, Brooklyn, NY 11201 &nbsp;·&nbsp; Kings County</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="savings-banner">
+    <div class="amt">$9,506/yr</div>
+    <p>The gap between the Chubb Masterpiece package and the Kingstone + Travelers alternative below — same address, same 2 drivers, same jewelry schedule.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="divider"></div>
+
+  <div class="section-title">
+    <div class="eyebrow">The Comparison</div>
+    <h2>Your Two Options, Side by Side</h2>
+    <p>Both packages insure the same home, the same 2025 Hyundai Palisade, and the same $25,000 jewelry schedule. The difference is in the carrier, the coverage philosophy, and the price.</p>
+  </div>
+
+  <div class="package-grid">
+
+    <!-- CHUBB PACKAGE -->
+    <div class="package-card featured">
+      <span class="tag gold">Guaranteed Replacement Cost</span>
+      <h3>Chubb Masterpiece Package</h3>
+      <div class="carrier-line">Chubb National Insurance Co · Effective 10/01/2026</div>
+      <div class="total">$19,872</div>
+      <div class="total-label">total annual premium (with $3M umbrella)</div>
+
+      <div class="line-item"><span class="desc">Homeowners (HO — Masterpiece)</span><span class="amt">$11,815</span></div>
+      <div class="line-item"><span class="desc">Valuable Articles — Jewelry ($25K)</span><span class="amt">$900</span></div>
+      <div class="line-item"><span class="desc">Auto — 2025 Hyundai Palisade</span><span class="amt">$6,050</span></div>
+      <div class="line-item"><span class="desc">Excess/Umbrella Liability — $3M</span><span class="amt">$1,107</span></div>
+      <div class="line-item total-row"><span class="desc">Total Package</span><span class="amt">$19,872</span></div>
+    </div>
+
+    <!-- ALTERNATIVE PACKAGE -->
+    <div class="package-card">
+      <span class="tag navy">Best Value</span>
+      <h3>Kingstone + Travelers Package</h3>
+      <div class="carrier-line">Kingstone Insurance Co · Travelers · Effective 09/30–10/30/2026</div>
+      <div class="total" style="color:var(--gold);">$10,366</div>
+      <div class="total-label">total annual premium (with $2M umbrella)</div>
+
+      <div class="line-item"><span class="desc">Homeowners — Kingstone Select</span><span class="amt">$5,145</span></div>
+      <div class="line-item"><span class="desc">Auto — Travelers, 2025 Palisade (pay-in-full)</span><span class="amt">$4,746</span></div>
+      <div class="line-item"><span class="desc">Personal Umbrella — $2,000,000</span><span class="amt">$475</span></div>
+      <div class="line-item total-row"><span class="desc">Total Package</span><span class="amt">$10,366</span></div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WHY CHUBB -->
+  <div class="callout">
+    <h3>Why Chubb Masterpiece Costs More — and What You're Actually Buying</h3>
+    <p>Chubb's Masterpiece policy isn't priced against standard HO-3 forms because it isn't built like one. The headline feature is <strong>guaranteed (extended) replacement cost</strong> — Chubb will pay whatever it actually costs to rebuild your home to its original quality after a covered loss, even if that number comes in above your $3,000,000 dwelling limit. Most carriers, including the Kingstone quote below, cap payment at the policy limit plus a fixed percentage. Chubb doesn't cap it at all.</p>
+    <ul>
+      <li>Extended/guaranteed replacement cost with no dollar cap on rebuilding, including code-upgrade costs</li>
+      <li>Contents covered at $1,500,000 (Deluxe type) — replaced at today's cost, not depreciated value</li>
+      <li>Auto is written on an <strong>agreed value</strong> basis ($42,750 on the Palisade) — no depreciation fight at claim time</li>
+      <li>$1,000,000 in home liability plus a scalable excess/umbrella layer up to $10,000,000, all from one carrier with one claims team</li>
+      <li>Chubb holds the #1 spot in J.D. Power's Property Claims Satisfaction Study and one of the lowest complaint indexes of any carrier in the country</li>
+      <li>Portfolio discounts applied automatically for bundling home, auto, and excess together</li>
+    </ul>
+  </div>
+
+  <!-- WHY KINGSTONE -->
+  <div class="callout kingstone">
+    <h3>The Kingstone Alternative — Where the 25% Cushion Comes In</h3>
+    <p>Kingstone's Select Homeowners policy isn't guaranteed replacement cost, but it's not thin coverage either. The dwelling is written at $2,471,000, and Kingstone automatically includes a <strong>Specified Additional Amount of Insurance for Coverage A — 25%</strong> at no extra charge. That means if a full loss actually costs more to rebuild than the stated limit, Kingstone extends payment up to an additional $617,750 — pushing your effective rebuild protection to roughly <strong>$3,088,750</strong> without you paying a separate premium for it.</p>
+    <p>It's a smart middle ground: real cushion against underinsurance, paired with strong optional coverages already built into this quote — equipment breakdown, service line coverage, water backup, identity fraud expense, and inland flood — for a fraction of the Masterpiece price.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">
+    <div class="eyebrow">Coverage Detail</div>
+    <h2>Line by Line</h2>
+  </div>
+
+  <div class="detail-block">
+    <h4>Chubb Masterpiece — Homeowners</h4>
+    <table class="cov">
+      <tr><td>Dwelling</td><td>$3,000,000</td></tr>
+      <tr><td>Other Structures</td><td>$600,000 (20%)</td></tr>
+      <tr><td>Personal Property / Contents (Deluxe)</td><td>$1,500,000 (50%)</td></tr>
+      <tr><td>Personal Liability</td><td>$1,000,000</td></tr>
+      <tr><td>Residence Deductible</td><td>$5,000</td></tr>
+      <tr><td>Valuable Articles — Jewelry</td><td>$25,000 blanket</td></tr>
+      <tr><td>Portfolio Discount — Home with Auto</td><td>Applied</td></tr>
+    </table>
+  </div>
+
+  <div class="detail-block">
+    <h4>Chubb Masterpiece — Auto (2025 Hyundai Palisade)</h4>
+    <table class="cov">
+      <tr><td>Liability Limit</td><td>$300,000</td></tr>
+      <tr><td>UM/SUM</td><td>$300,000 + Supplemental UM $300,000</td></tr>
+      <tr><td>Agreed Value</td><td>$42,750</td></tr>
+      <tr><td>Comprehensive / Collision Deductible</td><td>$1,000 / $1,000</td></tr>
+      <tr><td>Full Window Glass Coverage</td><td>Applied</td></tr>
+      <tr><td>Portfolio Discount — Auto with Home</td><td>Applied</td></tr>
+    </table>
+  </div>
+
+  <div class="detail-block">
+    <h4>Chubb Masterpiece — Excess/Umbrella Liability</h4>
+    <table class="cov">
+      <tr><td>$3,000,000 (quoted)</td><td>$1,107/yr</td></tr>
+      <tr><td>$5,000,000 option</td><td>$1,228/yr</td></tr>
+      <tr><td>$10,000,000 option</td><td>$1,717/yr</td></tr>
+      <tr><td>Portfolio Discount — Excess with Auto</td><td>Applied</td></tr>
+    </table>
+  </div>
+
+  <div class="detail-block">
+    <h4>Kingstone Select — Homeowners</h4>
+    <table class="cov">
+      <tr><td>Dwelling — Coverage A</td><td>$2,471,000</td></tr>
+      <tr><td><strong>Additional Coverage A Amount (25%, included)</strong></td><td><strong>+$617,750 effective</strong></td></tr>
+      <tr><td>Other Structures — Coverage B</td><td>$123,550 (5%)</td></tr>
+      <tr><td>Personal Property — Coverage C</td><td>$864,850 (35%)</td></tr>
+      <tr><td>Loss of Use — Coverage D</td><td>$494,200 (20%)</td></tr>
+      <tr><td>Personal Liability — Coverage E</td><td>$1,000,000</td></tr>
+      <tr><td>Medical Payments — Coverage F</td><td>$5,000</td></tr>
+      <tr><td>All Perils Deductible</td><td>$5,000</td></tr>
+      <tr><td>Jewelry (Blanket Personal Property)</td><td>$25,000</td></tr>
+      <tr><td>Also Included</td><td>Water backup, equipment breakdown, inland flood, ID fraud, service line</td></tr>
+    </table>
+  </div>
+
+  <div class="detail-block">
+    <h4>Travelers — Auto (2025 Hyundai Palisade)</h4>
+    <table class="cov">
+      <tr><td>Liability</td><td>$250,000/$500,000</td></tr>
+      <tr><td>Uninsured Motorists</td><td>$250,000/$500,000</td></tr>
+      <tr><td>Personal Injury Protection</td><td>$50,000 (+$25,000 Addl PIP)</td></tr>
+      <tr><td>Comprehensive / Collision Deductible</td><td>$1,000 / $1,000</td></tr>
+      <tr><td>Rental Reimbursement</td><td>$30/day, $900 max</td></tr>
+      <tr><td>Pay-in-Full Premium</td><td>$4,746</td></tr>
+    </table>
+  </div>
+
+  <div class="detail-block">
+    <h4>Personal Umbrella</h4>
+    <table class="cov">
+      <tr><td>Liability Limit</td><td>$2,000,000</td></tr>
+      <tr><td>Annual Premium</td><td>$475</td></tr>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">
+    <div class="eyebrow">Why Safeshield</div>
+    <h2>We Shop It So You Don't Have To</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="num">69+</div>
+      <h4>Carrier Partners</h4>
+      <p>From luxury-home specialists like Chubb to value-driven regional carriers like Kingstone, we shop your whole risk across the market.</p>
+    </div>
+    <div class="why-card">
+      <div class="num">1:1</div>
+      <h4>Direct Agent Access</h4>
+      <p>No call centers. You work directly with your agent for quotes, changes, and claims support.</p>
+    </div>
+    <div class="why-card">
+      <div class="num">↻</div>
+      <h4>Annual Re-Shop Guarantee</h4>
+      <p>Every year at renewal, we re-shop your package again to make sure you're still in the right spot.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Ready to Move Forward?</h2>
+    <p>Whichever direction fits your priorities — maximum protection with Chubb, or smart value with Kingstone and Travelers — we'll get it bound and issued fast.</p>
+    <div class="btn-row">
+      <a href="tel:2038065889" class="btn primary">Call Eric: (203) 806-5889</a>
+      <a href="mailto:eric@gosafeshield.com" class="btn secondary">Email Eric</a>
+    </div>
+  </div>
+
+  <div class="footer-note">Safeshield Insurance Agency, LLC · 2777 Summer St, 6th FL, Stamford, CT 06905 · Prepared by Eric Kelly<br>All premiums shown are preliminary quotes, subject to underwriting review and change. Not a binder of insurance.</div>
+
+<section class="wrap" id="side-by-side-diff">
+  <style>
+    .vsdiff-title{text-align:center;margin-bottom:44px;}
+    .vsdiff-title .eyebrow{color:#FFA300;font-size:13px;letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:14px;}
+    .vsdiff-title h2{font-family:'Playfair Display',serif;font-weight:900;font-size:38px;color:#FAFAF8;}
+    .vsdiff-title p{color:rgba(250,250,248,0.65);max-width:640px;margin:16px auto 0;font-size:16px;}
+    .vsdiff-table{width:100%;border-collapse:collapse;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;overflow:hidden;font-family:'Outfit',sans-serif;}
+    .vsdiff-table thead th{padding:20px 22px;text-align:left;font-size:13px;letter-spacing:1px;text-transform:uppercase;font-weight:700;background:rgba(255,255,255,0.03);}
+    .vsdiff-table thead th.category{color:rgba(250,250,248,0.5);width:26%;}
+    .vsdiff-table thead th.chubb{color:#FFA300;border-left:1px solid rgba(255,255,255,0.08);border-bottom:2px solid rgba(255,163,0,0.4);}
+    .vsdiff-table thead th.alt{color:#8fc4ff;border-left:1px solid rgba(255,255,255,0.08);border-bottom:2px solid rgba(0,75,137,0.5);}
+    .vsdiff-table tbody td{padding:16px 22px;font-size:14.5px;border-bottom:1px solid rgba(255,255,255,0.06);vertical-align:top;}
+    .vsdiff-table tbody tr:last-child td{border-bottom:none;}
+    .vsdiff-table tbody td.category{color:rgba(250,250,248,0.6);font-weight:500;}
+    .vsdiff-table tbody td.chubb-cell{color:#FAFAF8;border-left:1px solid rgba(255,255,255,0.06);}
+    .vsdiff-table tbody td.alt-cell{color:#FAFAF8;border-left:1px solid rgba(255,255,255,0.06);}
+    .vsdiff-table tbody tr:nth-child(odd) td{background:rgba(255,255,255,0.015);}
+    .vsdiff-edge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-top:6px;}
+    .vsdiff-edge.gold{background:rgba(255,163,0,0.16);color:#FFA300;border:1px solid rgba(255,163,0,0.4);}
+    .vsdiff-edge.navy{background:rgba(0,75,137,0.3);color:#8fc4ff;border:1px solid rgba(0,75,137,0.5);}
+    @media (max-width:760px){
+      .vsdiff-table, .vsdiff-table thead, .vsdiff-table tbody, .vsdiff-table th, .vsdiff-table td, .vsdiff-table tr{display:block;}
+      .vsdiff-table thead th{display:none;}
+      .vsdiff-table tbody tr{border-bottom:1px solid rgba(255,255,255,0.1);padding:14px 0;}
+      .vsdiff-table tbody td{border-left:none !important;padding:6px 22px;}
+      .vsdiff-table tbody td.category{font-weight:700;color:#FFA300;padding-top:14px;}
+    }
+  </style>
+
+  <div class="divider"></div>
+
+  <div class="vsdiff-title">
+    <div class="eyebrow">Coverage Differences</div>
+    <h2>Chubb vs. Kingstone + Travelers, Side by Side</h2>
+    <p>Same home, same auto, same jewelry schedule — here's exactly where the two packages diverge on paper.</p>
+  </div>
+
+  <table class="vsdiff-table">
+    <thead>
+      <tr>
+        <th class="category">Coverage</th>
+        <th class="chubb">Chubb Masterpiece</th>
+        <th class="alt">Kingstone + Travelers + Umbrella</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="category">Dwelling Basis</td>
+        <td class="chubb-cell">$3,000,000 stated limit, <strong>guaranteed replacement cost</strong> — no cap, ever<span class="vsdiff-edge gold">Chubb Edge</span></td>
+        <td class="alt-cell">$2,471,000 stated limit + 25% Additional Coverage A included free = ~$3,088,750 effective protection</td>
+      </tr>
+      <tr>
+        <td class="category">Rebuild Cost Cap</td>
+        <td class="chubb-cell">None. Chubb pays whatever it actually costs to rebuild, including code-upgrade costs, above the stated limit</td>
+        <td class="alt-cell">Capped at dwelling limit + 25% ($617,750 max cushion) — generous, but a hard ceiling</td>
+      </tr>
+      <tr>
+        <td class="category">Contents / Personal Property</td>
+        <td class="chubb-cell">$1,500,000 (Deluxe) — replaced at today's cost, no depreciation<span class="vsdiff-edge gold">Chubb Edge</span></td>
+        <td class="alt-cell">$864,850 (35% of Cov A)</td>
+      </tr>
+      <tr>
+        <td class="category">Loss of Use</td>
+        <td class="chubb-cell">Included, tied to Deluxe form — no fixed sublimit issue</td>
+        <td class="alt-cell">$494,200 (20% of Cov A)</td>
+      </tr>
+      <tr>
+        <td class="category">Home Liability</td>
+        <td class="chubb-cell">$1,000,000</td>
+        <td class="alt-cell">$1,000,000 — matched</td>
+      </tr>
+      <tr>
+        <td class="category">All-Peril / Residence Deductible</td>
+        <td class="chubb-cell">$5,000</td>
+        <td class="alt-cell">$5,000 — matched</td>
+      </tr>
+      <tr>
+        <td class="category">Jewelry Schedule</td>
+        <td class="chubb-cell">$25,000 blanket, Valuable Articles form</td>
+        <td class="alt-cell">$25,000 blanket, included in Coverage C</td>
+      </tr>
+      <tr>
+        <td class="category">Extra Home Perils Included</td>
+        <td class="chubb-cell">Broad Masterpiece form, cash settlement flexibility</td>
+        <td class="alt-cell">Water backup, equipment breakdown, service line, inland flood, ID fraud expense — all bundled in<span class="vsdiff-edge navy">Kingstone Edge</span></td>
+      </tr>
+      <tr>
+        <td class="category">Auto Valuation</td>
+        <td class="chubb-cell"><strong>Agreed value</strong> — $42,750 on the Palisade, no depreciation dispute at claim time<span class="vsdiff-edge gold">Chubb Edge</span></td>
+        <td class="alt-cell">Actual cash value (standard Travelers ACV)</td>
+      </tr>
+      <tr>
+        <td class="category">Auto Liability / UM Limits</td>
+        <td class="chubb-cell">$300,000 + Supplemental UM $300,000</td>
+        <td class="alt-cell">$250,000/$500,000 + matching UM — plus $50K PIP/$25K Addl PIP</td>
+      </tr>
+      <tr>
+        <td class="category">Auto Comp/Collision Deductible</td>
+        <td class="chubb-cell">$1,000 / $1,000</td>
+        <td class="alt-cell">$1,000 / $1,000 — matched</td>
+      </tr>
+      <tr>
+        <td class="category">Umbrella / Excess Liability</td>
+        <td class="chubb-cell">$3,000,000, scalable to $10M, one carrier one claims team</td>
+        <td class="alt-cell">$2,000,000 standalone personal umbrella, $475/yr</td>
+      </tr>
+      <tr>
+        <td class="category">Claims Reputation</td>
+        <td class="chubb-cell">#1 in J.D. Power Property Claims Satisfaction, low complaint index<span class="vsdiff-edge gold">Chubb Edge</span></td>
+        <td class="alt-cell">Solid regional carrier performance, standard claims process</td>
+      </tr>
+      <tr>
+        <td class="category">Total Annual Premium</td>
+        <td class="chubb-cell" style="font-weight:800;color:#FFA300;">$19,872/yr</td>
+        <td class="alt-cell" style="font-weight:800;color:#8fc4ff;">$10,366/yr</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+<section class="wrap" id="home-auto-split-diff">
+  <style>
+    .splitdiff-title{text-align:center;margin-bottom:44px;}
+    .splitdiff-title .eyebrow{color:#FFA300;font-size:13px;letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:14px;}
+    .splitdiff-title h2{font-family:'Playfair Display',serif;font-weight:900;font-size:38px;color:#FAFAF8;}
+    .splitdiff-title p{color:rgba(250,250,248,0.65);max-width:640px;margin:16px auto 0;font-size:16px;}
+    .splitdiff-subhead{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:#FAFAF8;margin:50px 0 20px;text-align:center;}
+    .splitdiff-subhead span{color:#FFA300;}
+    .split-table{width:100%;border-collapse:collapse;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;overflow:hidden;font-family:'Outfit',sans-serif;margin-bottom:10px;}
+    .split-table thead th{padding:18px 22px;text-align:left;font-size:13px;letter-spacing:1px;text-transform:uppercase;font-weight:700;background:rgba(255,255,255,0.03);}
+    .split-table thead th.category{color:rgba(250,250,248,0.5);width:34%;}
+    .split-table thead th.a{color:#FFA300;border-left:1px solid rgba(255,255,255,0.08);border-bottom:2px solid rgba(255,163,0,0.4);}
+    .split-table thead th.b{color:#8fc4ff;border-left:1px solid rgba(255,255,255,0.08);border-bottom:2px solid rgba(0,75,137,0.5);}
+    .split-table tbody td{padding:15px 22px;font-size:14.5px;border-bottom:1px solid rgba(255,255,255,0.06);vertical-align:top;}
+    .split-table tbody tr:last-child td{border-bottom:none;}
+    .split-table tbody td.category{color:rgba(250,250,248,0.6);font-weight:500;}
+    .split-table tbody td.a-cell,.split-table tbody td.b-cell{color:#FAFAF8;border-left:1px solid rgba(255,255,255,0.06);}
+    .split-table tbody tr:nth-child(odd) td{background:rgba(255,255,255,0.015);}
+    .split-edge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-top:6px;}
+    .split-edge.gold{background:rgba(255,163,0,0.16);color:#FFA300;border:1px solid rgba(255,163,0,0.4);}
+    .split-edge.navy{background:rgba(0,75,137,0.3);color:#8fc4ff;border:1px solid rgba(0,75,137,0.5);}
+    @media (max-width:760px){
+      .split-table, .split-table thead, .split-table tbody, .split-table th, .split-table td, .split-table tr{display:block;}
+      .split-table thead th{display:none;}
+      .split-table tbody tr{border-bottom:1px solid rgba(255,255,255,0.1);padding:14px 0;}
+      .split-table tbody td{border-left:none !important;padding:6px 22px;}
+      .split-table tbody td.category{font-weight:700;color:#FFA300;padding-top:14px;}
+    }
+  </style>
+
+  <div class="divider"></div>
+
+  <div class="splitdiff-title">
+    <div class="eyebrow">Isolated Comparisons</div>
+    <h2>Home vs. Home. Auto vs. Auto.</h2>
+    <p>Pulling the two lines apart so it's a clean, direct read: Kingstone against Chubb on the house, then Travelers against Chubb on the car.</p>
+  </div>
+
+  <!-- HOME: KINGSTONE VS CHUBB -->
+  <div class="splitdiff-subhead">Homeowners &mdash; <span>Kingstone vs. Chubb</span></div>
+  <table class="split-table">
+    <thead>
+      <tr>
+        <th class="category">Coverage</th>
+        <th class="a">Chubb Masterpiece</th>
+        <th class="b">Kingstone Select</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="category">Dwelling — Coverage A</td>
+        <td class="a-cell">$3,000,000 stated, <strong>guaranteed replacement cost</strong> — no dollar cap, ever<span class="split-edge gold">Chubb Edge</span></td>
+        <td class="b-cell">$2,471,000 stated + 25% Additional Coverage A included free = ~$3,088,750 effective</td>
+      </tr>
+      <tr>
+        <td class="category">Rebuild Cost Cap</td>
+        <td class="a-cell">None — pays true cost to rebuild, including code-upgrade costs, above the stated limit</td>
+        <td class="b-cell">Capped at limit + 25% ($617,750 max cushion) — strong, but a hard ceiling</td>
+      </tr>
+      <tr>
+        <td class="category">Other Structures — Coverage B</td>
+        <td class="a-cell">$600,000 (20% of Cov A)</td>
+        <td class="b-cell">$123,550 (5% of Cov A)</td>
+      </tr>
+      <tr>
+        <td class="category">Personal Property — Coverage C</td>
+        <td class="a-cell">$1,500,000 (Deluxe) — replaced at today's cost, no depreciation<span class="split-edge gold">Chubb Edge</span></td>
+        <td class="b-cell">$864,850 (35% of Cov A)</td>
+      </tr>
+      <tr>
+        <td class="category">Loss of Use — Coverage D</td>
+        <td class="a-cell">Included, tied to Deluxe form</td>
+        <td class="b-cell">$494,200 (20% of Cov A)</td>
+      </tr>
+      <tr>
+        <td class="category">Personal Liability — Coverage E</td>
+        <td class="a-cell">$1,000,000</td>
+        <td class="b-cell">$1,000,000 — matched</td>
+      </tr>
+      <tr>
+        <td class="category">Medical Payments — Coverage F</td>
+        <td class="a-cell">Included in Masterpiece form</td>
+        <td class="b-cell">$5,000</td>
+      </tr>
+      <tr>
+        <td class="category">All-Peril / Residence Deductible</td>
+        <td class="a-cell">$5,000</td>
+        <td class="b-cell">$5,000 — matched</td>
+      </tr>
+      <tr>
+        <td class="category">Jewelry Schedule</td>
+        <td class="a-cell">$25,000 blanket, Valuable Articles form</td>
+        <td class="b-cell">$25,000 blanket, within Coverage C</td>
+      </tr>
+      <tr>
+        <td class="category">Extra Perils / Endorsements</td>
+        <td class="a-cell">Broad Masterpiece form, cash settlement flexibility</td>
+        <td class="b-cell">Water backup, equipment breakdown, service line, inland flood, ID fraud expense — all bundled in<span class="split-edge navy">Kingstone Edge</span></td>
+      </tr>
+      <tr>
+        <td class="category">Annual Premium</td>
+        <td class="a-cell" style="font-weight:800;color:#FFA300;">$11,815/yr</td>
+        <td class="b-cell" style="font-weight:800;color:#8fc4ff;">$5,145/yr</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- AUTO: TRAVELERS VS CHUBB -->
+  <div class="splitdiff-subhead">Auto &mdash; <span>Travelers vs. Chubb</span></div>
+  <table class="split-table">
+    <thead>
+      <tr>
+        <th class="category">Coverage</th>
+        <th class="a">Chubb Masterpiece</th>
+        <th class="b">Travelers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="category">Vehicle Valuation</td>
+        <td class="a-cell"><strong>Agreed value</strong> — $42,750 on the Palisade, no depreciation dispute at claim time<span class="split-edge gold">Chubb Edge</span></td>
+        <td class="b-cell">Actual cash value (standard ACV)</td>
+      </tr>
+      <tr>
+        <td class="category">Liability Limit</td>
+        <td class="a-cell">$300,000</td>
+        <td class="b-cell">$250,000/$500,000</td>
+      </tr>
+      <tr>
+        <td class="category">Uninsured Motorists</td>
+        <td class="a-cell">$300,000 + Supplemental UM $300,000</td>
+        <td class="b-cell">$250,000/$500,000, matching liability</td>
+      </tr>
+      <tr>
+        <td class="category">Personal Injury Protection</td>
+        <td class="a-cell">Included in NY PIP requirement</td>
+        <td class="b-cell">$50,000 + $25,000 Additional PIP<span class="split-edge navy">Travelers Edge</span></td>
+      </tr>
+      <tr>
+        <td class="category">Comprehensive / Collision Deductible</td>
+        <td class="a-cell">$1,000 / $1,000</td>
+        <td class="b-cell">$1,000 / $1,000 — matched</td>
+      </tr>
+      <tr>
+        <td class="category">Rental Reimbursement</td>
+        <td class="a-cell">Included in Masterpiece auto form</td>
+        <td class="b-cell">$30/day, $900 max</td>
+      </tr>
+      <tr>
+        <td class="category">Glass Coverage</td>
+        <td class="a-cell">Full window glass coverage applied</td>
+        <td class="b-cell">Standard glass under comprehensive</td>
+      </tr>
+      <tr>
+        <td class="category">Bundling Discount</td>
+        <td class="a-cell">Portfolio discount — auto with home</td>
+        <td class="b-cell">Standard multi-policy discount applied</td>
+      </tr>
+      <tr>
+        <td class="category">Annual Premium</td>
+        <td class="a-cell" style="font-weight:800;color:#FFA300;">$6,050/yr</td>
+        <td class="b-cell" style="font-weight:800;color:#8fc4ff;">$4,746/yr</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="wrap" id="master-coverage-list">
+  <style>
+    .master-title{text-align:center;margin-bottom:44px;}
+    .master-title .eyebrow{color:#FFA300;font-size:13px;letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:14px;}
+    .master-title h2{font-family:'Playfair Display',serif;font-weight:900;font-size:38px;color:#FAFAF8;}
+    .master-title p{color:rgba(250,250,248,0.65);max-width:680px;margin:16px auto 0;font-size:16px;}
+    .master-table{width:100%;border-collapse:collapse;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;overflow:hidden;font-family:'Outfit',sans-serif;}
+    .master-table thead th{padding:20px 22px;text-align:left;font-size:12.5px;letter-spacing:1px;text-transform:uppercase;font-weight:700;background:rgba(255,255,255,0.03);position:sticky;top:0;}
+    .master-table thead th.category{color:rgba(250,250,248,0.5);width:26%;}
+    .master-table thead th.chubb{color:#FFA300;border-left:1px solid rgba(255,255,255,0.08);border-bottom:2px solid rgba(255,163,0,0.4);}
+    .master-table thead th.alt{color:#8fc4ff;border-left:1px solid rgba(255,255,255,0.08);border-bottom:2px solid rgba(0,75,137,0.5);}
+    .master-table tbody td{padding:14px 22px;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.06);vertical-align:top;}
+    .master-table tbody tr:last-child td{border-bottom:none;}
+    .master-table tbody td.category{color:rgba(250,250,248,0.6);font-weight:500;}
+    .master-table tbody td.chubb-cell,.master-table tbody td.alt-cell{color:#FAFAF8;border-left:1px solid rgba(255,255,255,0.06);}
+    .master-table tbody tr:nth-child(odd) td{background:rgba(255,255,255,0.015);}
+    .master-group-row td{background:rgba(255,163,0,0.06) !important;color:#FFA300;font-weight:800;letter-spacing:1px;text-transform:uppercase;font-size:12px;padding:12px 22px;border-left:none !important;}
+    .master-edge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-top:6px;}
+    .master-edge.gold{background:rgba(255,163,0,0.16);color:#FFA300;border:1px solid rgba(255,163,0,0.4);}
+    .master-edge.navy{background:rgba(0,75,137,0.3);color:#8fc4ff;border:1px solid rgba(0,75,137,0.5);}
+    @media (max-width:760px){
+      .master-table, .master-table thead, .master-table tbody, .master-table th, .master-table td, .master-table tr{display:block;}
+      .master-table thead th{display:none;}
+      .master-table tbody tr{border-bottom:1px solid rgba(255,255,255,0.1);padding:14px 0;}
+      .master-table tbody td{border-left:none !important;padding:6px 22px;}
+      .master-table tbody td.category{font-weight:700;color:#FFA300;padding-top:14px;}
+      .master-group-row{padding:14px 22px !important;}
+    }
+  </style>
+
+  <div class="divider"></div>
+
+  <div class="master-title">
+    <div class="eyebrow">Complete Coverage Comparison</div>
+    <h2>Every Coverage, One List</h2>
+    <p>Home, auto, and umbrella — every line item from both packages stacked together so nothing is buried in a separate table.</p>
+  </div>
+
+  <table class="master-table">
+    <thead>
+      <tr>
+        <th class="category">Coverage</th>
+        <th class="chubb">Chubb Masterpiece</th>
+        <th class="alt">Kingstone + Travelers + Umbrella</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="master-group-row"><td colspan="3">HOMEOWNERS</td></tr>
+      <tr>
+        <td class="category">Dwelling — Coverage A</td>
+        <td class="chubb-cell">$3,000,000, <strong>guaranteed replacement cost</strong> — no cap, ever<span class="master-edge gold">Chubb Edge</span></td>
+        <td class="alt-cell">$2,471,000 + 25% Additional Coverage A included free = ~$3,088,750 effective</td>
+      </tr>
+      <tr>
+        <td class="category">Rebuild Cost Cap</td>
+        <td class="chubb-cell">None — pays true cost to rebuild, including code-upgrade costs, above the stated limit</td>
+        <td class="alt-cell">Capped at limit + 25% ($617,750 max cushion) — strong, but a hard ceiling</td>
+      </tr>
+      <tr>
+        <td class="category">Other Structures — Coverage B</td>
+        <td class="chubb-cell">$600,000 (20% of Cov A)</td>
+        <td class="alt-cell">$123,550 (5% of Cov A)</td>
+      </tr>
+      <tr>
+        <td class="category">Personal Property — Coverage C</td>
+        <td class="chubb-cell">$1,500,000 (Deluxe) — replaced at today's cost, no depreciation<span class="master-edge gold">Chubb Edge</span></td>
+        <td class="alt-cell">$864,850 (35% of Cov A)</td>
+      </tr>
+      <tr>
+        <td class="category">Loss of Use — Coverage D</td>
+        <td class="chubb-cell">Included, tied to Deluxe form</td>
+        <td class="alt-cell">$494,200 (20% of Cov A)</td>
+      </tr>
+      <tr>
+        <td class="category">Personal Liability — Coverage E</td>
+        <td class="chubb-cell">$1,000,000</td>
+        <td class="alt-cell">$1,000,000 — matched</td>
+      </tr>
+      <tr>
+        <td class="category">Medical Payments — Coverage F</td>
+        <td class="chubb-cell">Included in Masterpiece form</td>
+        <td class="alt-cell">$5,000</td>
+      </tr>
+      <tr>
+        <td class="category">All-Peril / Residence Deductible</td>
+        <td class="chubb-cell">$5,000</td>
+        <td class="alt-cell">$5,000 — matched</td>
+      </tr>
+      <tr>
+        <td class="category">Jewelry Schedule</td>
+        <td class="chubb-cell">$25,000 blanket, Valuable Articles form</td>
+        <td class="alt-cell">$25,000 blanket, within Coverage C</td>
+      </tr>
+      <tr>
+        <td class="category">Extra Perils / Endorsements</td>
+        <td class="chubb-cell">Broad Masterpiece form, cash settlement flexibility</td>
+        <td class="alt-cell">Water backup, equipment breakdown, service line, inland flood, ID fraud expense — all bundled in<span class="master-edge navy">Kingstone Edge</span></td>
+      </tr>
+      <tr>
+        <td class="category">Homeowners Premium</td>
+        <td class="chubb-cell" style="font-weight:800;color:#FFA300;">$11,815/yr</td>
+        <td class="alt-cell" style="font-weight:800;color:#8fc4ff;">$5,145/yr</td>
+      </tr>
+
+      <tr class="master-group-row"><td colspan="3">AUTO — 2025 HYUNDAI PALISADE</td></tr>
+      <tr>
+        <td class="category">Vehicle Valuation</td>
+        <td class="chubb-cell"><strong>Agreed value</strong> — $42,750, no depreciation dispute at claim time<span class="master-edge gold">Chubb Edge</span></td>
+        <td class="alt-cell">Actual cash value (standard ACV)</td>
+      </tr>
+      <tr>
+        <td class="category">Liability Limit</td>
+        <td class="chubb-cell">$300,000</td>
+        <td class="alt-cell">$250,000/$500,000</td>
+      </tr>
+      <tr>
+        <td class="category">Uninsured Motorists</td>
+        <td class="chubb-cell">$300,000 + Supplemental UM $300,000</td>
+        <td class="alt-cell">$250,000/$500,000, matching liability</td>
+      </tr>
+      <tr>
+        <td class="category">Personal Injury Protection</td>
+        <td class="chubb-cell">Included in NY PIP requirement</td>
+        <td class="alt-cell">$50,000 + $25,000 Additional PIP<span class="master-edge navy">Travelers Edge</span></td>
+      </tr>
+      <tr>
+        <td class="category">Comprehensive / Collision Deductible</td>
+        <td class="chubb-cell">$1,000 / $1,000</td>
+        <td class="alt-cell">$1,000 / $1,000 — matched</td>
+      </tr>
+      <tr>
+        <td class="category">Rental Reimbursement</td>
+        <td class="chubb-cell">Included in Masterpiece auto form</td>
+        <td class="alt-cell">$30/day, $900 max</td>
+      </tr>
+      <tr>
+        <td class="category">Glass Coverage</td>
+        <td class="chubb-cell">Full window glass coverage applied</td>
+        <td class="alt-cell">Standard glass under comprehensive</td>
+      </tr>
+      <tr>
+        <td class="category">Bundling Discount</td>
+        <td class="chubb-cell">Portfolio discount — auto with home</td>
+        <td class="alt-cell">Standard multi-policy discount applied</td>
+      </tr>
+      <tr>
+        <td class="category">Auto Premium</td>
+        <td class="chubb-cell" style="font-weight:800;color:#FFA300;">$6,050/yr</td>
+        <td class="alt-cell" style="font-weight:800;color:#8fc4ff;">$4,746/yr</td>
+      </tr>
+
+      <tr class="master-group-row"><td colspan="3">UMBRELLA / EXCESS LIABILITY</td></tr>
+      <tr>
+        <td class="category">Limit Quoted</td>
+        <td class="chubb-cell">$3,000,000</td>
+        <td class="alt-cell">$2,000,000</td>
+      </tr>
+      <tr>
+        <td class="category">Available Limits</td>
+        <td class="chubb-cell">$3M / $5M / $10M — scalable on one carrier, one claims team<span class="master-edge gold">Chubb Edge</span></td>
+        <td class="alt-cell">$2,000,000 standalone personal umbrella</td>
+      </tr>
+      <tr>
+        <td class="category">Umbrella Premium</td>
+        <td class="chubb-cell" style="font-weight:800;color:#FFA300;">$1,107/yr</td>
+        <td class="alt-cell" style="font-weight:800;color:#8fc4ff;">$475/yr</td>
+      </tr>
+
+      <tr class="master-group-row"><td colspan="3">TOTAL</td></tr>
+      <tr>
+        <td class="category">Total Annual Premium</td>
+        <td class="chubb-cell" style="font-weight:900;color:#FFA300;font-size:17px;">$19,872/yr</td>
+        <td class="alt-cell" style="font-weight:900;color:#8fc4ff;font-size:17px;">$10,366/yr</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+</div>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"landerer","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
