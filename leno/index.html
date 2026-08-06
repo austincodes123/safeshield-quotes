@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kristian Leno — Homeowners Proposal | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#0a1628;
+    color:#FAFAF8;
+    font-family:'Outfit', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3 { font-family:'Playfair Display', serif; }
+  .divider {
+    height:1px;
+    width:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin:0 auto;
+  }
+  .wrap { max-width:1100px; margin:0 auto; padding:0 32px; }
+
+  /* HERO */
+  .hero {
+    position:relative;
+    padding:90px 0 70px;
+    text-align:center;
+    background:radial-gradient(circle at 50% -10%, rgba(0,75,137,0.55), transparent 60%);
+  }
+  .hero .eyebrow {
+    display:inline-block;
+    padding:8px 20px;
+    border:1px solid rgba(255,163,0,0.4);
+    border-radius:100px;
+    color:#FFA300;
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:28px;
+    font-weight:600;
+  }
+  .hero h1 {
+    font-size:52px;
+    font-weight:900;
+    line-height:1.15;
+    margin-bottom:18px;
+    background:linear-gradient(135deg,#FAFAF8 40%,#FFA300 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .hero p.sub {
+    font-size:19px;
+    color:rgba(250,250,248,0.75);
+    max-width:620px;
+    margin:0 auto 8px;
+  }
+  .hero .addr {
+    font-size:15px;
+    color:rgba(255,163,0,0.9);
+    letter-spacing:0.5px;
+    margin-top:6px;
+  }
+
+  /* PREMIUM BANNER */
+  .banner {
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+    margin-top:48px;
+  }
+  .banner .stat { text-align:center; }
+  .banner .stat .num {
+    font-family:'Playfair Display', serif;
+    font-weight:900;
+    font-size:40px;
+    color:#FFA300;
+  }
+  .banner .stat .label {
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:rgba(250,250,248,0.55);
+    margin-top:4px;
+  }
+
+  section { padding:70px 0; }
+  .section-title {
+    text-align:center;
+    font-size:34px;
+    font-weight:700;
+    margin-bottom:14px;
+  }
+  .section-sub {
+    text-align:center;
+    color:rgba(250,250,248,0.6);
+    max-width:600px;
+    margin:0 auto 48px;
+    font-size:16px;
+  }
+
+  /* COVERAGE CARDS */
+  .grid {
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  .card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:26px;
+    transition:0.25s;
+  }
+  .card:hover { border-color:rgba(255,163,0,0.35); background:rgba(255,255,255,0.06); }
+  .card .tag {
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:#FFA300;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .card .amt {
+    font-family:'Playfair Display', serif;
+    font-size:26px;
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .card .desc {
+    font-size:14px;
+    color:rgba(250,250,248,0.65);
+  }
+
+  /* WHY IT MATTERS STRIP */
+  .why-strip {
+    background:rgba(0,75,137,0.18);
+    border:1px solid rgba(0,75,137,0.4);
+    border-radius:16px;
+    padding:28px 32px;
+    margin-top:30px;
+    font-size:15px;
+    color:rgba(250,250,248,0.85);
+  }
+  .why-strip strong { color:#FFA300; }
+
+  /* DISCOUNTS TABLE */
+  table {
+    width:100%;
+    border-collapse:collapse;
+    font-size:15px;
+  }
+  table th {
+    text-align:left;
+    padding:14px 18px;
+    color:rgba(250,250,248,0.5);
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  table td {
+    padding:14px 18px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  table tr:hover td { background:rgba(255,255,255,0.02); }
+  .credit { color:#5FD68A; font-weight:600; }
+  .debit { color:#FF8A8A; font-weight:600; }
+
+  .two-col {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+
+  /* PAY PLANS */
+  .plan-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+  .plan {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px;
+    padding:22px;
+    text-align:center;
+  }
+  .plan.highlight {
+    border-color:rgba(255,163,0,0.5);
+    background:rgba(255,163,0,0.07);
+  }
+  .plan .plan-name {
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:rgba(250,250,248,0.6);
+    margin-bottom:10px;
+  }
+  .plan .plan-down {
+    font-family:'Playfair Display', serif;
+    font-size:24px;
+    font-weight:700;
+    color:#FAFAF8;
+  }
+  .plan .plan-install {
+    font-size:13px;
+    color:rgba(250,250,248,0.55);
+    margin-top:6px;
+  }
+
+  /* WHY SAFESHIELD */
+  .why-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .why-card {
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:14px;
+    padding:26px;
+  }
+  .why-card .icon { font-size:26px; margin-bottom:12px; }
+  .why-card h3 { font-size:18px; margin-bottom:8px; }
+  .why-card p { font-size:14px; color:rgba(250,250,248,0.6); }
+
+  /* CTA FOOTER */
+  .cta {
+    text-align:center;
+    padding:90px 0 100px;
+    background:radial-gradient(circle at 50% 100%, rgba(255,163,0,0.12), transparent 60%);
+  }
+  .cta h2 { font-size:38px; margin-bottom:16px; }
+  .cta p { color:rgba(250,250,248,0.65); max-width:520px; margin:0 auto 34px; font-size:16px; }
+  .btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .btn {
+    display:inline-block;
+    padding:16px 36px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    transition:0.2s;
+  }
+  .btn-primary { background:#FFA300; color:#0a1628; }
+  .btn-primary:hover { background:#ffb733; transform:translateY(-2px); }
+  .btn-secondary {
+    background:rgba(255,255,255,0.06);
+    color:#FAFAF8;
+    border:1px solid rgba(255,255,255,0.15);
+  }
+  .btn-secondary:hover { background:rgba(255,255,255,0.1); }
+
+  footer {
+    text-align:center;
+    padding:36px 0;
+    color:rgba(250,250,248,0.35);
+    font-size:13px;
+    border-top:1px solid rgba(255,255,255,0.06);
+  }
+
+  @media (max-width:760px){
+    .grid, .why-grid, .plan-grid, .two-col { grid-template-columns:1fr; }
+    .hero h1 { font-size:34px; }
+    .banner { gap:30px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Homeowners Proposal</span>
+    <h1>Kristian Leno's<br>Home, Protected.</h1>
+    <p class="sub">We shopped your homeowners coverage and brought back a strong quote from Narragansett Bay Insurance Company — built specifically for your home in Stamford.</p>
+    <div class="addr">25 Foxwood Rd, Stamford, CT 06903</div>
+
+    <div class="banner">
+      <div class="stat">
+        <div class="num">$4,784</div>
+        <div class="label">Annual Premium</div>
+      </div>
+      <div class="stat">
+        <div class="num">$1,575,000</div>
+        <div class="label">Dwelling Coverage</div>
+      </div>
+      <div class="stat">
+        <div class="num">HO-3</div>
+        <div class="label">Policy Form</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider wrap"></div>
+
+<!-- COVERAGE BREAKDOWN -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Your Coverage, Line by Line</h2>
+    <p class="section-sub">Here's exactly what's protecting your home and everything in it. No fine print surprises — just what matters.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="tag">Coverage A</div>
+        <div class="amt">$1,575,000</div>
+        <div class="desc">Dwelling — rebuilds your home at today's construction costs if it's damaged or destroyed.</div>
+      </div>
+      <div class="card">
+        <div class="tag">Coverage B</div>
+        <div class="amt">$130,900</div>
+        <div class="desc">Other Structures — covers detached garages, sheds, fences, and anything not attached to the main house.</div>
+      </div>
+      <div class="card">
+        <div class="tag">Coverage C</div>
+        <div class="amt">$392,500</div>
+        <div class="desc">Personal Property — your furniture, electronics, clothes, everything inside the home.</div>
+      </div>
+      <div class="card">
+        <div class="tag">Coverage D</div>
+        <div class="amt">$261,500</div>
+        <div class="desc">Loss of Use — pays for a hotel or rental if you're displaced while the home is repaired.</div>
+      </div>
+      <div class="card">
+        <div class="tag">Coverage E</div>
+        <div class="amt">$500,000</div>
+        <div class="desc">Personal Liability — protects you if someone is hurt on your property or you're found responsible for damages elsewhere.</div>
+      </div>
+      <div class="card">
+        <div class="tag">Coverage F</div>
+        <div class="amt">$5,000</div>
+        <div class="desc">Medical Payments — covers minor injury costs for guests, regardless of fault, no lawsuit needed.</div>
+      </div>
+    </div>
+
+    <div class="why-strip">
+      <strong>Why this matters:</strong> your dwelling limit of $1,575,000 reflects what it would actually cost to rebuild this 1956 frame home today, not what you paid for it or what it's worth on the market. That gap is where most underinsured homeowners get hurt after a total loss.
+    </div>
+  </div>
+</section>
+<div class="divider wrap"></div>
+
+<!-- COVERAGE OPTIONS + DEDUCTIBLES -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Added Protection Built In</h2>
+    <p class="section-sub">These come standard on your proposal — extra layers of protection a lot of policies leave out.</p>
+
+    <div class="two-col">
+      <table>
+        <tr><th>Coverage Option</th><th style="text-align:right">Limit</th></tr>
+        <tr><td>Equipment Breakdown</td><td style="text-align:right">$100,000</td></tr>
+        <tr><td>Limited Fungi / Wet or Dry Rot / Bacteria</td><td style="text-align:right">$10,000 / $50,000</td></tr>
+        <tr><td>Loss Assessment Coverage</td><td style="text-align:right">$1,000</td></tr>
+        <tr><td>Ordinance or Law Coverage</td><td style="text-align:right">10% of Cov A</td></tr>
+        <tr><td>Personal Injury</td><td style="text-align:right">Included</td></tr>
+        <tr><td>Personal Property Replacement Cost</td><td style="text-align:right">Included</td></tr>
+        <tr><td>Water Back Up &amp; Sump Discharge</td><td style="text-align:right">$5,000</td></tr>
+      </table>
+      <table>
+        <tr><th>Deductibles</th><th style="text-align:right">Amount</th></tr>
+        <tr><td>All Other Perils (AOP)</td><td style="text-align:right">$2,500</td></tr>
+        <tr><td>Hurricane</td><td style="text-align:right">$2,500</td></tr>
+        <tr><td colspan="2" style="border-bottom:none;padding-top:24px;color:rgba(250,250,248,0.45);font-size:13px;">Standard AOP and hurricane deductibles both sit at $2,500 — a reasonable middle ground between premium cost and out-of-pocket risk for a home this size.</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+<div class="divider wrap"></div>
+
+<!-- DISCOUNTS -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Discounts Already Applied</h2>
+    <p class="section-sub">NBIC gave credit for the things that actually lower your risk. Here's where the savings came from.</p>
+
+    <table>
+      <tr><th>Discount / Surcharge</th><th style="text-align:right">Impact</th></tr>
+      <tr><td>Age of Insured Discount</td><td style="text-align:right" class="credit">-$407.00</td></tr>
+      <tr><td>Companion Policy Discount</td><td style="text-align:right" class="credit">-$233.00</td></tr>
+      <tr><td>AOP Deductible Credit ($2,500)</td><td style="text-align:right" class="credit">-$420.00</td></tr>
+      <tr><td>Hurricane Deductible Credit ($2,500)</td><td style="text-align:right" class="credit">-$117.00</td></tr>
+      <tr><td>Protective Devices Discount</td><td style="text-align:right" class="credit">-$73.00</td></tr>
+      <tr><td>Roof Age and Roof Cover Discount</td><td style="text-align:right" class="credit">-$63.00</td></tr>
+      <tr><td>Age of Home Credit</td><td style="text-align:right" class="debit">+$378.00</td></tr>
+      <tr><td>Siding Type Factor</td><td style="text-align:right" class="debit">+$50.00</td></tr>
+      <tr><td>Healthy Homes Fund Surcharge (state fee)</td><td style="text-align:right" class="debit">+$12.00</td></tr>
+    </table>
+    <div class="why-strip">
+      <strong>Companion Policy Discount</strong> is already reflected here, which means bundling your auto with this home policy is already saving you money — and there's likely more savings if any additional lines get added to the household.
+    </div>
+  </div>
+</section>
+<div class="divider wrap"></div>
+
+<!-- PAY PLANS -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">How You'd Like to Pay</h2>
+    <p class="section-sub">Same total premium either way — pick whatever fits your cash flow best.</p>
+
+    <div class="plan-grid">
+      <div class="plan highlight">
+        <div class="plan-name">Full Pay</div>
+        <div class="plan-down">$4,784</div>
+        <div class="plan-install">One payment, no fees</div>
+      </div>
+      <div class="plan">
+        <div class="plan-name">4-Pay Plan</div>
+        <div class="plan-down">$1,205</div>
+        <div class="plan-install">then $1,198 × 3</div>
+      </div>
+      <div class="plan">
+        <div class="plan-name">9-Pay Plan</div>
+        <div class="plan-down">$966.40</div>
+        <div class="plan-install">then $482.20 × 8</div>
+      </div>
+      <div class="plan">
+        <div class="plan-name">11-Pay EFT</div>
+        <div class="plan-down">$808.93</div>
+        <div class="plan-install">then $397.52 × 10</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:rgba(250,250,248,0.4);margin-top:22px;">$5 service fee applies per payment on the 4 and 9-pay plans. $25 fee for any returned payment.</p>
+  </div>
+</section>
+<div class="divider wrap"></div>
+
+<!-- WHY SAFESHIELD -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Why Safeshield</h2>
+    <p class="section-sub">We're not just quoting you a policy. We're managing it for as long as you own this home.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon">🏛️</div>
+        <h3>69+ Carriers</h3>
+        <p>We shopped the whole market to find NBIC as the strongest fit for your home, not just the first quote that came back.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">⚡</div>
+        <h3>Same-Day Everything</h3>
+        <p>Certificates, ID cards, policy changes — handled same day. No waiting on hold, no call centers.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">🛡️</div>
+        <h3>We Fight for You at Claims Time</h3>
+        <p>If something happens, we're the ones on the phone with the carrier advocating for you, not against you.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">🔄</div>
+        <h3>Annual Re-Shop Guarantee</h3>
+        <p>Every year we re-shop your policy against the market to make sure you're not quietly overpaying at renewal.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">📞</div>
+        <h3>Direct Agent Access</h3>
+        <p>You call or text me directly. No ticket numbers, no phone trees.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">💻</div>
+        <h3>Tech-Powered</h3>
+        <p>Digital delivery, automated tracking, and renewal reminders so nothing slips through the cracks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="wrap">
+    <h2>Ready to Lock This In?</h2>
+    <p>This quote is effective 08/14/2026. Rates aren't guaranteed to hold, so let's get this bound before renewal so there's no gap in coverage.</p>
+    <div class="btns">
+      <a href="tel:2038065889" class="btn btn-primary">Call Eric: (203) 806-5889</a>
+      <a href="mailto:eric@gosafeshield.com" class="btn btn-secondary">Email Eric</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Safeshield Insurance LLC · 2777 Summer Street, 6th Floor, Stamford, CT 06905 · 203.204.2555<br>
+  Prepared for Kristian Leno · Quote #CTHQ01843743 · Narragansett Bay Insurance Company
+</footer>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"leno","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
