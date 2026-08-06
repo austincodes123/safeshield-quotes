@@ -139,6 +139,31 @@ h2{font-size:clamp(26px,4.5vw,36px);color:var(--navy-deep);margin:8px 0 6px}
 .note h4{font-family:'Outfit';font-weight:700;font-size:15.5px;color:var(--navy-deep);margin-bottom:6px}
 .note p{font-size:14.5px;color:var(--slate)}
 
+/* COMPARE TABLE */
+.compare{margin-top:26px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
+.cmp-row{display:grid;grid-template-columns:1.5fr 1fr 1fr}
+.cmp-head{background:linear-gradient(120deg,#fbfdff,#f3f8fd);border-bottom:1px solid var(--line)}
+.cmp-head .cmp-c{padding:16px 22px;font-family:'Outfit';font-weight:700;font-size:14px;color:var(--navy-deep)}
+.cmp-head .cmp-c span{display:block;font-weight:500;font-size:12px;color:var(--slate);letter-spacing:.03em;margin-top:1px}
+.cmp-head .new{color:var(--navy)}
+.cmp-r{border-bottom:1px solid #eef2f7}
+.cmp-r:last-child{border-bottom:0}
+.cmp-c2{padding:16px 22px;font-size:15px;display:flex;align-items:center}
+.cmp-lbl{color:var(--slate);flex-direction:column;align-items:flex-start}
+.cmp-lbl small{font-size:12px;color:#9aa7b6;font-weight:400}
+.cmp-val{font-weight:600;color:var(--ink)}
+.cmp-val.hl{color:var(--navy)}
+.same{display:inline-block;font-size:11px;font-weight:700;color:var(--green);background:#e7f6ef;padding:2px 10px;border-radius:20px;margin-left:9px}
+.cmp-cap{margin-top:18px;font-size:15.5px;color:var(--ink);max-width:680px}
+.cmp-cap b{color:var(--navy-deep)}
+.cmp-micro{margin-top:8px;font-size:13px;color:#9aa7b6}
+@media(max-width:720px){
+  .cmp-row{grid-template-columns:1.3fr 1fr 1fr}
+  .cmp-head .cmp-c,.cmp-c2{padding:13px 12px}
+  .cmp-c2{font-size:13.5px}
+  .same{display:block;margin:4px 0 0}
+}
+
 /* ACTION */
 .todo{background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px 28px;margin-top:24px}
 .todo .item{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid #eef2f7}
@@ -288,16 +313,35 @@ h2{font-size:clamp(26px,4.5vw,36px);color:var(--navy-deep);margin:8px 0 6px}
       </div>
     </div>
 
-    <div class="grid2">
-      <div class="note">
-        <h4>Two honest differences worth a look</h4>
-        <p>Your contents limit comes in a little lighter than Travelers ($250k vs $313k), and the hurricane deductible is 2% in a named storm. Both are easy to adjust up if you'd rather match your current policy exactly. Just say the word and I'll re-run it.</p>
+    <div class="compare">
+      <div class="cmp-row cmp-head">
+        <div class="cmp-c">Coverage</div>
+        <div class="cmp-c new">Your new plan <span>SageSure</span></div>
+        <div class="cmp-c">Current renewal <span>Travelers</span></div>
       </div>
-      <div class="note amber">
-        <h4>Replacement cost, built in</h4>
-        <p>Personal property and functional replacement cost are both included, plus 10% law and ordinance and mold coverage. Your dwelling limit of $626,000 is unchanged from your renewal.</p>
+      <div class="cmp-row cmp-r">
+        <div class="cmp-c2 cmp-lbl">Dwelling <small>rebuilds your home</small></div>
+        <div class="cmp-c2 cmp-val hl">$626,000</div>
+        <div class="cmp-c2 cmp-val">$626,000 <span class="same">Same</span></div>
+      </div>
+      <div class="cmp-row cmp-r">
+        <div class="cmp-c2 cmp-lbl">Other Structures</div>
+        <div class="cmp-c2 cmp-val hl">$62,600</div>
+        <div class="cmp-c2 cmp-val">$62,600 <span class="same">Same</span></div>
+      </div>
+      <div class="cmp-row cmp-r">
+        <div class="cmp-c2 cmp-lbl">Loss of Use</div>
+        <div class="cmp-c2 cmp-val hl">$125,200</div>
+        <div class="cmp-c2 cmp-val">$125,200 <span class="same">Same</span></div>
+      </div>
+      <div class="cmp-row cmp-r">
+        <div class="cmp-c2 cmp-lbl">Personal Property</div>
+        <div class="cmp-c2 cmp-val hl">$250,400</div>
+        <div class="cmp-c2 cmp-val">$313,000</div>
       </div>
     </div>
+    <p class="cmp-cap">Same house, same protection. <b>Your coverage matches line for line</b>, including the dwelling limit that actually rebuilds your home. Once we confirm your roof is 2018 or newer, this lower premium is locked in.</p>
+    <p class="cmp-micro">Contents comes in at $250,400 on the new plan. Want it dialed up to $313,000 to match exactly? One click and it's done.</p>
   </div>
 </section>
 
