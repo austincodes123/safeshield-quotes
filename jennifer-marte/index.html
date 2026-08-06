@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jennifer Marte | Safeshield Insurance</title>
+
+<!-- Open Graph / iMessage preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jennifer Marte | Safeshield Insurance">
+<meta property="og:description" content="Take a look at the program we put together for your renewal.">
+<meta property="og:image" content="https://quotes.gosafeshield.com/jennifer-marte/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://quotes.gosafeshield.com/jennifer-marte/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jennifer Marte | Safeshield Insurance">
+<meta name="twitter:description" content="Take a look at the program we put together for your renewal.">
+<meta name="twitter:image" content="https://quotes.gosafeshield.com/jennifer-marte/preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  color-scheme: light only;
+  --navy:#004B89;
+  --navy-deep:#003566;
+  --amber:#FFA300;
+  --amber-soft:#FFB733;
+  --ink:#1a2230;
+  --slate:#5b6879;
+  --fog:#eef3f8;
+  --line:#dde5ee;
+  --white:#ffffff;
+  --green:#1f9d6b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px;margin:0 auto;padding:0 24px}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.15}
+
+/* HERO */
+.hero{
+  background:linear-gradient(160deg,var(--navy-deep) 0%,var(--navy) 70%);
+  color:var(--white);
+  padding:56px 0 68px;
+}
+.brand{display:flex;align-items:baseline;gap:10px;font-family:'Outfit';font-weight:600;letter-spacing:.14em;font-size:15px}
+.brand .a{color:var(--amber)}
+.brand-rule{width:54px;height:3px;background:var(--amber);margin:14px 0 40px}
+.eyebrow{letter-spacing:.22em;font-size:13px;color:#bcd0e6;font-weight:500;text-transform:uppercase}
+.hero h1{font-size:clamp(38px,7vw,62px);margin:14px 0 6px;color:#fff}
+.hero .sub{font-size:18px;color:#d6e3f2;max-width:620px;margin-top:14px}
+.loyalty{
+  margin-top:26px;display:inline-flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+  padding:12px 20px;border-radius:40px;font-size:14.5px;color:#eaf2fb;
+}
+.loyalty b{color:var(--amber);font-weight:600}
+
+/* TOGGLE */
+.plan-bar{max-width:940px;margin:-34px auto 0;padding:0 24px;position:relative;z-index:5}
+.toggle{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 12px 40px rgba(0,53,102,.14);
+  padding:8px;display:flex;gap:6px;max-width:420px;margin:0 auto;
+}
+.toggle button{
+  flex:1;border:0;background:transparent;color:var(--slate);
+  font-family:'Outfit';font-weight:600;font-size:14.5px;padding:12px 8px;
+  border-radius:11px;cursor:pointer;transition:.18s;
+}
+.toggle button.active{background:var(--navy);color:#fff}
+.toggle-note{text-align:center;color:var(--slate);font-size:12.5px;margin-top:12px}
+
+/* GLANCE */
+.glance{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:38px}
+.gcard{
+  border:1px solid var(--line);border-radius:18px;padding:26px 26px 24px;
+  background:linear-gradient(180deg,#fff, #fbfdff);
+}
+.gcard .tag{display:flex;align-items:center;gap:10px;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--amber)}
+.gcard .carrier{color:var(--slate);font-size:13.5px;margin-top:2px}
+.gcard .price{font-family:'Playfair Display';font-weight:700;font-size:40px;color:var(--ink);margin-top:16px;line-height:1}
+.gcard .price span{font-family:'Outfit';font-size:15px;color:var(--slate);font-weight:500}
+.gcard .prior{font-size:13.5px;color:var(--slate);margin-top:8px}
+.gcard .prior s{color:#9aa7b6}
+
+/* SECTIONS */
+section{padding:56px 0}
+.sec-fog{background:var(--fog)}
+.k{letter-spacing:.2em;font-size:12.5px;color:var(--amber);font-weight:700;text-transform:uppercase}
+h2{font-size:clamp(26px,4.5vw,36px);color:var(--navy-deep);margin:8px 0 6px}
+.lead{color:var(--slate);font-size:16.5px;max-width:680px}
+
+/* POLICY DETAIL */
+.pol{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:24px}
+.pol-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(120deg,#fbfdff,#f3f8fd)}
+.pol-head .l .name{font-family:'Playfair Display';font-weight:700;font-size:23px;color:var(--navy-deep)}
+.pol-head .l .car{color:var(--slate);font-size:14px;margin-top:3px}
+.pol-head .r{text-align:right;white-space:nowrap}
+.pol-head .r .amt{font-family:'Playfair Display';font-weight:700;font-size:30px;color:var(--ink)}
+.pol-head .r .amt span{font-family:'Outfit';font-size:13.5px;color:var(--slate);font-weight:500}
+.pol-head .r .pr{font-size:12.5px;color:var(--slate);margin-top:4px}
+.rows{padding:8px 28px 20px}
+.row{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid #eef2f7;font-size:15px}
+.row:last-child{border-bottom:0}
+.row .lbl{color:var(--slate)}
+.row .val{font-weight:600;color:var(--ink);text-align:right}
+
+/* SAVINGS BANNER */
+.save{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+  color:#fff;border-radius:20px;padding:38px 34px;margin-top:8px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:22px;
+}
+.save .big{font-family:'Playfair Display';font-weight:800;font-size:clamp(34px,6vw,52px);color:var(--amber);line-height:1}
+.save .cap{font-size:14px;color:#cfe0f2;letter-spacing:.04em;margin-top:6px}
+.save .rt{text-align:right}
+.save .rt .now{font-size:15px;color:#eaf2fb}
+.save .rt .now b{font-family:'Playfair Display';font-size:26px;color:#fff;display:block;font-weight:700}
+.save .rt .was{font-size:14px;color:#9fb8d4;margin-top:4px}
+.save .rt .was s{color:#7f9abb}
+
+/* CHANGE CARDS */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+.note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:12px;padding:20px 22px}
+.note.amber{border-left-color:var(--amber)}
+.note h4{font-family:'Outfit';font-weight:700;font-size:15.5px;color:var(--navy-deep);margin-bottom:6px}
+.note p{font-size:14.5px;color:var(--slate)}
+
+/* ACTION */
+.todo{background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px 28px;margin-top:24px}
+.todo .item{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid #eef2f7}
+.todo .item:last-child{border-bottom:0}
+.num{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--amber);color:#3a2a00;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:15px}
+.todo .item h4{font-family:'Outfit';font-weight:600;font-size:16.5px;color:var(--ink);margin-bottom:3px}
+.todo .item p{font-size:14.5px;color:var(--slate)}
+.flag{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:600;color:var(--navy);background:#e8f0fa;padding:4px 12px;border-radius:20px}
+
+/* UMBRELLA STRIP */
+.umb{display:flex;align-items:center;gap:16px;background:#fff;border:1px dashed var(--line);border-radius:14px;padding:18px 22px;margin-top:22px;font-size:14.5px;color:var(--slate)}
+.umb .ic{font-size:22px}
+.umb b{color:var(--navy-deep)}
+
+/* NEXT */
+.next{background:var(--navy-deep);color:#fff;text-align:center;padding:64px 24px}
+.next h2{color:#fff}
+.next p{color:#cfe0f2;max-width:520px;margin:12px auto 0;font-size:16px}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:#3a2a00;font-family:'Outfit';font-weight:700;font-size:16px;padding:16px 34px;border-radius:40px;text-decoration:none;margin-top:28px;transition:.18s}
+.cta:hover{background:var(--amber-soft);transform:translateY(-1px)}
+.contact{margin-top:26px;font-size:14.5px;color:#bcd0e6}
+.contact a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+.foot{text-align:center;color:var(--slate);font-size:12.5px;padding:26px}
+
+@media(max-width:720px){
+  .glance,.grid2{grid-template-columns:1fr}
+  .save{flex-direction:column;align-items:flex-start}
+  .save .rt{text-align:left}
+  .pol-head{flex-direction:column}
+  .pol-head .r{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">SAFESHIELD <span class="a">INSURANCE</span></div>
+    <div class="brand-rule"></div>
+    <div class="eyebrow">Prepared for</div>
+    <h1>Jennifer Marte</h1>
+    <p class="sub">Your auto and home renewals came back higher this year, so we shopped the market for you. Here is the plan that brings it back down without giving up the coverage that matters.</p>
+    <div class="loyalty">🤝 <span>Thank you for <b>three years</b> with us, Jennifer. This is us earning that loyalty back.</span></div>
+  </div>
+</header>
+
+<div class="plan-bar">
+  <div class="toggle" id="toggle">
+    <button data-mode="monthly" class="active">Monthly</button>
+    <button data-mode="quarterly">Quarterly</button>
+    <button data-mode="full">Pay in full</button>
+  </div>
+  <div class="toggle-note">Switch how you'd like to see it. Every number below updates.</div>
+</div>
+
+<div class="wrap">
+  <div class="glance">
+    <div class="gcard">
+      <div class="tag"><span class="dot"></span> Auto</div>
+      <div class="carrier">Moving to Progressive</div>
+      <div class="price"><span>$</span><span class="fig" data-a-monthly="293" data-a-quarterly="878" data-a-full="3,072">293</span> <span class="per">/mo</span></div>
+      <div class="prior">2014 Nissan Sentra &middot; same 250/500 liability</div>
+    </div>
+    <div class="gcard">
+      <div class="tag"><span class="dot"></span> Home</div>
+      <div class="carrier">Moving to SageSure</div>
+      <div class="price"><span>$</span><span class="fig" data-h-monthly="387" data-h-quarterly="1,161" data-h-full="4,645">387</span> <span class="per">/mo</span></div>
+      <div class="prior">45 Smith St &middot; $626,000 dwelling</div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="k">The bottom line</div>
+    <h2>Your new plan, side by side with the renewal</h2>
+    <p class="lead">Same household, same cars and home, lower cost. Here is where you land compared to the renewals you were quoted.</p>
+
+    <div class="save" style="margin-top:28px">
+      <div>
+        <div class="big">$<span class="fig" data-s-monthly="66" data-s-quarterly="198" data-s-full="1,230">66</span><span style="font-size:22px"> <span class="unit">/mo</span></span></div>
+        <div class="cap">saved versus your current renewal</div>
+      </div>
+      <div class="rt">
+        <div class="now">Your new plan
+          <b>$<span class="fig" data-n-monthly="680" data-n-quarterly="2,039" data-n-full="7,717">680</span><span style="font-size:14px;font-weight:500"> <span class="unit">/mo</span></span></b>
+        </div>
+        <div class="was">Renewal was <s>$<span class="fig" data-c-monthly="746" data-c-quarterly="2,237" data-c-full="8,947">746</span> <span class="unit">/mo</span></s></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-fog">
+  <div class="wrap">
+    <div class="k">Policy 1</div>
+    <h2>Auto &middot; Progressive</h2>
+
+    <div class="pol">
+      <div class="pol-head">
+        <div class="l">
+          <div class="name">2014 Nissan Sentra</div>
+          <div class="car">Progressive Casualty &middot; garaged at 45 Smith St, West Haven</div>
+        </div>
+        <div class="r">
+          <div class="amt">$<span class="fig" data-a-monthly="293" data-a-quarterly="878" data-a-full="3,072">293</span><span> <span class="unit">/mo</span></span></div>
+          <div class="pr">Paid in full saves you about $440/yr</div>
+        </div>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="lbl">Bodily Injury Liability</span><span class="val">$250,000 / $500,000</span></div>
+        <div class="row"><span class="lbl">Property Damage Liability</span><span class="val">$100,000</span></div>
+        <div class="row"><span class="lbl">Uninsured / Underinsured Motorist</span><span class="val">$250,000 / $500,000</span></div>
+        <div class="row"><span class="lbl">Medical Payments</span><span class="val">$1,000</span></div>
+        <div class="row"><span class="lbl">Comprehensive &amp; Collision</span><span class="val">$1,000 deductible each</span></div>
+        <div class="row"><span class="lbl">Rental Reimbursement &amp; Roadside</span><span class="val">Included</span></div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:18px;font-size:15px">Your liability limits stay exactly where they are today, so nothing changes for your umbrella. You also pick up Progressive's paid-in-full, paperless, continuous-insurance and homeowner discounts.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="k">Policy 2</div>
+    <h2>Home &middot; SageSure</h2>
+
+    <div class="pol">
+      <div class="pol-head">
+        <div class="l">
+          <div class="name">45 Smith St, West Haven</div>
+          <div class="car">HO-3 &middot; Harco National (SageSure) &middot; 8/10/2026 to 8/10/2027</div>
+        </div>
+        <div class="r">
+          <div class="amt">$<span class="fig" data-h-monthly="387" data-h-quarterly="1,161" data-h-full="4,645">387</span><span> <span class="unit">/mo</span></span></div>
+          <div class="pr">Multi-policy discount applied</div>
+        </div>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="lbl">Dwelling (Coverage A)</span><span class="val">$626,000</span></div>
+        <div class="row"><span class="lbl">Other Structures</span><span class="val">$62,600</span></div>
+        <div class="row"><span class="lbl">Personal Property</span><span class="val">$250,400</span></div>
+        <div class="row"><span class="lbl">Loss of Use</span><span class="val">$125,200</span></div>
+        <div class="row"><span class="lbl">Personal Liability</span><span class="val">$500,000</span></div>
+        <div class="row"><span class="lbl">Deductible (all other perils)</span><span class="val">$2,500</span></div>
+        <div class="row"><span class="lbl">Hurricane / Named Storm</span><span class="val">2% of dwelling ($12,520)</span></div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="note">
+        <h4>Two honest differences worth a look</h4>
+        <p>Your contents limit comes in a little lighter than Travelers ($250k vs $313k), and the hurricane deductible is 2% in a named storm. Both are easy to adjust up if you'd rather match your current policy exactly. Just say the word and I'll re-run it.</p>
+      </div>
+      <div class="note amber">
+        <h4>Replacement cost, built in</h4>
+        <p>Personal property and functional replacement cost are both included, plus 10% law and ordinance and mold coverage. Your dwelling limit of $626,000 is unchanged from your renewal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-fog">
+  <div class="wrap">
+    <div class="k">Before we switch you over</div>
+    <h2>One quick thing we need</h2>
+    <p class="lead">The home rate is built on your roof being newer, so we just need to confirm it before binding. Everything else is ready to go.</p>
+
+    <div class="todo">
+      <div class="item">
+        <div class="num">1</div>
+        <div>
+          <h4>Confirm your roof was updated in 2018 or later</h4>
+          <p>A permit, a contractor invoice, or a couple of dated photos will do it. This is what locks in the home pricing above.</p>
+          <span class="flag">Rate depends on this</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">2</div>
+        <div>
+          <h4>Give it a quick review and say go</h4>
+          <p>Look over the coverage and the plan you'd like. Reply or call and we'll prep the applications.</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">3</div>
+        <div>
+          <h4>Sign and make the first payment</h4>
+          <p>A quick signature and your down payment binds both policies. We handle the switch and the cancellations of the old ones so there's no gap.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="umb">
+      <span class="ic">☂️</span>
+      <div>Your <b>personal umbrella stays right where it is.</b> Both of these policies meet its underlying requirements, so your excess protection continues without a hitch.</div>
+    </div>
+  </div>
+</section>
+
+<section class="next">
+  <div class="k" style="color:var(--amber)">Ready when you are</div>
+  <h2>Let's get you switched over</h2>
+  <p>Send over the roof confirmation and give the plan a thumbs up. I'll take care of the rest so there's never a gap in your coverage.</p>
+  <a class="cta" href="mailto:austin@gosafeshield.com?subject=My%20renewal%20plan">Reply to get started →</a>
+  <div class="contact">
+    Austin Glazer &middot; Safeshield Insurance<br>
+    <a href="mailto:austin@gosafeshield.com">austin@gosafeshield.com</a> &middot; <a href="tel:+12035649817">(203) 564-9817</a>
+  </div>
+</section>
+
+<div class="foot">
+  Figures are quotes based on current information and are subject to carrier verification and underwriting. Coverage begins only once bound and the initial payment is received.
+</div>
+
+<script>
+(function(){
+  var mode = 'monthly';
+  var unitText = {monthly:'/mo', quarterly:'/qtr', full:'/yr'};
+  var buttons = document.querySelectorAll('#toggle button');
+  function pick(el){
+    // choose the data attribute matching the current mode for this figure
+    var attrs = ['a','h','s','n','c'];
+    for(var i=0;i<attrs.length;i++){
+      var v = el.getAttribute('data-'+attrs[i]+'-'+mode);
+      if(v!==null) return v;
+    }
+    return null;
+  }
+  function render(){
+    document.querySelectorAll('.fig').forEach(function(el){
+      var v = pick(el);
+      if(v!==null) el.textContent = v;
+    });
+    document.querySelectorAll('.unit').forEach(function(el){
+      el.textContent = unitText[mode];
+    });
+    document.querySelectorAll('.per').forEach(function(el){
+      el.textContent = unitText[mode];
+    });
+  }
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){
+      buttons.forEach(function(x){x.classList.remove('active')});
+      b.classList.add('active');
+      mode = b.getAttribute('data-mode');
+      render();
+    });
+  });
+  render();
+})();
+</script>
+</body>
+</html>
