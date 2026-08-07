@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Proposal — Chaim Schwartz & Rena Gelb</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a1628;
+    color: #FAFAF8;
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 900; line-height: 1.15; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent); margin: 72px 0; }
+
+  /* HERO */
+  .hero { padding: 96px 0 64px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #FFA300; font-weight: 600; margin-bottom: 22px; }
+  .hero h1 { font-size: 54px; margin-bottom: 20px; }
+  .hero .sub { font-size: 19px; color: rgba(250,250,248,0.7); font-weight: 300; max-width: 620px; margin: 0 auto; }
+  .hero .meta { margin-top: 34px; font-size: 15px; color: rgba(250,250,248,0.55); }
+  .hero .meta span { color: #FFA300; }
+
+  /* SECTION HEADS */
+  .sec-head { text-align: center; margin-bottom: 48px; }
+  .sec-head .eyebrow { margin-bottom: 16px; }
+  .sec-head h2 { font-size: 38px; }
+  .sec-head p { color: rgba(250,250,248,0.65); font-weight: 300; font-size: 17px; margin-top: 14px; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+  /* OPTION GRID */
+  .opt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .opt-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 34px 26px;
+    text-align: center;
+    position: relative;
+    transition: transform .2s, border-color .2s;
+  }
+  .opt-card:hover { transform: translateY(-4px); border-color: rgba(255,163,0,0.4); }
+  .opt-card.featured { border-color: rgba(255,163,0,0.55); background: rgba(255,163,0,0.06); }
+  .opt-card .tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #FFA300; color: #0a1628; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; }
+  .opt-card .ded-label { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: rgba(250,250,248,0.55); margin-bottom: 6px; }
+  .opt-card .ded { font-size: 30px; font-family: 'Playfair Display', serif; font-weight: 700; color: #FAFAF8; margin-bottom: 24px; }
+  .opt-card .lines { text-align: left; margin-bottom: 24px; }
+  .opt-card .line { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 15px; }
+  .opt-card .line span:first-child { color: rgba(250,250,248,0.65); }
+  .opt-card .line span:last-child { font-weight: 600; }
+  .opt-card .total-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #FFA300; margin-bottom: 4px; }
+  .opt-card .total { font-size: 40px; font-family: 'Playfair Display', serif; font-weight: 900; }
+  .opt-card .per { font-size: 14px; color: rgba(250,250,248,0.5); font-weight: 300; }
+
+  /* PACKAGE LABEL BAR */
+  .pkg-bar { display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; padding: 10px 24px; margin: 0 auto 40px; font-size: 15px; }
+  .pkg-bar b { color: #FFA300; }
+  .center { text-align: center; }
+  .note-sm { text-align:center; font-size:13px; color:rgba(250,250,248,0.5); font-weight:300; margin-top:18px; }
+
+  /* WHY */
+  .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .why-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 30px; }
+  .why-card h3 { font-size: 20px; margin-bottom: 10px; color: #FFA300; }
+  .why-card p { font-size: 15px; color: rgba(250,250,248,0.7); font-weight: 300; }
+
+  /* DETAILS */
+  .detail-block { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 18px; padding: 34px; margin-bottom: 22px; }
+  .detail-block h3 { font-size: 22px; margin-bottom: 20px; }
+  .detail-block h3 .carrier { color: #FFA300; }
+  .dtable { width: 100%; }
+  .dtable .drow { display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 15px; }
+  .dtable .drow span:first-child { color: rgba(250,250,248,0.65); }
+  .dtable .drow span:last-child { font-weight: 500; }
+
+  /* CTA */
+  .cta { text-align: center; padding: 72px 0 96px; }
+  .cta h2 { font-size: 40px; margin-bottom: 18px; }
+  .cta p { color: rgba(250,250,248,0.7); font-weight: 300; font-size: 18px; margin-bottom: 34px; }
+  .btn { display: inline-block; background: #FFA300; color: #0a1628; font-weight: 700; font-size: 16px; padding: 16px 40px; border-radius: 100px; text-decoration: none; transition: transform .2s; }
+  .btn:hover { transform: scale(1.04); }
+  .prepared { margin-top: 40px; font-size: 15px; color: rgba(250,250,248,0.55); }
+  .prepared b { color: #FAFAF8; }
+
+  @media (max-width: 820px) {
+    .opt-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 38px; }
+    .sec-head h2 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Safeshield Insurance · Personal Lines Proposal</div>
+    <h1>Chaim Schwartz &amp; Rena Gelb</h1>
+    <p class="sub">Home and auto coverage for 43 Apple Tree Dr, Stamford CT, laid out side by side so you can pick the deductible that fits.</p>
+    <div class="meta">Effective <span>September 1, 2026</span> · 2024 Hyundai Tucson Hybrid</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="divider"></div>
+
+  <!-- COMPARISON A -->
+  <div class="sec-head">
+    <div class="eyebrow">Option 1 — All Travelers</div>
+    <h2>The Full Travelers Bundle</h2>
+    <p>One carrier for home and auto. Pick your home deductible below. The auto premium stays the same across all three.</p>
+  </div>
+
+  <div class="center"><div class="pkg-bar"><b>Travelers</b> Home + <b>Travelers</b> Auto · 12-month auto term</div></div>
+
+  <div class="opt-grid">
+    <div class="opt-card">
+      <div class="ded-label">Home Deductible</div>
+      <div class="ded">$5,000</div>
+      <div class="lines">
+        <div class="line"><span>Home</span><span>$3,202</span></div>
+        <div class="line"><span>Auto</span><span>$1,359</span></div>
+      </div>
+      <div class="total-label">Annual Total</div>
+      <div class="total">$4,561</div>
+      <div class="per">both policies / year</div>
+    </div>
+
+    <div class="opt-card">
+      <div class="ded-label">Home Deductible</div>
+      <div class="ded">$2,500</div>
+      <div class="lines">
+        <div class="line"><span>Home</span><span>$3,438</span></div>
+        <div class="line"><span>Auto</span><span>$1,359</span></div>
+      </div>
+      <div class="total-label">Annual Total</div>
+      <div class="total">$4,797</div>
+      <div class="per">both policies / year</div>
+    </div>
+
+    <div class="opt-card">
+      <div class="ded-label">Home Deductible</div>
+      <div class="ded">$1,000</div>
+      <div class="lines">
+        <div class="line"><span>Home</span><span>$3,651</span></div>
+        <div class="line"><span>Auto</span><span>$1,359</span></div>
+      </div>
+      <div class="total-label">Annual Total</div>
+      <div class="total">$5,010</div>
+      <div class="per">both policies / year</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- COMPARISON B -->
+  <div class="sec-head">
+    <div class="eyebrow">Option 2 — Foremost Home + Travelers Auto</div>
+    <h2>The Split Package</h2>
+    <p>Foremost on the home with dwelling coverage built closer to a $600K replacement cost, paired with the Travelers auto. Pick your home deductible below.</p>
+  </div>
+
+  <div class="center"><div class="pkg-bar"><b>Foremost</b> Home + <b>Travelers</b> Auto</div></div>
+
+  <div class="opt-grid">
+    <div class="opt-card featured">
+      <div class="tag">Lowest Total</div>
+      <div class="ded-label">Home Deductible</div>
+      <div class="ded">$5,000</div>
+      <div class="lines">
+        <div class="line"><span>Home</span><span>$2,902</span></div>
+        <div class="line"><span>Auto</span><span>$1,566</span></div>
+      </div>
+      <div class="total-label">Annual Total</div>
+      <div class="total">$4,468</div>
+      <div class="per">both policies / year</div>
+    </div>
+
+    <div class="opt-card">
+      <div class="ded-label">Home Deductible</div>
+      <div class="ded">$2,500</div>
+      <div class="lines">
+        <div class="line"><span>Home</span><span>$3,225</span></div>
+        <div class="line"><span>Auto</span><span>$1,566</span></div>
+      </div>
+      <div class="total-label">Annual Total</div>
+      <div class="total">$4,791</div>
+      <div class="per">both policies / year</div>
+    </div>
+
+    <div class="opt-card">
+      <div class="ded-label">Home Deductible</div>
+      <div class="ded">$1,000</div>
+      <div class="lines">
+        <div class="line"><span>Home</span><span>$3,418</span></div>
+        <div class="line"><span>Auto</span><span>$1,566</span></div>
+      </div>
+      <div class="total-label">Annual Total</div>
+      <div class="total">$4,984</div>
+      <div class="per">both policies / year</div>
+    </div>
+  </div>
+
+  <div class="note-sm">Auto shown annualized. Travelers writes this auto on a 6-month term at $783; annual cost is two terms ($1,566).</div>
+
+  <div class="divider"></div>
+
+  <!-- COVERAGE DETAIL -->
+  <div class="sec-head">
+    <div class="eyebrow">The Fine Print</div>
+    <h2>What's On Each Policy</h2>
+  </div>
+
+  <div class="detail-block">
+    <h3>Home — <span class="carrier">Travelers</span></h3>
+    <div class="dtable">
+      <div class="drow"><span>Dwelling (Coverage A)</span><span>$813,000</span></div>
+      <div class="drow"><span>Water Backup / Sump Overflow</span><span>$10,000</span></div>
+      <div class="drow"><span>Hurricane Deductible</span><span>2% ($16,260)</span></div>
+      <div class="drow"><span>All-Other-Peril Deductible</span><span>$5,000 / $2,500 / $1,000</span></div>
+    </div>
+  </div>
+
+  <div class="detail-block">
+    <h3>Home — <span class="carrier">Foremost</span></h3>
+    <div class="dtable">
+      <div class="drow"><span>Dwelling</span><span>$663,000</span></div>
+      <div class="drow"><span>Personal Property</span><span>$125,000</span></div>
+      <div class="drow"><span>Water Backup / Sump Overflow</span><span>$10,000</span></div>
+      <div class="drow"><span>Deductible</span><span>$5,000 / $2,500 / $1,000</span></div>
+    </div>
+  </div>
+
+  <div class="detail-block">
+    <h3>Auto — <span class="carrier">Travelers</span></h3>
+    <div class="dtable">
+      <div class="drow"><span>Bodily Injury</span><span>100/300</span></div>
+      <div class="drow"><span>Property Damage</span><span>$50,000</span></div>
+      <div class="drow"><span>Uninsured Motorist</span><span>100/300</span></div>
+      <div class="drow"><span>Medical Payments</span><span>$5,000</span></div>
+      <div class="drow"><span>Comprehensive Deductible</span><span>$500</span></div>
+      <div class="drow"><span>Collision Deductible</span><span>$500</span></div>
+      <div class="drow"><span>Vehicle</span><span>2024 Hyundai Tucson Hybrid</span></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WHY SAFESHIELD -->
+  <div class="sec-head">
+    <div class="eyebrow">Why Safeshield</div>
+    <h2>You've Got An Advocate</h2>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <h3>We Shop 69+ Carriers</h3>
+      <p>You're seeing two strong options here, but we ran the whole market to get there. When your rate moves, we re-shop it every year automatically.</p>
+    </div>
+    <div class="why-card">
+      <h3>Same-Day Everything</h3>
+      <p>Quotes, ID cards, certificates, policy changes. No call centers, no waiting on hold. You text us, we handle it.</p>
+    </div>
+    <div class="why-card">
+      <h3>Direct Agent Access</h3>
+      <p>You get a real person who knows your file, not a 1-800 number and a new rep every time you call.</p>
+    </div>
+    <div class="why-card">
+      <h3>We Fight At Claim Time</h3>
+      <p>When something happens, we're on your side of the table with the carrier, making sure your claim gets handled right.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Ready to lock it in?</h2>
+    <p>Tell me which option and deductible you want and I'll have it bound the same day.</p>
+    <a href="mailto:trent@gosafeshield.com" class="btn">Let's Get Started</a>
+    <div class="prepared">Prepared by <b>Trent Beggs</b> · Safeshield Insurance</div>
+  </div>
+
+</div>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"schwartz-gelb","agent":"Trent"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
