@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Home &amp; Auto Proposal | Chaim Schwartz | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#004b89;
+    --navy-deep:#003566;
+    --amber:#ffa300;
+    --ink:#1a1f26;
+    --slate:#5a6573;
+    --paper:#f6f8fb;
+    --line:#e6ebf2;
+    --white:#ffffff;
+    --good:#1f9d6b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Outfit',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:0 22px}
+
+  .fade{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}}
+
+  .brandbar{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:20px 0 0;flex-wrap:wrap}
+  .brand{display:flex;flex-direction:column;gap:4px}
+  .logo{font-weight:700;font-size:19px;color:var(--navy);letter-spacing:.03em;text-transform:uppercase}
+  .logo span{color:var(--amber)}
+  .slogan{font-size:11px;color:var(--slate);font-weight:500;letter-spacing:.02em;font-style:italic}
+  .prepared{font-size:12.5px;color:var(--slate);text-align:right;line-height:1.4}
+  .prepared b{color:var(--ink)}
+
+  .hero{padding:44px 0 30px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:18px}
+  h1{font-family:'Playfair Display',serif;font-weight:800;color:var(--navy);font-size:clamp(36px,7.5vw,58px);line-height:1;letter-spacing:-.015em}
+  .lede{font-size:17px;color:var(--slate);margin-top:22px;max-width:60ch}
+  .lede b{color:var(--ink);font-weight:600}
+
+  .hero-meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:28px}
+  .hero-meta div{font-size:13px}
+  .hero-meta .k{color:var(--slate);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;display:block;margin-bottom:3px;font-weight:600}
+  .hero-meta .v{font-weight:600;color:var(--ink)}
+
+  /* two-option compare */
+  .opts{margin:32px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media (max-width:640px){.opts{grid-template-columns:1fr}}
+  .opt{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--white);box-shadow:0 10px 30px rgba(0,40,80,.07);position:relative;display:flex;flex-direction:column}
+  .opt.rec{border:2px solid var(--amber);box-shadow:0 16px 40px rgba(255,163,0,.16)}
+  .opt-flag{position:absolute;top:0;right:0;background:var(--amber);color:#3a2600;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-bottom-left-radius:12px}
+  .opt-top{padding:24px 22px 18px;background:var(--paper);border-bottom:1px solid var(--line)}
+  .opt-top.recbg{background:linear-gradient(160deg,rgba(255,163,0,.12),rgba(255,163,0,.03))}
+  .opt-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--slate);margin-bottom:6px}
+  .opt-name{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);font-weight:700;line-height:1.1}
+  .opt-sub{font-size:12.5px;color:var(--slate);margin-top:6px}
+  .opt-mid{padding:20px 22px;flex:1}
+  .opt-row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .opt-row:last-child{border-bottom:none}
+  .opt-row .rl{color:var(--slate)}
+  .opt-row .rl small{display:block;font-size:11.5px;color:#94a0ae}
+  .opt-row .rv{font-weight:600;color:var(--ink);white-space:nowrap;text-align:right}
+  .opt-bot{padding:20px 22px;background:linear-gradient(160deg,var(--navy),var(--navy-deep));color:#fff;display:flex;justify-content:space-between;align-items:center}
+  .opt.rec .opt-bot{background:linear-gradient(160deg,#0a5aa3,var(--navy-deep))}
+  .opt-bot .bl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .opt-bot .bv{font-family:'Playfair Display',serif;font-size:27px;font-weight:800}
+  .opt-bot .bv small{font-size:12px;font-weight:400;color:rgba(255,255,255,.7)}
+
+  .delta{margin:22px 0 0;border-radius:16px;background:rgba(0,75,137,.05);border:1px solid var(--line);padding:20px 22px;font-size:14.5px;color:var(--slate)}
+  .delta b{color:var(--ink);font-weight:600}
+  .delta .big{color:var(--navy);font-weight:700}
+
+  .sec{padding:52px 0 0}
+  .sec-eye{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:12px}
+  h2{font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:clamp(26px,5.5vw,36px);line-height:1.08;letter-spacing:-.01em}
+  .sub{font-size:15.5px;color:var(--slate);margin-top:12px;max-width:64ch}
+
+  /* side-by-side coverage compare table */
+  .cmp{margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 8px 24px rgba(0,40,80,.06)}
+  .cmp-head{display:grid;grid-template-columns:1.3fr 1fr 1fr}
+  .cmp-head>div{padding:16px 16px;font-weight:700;font-size:13px}
+  .cmp-head .h0{background:var(--navy);color:#fff}
+  .cmp-head .h1{background:var(--navy-deep);color:#fff;text-align:center}
+  .cmp-head .h2{background:var(--amber);color:#3a2600;text-align:center;position:relative}
+  .cmp-head .h1 small,.cmp-head .h2 small{display:block;font-weight:500;font-size:11px;opacity:.85;margin-top:2px}
+  .cmp-row{display:grid;grid-template-columns:1.3fr 1fr 1fr;border-top:1px solid var(--line)}
+  .cmp-row>div{padding:13px 16px;font-size:13.5px}
+  .cmp-row .cl{color:var(--slate);font-weight:500}
+  .cmp-row .c1{text-align:center;color:var(--ink);font-weight:600}
+  .cmp-row .c2{text-align:center;color:var(--ink);font-weight:600;background:rgba(255,163,0,.06)}
+  .cmp-row.hl .c2{background:rgba(255,163,0,.14);color:var(--navy)}
+  .cmp-row.section>div{background:var(--paper);font-weight:700;color:var(--navy);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .cmp-row .win{display:inline-block;font-size:10px;font-weight:700;color:var(--good);margin-left:5px;vertical-align:middle}
+  @media (max-width:600px){
+    .cmp-head>div,.cmp-row>div{padding:11px 9px;font-size:12px}
+    .cmp-head .h1 small,.cmp-head .h2 small{font-size:10px}
+  }
+
+  /* RC spotlight */
+  .rc{margin-top:26px;border-radius:20px;overflow:hidden;background:linear-gradient(150deg,var(--navy-deep),var(--navy) 70%,#0a5aa3);color:#fff;position:relative}
+  .rc::after{content:"";position:absolute;right:-50px;bottom:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,163,0,.2),transparent 70%)}
+  .rc-body{padding:32px 30px;position:relative}
+  .rc-badge{display:inline-block;background:rgba(255,163,0,.16);color:var(--amber);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 13px;border-radius:99px;border:1px solid rgba(255,163,0,.4);margin-bottom:14px}
+  .rc-body h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:12px}
+  .rc-body p{font-size:15px;color:rgba(255,255,255,.85);max-width:62ch}
+  .rc-body p b{color:#fff;font-weight:600}
+  .rc-body p+p{margin-top:14px}
+  .rc-nums{display:flex;gap:16px;margin-top:24px;flex-wrap:wrap}
+  .rc-num{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:18px 20px;flex:1;min-width:140px}
+  .rc-num.spot{border-color:rgba(255,163,0,.5);background:rgba(255,163,0,.1)}
+  .rc-num .k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:6px}
+  .rc-num .n{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;line-height:1}
+  .rc-num .c{font-size:12px;color:rgba(255,255,255,.72);margin-top:5px}
+  .scale{margin-top:26px;position:relative;height:60px}
+  .scale-bar{position:absolute;top:26px;left:0;right:0;height:6px;border-radius:99px;background:linear-gradient(90deg,rgba(255,255,255,.25),var(--amber),rgba(255,255,255,.25))}
+  .scale-pt{position:absolute;top:14px;transform:translateX(-50%);text-align:center}
+  .scale-pt .dot{width:14px;height:14px;border-radius:50%;background:#fff;margin:0 auto;border:3px solid var(--navy-deep);position:relative;top:6px}
+  .scale-pt.mid .dot{background:var(--amber);width:20px;height:20px;top:3px;box-shadow:0 0 0 5px rgba(255,163,0,.25)}
+  .scale-pt .lab{font-size:11px;color:rgba(255,255,255,.8);margin-top:14px;white-space:nowrap}
+  .scale-pt .lab b{display:block;color:#fff;font-size:12.5px}
+  .scale-pt.mid .lab b{color:var(--amber)}
+
+  /* auto discount highlight */
+  .autohl{margin-top:24px;border-radius:18px;overflow:hidden;border:1px solid rgba(31,157,107,.3);background:rgba(31,157,107,.06)}
+  .autohl-in{padding:26px 26px;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+  .autohl-txt{flex:1;min-width:220px}
+  .autohl-txt h3{font-family:'Playfair Display',serif;font-size:21px;color:var(--navy);font-weight:700;margin-bottom:8px}
+  .autohl-txt p{font-size:14.5px;color:var(--slate)}
+  .autohl-txt p b{color:var(--ink)}
+  .autohl-num{text-align:center;flex:none}
+  .autohl-num .from{font-size:15px;color:var(--slate);text-decoration:line-through}
+  .autohl-num .to{font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:var(--good);line-height:1}
+  .autohl-num .save{font-size:12px;font-weight:700;color:var(--good);letter-spacing:.05em;text-transform:uppercase;margin-top:4px}
+
+  /* coverage tiles */
+  .tiles{margin-top:24px;display:flex;flex-direction:column;gap:14px}
+  .tile{border:1px solid var(--line);border-radius:16px;background:var(--white);transition:border-color .25s ease,box-shadow .25s ease}
+  .tile.ready{box-shadow:0 1px 0 rgba(0,75,137,.04)}
+  .tile-head{display:flex;align-items:center;gap:16px;padding:20px 22px;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+  .tile-head:focus-visible{outline:3px solid var(--amber);outline-offset:-3px;border-radius:16px}
+  .ic{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(0,75,137,.08);color:var(--navy)}
+  .ic svg{width:24px;height:24px}
+  .tile-meta{flex:1;min-width:0}
+  .tile-name{font-weight:600;font-size:17px;color:var(--ink);line-height:1.2}
+  .tile-tag{font-size:13px;color:var(--slate);margin-top:3px}
+  .tile-limit{font-family:'Playfair Display',serif;font-weight:700;font-size:17px;color:var(--navy);white-space:nowrap;margin-left:6px}
+  .chev{flex:none;color:var(--slate);transition:transform .3s ease;margin-left:10px}
+  .tile.open .chev{transform:rotate(180deg)}
+  .tile-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .tile.open .tile-body{max-height:820px}
+  .tile-inner{padding:2px 22px 24px;border-top:1px solid var(--line)}
+  .tile-inner p.exp{font-size:15px;color:var(--slate);margin:16px 0 0}
+  .tile-inner p.exp b{color:var(--ink);font-weight:600}
+  .example{margin-top:14px;padding:13px 16px;border-radius:11px;background:rgba(255,163,0,.08);border:1px solid rgba(255,163,0,.25);color:#7a5a1e;font-size:13.5px;line-height:1.5}
+  .example b{color:#b9760a;text-transform:uppercase;font-size:10.5px;letter-spacing:.1em;display:block;margin-bottom:4px}
+  .covrows{margin-top:14px;display:flex;flex-direction:column}
+  .covrow{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .covrow:last-child{border-bottom:none}
+  .covrow .cl{color:var(--slate)}
+  .covrow .cv{font-weight:600;color:var(--ink);white-space:nowrap}
+  .tap-hint{text-align:center;font-size:12.5px;color:var(--slate);margin-top:14px}
+
+  /* discounts chips */
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+  .chip{font-size:13px;font-weight:600;color:var(--good);background:rgba(31,157,107,.1);border:1px solid rgba(31,157,107,.25);border-radius:99px;padding:8px 15px;display:inline-flex;align-items:center;gap:8px}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+
+  /* why cards */
+  .why{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:560px){.why{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--paper)}
+  .card h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);font-weight:700;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--slate)}
+
+  /* umbrella */
+  .umb{margin-top:28px;border-radius:20px;overflow:hidden;border:1px dashed rgba(0,75,137,.35);background:linear-gradient(160deg,rgba(0,75,137,.04),rgba(255,163,0,.04))}
+  .umb-in{padding:32px 30px}
+  .umb-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);background:rgba(0,75,137,.1);border:1px solid rgba(0,75,137,.2);padding:6px 13px;border-radius:99px;margin-bottom:14px}
+  .umb-in h3{font-family:'Playfair Display',serif;font-size:23px;color:var(--navy);font-weight:700;margin-bottom:12px}
+  .umb-in p{font-size:15px;color:var(--slate);max-width:64ch}
+  .umb-in p+p{margin-top:12px}
+  .umb-in p b{color:var(--ink);font-weight:600}
+  .umb-note{margin-top:16px;font-size:13px;color:var(--slate);font-style:italic}
+
+  /* cta */
+  .cta{margin:52px 0 0;background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:22px;padding:40px 30px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,163,0,.2),transparent 70%)}
+  .cta h2{color:#fff;position:relative}
+  .cta p{color:rgba(255,255,255,.82);margin:14px auto 26px;max-width:48ch;position:relative;font-size:15.5px}
+  .btn{display:inline-block;background:var(--amber);color:#3a2600;font-weight:700;font-size:16px;padding:16px 34px;border-radius:99px;text-decoration:none;position:relative;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 8px 22px rgba(255,163,0,.28)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,163,0,.36)}
+  .btn-ghost{display:inline-block;color:#fff;font-weight:600;font-size:15px;padding:14px 26px;border-radius:99px;text-decoration:none;border:1.5px solid rgba(255,255,255,.45);position:relative;margin-left:10px;transition:background .2s ease,border-color .2s ease}
+  .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+  @media (max-width:540px){.btn-ghost{margin-left:0;margin-top:12px}}
+  .cta .alt{display:block;margin-top:16px;font-size:14px;color:rgba(255,255,255,.7);position:relative}
+  .cta .alt a{color:#fff;text-decoration:underline}
+
+  footer{padding:38px 0 56px;text-align:center}
+  .sig{font-weight:700;color:var(--navy);font-size:16px;text-transform:uppercase;letter-spacing:.03em}
+  .sig span{color:var(--amber)}
+  .fslogan{font-size:11px;color:var(--slate);font-style:italic;margin-top:5px}
+  .fcontact{font-size:13.5px;color:var(--slate);margin-top:6px;line-height:1.7}
+  .fcontact a{color:var(--navy);text-decoration:none;font-weight:500}
+  .disc{font-size:11px;color:#9aa6b4;margin-top:20px;max-width:64ch;margin-left:auto;margin-right:auto;line-height:1.5}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brandbar fade">
+    <div class="brand">
+      <div class="logo">Safe<span>shield</span> Insurance</div>
+      <div class="slogan">We work for you, not the insurance company</div>
+    </div>
+    <div class="prepared">Prepared for <b>Chaim Schwartz</b><br>August 7, 2026 &middot; Valid 30 days</div>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow fade">Your home &amp; auto proposal</div>
+    <h1 class="fade">Two ways to cover<br>the whole picture.</h1>
+    <p class="lede fade">Chaim, here are two complete home-and-auto programs side by side. <b>Option A</b> keeps the house with Foremost and the auto with Travelers. <b>Option B</b> puts everything under one roof with Travelers, which buys more home coverage and drops your auto rate at the same time. Both are strong. Our recommendation is Option B, but the call is entirely yours.</p>
+    <div class="hero-meta fade">
+      <div><span class="k">Property &amp; Garaging</span><span class="v">43 Apple Tree Dr, Stamford, CT 06906</span></div>
+      <div><span class="k">Effective</span><span class="v">09/01/2026</span></div>
+      <div><span class="k">Vehicle</span><span class="v">2024 Hyundai Tucson Hybrid</span></div>
+    </div>
+  </header>
+
+  <!-- TWO OPTIONS -->
+  <section class="opts">
+    <div class="opt fade">
+      <div class="opt-top">
+        <div class="opt-label">Option A</div>
+        <div class="opt-name">Split Bundle</div>
+        <div class="opt-sub">Foremost home &middot; Travelers auto</div>
+      </div>
+      <div class="opt-mid">
+        <div class="opt-row"><span class="rl">Homeowners <small>Foremost &middot; $663K dwelling</small></span><span class="rv">$2,902/yr</span></div>
+        <div class="opt-row"><span class="rl">Personal Auto <small>Travelers &middot; annualized</small></span><span class="rv">$1,566/yr</span></div>
+      </div>
+      <div class="opt-bot">
+        <div class="bl">Total / yr</div>
+        <div class="bv">$4,468</div>
+      </div>
+    </div>
+
+    <div class="opt rec fade">
+      <div class="opt-flag">Recommended</div>
+      <div class="opt-top recbg">
+        <div class="opt-label">Option B</div>
+        <div class="opt-name">Full Bundle with Travelers</div>
+        <div class="opt-sub">Home + auto, one carrier</div>
+      </div>
+      <div class="opt-mid">
+        <div class="opt-row"><span class="rl">Homeowners <small>Travelers &middot; $813K dwelling</small></span><span class="rv">$3,250/yr</span></div>
+        <div class="opt-row"><span class="rl">Personal Auto <small>Travelers &middot; home-bundled rate</small></span><span class="rv">$1,359/yr</span></div>
+      </div>
+      <div class="opt-bot">
+        <div class="bl">Total / yr</div>
+        <div class="bv">$4,609</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="delta fade">
+    Option B runs just <span class="big">$141 more a year</span> than Option A, about <b>$12 a month</b>. For that difference you pick up <b>$150,000 more in dwelling coverage</b> ($663K &rarr; $813K) and your <b>auto premium actually drops $207/yr</b> because putting the home with Travelers unlocks the multi-policy discount on the car. More home protection and a cheaper car, under one roof.
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- SIDE BY SIDE COVERAGE -->
+  <section class="sec">
+    <div class="sec-eye fade">Line by line</div>
+    <h2 class="fade">The two options, compared</h2>
+    <p class="sub fade">Same house, same car, same 09/01 start. Here is exactly where the two programs differ.</p>
+
+    <div class="cmp fade">
+      <div class="cmp-head">
+        <div class="h0">Coverage</div>
+        <div class="h1">Option A<small>Foremost + Travelers</small></div>
+        <div class="h2">Option B<small>Full Travelers</small></div>
+      </div>
+
+      <div class="cmp-row section"><div>Home</div><div></div><div></div></div>
+      <div class="cmp-row hl"><div class="cl">Dwelling (Coverage A)</div><div class="c1">$663,000</div><div class="c2">$813,000 <span class="win">+$150K</span></div></div>
+      <div class="cmp-row"><div class="cl">Other Structures (Cov B)</div><div class="c1">Included</div><div class="c2">$31,300</div></div>
+      <div class="cmp-row"><div class="cl">Personal Property (Cov C)</div><div class="c1">$125,000</div><div class="c2">$406,500</div></div>
+      <div class="cmp-row"><div class="cl">Loss of Use (Cov D)</div><div class="c1">Included</div><div class="c2">$162,600</div></div>
+      <div class="cmp-row"><div class="cl">Personal Liability (Cov E)</div><div class="c1">$300,000</div><div class="c2">$300,000</div></div>
+      <div class="cmp-row"><div class="cl">Water Backup</div><div class="c1">$10,000</div><div class="c2">$50,000</div></div>
+      <div class="cmp-row"><div class="cl">All-Perils Deductible</div><div class="c1">$5,000</div><div class="c2">$5,000</div></div>
+      <div class="cmp-row"><div class="cl">Hurricane Deductible</div><div class="c1">2%</div><div class="c2">2% ($16,260)</div></div>
+      <div class="cmp-row"><div class="cl">Home Premium</div><div class="c1">$2,902/yr</div><div class="c2">$3,250/yr</div></div>
+
+      <div class="cmp-row section"><div>Auto &middot; Tucson Hybrid</div><div></div><div></div></div>
+      <div class="cmp-row"><div class="cl">Bodily Injury Liability</div><div class="c1">100/300</div><div class="c2">100/300</div></div>
+      <div class="cmp-row"><div class="cl">Property Damage</div><div class="c1">$50,000</div><div class="c2">$50,000</div></div>
+      <div class="cmp-row"><div class="cl">Uninsured / Underinsured</div><div class="c1">100/300</div><div class="c2">100/300</div></div>
+      <div class="cmp-row"><div class="cl">Medical Payments</div><div class="c1">$5,000</div><div class="c2">$5,000</div></div>
+      <div class="cmp-row"><div class="cl">Comp / Collision Deductible</div><div class="c1">$500 / $500</div><div class="c2">$500 / $500</div></div>
+      <div class="cmp-row"><div class="cl">Glass Deductible</div><div class="c1">$0</div><div class="c2">$0</div></div>
+      <div class="cmp-row hl"><div class="cl">Auto Premium</div><div class="c1">$1,566/yr</div><div class="c2">$1,359/yr <span class="win">&minus;$207</span></div></div>
+
+      <div class="cmp-row section"><div>Total</div><div></div><div></div></div>
+      <div class="cmp-row hl"><div class="cl">Annual Investment</div><div class="c1">$4,468/yr</div><div class="c2">$4,609/yr</div></div>
+    </div>
+  </section>
+
+  <!-- RC SPOTLIGHT -->
+  <section class="sec">
+    <div class="sec-eye fade">The number you cared about</div>
+    <h2 class="fade">Finding the right replacement cost</h2>
+    <p class="sub fade">You'd seen quotes putting your rebuild near $900,000 and it didn't sit right, that felt high for your home. You were reading it correctly.</p>
+
+    <div class="rc fade">
+      <div class="rc-body">
+        <span class="rc-badge">Replacement Cost, Dialed In</span>
+        <h3>$813,000 is the sweet spot for 43 Apple Tree Dr</h3>
+        <p>Replacement cost is what it takes to rebuild your home from the ground up, not its market value and not the price a bargain quote wants to show. Foremost's estimate came in at <b>$663,000</b>. Other carriers were pushing you up near <b>$900,000</b>, which you rightly felt was overshooting.</p>
+        <p>Travelers landed at <b>$813,000</b>, and that is the number we're most comfortable with. It's high enough to fully rebuild a 2,103 sq ft frame home at today's construction and labor costs with room for code upgrades on a 1949 build, without padding the figure to a number you'd be over-paying to insure. <b>It's the sweet spot,</b> enough to make you whole after a total loss, not a penny wasted insuring air.</p>
+
+        <div class="scale">
+          <div class="scale-bar"></div>
+          <div class="scale-pt" style="left:12%"><div class="dot"></div><div class="lab">Foremost<b>$663K</b></div></div>
+          <div class="scale-pt mid" style="left:52%"><div class="dot"></div><div class="lab">Travelers<b>$813K</b></div></div>
+          <div class="scale-pt" style="left:90%"><div class="dot"></div><div class="lab">Others<b>~$900K</b></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTO DISCOUNT HIGHLIGHT -->
+  <section class="sec">
+    <div class="sec-eye fade">The bundle payoff</div>
+    <h2 class="fade">Your car gets cheaper when the house comes along</h2>
+    <p class="sub fade">This is the part people miss. Moving the home to Travelers doesn't just simplify things, it directly lowers the auto premium.</p>
+
+    <div class="autohl fade">
+      <div class="autohl-in">
+        <div class="autohl-txt">
+          <h3>The Multi-Policy discount on the Tucson</h3>
+          <p>On its own, the Travelers auto runs <b>$1,566/yr</b>. Add the home to Travelers and the full Multi-Policy discount kicks in on the car, bringing it down to <b>$1,359/yr</b>. Same 100/300 limits, same $500 deductibles, same $0 glass, just $207 less a year because the two policies now live together.</p>
+        </div>
+        <div class="autohl-num">
+          <div class="from">$1,566</div>
+          <div class="to">$1,359</div>
+          <div class="save">Save $207 / yr</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chips fade">
+      <span class="chip"><span class="dot"></span>Multi-Policy</span>
+      <span class="chip"><span class="dot"></span>Safe Driver</span>
+      <span class="chip"><span class="dot"></span>Hybrid</span>
+      <span class="chip"><span class="dot"></span>New Car</span>
+      <span class="chip"><span class="dot"></span>Continuous Insurance</span>
+      <span class="chip"><span class="dot"></span>Early Quote</span>
+      <span class="chip"><span class="dot"></span>Good Payer</span>
+      <span class="chip"><span class="dot"></span>EFT</span>
+      <span class="chip"><span class="dot"></span>Automatic Braking</span>
+      <span class="chip"><span class="dot"></span>Digital Auto</span>
+    </div>
+    <p class="sub fade" style="margin-top:16px;font-size:14px">Those discounts add up to <b>$1,321 in total savings</b> already baked into the Travelers auto premium, and the home policy carries its own <b>$1,517 in savings</b> from Multi-Policy, Early Quote, Good Payer, and Fire Protective Device.</p>
+  </section>
+
+  <!-- WHY OPTION B -->
+  <section class="sec">
+    <div class="sec-eye fade">Why we lean Option B</div>
+    <h2 class="fade">One carrier, more coverage, less to manage</h2>
+    <div class="why">
+      <div class="card fade"><h3>More home for $12 a month</h3><p>$150K more dwelling coverage and far higher personal property and loss-of-use limits, for about the price of a couple coffees a month over Option A.</p></div>
+      <div class="card fade"><h3>The car rides the discount</h3><p>The auto drops $207/yr the moment the home joins it at Travelers. Option A can't capture that because the two policies sit at different carriers.</p></div>
+      <div class="card fade"><h3>One bill, one claim contact</h3><p>Renewals, ID cards, a lender request, a storm claim at 2am, all handled through one carrier and one team that knows your whole picture.</p></div>
+      <div class="card fade"><h3>We re-shop it every year</h3><p>We keep 69+ carriers on tap and re-market at renewal. If a better fit ever shows up for either line, we move you. You never babysit your own rate.</p></div>
+    </div>
+    <p class="sub fade" style="margin-top:18px">All that said, Option A is a perfectly sound program and Foremost is a strong home carrier. If you'd rather keep the house and auto separate, we'll set it up that way without hesitation. <b>Your call, either way.</b></p>
+  </section>
+
+  <!-- UMBRELLA -->
+  <section class="sec">
+    <div class="sec-eye fade">One more worth a look</div>
+    <h2 class="fade">Should we add an umbrella?</h2>
+    <p class="sub fade">This is entirely optional and 100% your choice, but from a pure coverage standpoint it's worth putting on the table.</p>
+
+    <div class="umb fade">
+      <div class="umb-in">
+        <span class="umb-tag">Optional &middot; your call</span>
+        <h3>A personal umbrella sits on top of everything</h3>
+        <p>Your home and auto both carry liability limits, $300,000 on the house and 100/300 on the car. An umbrella adds a layer of liability, typically <b>$1,000,000 or more</b>, that stacks on top of both. If a serious at-fault accident or a lawsuit ever ran past your underlying limits, the umbrella is what protects your savings, your home equity, and your future income instead of leaving you exposed.</p>
+        <p>The reason we're raising it now: you've got a <b>newly permitted young driver</b> in the household. Statistically that's the single biggest factor that pushes a family's liability exposure up, and it's exactly the situation an umbrella is built for. Umbrellas are also one of the least expensive coverages dollar for dollar, often a few hundred dollars a year for a million in protection.</p>
+        <p class="umb-note">Totally optional. If you want, just say the word and I'll pull umbrella numbers alongside whichever option you choose, no obligation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta fade">
+    <h2>Tell me which way you're leaning, Chaim.</h2>
+    <p>Option A, Option B, or "let's talk umbrella too", whatever you decide, reply to our email or give me a call and I'll send the paperwork and lock in your 09/01 start date. No pressure, no waiting on us.</p>
+    <a class="btn" href="mailto:trent@gosafeshield.com?subject=Schwartz%20Home%20%2B%20Auto%20-%20My%20pick">Let's lock it in</a>
+    <a class="btn-ghost" href="https://gosafeshield.com/review" target="_blank" rel="noopener">Read our reviews</a>
+    <span class="alt">or call Safeshield at <a href="tel:2032042555">(203) 204-2555</a></span>
+  </section>
+</div>
+
+<div class="wrap">
+  <footer>
+    <div class="sig">Safe<span>shield</span> Insurance</div>
+    <div class="fslogan">We work for you, not the insurance company</div>
+    <div class="fcontact">
+      Prepared by Trent Beggs<br>
+      <a href="mailto:trent@gosafeshield.com">trent@gosafeshield.com</a>
+    </div>
+    <p class="disc">This is a proposal summary prepared for Chaim Schwartz and is not a binder or a contract. Option A auto ($1,566/yr) is the Travelers 6-month estimate of $783 doubled for annual comparison; auto policies bill on a 6-month term. Option B figures are Travelers 12-month estimates: home $3,250 and home-bundled auto $1,359, both inclusive of applicable taxes and fees as shown on the carrier quotes dated 08/07/2026. Foremost home reflects the Dwelling Fire 3 estimate of $2,902. All figures are preliminary estimates subject to carrier underwriting, inspection, and confirmation of premiums, discounts, and eligibility. Coverages, limits, terms, and exclusions are governed by the actual policy documents.</p>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.12});
+  document.querySelectorAll('.fade').forEach(function(el,i){
+    el.style.transitionDelay=(Math.min(i,6)*40)+'ms';io.observe(el);
+  });
+  document.querySelectorAll('.tile-head').forEach(function(h){
+    function toggle(){var t=h.closest('.tile');var open=t.classList.toggle('open');h.setAttribute('aria-expanded',open?'true':'false');}
+    h.addEventListener('click',toggle);
+    h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+  });
+</script>
+
+<script>window.CASEY_PROPOSAL={"slug":"schwartz","agent":"Trent"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
