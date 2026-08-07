@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Kelly &amp; Fangfang Tang | Safeshield Insurance Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#0a1628;
+    color:#FAFAF8;
+    font-family:'Outfit',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3 { font-family:'Playfair Display',serif; }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 24px; }
+
+  .hero {
+    padding:90px 24px 70px;
+    text-align:center;
+    background:radial-gradient(circle at 50% 0%, rgba(0,75,137,0.35), transparent 60%);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .hero .tag {
+    display:inline-block;
+    color:#FFA300;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .hero h1 {
+    font-size:44px;
+    font-weight:900;
+    margin-bottom:14px;
+    color:#FAFAF8;
+  }
+  .hero p.sub {
+    font-size:18px;
+    color:rgba(255,255,255,0.7);
+    max-width:600px;
+    margin:0 auto 30px;
+  }
+  .hero .price {
+    font-size:56px;
+    font-weight:900;
+    color:#FFA300;
+    font-family:'Playfair Display',serif;
+  }
+  .hero .price-sub {
+    font-size:14px;
+    color:rgba(255,255,255,0.55);
+    margin-top:6px;
+  }
+  .badges {
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin-top:34px;
+    flex-wrap:wrap;
+  }
+  .badge {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:100px;
+    padding:10px 20px;
+    font-size:14px;
+    font-weight:500;
+    color:rgba(255,255,255,0.85);
+  }
+  .badge b { color:#FFA300; }
+
+  .divider {
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin:0;
+  }
+
+  section { padding:70px 24px; }
+  .section-head { text-align:center; margin-bottom:44px; }
+  .section-head .eyebrow {
+    color:#FFA300;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:12px;
+    font-weight:600;
+  }
+  .section-head h2 {
+    font-size:32px;
+    margin-top:10px;
+    color:#FAFAF8;
+  }
+  .section-head p {
+    color:rgba(255,255,255,0.6);
+    margin-top:10px;
+    max-width:560px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .cards-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  @media (max-width:760px){ .cards-grid { grid-template-columns:1fr; } }
+
+  .card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:32px;
+  }
+  .card h3 {
+    font-size:22px;
+    color:#FFA300;
+    margin-bottom:6px;
+  }
+  .card .vehicle-line {
+    font-size:14px;
+    color:rgba(255,255,255,0.55);
+    margin-bottom:20px;
+  }
+  .cov-row {
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    font-size:14.5px;
+  }
+  .cov-row:last-child { border-bottom:none; }
+  .cov-row span:first-child { color:rgba(255,255,255,0.7); }
+  .cov-row span:last-child { font-weight:600; color:#FAFAF8; }
+  .card-total {
+    margin-top:18px;
+    padding-top:14px;
+    border-top:1px solid rgba(255,255,255,0.15);
+    display:flex;
+    justify-content:space-between;
+    font-size:17px;
+    font-weight:700;
+  }
+  .card-total span:last-child { color:#FFA300; }
+
+  .full-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:36px;
+    margin-bottom:24px;
+  }
+
+  .drivers-grid, .property-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:20px;
+  }
+  @media (max-width:760px){ .drivers-grid, .property-grid { grid-template-columns:1fr; } }
+  .mini-card {
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:12px;
+    padding:20px;
+  }
+  .mini-card .name { font-weight:700; font-size:16px; color:#FAFAF8; }
+  .mini-card .detail { font-size:13.5px; color:rgba(255,255,255,0.55); margin-top:4px; }
+
+  .highlight-box {
+    background:linear-gradient(135deg, rgba(255,163,0,0.12), rgba(0,75,137,0.15));
+    border:1px solid rgba(255,163,0,0.3);
+    border-radius:16px;
+    padding:28px 32px;
+    margin-top:24px;
+  }
+  .highlight-box h4 {
+    color:#FFA300;
+    font-size:16px;
+    margin-bottom:10px;
+    font-family:'Outfit',sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  .highlight-box p { color:rgba(255,255,255,0.8); font-size:15px; }
+
+  .stat-strip {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin-top:30px;
+  }
+  @media (max-width:760px){ .stat-strip { grid-template-columns:1fr 1fr; } }
+  .stat {
+    text-align:center;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:12px;
+    padding:22px 10px;
+  }
+  .stat .num { font-size:26px; font-weight:800; color:#FFA300; font-family:'Playfair Display',serif; }
+  .stat .label { font-size:12.5px; color:rgba(255,255,255,0.55); margin-top:4px; }
+
+  .why-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:20px;
+  }
+  @media (max-width:760px){ .why-grid { grid-template-columns:1fr; } }
+  .why-item {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px;
+    padding:24px;
+  }
+  .why-item .icon { font-size:22px; margin-bottom:10px; }
+  .why-item h4 { font-size:16px; color:#FAFAF8; margin-bottom:6px; }
+  .why-item p { font-size:13.5px; color:rgba(255,255,255,0.55); }
+
+  .discount-pills {
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:16px;
+  }
+  .pill {
+    background:rgba(255,163,0,0.1);
+    border:1px solid rgba(255,163,0,0.3);
+    color:#FFA300;
+    border-radius:100px;
+    padding:7px 16px;
+    font-size:13px;
+    font-weight:600;
+  }
+
+  .savings-banner {
+    text-align:center;
+    margin-top:20px;
+    font-size:15px;
+    color:rgba(255,255,255,0.75);
+  }
+  .savings-banner b { color:#FFA300; font-size:17px; }
+
+  footer {
+    text-align:center;
+    padding:80px 24px 60px;
+    background:linear-gradient(180deg, transparent, rgba(0,75,137,0.2));
+  }
+  footer h2 { font-size:30px; margin-bottom:14px; }
+  footer p { color:rgba(255,255,255,0.6); max-width:480px; margin:0 auto 30px; }
+  .cta-row { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+  .btn {
+    display:inline-block;
+    padding:14px 32px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+  }
+  .btn-primary { background:#FFA300; color:#0a1628; }
+  .btn-secondary { background:rgba(255,255,255,0.05); color:#FAFAF8; border:1px solid rgba(255,255,255,0.15); }
+  .agent-block { margin-top:44px; font-size:14px; color:rgba(255,255,255,0.5); }
+  .agent-block b { color:#FAFAF8; }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="tag">Safeshield Insurance Proposal</div>
+    <h1>David &amp; Fangfang, here's your bundle.</h1>
+    <p class="sub">A full 12-month package with Travelers — your Ford Focus and Mazda3 on one auto policy, plus renters coverage on your Stamford apartment, all bundled together for maximum savings.</p>
+    <div class="price">$2,306</div>
+    <div class="price-sub">estimated total annual premium &nbsp;•&nbsp; 09/03/2026 – 09/03/2027</div>
+    <div class="badges">
+      <div class="badge"><b>12-month</b> policy term</div>
+      <div class="badge"><b>2</b> vehicles covered</div>
+      <div class="badge"><b>2</b> drivers covered</div>
+      <div class="badge"><b>$2,047</b> total savings</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Auto Coverage</div>
+        <h2>Two cars, two drivers, one policy</h2>
+        <p>Your Focus and Mazda3 are quoted together for the full 12-month term — 250/500 liability limits give you serious protection above the state minimum.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h3>2015 Ford Focus ST</h3>
+          <div class="vehicle-line">VIN 1FADP3L98FL306885 &nbsp;•&nbsp; Pleasure use</div>
+          <div class="cov-row"><span>Liability (BI)</span><span>250,000/500,000</span></div>
+          <div class="cov-row"><span>Property Damage</span><span>$100,000</span></div>
+          <div class="cov-row"><span>Uninsured/Underinsured Motorist</span><span>25,000/50,000</span></div>
+          <div class="cov-row"><span>Medical Payments</span><span>$5,000</span></div>
+          <div class="cov-row"><span>Comprehensive Deductible</span><span>$1,000</span></div>
+          <div class="cov-row"><span>Collision Deductible</span><span>$1,500</span></div>
+          <div class="cov-row"><span>Roadside Assistance</span><span>$15/$15</span></div>
+          <div class="card-total"><span>Vehicle Premium</span><span>$1,156.00</span></div>
+        </div>
+
+        <div class="card">
+          <h3>2013 Mazda3 i S</h3>
+          <div class="vehicle-line">VIN JM1BL1UP8D1774462 &nbsp;•&nbsp; Pleasure use</div>
+          <div class="cov-row"><span>Liability (BI)</span><span>250,000/500,000</span></div>
+          <div class="cov-row"><span>Property Damage</span><span>$100,000</span></div>
+          <div class="cov-row"><span>Uninsured/Underinsured Motorist</span><span>25,000/50,000</span></div>
+          <div class="cov-row"><span>Medical Payments</span><span>$5,000</span></div>
+          <div class="cov-row"><span>Comprehensive Deductible</span><span>$1,000</span></div>
+          <div class="cov-row"><span>Collision Deductible</span><span>$1,500</span></div>
+          <div class="cov-row"><span>Roadside Assistance</span><span>$15/$15</span></div>
+          <div class="card-total"><span>Vehicle Premium</span><span>$991.00</span></div>
+        </div>
+      </div>
+
+      <div class="full-card" style="margin-top:24px;">
+        <h3 style="color:#FFA300; margin-bottom:4px;">Drivers on the Policy</h3>
+        <div class="drivers-grid">
+          <div class="mini-card">
+            <div class="name">David Kelly</div>
+            <div class="detail">Married &nbsp;•&nbsp; Licensed Driver</div>
+          </div>
+          <div class="mini-card">
+            <div class="name">Fangfang Tang</div>
+            <div class="detail">Married &nbsp;•&nbsp; Licensed Driver</div>
+          </div>
+        </div>
+        <div class="discount-pills">
+          <div class="pill">Digital Auto</div>
+          <div class="pill">Early Quote</div>
+          <div class="pill">Continuous Ins.</div>
+          <div class="pill">EFT</div>
+          <div class="pill">Good Payer</div>
+          <div class="pill">Multi-Car</div>
+          <div class="pill">Multi-Policy</div>
+          <div class="pill">Safe Driver</div>
+        </div>
+        <div class="savings-banner">Total auto premium: <b>$2,147.00</b> &nbsp;|&nbsp; You're saving <b>$1,986.00</b> with these discounts stacked together.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Renters Coverage</div>
+        <h2>Your Greyrock Place apartment, protected</h2>
+        <p>A Travelers Protect® renters policy covering your belongings, liability, and the stuff that actually causes claims in apartments — water damage.</p>
+      </div>
+
+      <div class="full-card">
+        <div class="property-grid">
+          <div class="mini-card">
+            <div class="name">Coverage C — Personal Property</div>
+            <div class="detail">$25,000 to replace your stuff — furniture, electronics, clothes — if there's a fire, theft, or covered loss.</div>
+          </div>
+          <div class="mini-card">
+            <div class="name">Coverage E — Personal Liability</div>
+            <div class="detail">$500,000 if someone gets hurt in your apartment or you're responsible for damage to someone else's property.</div>
+          </div>
+          <div class="mini-card">
+            <div class="name">Coverage D — Loss of Use</div>
+            <div class="detail">$7,500 for temporary housing if your unit becomes unlivable after a covered loss.</div>
+          </div>
+          <div class="mini-card">
+            <div class="name">Coverage F — Medical Payments</div>
+            <div class="detail">$5,000 per person for minor injuries to guests, no fault required.</div>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <h4>💧 Water Back Up &amp; Sump Discharge Coverage — $10,000</h4>
+          <p>Included at no extra cost. This is the one apartment-dwellers usually skip and then get burned by — if a pipe backs up or a drain overflows and ruins your stuff, you're covered up to $10,000. Personal Property Replacement Cost is also included, so you get paid what it costs to replace items new, not their depreciated value.</p>
+        </div>
+
+        <div class="stat-strip">
+          <div class="stat"><div class="num">$1,000</div><div class="label">All-Perils Deductible</div></div>
+          <div class="stat"><div class="num">$159</div><div class="label">Annual Renters Premium</div></div>
+          <div class="stat"><div class="num">$61</div><div class="label">Total Savings Applied</div></div>
+          <div class="stat"><div class="num">$13.24</div><div class="label">Est. Down Payment</div></div>
+        </div>
+
+        <div class="discount-pills">
+          <div class="pill">Multi-Policy</div>
+          <div class="pill">Loss Free</div>
+          <div class="pill">Good Payer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">The Bundle</div>
+        <h2>Why we packaged it this way</h2>
+        <p>Putting your auto and renters on the same carrier isn't just convenient — it's the biggest lever on your premium.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="icon">🔗</div>
+          <h4>Multi-Policy Discount</h4>
+          <p>Bundling auto and renters together is stacked into both premiums — it's the single largest discount on this quote.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon">🛡️</div>
+          <h4>69+ Carriers Shopped</h4>
+          <p>We didn't just default to Travelers — we shopped your risk across our full carrier list and this came back as the strongest combined rate.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon">🔄</div>
+          <h4>Annual Re-Shop Guarantee</h4>
+          <p>Every year at renewal, we re-shop this package automatically to make sure you're still getting the best deal in the market.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <footer>
+    <h2>Ready to lock this in?</h2>
+    <p>This bundle covers both your cars and your apartment for the full year — one bill, one renewal date, maximum discount.</p>
+    <div class="cta-row">
+      <a href="mailto:eric@gosafeshield.com" class="btn btn-primary">Approve This Quote</a>
+      <a href="tel:2038065889" class="btn btn-secondary">Call Eric: (203) 806-5889</a>
+    </div>
+    <div class="agent-block">
+      Prepared by <b>Eric Kelly</b> &nbsp;•&nbsp; Safeshield Insurance &nbsp;•&nbsp; eric@gosafeshield.com
+    </div>
+  </footer>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"kelly-tang","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
