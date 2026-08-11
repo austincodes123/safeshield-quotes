@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Janet Atterbury — Renewal Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a1628; color:#FAFAF8; font-family:'Outfit',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 24px; }
+  h1,h2,h3 { font-family:'Playfair Display',serif; }
+  .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(255,163,0,0.25),transparent); margin:0; }
+
+  /* HERO */
+  .hero { padding:90px 0 70px; text-align:center; }
+  .eyebrow { font-size:13px; letter-spacing:3px; text-transform:uppercase; color:#FFA300; font-weight:600; margin-bottom:22px; }
+  .hero h1 { font-size:58px; font-weight:900; line-height:1.05; margin-bottom:20px; }
+  .hero .sub { font-size:19px; color:rgba(250,250,248,0.75); max-width:640px; margin:0 auto 30px; font-weight:300; }
+  .hero .meta { font-size:14px; color:rgba(250,250,248,0.55); letter-spacing:1px; }
+
+  section { padding:70px 0; }
+  .sec-label { font-size:13px; letter-spacing:3px; text-transform:uppercase; color:#FFA300; font-weight:600; margin-bottom:14px; }
+  .sec-title { font-size:40px; font-weight:700; margin-bottom:16px; }
+  .sec-intro { font-size:18px; color:rgba(250,250,248,0.72); max-width:680px; font-weight:300; margin-bottom:44px; }
+
+  /* SAVINGS BANNER */
+  .save-banner { background:linear-gradient(135deg,rgba(255,163,0,0.14),rgba(0,75,137,0.14)); border:1px solid rgba(255,163,0,0.3); border-radius:22px; padding:44px; text-align:center; margin-bottom:44px; }
+  .save-banner .lbl { font-size:14px; letter-spacing:2px; text-transform:uppercase; color:rgba(250,250,248,0.7); margin-bottom:10px; }
+  .save-banner .big { font-family:'Playfair Display',serif; font-size:64px; font-weight:900; color:#FFA300; line-height:1; }
+  .save-banner .note { font-size:16px; color:rgba(250,250,248,0.72); margin-top:12px; font-weight:300; }
+
+  /* COMPARE CARDS */
+  .cards { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:32px; }
+  .card.old { opacity:0.85; }
+  .card.new { border-color:rgba(255,163,0,0.35); }
+  .card .tag { font-size:12px; letter-spacing:2px; text-transform:uppercase; font-weight:600; margin-bottom:6px; }
+  .card.old .tag { color:rgba(250,250,248,0.5); }
+  .card.new .tag { color:#FFA300; }
+  .card .carrier { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; margin-bottom:18px; }
+  .card .price { font-size:44px; font-weight:800; font-family:'Outfit',sans-serif; margin-bottom:4px; }
+  .card .term { font-size:14px; color:rgba(250,250,248,0.55); margin-bottom:20px; }
+  .card ul { list-style:none; }
+  .card li { font-size:15px; color:rgba(250,250,248,0.78); padding:7px 0; border-top:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; }
+  .card li:first-child { border-top:none; }
+  .card li span:last-child { font-weight:600; color:#FAFAF8; }
+
+  /* SNAPSHOT */
+  .snap { background:rgba(0,75,137,0.18); border:1px solid rgba(0,75,137,0.5); border-radius:22px; padding:40px; margin-top:44px; }
+  .snap h3 { font-size:28px; font-weight:700; margin-bottom:14px; }
+  .snap h3 .pill { display:inline-block; background:#FFA300; color:#0a1628; font-family:'Outfit',sans-serif; font-size:12px; font-weight:700; letter-spacing:1px; padding:4px 12px; border-radius:100px; vertical-align:middle; margin-left:10px; text-transform:uppercase; }
+  .snap p { font-size:16px; color:rgba(250,250,248,0.78); font-weight:300; margin-bottom:22px; }
+  .snap .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .snap .stat { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:22px; text-align:center; }
+  .snap .stat .n { font-family:'Playfair Display',serif; font-size:34px; font-weight:900; color:#FFA300; }
+  .snap .stat .t { font-size:13px; color:rgba(250,250,248,0.65); margin-top:6px; letter-spacing:0.5px; }
+
+  /* HOME MINIMAL */
+  .home-row { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:24px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:34px; margin-bottom:24px; }
+  .home-row .side .lbl { font-size:12px; letter-spacing:2px; text-transform:uppercase; color:rgba(250,250,248,0.5); margin-bottom:6px; }
+  .home-row .side .carrier { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; margin-bottom:14px; }
+  .home-row .side .num { font-size:15px; color:rgba(250,250,248,0.78); padding:4px 0; }
+  .home-row .side .num strong { color:#FAFAF8; }
+  .home-row .arrow { font-size:28px; color:#FFA300; }
+  .home-row.new-side { border-color:rgba(255,163,0,0.3); }
+  .home-note { font-size:16px; color:rgba(250,250,248,0.72); font-weight:300; max-width:720px; }
+  .home-note strong { color:#FFA300; font-weight:600; }
+
+  /* WHY */
+  .why { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  .why .item { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px; }
+  .why .item h4 { font-family:'Outfit',sans-serif; font-size:17px; font-weight:700; color:#FFA300; margin-bottom:8px; }
+  .why .item p { font-size:15px; color:rgba(250,250,248,0.72); font-weight:300; }
+
+  /* CTA */
+  .cta { text-align:center; padding:80px 0; }
+  .cta h2 { font-size:38px; font-weight:700; margin-bottom:16px; }
+  .cta p { font-size:18px; color:rgba(250,250,248,0.72); font-weight:300; margin-bottom:32px; }
+  .btn { display:inline-block; background:#FFA300; color:#0a1628; font-weight:700; font-size:16px; padding:16px 38px; border-radius:100px; text-decoration:none; }
+  .foot { text-align:center; padding:40px 0 60px; font-size:14px; color:rgba(250,250,248,0.45); }
+  .foot strong { color:rgba(250,250,248,0.7); }
+
+  @media(max-width:760px){ .cards,.why,.snap .grid,.home-row{ grid-template-columns:1fr; } .hero h1{font-size:40px;} .home-row .arrow{transform:rotate(90deg);} }
+</style>
+</head>
+<body>
+
+  <div class="hero wrap">
+    <div class="eyebrow">Year-End Renewal Review</div>
+    <h1>Janet, we reshopped<br>your renewal.</h1>
+    <p class="sub">Every year we take your policies back out to the market so you never overpay for staying put. Here is what we found for your auto and home this year.</p>
+    <p class="meta">Prepared for Janet &amp; David Atterbury &nbsp;•&nbsp; 91 Terrace Rd, Milford CT &nbsp;•&nbsp; Prepared by Trent Beggs</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- AUTO -->
+  <section class="wrap">
+    <div class="sec-label">Auto — Travelers → Progressive</div>
+    <h2 class="sec-title">Same four cars. Real savings.</h2>
+    <p class="sec-intro">We moved your auto from Travelers to Progressive with the identical vehicles and coverage. The result is a meaningful drop in premium, with room to save even more.</p>
+
+    <div class="save-banner">
+      <div class="lbl">Your Auto Savings This Year</div>
+      <div class="big">$2,974</div>
+      <div class="note">per year — and that is before the extra Snapshot savings below</div>
+    </div>
+
+    <div class="cards">
+      <div class="card old">
+        <div class="tag">Old — Expiring</div>
+        <div class="carrier">Travelers</div>
+        <div class="price">$9,554</div>
+        <div class="term">per year • 4 vehicles</div>
+        <ul>
+          <li><span>Bodily Injury</span><span>250 / 500</span></li>
+          <li><span>Uninsured Motorist</span><span>250 / 500</span></li>
+          <li><span>Comp / Collision</span><span>$1,000 ded</span></li>
+          <li><span>Vehicles</span><span>4</span></li>
+        </ul>
+      </div>
+      <div class="card new">
+        <div class="tag">New — Progressive</div>
+        <div class="carrier">Progressive</div>
+        <div class="price">$6,580</div>
+        <div class="term">per year (annualized) • 4 vehicles</div>
+        <ul>
+          <li><span>Bodily Injury</span><span>Matched</span></li>
+          <li><span>Uninsured Motorist</span><span>Matched</span></li>
+          <li><span>Comp / Collision</span><span>Matched</span></li>
+          <li><span>Vehicles</span><span>4</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SNAPSHOT -->
+    <div class="snap">
+      <h3>Want to save even more? <span class="pill">Snapshot</span></h3>
+      <p>Snapshot is Progressive's safe-driving program. It plugs into an app or a small device and rewards you for the good driving you already do. Your household mileage is genuinely low (the Tiguan is at ~7,100 miles a year, the Mini at ~4,500), so you are exactly the kind of driver Snapshot pays off for. Enrolling drops your annualized premium to <strong style="color:#FFA300;font-weight:600;">$5,628</strong>.</p>
+      <div class="grid">
+        <div class="stat"><div class="n">$5,628</div><div class="t">Annual premium with Snapshot</div></div>
+        <div class="stat"><div class="n">$952</div><div class="t">Extra saved vs. standard</div></div>
+        <div class="stat"><div class="n">$3,926</div><div class="t">Total saved vs. Travelers</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HOME -->
+  <section class="wrap">
+    <div class="sec-label">Home — Hartford → NBIC</div>
+    <h2 class="sec-title">Same policy, rebuilt to today's value.</h2>
+    <p class="sec-intro">We kept your home structured exactly as it was. The only reason the premium moved is that we increased your dwelling coverage to reflect the added square footage of the home.</p>
+
+    <div class="home-row new-side">
+      <div class="side">
+        <div class="lbl">Old — Hartford</div>
+        <div class="carrier">The Hartford</div>
+        <div class="num">Dwelling (Cov A): <strong>$498,000</strong></div>
+        <div class="num">Premium: <strong>$3,264 / yr</strong></div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="side">
+        <div class="lbl">New — NBIC</div>
+        <div class="carrier">Narragansett Bay</div>
+        <div class="num">Dwelling (Cov A): <strong>$559,000</strong></div>
+        <div class="num">Premium: <strong>$3,658 / yr</strong></div>
+      </div>
+    </div>
+
+    <p class="home-note">Same HO-3 form, same <strong>$2,500</strong> deductible, same 5% hurricane deductible, same water backup coverage. We simply raised the dwelling limit by <strong>$61,000</strong> so it fully covers the added square footage at today's rebuild cost. That is the entire reason for the small premium change.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- WHY -->
+  <section class="wrap">
+    <div class="sec-label">Why Safeshield</div>
+    <h2 class="sec-title">This is what we do every year.</h2>
+    <div class="why" style="margin-top:20px;">
+      <div class="item"><h4>We shop the whole market</h4><p>69+ carrier partners. Every renewal we take your policies back out so loyalty never costs you money.</p></div>
+      <div class="item"><h4>Coverage first, price second</h4><p>We matched your limits before we chased the number. You are not trading protection for savings.</p></div>
+      <div class="item"><h4>Direct access, no call centers</h4><p>You reach a real person on our team, same day, for anything from a cert to a claim.</p></div>
+      <div class="item"><h4>We advocate at claim time</h4><p>When something happens, we are in your corner with the carrier, not on the sidelines.</p></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="cta wrap">
+    <h2>Ready to lock this in?</h2>
+    <p>Reply to this and we will bind both policies and handle the switch end to end.</p>
+    <a class="btn" href="mailto:trent@gosafeshield.com">Let's do it →</a>
+  </div>
+
+  <div class="foot wrap">
+    Prepared by <strong>Trent Beggs</strong> • Safeshield Insurance • 2777 Summer St, 6th Fl, Stamford CT 06905<br>
+    Figures based on current dec pages and carrier quotes. Progressive shown annualized from 6-month terms. Final premium confirmed at bind.
+  </div>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"atterbury","agent":"Trent"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
