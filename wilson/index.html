@@ -265,6 +265,31 @@
     margin-top: 10px;
   }
 
+  /* INCLUDED COVERAGES GRID */
+  .incl-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .incl-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 20px 24px;
+    font-size: 14.5px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .incl-item .check {
+    color: #FFA300;
+    font-size: 18px;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .incl-item strong { display: block; margin-bottom: 4px; font-size: 15px; }
+  .incl-item span.desc { color: rgba(250,250,248,0.6); font-weight: 300; }
+
   /* WHY CHUBB */
   .why-grid {
     display: grid;
@@ -322,6 +347,7 @@
   @media (max-width: 800px) {
     .ded-grid { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
+    .incl-grid { grid-template-columns: 1fr; }
     .bundle-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 34px; }
   }
@@ -334,58 +360,16 @@
     <div class="eyebrow">Prepared Exclusively For Roland Wilson</div>
     <div class="protection-label">Protection For</div>
     <h1>38 Tiffany Rd,<br>Oyster Bay, NY 11771</h1>
-    <p class="sub">Three deductible options, one exceptional policy. Every coverage limit stays exactly the same across all three &mdash; the only thing that changes is your out-of-pocket at claim time.</p>
+    <p class="sub">One exceptional policy, three deductible options. Every coverage limit stays exactly the same &mdash; the only thing that changes is your out-of-pocket at claim time.</p>
     <div class="bundle-line">Bundled with your current Auto &amp; Umbrella</div>
   </div>
 
   <div class="wrap">
 
-    <!-- DEDUCTIBLE OPTIONS -->
-    <div style="margin-top: 70px;">
-      <div class="section-title">Choose Your Deductible</div>
-      <div class="section-sub">Same dwelling, same liability, same contents, same discounts. The only variable is your deductible &mdash; and your premium moves with it.</div>
-
-      <div class="ded-grid">
-        <div class="ded-card">
-          <div class="ded-label">$5,000 Deductible</div>
-          <div class="price">$31,589</div>
-          <div class="price-note">total annual premium</div>
-          <div class="breakdown">
-            <div><span>Home</span><span>$31,083</span></div>
-            <div><span>Valuable Articles</span><span>$506</span></div>
-          </div>
-        </div>
-
-        <div class="ded-card featured">
-          <div class="tag">Most Balanced</div>
-          <div class="ded-label">$10,000 Deductible</div>
-          <div class="price">$31,050</div>
-          <div class="price-note">total annual premium</div>
-          <div class="breakdown">
-            <div><span>Home</span><span>$30,544</span></div>
-            <div><span>Valuable Articles</span><span>$506</span></div>
-          </div>
-        </div>
-
-        <div class="ded-card">
-          <div class="ded-label">$25,000 Deductible</div>
-          <div class="price">$29,657</div>
-          <div class="price-note">total annual premium</div>
-          <div class="breakdown">
-            <div><span>Home</span><span>$29,151</span></div>
-            <div><span>Valuable Articles</span><span>$506</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="cov-note">Quote #1618069301 &middot; Proposed effective 8/13/2026 &ndash; 8/13/2027 &middot; Written by Executive Risk Indemnity Inc. (a Chubb company)</div>
-    </div>
-
-    <div class="divider"></div>
-
     <!-- BUNDLE -->
-    <div>
+    <div style="margin-top: 70px;">
       <div class="section-title">One Household, One Chubb Portfolio</div>
-      <div class="section-sub">This home policy is bundled with your existing Chubb Auto and Umbrella. Keeping everything under one roof is what unlocks the portfolio discounts already built into every price above.</div>
+      <div class="section-sub">This home policy is bundled with your existing Chubb Auto and Umbrella. Keeping everything under one roof is what unlocks the portfolio discounts already built into every price.</div>
 
       <div class="bundle-grid">
         <div class="bundle-item active">
@@ -409,7 +393,7 @@
       </div>
 
       <div class="bundle-banner">
-        Because your Home, Auto, and Umbrella all sit with Chubb, you earn a <strong>multi-policy portfolio discount</strong> &mdash; it's already reflected in each deductible price above. One carrier, one renewal, one point of contact, and one team advocating for you at claim time.
+        Because your Home, Auto, and Umbrella all sit with Chubb, you earn a <strong>multi-policy portfolio discount</strong> &mdash; it's already reflected in each deductible price below. One carrier, one renewal, one point of contact, and one team advocating for you at claim time.
       </div>
     </div>
 
@@ -427,10 +411,52 @@
         <tr><td>Contents</td><td>$2,138,000 (Deluxe)</td></tr>
         <tr><td>Deductible Waiver Option</td><td>Included</td></tr>
         <tr><td>Special Windstorm Deductible</td><td>5%</td></tr>
-        <tr><td>Fire Hydrant / Alarm Discounts</td><td>Central station burglar + fire, hydrant within 1000 ft</td></tr>
         <tr><td>Portfolio Discount &mdash; Home + Auto</td><td>Applied</td></tr>
         <tr><td>Portfolio Discount &mdash; Home + Valuables</td><td>Applied</td></tr>
       </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- WHAT CHUBB INCLUDES -->
+    <div>
+      <div class="section-title">Coverage Chubb Builds In</div>
+      <div class="section-sub">Masterpiece is a different tier of homeowners coverage. These aren't add-ons &mdash; they come standard on every option.</div>
+
+      <div class="incl-grid">
+        <div class="incl-item">
+          <div class="check">&#10003;</div>
+          <div><strong>Extended Replacement Cost</strong><span class="desc">If it costs more to rebuild than your dwelling limit, Chubb pays the full cost to rebuild your home the way it was.</span></div>
+        </div>
+        <div class="incl-item">
+          <div class="check">&#10003;</div>
+          <div><strong>Cash Settlement Option</strong><span class="desc">Total loss and don't want to rebuild? Take the full dwelling limit in cash, no strings attached.</span></div>
+        </div>
+        <div class="incl-item">
+          <div class="check">&#10003;</div>
+          <div><strong>No Depreciation on Contents</strong><span class="desc">Belongings are replaced at full cost, not the beat-up "actual cash value" most policies pay.</span></div>
+        </div>
+        <div class="incl-item">
+          <div class="check">&#10003;</div>
+          <div><strong>Water Backup &amp; Sump Overflow</strong><span class="desc">Backup from sewers, drains, and sump pumps is covered &mdash; a common gap on standard policies.</span></div>
+        </div>
+        <div class="incl-item">
+          <div class="check">&#10003;</div>
+          <div><strong>Unlimited Additional Living Expense</strong><span class="desc">If you're displaced, Chubb covers comparable housing with no dollar cap while your home is restored.</span></div>
+        </div>
+        <div class="incl-item">
+          <div class="check">&#10003;</div>
+          <div><strong>Tree, Shrub &amp; Landscaping</strong><span class="desc">Generous coverage to replace damaged trees, plants, and landscaping around the property.</span></div>
+        </div>
+        <div class="incl-item">
+          <div class="check">&#10003;</div>
+          <div><strong>Identity Fraud Expense</strong><span class="desc">Help and reimbursement for the cost of recovering your identity if you're a victim of fraud.</span></div>
+        </div>
+        <div class="incl-item">
+          <div class="check">&#10003;</div>
+          <div><strong>Building Code / Ordinance Upgrades</strong><span class="desc">Covers the extra cost of rebuilding to current building codes after a covered loss.</span></div>
+        </div>
+      </div>
     </div>
 
     <div class="divider"></div>
@@ -441,7 +467,7 @@
         <div class="icon">💎</div>
         <div class="content">
           <h3>$25,000 Jewelry Blanket &mdash; Already Baked In</h3>
-          <p>Every option above already includes $506 for valuable articles coverage &mdash; a $25,000 jewelry blanket with Chubb, no separate policy to manage. It's one bill, one renewal, one point of contact.</p>
+          <p>Every option below already includes $506 for valuable articles coverage &mdash; a $25,000 jewelry blanket with Chubb, no separate policy to manage. It's one bill, one renewal, one point of contact.</p>
           <div class="badge">Included In All 3 Options</div>
         </div>
       </div>
@@ -480,6 +506,48 @@
           <div><strong>97% satisfaction on paid claims</strong><span class="desc">Backed by the world's largest publicly traded P&amp;C insurer, 100+ years in business.</span></div>
         </div>
       </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- DEDUCTIBLE OPTIONS (moved to bottom) -->
+    <div>
+      <div class="section-title">Choose Your Deductible</div>
+      <div class="section-sub">Same dwelling, same liability, same contents, same discounts. The only variable is your deductible &mdash; and your premium moves with it.</div>
+
+      <div class="ded-grid">
+        <div class="ded-card">
+          <div class="ded-label">$5,000 Deductible</div>
+          <div class="price">$31,589</div>
+          <div class="price-note">total annual premium</div>
+          <div class="breakdown">
+            <div><span>Home</span><span>$31,083</span></div>
+            <div><span>Valuable Articles</span><span>$506</span></div>
+          </div>
+        </div>
+
+        <div class="ded-card featured">
+          <div class="tag">Most Balanced</div>
+          <div class="ded-label">$10,000 Deductible</div>
+          <div class="price">$31,050</div>
+          <div class="price-note">total annual premium</div>
+          <div class="breakdown">
+            <div><span>Home</span><span>$30,544</span></div>
+            <div><span>Valuable Articles</span><span>$506</span></div>
+          </div>
+        </div>
+
+        <div class="ded-card">
+          <div class="ded-label">$25,000 Deductible</div>
+          <div class="price">$29,657</div>
+          <div class="price-note">total annual premium</div>
+          <div class="breakdown">
+            <div><span>Home</span><span>$29,151</span></div>
+            <div><span>Valuable Articles</span><span>$506</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cov-note">Quote #1618069301 &middot; Proposed effective 8/13/2026 &ndash; 8/13/2027 &middot; Written by Executive Risk Indemnity Inc. (a Chubb company)</div>
     </div>
 
   </div>
