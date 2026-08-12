@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roland Wilson | Chubb Masterpiece Homeowners Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a1628;
+    color: #FAFAF8;
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; }
+  .divider {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin: 60px 0;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+  /* HERO */
+  .hero {
+    padding: 90px 32px 70px;
+    text-align: center;
+    background: radial-gradient(ellipse at top, rgba(0,75,137,0.35), transparent 60%);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .hero .eyebrow {
+    color: #FFA300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 48px;
+    font-weight: 900;
+    max-width: 780px;
+    margin: 0 auto 20px;
+    line-height: 1.15;
+  }
+  .hero p.sub {
+    color: rgba(250,250,248,0.7);
+    max-width: 620px;
+    margin: 0 auto;
+    font-size: 17px;
+    font-weight: 300;
+  }
+  .hero .addr {
+    margin-top: 28px;
+    display: inline-block;
+    padding: 10px 24px;
+    border: 1px solid rgba(255,163,0,0.3);
+    border-radius: 100px;
+    font-size: 14px;
+    color: #FFA300;
+    letter-spacing: 0.5px;
+  }
+
+  /* SECTION HEADERS */
+  .section-title {
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .section-sub {
+    text-align: center;
+    color: rgba(250,250,248,0.65);
+    max-width: 640px;
+    margin: 0 auto 44px;
+    font-size: 15.5px;
+    font-weight: 300;
+  }
+
+  /* DEDUCTIBLE CARDS */
+  .ded-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .ded-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 32px 26px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.2s ease;
+  }
+  .ded-card.featured {
+    border-color: rgba(255,163,0,0.5);
+    background: rgba(255,163,0,0.06);
+  }
+  .ded-card .tag {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FFA300;
+    color: #0a1628;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+  }
+  .ded-card .amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: rgba(250,250,248,0.6);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .ded-card .ded-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #FFA300;
+    margin-bottom: 22px;
+    font-weight: 600;
+  }
+  .ded-card .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 4px;
+  }
+  .ded-card .price-note {
+    font-size: 12.5px;
+    color: rgba(250,250,248,0.5);
+    margin-bottom: 20px;
+  }
+  .ded-card .breakdown {
+    text-align: left;
+    font-size: 13.5px;
+    color: rgba(250,250,248,0.75);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 16px;
+  }
+  .ded-card .breakdown div {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+
+  /* COVERAGE TABLE (shared) */
+  .cov-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .cov-table td {
+    padding: 15px 24px;
+    font-size: 14.5px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .cov-table tr:last-child td { border-bottom: none; }
+  .cov-table td:first-child {
+    color: rgba(250,250,248,0.6);
+    width: 55%;
+  }
+  .cov-table td:last-child {
+    font-weight: 600;
+    text-align: right;
+    color: #FAFAF8;
+  }
+  .cov-note {
+    margin-top: 16px;
+    font-size: 13px;
+    color: rgba(255,163,0,0.85);
+    text-align: center;
+  }
+
+  /* VALUABLES CALLOUT */
+  .valuables-card {
+    background: linear-gradient(135deg, rgba(255,163,0,0.08), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,163,0,0.25);
+    border-radius: 18px;
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .valuables-card .icon {
+    font-size: 44px;
+  }
+  .valuables-card .content { flex: 1; min-width: 260px; }
+  .valuables-card h3 { font-size: 22px; margin-bottom: 8px; }
+  .valuables-card p { color: rgba(250,250,248,0.7); font-size: 14.5px; font-weight: 300; }
+  .valuables-card .badge {
+    background: rgba(255,163,0,0.15);
+    color: #FFA300;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  /* WHY CHUBB */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .why-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 20px 24px;
+    font-size: 14.5px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .why-item .bullet {
+    color: #FFA300;
+    font-size: 20px;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .why-item strong { display: block; margin-bottom: 4px; font-size: 15px; }
+  .why-item span.desc { color: rgba(250,250,248,0.6); font-weight: 300; }
+
+  /* CTA FOOTER */
+  .cta {
+    text-align: center;
+    padding: 70px 32px 90px;
+  }
+  .cta h2 { font-size: 32px; margin-bottom: 14px; }
+  .cta p { color: rgba(250,250,248,0.65); max-width: 520px; margin: 0 auto 32px; font-weight: 300; }
+  .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    padding: 15px 34px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary { background: #FFA300; color: #0a1628; }
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: #FAFAF8;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .footer-meta {
+    text-align: center;
+    padding: 30px 32px 50px;
+    color: rgba(250,250,248,0.35);
+    font-size: 12.5px;
+  }
+
+  @media (max-width: 800px) {
+    .ded-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Prepared Exclusively For Roland Wilson</div>
+    <h1>Your Chubb Masterpiece<br>Homeowners Proposal</h1>
+    <p class="sub">Three deductible options, one exceptional policy. Every coverage limit stays exactly the same across all three &mdash; the only thing that changes is your out-of-pocket at claim time.</p>
+    <div class="addr">38 Tiffany Rd, Oyster Bay, NY 11771</div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- DEDUCTIBLE OPTIONS -->
+    <div style="margin-top: 70px;">
+      <div class="section-title">Choose Your Deductible</div>
+      <div class="section-sub">Same dwelling, same liability, same contents, same discounts. The only variable is your deductible &mdash; and your premium moves with it.</div>
+
+      <div class="ded-grid">
+        <div class="ded-card">
+          <div class="ded-label">$5,000 Deductible</div>
+          <div class="price">$31,589</div>
+          <div class="price-note">total annual premium</div>
+          <div class="breakdown">
+            <div><span>Home</span><span>$31,083</span></div>
+            <div><span>Valuable Articles</span><span>$506</span></div>
+          </div>
+        </div>
+
+        <div class="ded-card featured">
+          <div class="tag">Most Balanced</div>
+          <div class="ded-label">$10,000 Deductible</div>
+          <div class="price">$31,050</div>
+          <div class="price-note">total annual premium</div>
+          <div class="breakdown">
+            <div><span>Home</span><span>$30,544</span></div>
+            <div><span>Valuable Articles</span><span>$506</span></div>
+          </div>
+        </div>
+
+        <div class="ded-card">
+          <div class="ded-label">$25,000 Deductible</div>
+          <div class="price">$29,657</div>
+          <div class="price-note">total annual premium</div>
+          <div class="breakdown">
+            <div><span>Home</span><span>$29,151</span></div>
+            <div><span>Valuable Articles</span><span>$506</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cov-note">Quote #1618069301 &middot; Proposed effective 8/13/2026 &ndash; 8/13/2027 &middot; Written by Executive Risk Indemnity Inc. (a Chubb company)</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- CORE COVERAGE (same across all 3) -->
+    <div>
+      <div class="section-title">What Stays The Same</div>
+      <div class="section-sub">These limits and features apply no matter which deductible you pick.</div>
+
+      <table class="cov-table">
+        <tr><td>Dwelling Coverage</td><td>$4,276,000 (Deluxe)</td></tr>
+        <tr><td>Other Structures</td><td>$855,200</td></tr>
+        <tr><td>Personal Liability</td><td>$1,000,000</td></tr>
+        <tr><td>Contents</td><td>$2,138,000 (Deluxe)</td></tr>
+        <tr><td>Deductible Waiver Option</td><td>Included</td></tr>
+        <tr><td>Special Windstorm Deductible</td><td>5%</td></tr>
+        <tr><td>Fire Hydrant / Alarm Discounts</td><td>Central station burglar + fire, hydrant within 1000 ft</td></tr>
+        <tr><td>Portfolio Discount &mdash; Home + Auto</td><td>Applied</td></tr>
+        <tr><td>Portfolio Discount &mdash; Home + Valuables</td><td>Applied</td></tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- VALUABLES -->
+    <div>
+      <div class="valuables-card">
+        <div class="icon">💎</div>
+        <div class="content">
+          <h3>$25,000 Jewelry Blanket &mdash; Already Baked In</h3>
+          <p>Every option above already includes $506 for valuable articles coverage &mdash; a $25,000 jewelry blanket with Chubb, no separate policy to manage. It's one bill, one renewal, one point of contact.</p>
+          <div class="badge">Included In All 3 Options</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- WHY CHUBB -->
+    <div>
+      <div class="section-title">Why Chubb</div>
+      <div class="section-sub">A quick look at what actually happens when you file a claim.</div>
+
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="bullet">&#9679;</div>
+          <div><strong>Claims move fast</strong><span class="desc">Adjusters respond within 24 hours and can issue payment within 48 hours of approval.</span></div>
+        </div>
+        <div class="why-item">
+          <div class="bullet">&#9679;</div>
+          <div><strong>They put you up if you're displaced</strong><span class="desc">Temporary living at a similar home in your school district, or a suitable hotel, while repairs happen.</span></div>
+        </div>
+        <div class="why-item">
+          <div class="bullet">&#9679;</div>
+          <div><strong>Cash-out option on a total loss</strong><span class="desc">Full policy limit paid in cash if you choose not to rebuild.</span></div>
+        </div>
+        <div class="why-item">
+          <div class="bullet">&#9679;</div>
+          <div><strong>Water backup is covered</strong><span class="desc">Backup from interior sewers and drains is included, not an afterthought.</span></div>
+        </div>
+        <div class="why-item">
+          <div class="bullet">&#9679;</div>
+          <div><strong>Newly acquired valuables covered automatically</strong><span class="desc">New jewelry, art, and collectibles are covered the moment you own them.</span></div>
+        </div>
+        <div class="why-item">
+          <div class="bullet">&#9679;</div>
+          <div><strong>97% satisfaction on paid claims</strong><span class="desc">Backed by the world's largest publicly traded P&amp;C insurer, 100+ years in business.</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Ready to move forward, Roland?</h2>
+    <p>Pick the deductible that fits your comfort level &mdash; we'll take it from there and get everything bound.</p>
+    <div class="btn-row">
+      <a href="tel:2038065889" class="btn btn-primary">Call Eric: (203) 806-5889</a>
+      <a href="mailto:eric@gosafeshield.com" class="btn btn-secondary">Email Eric</a>
+    </div>
+  </div>
+
+  <div class="footer-meta">
+    Prepared by Eric Kelly &middot; Safeshield Insurance &middot; This is a proposal summary, not a binder. Coverage is subject to Chubb's final underwriting and the terms of the issued policy.
+  </div>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"wilson","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
