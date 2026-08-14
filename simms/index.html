@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alfred E. Simms — Commercial Package Proposal | Safeshield Insurance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a1628;
+    color: #FAFAF8;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  h1, h2, h3, .display { font-family: 'Playfair Display', serif; font-weight: 900; }
+  .divider {
+    height: 1px; border: none;
+    background: linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin: 0;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 90px 0 70px;
+    text-align: center;
+    background: radial-gradient(ellipse at top, rgba(0,75,137,0.35), transparent 65%);
+  }
+  .brandmark {
+    font-size: 0.78rem; letter-spacing: 0.42em; text-transform: uppercase;
+    color: #FFA300; font-weight: 600; margin-bottom: 30px;
+  }
+  .hero h1 { font-size: 3.4rem; line-height: 1.08; margin-bottom: 18px; }
+  .hero .sub {
+    font-size: 1.15rem; color: rgba(250,250,248,0.72);
+    max-width: 620px; margin: 0 auto 34px;
+  }
+  .hero .meta {
+    display: inline-flex; gap: 34px; flex-wrap: wrap; justify-content: center;
+    font-size: 0.9rem; color: rgba(250,250,248,0.6);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px; margin-top: 10px;
+  }
+  .hero .meta b { color: #FAFAF8; font-weight: 500; }
+
+  /* SECTION */
+  section { padding: 66px 0; }
+  .eyebrow {
+    font-size: 0.75rem; letter-spacing: 0.34em; text-transform: uppercase;
+    color: #FFA300; font-weight: 600; margin-bottom: 14px;
+  }
+  section h2 { font-size: 2.2rem; margin-bottom: 16px; }
+  section .lead { font-size: 1.08rem; color: rgba(250,250,248,0.75); max-width: 720px; margin-bottom: 40px; }
+
+  /* HEADLINE NUMBER CARDS */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px; padding: 30px 26px;
+  }
+  .card.gold { border-color: rgba(255,163,0,0.45); background: rgba(255,163,0,0.06); }
+  .card .k { font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(250,250,248,0.6); margin-bottom: 12px; }
+  .card .v { font-family: 'Playfair Display', serif; font-size: 2.3rem; font-weight: 700; line-height: 1; }
+  .card .note { font-size: 0.85rem; color: rgba(250,250,248,0.55); margin-top: 12px; }
+  .card.gold .v { color: #FFA300; }
+
+  /* TABLE */
+  .tablewrap { overflow-x: auto; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.94rem; min-width: 640px; }
+  thead th {
+    background: rgba(0,75,137,0.35);
+    text-align: left; padding: 16px 18px; font-weight: 600;
+    font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase;
+    color: rgba(250,250,248,0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  thead th.hl { color: #FFA300; }
+  tbody td { padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,0.06); color: rgba(250,250,248,0.85); }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody td:first-child { font-weight: 500; color: #FAFAF8; }
+  td.hl { background: rgba(255,163,0,0.05); }
+  .yes { color: #6fcf97; font-weight: 600; }
+  .no { color: #eb5757; font-weight: 600; }
+  .totalrow td { background: rgba(0,75,137,0.25); font-weight: 700; color: #FAFAF8; font-size: 1rem; }
+  .totalrow td.hl { background: rgba(255,163,0,0.14); color: #FFA300; }
+
+  /* GAP LIST */
+  .gaps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 10px; }
+  .gap {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; padding: 24px;
+  }
+  .gap h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 8px; color: #FAFAF8; }
+  .gap .tag { display:inline-block; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; padding:4px 10px; border-radius:100px; margin-bottom:12px; font-weight:600;}
+  .tag.add { background: rgba(111,207,151,0.14); color:#6fcf97; }
+  .gap p { font-size: 0.92rem; color: rgba(250,250,248,0.7); }
+
+  /* WHY */
+  .why { background: radial-gradient(ellipse at bottom, rgba(0,75,137,0.28), transparent 70%); }
+  .whygrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+  .whyitem { padding: 8px 4px; }
+  .whyitem .n { font-family:'Playfair Display',serif; font-size:1.5rem; color:#FFA300; margin-bottom:8px;}
+  .whyitem h3 { font-family:'Outfit',sans-serif; font-weight:600; font-size:1.05rem; margin-bottom:6px;}
+  .whyitem p { font-size:0.9rem; color:rgba(250,250,248,0.68);}
+
+  /* NOTES */
+  .notebox { background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:30px 32px; }
+  .notebox ul { list-style:none; }
+  .notebox li { padding:10px 0 10px 28px; position:relative; color:rgba(250,250,248,0.8); font-size:0.95rem; border-bottom:1px solid rgba(255,255,255,0.05);}
+  .notebox li:last-child { border-bottom:none; }
+  .notebox li:before { content:"▸"; position:absolute; left:0; color:#FFA300; }
+
+  /* CTA */
+  .cta { text-align:center; padding: 80px 0 90px; }
+  .cta h2 { font-size:2.4rem; margin-bottom:16px; }
+  .cta p { color:rgba(250,250,248,0.72); max-width:520px; margin:0 auto 30px; font-size:1.05rem;}
+  .btn {
+    display:inline-block; padding:16px 38px; border-radius:100px;
+    font-family:'Outfit',sans-serif; font-weight:600; font-size:1rem; text-decoration:none;
+    background:#FFA300; color:#0a1628; transition:transform .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .contact { margin-top:34px; font-size:0.95rem; color:rgba(250,250,248,0.7); }
+  .contact b { color:#FAFAF8; }
+  footer { text-align:center; padding:30px 0 50px; font-size:0.8rem; color:rgba(250,250,248,0.4);}
+
+  @media (max-width: 760px) {
+    .hero h1 { font-size:2.3rem; }
+    .cards, .whygrid, .gaps { grid-template-columns:1fr; }
+    section h2 { font-size:1.7rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="brandmark">Safeshield Insurance</div>
+      <h1>Commercial Package Proposal</h1>
+      <p class="sub">A stronger, broader way to protect 4131 White Plains Rd — with the wind, theft, and vandalism coverage your current binders leave on the table.</p>
+      <div class="meta">
+        <span>Prepared for <b>Alfred E. Simms</b></span>
+        <span>4131 White Plains Rd, Bronx, NY 10466</span>
+        <span>Prepared by <b>Eric Kelly</b></span>
+      </div>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <!-- HEADLINE -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">The Recommendation</div>
+      <h2>One package. Real coverage.</h2>
+      <p class="lead">You're currently looking at two separate surplus lines binders stitched together. We're recommending a single Commercial Package Policy from Westchester (a Chubb company, A++ rated) that closes the biggest gaps in the current setup for one clean premium.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="k">Two Separate Binders</div>
+          <div class="v">$4,051</div>
+          <div class="note">Maxum GL + Vave Property, all-in with fees</div>
+        </div>
+        <div class="card gold">
+          <div class="k">Recommended Package</div>
+          <div class="v">$6,657</div>
+          <div class="note">Westchester / Chubb CPP, all-in with fees</div>
+        </div>
+        <div class="card">
+          <div class="k">The Difference</div>
+          <div class="v">+$2,606</div>
+          <div class="note">Buys wind, theft, vandalism &amp; sprinkler leakage</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <!-- COST TABLE -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Side by Side — Cost</div>
+      <h2>What you pay</h2>
+      <p class="lead">The entire price difference sits on the property side. The general liability is essentially the same money for the same limits.</p>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Line</th>
+              <th>GL Binder<br>(Maxum)</th>
+              <th>Property Binder<br>(Vave)</th>
+              <th>Both Binders</th>
+              <th class="hl">Package<br>(Westchester/Chubb)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Liability premium</td><td>$1,214</td><td>—</td><td>$1,214</td><td class="hl">$1,630</td></tr>
+            <tr><td>Property premium</td><td>—</td><td>$1,853</td><td>$1,853</td><td class="hl">$4,425</td></tr>
+            <tr><td>Fees &amp; taxes</td><td>$480</td><td>$504</td><td>$984</td><td class="hl">$602</td></tr>
+            <tr class="totalrow"><td>Estimated total</td><td>$1,694</td><td>$2,357</td><td>$4,051</td><td class="hl">$6,657</td></tr>
+            <tr><td>Terrorism (TRIA)</td><td>Not purchased</td><td>Not purchased</td><td>—</td><td class="hl">Optional +$565</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <!-- GL TABLE -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Side by Side — General Liability</div>
+      <h2>Liability: a wash on limits, broader on the package</h2>
+      <p class="lead">Same $1M / $2M structure either way. The package also rates in the commercial tenant (lessor's risk) exposure — a real plus for a mixed-use building.</p>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>Coverage</th><th>GL Binder (Maxum)</th><th class="hl">Package (Chubb)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>General Aggregate</td><td>$2,000,000</td><td class="hl">$2,000,000</td></tr>
+            <tr><td>Each Occurrence</td><td>$1,000,000</td><td class="hl">$1,000,000</td></tr>
+            <tr><td>Products / Completed Ops</td><td>Incl. in aggregate</td><td class="hl">Included</td></tr>
+            <tr><td>Personal &amp; Advertising Injury</td><td>$1,000,000</td><td class="hl">$1,000,000</td></tr>
+            <tr><td>Damage to Premises Rented</td><td>$100,000</td><td class="hl">$100,000</td></tr>
+            <tr><td>Medical Expense</td><td>$5,000</td><td class="hl">$5,000</td></tr>
+            <tr><td>Deductible</td><td>None</td><td class="hl">None</td></tr>
+            <tr><td>Tenant / Lessor's Risk class</td><td class="no">Not rated</td><td class="hl"><span class="yes">Included</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <!-- PROPERTY TABLE -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Side by Side — Property</div>
+      <h2>Property: this is where it matters</h2>
+      <p class="lead">The current property binder is a stripped-down form. Same $600K building limit — but read down the causes of loss. On a Bronx apartment building, these are exactly the losses you don't want excluded.</p>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>Feature</th><th>Property Binder (Vave)</th><th class="hl">Package (Chubb)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Building limit</td><td>$600,000</td><td class="hl">$600,000</td></tr>
+            <tr><td>Cause of loss</td><td>Ex-Wind (named perils minus wind)</td><td class="hl">Special Form Including Theft</td></tr>
+            <tr><td>Wind / Hail</td><td class="no">Excluded</td><td class="hl"><span class="yes">Covered</span></td></tr>
+            <tr><td>Theft</td><td class="no">Excluded</td><td class="hl"><span class="yes">Covered</span></td></tr>
+            <tr><td>Vandalism</td><td class="no">Excluded</td><td class="hl"><span class="yes">Covered</span></td></tr>
+            <tr><td>Sprinkler leakage</td><td class="no">Excluded</td><td class="hl"><span class="yes">Covered</span></td></tr>
+            <tr><td>Equipment breakdown</td><td class="no">Not included</td><td class="hl"><span class="yes">Included</span></td></tr>
+            <tr><td>Water damage</td><td>Sublimit $50,000</td><td class="hl">Covered, $5,000 ded</td></tr>
+            <tr><td>Coinsurance</td><td>80%</td><td class="hl">80%</td></tr>
+            <tr><td>Valuation</td><td>RCV (roof ACV if &gt;30 yrs)</td><td class="hl">RCV (ACV roof limitation applies)</td></tr>
+            <tr><td>AOP deductible</td><td>$2,500</td><td class="hl">$2,500</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <!-- WHAT THE EXTRA BUYS -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">What the Extra Premium Buys</div>
+      <h2>Not just a higher price — real protection</h2>
+      <div class="gaps">
+        <div class="gap">
+          <span class="tag add">Now Covered</span>
+          <h3>Wind &amp; Hail</h3>
+          <p>Completely excluded on the current property binder. A single storm loss to the roof or building envelope would be uncovered today. The package covers it, with its own wind deductible.</p>
+        </div>
+        <div class="gap">
+          <span class="tag add">Now Covered</span>
+          <h3>Theft &amp; Vandalism</h3>
+          <p>Both excluded today. For an occupied apartment building, theft and vandalism are among the most common property claims. The Special Form picks them up.</p>
+        </div>
+        <div class="gap">
+          <span class="tag add">Now Covered</span>
+          <h3>Sprinkler Leakage</h3>
+          <p>Excluded on the current binder. A burst sprinkler or pipe event is a real habitational exposure — now covered under the package.</p>
+        </div>
+        <div class="gap">
+          <span class="tag add">Now Included</span>
+          <h3>Equipment Breakdown</h3>
+          <p>Boiler and machinery / equipment breakdown coverage is built into the package — protection for heating, electrical, and mechanical systems the standalone binder didn't carry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <!-- WHY SAFESHIELD -->
+  <section class="why">
+    <div class="wrap">
+      <div class="eyebrow">Why Safeshield</div>
+      <h2>We shop it, we explain it, we stand with you</h2>
+      <div class="whygrid">
+        <div class="whyitem"><div class="n">69+</div><h3>Carriers</h3><p>We shopped this across the market and brought back the option that actually closes your coverage gaps.</p></div>
+        <div class="whyitem"><div class="n">A++</div><h3>Carrier Strength</h3><p>Westchester is a Chubb company rated A++ XV — top-tier financial backing behind your building.</p></div>
+        <div class="whyitem"><div class="n">1</div><h3>Package, Not Pieces</h3><p>One policy, one renewal, one carrier to deal with at claim time — with a package credit built in.</p></div>
+        <div class="whyitem"><div class="n">24hr</div><h3>Same-Day Service</h3><p>Certs, ID cards, and policy changes handled fast — no call centers, direct access to your agent.</p></div>
+        <div class="whyitem"><div class="n">✓</div><h3>Claims Advocacy</h3><p>When something happens, we're the ones in your corner working the claim with the carrier.</p></div>
+        <div class="whyitem"><div class="n">↻</div><h3>Annual Re-Shop</h3><p>We re-market your account every year to keep coverage sharp and pricing honest.</p></div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <!-- BIND NOTES -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Before We Bind</div>
+      <h2>A few things to know</h2>
+      <div class="notebox">
+        <ul>
+          <li>The package is <b>subject to a favorable inspection</b>, a signed application &amp; affidavit, a signed TRIA form, and <b>3–5 year clean loss runs</b> (or a signed no-known-loss letter).</li>
+          <li>Carrier requires a <b>written lease with commercial tenants maintaining $1M/$2M limits</b> and naming you as Additional Insured. Worth confirming your leases meet this.</li>
+          <li>Both the current binders and the package carry a <b>25% minimum earned premium</b>.</li>
+          <li>Like your current coverage, this is a <b>non-admitted surplus lines</b> placement — not backed by the NY State Insolvency Fund. Same status as today, no change there.</li>
+          <li>Terrorism (TRIA) is <b>optional at +$565</b>. You can accept or reject it in writing before binding.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="wrap">
+      <h2>Ready to move forward?</h2>
+      <p>Let's lock in real coverage for the building before the current binders leave you exposed to the losses that matter most.</p>
+      <a class="btn" href="tel:+12038065889">Talk with Eric →</a>
+      <div class="contact">
+        <b>Eric Kelly</b> · Safeshield Insurance<br>
+        (203) 806-5889 · eric@gosafeshield.com
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Safeshield Insurance LLC · Prepared for Alfred E. Simms · This proposal is a summary for comparison purposes. Actual coverage is governed by the policy as issued. Premiums shown are subject to carrier bind conditions.
+  </footer>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"simms","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
