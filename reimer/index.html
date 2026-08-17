@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Insurance Proposal | 36 Brodwood Dr | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#004b89;
+    --navy-deep:#003566;
+    --amber:#ffa300;
+    --ink:#1a1f26;
+    --slate:#5a6573;
+    --paper:#f6f8fb;
+    --line:#e6ebf2;
+    --white:#ffffff;
+    --good:#1f9d6b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:820px;margin:0 auto;padding:0 22px}
+
+  .fade{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}}
+
+  .brandbar{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:20px 0 0;flex-wrap:wrap}
+  .brand{display:flex;flex-direction:column;gap:4px}
+  .logo{font-weight:700;font-size:19px;color:var(--navy);letter-spacing:.03em;text-transform:uppercase}
+  .logo span{color:var(--amber)}
+  .slogan{font-size:11px;color:var(--slate);font-weight:500;letter-spacing:.02em;font-style:italic}
+  .prepared{font-size:12.5px;color:var(--slate);text-align:right;line-height:1.4}
+  .prepared b{color:var(--ink)}
+
+  .hero{padding:44px 0 34px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:18px}
+  h1{font-family:'Playfair Display',serif;font-weight:800;color:var(--navy);font-size:clamp(36px,8vw,60px);line-height:1.02;letter-spacing:-.015em}
+  .lede{font-size:17px;color:var(--slate);margin-top:22px;max-width:60ch}
+  .lede b{color:var(--ink);font-weight:600}
+
+  .metastrip{display:flex;flex-wrap:wrap;gap:22px;margin-top:28px}
+  .metastrip div{font-size:13.5px}
+  .metastrip .k{display:block;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--slate);font-weight:600;margin-bottom:3px}
+  .metastrip .v{font-weight:600;color:var(--ink)}
+
+  /* total summary */
+  .totalcard{margin:30px 0 0;border-radius:20px;background:linear-gradient(160deg,var(--navy),var(--navy-deep));color:#fff;padding:30px 28px;position:relative;overflow:hidden}
+  .totalcard::after{content:"";position:absolute;right:-40px;top:-40px;width:170px;height:170px;background:radial-gradient(circle,rgba(255,163,0,.22),transparent 70%)}
+  .totalcard .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);font-weight:600;position:relative}
+  .totalcard .split{display:flex;flex-wrap:wrap;gap:30px;margin-top:18px;position:relative}
+  .totalcard .split .col .lab{font-size:12.5px;color:rgba(255,255,255,.7)}
+  .totalcard .split .col .num{font-family:'Playfair Display',serif;font-size:34px;font-weight:800;line-height:1.1;margin-top:2px}
+  .totalcard .split .col .sub{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px}
+  .totalcard .foot{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.16);font-size:13.5px;color:rgba(255,255,255,.82);position:relative;max-width:60ch}
+
+  .sec{padding:48px 0 0}
+  .sec-eye{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:12px}
+  h2{font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:clamp(26px,5.5vw,36px);line-height:1.08;letter-spacing:-.01em}
+  .sub{font-size:15.5px;color:var(--slate);margin-top:12px;max-width:62ch}
+
+  /* policy header block */
+  .pol-head{display:flex;align-items:center;gap:16px;margin-top:26px;padding:20px 22px;border:1px solid var(--line);border-radius:16px 16px 0 0;background:var(--paper);border-bottom:none}
+  .pol-ic{flex:none;width:50px;height:50px;border-radius:13px;background:rgba(0,75,137,.1);color:var(--navy);display:grid;place-items:center}
+  .pol-ic svg{width:26px;height:26px}
+  .pol-meta{flex:1;min-width:0}
+  .pol-name{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:var(--navy)}
+  .pol-tag{font-size:13px;color:var(--slate);margin-top:2px}
+  .pol-price{text-align:right;white-space:nowrap}
+  .pol-price .n{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--ink)}
+  .pol-price .s{font-size:11.5px;color:var(--slate);display:block}
+
+  .cov-card{border:1px solid var(--line);border-radius:0 0 16px 16px;background:var(--white);overflow:hidden}
+  .cov-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:15px 22px;border-bottom:1px solid var(--line)}
+  .cov-row:last-child{border-bottom:none}
+  .cov-l{font-size:14.5px;color:var(--ink);font-weight:500}
+  .cov-l small{display:block;color:var(--slate);font-weight:400;font-size:12.5px;margin-top:1px}
+  .cov-v{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);font-weight:700;white-space:nowrap}
+  .cov-v.inc{font-family:'Outfit';font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--good);background:rgba(31,157,107,.1);padding:4px 10px;border-radius:99px}
+
+  /* vehicle block */
+  .veh{border:1px solid var(--line);border-radius:16px;background:var(--white);margin-top:16px;overflow:hidden}
+  .veh-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;background:var(--paper);border-bottom:1px solid var(--line)}
+  .veh-head .vn{font-weight:600;font-size:15.5px;color:var(--ink)}
+  .veh-head .vn small{display:block;font-size:11.5px;color:var(--slate);font-weight:400;margin-top:2px;letter-spacing:.02em}
+  .veh-head .vp{font-family:'Playfair Display',serif;font-size:19px;font-weight:800;color:var(--navy);white-space:nowrap}
+  .veh-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media (max-width:520px){.veh-body{grid-template-columns:1fr}}
+  .veh-item{padding:13px 20px;border-bottom:1px solid var(--line)}
+  .veh-item:nth-child(odd){border-right:1px solid var(--line)}
+  @media (max-width:520px){.veh-item:nth-child(odd){border-right:none}}
+  .veh-item .il{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);font-weight:600}
+  .veh-item .iv{font-size:14.5px;color:var(--ink);font-weight:600;margin-top:2px}
+
+  .drivers{margin-top:16px;border:1px solid var(--line);border-radius:16px;padding:20px 22px;background:var(--paper)}
+  .drivers h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);font-weight:700;margin-bottom:12px}
+  .drow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .drow:last-child{border-bottom:none}
+  .drow b{color:var(--ink);font-weight:600}
+  .drow span{color:var(--slate);font-size:13px}
+
+  /* why cards */
+  .why{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:560px){.why{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--paper)}
+  .card h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);font-weight:700;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--slate)}
+
+  .cta{margin:52px 0 0;background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:22px;padding:40px 30px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,163,0,.2),transparent 70%)}
+  .cta h2{color:#fff;position:relative}
+  .cta p{color:rgba(255,255,255,.82);margin:14px auto 26px;max-width:46ch;position:relative;font-size:15.5px}
+  .btn{display:inline-block;background:var(--amber);color:#3a2600;font-weight:700;font-size:16px;padding:16px 34px;border-radius:99px;text-decoration:none;position:relative;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 8px 22px rgba(255,163,0,.28)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,163,0,.36)}
+  .cta .alt{display:block;margin-top:16px;font-size:14px;color:rgba(255,255,255,.7);position:relative}
+  .cta .alt a{color:#fff;text-decoration:underline}
+
+  footer{padding:38px 0 56px;text-align:center}
+  .sig{font-weight:700;color:var(--navy);font-size:16px;text-transform:uppercase;letter-spacing:.03em}
+  .sig span{color:var(--amber)}
+  .fslogan{font-size:11px;color:var(--slate);font-style:italic;margin-top:5px}
+  .fcontact{font-size:13.5px;color:var(--slate);margin-top:6px;line-height:1.7}
+  .fcontact a{color:var(--navy);text-decoration:none;font-weight:500}
+  .disc{font-size:11px;color:#9aa6b4;margin-top:20px;max-width:64ch;margin-left:auto;margin-right:auto;line-height:1.5}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brandbar fade">
+    <div class="brand">
+      <div class="logo">Safe<span>shield</span> Insurance</div>
+      <div class="slogan">We work for you, not the insurance company</div>
+    </div>
+    <div class="prepared">Prepared for <b>William Reimer</b><br>August 17, 2026 &middot; Valid 30 days</div>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow fade">Your Home &amp; Auto Proposal</div>
+    <h1 class="fade">Everything you're<br>covered for, in one place.</h1>
+    <p class="lede fade">William, here's the full picture we walked through. <b>Your home with Narragansett Bay and both vehicles with Progressive</b>, laid out line by line so you can see exactly what's protected and at what limits. No surprises, no fine print games.</p>
+
+    <div class="metastrip fade">
+      <div><span class="k">Property</span><span class="v">36 Brodwood Dr, Stamford, CT 06902</span></div>
+      <div><span class="k">Named Insured</span><span class="v">William &amp; Sarah Reimer</span></div>
+      <div><span class="k">Effective</span><span class="v">08/17/2026</span></div>
+    </div>
+  </header>
+</div>
+
+<div class="wrap">
+  <div class="totalcard fade">
+    <div class="k">Your Total Program</div>
+    <div class="split">
+      <div class="col">
+        <div class="lab">Homeowners (NBIC) &mdash; annual</div>
+        <div class="num">$3,983</div>
+        <div class="sub">per year &middot; 12-month term</div>
+      </div>
+      <div class="col">
+        <div class="lab">Auto (Progressive) &mdash; 6 months</div>
+        <div class="num">$1,017</div>
+        <div class="sub">or $968 paid in full</div>
+      </div>
+    </div>
+    <div class="foot">Two carriers, both chosen because they fit your home and drivers best. Each policy bills on its own schedule, and pay-in-full options are shown below on the auto to save you the installment fees.</div>
+  </div>
+</div>
+
+<!-- HOME -->
+<div class="wrap">
+  <section class="sec">
+    <div class="sec-eye fade">Policy 1 &middot; Homeowners</div>
+    <h2 class="fade">Your home at 36 Brodwood</h2>
+    <p class="sub fade">Written as an HO-3 with Narragansett Bay Insurance on a frame home built in 1961, Protection Class 3. This is the coverage that rebuilds the house and protects your family from a liability claim.</p>
+
+    <div class="pol-head fade">
+      <div class="pol-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+      <div class="pol-meta">
+        <div class="pol-name">Narragansett Bay HO-3</div>
+        <div class="pol-tag">Homeowners &middot; Quote CTHQ01907342</div>
+      </div>
+      <div class="pol-price"><span class="n">$3,983</span><span class="s">per year</span></div>
+    </div>
+    <div class="cov-card fade">
+      <div class="cov-row"><div class="cov-l">Coverage A &mdash; Dwelling<small>Rebuilds the house itself, with Guaranteed Replacement Cost</small></div><div class="cov-v">$1,168,000</div></div>
+      <div class="cov-row"><div class="cov-l">Coverage B &mdash; Other Structures<small>Fences, sheds, detached structures</small></div><div class="cov-v">$20,000</div></div>
+      <div class="cov-row"><div class="cov-l">Coverage C &mdash; Personal Property<small>Your belongings, at replacement cost</small></div><div class="cov-v">$150,000</div></div>
+      <div class="cov-row"><div class="cov-l">Coverage D &mdash; Loss of Use<small>Somewhere to live during covered repairs</small></div><div class="cov-v">$50,000</div></div>
+      <div class="cov-row"><div class="cov-l">Coverage E &mdash; Personal Liability<small>Protects your savings if you're found responsible</small></div><div class="cov-v">$500,000</div></div>
+      <div class="cov-row"><div class="cov-l">Coverage F &mdash; Medical Payments<small>Guest medical bills, no fault needed</small></div><div class="cov-v">$5,000</div></div>
+      <div class="cov-row"><div class="cov-l">All-Peril Deductible<small>Your share on a standard claim</small></div><div class="cov-v">$5,000</div></div>
+      <div class="cov-row"><div class="cov-l">Hurricane Deductible</div><div class="cov-v">$5,000</div></div>
+    </div>
+
+    <div class="drivers fade" style="margin-top:16px">
+      <h4>Included Coverage Options</h4>
+      <div class="drow"><b>Guaranteed Replacement Cost (Cov A)</b><span>Rebuilds even if costs exceed the limit</span></div>
+      <div class="drow"><b>Equipment Breakdown</b><span>$100,000</span></div>
+      <div class="drow"><b>Water Back-Up &amp; Sump Overflow</b><span>$5,000</span></div>
+      <div class="drow"><b>Personal Property Replacement Cost</b><span>Included</span></div>
+      <div class="drow"><b>Ordinance or Law</b><span>10%</span></div>
+      <div class="drow"><b>Identity Fraud Expense</b><span>$15,000</span></div>
+      <div class="drow"><b>Inflation Guard</b><span>4%</span></div>
+      <div class="drow"><b>Limited Fungi / Mold Coverage</b><span>$10,000 / $50,000</span></div>
+      <div class="drow"><b>Loss Assessment</b><span>$1,000</span></div>
+      <div class="drow"><b>Personal Injury</b><span>Included</span></div>
+    </div>
+  </section>
+</div>
+
+<!-- AUTO -->
+<div class="wrap">
+  <section class="sec">
+    <div class="sec-eye fade">Policy 2 &middot; Auto</div>
+    <h2 class="fade">Both vehicles, full coverage</h2>
+    <p class="sub fade">Written with Progressive on a 6-month term for both cars, at 100/300 bodily injury limits with matching uninsured motorist. Both vehicles carry comprehensive and collision with a $1,500 deductible.</p>
+
+    <div class="pol-head fade">
+      <div class="pol-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 13l2-5a2 2 0 012-1.4h10A2 2 0 0119 8l2 5"/><path d="M3 13h18v4H3z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg></div>
+      <div class="pol-meta">
+        <div class="pol-name">Progressive Auto</div>
+        <div class="pol-tag">2 vehicles &middot; 6-month policy</div>
+      </div>
+      <div class="pol-price"><span class="n">$1,017</span><span class="s">6 mo &middot; $968 paid in full</span></div>
+    </div>
+
+    <!-- shared limits -->
+    <div class="cov-card fade" style="border-radius:0 0 16px 16px">
+      <div class="cov-row"><div class="cov-l">Bodily Injury Liability<small>Per person / per accident</small></div><div class="cov-v">$100K / $300K</div></div>
+      <div class="cov-row"><div class="cov-l">Property Damage Liability</div><div class="cov-v">$50,000</div></div>
+      <div class="cov-row"><div class="cov-l">Uninsured / Underinsured Motorist<small>Per person / per accident</small></div><div class="cov-v">$100K / $300K</div></div>
+      <div class="cov-row"><div class="cov-l">Medical Payments<small>Per person</small></div><div class="cov-v">$5,000</div></div>
+      <div class="cov-row"><div class="cov-l">Comprehensive &amp; Collision<small>Both vehicles, actual cash value</small></div><div class="cov-v">$1,500 ded</div></div>
+    </div>
+
+    <div class="veh fade">
+      <div class="veh-head">
+        <div class="vn">2020 Lexus NX 300<small>VIN JTJDARDZ5L2234653 &middot; Pleasure use</small></div>
+        <div class="vp">$530</div>
+      </div>
+      <div class="veh-body">
+        <div class="veh-item"><div class="il">Liability</div><div class="iv">100/300 &middot; $50K PD</div></div>
+        <div class="veh-item"><div class="il">UM / UIM</div><div class="iv">100/300</div></div>
+        <div class="veh-item"><div class="il">Comprehensive</div><div class="iv">$1,500 ded</div></div>
+        <div class="veh-item"><div class="il">Collision</div><div class="iv">$1,500 ded</div></div>
+      </div>
+    </div>
+
+    <div class="veh fade">
+      <div class="veh-head">
+        <div class="vn">2021 Volvo XC90<small>VIN YV4A22PK1M1744172 &middot; Pleasure use</small></div>
+        <div class="vp">$487</div>
+      </div>
+      <div class="veh-body">
+        <div class="veh-item"><div class="il">Liability</div><div class="iv">100/300 &middot; $50K PD</div></div>
+        <div class="veh-item"><div class="il">UM / UIM</div><div class="iv">100/300</div></div>
+        <div class="veh-item"><div class="il">Comprehensive</div><div class="iv">$1,500 ded</div></div>
+        <div class="veh-item"><div class="il">Collision</div><div class="iv">$1,500 ded</div></div>
+      </div>
+    </div>
+
+    <div class="drivers fade">
+      <h4>Rated Drivers</h4>
+      <div class="drow"><b>William Reimer</b><span>Insured &middot; b. 06/1987</span></div>
+      <div class="drow"><b>Sarah Reimer</b><span>Spouse &middot; b. 09/1992</span></div>
+      <div class="drow"><b>Laura M Valderrama</b><span>Other &middot; b. 08/1997</span></div>
+    </div>
+  </section>
+</div>
+
+<!-- WHY -->
+<div class="wrap">
+  <section class="sec">
+    <div class="sec-eye fade">A couple things worth knowing</div>
+    <h2 class="fade">Why this coverage holds up</h2>
+    <div class="why">
+      <div class="card fade"><h3>Guaranteed Replacement Cost</h3><p>Your dwelling limit is $1,168,000, but the Guaranteed Replacement Cost endorsement means if a rebuild runs higher than that, the carrier still covers it. Construction costs spike after a big storm, and this keeps that gap off your shoulders.</p></div>
+      <div class="card fade"><h3>Matched UM limits</h3><p>Your uninsured motorist coverage matches your liability at 100/300 on both cars. If someone with no insurance hits you, you're protected at the same level you carry for others, which is exactly how it should be.</p></div>
+      <div class="card fade"><h3>Full coverage on both cars</h3><p>Both the Lexus and the Volvo carry comprehensive and collision, so theft, weather, and at-fault accidents are all covered. The $1,500 deductible keeps your premium efficient while still protecting the vehicles.</p></div>
+      <div class="card fade"><h3>Pay-in-full saves you money</h3><p>Paying the auto in full drops it to $968 and skips every installment fee. Same on the home. If cash flow allows, it's the cheapest way to carry the coverage.</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- CTA -->
+<div class="wrap">
+  <section class="cta fade">
+    <h2>Ready when you are, William.</h2>
+    <p>If everything here looks right, just reply and we'll get both policies bound and set your start dates. Questions on any line? Call or text me directly.</p>
+    <a class="btn" href="mailto:justin@gosafeshield.com?subject=Reimer%20-%20Ready%20to%20bind">Let's lock it in</a>
+    <span class="alt">or reach Safeshield at <a href="tel:2032042555">(203) 204-2555</a></span>
+  </section>
+</div>
+
+<div class="wrap">
+  <footer>
+    <div class="sig">Safe<span>shield</span> Insurance</div>
+    <div class="fslogan">We work for you, not the insurance company</div>
+    <div class="fcontact">
+      Prepared by Justin Cronk<br>
+      <a href="mailto:justin@gosafeshield.com">justin@gosafeshield.com</a>
+    </div>
+    <p class="disc">This is a proposal summary prepared for William Reimer and is not a binder or a contract. Homeowners quoted by Narragansett Bay Insurance (CTHQ01907342); auto quoted by Progressive Casualty Insurance Co. Coverages, limits, terms, deductibles, and exclusions are governed by the actual policy documents. Premiums are subject to carrier review and may change pending underwriting. Rates are not guaranteed and payment does not automatically bind coverage.</p>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.fade').forEach(function(el,i){el.style.transitionDelay=(Math.min(i,6)*40)+'ms';io.observe(el);});
+</script>
+
+<script>window.CASEY_PROPOSAL={"slug":"reimer","agent":"Justin"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
