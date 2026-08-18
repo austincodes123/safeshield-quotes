@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Life Insurance Plan | Westley & Casey Lynskey | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#004b89;--navy-deep:#003566;--amber:#ffa300;--ink:#1a1f26;
+    --slate:#5a6573;--paper:#f6f8fb;--line:#e6ebf2;--white:#ffffff;--good:#1f9d6b;--warn:#b9760a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:820px;margin:0 auto;padding:0 22px}
+  .fade{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}}
+
+  .brandbar{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:20px 0 0;flex-wrap:wrap}
+  .brand{display:flex;flex-direction:column;gap:4px}
+  .logo{font-weight:700;font-size:19px;color:var(--navy);letter-spacing:.03em;text-transform:uppercase}
+  .logo span{color:var(--amber)}
+  .slogan{font-size:11px;color:var(--slate);font-weight:500;font-style:italic}
+  .prepared{font-size:12.5px;color:var(--slate);text-align:right;line-height:1.4}
+  .prepared b{color:var(--ink)}
+
+  .hero{padding:40px 0 30px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:18px}
+  h1{font-family:'Playfair Display',serif;font-weight:800;color:var(--navy);font-size:clamp(38px,8vw,60px);line-height:1;letter-spacing:-.015em}
+  .lede{font-size:17px;color:var(--slate);margin-top:20px;max-width:60ch}
+  .lede b{color:var(--ink);font-weight:600}
+
+  /* RECOMMENDATION card */
+  .rec{margin:28px 0 0;background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:22px;color:#fff;padding:32px 30px;position:relative;overflow:hidden}
+  .rec::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(255,163,0,.22),transparent 70%)}
+  .rec .k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);font-weight:600;position:relative}
+  .rec h2{color:#fff;font-family:'Playfair Display',serif;font-size:clamp(24px,5vw,32px);font-weight:700;margin:8px 0 6px;position:relative}
+  .rec .sub{color:rgba(255,255,255,.82);font-size:15px;max-width:54ch;position:relative}
+  .rec-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 20px;position:relative}
+  @media (max-width:520px){.rec-grid{grid-template-columns:1fr}}
+  .rec-person{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:18px}
+  .rec-person .nm{font-size:13px;color:var(--amber);font-weight:600;letter-spacing:.04em}
+  .rec-person .amt{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;margin:4px 0 2px}
+  .rec-person .term{font-size:13px;color:rgba(255,255,255,.75)}
+  .rec-person .pm{font-size:14px;color:#fff;margin-top:8px;font-weight:600}
+  .rec-total{position:relative;border-top:1px solid rgba(255,255,255,.18);padding-top:20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .rec-total .lbl{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+  .rec-total .big{font-family:'Playfair Display',serif;font-size:38px;font-weight:800;line-height:1}
+  .rec-total .big small{font-size:15px;font-weight:400;color:rgba(255,255,255,.7)}
+  .rec-total .day{font-size:13px;color:rgba(255,255,255,.8);margin-top:4px}
+
+  .sec{padding:46px 0 0}
+  .sec-eye{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:12px}
+  h2.h{font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:clamp(24px,5vw,34px);line-height:1.08}
+  .sub{font-size:15.5px;color:var(--slate);margin-top:12px;max-width:62ch}
+
+  /* BUILDER */
+  .builder{margin-top:24px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 1px 0 rgba(0,75,137,.04)}
+  .b-person{padding:22px 22px 6px;border-bottom:1px solid var(--line)}
+  .b-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .b-name{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:700}
+  .b-name span{font-size:13px;color:var(--slate);font-weight:400;font-family:'Outfit'}
+  .b-price{font-family:'Playfair Display',serif;font-size:24px;color:var(--ink);font-weight:800;white-space:nowrap}
+  .b-price small{font-size:12px;color:var(--slate);font-weight:400}
+  .b-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);font-weight:600;margin:16px 0 8px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:9px 15px;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--slate);cursor:pointer;transition:all .18s ease;position:relative}
+  .opt:hover{border-color:var(--navy);color:var(--navy)}
+  .opt.on{background:var(--navy);border-color:var(--navy);color:#fff}
+  .opt .best{position:absolute;top:-9px;right:-6px;background:var(--amber);color:#3a2600;font-size:9px;font-weight:700;letter-spacing:.03em;padding:2px 7px;border-radius:99px;text-transform:uppercase}
+  .opt .gap{display:block;font-size:10.5px;font-weight:500;color:inherit;opacity:.7;margin-top:1px}
+  .opt.on .gap{opacity:.85}
+  .b-note{font-size:13px;margin:12px 0 18px;padding:11px 14px;border-radius:11px;min-height:0;transition:all .2s ease}
+  .b-note.good{background:rgba(31,157,107,.1);color:var(--good);border:1px solid rgba(31,157,107,.25)}
+  .b-note.warn{background:rgba(255,163,0,.1);color:var(--warn);border:1px solid rgba(255,163,0,.3)}
+  .b-note.hide{display:none}
+
+  /* combined total + budget */
+  .combined{background:var(--navy);color:#fff;padding:24px 22px}
+  .combined-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .combined .lbl{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .combined .big{font-family:'Playfair Display',serif;font-size:34px;font-weight:800;line-height:1}
+  .combined .big small{font-size:14px;font-weight:400;color:rgba(255,255,255,.7)}
+  .budget{margin-top:18px}
+  .budget-bar{height:10px;border-radius:99px;background:rgba(255,255,255,.15);position:relative;overflow:hidden}
+  .budget-fill{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:var(--good);transition:width .3s ease,background .3s ease}
+  .budget-scale{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.6);margin-top:6px}
+  .budget-msg{font-size:13.5px;margin-top:12px;color:rgba(255,255,255,.9)}
+  .budget-msg b{color:var(--amber)}
+
+  /* UPSELL */
+  .up-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+  @media (max-width:560px){.up-grid{grid-template-columns:1fr}}
+  .up{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--paper);cursor:pointer;transition:border-color .2s ease,box-shadow .2s ease,transform .15s ease}
+  .up:hover{border-color:var(--amber);box-shadow:0 8px 22px rgba(255,163,0,.14);transform:translateY(-2px)}
+  .up .who{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);font-weight:700}
+  .up .to{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);font-weight:800;margin:6px 0 2px}
+  .up .from{font-size:12.5px;color:var(--slate)}
+  .up .cost{margin-top:12px;font-size:15px;color:var(--good);font-weight:700}
+  .up .cost span{font-size:12px;color:var(--slate);font-weight:400}
+  .up .apply{margin-top:10px;font-size:12.5px;color:var(--navy);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+
+  .why{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:560px){.why{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--paper)}
+  .card h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);font-weight:700;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--slate)}
+
+  .carrier{margin-top:24px;border:1px solid var(--line);border-radius:16px;padding:24px;background:#fff;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
+  .carrier .badge{flex:none;width:58px;height:58px;border-radius:14px;background:rgba(0,75,137,.08);color:var(--navy);display:grid;place-items:center;font-family:'Playfair Display';font-weight:800;font-size:22px}
+  .carrier .cbody{flex:1;min-width:200px}
+  .carrier h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:700}
+  .carrier p{font-size:14px;color:var(--slate);margin-top:6px}
+  .carrier .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .tag{font-size:12px;font-weight:600;padding:5px 12px;border-radius:99px;background:var(--paper);color:var(--navy);border:1px solid var(--line)}
+
+  .term-cmp{margin-top:20px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .tc-row{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media (max-width:520px){.tc-row{grid-template-columns:1fr}}
+  .tc-col{padding:22px}
+  .tc-col.rec-col{background:rgba(0,75,137,.045)}
+  .tc-col.other{border-left:1px solid var(--line)}
+  @media (max-width:520px){.tc-col.other{border-left:none;border-top:1px solid var(--line)}}
+  .tc-col .t{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+  .tc-col.rec-col .t{color:var(--navy)}
+  .tc-col.other .t{color:var(--slate)}
+  .tc-col h4{font-family:'Playfair Display',serif;font-size:20px;color:var(--ink);font-weight:700;margin-bottom:8px}
+  .tc-col p{font-size:13.5px;color:var(--slate)}
+
+  .cta{margin:48px 0 0;background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:22px;padding:40px 30px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,163,0,.2),transparent 70%)}
+  .cta h2{color:#fff;font-family:'Playfair Display',serif;font-size:clamp(24px,5vw,32px);font-weight:700;position:relative}
+  .cta p{color:rgba(255,255,255,.82);margin:14px auto 26px;max-width:46ch;position:relative;font-size:15.5px}
+  .btn{display:inline-block;background:var(--amber);color:#3a2600;font-weight:700;font-size:16px;padding:16px 34px;border-radius:99px;text-decoration:none;position:relative;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 8px 22px rgba(255,163,0,.28)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,163,0,.36)}
+  .cta .alt{display:block;margin-top:16px;font-size:14px;color:rgba(255,255,255,.7);position:relative}
+  .cta .alt a{color:#fff;text-decoration:underline}
+
+  footer{padding:38px 0 56px;text-align:center}
+  .sig{font-weight:700;color:var(--navy);font-size:16px;text-transform:uppercase;letter-spacing:.03em}
+  .sig span{color:var(--amber)}
+  .fslogan{font-size:11px;color:var(--slate);font-style:italic;margin-top:5px}
+  .fcontact{font-size:13.5px;color:var(--slate);margin-top:6px;line-height:1.7}
+  .fcontact a{color:var(--navy);text-decoration:none;font-weight:500}
+  .disc{font-size:11px;color:#9aa6b4;margin-top:20px;max-width:64ch;margin-left:auto;margin-right:auto;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brandbar fade">
+    <div class="brand">
+      <div class="logo">Safe<span>shield</span> Insurance</div>
+      <div class="slogan">We work for you, not the insurance company</div>
+    </div>
+    <div class="prepared">Prepared for <b>Westley &amp; Casey Lynskey</b><br>August 18, 2026 &middot; Valid 30 days</div>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow fade">Your life insurance plan</div>
+    <h1 class="fade">Protection built<br>around your family.</h1>
+    <p class="lede fade">You both told us the coverage you wanted, and we shopped it. <b>This is a plan that locks in your rate while you are young and healthy</b>, so the people who depend on you are protected no matter what. Here is what we would put our own name on.</p>
+  </header>
+
+  <!-- RECOMMENDATION -->
+  <section class="rec fade">
+    <div class="k">Our recommendation</div>
+    <h2>Full coverage, locked in for 30 years</h2>
+    <p class="sub">Both of you at the amounts you asked for, on a 30-year term. This is the plan we would sign our own name to. The rate is set today and never moves for the full 30 years.</p>
+    <div class="rec-grid">
+      <div class="rec-person">
+        <div class="nm">Westley</div>
+        <div class="amt">$2,000,000</div>
+        <div class="term">30-year term</div>
+        <div class="pm">$177.81/mo</div>
+      </div>
+      <div class="rec-person">
+        <div class="nm">Casey</div>
+        <div class="amt">$1,500,000</div>
+        <div class="term">30-year term</div>
+        <div class="pm">$81.05/mo</div>
+      </div>
+    </div>
+    <div class="rec-total">
+      <div>
+        <div class="lbl">Combined monthly</div>
+        <div class="big">$258.86<small> /mo</small></div>
+      </div>
+      <div class="day">About $8.63 a day to protect your whole family</div>
+    </div>
+  </section>
+
+  <!-- BUILDER -->
+  <section class="sec">
+    <div class="sec-eye fade">Build your plan</div>
+    <h2 class="h fade">See your options side by side</h2>
+    <p class="sub fade">Pick a term and a coverage amount for each of you. The combined monthly updates instantly. On the 20-year term we show your target coverage and up, on 30-year you can see the full range.</p>
+
+    <div class="builder fade">
+      <!-- WESTLEY -->
+      <div class="b-person" data-person="wes">
+        <div class="b-head">
+          <div class="b-name">Westley <span>&middot; age 38, non-nicotine</span></div>
+          <div class="b-price"><span id="wes-priceval">$177.81</span><small> /mo</small></div>
+        </div>
+        <div class="b-label">Term length</div>
+        <div class="opts" data-group="wes-term">
+          <button class="opt" data-term="20">20-year<span class="gap">ends at age 58</span></button>
+          <button class="opt on" data-term="30">30-year<span class="best">Best</span><span class="gap">covered to age 68</span></button>
+        </div>
+        <div class="b-label">Coverage amount</div>
+        <div class="opts" data-group="wes-amt"></div>
+        <div class="b-note hide" id="wes-note"></div>
+      </div>
+
+      <!-- CASEY -->
+      <div class="b-person" data-person="casey">
+        <div class="b-head">
+          <div class="b-name">Casey <span>&middot; age 34, non-nicotine</span></div>
+          <div class="b-price"><span id="casey-priceval">$81.05</span><small> /mo</small></div>
+        </div>
+        <div class="b-label">Term length</div>
+        <div class="opts" data-group="casey-term">
+          <button class="opt" data-term="20">20-year<span class="gap">ends at age 54</span></button>
+          <button class="opt on" data-term="30">30-year<span class="best">Best</span><span class="gap">covered to age 64</span></button>
+        </div>
+        <div class="b-label">Coverage amount</div>
+        <div class="opts" data-group="casey-amt"></div>
+        <div class="b-note hide" id="casey-note"></div>
+      </div>
+
+      <!-- COMBINED -->
+      <div class="combined">
+        <div class="combined-top">
+          <div class="lbl">Combined monthly</div>
+          <div class="big"><span id="combined-val">$258.86</span><small> /mo</small></div>
+        </div>
+        <div class="budget">
+          <div class="budget-bar"><div class="budget-fill" id="budget-fill"></div></div>
+          <div class="budget-scale"><span>$150</span><span>$200</span><span>$250</span></div>
+          <div class="budget-msg" id="budget-msg"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPSELL -->
+  <section class="sec">
+    <div class="sec-eye fade">You have room, put it to work</div>
+    <h2 class="h fade">A little more a month, a lot more protection</h2>
+    <p class="sub fade">You are sitting comfortably inside your budget, which means you can lock in more coverage for the people you love for just a few dollars more. Tap any option to load it into the builder above.</p>
+
+    <div class="up-grid fade" id="upsells"></div>
+  </section>
+
+  <!-- WHY 30 YEAR -->
+  <section class="sec">
+    <div class="sec-eye fade">20 vs 30 year</div>
+    <h2 class="h fade">Why we recommend the 30-year term</h2>
+    <div class="term-cmp fade">
+      <div class="tc-row">
+        <div class="tc-col rec-col">
+          <div class="t">Recommended &middot; 30-year</div>
+          <h4>Covered through your peak years</h4>
+          <p>Thirty years carries you past the mortgage, through the kids growing up, and well into your earning years. The rate is locked the entire time. It costs a bit more per month, and it buys a decade more certainty.</p>
+        </div>
+        <div class="tc-col other">
+          <div class="t">20-year</div>
+          <h4>The budget option</h4>
+          <p>Twenty years is real coverage at a lower monthly, and it is a solid fallback if the budget needs to come down. The tradeoff is the coverage ends ten years sooner, when replacing it later will cost far more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRIER -->
+  <section class="sec">
+    <div class="sec-eye fade">Your carrier</div>
+    <h2 class="h fade">Placed with a carrier that pays</h2>
+    <div class="carrier fade">
+      <div class="badge">A</div>
+      <div class="cbody">
+        <h3>Symetra Life &middot; SwiftTerm</h3>
+        <p>An A-rated carrier (AM Best) with a modern, instant-issue term product. Both of you qualified at Preferred Non-Nicotine, their strong health class, which is exactly why these rates came back so competitively.</p>
+        <div class="tags">
+          <span class="tag">A-rated (AM Best)</span>
+          <span class="tag">Instant issue available</span>
+          <span class="tag">Preferred Non-Nicotine</span>
+          <span class="tag">Level premium</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY IT MATTERS -->
+  <section class="sec">
+    <div class="sec-eye fade">Why it matters</div>
+    <h2 class="h fade">What this plan actually protects</h2>
+    <div class="why">
+      <div class="card fade"><h3>The mortgage &amp; the roof</h3><p>If either of you were gone, this pays off the home and keeps the family in it. No forced move, no scramble, on top of the hardest days imaginable.</p></div>
+      <div class="card fade"><h3>Income replacement</h3><p>The paycheck that keeps the household running does not disappear. This coverage steps in and replaces years of income so life can keep moving forward.</p></div>
+      <div class="card fade"><h3>The rate never moves</h3><p>This is the youngest and healthiest you will ever be. Locking in now freezes the price for the full term. Waiting only makes the same coverage cost more.</p></div>
+      <div class="card fade"><h3>Room to grow into it</h3><p>You are well under your budget, so you can carry more protection than you thought, without stretching. That headroom is worth using while it is this cheap.</p></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta fade">
+    <h2>Ready when you are.</h2>
+    <p>Reply to our email or call and we will send the paperwork and lock in your rate. With instant issue, this can move fast.</p>
+    <a class="btn" href="mailto:justin@gosafeshield.com?subject=Lynskey%20Life%20Insurance%20-%20Ready%20to%20move">Let's lock it in</a>
+    <span class="alt">or reach out anytime to walk through it</span>
+  </section>
+
+  <footer>
+    <div class="sig">Safe<span>shield</span> Insurance</div>
+    <div class="fslogan">We work for you, not the insurance company</div>
+    <div class="fcontact">
+      Justin Cronk<br>
+      <a href="mailto:justin@gosafeshield.com">justin@gosafeshield.com</a>
+    </div>
+    <p class="disc">This is a proposal summary prepared for Westley &amp; Casey Lynskey and is not a binder or a contract. All premiums are quoted through Symetra Life Insurance Company (SwiftTerm) at the Preferred Non-Nicotine health class and are subject to final underwriting approval. Coverage, limits, and terms are governed by the issued policy. Quoted August 18, 2026.</p>
+  </footer>
+</div>
+
+<script>
+  // ===== VERIFIED RATE TABLES (monthly) =====
+  // Westley - Male. 20yr: target ($2M) and up only. 30yr: full range.
+  var WES = {
+    "20": { 2000000:99.41, 2100000:104.10, 2200000:108.80, 2250000:111.14 },
+    "30": { 1500000:134.74, 1750000:156.27, 2000000:177.81, 2100000:186.42, 2200000:195.03, 2250000:199.34 }
+  };
+  // Casey - Female. 20yr: target ($1.5M) and up only. 30yr: full range.
+  var CASEY = {
+    "20": { 1500000:47.03, 1650000:51.18, 1750000:53.94, 2000000:60.86 },
+    "30": { 1300000:72.70, 1400000:77.86, 1500000:81.05, 1650000:88.60, 1750000:93.63, 2000000:106.22 }
+  };
+  var TABLES = { wes: WES, casey: CASEY };
+  var TARGET = { wes:2000000, casey:1500000 };
+  var RECAMT = { wes:2000000, casey:1500000 };
+
+  var state = {
+    wes:   { term:"30", amt:2000000 },
+    casey: { term:"30", amt:1500000 }
+  };
+
+  function fmtMoney(n){ return "$"+n.toLocaleString(); }
+  function fmtM(n){ return "$"+(n/1000000).toFixed(n%1000000===0?1:2).replace(/\.00$/,'')+"M"; }
+  function fmtPm(n){ return "$"+n.toFixed(2); }
+
+  function amtList(person){
+    // ordered list of amounts available for the CURRENT term
+    return Object.keys(TABLES[person][state[person].term]).map(Number).sort(function(a,b){return a-b});
+  }
+
+  function renderAmtOpts(person){
+    var group = document.querySelector('[data-group="'+person+'-amt"]');
+    group.innerHTML = "";
+    var amts = amtList(person);
+    // if current amt not available in this term, snap to target (or nearest available)
+    if(amts.indexOf(state[person].amt)===-1){
+      state[person].amt = amts.indexOf(TARGET[person])!==-1 ? TARGET[person] : amts[0];
+    }
+    amts.forEach(function(a){
+      var b = document.createElement('button');
+      b.className = 'opt' + (a===state[person].amt ? ' on':'');
+      var label = fmtM(a);
+      var badge = (a===RECAMT[person]) ? '<span class="best">Best</span>' : '';
+      var sub = '';
+      if(a < TARGET[person]){
+        var short = TARGET[person]-a;
+        sub = '<span class="gap">'+fmtMoney(short)+' short of target</span>';
+      } else if(a > TARGET[person]){
+        sub = '<span class="gap">+'+fmtMoney(a-TARGET[person])+' extra</span>';
+      } else {
+        sub = '<span class="gap">your target</span>';
+      }
+      b.innerHTML = label + badge + sub;
+      b.addEventListener('click', function(){
+        state[person].amt = a; render();
+      });
+      group.appendChild(b);
+    });
+  }
+
+  function bindTermOpts(person){
+    var group = document.querySelector('[data-group="'+person+'-term"]');
+    group.querySelectorAll('.opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        state[person].term = btn.dataset.term;
+        render();
+      });
+    });
+  }
+
+  function personPrice(person){
+    return TABLES[person][state[person].term][state[person].amt];
+  }
+
+  function setNote(person){
+    var note = document.getElementById(person+'-note');
+    var s = state[person];
+    var nm = person==='wes' ? 'Westley' : 'Casey';
+    if(s.term==='20' && s.amt===TARGET[person]){
+      note.className='b-note warn'; note.innerHTML='20-year covers '+nm+' for 20 years only. Our 30-year recommendation keeps the same rate locked a full decade longer.';
+    } else if(s.amt < TARGET[person]){
+      note.className='b-note warn'; note.innerHTML=nm+' is under the '+fmtM(TARGET[person])+' target by '+fmtMoney(TARGET[person]-s.amt)+'. We would keep the full amount if you can.';
+    } else if(s.amt > TARGET[person]){
+      note.className='b-note good'; note.innerHTML='Nice, '+nm+' is carrying '+fmtMoney(s.amt-TARGET[person])+' more than planned for just a few dollars a month.';
+    } else {
+      note.className='b-note hide'; note.innerHTML='';
+    }
+  }
+
+  function render(){
+    ['wes','casey'].forEach(function(p){
+      // rebuild term active state
+      var tg = document.querySelector('[data-group="'+p+'-term"]');
+      tg.querySelectorAll('.opt').forEach(function(b){ b.classList.toggle('on', b.dataset.term===state[p].term); });
+      renderAmtOpts(p);
+      document.getElementById(p+'-priceval').textContent = fmtPm(personPrice(p));
+      setNote(p);
+    });
+
+    var total = personPrice('wes') + personPrice('casey');
+    document.getElementById('combined-val').textContent = fmtPm(total);
+
+    // budget bar: window 150-250, scale 100-260 visual
+    var fill = document.getElementById('budget-fill');
+    var msg = document.getElementById('budget-msg');
+    var pct = Math.max(0, Math.min(100, ((total-100)/(260-100))*100));
+    fill.style.width = pct+'%';
+    if(total < 150){
+      fill.style.background = 'var(--amber)';
+      msg.innerHTML = 'You are <b>under budget</b> at '+fmtPm(total)+'/mo. You have room to add coverage, tap an option below and put it to work.';
+    } else if(total <= 250){
+      fill.style.background = 'var(--good)';
+      msg.innerHTML = 'Right in your target range at <b>'+fmtPm(total)+'/mo</b>. This is comfortable, protected, and locked in.';
+    } else {
+      fill.style.background = 'var(--amber)';
+      msg.innerHTML = 'At <b>'+fmtPm(total)+'/mo</b> you are just over the $250 line, and honestly it is worth every dollar for full 30-year coverage. Trim slightly if you need to.';
+    }
+
+    renderUpsells();
+  }
+
+  // ===== UPSELLS: generated from current selection, framed as "a little more" =====
+  function renderUpsells(){
+    var grid = document.getElementById('upsells');
+    grid.innerHTML = '';
+    ['wes','casey'].forEach(function(p){
+      var nm = p==='wes' ? 'Westley' : 'Casey';
+      var cur = state[p].amt;
+      var curPrice = personPrice(p);
+      var amts = amtList(p);
+      amts.filter(function(a){ return a>cur; }).forEach(function(a){
+        var diff = TABLES[p][state[p].term][a] - curPrice;
+        var card = document.createElement('div');
+        card.className = 'up';
+        var day = (diff/30);
+        card.innerHTML =
+          '<div class="who">'+nm+' &middot; '+state[p].term+'-year</div>'+
+          '<div class="to">Step up to '+fmtM(a)+'</div>'+
+          '<div class="from">from '+fmtM(cur)+' now</div>'+
+          '<div class="cost">+'+fmtPm(diff)+'/mo <span>(~'+ (day<1? Math.round(day*100)+'&cent;':'$'+day.toFixed(2)) +' a day)</span></div>'+
+          '<div class="apply">Load this &rarr;</div>';
+        card.addEventListener('click', function(){ state[p].amt = a; render(); window.scrollTo({top:0,behavior:'smooth'}); });
+        grid.appendChild(card);
+      });
+    });
+    if(!grid.children.length){
+      grid.innerHTML = '<div class="up" style="cursor:default"><div class="who">Maxed out</div><div class="to">You are both at the top</div><div class="from">Nice, full coverage selected.</div></div>';
+    }
+  }
+
+  // init
+  bindTermOpts('wes'); bindTermOpts('casey');
+  render();
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.fade').forEach(function(el,i){el.style.transitionDelay=(Math.min(i,6)*40)+'ms';io.observe(el);});
+</script>
+
+<script>window.CASEY_PROPOSAL={"slug":"lynskey-final","agent":"Justin"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
