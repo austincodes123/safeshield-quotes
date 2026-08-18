@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Randall & Evonne Klein — Insurance Proposal</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:#0a1628;
+  color:#FAFAF8;
+  font-family:'Outfit', sans-serif;
+  font-weight:300;
+  line-height:1.6;
+}
+h1,h2,h3,h4 { font-family:'Playfair Display', serif; font-weight:900; }
+.wrap { max-width:1100px; margin:0 auto; padding:0 24px; }
+.divider {
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+  margin:60px 0;
+}
+
+/* HERO */
+.hero {
+  padding:100px 24px 70px;
+  text-align:center;
+  background:radial-gradient(ellipse at top, rgba(0,75,137,0.35), transparent 60%);
+}
+.hero .eyebrow {
+  color:#FFA300;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:18px;
+}
+.hero h1 {
+  font-size:52px;
+  line-height:1.15;
+  margin-bottom:20px;
+}
+.hero h1 span { color:#FFA300; }
+.hero p.sub {
+  font-size:18px;
+  color:rgba(250,250,248,0.65);
+  max-width:640px;
+  margin:0 auto 30px;
+}
+.hero .meta {
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+  margin-top:30px;
+  font-size:14px;
+  color:rgba(250,250,248,0.55);
+}
+.hero .meta b { color:#FAFAF8; font-weight:600; }
+
+/* SECTION HEADS */
+.section-head { text-align:center; margin-bottom:50px; }
+.section-head .eyebrow {
+  color:#FFA300; letter-spacing:3px; text-transform:uppercase; font-size:13px; font-weight:600; margin-bottom:14px;
+}
+.section-head h2 { font-size:36px; margin-bottom:14px; }
+.section-head p { color:rgba(250,250,248,0.6); max-width:600px; margin:0 auto; }
+
+/* CURRENT SNAPSHOT */
+.current-box {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:36px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  align-items:center;
+  justify-content:space-between;
+}
+.current-box .label { font-size:13px; text-transform:uppercase; letter-spacing:2px; color:rgba(250,250,248,0.5); margin-bottom:8px; }
+.current-box .figure { font-size:32px; font-weight:700; font-family:'Playfair Display',serif; }
+.current-item { flex:1; min-width:200px; }
+.current-total {
+  background:rgba(255,163,0,0.08);
+  border:1px solid rgba(255,163,0,0.3);
+  border-radius:14px;
+  padding:20px 28px;
+  text-align:center;
+}
+.current-total .figure { color:#FFA300; font-size:38px; }
+
+/* OPTION CARDS */
+.options-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+@media (max-width:800px){ .options-grid{ grid-template-columns:1fr; } }
+
+.option-card {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;
+  padding:36px;
+  position:relative;
+  overflow:hidden;
+}
+.option-card.recommended {
+  border:1px solid rgba(255,163,0,0.5);
+  background:linear-gradient(180deg, rgba(255,163,0,0.08), rgba(255,255,255,0.03));
+}
+.ribbon {
+  position:absolute; top:20px; right:-40px;
+  background:#FFA300; color:#0a1628;
+  font-size:12px; font-weight:800; letter-spacing:1px;
+  padding:6px 50px;
+  transform:rotate(45deg);
+  text-transform:uppercase;
+}
+.option-card h3 { font-size:24px; margin-bottom:6px; }
+.option-card .tag { color:rgba(250,250,248,0.55); font-size:14px; margin-bottom:24px; }
+.option-card .price { font-size:42px; font-weight:900; font-family:'Playfair Display',serif; color:#FFA300; margin-bottom:4px; }
+.option-card .price-sub { font-size:13px; color:rgba(250,250,248,0.5); margin-bottom:26px; }
+.line-item {
+  display:flex; justify-content:space-between; padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  font-size:15px;
+}
+.line-item:last-child { border-bottom:none; }
+.line-item .carrier { color:rgba(250,250,248,0.55); font-size:12px; display:block; margin-top:2px; }
+.line-item b { font-weight:600; }
+.savings-tag {
+  margin-top:24px;
+  background:rgba(76,201,131,0.12);
+  border:1px solid rgba(76,201,131,0.35);
+  color:#7fe3a8;
+  border-radius:10px;
+  padding:14px 18px;
+  font-size:14px;
+  font-weight:600;
+}
+
+/* TABLES */
+.compare-table {
+  width:100%;
+  border-collapse:collapse;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  overflow:hidden;
+  margin-bottom:20px;
+}
+.compare-table th {
+  background:rgba(0,75,137,0.4);
+  text-align:left;
+  padding:14px 18px;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:rgba(250,250,248,0.8);
+  font-weight:600;
+}
+.compare-table td {
+  padding:13px 18px;
+  border-top:1px solid rgba(255,255,255,0.06);
+  font-size:15px;
+}
+.compare-table tr:hover td { background:rgba(255,255,255,0.02); }
+.compare-table td.hi { color:#FFA300; font-weight:600; }
+.compare-table td.num { text-align:right; }
+.table-wrap-title { font-size:14px; letter-spacing:2px; text-transform:uppercase; color:#FFA300; margin:36px 0 14px; font-weight:600; }
+
+/* CALLOUT */
+.callout {
+  background:rgba(255,255,255,0.04);
+  border-left:3px solid #FFA300;
+  border-radius:0 14px 14px 0;
+  padding:24px 28px;
+  margin:24px 0;
+  font-size:15px;
+  color:rgba(250,250,248,0.85);
+}
+.callout b { color:#FFA300; }
+
+/* WHY SAFESHIELD */
+.why-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+@media (max-width:800px){ .why-grid{ grid-template-columns:1fr; } }
+.why-card {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
+  padding:26px;
+}
+.why-card h4 { font-size:18px; margin-bottom:10px; color:#FFA300; font-family:'Outfit',sans-serif; font-weight:700; }
+.why-card p { font-size:14px; color:rgba(250,250,248,0.65); }
+
+/* CTA FOOTER */
+.cta {
+  text-align:center;
+  padding:80px 24px;
+  background:radial-gradient(ellipse at bottom, rgba(255,163,0,0.12), transparent 60%);
+}
+.cta h2 { font-size:34px; margin-bottom:16px; }
+.cta p { color:rgba(250,250,248,0.6); margin-bottom:32px; }
+.btn {
+  display:inline-block;
+  padding:16px 38px;
+  border-radius:100px;
+  font-weight:700;
+  text-decoration:none;
+  font-size:15px;
+  margin:0 8px;
+}
+.btn-primary { background:#FFA300; color:#0a1628; }
+.btn-secondary { background:rgba(255,255,255,0.06); color:#FAFAF8; border:1px solid rgba(255,255,255,0.15); }
+.footer-note { margin-top:50px; font-size:13px; color:rgba(250,250,248,0.35); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">Prepared exclusively for</div>
+  <h1>Randall &amp; Evonne Klein<br><span>19 Salt Box Ln, Darien</span></h1>
+  <p class="sub">We shopped your Hartford home and auto against the market. Here's the recommended package, plus a strong alternative — both stacked against exactly what you're paying today.</p>
+  <div class="meta">
+    <div><b>Effective Date</b><br>09/17/2026</div>
+    <div><b>Prepared By</b><br>Eric Kelly</div>
+    <div><b>Current Carrier</b><br>The Hartford</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="section-head">
+    <div class="eyebrow">Where you stand today</div>
+    <h2>Your Current Hartford Costs</h2>
+    <p>We don't have visibility into your current Hartford coverages or limits — just the premium. Here's the baseline we're shopping against.</p>
+  </div>
+
+  <div class="current-box">
+    <div class="current-item">
+      <div class="label">Home — The Hartford</div>
+      <div class="figure">$5,394<span style="font-size:16px;font-weight:400;color:rgba(250,250,248,0.5);">/yr</span></div>
+    </div>
+    <div class="current-item">
+      <div class="label">Auto — The Hartford</div>
+      <div class="figure">$718<span style="font-size:16px;font-weight:400;color:rgba(250,250,248,0.5);">/mo</span></div>
+      <div style="font-size:13px;color:rgba(250,250,248,0.45);margin-top:4px;">Annualized: $8,616/yr</div>
+    </div>
+    <div class="current-total">
+      <div class="label">Current Annual Total</div>
+      <div class="figure">$14,010</div>
+      <div style="font-size:12px;color:rgba(250,250,248,0.5);margin-top:4px;">No umbrella on file</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-head">
+    <div class="eyebrow">Two paths forward</div>
+    <h2>The Recommended Package vs. The Alternative</h2>
+    <p>Both options beat what you're paying today. Here's how they stack up.</p>
+  </div>
+
+  <div class="options-grid">
+
+    <!-- OPTION A: RECOMMENDED -->
+    <div class="option-card recommended">
+      <div class="ribbon">Recommended</div>
+      <h3>The Safeshield Package</h3>
+      <div class="tag">Plymouth Rock Auto + Umbrella, NBIC Home</div>
+      <div class="price">$9,708</div>
+      <div class="price-sub">per year (12-pay). $9,510/yr if auto is paid in full.</div>
+
+      <div class="line-item">
+        <div>Auto <span class="carrier">Plymouth Rock — Lexus NX 350 + Mazda CX-5</span></div>
+        <b>$3,622</b>
+      </div>
+      <div class="line-item">
+        <div>Home <span class="carrier">NBIC — $1,296,000 Dwelling</span></div>
+        <b>$5,603</b>
+      </div>
+      <div class="line-item">
+        <div>Umbrella <span class="carrier">Plymouth Rock — $1,000,000</span></div>
+        <b>$483</b>
+      </div>
+
+      <div class="savings-tag">
+        Saves $4,302/yr vs. current — and adds $1M of umbrella liability you don't currently have.
+      </div>
+    </div>
+
+    <!-- OPTION B: TRAVELERS PACKAGE -->
+    <div class="option-card">
+      <h3>The Travelers Package</h3>
+      <div class="tag">Travelers Auto + Travelers Home (multi-policy)</div>
+      <div class="price">$11,050</div>
+      <div class="price-sub">per year, 12 months</div>
+
+      <div class="line-item">
+        <div>Auto <span class="carrier">Travelers — Lexus NX 350 + Mazda CX-5</span></div>
+        <b>$3,906</b>
+      </div>
+      <div class="line-item">
+        <div>Home <span class="carrier">Travelers — $950,000 Dwelling</span></div>
+        <b>$7,144</b>
+      </div>
+      <div class="line-item">
+        <div>Umbrella <span class="carrier">Not quoted</span></div>
+        <b>—</b>
+      </div>
+
+      <div class="savings-tag" style="background:rgba(255,163,0,0.08);border-color:rgba(255,163,0,0.3);color:#FFA300;">
+        Saves $2,960/yr vs. current. Lower dwelling limit, no umbrella included.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <b>The short version:</b> the Plymouth Rock + NBIC package costs about $1,342/yr less than the Travelers package,
+    carries a dwelling limit over $300K higher, and comes bundled with a $1,000,000 umbrella policy. That's the strongest
+    combination of price, coverage, and protection of everything we quoted.
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-head">
+    <div class="eyebrow">Auto, side by side</div>
+    <h2>Plymouth Rock vs. Travelers</h2>
+    <p>Same two vehicles — 2023 Lexus NX 350 and 2023 Mazda CX-5 — priced by each carrier.</p>
+  </div>
+
+  <div class="table-wrap-title">Travelers — $3,906/yr total</div>
+  <table class="compare-table">
+    <tr><th>Coverage</th><th>Limit / Deductible</th><th class="num">Lexus NX 350</th><th class="num">Mazda CX-5</th></tr>
+    <tr><td>Bodily Injury / UM-UIM</td><td>250,000/500,000</td><td class="num">$610</td><td class="num">$632</td></tr>
+    <tr><td>Property Damage</td><td>100,000</td><td class="num">$241</td><td class="num">$324</td></tr>
+    <tr><td>Uninsured/Underinsured Motorist</td><td>250,000/500,000</td><td class="num">$156</td><td class="num">$156</td></tr>
+    <tr><td>Medical Payments</td><td>5,000</td><td class="num">$65</td><td class="num">$49</td></tr>
+    <tr><td>Comprehensive</td><td>$500 ded</td><td class="num">$168</td><td class="num">$203</td></tr>
+    <tr><td>Collision</td><td>$1,000 ded</td><td class="num">$575</td><td class="num">$657</td></tr>
+    <tr><td>Rental Reimbursement</td><td>40/1,200</td><td class="num">$25</td><td class="num">$25</td></tr>
+    <tr><td>Roadside Assistance</td><td>15/15</td><td class="num">$10</td><td class="num">$10</td></tr>
+    <tr><td><b>Total Per Vehicle</b></td><td></td><td class="num hi">$1,850</td><td class="num hi">$2,056</td></tr>
+  </table>
+
+  <div class="table-wrap-title">Plymouth Rock — $3,622/yr total ($3,424 if paid in full)</div>
+  <table class="compare-table">
+    <tr><th>Coverage</th><th>Limit / Deductible</th><th class="num">Lexus NX 350</th><th class="num">Mazda CX-5</th></tr>
+    <tr><td>Bodily Injury</td><td>250,000/500,000</td><td class="num">$455</td><td class="num">$503</td></tr>
+    <tr><td>Property Damage</td><td>100,000</td><td class="num">$248</td><td class="num">$276</td></tr>
+    <tr><td>Uninsured/Underinsured Motorist</td><td>250,000/500,000</td><td class="num">$228</td><td class="num">$228</td></tr>
+    <tr><td>Medical Payments</td><td>5,000</td><td class="num">$84</td><td class="num">$93</td></tr>
+    <tr><td>Comprehensive (Full Glass)</td><td>$500 ded</td><td class="num">$195</td><td class="num">$163</td></tr>
+    <tr><td>Collision</td><td>$500 ded</td><td class="num">$523</td><td class="num">$574</td></tr>
+    <tr><td>Substitute Transportation</td><td>40/1,200</td><td class="num">$26</td><td class="num">$26</td></tr>
+    <tr><td><b>Total Per Vehicle</b></td><td></td><td class="num hi">$1,759</td><td class="num hi">$1,863</td></tr>
+  </table>
+
+  <div class="callout">
+    <b>Worth noting:</b> Plymouth Rock's collision deductible sits at $500 vs. Travelers' $1,000 — meaning you get a
+    lower out-of-pocket if you file a claim, for a lower overall premium.
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-head">
+    <div class="eyebrow">Home, side by side</div>
+    <h2>NBIC vs. Travelers</h2>
+    <p>Same residence — 19 Salt Box Ln — priced by each carrier.</p>
+  </div>
+
+  <table class="compare-table">
+    <tr><th>Coverage</th><th class="num">NBIC</th><th class="num">Travelers</th></tr>
+    <tr><td>Coverage A — Dwelling</td><td class="num hi">$1,296,000</td><td class="num">$950,000</td></tr>
+    <tr><td>Coverage B — Other Structures</td><td class="num">$129,600</td><td class="num">$95,000</td></tr>
+    <tr><td>Coverage C — Personal Property</td><td class="num">$907,200</td><td class="num">$475,000</td></tr>
+    <tr><td>Coverage D — Loss of Use</td><td class="num">$388,800</td><td class="num">$190,000</td></tr>
+    <tr><td>Coverage E — Personal Liability</td><td class="num">$500,000</td><td class="num">$500,000</td></tr>
+    <tr><td>Coverage F — Medical Payments</td><td class="num">$5,000</td><td class="num">$5,000</td></tr>
+    <tr><td>All Other Perils Deductible</td><td class="num">$1,000</td><td class="num">$2,500</td></tr>
+    <tr><td>Hurricane Deductible</td><td class="num">2% ($25,920)</td><td class="num">2% ($19,000)</td></tr>
+    <tr><td><b>Total Annual Premium</b></td><td class="num hi"><b>$5,603</b></td><td class="num"><b>$7,144</b></td></tr>
+  </table>
+
+  <div class="callout">
+    <b>Extended dwelling protection:</b> NBIC's quote includes a 25% Additional Amount of Insurance endorsement on
+    Coverage A. That means your $1,296,000 stated dwelling limit can extend up to <b>$1,620,000</b> in total rebuild
+    protection if a covered loss runs over the base limit — on top of already being $346,000 higher than Travelers'
+    dwelling limit, for $1,541 less per year in premium.
+  </div>
+
+  <div class="table-wrap-title">Umbrella — Plymouth Rock ($483/yr)</div>
+  <table class="compare-table">
+    <tr><th>Coverage</th><th>Limit</th><th class="num">Premium</th></tr>
+    <tr><td>Liability Per Occurrence</td><td>$1,000,000</td><td class="num">$483</td></tr>
+    <tr><td>Aggregate Limit</td><td>$2,000,000 (2x occurrence)</td><td class="num">Included</td></tr>
+    <tr><td>Uninsured/Underinsured Motorist</td><td>Not Selected</td><td class="num">N/A</td></tr>
+  </table>
+  <p style="font-size:14px;color:rgba(250,250,248,0.5);">Travelers did not include an umbrella quote in this package — this coverage is exclusive to the Plymouth Rock option.</p>
+
+  <div class="divider"></div>
+
+  <div class="section-head">
+    <div class="eyebrow">Why Safeshield</div>
+    <h2>You're not just buying a policy</h2>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <h4>69+ Carriers</h4>
+      <p>We shopped Travelers, Plymouth Rock, and NBIC for you in one pass — and we'll keep shopping every renewal.</p>
+    </div>
+    <div class="why-card">
+      <h4>Direct Access</h4>
+      <p>No call centers. You call or text Eric directly and get a real answer, same day.</p>
+    </div>
+    <div class="why-card">
+      <h4>We Fight Claims</h4>
+      <p>If something happens, we're the ones on the phone with the carrier advocating for you — not just a policy issuer.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta">
+  <div class="wrap">
+    <h2>Ready to make the switch?</h2>
+    <p>Let's lock in the Plymouth Rock + NBIC package and get your Hartford policies cancelled the right way.</p>
+    <a href="mailto:eric@gosafeshield.com" class="btn btn-primary">Email Eric Kelly</a>
+    <a href="tel:2038065889" class="btn btn-secondary">Call (203) 806-5889</a>
+    <div class="footer-note">Safeshield Insurance · 2777 Summer St, 6th Fl, Stamford, CT 06905 · This proposal is for discussion purposes only and does not bind coverage.</div>
+  </div>
+</div>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"klein","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
