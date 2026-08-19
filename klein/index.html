@@ -26,6 +26,23 @@
   .total-card .amt { font-family:'Playfair Display',serif; font-size:56px; font-weight:900; color:#FFA300; line-height:1; }
   .total-card .sub { font-size:15px; color:rgba(250,250,248,0.6); margin-top:10px; }
 
+  /* SAVINGS BANNER */
+  .savings-banner { max-width:1080px; margin:20px auto 0; padding:0 24px; }
+  .savings-inner { background:linear-gradient(135deg,rgba(0,75,137,0.35),rgba(255,163,0,0.12)); border:1px solid rgba(255,163,0,0.3); border-radius:22px; padding:38px 44px; display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap; }
+  .savings-inner .save-big { font-family:'Playfair Display',serif; font-size:60px; font-weight:900; color:#FFA300; line-height:1; }
+  .savings-inner .save-big span { display:block; font-family:'Outfit',sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:rgba(250,250,248,0.6); font-weight:600; margin-top:8px; }
+  .savings-inner .save-txt { flex:1; min-width:260px; }
+  .savings-inner .save-txt h3 { font-family:'Outfit',sans-serif; font-size:20px; font-weight:700; margin-bottom:8px; }
+  .savings-inner .save-txt p { font-size:15px; color:rgba(250,250,248,0.78); font-weight:300; }
+  .savings-inner .save-txt strong { color:#fff; }
+  .save-compare { display:flex; gap:0; margin-top:18px; border-top:1px solid rgba(255,255,255,0.1); padding-top:18px; flex-wrap:wrap; }
+  .save-compare .col { flex:1; min-width:140px; }
+  .save-compare .col .l { font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(250,250,248,0.5); font-weight:600; }
+  .save-compare .col .v { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; margin-top:4px; }
+  .save-compare .col.old .v { color:rgba(250,250,248,0.7); text-decoration:line-through; text-decoration-color:rgba(255,80,80,0.6); }
+  .save-compare .col.new .v { color:#FFA300; }
+  .save-compare .arrow { display:flex; align-items:center; color:rgba(250,250,248,0.4); font-size:24px; padding:0 10px; }
+
   /* SECTIONS */
   section { padding:70px 0; }
   .sec-head { text-align:center; margin-bottom:50px; }
@@ -94,6 +111,7 @@
   @media(max-width:760px){
     .hero h1{font-size:38px;} .veh-grid{grid-template-columns:1fr;} .why-grid{grid-template-columns:1fr;}
     .total-card{padding:30px 34px;} .policy-top{flex-direction:column; align-items:flex-start;} .policy-top .right{text-align:left;}
+    .savings-inner .save-big{font-size:46px;}
   }
 </style>
 </head>
@@ -101,8 +119,8 @@
 
   <div class="hero">
     <div class="kicker">Prepared for Randall &amp; Evonne Klein</div>
-    <h1>Your Safeshield<br>Insurance Proposal</h1>
-    <p>A complete home, auto, and umbrella package — built to protect everything you've worked for, priced sharper than what you're paying now.</p>
+    <h1>Better Coverage.<br>Serious Savings.</h1>
+    <p>A complete home, auto, and umbrella package — more protection than what you carry today, at a price that puts thousands back in your pocket every year.</p>
     <div class="addr">19 Salt Box Ln, Darien, CT 06820</div>
     <div class="total-banner">
       <div class="total-card">
@@ -113,7 +131,22 @@
     </div>
   </div>
 
-  <hr class="divider">
+  <div class="savings-banner">
+    <div class="savings-inner">
+      <div class="save-big">$4,525<span>Saved Per Year</span></div>
+      <div class="save-txt">
+        <h3>Less money, more protection.</h3>
+        <p>You're currently paying <strong>$14,010 a year</strong> with The Hartford — and that's with <strong>no umbrella</strong> at all. This package drops you to <strong>$9,485</strong>, builds your dwelling up to full rebuild value, <em>and</em> adds a $1M umbrella you don't have today.</p>
+        <div class="save-compare">
+          <div class="col old"><div class="l">Current — Hartford</div><div class="v">$14,010</div></div>
+          <div class="arrow">→</div>
+          <div class="col new"><div class="l">Safeshield Package</div><div class="v">$9,485</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" style="margin-top:60px;">
 
   <!-- HOME -->
   <section>
@@ -325,6 +358,8 @@
               <tr><td class="cvg">Personal Auto <span class="desc">2 vehicles · 250/500</span></td><td>Plymouth Rock</td><td class="r val">$3,652</td></tr>
               <tr><td class="cvg">Personal Umbrella <span class="desc">$1M / $2M aggregate</span></td><td>Plymouth Rock</td><td class="r val">$483</td></tr>
               <tr><td colspan="2" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;padding-top:22px;">Total Package</td><td class="r" style="font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:#FFA300;padding-top:22px;">$9,485</td></tr>
+              <tr><td colspan="2" style="color:rgba(250,250,248,0.6);font-size:14px;">Current Hartford premium (home + annualized auto, no umbrella)</td><td class="r" style="color:rgba(250,250,248,0.6);text-decoration:line-through;font-size:15px;">$14,010</td></tr>
+              <tr><td colspan="2" style="font-weight:700;color:#FFA300;">Your Annual Savings</td><td class="r" style="font-weight:800;color:#FFA300;font-size:18px;">$4,525</td></tr>
             </tbody>
           </table>
         </div>
