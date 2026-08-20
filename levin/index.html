@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Review — Michael & Pavla Levin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a1628; color:#FAFAF8; font-family:'Outfit',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 24px; }
+  h1,h2,h3 { font-family:'Playfair Display',serif; }
+  .gold { color:#FFA300; }
+  .navy-accent { color:#4a90d9; }
+  .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(255,163,0,0.25),transparent); margin:70px 0; }
+
+  /* HERO */
+  .hero { text-align:center; padding:90px 24px 60px; }
+  .hero .eyebrow { letter-spacing:4px; text-transform:uppercase; font-size:13px; color:#FFA300; font-weight:600; margin-bottom:24px; }
+  .hero h1 { font-size:56px; font-weight:900; line-height:1.1; margin-bottom:20px; }
+  .hero p.sub { font-size:20px; color:rgba(250,250,248,0.7); font-weight:300; max-width:640px; margin:0 auto; }
+  .hero .meta { margin-top:34px; font-size:14px; color:rgba(250,250,248,0.5); letter-spacing:1px; }
+
+  /* HEADLINE NUMBER BANNER */
+  .banner { display:flex; flex-wrap:wrap; justify-content:center; gap:26px; margin-top:50px; }
+  .banner .card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:30px 38px; min-width:220px; }
+  .banner .card .label { font-size:12px; letter-spacing:2px; text-transform:uppercase; color:rgba(250,250,248,0.55); margin-bottom:10px; }
+  .banner .card .num { font-size:40px; font-family:'Playfair Display',serif; font-weight:700; color:#FFA300; }
+  .banner .card .foot { font-size:13px; color:rgba(250,250,248,0.5); margin-top:6px; }
+
+  section { padding:10px 0; }
+  .sec-eyebrow { letter-spacing:3px; text-transform:uppercase; font-size:12px; color:#FFA300; font-weight:600; margin-bottom:14px; }
+  .sec-title { font-size:38px; font-weight:700; margin-bottom:16px; }
+  .sec-intro { font-size:18px; color:rgba(250,250,248,0.72); font-weight:300; max-width:760px; margin-bottom:40px; }
+
+  /* TABLE */
+  .tbl { width:100%; border-collapse:collapse; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:16px; overflow:hidden; }
+  .tbl th, .tbl td { padding:16px 20px; text-align:left; font-size:15px; }
+  .tbl thead th { background:rgba(0,75,137,0.4); font-weight:600; letter-spacing:0.5px; font-size:13px; text-transform:uppercase; color:#cfe0f5; }
+  .tbl tbody tr { border-top:1px solid rgba(255,255,255,0.06); }
+  .tbl tbody td:first-child { color:rgba(250,250,248,0.75); font-weight:500; }
+  .tbl .hl { color:#FFA300; font-weight:700; }
+  .tbl .trav-col { background:rgba(255,163,0,0.05); }
+  .tbl-note { font-size:13px; color:rgba(250,250,248,0.5); margin-top:12px; font-style:italic; }
+
+  /* OPTION CARDS */
+  .opts { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .opt { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:34px; position:relative; }
+  .opt.reco { border-color:rgba(255,163,0,0.5); box-shadow:0 0 40px rgba(255,163,0,0.08); }
+  .opt .tag { position:absolute; top:-13px; left:34px; background:#FFA300; color:#0a1628; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:5px 14px; border-radius:100px; }
+  .opt h3 { font-size:24px; margin-bottom:6px; }
+  .opt .price { font-size:44px; font-family:'Playfair Display',serif; font-weight:700; color:#FFA300; margin:14px 0 4px; }
+  .opt .price small { font-size:16px; color:rgba(250,250,248,0.5); font-family:'Outfit'; font-weight:400; }
+  .opt ul { list-style:none; margin-top:20px; }
+  .opt li { padding:9px 0; border-top:1px solid rgba(255,255,255,0.06); font-size:15px; color:rgba(250,250,248,0.8); display:flex; justify-content:space-between; }
+  .opt li span:last-child { color:#fff; font-weight:600; }
+
+  /* CALLOUT */
+  .callout { background:linear-gradient(135deg,rgba(0,75,137,0.35),rgba(255,163,0,0.06)); border:1px solid rgba(255,163,0,0.25); border-radius:20px; padding:40px; }
+  .callout h3 { font-size:26px; margin-bottom:14px; }
+  .callout p { font-size:16px; color:rgba(250,250,248,0.82); margin-bottom:12px; }
+  .callout .big { font-size:30px; font-family:'Playfair Display',serif; color:#FFA300; font-weight:700; }
+
+  /* WHY */
+  .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .why { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px; }
+  .why h4 { font-family:'Outfit'; font-size:17px; font-weight:700; color:#FFA300; margin-bottom:8px; }
+  .why p { font-size:15px; color:rgba(250,250,248,0.72); }
+
+  /* FOOTER CTA */
+  .cta { text-align:center; padding:80px 24px; }
+  .cta h2 { font-size:40px; margin-bottom:16px; }
+  .cta p { font-size:18px; color:rgba(250,250,248,0.7); margin-bottom:32px; font-weight:300; }
+  .btn { display:inline-block; background:#FFA300; color:#0a1628; font-weight:700; padding:16px 40px; border-radius:100px; text-decoration:none; font-size:16px; }
+  .contact { margin-top:34px; font-size:15px; color:rgba(250,250,248,0.6); }
+  .contact strong { color:#fff; }
+
+  .disc { font-size:12px; color:rgba(250,250,248,0.4); text-align:center; padding:40px 24px 60px; max-width:820px; margin:0 auto; line-height:1.7; }
+
+  @media(max-width:760px){
+    .hero h1{font-size:38px;} .sec-title{font-size:28px;}
+    .opts,.why-grid{grid-template-columns:1fr;}
+    .banner .card{min-width:100%;}
+    .tbl th,.tbl td{padding:12px 12px; font-size:13px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">Prepared for the Levin Household</div>
+  <h1>Your Insurance,<br><span class="gold">Rebuilt Around You.</span></h1>
+  <p class="sub">A side-by-side look at your current Progressive coverage and a stronger, better-priced package through Travelers — home, auto, and umbrella, all in one place.</p>
+  <div class="meta">74 Clapboard Hill Rd, New Canaan CT &nbsp;•&nbsp; Prepared by Justin Cronk &nbsp;•&nbsp; Safeshield Insurance</div>
+
+  <div class="banner">
+    <div class="card">
+      <div class="label">Travelers Package</div>
+      <div class="num">$9,545</div>
+      <div class="foot">Home + Auto + Umbrella / yr</div>
+    </div>
+    <div class="card">
+      <div class="label">Current Progressive*</div>
+      <div class="num">$13,809</div>
+      <div class="foot">Home + Auto (est.) + Umbrella / yr</div>
+    </div>
+    <div class="card">
+      <div class="label">Estimated Savings</div>
+      <div class="num">~$4,264</div>
+      <div class="foot">per year, with better rebuild coverage</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="divider"></div>
+
+  <!-- HOME -->
+  <section>
+    <div class="sec-eyebrow">The Home — 74 Clapboard Hill Rd</div>
+    <h2 class="sec-title">More rebuild protection, for less.</h2>
+    <p class="sec-intro">This is the part worth slowing down on. At first glance Progressive lists a higher dwelling number. But once you factor in how each policy actually pays to rebuild your home, Travelers gives you a <strong>higher ceiling</strong> — plus a built-in buffer for rising construction and labor costs.</p>
+
+    <table class="tbl">
+      <thead>
+        <tr><th>Coverage</th><th>Progressive (current)</th><th class="trav-col">Travelers (proposed)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Coverage A — Dwelling</td><td>$2,649,000</td><td class="trav-col">$2,229,000</td></tr>
+        <tr><td>Additional Replacement Cost buffer</td><td>Not shown</td><td class="trav-col hl">+25% ($557,250)</td></tr>
+        <tr><td><strong>Effective rebuild ceiling</strong></td><td>$2,649,000</td><td class="trav-col hl">~$2,786,250</td></tr>
+        <tr><td>Coverage B — Other Structures</td><td>$264,900</td><td class="trav-col">$275,000</td></tr>
+        <tr><td>Coverage C — Personal Property</td><td>$1,854,300</td><td class="trav-col">$1,150,000 †</td></tr>
+        <tr><td>Coverage D — Loss of Use</td><td>$794,700</td><td class="trav-col">$500,000</td></tr>
+        <tr><td>Coverage E — Personal Liability</td><td>$500,000</td><td class="trav-col">$500,000</td></tr>
+        <tr><td>Coverage F — Medical Payments</td><td>$5,000</td><td class="trav-col">$5,000</td></tr>
+        <tr><td>All Other Perils Deductible</td><td>$5,000</td><td class="trav-col">$5,000</td></tr>
+        <tr><td><strong>Annual Premium</strong></td><td>$9,377</td><td class="trav-col hl">$6,262</td></tr>
+      </tbody>
+    </table>
+    <p class="tbl-note">† Coverage C (personal property) was intentionally set lower at your request — this is a chosen limit, not a coverage shortfall. It can be raised any time.</p>
+  </section>
+
+  <div style="margin-top:34px;">
+    <div class="callout">
+      <h3>The Coverage A story, in plain english</h3>
+      <p>Progressive shows $2.649M of dwelling. Travelers shows $2.229M — but adds <strong>25% Additional Replacement Cost Protection (endorsement HQ-420)</strong>, which kicks in an extra $557,250 if a total rebuild costs more than expected.</p>
+      <p>That pushes your <strong>real rebuild ceiling to about $2.79M</strong> — higher than Progressive — and it flexes upward if building materials or labor prices climb. You're not losing dwelling coverage. You're gaining a moving safety net.</p>
+      <p class="big">$2.79M effective &nbsp;vs&nbsp; $2.649M flat</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- AUTO -->
+  <section>
+    <div class="sec-eyebrow">The Autos — Two Teslas</div>
+    <h2 class="sec-title">Same two cars. A cleaner rate.</h2>
+    <p class="sec-intro">Since the Audi Q5 is gone, the honest comparison is <strong>two Teslas vs. two Teslas</strong>. Dropping a car from a policy actually nudges the remaining vehicles up a bit (you lose part of the multi-car discount), so the numbers below reflect Progressive re-rated for just the Model 3 and Model Y. Travelers still comes in lower — and you get to pick your deductible.</p>
+
+    <div class="opts">
+      <div class="opt reco">
+        <div class="tag">Recommended</div>
+        <h3>Travelers — $1,000 Deductible</h3>
+        <div class="price">$2,752<small> / yr</small></div>
+        <ul>
+          <li><span>Model 3</span><span>$1,420</span></li>
+          <li><span>Model Y</span><span>$1,332</span></li>
+          <li><span>BI Liability</span><span>250 / 500</span></li>
+          <li><span>UM / UIM</span><span>250 / 500</span></li>
+          <li><span>Comp / Collision Ded.</span><span>$1,000</span></li>
+          <li><span>Rental + Roadside</span><span>Included</span></li>
+        </ul>
+      </div>
+      <div class="opt">
+        <h3>Travelers — $500 Deductible</h3>
+        <div class="price">$2,920<small> / yr</small></div>
+        <ul>
+          <li><span>Model 3</span><span>$1,499</span></li>
+          <li><span>Model Y</span><span>$1,421</span></li>
+          <li><span>BI Liability</span><span>250 / 500</span></li>
+          <li><span>UM / UIM</span><span>250 / 500</span></li>
+          <li><span>Comp / Collision Ded.</span><span>$500</span></li>
+          <li><span>Rental + Roadside</span><span>Included</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:26px;">
+      <table class="tbl">
+        <thead>
+          <tr><th>Auto — Two Teslas Only</th><th>Progressive (est.)*</th><th class="trav-col">Travelers $1,000 ded</th><th class="trav-col">Travelers $500 ded</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Model 3 — annualized</td><td>~$2,018</td><td class="trav-col">$1,420</td><td class="trav-col">$1,499</td></tr>
+          <tr><td>Model Y — annualized</td><td>~$1,880</td><td class="trav-col">$1,332</td><td class="trav-col">$1,421</td></tr>
+          <tr><td><strong>Annual Total</strong></td><td>~$3,898</td><td class="trav-col hl">$2,752</td><td class="trav-col hl">$2,920</td></tr>
+        </tbody>
+      </table>
+      <p class="tbl-note">* Progressive is billed on a 6-month term. This annualized figure re-rates their renewal for just the two Teslas with the Audi removed, including the typical ~8% uplift from losing a car off the multi-car discount. It's a close estimate for comparison — the exact number would come from Progressive's re-rate.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- UMBRELLA -->
+  <section>
+    <div class="sec-eyebrow">Personal Umbrella</div>
+    <h2 class="sec-title">$1M of extra liability — essentially a wash.</h2>
+    <p class="sec-intro">Your $1,000,000 umbrella stays the same size and prices out nearly identical. The advantage of moving it is having home, auto, and umbrella all under one roof with one agent — one point of contact when it matters.</p>
+    <table class="tbl">
+      <thead><tr><th>Umbrella</th><th>Progressive / ASI</th><th class="trav-col">Travelers</th></tr></thead>
+      <tbody>
+        <tr><td>Limit</td><td>$1,000,000</td><td class="trav-col">$1,000,000</td></tr>
+        <tr><td><strong>Annual Premium</strong></td><td>$534</td><td class="trav-col hl">$531</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ENDORSEMENTS -->
+  <section>
+    <div class="sec-eyebrow">Endorsement Cross-Reference</div>
+    <h2 class="sec-title">Apples to apples on the fine print.</h2>
+    <p class="sec-intro">This is where a lot of "cheaper" quotes fall apart — they quietly drop coverages. Yours doesn't. Here's the home endorsement schedule from both carriers, side by side.</p>
+    <table class="tbl">
+      <thead><tr><th>Endorsement</th><th>Progressive</th><th class="trav-col">Travelers</th></tr></thead>
+      <tbody>
+        <tr><td>Additional / Increased Replacement Cost</td><td>Increased Repl Cost (IRC2)</td><td class="trav-col hl">+25% ARC — $557,250 (HQ-420)</td></tr>
+        <tr><td>Water Back-Up &amp; Sump Overflow</td><td>Included (WBU)</td><td class="trav-col">$10,000 (HQ-208)</td></tr>
+        <tr><td>Buried Utility Lines</td><td>$10,000 (BUL)</td><td class="trav-col">$10,000 (HQ-856)</td></tr>
+        <tr><td>Equipment Breakdown</td><td>via HomeShield Plus</td><td class="trav-col">$50,000 (HQ-855)</td></tr>
+        <tr><td>Personal Property Replacement Cost</td><td>Included (PPRC)</td><td class="trav-col">Included (HQ-290)</td></tr>
+        <tr><td>Personal Injury</td><td>Included (PNJ)</td><td class="trav-col">Included (HQ-082)</td></tr>
+        <tr><td>Ordinance or Law</td><td>Included (OL)</td><td class="trav-col">Included in Protect Premier</td></tr>
+        <tr><td>Loss Assessment</td><td>Included (LAC)</td><td class="trav-col">Included in Protect Premier</td></tr>
+        <tr><td>Coverage Level / Tier</td><td>Standard</td><td class="trav-col hl">Travelers Protect Premier®</td></tr>
+      </tbody>
+    </table>
+    <p class="tbl-note">Bottom line: coverages line up feature-for-feature. Travelers' edge is the 25% Additional Replacement Cost buffer and the Protect Premier tier, which bakes in ordinance/law and loss assessment.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ENDORSEMENT GUIDE -->
+  <section>
+    <div class="sec-eyebrow">Plain-English Endorsement Guide</div>
+    <h2 class="sec-title">What each of these actually does.</h2>
+    <p class="sec-intro">Endorsements are the add-ons that quietly do the heavy lifting when something goes wrong. Here's what each one on your Travelers policy means, and a real-life moment where it earns its keep.</p>
+
+    <div class="why-grid">
+
+      <div class="why">
+        <h4>25% Additional Replacement Cost (HQ-420)</h4>
+        <p>Pays to rebuild your home even if the cost runs past your dwelling limit, up to an extra $557,250.<br><br><strong>When it kicks in:</strong> A kitchen fire spreads and the home is a total loss. Post-disaster, lumber and contractor prices have spiked and the rebuild comes in at $2.7M against a $2.229M limit. This buffer covers the overage so you're not paying the gap out of pocket.</p>
+      </div>
+
+      <div class="why">
+        <h4>Water Back-Up &amp; Sump Overflow — $10,000 (HQ-208)</h4>
+        <p>Covers damage when water backs up through a sewer, drain, or sump pump. A standard policy excludes this.<br><br><strong>When it kicks in:</strong> A heavy storm overwhelms the sump pump and the finished basement floods with a few inches of backed-up water, ruining flooring and drywall. This pays for the cleanup and repairs.</p>
+      </div>
+
+      <div class="why">
+        <h4>Buried Utility Lines — $10,000 (HQ-856)</h4>
+        <p>Covers the underground service lines you actually own, water, sewer, electrical, when they fail. The utility company only fixes their side; the pipe on your property is yours.<br><br><strong>When it kicks in:</strong> The buried sewer line between the house and the street collapses. Excavation and replacement runs $8,000, and this covers it instead of you.</p>
+      </div>
+
+      <div class="why">
+        <h4>Equipment Breakdown — $50,000 (HQ-855)</h4>
+        <p>Covers the sudden mechanical or electrical failure of your home's systems and major appliances, the stuff a normal policy calls "wear and tear" and won't touch.<br><br><strong>When it kicks in:</strong> A power surge fries the HVAC control board and the compressor on your central air. Replacing the system runs $12,000, and this steps in.</p>
+      </div>
+
+      <div class="why">
+        <h4>Personal Property Replacement Cost (HQ-290)</h4>
+        <p>Replaces damaged or stolen belongings at today's brand-new price, with no deduction for age or wear.<br><br><strong>When it kicks in:</strong> A break-in takes a five-year-old TV and laptop. Instead of a depreciated check for what they're "worth" now, you're paid what it costs to buy them new today.</p>
+      </div>
+
+      <div class="why">
+        <h4>Personal Injury (HQ-082)</h4>
+        <p>Extends your liability beyond physical injury to things like libel, slander, and defamation, situations a standard homeowners policy doesn't cover.<br><br><strong>When it kicks in:</strong> A heated post in a neighborhood group leads to a defamation claim against you. This covers your legal defense and any judgment.</p>
+      </div>
+
+      <div class="why">
+        <h4>Ordinance or Law <span class="navy-accent">(in Protect Premier)</span></h4>
+        <p>Pays the extra cost of rebuilding to current building codes, which are often far stricter than when a home was originally built.<br><br><strong>When it kicks in:</strong> After a major loss, the town requires updated electrical, a new roof deck, and current insulation code. Those upgrades add $40,000 to the rebuild, and this covers the code-driven difference.</p>
+      </div>
+
+      <div class="why">
+        <h4>Loss Assessment <span class="navy-accent">(in Protect Premier)</span></h4>
+        <p>Covers your share when an association or shared-community group levies an assessment after a covered loss to common property.<br><br><strong>When it kicks in:</strong> A shared private road or common structure is damaged and the association bills every homeowner a special assessment. This picks up your portion.</p>
+      </div>
+
+      <div class="why">
+        <h4>Personal Umbrella — $1,000,000</h4>
+        <p>Sits on top of your home and auto liability and adds a full extra million in protection once those underlying limits are exhausted.<br><br><strong>When it kicks in:</strong> An at-fault accident results in a $900,000 judgment that blows past your auto liability limit. The umbrella absorbs the excess so it doesn't reach your savings or future income.</p>
+      </div>
+
+    </div>
+    <p class="tbl-note">Every endorsement above is built into the Travelers premiums already shown, not billed separately. Scenarios are illustrative; actual coverage is governed by the policy terms, limits, and exclusions.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- WHY -->
+  <section>
+    <div class="sec-eyebrow">Why Safeshield</div>
+    <h2 class="sec-title">One team, the whole market.</h2>
+    <div class="why-grid">
+      <div class="why"><h4>69+ carriers, shopped for you</h4><p>We don't work for one company. We shop your coverage across the whole market and bring you the best fit — this year and every renewal.</p></div>
+      <div class="why"><h4>An annual re-shop, guaranteed</h4><p>Rates move. Every year we re-check the market so you never quietly overpay because a carrier crept up.</p></div>
+      <div class="why"><h4>A real person, not a call center</h4><p>You get a direct line to your agent. Quotes, ID cards, policy changes — handled same-day, by someone who knows your file.</p></div>
+      <div class="why"><h4>We show up at claim time</h4><p>When something goes wrong, we advocate for you with the carrier. That's the whole point of having an agent.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<div class="cta">
+  <h2>Ready to make the switch?</h2>
+  <p>Pick your auto deductible and we'll handle the rest — including cancelling Progressive so there's no gap.</p>
+  <a href="mailto:justin@gosafeshield.com" class="btn">Let's Lock It In</a>
+  <div class="contact">
+    <strong>Justin Cronk</strong> &nbsp;•&nbsp; Safeshield Insurance<br>
+    justin@gosafeshield.com
+  </div>
+</div>
+
+<div class="disc">
+  Premiums shown are estimates for discussion purposes, based on information provided and rates in effect as of the quote date; final premiums are subject to underwriting and may change. Progressive auto figures are annualized from a 6-month term and re-rated to reflect two vehicles (Audi Q5 removed), including an estimated multi-car adjustment; the exact figure is subject to Progressive's re-rate. Coverage A comparison reflects Travelers' 25% Additional Replacement Cost Protection endorsement (HQ-420). Personal property limit reflects an insured-requested amount. This document is not a policy and does not bind coverage. Insurance underwritten by Travelers Personal Insurance Company and affiliates. Prepared by Safeshield Insurance.
+</div>
+
+<script>window.CASEY_PROPOSAL={"slug":"levin","agent":"Justin"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
