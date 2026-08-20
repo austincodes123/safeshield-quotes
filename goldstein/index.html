@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Howard Goldstein — Coverage Comparison</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#0a1628;
+    color:#FAFAF8;
+    font-family:'Outfit', sans-serif;
+    font-weight:300;
+    line-height:1.6;
+  }
+  h1,h2,h3,h4 { font-family:'Playfair Display', serif; font-weight:900; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 32px; }
+
+  /* HERO */
+  .hero {
+    padding:90px 0 70px;
+    text-align:center;
+    background: radial-gradient(ellipse at top, rgba(0,75,137,0.35), transparent 60%);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .hero .kicker {
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#FFA300;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .hero h1 {
+    font-size:52px;
+    line-height:1.15;
+    margin-bottom:18px;
+  }
+  .hero h1 span { color:#FFA300; }
+  .hero p.sub {
+    font-size:18px;
+    color:rgba(250,250,248,0.7);
+    max-width:640px;
+    margin:0 auto 36px;
+  }
+  .hero-totals {
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .total-pill {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:24px 36px;
+    min-width:220px;
+  }
+  .total-pill .carrier { font-size:13px; letter-spacing:2px; text-transform:uppercase; color:rgba(250,250,248,0.55); margin-bottom:8px; }
+  .total-pill .amount { font-family:'Playfair Display', serif; font-weight:900; font-size:34px; }
+  .total-pill.travelers .amount { color:#7EC8E3; }
+  .total-pill.chubb .amount { color:#FFA300; }
+
+  .divider {
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
+    margin:0;
+  }
+
+  section { padding:70px 0; }
+  .section-head { text-align:center; margin-bottom:44px; }
+  .section-head .eyebrow { color:#FFA300; letter-spacing:3px; text-transform:uppercase; font-size:12px; font-weight:600; margin-bottom:12px; }
+  .section-head h2 { font-size:36px; }
+  .section-head p { color:rgba(250,250,248,0.6); max-width:600px; margin:14px auto 0; font-size:16px; }
+
+  /* Comparison grid */
+  .compare-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  @media (max-width:800px){ .compare-grid { grid-template-columns:1fr; } }
+
+  .card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:32px;
+  }
+  .card-header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:22px;
+    padding-bottom:18px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .card-header .carrier-name { font-family:'Playfair Display', serif; font-weight:700; font-size:24px; }
+  .card.travelers .carrier-name { color:#7EC8E3; }
+  .card.chubb .carrier-name { color:#FFA300; }
+  .card-header .price { font-size:26px; font-weight:700; }
+
+  .row {
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    font-size:15px;
+  }
+  .row:last-child { border-bottom:none; }
+  .row .label { color:rgba(250,250,248,0.65); }
+  .row .val { font-weight:600; text-align:right; }
+
+  .veh-subhead {
+    font-size:13px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:#FFA300;
+    margin:20px 0 8px;
+    font-weight:600;
+  }
+  .veh-subhead:first-of-type { margin-top:0; }
+
+  .badge {
+    display:inline-block;
+    background:rgba(255,163,0,0.12);
+    color:#FFA300;
+    border:1px solid rgba(255,163,0,0.3);
+    border-radius:100px;
+    padding:4px 14px;
+    font-size:12px;
+    font-weight:600;
+    margin-top:16px;
+  }
+
+  .note-box {
+    margin-top:20px;
+    background:rgba(126,200,227,0.08);
+    border:1px solid rgba(126,200,227,0.2);
+    border-radius:12px;
+    padding:16px 18px;
+    font-size:14px;
+    color:rgba(250,250,248,0.75);
+  }
+
+  /* Valuables standalone */
+  .standalone-card {
+    max-width:600px;
+    margin:0 auto;
+  }
+
+  /* Why Safeshield */
+  .why-grid {
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  @media (max-width:800px){ .why-grid { grid-template-columns:1fr; } }
+  .why-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:28px;
+  }
+  .why-card h3 { font-size:19px; margin-bottom:10px; color:#FFA300; }
+  .why-card p { font-size:14px; color:rgba(250,250,248,0.65); }
+
+  /* CTA */
+  .cta {
+    text-align:center;
+    padding:90px 0;
+    background: radial-gradient(ellipse at bottom, rgba(255,163,0,0.12), transparent 60%);
+  }
+  .cta h2 { font-size:34px; margin-bottom:16px; }
+  .cta p { color:rgba(250,250,248,0.65); max-width:520px; margin:0 auto 32px; }
+  .btn-row { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+  .btn {
+    display:inline-block;
+    padding:16px 34px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+  }
+  .btn-primary { background:#FFA300; color:#0a1628; }
+  .btn-secondary { background:rgba(255,255,255,0.06); color:#FAFAF8; border:1px solid rgba(255,255,255,0.15); }
+
+  footer {
+    text-align:center;
+    padding:36px 0;
+    color:rgba(250,250,248,0.4);
+    font-size:13px;
+    border-top:1px solid rgba(255,255,255,0.06);
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="kicker">Prepared for Howard &amp; Judith Goldstein</div>
+      <h1>Two carriers.<br>One decision for <span>103 East Lane</span>.</h1>
+      <p class="sub">We shopped your home, auto, and umbrella across the market. Here's how Travelers and Chubb Masterpiece stack up side by side, effective 9/17/2026.</p>
+      <div class="hero-totals">
+        <div class="total-pill travelers">
+          <div class="carrier">Travelers</div>
+          <div class="amount">$10,375</div>
+        </div>
+        <div class="total-pill chubb">
+          <div class="carrier">Chubb Masterpiece</div>
+          <div class="amount">$13,992</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- AUTO -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Auto</div>
+        <h2>2025 Tesla Model 3 &amp; 2019 Volvo XC60</h2>
+        <p>Both cars, garaged at 103 East Lane. Chubb rates on agreed value with OEM parts and a Collision Repair Xpert program; Travelers rates on standard ACV.</p>
+      </div>
+      <div class="compare-grid">
+        <div class="card travelers">
+          <div class="card-header">
+            <span class="carrier-name">Travelers</span>
+            <span class="price">$2,287</span>
+          </div>
+          <div class="veh-subhead">2025 Tesla Model 3</div>
+          <div class="row"><span class="label">Liability</span><span class="val">250,000/500,000</span></div>
+          <div class="row"><span class="label">Comp / Collision</span><span class="val">$500 / $500</span></div>
+          <div class="row"><span class="label">Rental / Roadside</span><span class="val">Incl.</span></div>
+          <div class="row"><span class="label">Premium</span><span class="val">$1,449</span></div>
+          <div class="veh-subhead">2019 Volvo XC60</div>
+          <div class="row"><span class="label">Liability</span><span class="val">250,000/500,000</span></div>
+          <div class="row"><span class="label">Comp / Collision</span><span class="val">$500 / $500</span></div>
+          <div class="row"><span class="label">Premium</span><span class="val">$838</span></div>
+          <div class="badge">Multi-Car · Multi-Policy · Safe Driver</div>
+        </div>
+        <div class="card chubb">
+          <div class="card-header">
+            <span class="carrier-name">Chubb</span>
+            <span class="price">$5,229</span>
+          </div>
+          <div class="veh-subhead">2025 Tesla Model 3</div>
+          <div class="row"><span class="label">Agreed Value</span><span class="val">$35,475</span></div>
+          <div class="row"><span class="label">Liability</span><span class="val">$1,000,000</span></div>
+          <div class="row"><span class="label">Comp / Collision</span><span class="val">$500 / $500</span></div>
+          <div class="row"><span class="label">Premium</span><span class="val">$3,341</span></div>
+          <div class="veh-subhead">2019 Volvo XC60</div>
+          <div class="row"><span class="label">Agreed Value</span><span class="val">$17,425</span></div>
+          <div class="row"><span class="label">Liability</span><span class="val">$1,000,000</span></div>
+          <div class="row"><span class="label">Premium</span><span class="val">$1,888</span></div>
+          <div class="badge">Agreed Value · OEM Parts Guarantee</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HOME -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Home</div>
+        <h2>103 East Lane, Stamford CT</h2>
+        <p>Same address, very different limits. Chubb's dwelling amount runs nearly $900K higher than Travelers, and pairs it with cash-settlement and equipment breakdown flexibility.</p>
+      </div>
+      <div class="compare-grid">
+        <div class="card travelers">
+          <div class="card-header">
+            <span class="carrier-name">Travelers</span>
+            <span class="price">$6,229</span>
+          </div>
+          <div class="row"><span class="label">Coverage A – Dwelling</span><span class="val">$1,453,000</span></div>
+          <div class="row"><span class="label">Coverage B – Other Structures</span><span class="val">$145,300</span></div>
+          <div class="row"><span class="label">Coverage C – Personal Property</span><span class="val">$726,500</span></div>
+          <div class="row"><span class="label">Coverage D – Loss of Use</span><span class="val">$290,600</span></div>
+          <div class="row"><span class="label">Coverage E – Liability</span><span class="val">$500,000</span></div>
+          <div class="row"><span class="label">All Other Perils Deductible</span><span class="val">$10,000</span></div>
+          <div class="row"><span class="label">Hurricane Deductible</span><span class="val">$29,060 (2%)</span></div>
+          <div class="note-box">Heads up: Coverage D (Loss of Use) is flagged below Travelers' commonly recommended limit.</div>
+          <div class="badge">Travelers Protect PLUS® Level</div>
+        </div>
+        <div class="card chubb">
+          <div class="card-header">
+            <span class="carrier-name">Chubb</span>
+            <span class="price">$7,055</span>
+          </div>
+          <div class="row"><span class="label">Dwelling Amount</span><span class="val">$2,350,000</span></div>
+          <div class="row"><span class="label">Other Structures</span><span class="val">$470,000</span></div>
+          <div class="row"><span class="label">Contents Amount</span><span class="val">$1,175,000</span></div>
+          <div class="row"><span class="label">Additional Living Expenses</span><span class="val">Full Coverage</span></div>
+          <div class="row"><span class="label">Personal Liability</span><span class="val">$1,000,000</span></div>
+          <div class="row"><span class="label">Deductible</span><span class="val">$10,000 (Waiver option)</span></div>
+          <div class="row"><span class="label">Water Backup Deductible</span><span class="val">$25,000</span></div>
+          <div class="badge">Deluxe Dwelling · Cash Settlement Option</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- UMBRELLA / EXCESS -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Umbrella / Excess Liability</div>
+        <h2>$5,000,000 in Extra Protection</h2>
+        <p>Both quotes land on the same $5M limit above your home and auto — the difference is what sits underneath it.</p>
+      </div>
+      <div class="compare-grid">
+        <div class="card travelers">
+          <div class="card-header">
+            <span class="carrier-name">Travelers</span>
+            <span class="price">$1,859</span>
+          </div>
+          <div class="row"><span class="label">Personal Liability Umbrella</span><span class="val">$5,000,000</span></div>
+          <div class="row"><span class="label">Autos Covered</span><span class="val">2</span></div>
+          <div class="row"><span class="label">Youthful Drivers</span><span class="val">0</span></div>
+          <div class="badge">Auto + Home Companion Discount</div>
+        </div>
+        <div class="card chubb">
+          <div class="card-header">
+            <span class="carrier-name">Chubb</span>
+            <span class="price">$1,333</span>
+          </div>
+          <div class="row"><span class="label">Excess Liability Limit</span><span class="val">$5,000,000</span></div>
+          <div class="row"><span class="label">UM/UIM Limit</span><span class="val">$1,000,000</span></div>
+          <div class="row"><span class="label">Watercraft</span><span class="val">No</span></div>
+          <div class="badge">Portfolio Discount — Excess w/ Auto</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- VALUABLES - Chubb only -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Valuables</div>
+        <h2>Jewelry Blanket Coverage</h2>
+        <p>Chubb includes a dedicated valuables line that Travelers doesn't offer in this quote — worth factoring into the total if you're carrying jewelry, watches, or collectibles.</p>
+      </div>
+      <div class="standalone-card">
+        <div class="card chubb">
+          <div class="card-header">
+            <span class="carrier-name">Chubb Only</span>
+            <span class="price">$375</span>
+          </div>
+          <div class="row"><span class="label">Jewelry Blanket Limit</span><span class="val">$25,000</span></div>
+          <div class="row"><span class="label">Itemized Pieces</span><span class="val">N/A</span></div>
+          <div class="badge">Not included in Travelers quote</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- WHY SAFESHIELD -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Why Safeshield</div>
+        <h2>We work for you, not the carrier</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>69+ Carriers</h3>
+          <p>We shopped this across the market — Travelers and Chubb rose to the top for your risk profile.</p>
+        </div>
+        <div class="why-card">
+          <h3>Same-Day Everything</h3>
+          <p>Quotes, endorsements, ID cards and certificates — no waiting on hold with a call center.</p>
+        </div>
+        <div class="why-card">
+          <h3>Claims Advocacy</h3>
+          <p>If something happens, we sit on your side of the table and push the carrier to make it right.</p>
+        </div>
+        <div class="why-card">
+          <h3>Annual Re-Shop</h3>
+          <p>Every renewal, we re-shop your whole account to make sure you're still in the best spot.</p>
+        </div>
+        <div class="why-card">
+          <h3>Direct Access</h3>
+          <p>You call or text your agent directly. No 1-800 numbers, no runaround.</p>
+        </div>
+        <div class="why-card">
+          <h3>One Team, Full Picture</h3>
+          <p>Home, auto, and umbrella reviewed together so nothing falls through the cracks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="wrap">
+      <h2>Let's lock in the right fit.</h2>
+      <p>Whichever direction makes sense — Travelers, Chubb, or a mix — we'll get it bound and squared away.</p>
+      <div class="btn-row">
+        <a href="tel:2038065889" class="btn btn-primary">Call Eric: (203) 806-5889</a>
+        <a href="mailto:eric@gosafeshield.com" class="btn btn-secondary">Email Eric</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Prepared by Eric Kelly · Safeshield Insurance · 69+ Carrier Partners
+  </footer>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"goldstein","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
