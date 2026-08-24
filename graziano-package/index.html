@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Home & Package Renewal | Safeshield Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#004b89;--navy-deep:#003566;--amber:#ffa300;--ink:#1a1f26;
+    --slate:#5a6573;--paper:#f6f8fb;--line:#e6ebf2;--white:#ffffff;--good:#1f9d6b;--bad:#c0392b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px}
+  .fade{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}}
+
+  .brandbar{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:20px 0 0;flex-wrap:wrap}
+  .brand{display:flex;flex-direction:column;gap:4px}
+  .logo{font-weight:700;font-size:19px;color:var(--navy);letter-spacing:.03em;text-transform:uppercase}
+  .logo span{color:var(--amber)}
+  .slogan{font-size:11px;color:var(--slate);font-weight:500;letter-spacing:.02em;font-style:italic}
+  .prepared{font-size:12.5px;color:var(--slate);text-align:right;line-height:1.4}
+  .prepared b{color:var(--ink)}
+
+  .hero{padding:44px 0 8px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:18px}
+  h1{font-family:'Playfair Display',serif;font-weight:800;color:var(--navy);font-size:clamp(34px,7vw,54px);line-height:1.04;letter-spacing:-.015em}
+  .lede{font-size:17px;color:var(--slate);margin-top:22px;max-width:66ch}
+  .lede b{color:var(--ink);font-weight:600}
+
+  .savings{margin-top:26px;border-radius:20px;background:linear-gradient(160deg,var(--navy),var(--navy-deep));color:#fff;padding:34px 28px;text-align:center;position:relative;overflow:hidden}
+  .savings::before{content:"";position:absolute;right:-40px;top:-40px;width:170px;height:170px;background:radial-gradient(circle,rgba(255,163,0,.22),transparent 70%)}
+  .savings .lbl{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);font-weight:600;position:relative}
+  .savings .vs{display:flex;justify-content:center;gap:40px;margin:20px 0 16px;flex-wrap:wrap;position:relative}
+  .savings .vs .n{font-family:'Playfair Display',serif;font-size:34px;font-weight:800;line-height:1}
+  .savings .vs .c{font-size:12px;color:rgba(255,255,255,.72);margin-top:6px}
+  .savings .save{font-size:16px;line-height:1.5;max-width:50ch;margin:0 auto;position:relative;color:rgba(255,255,255,.92)}
+  .savings .save b{color:var(--amber)}
+
+  .sec{padding:44px 0 0}
+  .sec-eye{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:12px}
+  h2{font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:clamp(24px,5vw,32px);line-height:1.1;letter-spacing:-.01em}
+  .sub{font-size:15.5px;color:var(--slate);margin-top:12px;max-width:66ch}
+
+  /* package cards */
+  .pkg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:22px}
+  @media (max-width:680px){.pkg{grid-template-columns:1fr}}
+  .pcard{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--paper);position:relative}
+  .pcard .tag{position:absolute;top:14px;right:14px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:99px}
+  .pcard .tag.new{background:rgba(31,157,107,.15);color:var(--good)}
+  .pcard .tag.stay{background:rgba(0,75,137,.1);color:var(--navy)}
+  .pcard .lob{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);font-weight:700;margin-bottom:6px}
+  .pcard h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);font-weight:700;margin-bottom:10px}
+  .pcard .amt{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--ink)}
+  .pcard .was{font-size:13px;color:var(--slate);margin-top:4px}
+  .pcard .was s{color:#9aa6b4}
+  .pcard .was b{color:var(--good)}
+  .pcard .was.bad b{color:var(--bad)}
+  .pcard p.expl{font-size:13px;color:var(--slate);margin-top:10px}
+
+  .total{margin-top:16px;border:2px solid var(--navy);border-radius:16px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;background:rgba(0,75,137,.03)}
+  .total .lab{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--navy)}
+  .total .amt{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--navy)}
+
+  /* comparison table */
+  .cmp{border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:22px;background:#fff}
+  .cmp-head{display:grid;grid-template-columns:1.5fr 1fr 1fr}
+  .cmp-head div{padding:16px 14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+  .cmp-head .h0{color:var(--slate)}
+  .cmp-head .h-ours{background:rgba(0,75,137,.05);color:var(--navy)}
+  .cmp-head .h-theirs{color:var(--slate);border-left:1px solid var(--line)}
+  .crow{display:grid;grid-template-columns:1.5fr 1fr 1fr;border-top:1px solid var(--line)}
+  .crow div{padding:13px 14px;font-size:13.5px;display:flex;align-items:center}
+  .crow .lab{color:var(--ink);font-weight:500}
+  .crow .ours{background:rgba(0,75,137,.03);color:var(--ink);font-weight:600}
+  .crow .theirs{color:var(--slate);border-left:1px solid var(--line)}
+  .crow.match .ours::after{content:"\2713";color:var(--good);font-weight:800;margin-left:8px}
+  .crow.better .ours::after{content:"\2191 upgrade";color:var(--good);font-weight:700;margin-left:8px;font-size:11px}
+  .crow.price{border-top:2px solid var(--navy)}
+  .crow.price div{padding:18px 14px}
+  .crow.price .ours{background:var(--navy);color:#fff;font-family:'Playfair Display',serif;font-size:19px;font-weight:800}
+  .crow.price .theirs{font-family:'Playfair Display',serif;font-size:19px;color:var(--ink);font-weight:800}
+  .crow.price .lab{font-weight:700;color:var(--navy)}
+  @media (max-width:520px){.crow div,.cmp-head div{font-size:12px;padding:11px 9px}.crow.price .ours,.crow.price .theirs{font-size:16px}}
+
+  .note{margin-top:14px;font-size:13px;color:var(--slate);line-height:1.55}
+  .note b{color:var(--ink)}
+
+  .flag{margin-top:16px;border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:14px;padding:18px 20px;background:var(--white);display:flex;gap:14px;align-items:flex-start}
+  .flag .ic2{flex:none;width:34px;height:34px;border-radius:10px;background:rgba(255,163,0,.14);color:#b9760a;display:grid;place-items:center;font-weight:800}
+  .flag b{color:var(--ink);font-weight:600}
+  .flag p{font-size:14px;color:var(--slate);margin-top:3px}
+
+  .why{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:560px){.why{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--paper)}
+  .card h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);font-weight:700;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--slate)}
+
+  .cta{margin:48px 0 0;background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:22px;padding:40px 30px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,163,0,.2),transparent 70%)}
+  .cta h2{color:#fff;position:relative}
+  .cta p{color:rgba(255,255,255,.82);margin:14px auto 26px;max-width:50ch;position:relative;font-size:15.5px}
+  .btn{display:inline-block;background:var(--amber);color:#3a2600;font-weight:700;font-size:16px;padding:16px 34px;border-radius:99px;text-decoration:none;position:relative;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 8px 22px rgba(255,163,0,.28)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,163,0,.36)}
+  .btn-ghost{display:inline-block;color:#fff;font-weight:600;font-size:15px;padding:14px 26px;border-radius:99px;text-decoration:none;border:1.5px solid rgba(255,255,255,.45);position:relative;margin-left:10px;transition:background .2s ease,border-color .2s ease}
+  .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+  @media (max-width:540px){.btn-ghost{margin-left:0;margin-top:12px}}
+  .cta .alt{display:block;margin-top:16px;font-size:14px;color:rgba(255,255,255,.7);position:relative}
+  .cta .alt a{color:#fff;text-decoration:underline}
+
+  footer{padding:38px 0 56px;text-align:center}
+  .sig{font-weight:700;color:var(--navy);font-size:16px;text-transform:uppercase;letter-spacing:.03em}
+  .sig span{color:var(--amber)}
+  .fslogan{font-size:11px;color:var(--slate);font-style:italic;margin-top:5px}
+  .fcontact{font-size:13.5px;color:var(--slate);margin-top:6px;line-height:1.7}
+  .fcontact a{color:var(--navy);text-decoration:none;font-weight:500}
+  .disc{font-size:11px;color:#9aa6b4;margin-top:20px;max-width:64ch;margin-left:auto;margin-right:auto;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brandbar fade">
+    <div class="brand">
+      <div class="logo">Safe<span>shield</span> Insurance</div>
+      <div class="slogan">We work for you, not the insurance company</div>
+    </div>
+    <div class="prepared">Prepared for <b>Robert &amp; Laurie Graziano</b><br>August 24, 2026 &middot; Valid 30 days</div>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow fade">Your home, auto & umbrella renewal</div>
+    <h1 class="fade">A stronger home policy.<br>Same trusted auto &amp; umbrella.</h1>
+    <p class="lede fade">Your Travelers home renewal came in at <b>$5,365</b>. We shopped it against the market and Narragansett Bay (NBIC) came back with the same coverage for meaningfully less. Your auto and umbrella are staying right where they are with Travelers, so here is the complete, honest picture of what changes and what stays the same.</p>
+  </header>
+
+  <div class="savings fade">
+    <div class="lbl">Home premium: Travelers renewal vs. NBIC</div>
+    <div class="vs">
+      <div class="item"><div class="n" style="color:var(--amber)">$3,821</div><div class="c">NBIC &middot; Safeshield</div></div>
+      <div class="item"><div class="n">$5,365</div><div class="c">Travelers renewal</div></div>
+    </div>
+    <div class="save">You save <b>$1,544 a year</b> on your home, with the same dwelling, personal property, and liability limits you have today &mdash; plus a few upgrades we'll walk through below.</div>
+  </div>
+
+  <!-- PACKAGE OVERVIEW -->
+  <section class="sec">
+    <div class="sec-eye fade">Your full picture</div>
+    <h2 class="fade">Here's the complete package</h2>
+    <p class="sub fade">One thing worth knowing up front: Travelers' multi-policy discount on your auto and umbrella is tied to keeping your home with them. Moving the home to NBIC means that discount drops off, so your auto goes from a bundled rate up to <b style="color:var(--ink)">$4,732</b>. We want you to see that trade-off clearly, not bury it.</p>
+
+    <div class="pkg">
+      <div class="pcard fade">
+        <div class="tag new">Moving to NBIC</div>
+        <div class="lob">Homeowners</div>
+        <h3>882 Stillwater Rd</h3>
+        <div class="amt">$3,821</div>
+        <div class="was">was <s>$5,365</s> with Travelers &middot; <b>save $1,544</b></div>
+        <p class="expl">Same Coverage A-F limits, plus equipment breakdown, service line, and a much lower named-storm deductible.</p>
+      </div>
+      <div class="pcard fade">
+        <div class="tag stay">Staying &middot; Travelers</div>
+        <div class="lob">Personal Auto</div>
+        <h3>Auto Policy</h3>
+        <div class="amt">$4,732</div>
+        <div class="was bad">was bundled rate &middot; <b>+ multi-policy discount removed</b></div>
+        <p class="expl">No changes to your auto coverage itself &mdash; this reflects losing the companion discount once home leaves Travelers.</p>
+      </div>
+      <div class="pcard fade">
+        <div class="tag stay">Staying &middot; Travelers</div>
+        <div class="lob">Personal Umbrella</div>
+        <h3>Umbrella Policy</h3>
+        <div class="amt">$676</div>
+        <div class="was">No coverage changes</div>
+        <p class="expl">Your umbrella stays exactly as-is, same limits, same carrier.</p>
+      </div>
+    </div>
+
+    <div class="total fade">
+      <div class="lab">Total annual package</div>
+      <div class="amt">$9,229</div>
+    </div>
+    <p class="note fade"><b>Bottom line:</b> even after the multi-policy discount drops off the auto, moving the home to NBIC still nets you real savings overall versus renewing everything with Travelers &mdash; and you get several coverage upgrades on the home along the way.</p>
+  </section>
+
+  <!-- HOME COMPARISON -->
+  <section class="sec">
+    <div class="sec-eye fade">Line by line</div>
+    <h2 class="fade">How your home coverage compares</h2>
+    <p class="sub fade">Every core limit matches your current Travelers policy. A few things actually get better with NBIC.</p>
+
+    <div class="cmp fade">
+      <div class="cmp-head">
+        <div class="h0">Coverage</div>
+        <div class="h-ours">NBIC (Proposed)</div>
+        <div class="h-theirs">Travelers (Current)</div>
+      </div>
+      <div class="crow match"><div class="lab">Coverage A &mdash; Dwelling</div><div class="ours">$1,126,000</div><div class="theirs">$1,126,000</div></div>
+      <div class="crow match"><div class="lab">Coverage B &mdash; Other Structures</div><div class="ours">$112,600</div><div class="theirs">$112,600</div></div>
+      <div class="crow match"><div class="lab">Coverage C &mdash; Personal Property</div><div class="ours">$716,586</div><div class="theirs">$716,586</div></div>
+      <div class="crow match"><div class="lab">Coverage D &mdash; Loss of Use</div><div class="ours">$307,173</div><div class="theirs">$307,173</div></div>
+      <div class="crow match"><div class="lab">Coverage E &mdash; Personal Liability</div><div class="ours">$500,000</div><div class="theirs">$500,000</div></div>
+      <div class="crow match"><div class="lab">Coverage F &mdash; Medical Payments</div><div class="ours">$5,000</div><div class="theirs">$5,000</div></div>
+      <div class="crow match"><div class="lab">All-Other-Peril Deductible</div><div class="ours">$1,000</div><div class="theirs">$1,000</div></div>
+      <div class="crow better"><div class="lab">Named Storm / Windstorm Deductible</div><div class="ours">$1,000 (Hurricane)</div><div class="theirs">$5,000 (Wind/Hail)</div></div>
+      <div class="crow better"><div class="lab">Equipment Breakdown</div><div class="ours">$100,000</div><div class="theirs">$50,000</div></div>
+      <div class="crow"><div class="lab">Identity Fraud Expense</div><div class="ours">$15,000 (Included)</div><div class="theirs">$25,000 ($25/yr)</div></div>
+      <div class="crow match"><div class="lab">Ordinance or Law</div><div class="ours">10% Included</div><div class="theirs">10% Included</div></div>
+      <div class="crow match"><div class="lab">Loss Assessment</div><div class="ours">$1,000 Included</div><div class="theirs">$1,000 Included</div></div>
+      <div class="crow match"><div class="lab">Water Backup &amp; Sump Overflow</div><div class="ours">$10,000</div><div class="theirs">$10,000</div></div>
+      <div class="crow match"><div class="lab">Limited Fungi / Mold Remediation</div><div class="ours">$10,000 / $50,000</div><div class="theirs">$10,000 / $50,000</div></div>
+      <div class="crow better"><div class="lab">Service Line Coverage</div><div class="ours">$10,000 (new)</div><div class="theirs">Not included</div></div>
+      <div class="crow price"><div class="lab">Annual Premium</div><div class="ours">$3,821</div><div class="theirs">$5,365</div></div>
+    </div>
+    <p class="note fade"><b>Note:</b> NBIC adds a CT-mandated Healthy Homes Fund surcharge ($12) and a small charge for Personal Property Replacement Cost ($321) and the Additional Coverage A extension (25%, $70) &mdash; both of which Travelers currently includes at no line-item cost. Everything else nets out in your favor, and the math above already reflects all of it.</p>
+  </section>
+
+  <!-- WHY -->
+  <section class="sec">
+    <div class="sec-eye fade">Why this works</div>
+    <h2 class="fade">The bigger picture</h2>
+    <div class="why">
+      <div class="card fade"><h3>Home gets stronger, for less</h3><p>NBIC matches every core limit on your Travelers policy and improves your named storm deductible from $5,000 down to $1,000, plus doubles your equipment breakdown coverage &mdash; all for $1,544 less per year.</p></div>
+      <div class="card fade"><h3>Auto &amp; umbrella don't move</h3><p>No new applications, no new carrier to learn, no coverage gaps. Your Travelers auto and umbrella stay exactly as they are today, just re-rated without the multi-policy discount that was tied to the home.</p></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta fade">
+    <h2>Ready when you are.</h2>
+    <p>Reply to our email or give us a call and we'll get the home moved to NBIC with a clean effective date of 09/17/2026, right alongside your Travelers auto and umbrella renewal.</p>
+    <a class="btn" href="mailto:eric@gosafeshield.com?subject=Graziano%20Package%20-%20Ready%20to%20move%20home%20to%20NBIC">Let's lock it in</a>
+    <a class="btn-ghost" href="https://gosafeshield.com/review" target="_blank" rel="noopener">Read our reviews</a>
+    <span class="alt">or call <a href="tel:2038065889">(203) 806-5889</a></span>
+  </section>
+
+  <footer>
+    <div class="sig">Safe<span>shield</span> Insurance</div>
+    <div class="fslogan">We work for you, not the insurance company</div>
+    <div class="fcontact">
+      Prepared by Eric Kelly<br>
+      <a href="mailto:eric@gosafeshield.com">eric@gosafeshield.com</a> &middot; <a href="tel:2038065889">(203) 806-5889</a>
+    </div>
+    <p class="disc">This is a proposal summary prepared for Robert &amp; Laurie Graziano and is not a binder or a contract. The NBIC figure reflects quote CTHQ01924615 effective 09/17/2026. The Travelers auto and umbrella figures reflect the re-rated premiums once the home moves off the Travelers account and the multi-policy discount no longer applies. Coverages, limits, terms, and exclusions are governed by the actual policy documents. Premiums are subject to carrier review and may change pending underwriting.</p>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.fade').forEach(function(el,i){el.style.transitionDelay=(Math.min(i,6)*40)+'ms';io.observe(el);});
+</script>
+
+<script>window.CASEY_PROPOSAL={"slug":"graziano-package","agent":"Eric"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
