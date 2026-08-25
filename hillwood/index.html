@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hillwood Condominium Association | Safeshield Insurance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a1628; color:#FAFAF8; font-family:'Outfit',sans-serif; font-weight:300; line-height:1.6; overflow-x:hidden; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 28px; }
+  h1,h2,h3 { font-family:'Playfair Display',serif; font-weight:900; line-height:1.1; }
+  .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(255,163,0,0.25),transparent); margin:0; border:none; }
+
+  /* HERO */
+  .hero { padding:120px 0 90px; text-align:center; position:relative; }
+  .hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:600px; height:600px; background:radial-gradient(circle,rgba(0,75,137,0.35),transparent 70%); z-index:0; }
+  .hero > * { position:relative; z-index:1; }
+  .brandmark { font-family:'Outfit'; font-weight:700; letter-spacing:6px; font-size:0.78rem; color:#FFA300; text-transform:uppercase; margin-bottom:28px; }
+  .hero h1 { font-size:3.6rem; margin-bottom:18px; }
+  .hero .sub { font-size:1.25rem; color:#c9d3e0; font-weight:300; max-width:620px; margin:0 auto 10px; }
+  .hero .addr { font-size:1rem; color:#8a97a8; letter-spacing:0.5px; margin-top:14px; }
+  .pill { display:inline-flex; align-items:center; gap:9px; background:rgba(255,163,0,0.12); border:1px solid rgba(255,163,0,0.4); color:#FFA300; padding:9px 20px; border-radius:100px; font-size:0.82rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-bottom:34px; }
+
+  /* PREMIUM BANNER */
+  .premium-band { padding:70px 0; text-align:center; }
+  .premium-band .label { font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; color:#8a97a8; margin-bottom:14px; }
+  .premium-band .amount { font-family:'Playfair Display'; font-weight:900; font-size:5rem; color:#FAFAF8; line-height:1; }
+  .premium-band .amount span { color:#FFA300; }
+  .premium-band .fine { font-size:0.9rem; color:#8a97a8; margin-top:16px; }
+  .premium-band .carrier { font-size:1.05rem; color:#c9d3e0; margin-top:22px; }
+  .premium-band .carrier b { color:#FAFAF8; font-weight:600; }
+
+  /* WIND SPOTLIGHT */
+  .wind { padding:90px 0; background:linear-gradient(180deg,rgba(0,75,137,0.14),transparent); }
+  .wind-card { background:rgba(255,163,0,0.06); border:1px solid rgba(255,163,0,0.28); border-radius:24px; padding:56px 48px; text-align:center; position:relative; overflow:hidden; }
+  .wind-card::after { content:''; position:absolute; top:-40px; right:-40px; width:220px; height:220px; background:radial-gradient(circle,rgba(255,163,0,0.16),transparent 70%); }
+  .wind-tag { display:inline-block; font-size:0.75rem; letter-spacing:3px; text-transform:uppercase; color:#FFA300; font-weight:700; margin-bottom:20px; }
+  .wind-card h2 { font-size:2.5rem; margin-bottom:20px; }
+  .wind-card p { font-size:1.12rem; color:#c9d3e0; max-width:640px; margin:0 auto 12px; }
+  .wind-card .ded { display:inline-block; margin-top:26px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:18px 30px; font-size:1rem; color:#FAFAF8; }
+  .wind-card .ded b { color:#FFA300; font-weight:700; }
+
+  /* SECTIONS */
+  .section { padding:80px 0; }
+  .section-head { text-align:center; margin-bottom:52px; }
+  .section-head .kick { font-size:0.78rem; letter-spacing:3px; text-transform:uppercase; color:#FFA300; font-weight:600; margin-bottom:14px; }
+  .section-head h2 { font-size:2.6rem; }
+  .section-head p { color:#8a97a8; margin-top:14px; font-size:1.05rem; }
+
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:34px; }
+  .card h3 { font-size:1.5rem; margin-bottom:8px; color:#FAFAF8; }
+  .card .cap { font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; color:#FFA300; font-weight:600; margin-bottom:22px; }
+  .line { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .line:last-child { border-bottom:none; }
+  .line .k { color:#a9b5c4; font-size:0.98rem; }
+  .line .v { color:#FAFAF8; font-weight:600; font-size:1rem; text-align:right; }
+  .line .v.hl { color:#FFA300; }
+
+  /* DEDUCTIBLES STRIP */
+  .ded-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .ded-box { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px 18px; text-align:center; }
+  .ded-box .dk { font-size:0.72rem; letter-spacing:1.5px; text-transform:uppercase; color:#8a97a8; margin-bottom:12px; }
+  .ded-box .dv { font-family:'Playfair Display'; font-weight:700; font-size:1.55rem; color:#FAFAF8; }
+  .ded-box.wind-box { border-color:rgba(255,163,0,0.4); background:rgba(255,163,0,0.07); }
+  .ded-box.wind-box .dv { color:#FFA300; }
+
+  /* WHY */
+  .why { padding:90px 0; background:linear-gradient(180deg,transparent,rgba(0,75,137,0.12)); }
+  .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:44px; }
+  .why-item { display:flex; gap:16px; align-items:flex-start; padding:24px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:16px; }
+  .why-item .dot { flex-shrink:0; width:10px; height:10px; border-radius:50%; background:#FFA300; margin-top:8px; }
+  .why-item h4 { font-family:'Outfit'; font-weight:600; font-size:1.08rem; color:#FAFAF8; margin-bottom:5px; }
+  .why-item p { color:#a9b5c4; font-size:0.95rem; }
+
+  /* CTA */
+  .cta { padding:100px 0 90px; text-align:center; }
+  .cta h2 { font-size:2.8rem; margin-bottom:18px; }
+  .cta p { color:#c9d3e0; font-size:1.15rem; max-width:560px; margin:0 auto 38px; }
+  .btn { display:inline-block; background:#FFA300; color:#0a1628; font-family:'Outfit'; font-weight:700; font-size:1.05rem; padding:17px 42px; border-radius:100px; text-decoration:none; letter-spacing:0.3px; }
+  .contact { margin-top:40px; color:#8a97a8; font-size:1rem; }
+  .contact b { color:#FAFAF8; font-weight:600; }
+  .footer { text-align:center; padding:44px 0; color:#5c6a7a; font-size:0.82rem; }
+  .footer .fb { font-family:'Outfit'; font-weight:700; letter-spacing:4px; color:#8a97a8; text-transform:uppercase; font-size:0.8rem; margin-bottom:10px; }
+
+  @media(max-width:760px){
+    .hero h1{font-size:2.5rem;} .premium-band .amount{font-size:3.4rem;}
+    .grid,.why-grid{grid-template-columns:1fr;} .ded-grid{grid-template-columns:1fr 1fr;}
+    .wind-card{padding:40px 26px;} .wind-card h2{font-size:1.9rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brandmark">Safeshield Insurance</div>
+    <div class="pill">◆ Coverage Proposal</div>
+    <h1>Hillwood Condominium<br>Association</h1>
+    <p class="sub">A condominium association package built for real coastal Connecticut exposure, with the windstorm protection your current policy was missing.</p>
+    <p class="addr">70 Center Avenue Extension, Units 70A &amp; 70B · Norwalk, CT 06851</p>
+  </div>
+</header>
+
+<hr class="divider">
+
+<section class="premium-band">
+  <div class="wrap">
+    <div class="label">Total Annual Premium</div>
+    <div class="amount">$3,<span>699.52</span></div>
+    <div class="fine">All-in total, including Connecticut surplus lines taxes &amp; fees</div>
+    <div class="carrier">Placed with <b>Westchester Surplus Lines</b>, a Chubb company · A.M. Best <b>A++ (Superior)</b><br>Term: September 3, 2026 – September 3, 2027</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="wind">
+  <div class="wrap">
+    <div class="wind-card">
+      <div class="wind-tag">The Reason We Made The Move</div>
+      <h2>Windstorm &amp; Hail Coverage, Included</h2>
+      <p>This is the whole point. Your current policy left the association exposed to the one peril that matters most on the Norwalk shoreline. This program covers windstorm and hail damage to the building, so a coastal storm doesn't become a special assessment on every unit owner.</p>
+      <p>You're no longer carrying a gap you can't afford to have.</p>
+      <div class="ded">Windstorm / Hail Deductible: <b>2% of building value</b>, subject to a <b>$2,500 minimum</b></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kick">What's Covered</div>
+      <h2>Your Coverage At A Glance</h2>
+      <p>Property and liability protection for the association, built on Chubb's Condominium Association Coverage Form.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Property</h3>
+        <div class="cap">Building &amp; Equipment</div>
+        <div class="line"><span class="k">Building Limit</span><span class="v">$500,000</span></div>
+        <div class="line"><span class="k">Causes of Loss</span><span class="v">Special, incl. Theft</span></div>
+        <div class="line"><span class="k">Valuation</span><span class="v">Replacement Cost</span></div>
+        <div class="line"><span class="k">Coinsurance</span><span class="v">80%</span></div>
+        <div class="line"><span class="k">Windstorm / Hail</span><span class="v hl">Included</span></div>
+        <div class="line"><span class="k">Equipment Breakdown</span><span class="v">Included</span></div>
+      </div>
+      <div class="card">
+        <h3>General Liability</h3>
+        <div class="cap">Association Risk</div>
+        <div class="line"><span class="k">General Aggregate</span><span class="v">$2,000,000</span></div>
+        <div class="line"><span class="k">Each Occurrence</span><span class="v">$1,000,000</span></div>
+        <div class="line"><span class="k">Products / Completed Ops</span><span class="v">Included</span></div>
+        <div class="line"><span class="k">Personal &amp; Advertising Injury</span><span class="v">$1,000,000</span></div>
+        <div class="line"><span class="k">Fire Damage Limit</span><span class="v">$100,000</span></div>
+        <div class="line"><span class="k">Medical Expense</span><span class="v">$5,000</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kick">Your Deductibles</div>
+      <h2>Clear, Straightforward Terms</h2>
+    </div>
+    <div class="ded-grid">
+      <div class="ded-box"><div class="dk">All Other Perils</div><div class="dv">$1,000</div></div>
+      <div class="ded-box"><div class="dk">Theft</div><div class="dv">$1,000</div></div>
+      <div class="ded-box wind-box"><div class="dk">Wind / Hail</div><div class="dv">2%<span style="font-size:0.9rem"> · $2,500 min</span></div></div>
+      <div class="ded-box"><div class="dk">Water Damage</div><div class="dv">$5,000</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="why">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kick">Why Safeshield</div>
+      <h2>An Advocate, Not A Call Center</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><div class="dot"></div><div><h4>We shop the entire market</h4><p>69+ carrier partners across admitted and surplus markets, so associations get the coverage they actually need, not whatever one company will sell.</p></div></div>
+      <div class="why-item"><div class="dot"></div><div><h4>We closed the wind gap</h4><p>We didn't just renew what you had. We found a program that protects the building against the shoreline's real exposure.</p></div></div>
+      <div class="why-item"><div class="dot"></div><div><h4>Same-day service</h4><p>Certificates, evidence of insurance, and policy changes handled fast, so the board and property manager are never left waiting.</p></div></div>
+      <div class="why-item"><div class="dot"></div><div><h4>We advocate at claims time</h4><p>When a storm hits, you have a broker in your corner working the claim, not a 1-800 number.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ready To Bind?</h2>
+    <p>Coverage is subject to a signed, dated ACORD showing building updates, a CT form, favorable inspection, and 3 years of clean loss runs. We'll walk the board through every step.</p>
+    <a class="btn" href="mailto:austin@gosafeshield.com">Let's Get This Bound →</a>
+    <div class="contact">Prepared by <b>Austin Glazer</b> · Safeshield Insurance<br>(203) 564-9817 · austin@gosafeshield.com</div>
+  </div>
+</section>
+
+<div class="footer">
+  <div class="fb">Safeshield Insurance</div>
+  Licensed in NY · CT · NJ · PA · DE &nbsp;|&nbsp; This proposal is a summary. Actual coverage is governed by the policy as issued.
+</div>
+
+
+<script>window.CASEY_PROPOSAL={"slug":"hillwood","agent":"Austin"};</script>
+<script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
+</body>
+</html>
