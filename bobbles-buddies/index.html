@@ -263,6 +263,26 @@
   .irow.discount{display:none}
   .irow.discount.on{display:flex}
   @media(max-width:760px){.steps{grid-template-columns:1fr}}
+
+  /* WHY THIS PRICE */
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .wcard{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 22px;box-shadow:var(--shadow)}
+  .wcard h3{font-size:1.15rem;font-weight:700;margin-bottom:6px}
+  .wcard p{font-size:.92rem;color:var(--muted)}
+  .wcard.win{background:linear-gradient(158deg,var(--navy),var(--dark));border:none;color:#eaf1f9;grid-column:span 2}
+  .wcard.win h3{color:#fff;font-size:1.35rem}
+  .wcard.win p{color:#c4d6ea;max-width:700px}
+  .wcard.win .big{font-family:'Playfair Display';font-weight:900;color:var(--gold);font-size:1.5rem;margin-bottom:6px}
+  .bars{margin-top:22px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 22px;box-shadow:var(--shadow)}
+  .bars h3{font-size:1.15rem;margin-bottom:4px}
+  .bars .lede{font-size:.88rem;color:var(--muted);margin-bottom:16px}
+  .brow{display:grid;grid-template-columns:200px 1fr 70px;gap:12px;align-items:center;padding:7px 0;font-size:.9rem}
+  .brow .bl{font-weight:500}
+  .brow .tr{height:12px;background:var(--paper);border-radius:999px;overflow:hidden}
+  .brow .fl{height:100%;background:var(--navy);border-radius:999px}
+  .brow.hi .fl{background:var(--gold)}
+  .brow .bv{font-family:'Outfit';font-weight:700;color:var(--navy);text-align:right;white-space:nowrap}
+  @media(max-width:760px){.why{grid-template-columns:1fr}.wcard.win{grid-column:span 1}.brow{grid-template-columns:1fr 60px}.brow .tr{grid-column:1/3}}
 </style></head>
 <body>
 
@@ -346,8 +366,53 @@
   </div>
 </section>
 
-<!-- COVERAGE DETAIL -->
+<!-- WHY THIS PRICE -->
 <section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Let's talk about the number</div>
+      <h2>Why it costs what it costs, and why this is the best deal out there for you</h2>
+      <p>Nobody likes seeing a four-figure first payment. Here is exactly what is behind it, and why we went to Progressive.</p>
+    </div>
+    <div class="why">
+      <div class="wcard win">
+        <div class="eyebrow" style="color:var(--gold)">The part that matters most</div>
+        <h3>Progressive is where new tow operations get their best price</h3>
+        <p>Most commercial insurers will not even quote a towing business until it has three years of history. The handful that will charge heavily for the unknown. Progressive is the one carrier that built its commercial auto program around new operators, and in our experience it comes back lowest for a first-year trucking or towing business every time. That is why we went straight there instead of making you wait on carriers that were going to say no or come in higher.</p>
+      </div>
+      <div class="wcard">
+        <h3>1. You are paying for zero history</h3>
+        <p>Insurance is priced on track record. A brand new business has none yet, so every carrier adds a new-venture charge. It is the single biggest reason year one is the most expensive year. It ages off as you build a clean record, and there is nothing you did wrong.</p>
+      </div>
+      <div class="wcard">
+        <h3>2. A loaded tow truck is a heavy truck</h3>
+        <p>An F350 with a car on the back is the kind of vehicle that does real damage when something goes wrong. Three quarters of this premium is the liability part, protecting you when it does. That is the coverage that keeps a bad day from ending the business.</p>
+      </div>
+      <div class="wcard">
+        <h3>3. You are covering other people's cars</h3>
+        <p>On-hook and garagekeepers are what make you a real tow company instead of a guy with a truck. Customers, motor clubs, and police rotations will not use you without them. They are about $135 a month of the total.</p>
+      </div>
+      <div class="wcard">
+        <h3>4. We already trimmed it</h3>
+        <p>Taevon's clean driving record, $2,500 deductibles on the truck, the autopay discount, and no extras you do not need yet. This is the lean version. Every 12 months you run without a claim, the carrier rewards it at renewal.</p>
+      </div>
+    </div>
+    <div class="bars">
+      <h3>Where each month's payment goes</h3>
+      <p class="lede">Based on the yearly premium spread across 12 months. The gold bar is the one doing the heavy lifting.</p>
+      <div class="brow hi"><div class="bl">If you cause an accident</div><div class="tr"><div class="fl" style="width:100%"></div></div><div class="bv">$771</div></div>
+      <div class="brow"><div class="bl">Cars on your hook</div><div class="tr"><div class="fl" style="width:12%"></div></div><div class="bv">$92</div></div>
+      <div class="brow"><div class="bl">General liability</div><div class="tr"><div class="fl" style="width:8.4%"></div></div><div class="bv">$65</div></div>
+      <div class="brow"><div class="bl">Cars in your lot</div><div class="tr"><div class="fl" style="width:5.6%"></div></div><div class="bv">$43</div></div>
+      <div class="brow"><div class="bl">Your own truck</div><div class="tr"><div class="fl" style="width:5%"></div></div><div class="bv">$39</div></div>
+      <div class="brow"><div class="bl">Uninsured driver hits you</div><div class="tr"><div class="fl" style="width:1.5%"></div></div><div class="bv">$11</div></div>
+      <div class="brow"><div class="bl">Federal filing fee</div><div class="tr"><div class="fl" style="width:.4%"></div></div><div class="bv">$3</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE DETAIL -->
+<section style="background:var(--white);border-top:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">What's inside</div>
@@ -427,7 +492,7 @@
 </section>
 
 <!-- SCENARIOS -->
-<section style="background:var(--white);border-top:1px solid var(--line)">
+<section>
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Put it to the test</div>
