@@ -324,7 +324,7 @@
       </div>
     </div>
     <div class="total-bar">
-      <div class="lbl">Total program<small id="total-sub">Then 10 payments of this amount after $2,077 to start · includes the $18 per-payment fee</small></div>
+      <div class="lbl">Total program<small id="total-sub">$2,077 to get started, then this amount every month on autopay · includes the $18 payment fee</small></div>
       <div class="amt"><span class="amt-num" data-annual="total">$1,039</span><span class="per">/mo</span></div>
     </div>
   </div>
@@ -529,7 +529,7 @@
       <div class="irow discount" id="discrow"><div class="n">Pay in full discount<small>Progressive takes this off when the year is paid up front</small></div><div class="p">-$1,587</div></div>
       <div class="irow grand"><div class="n">Total <span class="plan-label">Monthly</span></div><div class="p"><span class="amt-num" data-annual="total">$1,039</span><span class="per">/mo</span></div></div>
     </div>
-    <div class="paynote"><span>💡</span><div id="paynote-txt"><b>Monthly on autopay.</b> $2,077 to start, then 10 payments of $1,039 drafted from your bank. Each draft includes Progressive's $18 payment fee. Paying the year in full instead comes to $10,697, which saves you about $1,767 over the year.</div></div>
+    <div class="paynote"><span>💡</span><div id="paynote-txt"><b>Monthly on autopay.</b> $1,039 a month drafted from your bank, with a first payment of $2,077 to get started. Each draft includes Progressive's $18 payment fee. Prefer to pay the year up front? Flip the toggle, it works out to about $147 a month less.</div></div>
   </div>
 </section>
 
@@ -579,14 +579,14 @@
   // Progressive payment plans, straight off the quote
   var PLANS={
     monthly:{div:12,per:'/mo',label:'Monthly',total:1039,
-      sub:'Then 10 payments of this amount after $2,077 to start · includes the $18 per-payment fee',
-      note:'<b>Monthly on autopay.</b> $2,077 to start, then 10 payments of $1,039 drafted from your bank. Each draft includes Progressive\u2019s $18 payment fee. Paying the year in full instead comes to $10,697, which saves you about $1,767 over the year.'},
+      sub:'$2,077 to get started, then this amount every month on autopay · includes the $18 payment fee',
+      note:'<b>Monthly on autopay.</b> $1,039 a month drafted from your bank, with a first payment of $2,077 to get started. Each draft includes Progressive\u2019s $18 payment fee. Prefer to pay the year up front? Flip the toggle, it works out to about $147 a month less.'},
     quarterly:{div:4,per:'/qtr',label:'Quarterly',total:3080,
-      sub:'Then 3 payments of this amount after $3,097 to start · includes the $18 per-payment fee',
-      note:'<b>Quarterly on autopay.</b> $3,097 to start, then 3 payments of $3,080 every three months. Fewer drafts, same coverage. Paying the year in full instead comes to $10,697.'},
+      sub:'$3,097 to get started, then this amount every three months on autopay · includes the $18 payment fee',
+      note:'<b>Quarterly on autopay.</b> $3,097 to get started, then $3,080 every three months, which is about $1,027 a month. Fewer drafts, same coverage.'},
     full:{div:1,per:'/yr',label:'Pay in full',total:10697,
       sub:'One payment, done for the year · $1,587 discount already taken off',
-      note:'<b>Paid in full.</b> One payment of $10,697 and you do not think about it again until next September. This is the cheapest way to buy the policy, and there are no payment fees.'}
+      note:'<b>Paid in full.</b> One payment of $10,697 and you do not think about it again until next September. That is about $891 a month, the cheapest way to buy the policy, with no payment fees.'}
   };
   function fmtMoney(n){return '$'+Math.round(n).toLocaleString('en-US');}
   function applyPlan(key){
