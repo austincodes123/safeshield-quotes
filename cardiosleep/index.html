@@ -227,8 +227,6 @@
   .addbtn{margin-top:12px;font-family:'Outfit';font-weight:700;font-size:.85rem;border:1.5px solid var(--navy);background:transparent;color:var(--navy);border-radius:999px;padding:8px 16px;cursor:pointer;transition:.15s}
   .addbtn.on{background:var(--now);border-color:var(--now);color:#fff}
   .addbtn.on::before{content:"✓ "}
-  .irow.optrow{display:none}
-  .irow.optrow.on{display:flex}
   /* ROSTER */
   .roster{background:linear-gradient(158deg,var(--navy),var(--dark));border-radius:22px;padding:36px 30px;color:#eaf1f9;position:relative;overflow:hidden}
   .roster::after{content:"";position:absolute;right:-120px;bottom:-140px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,163,0,.25),transparent 62%);pointer-events:none}
@@ -306,7 +304,7 @@
       <div><div class="k">Prepared for</div><div class="v">Dr. Lee Surkin</div></div>
       <div><div class="k">Effective</div><div class="v">09/16/2026 to 09/16/2027</div></div>
       <div><div class="k">Carrier</div><div class="v">Lloyd's of London (A+ rated)</div></div>
-      <div><div class="k plan-label">Monthly</div><div class="v"><span class="amt-num" data-annual="total">$832</span><span class="per">/mo</span></div></div>
+      <div><div class="k plan-label">Monthly</div><div class="v"><span class="amt-num" data-annual="total">$964</span><span class="per">/mo</span></div></div>
     </div>
   </div>
 </header>
@@ -317,7 +315,7 @@
     <div class="sec-head">
       <div class="eyebrow">The Plan</div>
       <h2>One policy, built for how you actually work</h2>
-      <p>Everything sits on a single Lloyd's policy designed for remote physician work. Liability is included. Cyber protection is optional and you can switch it on right here.</p>
+      <p>Everything sits on a single Lloyd's policy designed for remote physician work. Liability and cyber protection are both included; the carrier requires the cyber piece for remote patient monitoring, and honestly we agree with them.</p>
     </div>
     <div class="billtoggle" role="tablist" aria-label="Billing plan">
       <button class="billopt active" data-div="12" data-per="/mo" data-label="Monthly">Monthly</button>
@@ -344,17 +342,20 @@
         </div></details>
         <div class="price"><span class="amt-num" data-annual="8750">$729</span><span class="per">/mo</span></div>
       </div>
-      <div class="gcard opt">
-        <div class="tag">Optional · Add it if you want it</div>
+      <div class="gcard">
+        <div class="tag">Included · Required by the carrier</div>
         <h3>Cyber Protection</h3>
-        <div class="sub">Patient data on your devices, your email, and your money. Breach response, privacy claims, and fraud.</div>
-        <div class="price">+<span class="amt-num" data-annual="1580">$132</span><span class="per">/mo</span></div>
-        <button class="addbtn" id="cyberbtn">Add cyber protection</button>
+        <div class="sub">Patient data, your email, and your money. The carrier now requires this for remote patient monitoring work, so it's built in: the clinical side and the technology side, both protected.</div>
+        <ul class="limits" style="margin-top:8px">
+          <li><span>Breach response and privacy claims</span><span>$1M</span></li>
+          <li><span>Ransomware, downtime, system damage</span><span>$1M</span></li>
+          <li><span>Funds transfer fraud</span><span>$250K</span></li>
+        </ul>
+        <div class="price"><span class="amt-num" data-annual="1579.50">$132</span><span class="per">/mo</span></div>
       </div>
-    </div>
-    <div class="total-bar">
+      <div class="total-bar">
       <div class="lbl">Total program<small>Premium plus all fees and NC surplus lines tax, nothing hidden</small></div>
-      <div class="amt"><span class="amt-num" data-annual="total">$832</span><span class="per">/mo</span></div>
+      <div class="amt"><span class="amt-num" data-annual="total">$964</span><span class="per">/mo</span></div>
     </div>
   </div>
 </section>
@@ -369,7 +370,7 @@
     </div>
     <div class="asked">
       <div class="arow yes"><div class="ico">✓</div><div class="txt">"Can I get coverage for CardioSleep?"<small>Yes. A Lloyd's policy written for telecardiology and remote sleep study work, in your entity's name</small></div><div class="where">Liability</div></div>
-      <div class="arow yes"><div class="ico">✓</div><div class="txt">"Can I afford it?"<small>About $832 a month for the included coverage, fees and tax in. Less than your Carolina Sleep policy, and it covers the whole entity</small></div><div class="where">$832/mo</div></div>
+      <div class="arow yes"><div class="ico">✓</div><div class="txt">"Can I afford it?"<small>About $964 a month all-in, fees and tax included, now with the full $1M cyber suite built in. The whole entity, the clinical side and the technology side, for about what Carolina Sleep alone costs</small></div><div class="where">$964/mo</div></div>
       <div class="arow yes"><div class="ico">✓</div><div class="txt">"Can I add 3 to 8 cardiologists to the policy?"<small>Physicians who interpret on CardioSleep's behalf are covered as part of your team. No per-doctor charge, no separate policy for each of them</small></div><div class="where">Liability · Included</div></div>
       <div class="arow yes"><div class="ico">✓</div><div class="txt">"Only cardiac monitor and sleep interpretations. Nothing else."<small>The policy is scoped to remote interpretation work. Anything outside that, like clinical care or procedures, sits outside it by design</small></div><div class="where">Scoped</div></div>
       <div class="arow yes"><div class="ico">✓</div><div class="txt">"Keep it separate from my own coverage."<small>This is CardioSleep's policy. Your Carolina Sleep coverage and your New York practice coverage are untouched</small></div><div class="where">Separate</div></div>
@@ -435,7 +436,7 @@
       </div>
 
       <div class="ccard opt-card">
-        <div class="ct"><div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></div><h3>Cyber Protection <span style="font-family:'Outfit';font-size:.72rem;font-weight:700;color:var(--gold-deep);letter-spacing:.06em;text-transform:uppercase;margin-left:6px">Optional</span></h3></div>
+        <div class="ct"><div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></div><h3>Cyber Protection <span style="font-family:'Outfit';font-size:.72rem;font-weight:700;color:var(--now);letter-spacing:.06em;text-transform:uppercase;margin-left:6px">Included</span></h3></div>
         <div class="desc">Patient records, email, and money. Covers what happens after a breach and the claims that follow.</div>
         <ul class="limits">
           <li><span>Breach response (forensics, notices, legal)</span><span>$1,000,000</span></li>
@@ -445,7 +446,7 @@
           <li><span>Income lost while systems are down</span><span>$1,000,000</span></li>
           <li><span>Fraud: fake invoices, hijacked payments</span><span>$250,000</span></li>
         </ul>
-        <details class="rl"><summary>What this means in real life</summary><div class="body">Your email gets compromised and a vendor's payment is rerouted, or a laptop with reports on it goes missing and patients have to be notified. This pays the response team, the notifications, and the fraud loss. With cardiologists logging in from all over the country, <b>the number of doors into your data multiplies</b>. About $132 a month for the full suite.</div></details>
+        <details class="rl"><summary>What this means in real life</summary><div class="body">Your email gets compromised and a vendor's payment is rerouted, or a laptop with reports on it goes missing and patients have to be notified. This pays the response team, the notifications, and the fraud loss. With cardiologists logging in from all over the country, <b>the number of doors into your data multiplies</b>. The carrier requires this coverage for remote patient monitoring work, and they're right to.</div></details>
       </div>
 
       <div class="ccard">
@@ -510,8 +511,8 @@
         <h4>Someone gets into your email and redirects a payment from Virtuox</h4>
         <div class="story">The most common cyber loss for a small practice, and it has nothing to do with hackers in hoodies. It's one convincing email.</div>
         <div class="scengrid">
-          <div class="sbox pays"><div class="h">What responds (if cyber is added)</div><div class="t">Cyber Protection pays the fraud loss up to $250,000, and covers the forensics and any patient notifications if records were touched.</div></div>
-          <div class="sbox"><div class="h">Without it</div><div class="t">This is out of pocket. That's the honest reason we list it as an option worth considering at about $132 a month.</div></div>
+          <div class="sbox pays"><div class="h">What responds</div><div class="t">Cyber Protection pays the fraud loss up to $250,000, and covers the forensics and any patient notifications if records were touched.</div></div>
+          <div class="sbox"><div class="h">Why it's built in</div><div class="t">The carrier requires cyber on remote monitoring risks because claims here blend technology and healthcare. Platform outages, messaging errors, and breaches can all reach patient care.</div></div>
         </div>
       </div>
     </div>
@@ -535,12 +536,12 @@
           <li><b>Scoped to interpretation work</b><small>Clinical care and procedures sit outside this policy by design.</small></li>
           <li><b>General liability at $1M / $3M</b><small>For contracts, vendors, and the rare non-medical claim.</small></li>
           <li><b>Separate from your other coverage</b><small>Carolina Sleep and your NY practice stay exactly as they are.</small></li>
+          <li><b>$1M cyber protection included</b><small>Required by the carrier for remote patient monitoring, and the right call: platform, data, and payment risks are covered alongside the medicine.</small></li>
         </ul>
       </div>
       <div class="hcard grow">
         <div class="hh"><span class="badge">Your call</span></div>
         <ul>
-          <li><b>Cyber protection, about $132 a month</b><small>Recommended once the roster grows, but genuinely optional. Toggle it on above to see the numbers.</small></li>
           <li><b>Signing within the window</b><small>The carrier needs the signed application within 30 days of the start date. Quick to do, and I'll send it ready to sign.</small></li>
         </ul>
       </div>
@@ -559,8 +560,8 @@
     <div class="invest">
       <div class="irow"><div class="n">Liability<small>Professional liability $1M / $3M · general liability $1M / $3M · includes your interpreting physicians</small></div><div class="p"><span class="amt-num" data-annual="8750">$729</span><span class="per">/mo</span></div></div>
       <div class="irow"><div class="n">Fees and North Carolina surplus lines tax<small>Carrier fees $750 · NC surplus lines tax and stamping $490.25</small></div><div class="p"><span class="amt-num" data-annual="1240.25">$103</span><span class="per">/mo</span></div></div>
-      <div class="irow optrow" id="cyberrow"><div class="n">Cyber Protection <span style="font-family:'Outfit';font-size:.7rem;font-weight:700;color:var(--now);text-transform:uppercase;letter-spacing:.06em;margin-left:6px">Added</span><small>$1M breach response and liability · $250K fraud · includes tax</small></div><div class="p"><span class="amt-num" data-annual="1580">$132</span><span class="per">/mo</span></div></div>
-      <div class="irow grand"><div class="n">Total <span class="plan-label">Monthly</span></div><div class="p"><span class="amt-num" data-annual="total">$832</span><span class="per">/mo</span></div></div>
+      <div class="irow"><div class="n">Cyber Protection<small>$1M breach response and liability · $250K funds transfer fraud · required by the carrier · includes tax</small></div><div class="p"><span class="amt-num" data-annual="1579.50">$132</span><span class="per">/mo</span></div></div>
+      <div class="irow grand"><div class="n">Total <span class="plan-label">Monthly</span></div><div class="p"><span class="amt-num" data-annual="total">$964</span><span class="per">/mo</span></div></div>
     </div>
     <div class="paynote"><span>💡</span><div><b>Pick your plan above.</b> Figures update to match. The full annual cost for the included coverage is <span id="annual-txt">$9,990</span>. Payment plans typically run as a down payment then installments, and I'll set that up with you when we bind.</div></div>
   </div>
@@ -643,12 +644,12 @@
       document.querySelector('.scenbody[data-b="'+s+'"]').classList.add('active');
     });
   });
-  var BASE=[8750,1240.25], CYBER=1580, cyberOn=false;
+  var BASE=[8750,1579.50,1240.25], cyberOn=true;
   var curDiv=12,curPer='/mo',curLabel='Monthly';
   function fmtMoney(n){return '$'+Math.round(n).toLocaleString('en-US');}
   function applyPlan(div,per,label){
     curDiv=div;curPer=per;curLabel=label;
-    var parts=BASE.slice(); if(cyberOn) parts.push(CYBER);
+    var parts=BASE.slice();
     var total=0; parts.forEach(function(a){total+=Math.round(a/div);});
     document.querySelectorAll('.amt-num').forEach(function(el){
       var a=el.getAttribute('data-annual');
@@ -656,8 +657,8 @@
     });
     document.querySelectorAll('.per').forEach(function(el){el.textContent=per;});
     document.querySelectorAll('.plan-label').forEach(function(el){el.textContent=label;});
-    var annual=BASE.reduce(function(s,a){return s+a;},0)+(cyberOn?CYBER:0);
-    document.getElementById('annual-txt').textContent=fmtMoney(annual)+(cyberOn?' with cyber protection':'');
+    var annual=BASE.reduce(function(s,a){return s+a;},0);
+    document.getElementById('annual-txt').textContent=fmtMoney(annual)+' with cyber protection included';
   }
   document.querySelectorAll('.billopt').forEach(function(b){
     b.addEventListener('click',function(){
@@ -665,14 +666,6 @@
       b.classList.add('active');
       applyPlan(parseFloat(b.getAttribute('data-div')),b.getAttribute('data-per'),b.getAttribute('data-label'));
     });
-  });
-  var cb=document.getElementById('cyberbtn');
-  cb.addEventListener('click',function(){
-    cyberOn=!cyberOn;
-    cb.classList.toggle('on',cyberOn);
-    cb.textContent=cyberOn?'Cyber protection added':'Add cyber protection';
-    document.getElementById('cyberrow').classList.toggle('on',cyberOn);
-    applyPlan(curDiv,curPer,curLabel);
   });
   applyPlan(12,'/mo','Monthly');
 
@@ -723,7 +716,7 @@
   document.getElementById('callForm').addEventListener('submit',function(e){
     e.preventDefault();
     var form=e.target,btn=document.getElementById('sendBtn'),err=document.getElementById('errMsg');
-    document.getElementById('fCyber').value=cyberOn?'Added (+$132/mo)':'Not added';
+    document.getElementById('fCyber').value='Included (carrier required)';
     document.getElementById('fPlan').value=curLabel;
     document.getElementById('fMonthly').value=document.querySelector('.total-bar .amt-num').textContent+curPer;
     err.className='err hide';btn.disabled=true;btn.textContent='Booking\u2026';
