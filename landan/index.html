@@ -265,7 +265,40 @@
   .hl .big{font-family:'Playfair Display';font-weight:900;font-size:2rem;color:var(--gold);margin:8px 0 2px;line-height:1}
   .hl .t{font-size:.86rem;color:#c4d6ea}
   .hl .t b{color:#fff;font-weight:600}
+  .vs th.alt{background:var(--paper);color:var(--ink)}
+  .vs th.alt small{display:block;font-weight:500;color:var(--muted);font-size:.72rem}
+  .vs td.alt{font-family:'Outfit';font-weight:600;color:var(--ink);white-space:nowrap}
+  .vs tr.total td.alt{background:var(--navy);color:#fff}
+  .vs tr.group td.alt,.vs tr.group td{background:var(--paper)}
+  .vs td.flag{color:var(--gold-deep)}
+  .vs .tbl{overflow-x:auto}
+  .pick{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .pcard{border-radius:18px;padding:26px 24px;position:relative}
+  .pcard.rec{background:linear-gradient(158deg,var(--navy),var(--dark));color:#eaf1f9}
+  .pcard.alt{background:var(--white);border:1.5px solid var(--line);color:var(--ink)}
+  .pcard .badge{display:inline-block;font-family:'Outfit';font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
+  .pcard.rec .badge{background:var(--gold);color:var(--dark)}
+  .pcard.alt .badge{background:var(--paper);color:var(--muted);border:1px solid var(--line)}
+  .pcard h3{font-size:1.4rem;margin:12px 0 4px}
+  .pcard.rec h3{color:#fff}
+  .pcard .pr{font-family:'Playfair Display';font-weight:900;font-size:2rem;line-height:1;margin:10px 0 4px}
+  .pcard.rec .pr{color:var(--gold)}
+  .pcard.alt .pr{color:var(--navy)}
+  .pcard .pr small{font-family:'Outfit';font-weight:600;font-size:.85rem}
+  .pcard.rec .pr small{color:#a9c6e4}
+  .pcard.alt .pr small{color:var(--muted)}
+  .pcard .yr{font-size:.86rem}
+  .pcard.rec .yr{color:#c4d6ea}
+  .pcard.alt .yr{color:var(--muted)}
+  .pcard ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:9px}
+  .pcard li{font-size:.9rem;padding-left:22px;position:relative}
+  .pcard li::before{content:"✓";position:absolute;left:0;font-weight:800}
+  .pcard.rec li::before{color:var(--gold)}
+  .pcard.alt li::before{color:var(--now)}
+  .pcard li.minus::before{content:"–";color:var(--gold-deep)}
   @media(max-width:760px){
+    .pick{grid-template-columns:1fr}
+    .vs table{min-width:640px}
     .hilite{grid-template-columns:1fr}
     .vs td,.vs th{padding:11px 12px;font-size:.84rem}
     .vs td.ours,.vs td.theirs{white-space:normal}
@@ -283,7 +316,7 @@
     </div>
     <div class="eyebrow">Coverage Proposal</div>
     <h1>9 Greens Farms Road</h1>
-    <p class="lead">We put your current State Farm homeowners policy and your separate jewelry policy side by side with what we built. <b>More house, more belongings paid at full replacement, the jewelry folded in, and it costs a little less.</b> Every number is below.</p>
+    <p class="lead">We put your current State Farm homeowners policy and your separate jewelry policy side by side with what we built. <b>More house, more belongings paid at full replacement, the jewelry folded in, and it costs a little less.</b> You also asked to see a Travelers option, so that is on the page too. Every number is below, and the choice is yours.</p>
     <div class="metastrip">
       <div><div class="k">Prepared for</div><div class="v">Daniel &amp; Brittany Landan</div></div>
       <div><div class="k">Effective</div><div class="v">09/14/2026 to 09/14/2027</div></div>
@@ -338,58 +371,97 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Side by side</div>
-      <h2>What you have today, next to what we built</h2>
-      <p>State Farm's numbers come straight off the renewal paperwork you sent us (homeowners plus the jewelry policy). Ours come off the Narragansett Bay quote. Green arrows are where you gain.</p>
+      <h2>What you have today, next to both options</h2>
+      <p>State Farm's numbers come straight off the renewal paperwork you sent us (homeowners plus the jewelry policy). The other two columns come off the Narragansett Bay and Travelers quotes. Green arrows are where the Narragansett Bay option gains on State Farm.</p>
     </div>
     <div class="hilite">
       <div class="hl"><div class="k">More house</div><div class="big">+$263,300</div><div class="t">Rebuild limit goes from <b>$773,700</b> to <b>$1,037,000</b>. With the cushion on top, from $967,125 to $1,296,250.</div></div>
       <div class="hl"><div class="k">More belongings</div><div class="big">+$145,625</div><div class="t">From <b>$580,275</b> to <b>$725,900</b>, and paid at full replacement cost instead of a limited version.</div></div>
       <div class="hl"><div class="k">And the price</div><div class="big">$39 less</div><div class="t">Both State Farm policies add up to <b>$4,705</b> a year. This one is <b>$4,666</b>, jewelry included.</div></div>
     </div>
-    <div class="vs">
+    <div class="vs"><div class="tbl">
       <table>
         <thead>
           <tr>
             <th></th>
-            <th class="ours">Safeshield proposal<small>Narragansett Bay, one policy</small></th>
+            <th class="ours">Narragansett Bay<small>Our recommendation, one policy</small></th>
+            <th class="alt">Travelers<small>The option you asked about, two policies</small></th>
             <th class="theirs">State Farm today<small>Homeowners + jewelry policy</small></th>
           </tr>
         </thead>
         <tbody>
-          <tr class="group"><td colspan="3">The house</td></tr>
-          <tr class="win"><td class="lbl">Rebuild the house<small>What the policy pays to put it back after a total loss</small></td><td class="ours">$1,037,000</td><td class="theirs">$773,700</td></tr>
-          <tr class="win"><td class="lbl">Extra if rebuilding runs over<small>The cushion above the rebuild number</small></td><td class="ours">+$259,250 (25%)</td><td class="theirs">+$193,425</td></tr>
-          <tr class="win"><td class="lbl">Total rebuild protection<small>Rebuild limit plus the cushion</small></td><td class="ours">$1,296,250</td><td class="theirs">$967,125</td></tr>
-          <tr class="win"><td class="lbl">Detached structures<small>Shed, fence, pool, anything not attached</small></td><td class="ours">$103,700</td><td class="theirs">$77,370</td></tr>
-          <tr class="win"><td class="lbl">Rebuilding to today's building code<small>Extra cost when the town requires newer standards</small></td><td class="ours">$103,700</td><td class="theirs">$77,370</td></tr>
-
-          <tr class="group"><td colspan="3">Everything inside</td></tr>
-          <tr class="win"><td class="lbl">Your belongings<small>Furniture, electronics, clothes, tools, all of it</small></td><td class="ours">$725,900</td><td class="theirs">$580,275</td></tr>
-          <tr class="win"><td class="lbl">How belongings are paid<small>This line matters more than almost anything else on the page</small></td><td class="ours">Full replacement cost</td><td class="theirs">Limited replacement cost</td></tr>
-          <tr class="win"><td class="lbl">Jewelry<small>Scheduled, with the value agreed up front</small></td><td class="ours">$15,164 on this policy</td><td class="theirs">$15,164 on a 2nd policy</td></tr>
-          <tr class="win"><td class="lbl">Living costs if you cannot use the house<small>Hotel, rental, meals while it is rebuilt</small></td><td class="ours">$311,100</td><td class="theirs">$232,110</td></tr>
-
-          <tr class="group"><td colspan="3">You, personally</td></tr>
-          <tr class="same"><td class="lbl">If someone gets hurt<small>Liability for injuries and the lawyers that come with them</small></td><td class="ours">$500,000</td><td class="theirs">$500,000</td></tr>
-          <tr class="same"><td class="lbl">Small injuries, no lawsuit needed<small>Medical bills for a guest</small></td><td class="ours">$5,000</td><td class="theirs">$5,000</td></tr>
-          <tr class="win"><td class="lbl">Libel, slander, invasion of privacy<small>Personal injury liability</small></td><td class="ours">Included</td><td class="theirs">Not on the policy</td></tr>
-          <tr class="win"><td class="lbl">Identity theft expenses</td><td class="ours">$15,000</td><td class="theirs">Not on the policy</td></tr>
-
-          <tr class="group"><td colspan="3">The quiet extras</td></tr>
-          <tr class="win"><td class="lbl">Furnace, AC, water heater, appliances breaking down<small>Equipment breakdown</small></td><td class="ours">$100,000</td><td class="theirs">Not on the policy</td></tr>
-          <tr class="win"><td class="lbl">Mold cleanup after a covered water loss</td><td class="ours">$10,000 / $50,000</td><td class="theirs">$10,000</td></tr>
-          <tr class="win"><td class="lbl">Neighborhood or association assessments</td><td class="ours">$1,000</td><td class="theirs">Not on the policy</td></tr>
-          <tr class="theirs-win"><td class="lbl">Sewer or sump pump backup<small>State Farm is higher here. See the straight talk section below.</small></td><td class="ours">$10,000</td><td class="theirs">$38,685</td></tr>
-
-          <tr class="group"><td colspan="3">Your share on a claim</td></tr>
-          <tr class="theirs-win"><td class="lbl">Deductible on most claims</td><td class="ours">$2,500</td><td class="theirs">$2,000</td></tr>
-          <tr><td class="lbl">Deductible on a named hurricane<small>Both are 2% of the rebuild limit, so ours is larger because the house is insured for more</small></td><td class="ours">$20,740</td><td class="theirs">$15,474</td></tr>
-
-          <tr class="total"><td class="lbl">Total for the year<small>House, belongings, and jewelry, all in</small></td><td class="ours">$4,666</td><td class="theirs">$4,705</td></tr>
+          <tr class="group"><td colspan="4">The house</td></tr>
+          <tr class="win"><td class="lbl">Rebuild the house<small>What the policy pays to put it back after a total loss</small></td><td class="ours">$1,037,000</td><td class="alt">$1,000,000</td><td class="theirs">$773,700</td></tr>
+          <tr class="win"><td class="lbl">Extra if rebuilding runs over<small>The cushion above the rebuild number</small></td><td class="ours">+$259,250 (25%)</td><td class="alt">+$250,000 (25%)</td><td class="theirs">+$193,425</td></tr>
+          <tr class="win"><td class="lbl">Total rebuild protection<small>Rebuild limit plus the cushion</small></td><td class="ours">$1,296,250</td><td class="alt">$1,250,000</td><td class="theirs">$967,125</td></tr>
+          <tr class="win"><td class="lbl">Detached structures<small>Shed, fence, pool, anything not attached</small></td><td class="ours">$103,700</td><td class="alt">$100,000</td><td class="theirs">$77,370</td></tr>
+          <tr class="win"><td class="lbl">Rebuilding to today's building code<small>Extra cost when the town requires newer standards</small></td><td class="ours">$103,700</td><td class="alt">Included</td><td class="theirs">$77,370</td></tr>
+          <tr class=""><td class="lbl">Roof after a wind or hail storm<small>How an 18-year-old roof is paid</small></td><td class="ours">Full repair cost</td><td class="alt">Paid on an age schedule <span class="flag">▲</span></td><td class="theirs">Full repair cost</td></tr>
+          <tr class="group"><td colspan="4">Everything inside</td></tr>
+          <tr class="win"><td class="lbl">Your belongings<small>Furniture, electronics, clothes, tools, all of it</small></td><td class="ours">$725,900</td><td class="alt">$500,000</td><td class="theirs">$580,275</td></tr>
+          <tr class="win"><td class="lbl">How belongings are paid<small>This line matters more than almost anything else on the page</small></td><td class="ours">Full replacement cost</td><td class="alt">Full replacement cost</td><td class="theirs">Limited replacement cost</td></tr>
+          <tr class="win"><td class="lbl">Jewelry<small>Scheduled, with the value agreed up front</small></td><td class="ours">$15,164 on this policy</td><td class="alt">$15,710 on a 2nd policy</td><td class="theirs">$15,164 on a 2nd policy</td></tr>
+          <tr class="win"><td class="lbl">Living costs if you cannot use the house<small>Hotel, rental, meals while it is rebuilt</small></td><td class="ours">$311,100</td><td class="alt">$200,000 <span class="flag">▲</span></td><td class="theirs">$232,110</td></tr>
+          <tr class="group"><td colspan="4">You, personally</td></tr>
+          <tr class="same"><td class="lbl">If someone gets hurt<small>Liability for injuries and the lawyers that come with them</small></td><td class="ours">$500,000</td><td class="alt">$500,000</td><td class="theirs">$500,000</td></tr>
+          <tr class="same"><td class="lbl">Small injuries, no lawsuit needed<small>Medical bills for a guest</small></td><td class="ours">$5,000</td><td class="alt">$1,000</td><td class="theirs">$5,000</td></tr>
+          <tr class="win"><td class="lbl">Libel, slander, invasion of privacy<small>Personal injury liability</small></td><td class="ours">Included</td><td class="alt">Included</td><td class="theirs">Not on the policy</td></tr>
+          <tr class="win"><td class="lbl">Identity theft expenses</td><td class="ours">$15,000</td><td class="alt">Not on the policy</td><td class="theirs">Not on the policy</td></tr>
+          <tr class="group"><td colspan="4">The quiet extras</td></tr>
+          <tr class="win"><td class="lbl">Furnace, AC, water heater, appliances breaking down<small>Equipment breakdown</small></td><td class="ours">$100,000</td><td class="alt">Not on the policy</td><td class="theirs">Not on the policy</td></tr>
+          <tr class="win"><td class="lbl">Mold cleanup after a covered water loss</td><td class="ours">$10,000 / $50,000</td><td class="alt">Standard limit</td><td class="theirs">$10,000</td></tr>
+          <tr class="win"><td class="lbl">Neighborhood or association assessments</td><td class="ours">$1,000</td><td class="alt">Not on the policy</td><td class="theirs">Not on the policy</td></tr>
+          <tr class="theirs-win"><td class="lbl">Sewer or sump pump backup<small>State Farm is higher here. See the straight talk section below.</small></td><td class="ours">$10,000</td><td class="alt">$10,000</td><td class="theirs">$38,685</td></tr>
+          <tr class="group"><td colspan="4">Your share on a claim</td></tr>
+          <tr class="theirs-win"><td class="lbl">Deductible on most claims</td><td class="ours">$2,500</td><td class="alt">$2,500</td><td class="theirs">$2,000</td></tr>
+          <tr class=""><td class="lbl">Deductible on a named hurricane<small>All three are 2% of the rebuild limit, so the bigger the house is insured for, the bigger this is</small></td><td class="ours">$20,740</td><td class="alt">$20,000</td><td class="theirs">$15,474</td></tr>
+          <tr class="total"><td class="lbl">Total for the year<small>House, belongings, and jewelry, all in</small></td><td class="ours">$4,666</td><td class="alt">$5,228</td><td class="theirs">$4,705</td></tr>
         </tbody>
       </table>
+    </div></div>
+    <div class="vsnote">State Farm total is the $4,542 homeowners renewal (effective 09/21/2026) plus the $163 jewelry policy (renewed 08/10/2026). Travelers total is the $5,032 home quote plus the $196 engagement ring policy. All three are 12-month terms. ▲ marks a line worth reading in the straight talk section below.</div>
+  </div>
+</section>
+
+<!-- PICK -->
+<section class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Your two options</div>
+      <h2>Both beat what you have. Here is how they differ.</h2>
+      <p>We lean Narragansett Bay, and the reasons are below. But this is your house and your call, and either one is a phone call away.</p>
     </div>
-    <div class="vsnote">State Farm total is the $4,542 homeowners renewal (effective 09/21/2026) plus the $163 jewelry policy (renewed 08/10/2026). Both use the same 12-month term.</div>
+    <div class="pick">
+      <div class="pcard rec">
+        <span class="badge">Our recommendation</span>
+        <h3>Narragansett Bay</h3>
+        <div class="pr">$388<small>/mo</small></div>
+        <div class="yr">$4,666 for the year, jewelry included, one policy and one bill</div>
+        <ul>
+          <li>Most house: $1,296,250 total rebuild protection</li>
+          <li>Most belongings: $725,900 at full replacement cost</li>
+          <li>$311,100 for living costs if you are displaced</li>
+          <li>Equipment breakdown and identity theft, which Travelers does not offer here</li>
+          <li>Roof paid at full repair cost after a storm, no age schedule</li>
+          <li>Lowest price of the three</li>
+        </ul>
+      </div>
+      <div class="pcard alt">
+        <span class="badge">The Travelers option</span>
+        <h3>Travelers</h3>
+        <div class="pr">$436<small>/mo</small></div>
+        <div class="yr">$5,228 for the year: $5,032 for the house plus a $196 ring policy, two bills</div>
+        <ul>
+          <li>A name you know, with $1,250,000 total rebuild protection</li>
+          <li>Belongings at full replacement cost, $500,000</li>
+          <li>Engagement ring scheduled at $15,710 with no deductible</li>
+          <li>Water backup and personal injury included</li>
+          <li class="minus">$200,000 for living costs, which Travelers itself flags as below their usual</li>
+          <li class="minus">An 18-year-old roof is paid on an age schedule after wind or hail, not full cost</li>
+          <li class="minus">$562 more a year than Narragansett Bay</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -398,8 +470,8 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">What's inside</div>
-      <h2>Your coverage, card by card</h2>
-      <p>The limits that matter, with a plain-English "what this actually means" on each. Tap to open.</p>
+      <h2>The recommended policy, card by card</h2>
+      <p>These cards walk through the Narragansett Bay policy. The limits that matter, with a plain-English "what this actually means" on each. Tap to open.</p>
     </div>
     <div class="cov">
 
@@ -549,6 +621,8 @@
           <li><b>Deductible is $2,500, not $2,000</b><small>$500 more on a claim. We can rerun it at $2,000 if you would rather, and the premium moves a little.</small></li>
           <li><b>Hurricane deductible is 2% on both</b><small>Ours is $20,740 versus $15,474 only because the house is insured for more. Same percentage.</small></li>
           <li><b>Flood is separate</b><small>No homeowners policy covers rising water. If you want it priced alongside this, just ask.</small></li>
+          <li><b>If you go Travelers, read the roof line</b><small>Travelers pays wind and hail damage to an 18-year-old asphalt roof on an age schedule, so a $30,000 roof might pay out closer to half. Narragansett Bay pays the full repair cost. This is the biggest coverage difference between the two.</small></li>
+          <li><b>The Travelers price assumes a multi-policy discount</b><small>The $5,032 has a bundle discount built in. If the cars are not with Travelers too, that number goes up.</small></li>
           <li><b>Umbrella</b><small>With a home at this value, another $1,000,000 of liability over the house and cars is worth a look. Usually a few hundred a year.</small></li>
         </ul>
       </div>
@@ -562,7 +636,7 @@
     <div class="sec-head">
       <div class="eyebrow">The investment</div>
       <h2>What it costs</h2>
-      <p>Itemized. Pick your plan above and this updates to match.</p>
+      <p>The Narragansett Bay policy, itemized. Pick your plan above and this updates to match. The Travelers option runs $5,032 for the house plus $196 for the ring, about $421 a month on autopay plus the ring policy.</p>
     </div>
     <div class="invest">
       <div class="irow"><div class="n">Homeowners policy<small>House, detached structures, belongings, living costs, liability · all credits and discounts applied</small></div><div class="p"><span class="amt-num" data-annual="3723">$309</span><span class="per">/mo</span></div></div>
@@ -585,9 +659,9 @@
   <div class="wrap">
     <div class="cta">
       <h2>Ready to make the switch?</h2>
-      <p>Reply with a yes and pick your payment plan. Coverage starts 09/14/2026, a week before the State Farm renewal, and we handle cancelling both State Farm policies and getting any refund back to you. This quote is good for 30 days.</p>
+      <p>Reply with the one you want, Narragansett Bay or Travelers, and pick your payment plan. Coverage starts 09/14/2026, a week before the State Farm renewal, and we handle cancelling both State Farm policies and getting any refund back to you. This quote is good for 30 days.</p>
       <div class="btns">
-        <a class="btn primary" href="mailto:austin@gosafeshield.com?subject=9%20Greens%20Farms%20Rd%20-%20Let's%20move%20forward&body=Hi%20Austin%2C%20I%20reviewed%20the%20proposal.%20Let's%20get%20it%20started.">Let's move forward</a>
+        <a class="btn primary" href="mailto:austin@gosafeshield.com?subject=9%20Greens%20Farms%20Rd%20-%20Let's%20move%20forward&body=Hi%20Austin%2C%20I%20reviewed%20the%20proposal.%20Let's%20go%20with%20">Let's move forward</a>
         <a class="btn ghost" href="tel:2032042555">Call Austin</a>
       </div>
       <div class="signoff">
@@ -600,7 +674,7 @@
 
 <div class="disc">
   <div class="wrap">
-    This proposal is a summary prepared for Daniel and Brittany Landan and is not a binding contract of insurance. Coverage is bound only when confirmed in writing and is subject to the actual policy terms, conditions, exclusions, and underwriting approval. Proposed limits and premiums are quoted by Narragansett Bay Insurance Company (quote CTHQ02038528) as of 09/04/2026 for a 12-month policy period beginning 09/14/2026, and rates are not guaranteed until bound. State Farm figures are taken from the State Farm Fire and Casualty Company renewal declarations for policy 07-BP-A234-3 (prepared 07/16/2026) and personal articles policy 07-BV-Z914-0 (prepared 06/04/2026) as provided by the client; refer to those documents for the full terms of the current coverage. Installment plans carry a $5 per-payment fee on the 4-pay and 9-pay options; the monthly autopay plan has no installment fee. Flood is not covered by any homeowners policy.
+    This proposal is a summary prepared for Daniel and Brittany Landan and is not a binding contract of insurance. Coverage is bound only when confirmed in writing and is subject to the actual policy terms, conditions, exclusions, and underwriting approval. Proposed limits and premiums are quoted by Narragansett Bay Insurance Company (quote CTHQ02038528) as of 09/04/2026 for a 12-month policy period beginning 09/14/2026, and rates are not guaranteed until bound. Travelers figures are from the Travelers Personal Insurance Company home quote and Phoenix Insurance Company personal articles floater quote (CCF 0006362577827) as of 09/04/2026 for the same 12-month period, and the quoted premium reflects a multi-policy discount subject to eligibility. State Farm figures are taken from the State Farm Fire and Casualty Company renewal declarations for policy 07-BP-A234-3 (prepared 07/16/2026) and personal articles policy 07-BV-Z914-0 (prepared 06/04/2026) as provided by the client; refer to those documents for the full terms of the current coverage. Installment plans carry a $5 per-payment fee on the 4-pay and 9-pay options; the monthly autopay plan has no installment fee. Flood is not covered by any homeowners policy.
   </div>
 </div>
 
