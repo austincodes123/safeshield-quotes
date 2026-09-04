@@ -3,357 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>We Care Ct LLC — Commercial Insurance Package</title>
+<meta name="robots" content="noindex, nofollow">
+<title>We Care CT LLC | Commercial Insurance Proposal | Safeshield</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    background:#0a1628;
-    color:#FAFAF8;
-    font-family:'Outfit', sans-serif;
-    font-weight:300;
-    line-height:1.6;
-  }
-  h1,h2,h3 { font-family:'Playfair Display', serif; font-weight:900; }
-  .container { max-width:1100px; margin:0 auto; padding:0 32px; }
-  .divider {
-    height:1px;
-    background:linear-gradient(90deg, transparent, rgba(255,163,0,0.25), transparent);
-    margin:60px 0;
-  }
-  /* HERO */
-  .hero {
-    padding:90px 0 70px;
-    text-align:center;
-    background:radial-gradient(ellipse at top, rgba(0,75,137,0.35), transparent 60%);
-  }
-  .hero .eyebrow {
-    color:#FFA300;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    font-size:13px;
-    font-weight:600;
-    margin-bottom:18px;
-  }
-  .hero h1 {
-    font-size:52px;
-    line-height:1.15;
-    margin-bottom:18px;
-  }
-  .hero h1 span { color:#FFA300; }
-  .hero p.sub {
-    font-size:18px;
-    color:rgba(250,250,248,0.7);
-    max-width:640px;
-    margin:0 auto;
-  }
-  .hero-stats {
-    display:flex;
-    justify-content:center;
-    gap:16px;
-    margin-top:44px;
-    flex-wrap:wrap;
-  }
-  .hero-stat {
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:16px;
-    padding:22px 30px;
-    min-width:170px;
-  }
-  .hero-stat .num { font-family:'Playfair Display',serif; font-size:30px; font-weight:900; color:#FFA300; }
-  .hero-stat .lbl { font-size:13px; color:rgba(250,250,248,0.6); text-transform:uppercase; letter-spacing:1px; margin-top:4px;}
-
-  /* SECTION HEADS */
-  .section-head { text-align:center; margin-bottom:44px; }
-  .section-head .tag {
-    color:#FFA300; text-transform:uppercase; letter-spacing:3px; font-size:12px; font-weight:600; margin-bottom:12px;
-  }
-  .section-head h2 { font-size:36px; }
-
-  /* CARRIER CARDS */
-  .carrier-card {
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:20px;
-    padding:36px;
-    margin-bottom:28px;
-  }
-  .carrier-card .card-head {
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    flex-wrap:wrap;
-    gap:16px;
-    margin-bottom:24px;
-    padding-bottom:24px;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-  }
-  .carrier-card .card-head h3 { font-size:26px; color:#FAFAF8; }
-  .carrier-card .card-head .carrier-name { color:#FFA300; font-size:14px; letter-spacing:1px; text-transform:uppercase; font-weight:600; margin-top:6px;}
-  .price-box { text-align:right; }
-  .price-box .amount { font-family:'Playfair Display',serif; font-size:34px; font-weight:900; color:#FAFAF8; }
-  .price-box .period { font-size:13px; color:rgba(250,250,248,0.55); }
-
-  .cov-grid {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px 32px;
-  }
-  .cov-row {
-    display:flex;
-    justify-content:space-between;
-    padding:10px 0;
-    border-bottom:1px dashed rgba(255,255,255,0.08);
-    font-size:15px;
-  }
-  .cov-row .label { color:rgba(250,250,248,0.7); }
-  .cov-row .value { color:#FAFAF8; font-weight:500; }
-
-  .note-box {
-    margin-top:22px;
-    background:rgba(255,163,0,0.06);
-    border:1px solid rgba(255,163,0,0.2);
-    border-radius:12px;
-    padding:16px 20px;
-    font-size:14px;
-    color:rgba(250,250,248,0.8);
-  }
-
-  /* PACKAGE TOTAL */
-  .total-band {
-    background:linear-gradient(135deg, rgba(0,75,137,0.4), rgba(255,163,0,0.08));
-    border:1px solid rgba(255,163,0,0.25);
-    border-radius:24px;
-    padding:48px;
-    text-align:center;
-    margin:50px 0;
-  }
-  .total-band .tag { color:#FFA300; text-transform:uppercase; letter-spacing:3px; font-size:13px; font-weight:600; }
-  .total-band .amount { font-family:'Playfair Display',serif; font-size:64px; font-weight:900; margin:12px 0; }
-  .total-band .breakdown { color:rgba(250,250,248,0.7); font-size:15px; }
-
-  /* WHY SAFESHIELD */
-  .why-grid {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
-  }
-  .why-card {
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:16px;
-    padding:28px;
-  }
-  .why-card .icon { font-size:26px; margin-bottom:14px; }
-  .why-card h4 { font-family:'Outfit',sans-serif; font-weight:700; font-size:17px; margin-bottom:8px; color:#FFA300; }
-  .why-card p { font-size:14px; color:rgba(250,250,248,0.7); }
-
-  /* CTA FOOTER */
-  .cta {
-    text-align:center;
-    padding:80px 0 60px;
-  }
-  .cta h2 { font-size:34px; margin-bottom:16px; }
-  .cta p { color:rgba(250,250,248,0.7); font-size:16px; margin-bottom:32px; }
-  .btn-row { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
-  .btn {
-    display:inline-block;
-    padding:16px 36px;
-    border-radius:100px;
-    font-weight:600;
-    font-size:15px;
-    text-decoration:none;
-    transition:0.2s;
-  }
-  .btn-primary { background:#FFA300; color:#0a1628; }
-  .btn-secondary { background:rgba(255,255,255,0.06); color:#FAFAF8; border:1px solid rgba(255,255,255,0.15); }
-
-  footer {
-    text-align:center;
-    padding:30px 0 50px;
-    color:rgba(250,250,248,0.4);
-    font-size:13px;
-  }
-
-  @media (max-width:700px) {
-    .hero h1 { font-size:34px; }
-    .cov-grid { grid-template-columns:1fr; }
-    .why-grid { grid-template-columns:1fr; }
-    .price-box { text-align:left; }
-    .carrier-card .card-head { flex-direction:column; }
-  }
+:root{--navy:#004b89;--deep:#003566;--amber:#ffa300;--ink:#1a1f26;--slate:#5a6573;--paper:#f6f8fb;--line:#e3e9f1;--white:#fff;--green:#1f8a61;--red:#b54747}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Outfit',sans-serif;color:var(--ink);background:#fff;line-height:1.6}.wrap{max-width:920px;margin:auto;padding:0 24px}h1,h2,h3,.price{font-family:'Playfair Display',serif}.fade{opacity:0;transform:translateY(14px);transition:.6s ease}.fade.in{opacity:1;transform:none}
+.brandbar{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding-top:24px;flex-wrap:wrap}.logo{font-weight:700;text-transform:uppercase;color:var(--navy);font-size:19px;letter-spacing:.03em}.logo span{color:var(--amber)}.tagline{font-size:11px;color:var(--slate);font-style:italic}.prepared{text-align:right;color:var(--slate);font-size:13px}.prepared b{color:var(--ink)}
+.hero{padding:55px 0 45px}.eyebrow,.sec-eye{font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:var(--amber);font-weight:700;margin-bottom:13px}h1{font-size:clamp(42px,8vw,70px);line-height:1;color:var(--navy);letter-spacing:-.02em}.lede{font-size:18px;color:var(--slate);margin-top:22px;max-width:720px}.lede b{color:var(--ink)}
+.summary{background:linear-gradient(150deg,var(--navy),var(--deep));color:#fff;border-radius:22px;padding:30px;position:relative;overflow:hidden}.summary:after{content:"";position:absolute;right:-50px;top:-50px;width:190px;height:190px;background:radial-gradient(circle,rgba(255,163,0,.24),transparent 68%)}.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;position:relative;z-index:1}.stat{border-left:2px solid rgba(255,255,255,.2);padding-left:15px}.stat:first-child{border-color:var(--amber)}.stat small{display:block;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);font-size:10px;font-weight:700}.stat strong{display:block;font-family:'Playfair Display';font-size:26px;margin-top:3px}.stat span{font-size:12px;color:rgba(255,255,255,.7)}
+.sec{padding-top:58px}h2{font-size:clamp(28px,5vw,40px);color:var(--navy);line-height:1.08}.sub{color:var(--slate);margin-top:10px;max-width:720px}.tabs{display:flex;gap:6px;background:var(--paper);padding:5px;border-radius:999px;margin-top:24px;width:max-content;max-width:100%;flex-wrap:wrap}.tab{border:0;background:transparent;color:var(--slate);font:600 14px 'Outfit';padding:11px 20px;border-radius:999px;cursor:pointer}.tab.active{background:var(--navy);color:#fff}
+.option-panel{margin-top:18px;border:1px solid var(--line);border-radius:19px;overflow:hidden;background:#fff;box-shadow:0 8px 25px rgba(0,53,102,.07)}.option-top{padding:28px;display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}.option-top h3{font-size:24px;color:var(--navy)}.badge{display:inline-block;background:rgba(31,138,97,.11);color:var(--green);padding:5px 11px;border-radius:99px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}.price{font-size:36px;font-weight:800;color:var(--navy);line-height:1;text-align:right}.price small{font:400 12px 'Outfit';color:var(--slate)}.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border-top:1px solid var(--line)}.feature{background:#fff;padding:19px}.feature b{display:block;color:var(--ink);font-size:14px}.feature span{display:block;color:var(--slate);font-size:13px;margin-top:3px}.callout{margin:18px 26px 26px;background:#fff8ec;border:1px solid #f2d9ad;border-radius:13px;padding:17px;color:#76531c;font-size:14px}.callout b{color:#a86700}.driver{margin-top:20px;border-left:4px solid var(--amber);background:var(--paper);padding:18px 20px;border-radius:12px}.driver b{color:var(--navy)}
+.tiles{display:flex;flex-direction:column;gap:13px;margin-top:24px}.tile{border:1px solid var(--line);border-radius:16px;overflow:hidden}.tile-head{display:flex;align-items:center;gap:15px;padding:20px;cursor:pointer}.tile-head:focus-visible{outline:3px solid var(--amber);outline-offset:-3px}.icon{width:44px;height:44px;border-radius:12px;background:var(--paper);display:grid;place-items:center;color:var(--navy);font-weight:700}.tile-meta{flex:1}.tile-name{font-weight:700;font-size:17px}.tile-tag{font-size:13px;color:var(--slate)}.plus{font-size:24px;color:var(--slate);transition:.25s}.tile.open .plus{transform:rotate(45deg);color:var(--amber)}.tile-body{max-height:0;overflow:hidden;transition:max-height .35s}.tile.open .tile-body{max-height:800px}.tile-inner{border-top:1px solid var(--line);padding:18px 22px 23px;color:var(--slate);font-size:14px}.limits{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:15px}.limit{background:var(--paper);border-radius:10px;padding:13px}.limit b{display:block;color:var(--navy)}
+.paybox{margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden}.payrows{padding:10px 22px}.payrow{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid var(--line)}.payrow:last-child{border:0}.payrow b{color:var(--ink)}.payrow span{color:var(--slate);font-size:13px;display:block}.payrow strong{font-family:'Playfair Display';font-size:20px;color:var(--navy);white-space:nowrap}.paytotal{background:var(--navy);color:#fff;padding:20px 22px;display:flex;justify-content:space-between;align-items:center}.paytotal small{color:var(--amber);text-transform:uppercase;letter-spacing:.1em;font-weight:700}.paytotal strong{font-family:'Playfair Display';font-size:29px}.fine{padding:14px 22px;color:var(--slate);font-size:12px}
+.gaps{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px;margin-top:23px}.gap{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:21px}.gap h3{font-size:19px;color:var(--navy);margin-bottom:7px}.gap p{font-size:14px;color:var(--slate)}
+.cta{margin:58px 0 0;background:linear-gradient(150deg,var(--navy),var(--deep));color:#fff;border-radius:22px;padding:42px 30px;text-align:center}.cta h2{color:#fff}.cta p{color:rgba(255,255,255,.8);max-width:600px;margin:13px auto 24px}.btn{display:inline-block;background:var(--amber);color:#392600;text-decoration:none;font-weight:700;padding:15px 28px;border-radius:999px;margin:5px}.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}footer{text-align:center;padding:38px 0 55px;color:var(--slate);font-size:13px}footer a{color:var(--navy);text-decoration:none;font-weight:600}.disc{font-size:11px;color:#98a3b1;max-width:720px;margin:17px auto 0}
+@media(max-width:580px){.prepared{text-align:left}.price{text-align:left}.option-top{display:block}.price{margin-top:15px}.payrow{align-items:flex-start}.tabs{border-radius:18px}.tab{flex:1}.summary{padding:24px}}
+@media(prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
+<div class="wrap">
+<div class="brandbar fade"><div><div class="logo">Safe<span>shield</span> Insurance</div><div class="tagline">We work for you, not the insurance company</div></div><div class="prepared">Prepared for <b>Stephanie Colbert</b><br>We Care CT LLC · September 4, 2026<br>Prepared by <b>Eric Kelly</b></div></div>
+<header class="hero"><div class="eyebrow fade">Commercial insurance proposal</div><h1 class="fade">Coverage built around<br>the care you provide.</h1><p class="lede fade">We reviewed the full program for We Care CT, including employees working in clients' homes, companionship and personal care, live-in cases, medication reminders, and client transportation. <b>Here are the updated choices, costs, and important details in one place.</b></p></header>
+<section class="summary fade"><div class="summary-grid"><div class="stat"><small>Lowest package</small><strong>$9,427</strong><span>Paid in full, $1,000 auto deductible</span></div><div class="stat"><small>General Liability</small><strong>$1,660</strong><span>Scottsdale, excluding terrorism</span></div><div class="stat"><small>Workers' Comp</small><strong>$3,126</strong><span>Pie, based on $100,000 payroll</span></div><div class="stat"><small>Commercial Auto</small><strong>$4,641</strong><span>Progressive, Snapshot, paid in full</span></div></div></section>
 
-<section class="hero">
-  <div class="container">
-    <div class="eyebrow">Prepared exclusively for</div>
-    <h1>We Care Ct LLC<br><span>Commercial Insurance Package</span></h1>
-    <p class="sub">Home health care operations need coverage that actually understands the exposure. Here's how we shopped the market across auto, workers' comp, and general liability — three carriers, one coordinated program.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">3</div><div class="lbl">Coverage Lines</div></div>
-      <div class="hero-stat"><div class="num">$11,170</div><div class="lbl">Combined Annual Premium</div></div>
-      <div class="hero-stat"><div class="num">07/15–16/26</div><div class="lbl">Effective Dates</div></div>
-    </div>
-  </div>
-</section>
+<section class="sec"><div class="sec-eye fade">Commercial Auto</div><h2 class="fade">Choose the deductible and payment plan</h2><p class="sub fade">Both Progressive options carry the requested $1 million liability and uninsured/underinsured motorist limits. Use the controls below to compare the real pricing.</p>
+<div class="tabs fade" role="tablist" aria-label="Auto deductible"><button class="tab active auto-tab" data-ded="1000">$1,000 deductible</button><button class="tab auto-tab" data-ded="500">$500 deductible</button></div>
+<div class="tabs fade" role="tablist" aria-label="Auto payment"><button class="tab active pay-tab" data-pay="full">Pay in full</button><button class="tab pay-tab" data-pay="eft">Monthly EFT</button></div>
+<div class="option-panel fade"><div class="option-top"><div><span class="badge">Snapshot included</span><h3 id="autoTitle">$1,000 comprehensive and collision deductible</h3><p class="sub">2026 Mercedes-Benz GLE · VIN ending 6237</p></div><div class="price" id="autoPrice">$4,641 <small>paid in full</small></div></div><div class="features"><div class="feature"><b>$1,000,000 CSL</b><span>Bodily injury and property damage liability</span></div><div class="feature"><b>$1,000,000 UM/UIM</b><span>Protection if the other driver has too little insurance</span></div><div class="feature"><b>Rental reimbursement</b><span>$40 per day, maximum $1,200</span></div><div class="feature"><b>Roadside assistance</b><span>$0 deductible</span></div><div class="feature"><b>Snapshot discount</b><span>Applied to these displayed options</span></div><div class="feature"><b>EFT and multi-product credits</b><span>Applicable quoted discounts included</span></div></div><div class="callout" id="autoPayNote"><b>Best price:</b> Paying in full saves $953 compared with the non-discounted billed premium on this option.</div></div>
+<div class="driver fade"><b>Important driver requirement:</b> Progressive requires every employee or caregiver who may operate the Mercedes, even occasionally, to be explicitly listed on the policy. We should not assume an unlisted caregiver is covered to drive.</div></section>
 
-<div class="container">
+<section class="sec"><div class="sec-eye fade">Workers' Compensation</div><h2 class="fade">Lower price, with flexible billing available</h2><p class="sub fade">Pay-As-You-Go alternatives initially came back around $5,000 to $10,000. We then found Pie at an estimated $3,126, with standard payment schedules and a Pay-As-You-Go option powered by RPM.</p>
+<div class="tabs fade" role="tablist" aria-label="Workers compensation billing"><button class="tab active wc-tab" data-wc="annual">Annual</button><button class="tab wc-tab" data-wc="semi">Semiannual</button><button class="tab wc-tab" data-wc="quarterly">Quarterly</button><button class="tab wc-tab" data-wc="monthly">Monthly</button><button class="tab wc-tab" data-wc="paygo">Pay-As-You-Go</button></div>
+<div class="option-panel fade"><div class="option-top"><div><span class="badge">Lower-cost option</span><h3>Pie Insurance Workers' Compensation</h3><p class="sub">Class code 8835 · Home, public and traveling healthcare employees</p></div><div class="price" id="wcPrice">$3,126 <small>annual total</small></div></div><div class="features"><div class="feature"><b>$1M / $1M / $1M</b><span>Employer's liability limits</span></div><div class="feature"><b>$100,000 payroll estimate</b><span>Must be confirmed before binding</span></div><div class="feature"><b>Blanket waiver</b><span>Included in the quoted premium</span></div><div class="feature"><b>Annual audit</b><span>Final premium reconciles to actual payroll</span></div></div><div class="callout" id="wcNote"><b>Annual plan:</b> $3,126 due at inception. This avoids approximately $310 in installment fees.</div></div>
+<div class="driver fade"><b>Payroll needs confirmation:</b> The Pie quote is based on $100,000, while prior comparisons referenced $158,400 and $188,400. If actual payroll is higher, the premium will increase. Accurate payroll now helps prevent a large audit bill later.</div></section>
 
-  <div class="section-head">
-    <div class="tag">Coverage Breakdown</div>
-    <h2>What's Being Quoted</h2>
-  </div>
+<section class="sec"><div class="sec-eye fade">General Liability</div><h2 class="fade">Updated for We Care CT's actual operations</h2><p class="sub fade">The Scottsdale quote is written for non-professional home healthcare services and reflects the operations confirmed by the team.</p><div class="tiles">
+<div class="tile fade"><div class="tile-head" role="button" tabindex="0" aria-expanded="false"><div class="icon">GL</div><div class="tile-meta"><div class="tile-name">Core General Liability</div><div class="tile-tag">Tap to review limits</div></div><div class="plus">+</div></div><div class="tile-body"><div class="tile-inner"><p>Protection for third-party bodily injury, property damage, and personal or advertising injury arising from covered business operations.</p><div class="limits"><div class="limit"><b>$1,000,000</b>Each occurrence</div><div class="limit"><b>$2,000,000</b>General aggregate</div><div class="limit"><b>$2,000,000</b>Products/completed operations</div><div class="limit"><b>$0</b>BI/PD/PA deductible per claimant</div></div></div></div></div>
+<div class="tile fade"><div class="tile-head" role="button" tabindex="0" aria-expanded="false"><div class="icon">24</div><div class="tile-meta"><div class="tile-name">Operations included in underwriting</div><div class="tile-tag">Including live-in and transportation exposure</div></div><div class="plus">+</div></div><div class="tile-body"><div class="tile-inner">Companionship, personal care including bathing, grooming and dressing, homemaking including light housekeeping and meals, medication reminders, transportation for clients, and live-in care. License number 0002649 was used in the review.</div></div></div>
+<div class="tile fade"><div class="tile-head" role="button" tabindex="0" aria-expanded="false"><div class="icon">+</div><div class="tile-meta"><div class="tile-name">Special limited coverages</div><div class="tile-tag">Passenger handling and abuse/molestation</div></div><div class="plus">+</div></div><div class="tile-body"><div class="tile-inner"><div class="limits"><div class="limit"><b>$15,000 / $30,000</b>Loading or unloading of passengers, limited liability</div><div class="limit"><b>$100,000 / $300,000</b>Sexually abusive acts, limited liability</div></div><p style="margin-top:14px">These are limited sublimits, not the full $1 million GL limit. The policy language and exclusions control how a claim is handled.</p></div></div></div>
+<div class="tile fade"><div class="tile-head" role="button" tabindex="0" aria-expanded="false"><div class="icon">!</div><div class="tile-meta"><div class="tile-name">Important exclusions and gaps</div><div class="tile-tag">What this policy does not replace</div></div><div class="plus">+</div></div><div class="tile-body"><div class="tile-inner">The form list includes exclusions involving designated professional services, services furnished by healthcare providers, employment-related practices, employee/worker injury, fungi or bacteria, and communicable disease. General Liability does not replace Workers' Compensation, professional liability, employment practices liability, or commercial auto coverage.</div></div></div>
+</div></section>
 
-  <!-- AUTO -->
-  <div class="carrier-card">
-    <div class="card-head">
-      <div>
-        <h3>Commercial Auto</h3>
-        <div class="carrier-name">Progressive Casualty Insurance Co.</div>
-      </div>
-      <div class="price-box">
-        <div class="amount">$5,690</div>
-        <div class="period">12-month premium (EFT) · $4,771 if paid in full</div>
-      </div>
-    </div>
-    <div class="cov-grid">
-      <div class="cov-row"><span class="label">BI / PD Liability</span><span class="value">$1,000,000 CSL — $3,485</span></div>
-      <div class="cov-row"><span class="label">Uninsured/Underinsured Motorist</span><span class="value">$1,000,000 CSL — $978</span></div>
-      <div class="cov-row"><span class="label">Comprehensive</span><span class="value">$2,500 ded — $231</span></div>
-      <div class="cov-row"><span class="label">Collision</span><span class="value">$2,500 ded — $991</span></div>
-      <div class="cov-row"><span class="label">Roadside Assistance</span><span class="value">$5</span></div>
-      <div class="cov-row"><span class="label">Medical Payments</span><span class="value">Rejected</span></div>
-    </div>
-    <div class="note-box">
-      <strong>Vehicle:</strong> 2026 Mercedes-Benz GLE (Sport Utility) · VIN 4JGFB4FB8TB566237 · Garaged 06033 · 200-mile radius, business use.<br>
-      <strong>Rated Driver:</strong> Stephanie Colbert · 0 points.<br>
-      <strong>Discounts applied:</strong> Electronic Funds Transfer + Multi-Product.
-    </div>
-  </div>
+<section class="sec"><div class="sec-eye fade">Program Cost</div><h2 class="fade">See the package total change live</h2><p class="sub fade">The total below updates with your selected auto deductible and payment method. General Liability is shown without terrorism, and Workers' Compensation uses the matching standard billing total.</p><div class="paybox fade"><div class="payrows"><div class="payrow"><div><b>Scottsdale General Liability</b><span>$1,500 premium + $100 fee + $60 surplus lines tax</span></div><strong>$1,660</strong></div><div class="payrow"><div><b>Progressive Commercial Auto</b><span id="totalAutoDesc">$1,000 deductible · Snapshot · paid in full</span></div><strong id="totalAuto">$4,641</strong></div><div class="payrow"><div><b>Pie Workers' Compensation</b><span id="totalWcDesc">Annual payment plan</span></div><strong id="totalWc">$3,126</strong></div></div><div class="paytotal"><small>Selected package total</small><strong id="grandTotal">$9,427</strong></div><div class="fine">Terrorism coverage on the GL can be added for an additional $78 including the quoted tax impact, bringing the GL total to $1,738. Policies are placed with different carriers, so there is no single-carrier package discount. Premiums remain subject to underwriting, payroll verification, driver approval, signed applications, and carrier validation.</div></div></section>
 
-  <!-- WORKERS COMP -->
-  <div class="carrier-card">
-    <div class="card-head">
-      <div>
-        <h3>Workers' Compensation</h3>
-        <div class="carrier-name">biBERK — Berkshire Hathaway Direct</div>
-      </div>
-      <div class="price-box">
-        <div class="amount">$3,820</div>
-        <div class="period">Total yearly premium · or $360.78/mo (9 pay) + $573 down</div>
-      </div>
-    </div>
-    <div class="cov-grid">
-      <div class="cov-row"><span class="label">Each Accident</span><span class="value">$1,000,000</span></div>
-      <div class="cov-row"><span class="label">Each Employee</span><span class="value">$1,000,000</span></div>
-      <div class="cov-row"><span class="label">Policy Total</span><span class="value">$1,000,000</span></div>
-      <div class="cov-row"><span class="label">Owners/Officers Covered</span><span class="value">1 (Stephanie Colbert)</span></div>
-      <div class="cov-row"><span class="label">Class Code 8835 — Homemaker Service</span><span class="value">$3,440 (on $188,400 payroll)</span></div>
-      <div class="cov-row"><span class="label">Headquarters State</span><span class="value">Connecticut</span></div>
-    </div>
-    <div class="note-box">
-      Backed by Berkshire Hathaway — one of the largest insurance groups in the world. Rated <strong>4.9/5</strong> on customer service over the past 12 months. Includes online certificates of insurance and flexible autopay savings.
-    </div>
-  </div>
+<section class="sec"><div class="sec-eye fade">Additional Protection</div><h2 class="fade">Coverage worth reviewing next</h2><div class="gaps"><div class="gap fade"><h3>Professional Liability</h3><p>Worth reviewing for allegations that the agency or a caregiver failed to properly perform promised services. The Scottsdale GL contains professional and healthcare-service exclusions.</p></div><div class="gap fade"><h3>Commercial Umbrella</h3><p>An extra liability layer above eligible underlying policies. It may be requested by contracts and can help protect the business from a severe loss exceeding primary limits.</p></div><div class="gap fade"><h3>Employment Practices</h3><p>Can address allegations such as discrimination, harassment, retaliation, or wrongful termination. Those claims are typically excluded by General Liability.</p></div></div></section>
 
-  <!-- GENERAL LIABILITY -->
-  <div class="carrier-card">
-    <div class="card-head">
-      <div>
-        <h3>General Liability</h3>
-        <div class="carrier-name">Scottsdale Insurance Company (via RPS Cowles &amp; Connell) — A.M. Best A (Excellent)</div>
-      </div>
-      <div class="price-box">
-        <div class="amount">$1,660</div>
-        <div class="period">Grand total (incl. $100 policy fee + $60 surplus lines tax)</div>
-      </div>
-    </div>
-    <div class="cov-grid">
-      <div class="cov-row"><span class="label">General Aggregate</span><span class="value">$2,000,000</span></div>
-      <div class="cov-row"><span class="label">Products/Completed Ops Aggregate</span><span class="value">$2,000,000</span></div>
-      <div class="cov-row"><span class="label">Per Occurrence</span><span class="value">$1,000,000</span></div>
-      <div class="cov-row"><span class="label">Personal &amp; Advertising Injury</span><span class="value">$1,000,000</span></div>
-      <div class="cov-row"><span class="label">Damage to Premises Rented to You</span><span class="value">$100,000</span></div>
-      <div class="cov-row"><span class="label">Medical Payments</span><span class="value">$5,000</span></div>
-      <div class="cov-row"><span class="label">Deductible</span><span class="value">$0 BI/PD/PA per claimant</span></div>
-      <div class="cov-row"><span class="label">Class Code 44501 — Home Health Care (Non-Prof.)</span><span class="value">Incl.</span></div>
-    </div>
-    <div class="note-box">
-      Includes limited liability coverage for <strong>Loading/Unloading of Passengers</strong> ($15K/$30K) and <strong>Sexually Abusive Acts</strong> ($100K/$300K) — both critical endorsements for home health operations. Optional terrorism coverage available for an additional $75/year. Minimum earned premium 25%; 100% minimum and advance premium due at binding.
-    </div>
-  </div>
-
-  <div class="total-band">
-    <div class="tag">Package Total</div>
-    <div class="amount">$11,170</div>
-    <div class="breakdown">Commercial Auto $5,690 &nbsp;+&nbsp; Workers' Comp $3,820 &nbsp;+&nbsp; General Liability $1,660</div>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="section-head">
-    <div class="tag">The Safeshield Difference</div>
-    <h2>Why This Package Works</h2>
-  </div>
-  <div class="why-grid">
-    <div class="why-card">
-      <div class="icon">🏛️</div>
-      <h4>69+ Carrier Partners</h4>
-      <p>We didn't just take the first quote — we shopped your entire risk profile across the market to land on the right fit for each line.</p>
-    </div>
-    <div class="why-card">
-      <div class="icon">⚡</div>
-      <h4>Same-Day Everything</h4>
-      <p>Certificates of insurance, ID cards, and policy changes turned around same-day. No call centers, no hold music.</p>
-    </div>
-    <div class="why-card">
-      <div class="icon">🛡️</div>
-      <h4>We Advocate at Claims Time</h4>
-      <p>When something happens, we're the ones on the phone with the carrier fighting for you — not a 1-800 number.</p>
-    </div>
-    <div class="why-card">
-      <div class="icon">🔄</div>
-      <h4>Annual Re-Shop Guarantee</h4>
-      <p>Every renewal, we re-shop your package across our carrier panel to make sure you're still getting the best rate available.</p>
-    </div>
-    <div class="why-card">
-      <div class="icon">👤</div>
-      <h4>Direct Agent Access</h4>
-      <p>One point of contact who actually knows your account — not a rotating cast of reps.</p>
-    </div>
-    <div class="why-card">
-      <div class="icon">💻</div>
-      <h4>Tech-Powered Service</h4>
-      <p>Automated renewal tracking and digital delivery mean nothing slips through the cracks.</p>
-    </div>
-  </div>
-
+<section class="cta fade"><h2>Let's lock in the right structure.</h2><p>Confirm the expected annual payroll, tell us which caregivers may drive the Mercedes, and choose the auto deductible and billing plans you prefer. We will finalize the applications and confirm the binding requirements.</p><a class="btn" href="mailto:eric@gosafeshield.com?subject=We%20Care%20CT%20-%20Ready%20to%20finalize">Review my selections</a><a class="btn ghost" href="tel:2036535003">Call Eric</a></section>
+<footer><div class="logo">Safe<span>shield</span> Insurance</div><div>Eric Kelly, Vice President &amp; Partner</div><div><a href="mailto:eric@gosafeshield.com">eric@gosafeshield.com</a> · <a href="tel:2036535003">(203) 653-5003</a></div><p class="disc">This proposal is a summary for discussion and is not a binder or policy contract. Coverage descriptions are abbreviated. Actual policy forms, endorsements, exclusions, conditions, audits, underwriting approval, and carrier-issued documents govern. Quotes are subject to change or withdrawal.</p></footer>
 </div>
-
-<div class="divider"></div>
-
-<section class="cta">
-  <div class="container">
-    <h2>Ready to Bind This Package?</h2>
-    <p>Reach out and we'll get everything locked in and moving toward your July 15–16, 2026 effective dates.</p>
-    <div class="btn-row">
-      <a href="mailto:eric@gosafeshield.com" class="btn btn-primary">Email Eric Kelly</a>
-      <a href="tel:12038065889" class="btn btn-secondary">Call (203) 806-5889</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  Prepared by Eric Kelly · Safeshield Insurance · Licensed in NY, CT, NJ, PA &amp; DE<br>
-  This proposal reflects quotes on file as of the effective dates shown and is subject to underwriting review and final carrier approval.
-</footer>
-
+<script>
+const auto={"1000":{full:4641,eft:5538,title:"$1,000 comprehensive and collision deductible",save:953},"500":{full:4732,eft:5646,title:"$500 comprehensive and collision deductible",save:971}};
+const wc={annual:{price:3126,label:"annual total",note:"<b>Annual plan:</b> $3,126 due at inception. This avoids approximately $310 in installment fees.",desc:"Annual payment plan"},semi:{price:3141,label:"total scheduled",note:"<b>Semiannual:</b> $1,642 initially, then $1,499. Total scheduled cost is $3,141.",desc:"Semiannual payment plan"},quarterly:{price:3171,label:"total scheduled",note:"<b>Quarterly:</b> $903 initially, followed by three payments of $756. Total scheduled cost is $3,171.",desc:"Quarterly payment plan"},monthly:{price:3276,label:"total scheduled",note:"<b>Monthly:</b> $655 initially, then installments generally between $261 and $263. Total scheduled cost is approximately $3,276.",desc:"Monthly payment plan"},paygo:{price:3126,label:"estimated before admin fee",note:"<b>Pay-As-You-Go:</b> No initial premium deposit. Premium tracks actual payroll through RPM with automatic ACH or card deductions. A recurring convenience administrative fee applies, so final cost will be above the $3,126 estimated policy cost.",desc:"Pay-As-You-Go estimate + admin fee"}};
+let ded='1000',pay='full',wcMode='annual';
+function money(n){return '$'+n.toLocaleString()}
+function render(){let a=auto[ded],w=wc[wcMode];document.getElementById('autoTitle').textContent=a.title;document.getElementById('autoPrice').innerHTML=money(a[pay])+' <small>'+(pay==='full'?'paid in full':'EFT total')+'</small>';document.getElementById('autoPayNote').innerHTML=pay==='full'?'<b>Best price:</b> Paying in full saves '+money(a.save)+' compared with the non-discounted billed premium on this option.':'<b>EFT option:</b> The quoted EFT total is '+money(a.eft)+'. Multiple down-payment schedules are available, and each EFT installment includes the quoted fee.';document.getElementById('wcPrice').innerHTML=money(w.price)+' <small>'+w.label+'</small>';document.getElementById('wcNote').innerHTML=w.note;document.getElementById('totalAuto').textContent=money(a[pay]);document.getElementById('totalAutoDesc').textContent='$'+ded+' deductible · Snapshot · '+(pay==='full'?'paid in full':'EFT');document.getElementById('totalWc').textContent=money(w.price);document.getElementById('totalWcDesc').textContent=w.desc;document.getElementById('grandTotal').textContent=money(1660+a[pay]+w.price)}
+document.querySelectorAll('.auto-tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.auto-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');ded=b.dataset.ded;render()}));document.querySelectorAll('.pay-tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.pay-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');pay=b.dataset.pay;render()}));document.querySelectorAll('.wc-tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.wc-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');wcMode=b.dataset.wc;render()}));
+document.querySelectorAll('.tile-head').forEach(h=>{function toggle(){let t=h.closest('.tile'),o=t.classList.toggle('open');h.setAttribute('aria-expanded',o?'true':'false')}h.addEventListener('click',toggle);h.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}})});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.fade').forEach(el=>io.observe(el));render();
+</script>
 
 <script>window.CASEY_PROPOSAL={"slug":"we-care-ct","agent":"Eric"};</script>
 <script src="https://casey.gosafeshield.com/proposal-contact.js" defer></script>
-</body>
-</html>
+</body></html>
